@@ -1,0 +1,56 @@
+// Copyright (c) 2021 AccelByte Inc. All Rights Reserved.
+// This is licensed software from AccelByte Inc, for limitations
+// and restrictions contact your company contract manager.
+
+// Code generated. DO NOT EDIT.
+
+package notification
+
+import (
+	lobby "github.com/AccelByte/accelbyte-go-sdk/lobby-sdk/pkg"
+	"github.com/AccelByte/accelbyte-go-sdk/lobby-sdk/pkg/lobbyclient/notification"
+	"github.com/AccelByte/sample-apps/pkg/repository"
+	"github.com/sirupsen/logrus"
+	"github.com/spf13/cobra"
+)
+
+// GetAllNotificationTopicsV1AdminCmd represents the GetAllNotificationTopicsV1Admin command
+var GetAllNotificationTopicsV1AdminCmd = &cobra.Command{
+	Use:   "getAllNotificationTopicsV1Admin",
+	Short: "Get all notification topics V1 admin",
+	Long:  `Get all notification topics V1 admin`,
+	RunE: func(cmd *cobra.Command, args []string) error {
+		notificationService := &lobby.NotificationService{
+			Client:          lobby.NewLobbyClient(&repository.ConfigRepositoryImpl{}),
+			TokenRepository: &repository.TokenRepositoryImpl{},
+		}
+		namespace, _ := cmd.Flags().GetString("namespace")
+		after, _ := cmd.Flags().GetString("after")
+		before, _ := cmd.Flags().GetString("before")
+		limit, _ := cmd.Flags().GetInt64("limit")
+		input := &notification.GetAllNotificationTopicsV1AdminParams{
+			Namespace: namespace,
+			After:     &after,
+			Before:    &before,
+			Limit:     &limit,
+		}
+		ok, errOK := notificationService.GetAllNotificationTopicsV1AdminShort(input)
+		if errOK != nil {
+			logrus.Error(errOK)
+
+			return errOK
+		}
+
+		logrus.Infof("Response CLI success: %+v", ok)
+
+		return nil
+	},
+}
+
+func init() {
+	GetAllNotificationTopicsV1AdminCmd.Flags().String("namespace", "", "Namespace")
+	_ = GetAllNotificationTopicsV1AdminCmd.MarkFlagRequired("namespace")
+	GetAllNotificationTopicsV1AdminCmd.Flags().String("after", "0", "After")
+	GetAllNotificationTopicsV1AdminCmd.Flags().String("before", "0", "Before")
+	GetAllNotificationTopicsV1AdminCmd.Flags().Int64("limit", 20, "Limit")
+}

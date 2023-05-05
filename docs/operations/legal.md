@@ -1,0 +1,183 @@
+# Legal Service Index
+
+&nbsp;
+
+## Operations
+
+### Agreement Wrapper:  [Agreement](../../legal-sdk/pkg/wrapper_agreement.go)
+| Endpoint | Method | ID | Class | Wrapper | Example |
+|---|---|---|---|---|---|
+| `/agreement/admin/agreements/localized-policy-versions/preferences/namespaces/{namespace}/userId/{userId}` | PATCH | ChangePreferenceConsentShort | [ChangePreferenceConsentShort](../../legal-sdk/pkg/legalclient/agreement/agreement_client.go) | [ChangePreferenceConsentShort](../../legal-sdk/pkg/wrapper_agreement.go) | [ChangePreferenceConsentShort](../../samples/cli/cmd/legal/agreement/changePreferenceConsent.go) |
+| `/agreement/admin/agreements/policies/users/{userId}` | GET | RetrieveAcceptedAgreementsShort | [RetrieveAcceptedAgreementsShort](../../legal-sdk/pkg/legalclient/agreement/agreement_client.go) | [RetrieveAcceptedAgreementsShort](../../legal-sdk/pkg/wrapper_agreement.go) | [RetrieveAcceptedAgreementsShort](../../samples/cli/cmd/legal/agreement/retrieveAcceptedAgreements.go) |
+| `/agreement/admin/agreements/policy-versions/users` | GET | RetrieveAllUsersByPolicyVersionShort | [RetrieveAllUsersByPolicyVersionShort](../../legal-sdk/pkg/legalclient/agreement/agreement_client.go) | [RetrieveAllUsersByPolicyVersionShort](../../legal-sdk/pkg/wrapper_agreement.go) | [RetrieveAllUsersByPolicyVersionShort](../../samples/cli/cmd/legal/agreement/retrieveAllUsersByPolicyVersion.go) |
+| `/agreement/public/agreements/localized-policy-versions/preferences` | PATCH | ChangePreferenceConsent1Short | [ChangePreferenceConsent1Short](../../legal-sdk/pkg/legalclient/agreement/agreement_client.go) | [ChangePreferenceConsent1Short](../../legal-sdk/pkg/wrapper_agreement.go) | [ChangePreferenceConsent1Short](../../samples/cli/cmd/legal/agreement/changePreferenceConsent1.go) |
+| `/agreement/public/agreements/localized-policy-versions/{localizedPolicyVersionId}` | POST | AcceptVersionedPolicyShort | [AcceptVersionedPolicyShort](../../legal-sdk/pkg/legalclient/agreement/agreement_client.go) | [AcceptVersionedPolicyShort](../../legal-sdk/pkg/wrapper_agreement.go) | [AcceptVersionedPolicyShort](../../samples/cli/cmd/legal/agreement/acceptVersionedPolicy.go) |
+| `/agreement/public/agreements/policies` | GET | RetrieveAgreementsPublicShort | [RetrieveAgreementsPublicShort](../../legal-sdk/pkg/legalclient/agreement/agreement_client.go) | [RetrieveAgreementsPublicShort](../../legal-sdk/pkg/wrapper_agreement.go) | [RetrieveAgreementsPublicShort](../../samples/cli/cmd/legal/agreement/retrieveAgreementsPublic.go) |
+| `/agreement/public/agreements/policies` | POST | BulkAcceptVersionedPolicyShort | [BulkAcceptVersionedPolicyShort](../../legal-sdk/pkg/legalclient/agreement/agreement_client.go) | [BulkAcceptVersionedPolicyShort](../../legal-sdk/pkg/wrapper_agreement.go) | [BulkAcceptVersionedPolicyShort](../../samples/cli/cmd/legal/agreement/bulkAcceptVersionedPolicy.go) |
+| `/agreement/public/agreements/policies/namespaces/{namespace}/countries/{countryCode}/clients/{clientId}/users/{userId}` | POST | IndirectBulkAcceptVersionedPolicyV2Short | [IndirectBulkAcceptVersionedPolicyV2Short](../../legal-sdk/pkg/legalclient/agreement/agreement_client.go) | [IndirectBulkAcceptVersionedPolicyV2Short](../../legal-sdk/pkg/wrapper_agreement.go) | [IndirectBulkAcceptVersionedPolicyV2Short](../../samples/cli/cmd/legal/agreement/indirectBulkAcceptVersionedPolicyV2.go) |
+| `/agreement/public/agreements/policies/users/{userId}` | POST | IndirectBulkAcceptVersionedPolicy1Short | [IndirectBulkAcceptVersionedPolicy1Short](../../legal-sdk/pkg/legalclient/agreement/agreement_client.go) | [IndirectBulkAcceptVersionedPolicy1Short](../../legal-sdk/pkg/wrapper_agreement.go) | [IndirectBulkAcceptVersionedPolicy1Short](../../samples/cli/cmd/legal/agreement/indirectBulkAcceptVersionedPolicy1.go) |
+
+### Base Legal Policies Wrapper:  [BaseLegalPolicies](../../legal-sdk/pkg/wrapper_baseLegalPolicies.go)
+| Endpoint | Method | ID | Class | Wrapper | Example |
+|---|---|---|---|---|---|
+| `/agreement/admin/base-policies` | GET | RetrieveAllLegalPoliciesShort | [RetrieveAllLegalPoliciesShort](../../legal-sdk/pkg/legalclient/base_legal_policies/base_legal_policies_client.go) | [RetrieveAllLegalPoliciesShort](../../legal-sdk/pkg/wrapper_baseLegalPolicies.go) | [RetrieveAllLegalPoliciesShort](../../samples/cli/cmd/legal/baseLegalPolicies/retrieveAllLegalPolicies.go) |
+| `/agreement/admin/base-policies` | POST | CreatePolicyShort | [CreatePolicyShort](../../legal-sdk/pkg/legalclient/base_legal_policies/base_legal_policies_client.go) | [CreatePolicyShort](../../legal-sdk/pkg/wrapper_baseLegalPolicies.go) | [CreatePolicyShort](../../samples/cli/cmd/legal/baseLegalPolicies/createPolicy.go) |
+| `/agreement/admin/base-policies/{basePolicyId}` | GET | RetrieveSinglePolicyShort | [RetrieveSinglePolicyShort](../../legal-sdk/pkg/legalclient/base_legal_policies/base_legal_policies_client.go) | [RetrieveSinglePolicyShort](../../legal-sdk/pkg/wrapper_baseLegalPolicies.go) | [RetrieveSinglePolicyShort](../../samples/cli/cmd/legal/baseLegalPolicies/retrieveSinglePolicy.go) |
+| `/agreement/admin/base-policies/{basePolicyId}` | PATCH | PartialUpdatePolicyShort | [PartialUpdatePolicyShort](../../legal-sdk/pkg/legalclient/base_legal_policies/base_legal_policies_client.go) | [PartialUpdatePolicyShort](../../legal-sdk/pkg/wrapper_baseLegalPolicies.go) | [PartialUpdatePolicyShort](../../samples/cli/cmd/legal/baseLegalPolicies/partialUpdatePolicy.go) |
+| `/agreement/admin/base-policies/{basePolicyId}/countries/{countryCode}` | GET | RetrievePolicyCountryShort | [RetrievePolicyCountryShort](../../legal-sdk/pkg/legalclient/base_legal_policies/base_legal_policies_client.go) | [RetrievePolicyCountryShort](../../legal-sdk/pkg/wrapper_baseLegalPolicies.go) | [RetrievePolicyCountryShort](../../samples/cli/cmd/legal/baseLegalPolicies/retrievePolicyCountry.go) |
+| `/agreement/admin/policy-types` | GET | RetrieveAllPolicyTypesShort | [RetrieveAllPolicyTypesShort](../../legal-sdk/pkg/legalclient/base_legal_policies/base_legal_policies_client.go) | [RetrieveAllPolicyTypesShort](../../legal-sdk/pkg/wrapper_baseLegalPolicies.go) | [RetrieveAllPolicyTypesShort](../../samples/cli/cmd/legal/baseLegalPolicies/retrieveAllPolicyTypes.go) |
+
+### Localized Policy Versions Wrapper:  [LocalizedPolicyVersions](../../legal-sdk/pkg/wrapper_localizedPolicyVersions.go)
+| Endpoint | Method | ID | Class | Wrapper | Example |
+|---|---|---|---|---|---|
+| `/agreement/admin/localized-policy-versions/versions/{policyVersionId}` | GET | RetrieveLocalizedPolicyVersionsShort | [RetrieveLocalizedPolicyVersionsShort](../../legal-sdk/pkg/legalclient/localized_policy_versions/localized_policy_versions_client.go) | [RetrieveLocalizedPolicyVersionsShort](../../legal-sdk/pkg/wrapper_localizedPolicyVersions.go) | [RetrieveLocalizedPolicyVersionsShort](../../samples/cli/cmd/legal/localizedPolicyVersions/retrieveLocalizedPolicyVersions.go) |
+| `/agreement/admin/localized-policy-versions/versions/{policyVersionId}` | POST | CreateLocalizedPolicyVersionShort | [CreateLocalizedPolicyVersionShort](../../legal-sdk/pkg/legalclient/localized_policy_versions/localized_policy_versions_client.go) | [CreateLocalizedPolicyVersionShort](../../legal-sdk/pkg/wrapper_localizedPolicyVersions.go) | [CreateLocalizedPolicyVersionShort](../../samples/cli/cmd/legal/localizedPolicyVersions/createLocalizedPolicyVersion.go) |
+| `/agreement/admin/localized-policy-versions/{localizedPolicyVersionId}` | GET | RetrieveSingleLocalizedPolicyVersionShort | [RetrieveSingleLocalizedPolicyVersionShort](../../legal-sdk/pkg/legalclient/localized_policy_versions/localized_policy_versions_client.go) | [RetrieveSingleLocalizedPolicyVersionShort](../../legal-sdk/pkg/wrapper_localizedPolicyVersions.go) | [RetrieveSingleLocalizedPolicyVersionShort](../../samples/cli/cmd/legal/localizedPolicyVersions/retrieveSingleLocalizedPolicyVersion.go) |
+| `/agreement/admin/localized-policy-versions/{localizedPolicyVersionId}` | PUT | UpdateLocalizedPolicyVersionShort | [UpdateLocalizedPolicyVersionShort](../../legal-sdk/pkg/legalclient/localized_policy_versions/localized_policy_versions_client.go) | [UpdateLocalizedPolicyVersionShort](../../legal-sdk/pkg/wrapper_localizedPolicyVersions.go) | [UpdateLocalizedPolicyVersionShort](../../samples/cli/cmd/legal/localizedPolicyVersions/updateLocalizedPolicyVersion.go) |
+| `/agreement/admin/localized-policy-versions/{localizedPolicyVersionId}/attachments` | POST | RequestPresignedURLShort | [RequestPresignedURLShort](../../legal-sdk/pkg/legalclient/localized_policy_versions/localized_policy_versions_client.go) | [RequestPresignedURLShort](../../legal-sdk/pkg/wrapper_localizedPolicyVersions.go) | [RequestPresignedURLShort](../../samples/cli/cmd/legal/localizedPolicyVersions/requestPresignedURL.go) |
+| `/agreement/admin/localized-policy-versions/{localizedPolicyVersionId}/default` | PATCH | SetDefaultPolicyShort | [SetDefaultPolicyShort](../../legal-sdk/pkg/legalclient/localized_policy_versions/localized_policy_versions_client.go) | [SetDefaultPolicyShort](../../legal-sdk/pkg/wrapper_localizedPolicyVersions.go) | [SetDefaultPolicyShort](../../samples/cli/cmd/legal/localizedPolicyVersions/setDefaultPolicy.go) |
+| `/agreement/public/localized-policy-versions/{localizedPolicyVersionId}` | GET | RetrieveSingleLocalizedPolicyVersion2Short | [RetrieveSingleLocalizedPolicyVersion2Short](../../legal-sdk/pkg/legalclient/localized_policy_versions/localized_policy_versions_client.go) | [RetrieveSingleLocalizedPolicyVersion2Short](../../legal-sdk/pkg/wrapper_localizedPolicyVersions.go) | [RetrieveSingleLocalizedPolicyVersion2Short](../../samples/cli/cmd/legal/localizedPolicyVersions/retrieveSingleLocalizedPolicyVersion2.go) |
+
+### Agreement With Namespace Wrapper:  [AgreementWithNamespace](../../legal-sdk/pkg/wrapper_agreementWithNamespace.go)
+| Endpoint | Method | ID | Class | Wrapper | Example |
+|---|---|---|---|---|---|
+| `/agreement/admin/namespaces/{namespace}/agreements` | POST | RetrieveAcceptedAgreementsForMultiUsersShort | [RetrieveAcceptedAgreementsForMultiUsersShort](../../legal-sdk/pkg/legalclient/agreement_with_namespace/agreement_with_namespace_client.go) | [RetrieveAcceptedAgreementsForMultiUsersShort](../../legal-sdk/pkg/wrapper_agreementWithNamespace.go) | [RetrieveAcceptedAgreementsForMultiUsersShort](../../samples/cli/cmd/legal/agreementWithNamespace/retrieveAcceptedAgreementsForMultiUsers.go) |
+| `/agreement/admin/namespaces/{namespace}/agreements/policies/users/{userId}` | GET | RetrieveAcceptedAgreements1Short | [RetrieveAcceptedAgreements1Short](../../legal-sdk/pkg/legalclient/agreement_with_namespace/agreement_with_namespace_client.go) | [RetrieveAcceptedAgreements1Short](../../legal-sdk/pkg/wrapper_agreementWithNamespace.go) | [RetrieveAcceptedAgreements1Short](../../samples/cli/cmd/legal/agreementWithNamespace/retrieveAcceptedAgreements1.go) |
+| `/agreement/admin/namespaces/{namespace}/agreements/policy-versions/users` | GET | RetrieveAllUsersByPolicyVersion1Short | [RetrieveAllUsersByPolicyVersion1Short](../../legal-sdk/pkg/legalclient/agreement_with_namespace/agreement_with_namespace_client.go) | [RetrieveAllUsersByPolicyVersion1Short](../../legal-sdk/pkg/wrapper_agreementWithNamespace.go) | [RetrieveAllUsersByPolicyVersion1Short](../../samples/cli/cmd/legal/agreementWithNamespace/retrieveAllUsersByPolicyVersion1.go) |
+
+### Base Legal Policies With Namespace Wrapper:  [BaseLegalPoliciesWithNamespace](../../legal-sdk/pkg/wrapper_baseLegalPoliciesWithNamespace.go)
+| Endpoint | Method | ID | Class | Wrapper | Example |
+|---|---|---|---|---|---|
+| `/agreement/admin/namespaces/{namespace}/base-policies` | GET | RetrieveAllLegalPoliciesByNamespaceShort | [RetrieveAllLegalPoliciesByNamespaceShort](../../legal-sdk/pkg/legalclient/base_legal_policies_with_namespace/base_legal_policies_with_namespace_client.go) | [RetrieveAllLegalPoliciesByNamespaceShort](../../legal-sdk/pkg/wrapper_baseLegalPoliciesWithNamespace.go) | [RetrieveAllLegalPoliciesByNamespaceShort](../../samples/cli/cmd/legal/baseLegalPoliciesWithNamespace/retrieveAllLegalPoliciesByNamespace.go) |
+| `/agreement/admin/namespaces/{namespace}/base-policies` | POST | CreatePolicy1Short | [CreatePolicy1Short](../../legal-sdk/pkg/legalclient/base_legal_policies_with_namespace/base_legal_policies_with_namespace_client.go) | [CreatePolicy1Short](../../legal-sdk/pkg/wrapper_baseLegalPoliciesWithNamespace.go) | [CreatePolicy1Short](../../samples/cli/cmd/legal/baseLegalPoliciesWithNamespace/createPolicy1.go) |
+| `/agreement/admin/namespaces/{namespace}/base-policies/{basePolicyId}` | GET | RetrieveSinglePolicy1Short | [RetrieveSinglePolicy1Short](../../legal-sdk/pkg/legalclient/base_legal_policies_with_namespace/base_legal_policies_with_namespace_client.go) | [RetrieveSinglePolicy1Short](../../legal-sdk/pkg/wrapper_baseLegalPoliciesWithNamespace.go) | [RetrieveSinglePolicy1Short](../../samples/cli/cmd/legal/baseLegalPoliciesWithNamespace/retrieveSinglePolicy1.go) |
+| `/agreement/admin/namespaces/{namespace}/base-policies/{basePolicyId}` | PATCH | PartialUpdatePolicy1Short | [PartialUpdatePolicy1Short](../../legal-sdk/pkg/legalclient/base_legal_policies_with_namespace/base_legal_policies_with_namespace_client.go) | [PartialUpdatePolicy1Short](../../legal-sdk/pkg/wrapper_baseLegalPoliciesWithNamespace.go) | [PartialUpdatePolicy1Short](../../samples/cli/cmd/legal/baseLegalPoliciesWithNamespace/partialUpdatePolicy1.go) |
+| `/agreement/admin/namespaces/{namespace}/base-policies/{basePolicyId}/countries/{countryCode}` | GET | RetrievePolicyCountry1Short | [RetrievePolicyCountry1Short](../../legal-sdk/pkg/legalclient/base_legal_policies_with_namespace/base_legal_policies_with_namespace_client.go) | [RetrievePolicyCountry1Short](../../legal-sdk/pkg/wrapper_baseLegalPoliciesWithNamespace.go) | [RetrievePolicyCountry1Short](../../samples/cli/cmd/legal/baseLegalPoliciesWithNamespace/retrievePolicyCountry1.go) |
+| `/agreement/admin/namespaces/{namespace}/policy-types` | GET | RetrieveAllPolicyTypes1Short | [RetrieveAllPolicyTypes1Short](../../legal-sdk/pkg/legalclient/base_legal_policies_with_namespace/base_legal_policies_with_namespace_client.go) | [RetrieveAllPolicyTypes1Short](../../legal-sdk/pkg/wrapper_baseLegalPoliciesWithNamespace.go) | [RetrieveAllPolicyTypes1Short](../../samples/cli/cmd/legal/baseLegalPoliciesWithNamespace/retrieveAllPolicyTypes1.go) |
+
+### Localized Policy Versions With Namespace Wrapper:  [LocalizedPolicyVersionsWithNamespace](../../legal-sdk/pkg/wrapper_localizedPolicyVersionsWithNamespace.go)
+| Endpoint | Method | ID | Class | Wrapper | Example |
+|---|---|---|---|---|---|
+| `/agreement/admin/namespaces/{namespace}/localized-policy-versions/versions/{policyVersionId}` | GET | RetrieveLocalizedPolicyVersions1Short | [RetrieveLocalizedPolicyVersions1Short](../../legal-sdk/pkg/legalclient/localized_policy_versions_with_namespace/localized_policy_versions_with_namespace_client.go) | [RetrieveLocalizedPolicyVersions1Short](../../legal-sdk/pkg/wrapper_localizedPolicyVersionsWithNamespace.go) | [RetrieveLocalizedPolicyVersions1Short](../../samples/cli/cmd/legal/localizedPolicyVersionsWithNamespace/retrieveLocalizedPolicyVersions1.go) |
+| `/agreement/admin/namespaces/{namespace}/localized-policy-versions/versions/{policyVersionId}` | POST | CreateLocalizedPolicyVersion1Short | [CreateLocalizedPolicyVersion1Short](../../legal-sdk/pkg/legalclient/localized_policy_versions_with_namespace/localized_policy_versions_with_namespace_client.go) | [CreateLocalizedPolicyVersion1Short](../../legal-sdk/pkg/wrapper_localizedPolicyVersionsWithNamespace.go) | [CreateLocalizedPolicyVersion1Short](../../samples/cli/cmd/legal/localizedPolicyVersionsWithNamespace/createLocalizedPolicyVersion1.go) |
+| `/agreement/admin/namespaces/{namespace}/localized-policy-versions/{localizedPolicyVersionId}` | GET | RetrieveSingleLocalizedPolicyVersion1Short | [RetrieveSingleLocalizedPolicyVersion1Short](../../legal-sdk/pkg/legalclient/localized_policy_versions_with_namespace/localized_policy_versions_with_namespace_client.go) | [RetrieveSingleLocalizedPolicyVersion1Short](../../legal-sdk/pkg/wrapper_localizedPolicyVersionsWithNamespace.go) | [RetrieveSingleLocalizedPolicyVersion1Short](../../samples/cli/cmd/legal/localizedPolicyVersionsWithNamespace/retrieveSingleLocalizedPolicyVersion1.go) |
+| `/agreement/admin/namespaces/{namespace}/localized-policy-versions/{localizedPolicyVersionId}` | PUT | UpdateLocalizedPolicyVersion1Short | [UpdateLocalizedPolicyVersion1Short](../../legal-sdk/pkg/legalclient/localized_policy_versions_with_namespace/localized_policy_versions_with_namespace_client.go) | [UpdateLocalizedPolicyVersion1Short](../../legal-sdk/pkg/wrapper_localizedPolicyVersionsWithNamespace.go) | [UpdateLocalizedPolicyVersion1Short](../../samples/cli/cmd/legal/localizedPolicyVersionsWithNamespace/updateLocalizedPolicyVersion1.go) |
+| `/agreement/admin/namespaces/{namespace}/localized-policy-versions/{localizedPolicyVersionId}/attachments` | POST | RequestPresignedURL1Short | [RequestPresignedURL1Short](../../legal-sdk/pkg/legalclient/localized_policy_versions_with_namespace/localized_policy_versions_with_namespace_client.go) | [RequestPresignedURL1Short](../../legal-sdk/pkg/wrapper_localizedPolicyVersionsWithNamespace.go) | [RequestPresignedURL1Short](../../samples/cli/cmd/legal/localizedPolicyVersionsWithNamespace/requestPresignedURL1.go) |
+| `/agreement/admin/namespaces/{namespace}/localized-policy-versions/{localizedPolicyVersionId}/default` | PATCH | SetDefaultPolicy1Short | [SetDefaultPolicy1Short](../../legal-sdk/pkg/legalclient/localized_policy_versions_with_namespace/localized_policy_versions_with_namespace_client.go) | [SetDefaultPolicy1Short](../../legal-sdk/pkg/wrapper_localizedPolicyVersionsWithNamespace.go) | [SetDefaultPolicy1Short](../../samples/cli/cmd/legal/localizedPolicyVersionsWithNamespace/setDefaultPolicy1.go) |
+| `/agreement/public/namespaces/{namespace}/localized-policy-versions/{localizedPolicyVersionId}` | GET | RetrieveSingleLocalizedPolicyVersion3Short | [RetrieveSingleLocalizedPolicyVersion3Short](../../legal-sdk/pkg/legalclient/localized_policy_versions_with_namespace/localized_policy_versions_with_namespace_client.go) | [RetrieveSingleLocalizedPolicyVersion3Short](../../legal-sdk/pkg/wrapper_localizedPolicyVersionsWithNamespace.go) | [RetrieveSingleLocalizedPolicyVersion3Short](../../samples/cli/cmd/legal/localizedPolicyVersionsWithNamespace/retrieveSingleLocalizedPolicyVersion3.go) |
+
+### Policy Versions With Namespace Wrapper:  [PolicyVersionsWithNamespace](../../legal-sdk/pkg/wrapper_policyVersionsWithNamespace.go)
+| Endpoint | Method | ID | Class | Wrapper | Example |
+|---|---|---|---|---|---|
+| `/agreement/admin/namespaces/{namespace}/policies/versions/{policyVersionId}` | PATCH | UpdatePolicyVersion1Short | [UpdatePolicyVersion1Short](../../legal-sdk/pkg/legalclient/policy_versions_with_namespace/policy_versions_with_namespace_client.go) | [UpdatePolicyVersion1Short](../../legal-sdk/pkg/wrapper_policyVersionsWithNamespace.go) | [UpdatePolicyVersion1Short](../../samples/cli/cmd/legal/policyVersionsWithNamespace/updatePolicyVersion1.go) |
+| `/agreement/admin/namespaces/{namespace}/policies/versions/{policyVersionId}/latest` | PATCH | PublishPolicyVersion1Short | [PublishPolicyVersion1Short](../../legal-sdk/pkg/legalclient/policy_versions_with_namespace/policy_versions_with_namespace_client.go) | [PublishPolicyVersion1Short](../../legal-sdk/pkg/wrapper_policyVersionsWithNamespace.go) | [PublishPolicyVersion1Short](../../samples/cli/cmd/legal/policyVersionsWithNamespace/publishPolicyVersion1.go) |
+| `/agreement/admin/namespaces/{namespace}/policies/{policyId}/versions` | GET | RetrieveSinglePolicyVersion1Short | [RetrieveSinglePolicyVersion1Short](../../legal-sdk/pkg/legalclient/policy_versions_with_namespace/policy_versions_with_namespace_client.go) | [RetrieveSinglePolicyVersion1Short](../../legal-sdk/pkg/wrapper_policyVersionsWithNamespace.go) | [RetrieveSinglePolicyVersion1Short](../../samples/cli/cmd/legal/policyVersionsWithNamespace/retrieveSinglePolicyVersion1.go) |
+| `/agreement/admin/namespaces/{namespace}/policies/{policyId}/versions` | POST | CreatePolicyVersion1Short | [CreatePolicyVersion1Short](../../legal-sdk/pkg/legalclient/policy_versions_with_namespace/policy_versions_with_namespace_client.go) | [CreatePolicyVersion1Short](../../legal-sdk/pkg/wrapper_policyVersionsWithNamespace.go) | [CreatePolicyVersion1Short](../../samples/cli/cmd/legal/policyVersionsWithNamespace/createPolicyVersion1.go) |
+
+### Policies With Namespace Wrapper:  [PoliciesWithNamespace](../../legal-sdk/pkg/wrapper_policiesWithNamespace.go)
+| Endpoint | Method | ID | Class | Wrapper | Example |
+|---|---|---|---|---|---|
+| `/agreement/admin/namespaces/{namespace}/policies/{policyId}` | PATCH | UpdatePolicy1Short | [UpdatePolicy1Short](../../legal-sdk/pkg/legalclient/policies_with_namespace/policies_with_namespace_client.go) | [UpdatePolicy1Short](../../legal-sdk/pkg/wrapper_policiesWithNamespace.go) | [UpdatePolicy1Short](../../samples/cli/cmd/legal/policiesWithNamespace/updatePolicy1.go) |
+| `/agreement/admin/namespaces/{namespace}/policies/{policyId}/default` | PATCH | SetDefaultPolicy3Short | [SetDefaultPolicy3Short](../../legal-sdk/pkg/legalclient/policies_with_namespace/policies_with_namespace_client.go) | [SetDefaultPolicy3Short](../../legal-sdk/pkg/wrapper_policiesWithNamespace.go) | [SetDefaultPolicy3Short](../../samples/cli/cmd/legal/policiesWithNamespace/setDefaultPolicy3.go) |
+
+### Admin User Agreement Wrapper:  [AdminUserAgreement](../../legal-sdk/pkg/wrapper_adminUserAgreement.go)
+| Endpoint | Method | ID | Class | Wrapper | Example |
+|---|---|---|---|---|---|
+| `/agreement/admin/namespaces/{namespace}/users/{userId}/agreements/policies` | POST | IndirectBulkAcceptVersionedPolicyShort | [IndirectBulkAcceptVersionedPolicyShort](../../legal-sdk/pkg/legalclient/admin_user_agreement/admin_user_agreement_client.go) | [IndirectBulkAcceptVersionedPolicyShort](../../legal-sdk/pkg/wrapper_adminUserAgreement.go) | [IndirectBulkAcceptVersionedPolicyShort](../../samples/cli/cmd/legal/adminUserAgreement/indirectBulkAcceptVersionedPolicy.go) |
+
+### Admin User Eligibilities Wrapper:  [AdminUserEligibilities](../../legal-sdk/pkg/wrapper_adminUserEligibilities.go)
+| Endpoint | Method | ID | Class | Wrapper | Example |
+|---|---|---|---|---|---|
+| `/agreement/admin/namespaces/{namespace}/users/{userId}/eligibilities` | GET | AdminRetrieveEligibilitiesShort | [AdminRetrieveEligibilitiesShort](../../legal-sdk/pkg/legalclient/admin_user_eligibilities/admin_user_eligibilities_client.go) | [AdminRetrieveEligibilitiesShort](../../legal-sdk/pkg/wrapper_adminUserEligibilities.go) | [AdminRetrieveEligibilitiesShort](../../samples/cli/cmd/legal/adminUserEligibilities/adminRetrieveEligibilities.go) |
+
+### Policies Wrapper:  [Policies](../../legal-sdk/pkg/wrapper_policies.go)
+| Endpoint | Method | ID | Class | Wrapper | Example |
+|---|---|---|---|---|---|
+| `/agreement/admin/policies/countries/{countryCode}` | GET | RetrievePoliciesShort | [RetrievePoliciesShort](../../legal-sdk/pkg/legalclient/policies/policies_client.go) | [RetrievePoliciesShort](../../legal-sdk/pkg/wrapper_policies.go) | [RetrievePoliciesShort](../../samples/cli/cmd/legal/policies/retrievePolicies.go) |
+| `/agreement/admin/policies/{policyId}` | PATCH | UpdatePolicyShort | [UpdatePolicyShort](../../legal-sdk/pkg/legalclient/policies/policies_client.go) | [UpdatePolicyShort](../../legal-sdk/pkg/wrapper_policies.go) | [UpdatePolicyShort](../../samples/cli/cmd/legal/policies/updatePolicy.go) |
+| `/agreement/admin/policies/{policyId}/default` | PATCH | SetDefaultPolicy2Short | [SetDefaultPolicy2Short](../../legal-sdk/pkg/legalclient/policies/policies_client.go) | [SetDefaultPolicy2Short](../../legal-sdk/pkg/wrapper_policies.go) | [SetDefaultPolicy2Short](../../samples/cli/cmd/legal/policies/setDefaultPolicy2.go) |
+| `/agreement/public/policies/countries/{countryCode}` | GET | RetrieveLatestPoliciesShort | [RetrieveLatestPoliciesShort](../../legal-sdk/pkg/legalclient/policies/policies_client.go) | [RetrieveLatestPoliciesShort](../../legal-sdk/pkg/wrapper_policies.go) | [RetrieveLatestPoliciesShort](../../samples/cli/cmd/legal/policies/retrieveLatestPolicies.go) |
+| `/agreement/public/policies/namespaces/{namespace}` | GET | RetrieveLatestPoliciesPublicShort | [RetrieveLatestPoliciesPublicShort](../../legal-sdk/pkg/legalclient/policies/policies_client.go) | [RetrieveLatestPoliciesPublicShort](../../legal-sdk/pkg/wrapper_policies.go) | [RetrieveLatestPoliciesPublicShort](../../samples/cli/cmd/legal/policies/retrieveLatestPoliciesPublic.go) |
+| `/agreement/public/policies/namespaces/{namespace}/countries/{countryCode}` | GET | RetrieveLatestPoliciesByNamespaceAndCountryPublicShort | [RetrieveLatestPoliciesByNamespaceAndCountryPublicShort](../../legal-sdk/pkg/legalclient/policies/policies_client.go) | [RetrieveLatestPoliciesByNamespaceAndCountryPublicShort](../../legal-sdk/pkg/wrapper_policies.go) | [RetrieveLatestPoliciesByNamespaceAndCountryPublicShort](../../samples/cli/cmd/legal/policies/retrieveLatestPoliciesByNamespaceAndCountryPublic.go) |
+
+### Policy Versions Wrapper:  [PolicyVersions](../../legal-sdk/pkg/wrapper_policyVersions.go)
+| Endpoint | Method | ID | Class | Wrapper | Example |
+|---|---|---|---|---|---|
+| `/agreement/admin/policies/versions/{policyVersionId}` | PATCH | UpdatePolicyVersionShort | [UpdatePolicyVersionShort](../../legal-sdk/pkg/legalclient/policy_versions/policy_versions_client.go) | [UpdatePolicyVersionShort](../../legal-sdk/pkg/wrapper_policyVersions.go) | [UpdatePolicyVersionShort](../../samples/cli/cmd/legal/policyVersions/updatePolicyVersion.go) |
+| `/agreement/admin/policies/versions/{policyVersionId}/latest` | PATCH | PublishPolicyVersionShort | [PublishPolicyVersionShort](../../legal-sdk/pkg/legalclient/policy_versions/policy_versions_client.go) | [PublishPolicyVersionShort](../../legal-sdk/pkg/wrapper_policyVersions.go) | [PublishPolicyVersionShort](../../samples/cli/cmd/legal/policyVersions/publishPolicyVersion.go) |
+| `/agreement/admin/policies/{policyId}/versions` | GET | RetrieveSinglePolicyVersionShort | [RetrieveSinglePolicyVersionShort](../../legal-sdk/pkg/legalclient/policy_versions/policy_versions_client.go) | [RetrieveSinglePolicyVersionShort](../../legal-sdk/pkg/wrapper_policyVersions.go) | [RetrieveSinglePolicyVersionShort](../../samples/cli/cmd/legal/policyVersions/retrieveSinglePolicyVersion.go) |
+| `/agreement/admin/policies/{policyId}/versions` | POST | CreatePolicyVersionShort | [CreatePolicyVersionShort](../../legal-sdk/pkg/legalclient/policy_versions/policy_versions_client.go) | [CreatePolicyVersionShort](../../legal-sdk/pkg/wrapper_policyVersions.go) | [CreatePolicyVersionShort](../../samples/cli/cmd/legal/policyVersions/createPolicyVersion.go) |
+
+### UserInfo Wrapper:  [UserInfo](../../legal-sdk/pkg/wrapper_userInfo.go)
+| Endpoint | Method | ID | Class | Wrapper | Example |
+|---|---|---|---|---|---|
+| `/agreement/admin/userInfo` | GET | GetUserInfoStatusShort | [GetUserInfoStatusShort](../../legal-sdk/pkg/legalclient/user_info/user_info_client.go) | [GetUserInfoStatusShort](../../legal-sdk/pkg/wrapper_userInfo.go) | [GetUserInfoStatusShort](../../samples/cli/cmd/legal/userInfo/getUserInfoStatus.go) |
+| `/agreement/admin/userInfo` | PUT | SyncUserInfoShort | [SyncUserInfoShort](../../legal-sdk/pkg/legalclient/user_info/user_info_client.go) | [SyncUserInfoShort](../../legal-sdk/pkg/wrapper_userInfo.go) | [SyncUserInfoShort](../../samples/cli/cmd/legal/userInfo/syncUserInfo.go) |
+| `/agreement/admin/userInfo` | DELETE | InvalidateUserInfoCacheShort | [InvalidateUserInfoCacheShort](../../legal-sdk/pkg/legalclient/user_info/user_info_client.go) | [InvalidateUserInfoCacheShort](../../legal-sdk/pkg/wrapper_userInfo.go) | [InvalidateUserInfoCacheShort](../../samples/cli/cmd/legal/userInfo/invalidateUserInfoCache.go) |
+
+### Anonymization Wrapper:  [Anonymization](../../legal-sdk/pkg/wrapper_anonymization.go)
+| Endpoint | Method | ID | Class | Wrapper | Example |
+|---|---|---|---|---|---|
+| `/agreement/admin/users/{userId}/anonymization/agreements` | DELETE | AnonymizeUserAgreementShort | [AnonymizeUserAgreementShort](../../legal-sdk/pkg/legalclient/anonymization/anonymization_client.go) | [AnonymizeUserAgreementShort](../../legal-sdk/pkg/wrapper_anonymization.go) | [AnonymizeUserAgreementShort](../../samples/cli/cmd/legal/anonymization/anonymizeUserAgreement.go) |
+
+### Eligibilities Wrapper:  [Eligibilities](../../legal-sdk/pkg/wrapper_eligibilities.go)
+| Endpoint | Method | ID | Class | Wrapper | Example |
+|---|---|---|---|---|---|
+| `/agreement/public/eligibilities/namespaces/{namespace}` | GET | RetrieveEligibilitiesPublicShort | [RetrieveEligibilitiesPublicShort](../../legal-sdk/pkg/legalclient/eligibilities/eligibilities_client.go) | [RetrieveEligibilitiesPublicShort](../../legal-sdk/pkg/wrapper_eligibilities.go) | [RetrieveEligibilitiesPublicShort](../../samples/cli/cmd/legal/eligibilities/retrieveEligibilitiesPublic.go) |
+| `/agreement/public/eligibilities/namespaces/{namespace}/countries/{countryCode}/clients/{clientId}/users/{userId}` | GET | RetrieveEligibilitiesPublicIndirectShort | [RetrieveEligibilitiesPublicIndirectShort](../../legal-sdk/pkg/legalclient/eligibilities/eligibilities_client.go) | [RetrieveEligibilitiesPublicIndirectShort](../../legal-sdk/pkg/wrapper_eligibilities.go) | [RetrieveEligibilitiesPublicIndirectShort](../../samples/cli/cmd/legal/eligibilities/retrieveEligibilitiesPublicIndirect.go) |
+
+### Utility Wrapper:  [Utility](../../legal-sdk/pkg/wrapper_utility.go)
+| Endpoint | Method | ID | Class | Wrapper | Example |
+|---|---|---|---|---|---|
+| `/agreement/public/readiness` | GET | CheckReadinessShort | [CheckReadinessShort](../../legal-sdk/pkg/legalclient/utility/utility_client.go) | [CheckReadinessShort](../../legal-sdk/pkg/wrapper_utility.go) | [CheckReadinessShort](../../samples/cli/cmd/legal/utility/checkReadiness.go) |
+
+
+&nbsp;  
+
+## Models
+
+| Model Struct | Class |
+|---|---|
+| `AcceptAgreementRequest` | [AcceptAgreementRequest ](../../legal-sdk/pkg/legalclientmodels/accept_agreement_request.go) |
+| `AcceptAgreementResponse` | [AcceptAgreementResponse ](../../legal-sdk/pkg/legalclientmodels/accept_agreement_response.go) |
+| `CreateBasePolicyRequest` | [CreateBasePolicyRequest ](../../legal-sdk/pkg/legalclientmodels/create_base_policy_request.go) |
+| `CreateBasePolicyRequestV2` | [CreateBasePolicyRequestV2 ](../../legal-sdk/pkg/legalclientmodels/create_base_policy_request_v2.go) |
+| `CreateBasePolicyResponse` | [CreateBasePolicyResponse ](../../legal-sdk/pkg/legalclientmodels/create_base_policy_response.go) |
+| `CreateLocalizedPolicyVersionRequest` | [CreateLocalizedPolicyVersionRequest ](../../legal-sdk/pkg/legalclientmodels/create_localized_policy_version_request.go) |
+| `CreateLocalizedPolicyVersionResponse` | [CreateLocalizedPolicyVersionResponse ](../../legal-sdk/pkg/legalclientmodels/create_localized_policy_version_response.go) |
+| `CreatePolicyVersionRequest` | [CreatePolicyVersionRequest ](../../legal-sdk/pkg/legalclientmodels/create_policy_version_request.go) |
+| `CreatePolicyVersionResponse` | [CreatePolicyVersionResponse ](../../legal-sdk/pkg/legalclientmodels/create_policy_version_response.go) |
+| `ErrorEntity` | [ErrorEntity ](../../legal-sdk/pkg/legalclientmodels/error_entity.go) |
+| `FieldValidationError` | [FieldValidationError ](../../legal-sdk/pkg/legalclientmodels/field_validation_error.go) |
+| `LegalReadinessStatusResponse` | [LegalReadinessStatusResponse ](../../legal-sdk/pkg/legalclientmodels/legal_readiness_status_response.go) |
+| `LocalizedPolicyVersionObject` | [LocalizedPolicyVersionObject ](../../legal-sdk/pkg/legalclientmodels/localized_policy_version_object.go) |
+| `PagedRetrieveUserAcceptedAgreementResponse` | [PagedRetrieveUserAcceptedAgreementResponse ](../../legal-sdk/pkg/legalclientmodels/paged_retrieve_user_accepted_agreement_response.go) |
+| `Paging` | [Paging ](../../legal-sdk/pkg/legalclientmodels/paging.go) |
+| `PolicyObject` | [PolicyObject ](../../legal-sdk/pkg/legalclientmodels/policy_object.go) |
+| `PolicyVersionObject` | [PolicyVersionObject ](../../legal-sdk/pkg/legalclientmodels/policy_version_object.go) |
+| `PolicyVersionWithLocalizedVersionObject` | [PolicyVersionWithLocalizedVersionObject ](../../legal-sdk/pkg/legalclientmodels/policy_version_with_localized_version_object.go) |
+| `RetrieveAcceptedAgreementResponse` | [RetrieveAcceptedAgreementResponse ](../../legal-sdk/pkg/legalclientmodels/retrieve_accepted_agreement_response.go) |
+| `RetrieveBasePolicyResponse` | [RetrieveBasePolicyResponse ](../../legal-sdk/pkg/legalclientmodels/retrieve_base_policy_response.go) |
+| `RetrieveLocalizedPolicyVersionPublicResponse` | [RetrieveLocalizedPolicyVersionPublicResponse ](../../legal-sdk/pkg/legalclientmodels/retrieve_localized_policy_version_public_response.go) |
+| `RetrieveLocalizedPolicyVersionResponse` | [RetrieveLocalizedPolicyVersionResponse ](../../legal-sdk/pkg/legalclientmodels/retrieve_localized_policy_version_response.go) |
+| `RetrievePolicyPublicResponse` | [RetrievePolicyPublicResponse ](../../legal-sdk/pkg/legalclientmodels/retrieve_policy_public_response.go) |
+| `RetrievePolicyResponse` | [RetrievePolicyResponse ](../../legal-sdk/pkg/legalclientmodels/retrieve_policy_response.go) |
+| `RetrievePolicyTypeResponse` | [RetrievePolicyTypeResponse ](../../legal-sdk/pkg/legalclientmodels/retrieve_policy_type_response.go) |
+| `RetrievePolicyVersionResponse` | [RetrievePolicyVersionResponse ](../../legal-sdk/pkg/legalclientmodels/retrieve_policy_version_response.go) |
+| `RetrieveUserAcceptedAgreementResponse` | [RetrieveUserAcceptedAgreementResponse ](../../legal-sdk/pkg/legalclientmodels/retrieve_user_accepted_agreement_response.go) |
+| `RetrieveUserEligibilitiesIndirectResponse` | [RetrieveUserEligibilitiesIndirectResponse ](../../legal-sdk/pkg/legalclientmodels/retrieve_user_eligibilities_indirect_response.go) |
+| `RetrieveUserEligibilitiesResponse` | [RetrieveUserEligibilitiesResponse ](../../legal-sdk/pkg/legalclientmodels/retrieve_user_eligibilities_response.go) |
+| `RetrieveUserInfoCacheStatusResponse` | [RetrieveUserInfoCacheStatusResponse ](../../legal-sdk/pkg/legalclientmodels/retrieve_user_info_cache_status_response.go) |
+| `UpdateBasePolicyRequest` | [UpdateBasePolicyRequest ](../../legal-sdk/pkg/legalclientmodels/update_base_policy_request.go) |
+| `UpdateBasePolicyRequestV2` | [UpdateBasePolicyRequestV2 ](../../legal-sdk/pkg/legalclientmodels/update_base_policy_request_v2.go) |
+| `UpdateBasePolicyResponse` | [UpdateBasePolicyResponse ](../../legal-sdk/pkg/legalclientmodels/update_base_policy_response.go) |
+| `UpdateLocalizedPolicyVersionRequest` | [UpdateLocalizedPolicyVersionRequest ](../../legal-sdk/pkg/legalclientmodels/update_localized_policy_version_request.go) |
+| `UpdateLocalizedPolicyVersionResponse` | [UpdateLocalizedPolicyVersionResponse ](../../legal-sdk/pkg/legalclientmodels/update_localized_policy_version_response.go) |
+| `UpdatePolicyRequest` | [UpdatePolicyRequest ](../../legal-sdk/pkg/legalclientmodels/update_policy_request.go) |
+| `UpdatePolicyVersionRequest` | [UpdatePolicyVersionRequest ](../../legal-sdk/pkg/legalclientmodels/update_policy_version_request.go) |
+| `UpdatePolicyVersionResponse` | [UpdatePolicyVersionResponse ](../../legal-sdk/pkg/legalclientmodels/update_policy_version_response.go) |
+| `UploadLocalizedPolicyVersionAttachmentResponse` | [UploadLocalizedPolicyVersionAttachmentResponse ](../../legal-sdk/pkg/legalclientmodels/upload_localized_policy_version_attachment_response.go) |
+| `UploadPolicyVersionAttachmentRequest` | [UploadPolicyVersionAttachmentRequest ](../../legal-sdk/pkg/legalclientmodels/upload_policy_version_attachment_request.go) |
+| `UserAgreementsResponse` | [UserAgreementsResponse ](../../legal-sdk/pkg/legalclientmodels/user_agreements_response.go) |
+| `UsersAgreementsRequest` | [UsersAgreementsRequest ](../../legal-sdk/pkg/legalclientmodels/users_agreements_request.go) |
+| `ValidationErrorEntity` | [ValidationErrorEntity ](../../legal-sdk/pkg/legalclientmodels/validation_error_entity.go) |

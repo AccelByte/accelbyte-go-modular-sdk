@@ -1,0 +1,66 @@
+// Copyright (c) 2021 AccelByte Inc. All Rights Reserved.
+// This is licensed software from AccelByte Inc, for limitations
+// and restrictions contact your company contract manager.
+
+// Code generated. DO NOT EDIT.
+
+package section
+
+import (
+	"encoding/json"
+
+	platform "github.com/AccelByte/accelbyte-go-sdk/platform-sdk/pkg"
+	"github.com/AccelByte/accelbyte-go-sdk/platform-sdk/pkg/platformclient/section"
+	"github.com/AccelByte/accelbyte-go-sdk/platform-sdk/pkg/platformclientmodels"
+	"github.com/AccelByte/sample-apps/pkg/repository"
+	"github.com/sirupsen/logrus"
+	"github.com/spf13/cobra"
+)
+
+// UpdateSectionCmd represents the UpdateSection command
+var UpdateSectionCmd = &cobra.Command{
+	Use:   "updateSection",
+	Short: "Update section",
+	Long:  `Update section`,
+	RunE: func(cmd *cobra.Command, args []string) error {
+		sectionService := &platform.SectionService{
+			Client:          platform.NewPlatformClient(&repository.ConfigRepositoryImpl{}),
+			TokenRepository: &repository.TokenRepositoryImpl{},
+		}
+		namespace, _ := cmd.Flags().GetString("namespace")
+		sectionId, _ := cmd.Flags().GetString("sectionId")
+		storeId, _ := cmd.Flags().GetString("storeId")
+		bodyString := cmd.Flag("body").Value.String()
+		var body *platformclientmodels.SectionUpdate
+		errBody := json.Unmarshal([]byte(bodyString), &body)
+		if errBody != nil {
+			return errBody
+		}
+		input := &section.UpdateSectionParams{
+			Body:      body,
+			Namespace: namespace,
+			SectionID: sectionId,
+			StoreID:   storeId,
+		}
+		ok, errOK := sectionService.UpdateSectionShort(input)
+		if errOK != nil {
+			logrus.Error(errOK)
+
+			return errOK
+		}
+
+		logrus.Infof("Response CLI success: %+v", ok)
+
+		return nil
+	},
+}
+
+func init() {
+	UpdateSectionCmd.Flags().String("body", "", "Body")
+	UpdateSectionCmd.Flags().String("namespace", "", "Namespace")
+	_ = UpdateSectionCmd.MarkFlagRequired("namespace")
+	UpdateSectionCmd.Flags().String("sectionId", "", "Section id")
+	_ = UpdateSectionCmd.MarkFlagRequired("sectionId")
+	UpdateSectionCmd.Flags().String("storeId", "", "Store id")
+	_ = UpdateSectionCmd.MarkFlagRequired("storeId")
+}

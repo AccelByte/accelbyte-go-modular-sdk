@@ -1,0 +1,59 @@
+// Copyright (c) 2021 AccelByte Inc. All Rights Reserved.
+// This is licensed software from AccelByte Inc, for limitations
+// and restrictions contact your company contract manager.
+
+// Code generated. DO NOT EDIT.
+
+package group
+
+import (
+	"encoding/json"
+
+	group "github.com/AccelByte/accelbyte-go-sdk/group-sdk/pkg"
+	group_ "github.com/AccelByte/accelbyte-go-sdk/group-sdk/pkg/groupclient/group"
+	"github.com/AccelByte/accelbyte-go-sdk/group-sdk/pkg/groupclientmodels"
+	"github.com/AccelByte/sample-apps/pkg/repository"
+	"github.com/sirupsen/logrus"
+	"github.com/spf13/cobra"
+)
+
+// CreateNewGroupPublicV2Cmd represents the CreateNewGroupPublicV2 command
+var CreateNewGroupPublicV2Cmd = &cobra.Command{
+	Use:   "createNewGroupPublicV2",
+	Short: "Create new group public V2",
+	Long:  `Create new group public V2`,
+	RunE: func(cmd *cobra.Command, args []string) error {
+		groupService := &group.GroupService{
+			Client:          group.NewGroupClient(&repository.ConfigRepositoryImpl{}),
+			TokenRepository: &repository.TokenRepositoryImpl{},
+		}
+		bodyString := cmd.Flag("body").Value.String()
+		var body *groupclientmodels.ModelsPublicCreateNewGroupRequestV1
+		errBody := json.Unmarshal([]byte(bodyString), &body)
+		if errBody != nil {
+			return errBody
+		}
+		namespace, _ := cmd.Flags().GetString("namespace")
+		input := &group_.CreateNewGroupPublicV2Params{
+			Body:      body,
+			Namespace: namespace,
+		}
+		created, errCreated := groupService.CreateNewGroupPublicV2Short(input)
+		if errCreated != nil {
+			logrus.Error(errCreated)
+
+			return errCreated
+		}
+
+		logrus.Infof("Response CLI success: %+v", created)
+
+		return nil
+	},
+}
+
+func init() {
+	CreateNewGroupPublicV2Cmd.Flags().String("body", "", "Body")
+	_ = CreateNewGroupPublicV2Cmd.MarkFlagRequired("body")
+	CreateNewGroupPublicV2Cmd.Flags().String("namespace", "", "Namespace")
+	_ = CreateNewGroupPublicV2Cmd.MarkFlagRequired("namespace")
+}

@@ -1,0 +1,51 @@
+// Copyright (c) 2021 AccelByte Inc. All Rights Reserved.
+// This is licensed software from AccelByte Inc, for limitations
+// and restrictions contact your company contract manager.
+
+// Code generated. DO NOT EDIT.
+
+package adminGameRecord
+
+import (
+	cloudsave "github.com/AccelByte/accelbyte-go-sdk/cloudsave-sdk/pkg"
+	"github.com/AccelByte/accelbyte-go-sdk/cloudsave-sdk/pkg/cloudsaveclient/admin_game_record"
+	"github.com/AccelByte/sample-apps/pkg/repository"
+	"github.com/sirupsen/logrus"
+	"github.com/spf13/cobra"
+)
+
+// AdminDeleteGameRecordHandlerV1Cmd represents the AdminDeleteGameRecordHandlerV1 command
+var AdminDeleteGameRecordHandlerV1Cmd = &cobra.Command{
+	Use:   "adminDeleteGameRecordHandlerV1",
+	Short: "Admin delete game record handler V1",
+	Long:  `Admin delete game record handler V1`,
+	RunE: func(cmd *cobra.Command, args []string) error {
+		adminGameRecordService := &cloudsave.AdminGameRecordService{
+			Client:          cloudsave.NewCloudsaveClient(&repository.ConfigRepositoryImpl{}),
+			TokenRepository: &repository.TokenRepositoryImpl{},
+		}
+		key, _ := cmd.Flags().GetString("key")
+		namespace, _ := cmd.Flags().GetString("namespace")
+		input := &admin_game_record.AdminDeleteGameRecordHandlerV1Params{
+			Key:       key,
+			Namespace: namespace,
+		}
+		errNoContent := adminGameRecordService.AdminDeleteGameRecordHandlerV1Short(input)
+		if errNoContent != nil {
+			logrus.Error(errNoContent)
+
+			return errNoContent
+		}
+
+		logrus.Infof("Response CLI success.")
+
+		return nil
+	},
+}
+
+func init() {
+	AdminDeleteGameRecordHandlerV1Cmd.Flags().String("key", "", "Key")
+	_ = AdminDeleteGameRecordHandlerV1Cmd.MarkFlagRequired("key")
+	AdminDeleteGameRecordHandlerV1Cmd.Flags().String("namespace", "", "Namespace")
+	_ = AdminDeleteGameRecordHandlerV1Cmd.MarkFlagRequired("namespace")
+}

@@ -1,0 +1,51 @@
+// Copyright (c) 2021 AccelByte Inc. All Rights Reserved.
+// This is licensed software from AccelByte Inc, for limitations
+// and restrictions contact your company contract manager.
+
+// Code generated. DO NOT EDIT.
+
+package anonymization
+
+import (
+	basic "github.com/AccelByte/accelbyte-go-sdk/basic-sdk/pkg"
+	"github.com/AccelByte/accelbyte-go-sdk/basic-sdk/pkg/basicclient/anonymization"
+	"github.com/AccelByte/sample-apps/pkg/repository"
+	"github.com/sirupsen/logrus"
+	"github.com/spf13/cobra"
+)
+
+// AnonymizeUserProfileCmd represents the AnonymizeUserProfile command
+var AnonymizeUserProfileCmd = &cobra.Command{
+	Use:   "anonymizeUserProfile",
+	Short: "Anonymize user profile",
+	Long:  `Anonymize user profile`,
+	RunE: func(cmd *cobra.Command, args []string) error {
+		anonymizationService := &basic.AnonymizationService{
+			Client:          basic.NewBasicClient(&repository.ConfigRepositoryImpl{}),
+			TokenRepository: &repository.TokenRepositoryImpl{},
+		}
+		namespace, _ := cmd.Flags().GetString("namespace")
+		userId, _ := cmd.Flags().GetString("userId")
+		input := &anonymization.AnonymizeUserProfileParams{
+			Namespace: namespace,
+			UserID:    userId,
+		}
+		errNoContent := anonymizationService.AnonymizeUserProfileShort(input)
+		if errNoContent != nil {
+			logrus.Error(errNoContent)
+
+			return errNoContent
+		}
+
+		logrus.Infof("Response CLI success.")
+
+		return nil
+	},
+}
+
+func init() {
+	AnonymizeUserProfileCmd.Flags().String("namespace", "", "Namespace")
+	_ = AnonymizeUserProfileCmd.MarkFlagRequired("namespace")
+	AnonymizeUserProfileCmd.Flags().String("userId", "", "User id")
+	_ = AnonymizeUserProfileCmd.MarkFlagRequired("userId")
+}

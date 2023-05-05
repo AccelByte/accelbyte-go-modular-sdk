@@ -1,0 +1,59 @@
+// Copyright (c) 2021 AccelByte Inc. All Rights Reserved.
+// This is licensed software from AccelByte Inc, for limitations
+// and restrictions contact your company contract manager.
+
+// Code generated. DO NOT EDIT.
+
+package adminReports
+
+import (
+	"encoding/json"
+
+	reporting "github.com/AccelByte/accelbyte-go-sdk/reporting-sdk/pkg"
+	"github.com/AccelByte/accelbyte-go-sdk/reporting-sdk/pkg/reportingclient/admin_reports"
+	"github.com/AccelByte/accelbyte-go-sdk/reporting-sdk/pkg/reportingclientmodels"
+	"github.com/AccelByte/sample-apps/pkg/repository"
+	"github.com/sirupsen/logrus"
+	"github.com/spf13/cobra"
+)
+
+// AdminSubmitReportCmd represents the AdminSubmitReport command
+var AdminSubmitReportCmd = &cobra.Command{
+	Use:   "adminSubmitReport",
+	Short: "Admin submit report",
+	Long:  `Admin submit report`,
+	RunE: func(cmd *cobra.Command, args []string) error {
+		adminReportsService := &reporting.AdminReportsService{
+			Client:          reporting.NewReportingClient(&repository.ConfigRepositoryImpl{}),
+			TokenRepository: &repository.TokenRepositoryImpl{},
+		}
+		bodyString := cmd.Flag("body").Value.String()
+		var body *reportingclientmodels.RestapiSubmitReportRequest
+		errBody := json.Unmarshal([]byte(bodyString), &body)
+		if errBody != nil {
+			return errBody
+		}
+		namespace, _ := cmd.Flags().GetString("namespace")
+		input := &admin_reports.AdminSubmitReportParams{
+			Body:      body,
+			Namespace: namespace,
+		}
+		created, errCreated := adminReportsService.AdminSubmitReportShort(input)
+		if errCreated != nil {
+			logrus.Error(errCreated)
+
+			return errCreated
+		}
+
+		logrus.Infof("Response CLI success: %+v", created)
+
+		return nil
+	},
+}
+
+func init() {
+	AdminSubmitReportCmd.Flags().String("body", "", "Body")
+	_ = AdminSubmitReportCmd.MarkFlagRequired("body")
+	AdminSubmitReportCmd.Flags().String("namespace", "", "Namespace")
+	_ = AdminSubmitReportCmd.MarkFlagRequired("namespace")
+}

@@ -1,0 +1,47 @@
+// Copyright (c) 2021 AccelByte Inc. All Rights Reserved.
+// This is licensed software from AccelByte Inc, for limitations
+// and restrictions contact your company contract manager.
+
+// Code generated. DO NOT EDIT.
+
+package iap
+
+import (
+	platform "github.com/AccelByte/accelbyte-go-sdk/platform-sdk/pkg"
+	"github.com/AccelByte/accelbyte-go-sdk/platform-sdk/pkg/platformclient/iap"
+	"github.com/AccelByte/sample-apps/pkg/repository"
+	"github.com/sirupsen/logrus"
+	"github.com/spf13/cobra"
+)
+
+// DeleteTwitchIAPConfigCmd represents the DeleteTwitchIAPConfig command
+var DeleteTwitchIAPConfigCmd = &cobra.Command{
+	Use:   "deleteTwitchIAPConfig",
+	Short: "Delete twitch IAP config",
+	Long:  `Delete twitch IAP config`,
+	RunE: func(cmd *cobra.Command, args []string) error {
+		iapService := &platform.IAPService{
+			Client:          platform.NewPlatformClient(&repository.ConfigRepositoryImpl{}),
+			TokenRepository: &repository.TokenRepositoryImpl{},
+		}
+		namespace, _ := cmd.Flags().GetString("namespace")
+		input := &iap.DeleteTwitchIAPConfigParams{
+			Namespace: namespace,
+		}
+		errNoContent := iapService.DeleteTwitchIAPConfigShort(input)
+		if errNoContent != nil {
+			logrus.Error(errNoContent)
+
+			return errNoContent
+		}
+
+		logrus.Infof("Response CLI success.")
+
+		return nil
+	},
+}
+
+func init() {
+	DeleteTwitchIAPConfigCmd.Flags().String("namespace", "", "Namespace")
+	_ = DeleteTwitchIAPConfigCmd.MarkFlagRequired("namespace")
+}

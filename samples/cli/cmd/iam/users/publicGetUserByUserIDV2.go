@@ -1,0 +1,51 @@
+// Copyright (c) 2021 AccelByte Inc. All Rights Reserved.
+// This is licensed software from AccelByte Inc, for limitations
+// and restrictions contact your company contract manager.
+
+// Code generated. DO NOT EDIT.
+
+package users
+
+import (
+	iam "github.com/AccelByte/accelbyte-go-sdk/iam-sdk/pkg"
+	"github.com/AccelByte/accelbyte-go-sdk/iam-sdk/pkg/iamclient/users"
+	"github.com/AccelByte/sample-apps/pkg/repository"
+	"github.com/sirupsen/logrus"
+	"github.com/spf13/cobra"
+)
+
+// PublicGetUserByUserIDV2Cmd represents the PublicGetUserByUserIDV2 command
+var PublicGetUserByUserIDV2Cmd = &cobra.Command{
+	Use:   "publicGetUserByUserIDV2",
+	Short: "Public get user by user IDV2",
+	Long:  `Public get user by user IDV2`,
+	RunE: func(cmd *cobra.Command, args []string) error {
+		usersService := &iam.UsersService{
+			Client:          iam.NewIamClient(&repository.ConfigRepositoryImpl{}),
+			TokenRepository: &repository.TokenRepositoryImpl{},
+		}
+		namespace, _ := cmd.Flags().GetString("namespace")
+		userId, _ := cmd.Flags().GetString("userId")
+		input := &users.PublicGetUserByUserIDV2Params{
+			Namespace: namespace,
+			UserID:    userId,
+		}
+		ok, errOK := usersService.PublicGetUserByUserIDV2Short(input)
+		if errOK != nil {
+			logrus.Error(errOK)
+
+			return errOK
+		}
+
+		logrus.Infof("Response CLI success: %+v", ok)
+
+		return nil
+	},
+}
+
+func init() {
+	PublicGetUserByUserIDV2Cmd.Flags().String("namespace", "", "Namespace")
+	_ = PublicGetUserByUserIDV2Cmd.MarkFlagRequired("namespace")
+	PublicGetUserByUserIDV2Cmd.Flags().String("userId", "", "User id")
+	_ = PublicGetUserByUserIDV2Cmd.MarkFlagRequired("userId")
+}

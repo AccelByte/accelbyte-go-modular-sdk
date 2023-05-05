@@ -1,0 +1,55 @@
+// Copyright (c) 2021 AccelByte Inc. All Rights Reserved.
+// This is licensed software from AccelByte Inc, for limitations
+// and restrictions contact your company contract manager.
+
+// Code generated. DO NOT EDIT.
+
+package reward
+
+import (
+	seasonpass "github.com/AccelByte/accelbyte-go-sdk/seasonpass-sdk/pkg"
+	"github.com/AccelByte/accelbyte-go-sdk/seasonpass-sdk/pkg/seasonpassclient/reward"
+	"github.com/AccelByte/sample-apps/pkg/repository"
+	"github.com/sirupsen/logrus"
+	"github.com/spf13/cobra"
+)
+
+// GetRewardCmd represents the GetReward command
+var GetRewardCmd = &cobra.Command{
+	Use:   "getReward",
+	Short: "Get reward",
+	Long:  `Get reward`,
+	RunE: func(cmd *cobra.Command, args []string) error {
+		rewardService := &seasonpass.RewardService{
+			Client:          seasonpass.NewSeasonpassClient(&repository.ConfigRepositoryImpl{}),
+			TokenRepository: &repository.TokenRepositoryImpl{},
+		}
+		code, _ := cmd.Flags().GetString("code")
+		namespace, _ := cmd.Flags().GetString("namespace")
+		seasonId, _ := cmd.Flags().GetString("seasonId")
+		input := &reward.GetRewardParams{
+			Code:      code,
+			Namespace: namespace,
+			SeasonID:  seasonId,
+		}
+		ok, errOK := rewardService.GetRewardShort(input)
+		if errOK != nil {
+			logrus.Error(errOK)
+
+			return errOK
+		}
+
+		logrus.Infof("Response CLI success: %+v", ok)
+
+		return nil
+	},
+}
+
+func init() {
+	GetRewardCmd.Flags().String("code", "", "Code")
+	_ = GetRewardCmd.MarkFlagRequired("code")
+	GetRewardCmd.Flags().String("namespace", "", "Namespace")
+	_ = GetRewardCmd.MarkFlagRequired("namespace")
+	GetRewardCmd.Flags().String("seasonId", "", "Season id")
+	_ = GetRewardCmd.MarkFlagRequired("seasonId")
+}

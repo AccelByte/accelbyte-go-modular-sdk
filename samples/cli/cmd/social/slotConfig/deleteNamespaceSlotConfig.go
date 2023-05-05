@@ -1,0 +1,47 @@
+// Copyright (c) 2021 AccelByte Inc. All Rights Reserved.
+// This is licensed software from AccelByte Inc, for limitations
+// and restrictions contact your company contract manager.
+
+// Code generated. DO NOT EDIT.
+
+package slotConfig
+
+import (
+	social "github.com/AccelByte/accelbyte-go-sdk/social-sdk/pkg"
+	"github.com/AccelByte/accelbyte-go-sdk/social-sdk/pkg/socialclient/slot_config"
+	"github.com/AccelByte/sample-apps/pkg/repository"
+	"github.com/sirupsen/logrus"
+	"github.com/spf13/cobra"
+)
+
+// DeleteNamespaceSlotConfigCmd represents the DeleteNamespaceSlotConfig command
+var DeleteNamespaceSlotConfigCmd = &cobra.Command{
+	Use:   "deleteNamespaceSlotConfig",
+	Short: "Delete namespace slot config",
+	Long:  `Delete namespace slot config`,
+	RunE: func(cmd *cobra.Command, args []string) error {
+		slotConfigService := &social.SlotConfigService{
+			Client:          social.NewSocialClient(&repository.ConfigRepositoryImpl{}),
+			TokenRepository: &repository.TokenRepositoryImpl{},
+		}
+		namespace, _ := cmd.Flags().GetString("namespace")
+		input := &slot_config.DeleteNamespaceSlotConfigParams{
+			Namespace: namespace,
+		}
+		errNoContent := slotConfigService.DeleteNamespaceSlotConfigShort(input)
+		if errNoContent != nil {
+			logrus.Error(errNoContent)
+
+			return errNoContent
+		}
+
+		logrus.Infof("Response CLI success.")
+
+		return nil
+	},
+}
+
+func init() {
+	DeleteNamespaceSlotConfigCmd.Flags().String("namespace", "", "Namespace")
+	_ = DeleteNamespaceSlotConfigCmd.MarkFlagRequired("namespace")
+}

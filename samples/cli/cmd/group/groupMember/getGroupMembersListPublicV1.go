@@ -1,0 +1,60 @@
+// Copyright (c) 2021 AccelByte Inc. All Rights Reserved.
+// This is licensed software from AccelByte Inc, for limitations
+// and restrictions contact your company contract manager.
+
+// Code generated. DO NOT EDIT.
+
+package groupMember
+
+import (
+	group "github.com/AccelByte/accelbyte-go-sdk/group-sdk/pkg"
+	"github.com/AccelByte/accelbyte-go-sdk/group-sdk/pkg/groupclient/group_member"
+	"github.com/AccelByte/sample-apps/pkg/repository"
+	"github.com/sirupsen/logrus"
+	"github.com/spf13/cobra"
+)
+
+// GetGroupMembersListPublicV1Cmd represents the GetGroupMembersListPublicV1 command
+var GetGroupMembersListPublicV1Cmd = &cobra.Command{
+	Use:   "getGroupMembersListPublicV1",
+	Short: "Get group members list public V1",
+	Long:  `Get group members list public V1`,
+	RunE: func(cmd *cobra.Command, args []string) error {
+		groupMemberService := &group.GroupMemberService{
+			Client:          group.NewGroupClient(&repository.ConfigRepositoryImpl{}),
+			TokenRepository: &repository.TokenRepositoryImpl{},
+		}
+		groupId, _ := cmd.Flags().GetString("groupId")
+		namespace, _ := cmd.Flags().GetString("namespace")
+		limit, _ := cmd.Flags().GetInt64("limit")
+		offset, _ := cmd.Flags().GetInt64("offset")
+		order, _ := cmd.Flags().GetString("order")
+		input := &group_member.GetGroupMembersListPublicV1Params{
+			GroupID:   groupId,
+			Namespace: namespace,
+			Limit:     &limit,
+			Offset:    &offset,
+			Order:     &order,
+		}
+		ok, errOK := groupMemberService.GetGroupMembersListPublicV1Short(input)
+		if errOK != nil {
+			logrus.Error(errOK)
+
+			return errOK
+		}
+
+		logrus.Infof("Response CLI success: %+v", ok)
+
+		return nil
+	},
+}
+
+func init() {
+	GetGroupMembersListPublicV1Cmd.Flags().String("groupId", "", "Group id")
+	_ = GetGroupMembersListPublicV1Cmd.MarkFlagRequired("groupId")
+	GetGroupMembersListPublicV1Cmd.Flags().String("namespace", "", "Namespace")
+	_ = GetGroupMembersListPublicV1Cmd.MarkFlagRequired("namespace")
+	GetGroupMembersListPublicV1Cmd.Flags().Int64("limit", 20, "Limit")
+	GetGroupMembersListPublicV1Cmd.Flags().Int64("offset", 0, "Offset")
+	GetGroupMembersListPublicV1Cmd.Flags().String("order", "", "Order")
+}

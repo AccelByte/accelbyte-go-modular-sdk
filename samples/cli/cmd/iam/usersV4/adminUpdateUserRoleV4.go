@@ -1,0 +1,63 @@
+// Copyright (c) 2021 AccelByte Inc. All Rights Reserved.
+// This is licensed software from AccelByte Inc, for limitations
+// and restrictions contact your company contract manager.
+
+// Code generated. DO NOT EDIT.
+
+package usersV4
+
+import (
+	"encoding/json"
+
+	iam "github.com/AccelByte/accelbyte-go-sdk/iam-sdk/pkg"
+	"github.com/AccelByte/accelbyte-go-sdk/iam-sdk/pkg/iamclient/users_v4"
+	"github.com/AccelByte/accelbyte-go-sdk/iam-sdk/pkg/iamclientmodels"
+	"github.com/AccelByte/sample-apps/pkg/repository"
+	"github.com/sirupsen/logrus"
+	"github.com/spf13/cobra"
+)
+
+// AdminUpdateUserRoleV4Cmd represents the AdminUpdateUserRoleV4 command
+var AdminUpdateUserRoleV4Cmd = &cobra.Command{
+	Use:   "adminUpdateUserRoleV4",
+	Short: "Admin update user role V4",
+	Long:  `Admin update user role V4`,
+	RunE: func(cmd *cobra.Command, args []string) error {
+		usersV4Service := &iam.UsersV4Service{
+			Client:          iam.NewIamClient(&repository.ConfigRepositoryImpl{}),
+			TokenRepository: &repository.TokenRepositoryImpl{},
+		}
+		bodyString := cmd.Flag("body").Value.String()
+		var body *iamclientmodels.ModelAddUserRoleV4Request
+		errBody := json.Unmarshal([]byte(bodyString), &body)
+		if errBody != nil {
+			return errBody
+		}
+		namespace, _ := cmd.Flags().GetString("namespace")
+		userId, _ := cmd.Flags().GetString("userId")
+		input := &users_v4.AdminUpdateUserRoleV4Params{
+			Body:      body,
+			Namespace: namespace,
+			UserID:    userId,
+		}
+		ok, errOK := usersV4Service.AdminUpdateUserRoleV4Short(input)
+		if errOK != nil {
+			logrus.Error(errOK)
+
+			return errOK
+		}
+
+		logrus.Infof("Response CLI success: %+v", ok)
+
+		return nil
+	},
+}
+
+func init() {
+	AdminUpdateUserRoleV4Cmd.Flags().String("body", "", "Body")
+	_ = AdminUpdateUserRoleV4Cmd.MarkFlagRequired("body")
+	AdminUpdateUserRoleV4Cmd.Flags().String("namespace", "", "Namespace")
+	_ = AdminUpdateUserRoleV4Cmd.MarkFlagRequired("namespace")
+	AdminUpdateUserRoleV4Cmd.Flags().String("userId", "", "User id")
+	_ = AdminUpdateUserRoleV4Cmd.MarkFlagRequired("userId")
+}

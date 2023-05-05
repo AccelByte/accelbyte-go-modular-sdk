@@ -1,0 +1,55 @@
+// Copyright (c) 2021 AccelByte Inc. All Rights Reserved.
+// This is licensed software from AccelByte Inc, for limitations
+// and restrictions contact your company contract manager.
+
+// Code generated. DO NOT EDIT.
+
+package notification
+
+import (
+	lobby "github.com/AccelByte/accelbyte-go-sdk/lobby-sdk/pkg"
+	"github.com/AccelByte/accelbyte-go-sdk/lobby-sdk/pkg/lobbyclient/notification"
+	"github.com/AccelByte/sample-apps/pkg/repository"
+	"github.com/sirupsen/logrus"
+	"github.com/spf13/cobra"
+)
+
+// GetSingleTemplateLocalizationV1AdminCmd represents the GetSingleTemplateLocalizationV1Admin command
+var GetSingleTemplateLocalizationV1AdminCmd = &cobra.Command{
+	Use:   "getSingleTemplateLocalizationV1Admin",
+	Short: "Get single template localization V1 admin",
+	Long:  `Get single template localization V1 admin`,
+	RunE: func(cmd *cobra.Command, args []string) error {
+		notificationService := &lobby.NotificationService{
+			Client:          lobby.NewLobbyClient(&repository.ConfigRepositoryImpl{}),
+			TokenRepository: &repository.TokenRepositoryImpl{},
+		}
+		namespace, _ := cmd.Flags().GetString("namespace")
+		templateLanguage, _ := cmd.Flags().GetString("templateLanguage")
+		templateSlug, _ := cmd.Flags().GetString("templateSlug")
+		input := &notification.GetSingleTemplateLocalizationV1AdminParams{
+			Namespace:        namespace,
+			TemplateLanguage: templateLanguage,
+			TemplateSlug:     templateSlug,
+		}
+		ok, errOK := notificationService.GetSingleTemplateLocalizationV1AdminShort(input)
+		if errOK != nil {
+			logrus.Error(errOK)
+
+			return errOK
+		}
+
+		logrus.Infof("Response CLI success: %+v", ok)
+
+		return nil
+	},
+}
+
+func init() {
+	GetSingleTemplateLocalizationV1AdminCmd.Flags().String("namespace", "", "Namespace")
+	_ = GetSingleTemplateLocalizationV1AdminCmd.MarkFlagRequired("namespace")
+	GetSingleTemplateLocalizationV1AdminCmd.Flags().String("templateLanguage", "", "Template language")
+	_ = GetSingleTemplateLocalizationV1AdminCmd.MarkFlagRequired("templateLanguage")
+	GetSingleTemplateLocalizationV1AdminCmd.Flags().String("templateSlug", "", "Template slug")
+	_ = GetSingleTemplateLocalizationV1AdminCmd.MarkFlagRequired("templateSlug")
+}

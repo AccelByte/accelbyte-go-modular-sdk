@@ -1,0 +1,59 @@
+// Copyright (c) 2021 AccelByte Inc. All Rights Reserved.
+// This is licensed software from AccelByte Inc, for limitations
+// and restrictions contact your company contract manager.
+
+// Code generated. DO NOT EDIT.
+
+package adminModerationRule
+
+import (
+	"encoding/json"
+
+	reporting "github.com/AccelByte/accelbyte-go-sdk/reporting-sdk/pkg"
+	"github.com/AccelByte/accelbyte-go-sdk/reporting-sdk/pkg/reportingclient/admin_moderation_rule"
+	"github.com/AccelByte/accelbyte-go-sdk/reporting-sdk/pkg/reportingclientmodels"
+	"github.com/AccelByte/sample-apps/pkg/repository"
+	"github.com/sirupsen/logrus"
+	"github.com/spf13/cobra"
+)
+
+// CreateModerationRuleCmd represents the CreateModerationRule command
+var CreateModerationRuleCmd = &cobra.Command{
+	Use:   "createModerationRule",
+	Short: "Create moderation rule",
+	Long:  `Create moderation rule`,
+	RunE: func(cmd *cobra.Command, args []string) error {
+		adminModerationRuleService := &reporting.AdminModerationRuleService{
+			Client:          reporting.NewReportingClient(&repository.ConfigRepositoryImpl{}),
+			TokenRepository: &repository.TokenRepositoryImpl{},
+		}
+		bodyString := cmd.Flag("body").Value.String()
+		var body *reportingclientmodels.RestapiModerationRuleRequest
+		errBody := json.Unmarshal([]byte(bodyString), &body)
+		if errBody != nil {
+			return errBody
+		}
+		namespace, _ := cmd.Flags().GetString("namespace")
+		input := &admin_moderation_rule.CreateModerationRuleParams{
+			Body:      body,
+			Namespace: namespace,
+		}
+		errCreated := adminModerationRuleService.CreateModerationRuleShort(input)
+		if errCreated != nil {
+			logrus.Error(errCreated)
+
+			return errCreated
+		}
+
+		logrus.Infof("Response CLI success.")
+
+		return nil
+	},
+}
+
+func init() {
+	CreateModerationRuleCmd.Flags().String("body", "", "Body")
+	_ = CreateModerationRuleCmd.MarkFlagRequired("body")
+	CreateModerationRuleCmd.Flags().String("namespace", "", "Namespace")
+	_ = CreateModerationRuleCmd.MarkFlagRequired("namespace")
+}

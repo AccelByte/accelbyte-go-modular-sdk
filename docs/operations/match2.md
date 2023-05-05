@@ -1,0 +1,91 @@
+# Match2 Service Index
+
+&nbsp;
+
+## Operations
+
+### Operations Wrapper:  [Operations](../../match2-sdk/pkg/wrapper_operations.go)
+| Endpoint | Method | ID | Class | Wrapper | Example |
+|---|---|---|---|---|---|
+| `/healthz` | GET | GetHealthcheckInfoShort | [GetHealthcheckInfoShort](../../match2-sdk/pkg/match2client/operations/operations_client.go) | [GetHealthcheckInfoShort](../../match2-sdk/pkg/wrapper_operations.go) | [GetHealthcheckInfoShort](../../samples/cli/cmd/match2/operations/getHealthcheckInfo.go) |
+| `/match2/healthz` | GET | GetHealthcheckInfoV1Short | [GetHealthcheckInfoV1Short](../../match2-sdk/pkg/match2client/operations/operations_client.go) | [GetHealthcheckInfoV1Short](../../match2-sdk/pkg/wrapper_operations.go) | [GetHealthcheckInfoV1Short](../../samples/cli/cmd/match2/operations/getHealthcheckInfoV1.go) |
+| `/match2/version` | GET | VersionCheckHandlerShort | [VersionCheckHandlerShort](../../match2-sdk/pkg/match2client/operations/operations_client.go) | [VersionCheckHandlerShort](../../match2-sdk/pkg/wrapper_operations.go) | [VersionCheckHandlerShort](../../samples/cli/cmd/match2/operations/versionCheckHandler.go) |
+
+### Backfill Wrapper:  [Backfill](../../match2-sdk/pkg/wrapper_backfill.go)
+| Endpoint | Method | ID | Class | Wrapper | Example |
+|---|---|---|---|---|---|
+| `/match2/v1/namespaces/{namespace}/backfill` | POST | CreateBackfillShort | [CreateBackfillShort](../../match2-sdk/pkg/match2client/backfill/backfill_client.go) | [CreateBackfillShort](../../match2-sdk/pkg/wrapper_backfill.go) | [CreateBackfillShort](../../samples/cli/cmd/match2/backfill/createBackfill.go) |
+| `/match2/v1/namespaces/{namespace}/backfill/proposal` | GET | GetBackfillProposalShort | [GetBackfillProposalShort](../../match2-sdk/pkg/match2client/backfill/backfill_client.go) | [GetBackfillProposalShort](../../match2-sdk/pkg/wrapper_backfill.go) | [GetBackfillProposalShort](../../samples/cli/cmd/match2/backfill/getBackfillProposal.go) |
+| `/match2/v1/namespaces/{namespace}/backfill/{backfillID}` | GET | GetBackfillShort | [GetBackfillShort](../../match2-sdk/pkg/match2client/backfill/backfill_client.go) | [GetBackfillShort](../../match2-sdk/pkg/wrapper_backfill.go) | [GetBackfillShort](../../samples/cli/cmd/match2/backfill/getBackfill.go) |
+| `/match2/v1/namespaces/{namespace}/backfill/{backfillID}` | DELETE | DeleteBackfillShort | [DeleteBackfillShort](../../match2-sdk/pkg/match2client/backfill/backfill_client.go) | [DeleteBackfillShort](../../match2-sdk/pkg/wrapper_backfill.go) | [DeleteBackfillShort](../../samples/cli/cmd/match2/backfill/deleteBackfill.go) |
+| `/match2/v1/namespaces/{namespace}/backfill/{backfillID}/proposal/accept` | PUT | AcceptBackfillShort | [AcceptBackfillShort](../../match2-sdk/pkg/match2client/backfill/backfill_client.go) | [AcceptBackfillShort](../../match2-sdk/pkg/wrapper_backfill.go) | [AcceptBackfillShort](../../samples/cli/cmd/match2/backfill/acceptBackfill.go) |
+| `/match2/v1/namespaces/{namespace}/backfill/{backfillID}/proposal/reject` | PUT | RejectBackfillShort | [RejectBackfillShort](../../match2-sdk/pkg/match2client/backfill/backfill_client.go) | [RejectBackfillShort](../../match2-sdk/pkg/wrapper_backfill.go) | [RejectBackfillShort](../../samples/cli/cmd/match2/backfill/rejectBackfill.go) |
+
+### Match-Functions Wrapper:  [MatchFunctions](../../match2-sdk/pkg/wrapper_matchFunctions.go)
+| Endpoint | Method | ID | Class | Wrapper | Example |
+|---|---|---|---|---|---|
+| `/match2/v1/namespaces/{namespace}/match-functions` | GET | MatchFunctionListShort | [MatchFunctionListShort](../../match2-sdk/pkg/match2client/match_functions/match_functions_client.go) | [MatchFunctionListShort](../../match2-sdk/pkg/wrapper_matchFunctions.go) | [MatchFunctionListShort](../../samples/cli/cmd/match2/matchFunctions/matchFunctionList.go) |
+| `/match2/v1/namespaces/{namespace}/match-functions` | POST | CreateMatchFunctionShort | [CreateMatchFunctionShort](../../match2-sdk/pkg/match2client/match_functions/match_functions_client.go) | [CreateMatchFunctionShort](../../match2-sdk/pkg/wrapper_matchFunctions.go) | [CreateMatchFunctionShort](../../samples/cli/cmd/match2/matchFunctions/createMatchFunction.go) |
+| `/match2/v1/namespaces/{namespace}/match-functions/{name}` | DELETE | DeleteMatchFunctionShort | [DeleteMatchFunctionShort](../../match2-sdk/pkg/match2client/match_functions/match_functions_client.go) | [DeleteMatchFunctionShort](../../match2-sdk/pkg/wrapper_matchFunctions.go) | [DeleteMatchFunctionShort](../../samples/cli/cmd/match2/matchFunctions/deleteMatchFunction.go) |
+
+### Match-Pools Wrapper:  [MatchPools](../../match2-sdk/pkg/wrapper_matchPools.go)
+| Endpoint | Method | ID | Class | Wrapper | Example |
+|---|---|---|---|---|---|
+| `/match2/v1/namespaces/{namespace}/match-pools` | GET | MatchPoolListShort | [MatchPoolListShort](../../match2-sdk/pkg/match2client/match_pools/match_pools_client.go) | [MatchPoolListShort](../../match2-sdk/pkg/wrapper_matchPools.go) | [MatchPoolListShort](../../samples/cli/cmd/match2/matchPools/matchPoolList.go) |
+| `/match2/v1/namespaces/{namespace}/match-pools` | POST | CreateMatchPoolShort | [CreateMatchPoolShort](../../match2-sdk/pkg/match2client/match_pools/match_pools_client.go) | [CreateMatchPoolShort](../../match2-sdk/pkg/wrapper_matchPools.go) | [CreateMatchPoolShort](../../samples/cli/cmd/match2/matchPools/createMatchPool.go) |
+| `/match2/v1/namespaces/{namespace}/match-pools/{pool}` | GET | MatchPoolDetailsShort | [MatchPoolDetailsShort](../../match2-sdk/pkg/match2client/match_pools/match_pools_client.go) | [MatchPoolDetailsShort](../../match2-sdk/pkg/wrapper_matchPools.go) | [MatchPoolDetailsShort](../../samples/cli/cmd/match2/matchPools/matchPoolDetails.go) |
+| `/match2/v1/namespaces/{namespace}/match-pools/{pool}` | PUT | UpdateMatchPoolShort | [UpdateMatchPoolShort](../../match2-sdk/pkg/match2client/match_pools/match_pools_client.go) | [UpdateMatchPoolShort](../../match2-sdk/pkg/wrapper_matchPools.go) | [UpdateMatchPoolShort](../../samples/cli/cmd/match2/matchPools/updateMatchPool.go) |
+| `/match2/v1/namespaces/{namespace}/match-pools/{pool}` | DELETE | DeleteMatchPoolShort | [DeleteMatchPoolShort](../../match2-sdk/pkg/match2client/match_pools/match_pools_client.go) | [DeleteMatchPoolShort](../../match2-sdk/pkg/wrapper_matchPools.go) | [DeleteMatchPoolShort](../../samples/cli/cmd/match2/matchPools/deleteMatchPool.go) |
+| `/match2/v1/namespaces/{namespace}/match-pools/{pool}/metrics` | GET | MatchPoolMetricShort | [MatchPoolMetricShort](../../match2-sdk/pkg/match2client/match_pools/match_pools_client.go) | [MatchPoolMetricShort](../../match2-sdk/pkg/wrapper_matchPools.go) | [MatchPoolMetricShort](../../samples/cli/cmd/match2/matchPools/matchPoolMetric.go) |
+
+### Match-Tickets Wrapper:  [MatchTickets](../../match2-sdk/pkg/wrapper_matchTickets.go)
+| Endpoint | Method | ID | Class | Wrapper | Example |
+|---|---|---|---|---|---|
+| `/match2/v1/namespaces/{namespace}/match-tickets` | POST | CreateMatchTicketShort | [CreateMatchTicketShort](../../match2-sdk/pkg/match2client/match_tickets/match_tickets_client.go) | [CreateMatchTicketShort](../../match2-sdk/pkg/wrapper_matchTickets.go) | [CreateMatchTicketShort](../../samples/cli/cmd/match2/matchTickets/createMatchTicket.go) |
+| `/match2/v1/namespaces/{namespace}/match-tickets/{ticketid}` | GET | MatchTicketDetailsShort | [MatchTicketDetailsShort](../../match2-sdk/pkg/match2client/match_tickets/match_tickets_client.go) | [MatchTicketDetailsShort](../../match2-sdk/pkg/wrapper_matchTickets.go) | [MatchTicketDetailsShort](../../samples/cli/cmd/match2/matchTickets/matchTicketDetails.go) |
+| `/match2/v1/namespaces/{namespace}/match-tickets/{ticketid}` | DELETE | DeleteMatchTicketShort | [DeleteMatchTicketShort](../../match2-sdk/pkg/match2client/match_tickets/match_tickets_client.go) | [DeleteMatchTicketShort](../../match2-sdk/pkg/wrapper_matchTickets.go) | [DeleteMatchTicketShort](../../samples/cli/cmd/match2/matchTickets/deleteMatchTicket.go) |
+
+### Rule-Sets Wrapper:  [RuleSets](../../match2-sdk/pkg/wrapper_ruleSets.go)
+| Endpoint | Method | ID | Class | Wrapper | Example |
+|---|---|---|---|---|---|
+| `/match2/v1/namespaces/{namespace}/rulesets` | GET | RuleSetListShort | [RuleSetListShort](../../match2-sdk/pkg/match2client/rule_sets/rule_sets_client.go) | [RuleSetListShort](../../match2-sdk/pkg/wrapper_ruleSets.go) | [RuleSetListShort](../../samples/cli/cmd/match2/ruleSets/ruleSetList.go) |
+| `/match2/v1/namespaces/{namespace}/rulesets` | POST | CreateRuleSetShort | [CreateRuleSetShort](../../match2-sdk/pkg/match2client/rule_sets/rule_sets_client.go) | [CreateRuleSetShort](../../match2-sdk/pkg/wrapper_ruleSets.go) | [CreateRuleSetShort](../../samples/cli/cmd/match2/ruleSets/createRuleSet.go) |
+| `/match2/v1/namespaces/{namespace}/rulesets/{ruleset}` | GET | RuleSetDetailsShort | [RuleSetDetailsShort](../../match2-sdk/pkg/match2client/rule_sets/rule_sets_client.go) | [RuleSetDetailsShort](../../match2-sdk/pkg/wrapper_ruleSets.go) | [RuleSetDetailsShort](../../samples/cli/cmd/match2/ruleSets/ruleSetDetails.go) |
+| `/match2/v1/namespaces/{namespace}/rulesets/{ruleset}` | PUT | UpdateRuleSetShort | [UpdateRuleSetShort](../../match2-sdk/pkg/match2client/rule_sets/rule_sets_client.go) | [UpdateRuleSetShort](../../match2-sdk/pkg/wrapper_ruleSets.go) | [UpdateRuleSetShort](../../samples/cli/cmd/match2/ruleSets/updateRuleSet.go) |
+| `/match2/v1/namespaces/{namespace}/rulesets/{ruleset}` | DELETE | DeleteRuleSetShort | [DeleteRuleSetShort](../../match2-sdk/pkg/match2client/rule_sets/rule_sets_client.go) | [DeleteRuleSetShort](../../match2-sdk/pkg/wrapper_ruleSets.go) | [DeleteRuleSetShort](../../samples/cli/cmd/match2/ruleSets/deleteRuleSet.go) |
+
+
+&nbsp;  
+
+## Models
+
+| Model Struct | Class |
+|---|---|
+| `api.BackFillAcceptRequest` | [ApiBackFillAcceptRequest ](../../match2-sdk/pkg/match2clientmodels/api_back_fill_accept_request.go) |
+| `api.BackFillCreateRequest` | [ApiBackFillCreateRequest ](../../match2-sdk/pkg/match2clientmodels/api_back_fill_create_request.go) |
+| `api.BackfillCreateResponse` | [ApiBackfillCreateResponse ](../../match2-sdk/pkg/match2clientmodels/api_backfill_create_response.go) |
+| `api.BackfillGetResponse` | [ApiBackfillGetResponse ](../../match2-sdk/pkg/match2clientmodels/api_backfill_get_response.go) |
+| `api.BackfillProposalResponse` | [ApiBackfillProposalResponse ](../../match2-sdk/pkg/match2clientmodels/api_backfill_proposal_response.go) |
+| `api.ListMatchFunctionsResponse` | [ApiListMatchFunctionsResponse ](../../match2-sdk/pkg/match2clientmodels/api_list_match_functions_response.go) |
+| `api.ListMatchPoolsResponse` | [ApiListMatchPoolsResponse ](../../match2-sdk/pkg/match2clientmodels/api_list_match_pools_response.go) |
+| `api.ListRuleSetsResponse` | [ApiListRuleSetsResponse ](../../match2-sdk/pkg/match2clientmodels/api_list_rule_sets_response.go) |
+| `api.Match` | [ApiMatch ](../../match2-sdk/pkg/match2clientmodels/api_match.go) |
+| `api.MatchFunctionConfig` | [ApiMatchFunctionConfig ](../../match2-sdk/pkg/match2clientmodels/api_match_function_config.go) |
+| `api.MatchFunctionOverride` | [ApiMatchFunctionOverride ](../../match2-sdk/pkg/match2clientmodels/api_match_function_override.go) |
+| `api.MatchFunctionRequest` | [ApiMatchFunctionRequest ](../../match2-sdk/pkg/match2clientmodels/api_match_function_request.go) |
+| `api.MatchPool` | [ApiMatchPool ](../../match2-sdk/pkg/match2clientmodels/api_match_pool.go) |
+| `api.MatchPoolConfig` | [ApiMatchPoolConfig ](../../match2-sdk/pkg/match2clientmodels/api_match_pool_config.go) |
+| `api.MatchRuleSetNameData` | [ApiMatchRuleSetNameData ](../../match2-sdk/pkg/match2clientmodels/api_match_rule_set_name_data.go) |
+| `api.MatchTicketRequest` | [ApiMatchTicketRequest ](../../match2-sdk/pkg/match2clientmodels/api_match_ticket_request.go) |
+| `api.MatchTicketResponse` | [ApiMatchTicketResponse ](../../match2-sdk/pkg/match2clientmodels/api_match_ticket_response.go) |
+| `api.MatchTicketStatus` | [ApiMatchTicketStatus ](../../match2-sdk/pkg/match2clientmodels/api_match_ticket_status.go) |
+| `api.Party` | [ApiParty ](../../match2-sdk/pkg/match2clientmodels/api_party.go) |
+| `api.PlayerData` | [ApiPlayerData ](../../match2-sdk/pkg/match2clientmodels/api_player_data.go) |
+| `api.ProposedProposal` | [ApiProposedProposal ](../../match2-sdk/pkg/match2clientmodels/api_proposed_proposal.go) |
+| `api.RuleSetPayload` | [ApiRuleSetPayload ](../../match2-sdk/pkg/match2clientmodels/api_rule_set_payload.go) |
+| `api.Team` | [ApiTeam ](../../match2-sdk/pkg/match2clientmodels/api_team.go) |
+| `api.Ticket` | [ApiTicket ](../../match2-sdk/pkg/match2clientmodels/api_ticket.go) |
+| `api.TicketMetricResultRecord` | [ApiTicketMetricResultRecord ](../../match2-sdk/pkg/match2clientmodels/api_ticket_metric_result_record.go) |
+| `api.backFillRejectRequest` | [ApiBackFillRejectRequest ](../../match2-sdk/pkg/match2clientmodels/api_back_fill_reject_request.go) |
+| `models.Pagination` | [ModelsPagination ](../../match2-sdk/pkg/match2clientmodels/models_pagination.go) |
+| `response.Error` | [ResponseError ](../../match2-sdk/pkg/match2clientmodels/response_error.go) |

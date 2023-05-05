@@ -1,0 +1,54 @@
+// Copyright (c) 2021 AccelByte Inc. All Rights Reserved.
+// This is licensed software from AccelByte Inc, for limitations
+// and restrictions contact your company contract manager.
+
+// Code generated. DO NOT EDIT.
+
+package paymentConfig
+
+import (
+	"encoding/json"
+
+	platform "github.com/AccelByte/accelbyte-go-sdk/platform-sdk/pkg"
+	"github.com/AccelByte/accelbyte-go-sdk/platform-sdk/pkg/platformclient/payment_config"
+	"github.com/AccelByte/accelbyte-go-sdk/platform-sdk/pkg/platformclientmodels"
+	"github.com/AccelByte/sample-apps/pkg/repository"
+	"github.com/sirupsen/logrus"
+	"github.com/spf13/cobra"
+)
+
+// TestWxPayConfigCmd represents the TestWxPayConfig command
+var TestWxPayConfigCmd = &cobra.Command{
+	Use:   "testWxPayConfig",
+	Short: "Test wx pay config",
+	Long:  `Test wx pay config`,
+	RunE: func(cmd *cobra.Command, args []string) error {
+		paymentConfigService := &platform.PaymentConfigService{
+			Client:          platform.NewPlatformClient(&repository.ConfigRepositoryImpl{}),
+			TokenRepository: &repository.TokenRepositoryImpl{},
+		}
+		bodyString := cmd.Flag("body").Value.String()
+		var body *platformclientmodels.WxPayConfigRequest
+		errBody := json.Unmarshal([]byte(bodyString), &body)
+		if errBody != nil {
+			return errBody
+		}
+		input := &payment_config.TestWxPayConfigParams{
+			Body: body,
+		}
+		ok, errOK := paymentConfigService.TestWxPayConfigShort(input)
+		if errOK != nil {
+			logrus.Error(errOK)
+
+			return errOK
+		}
+
+		logrus.Infof("Response CLI success: %+v", ok)
+
+		return nil
+	},
+}
+
+func init() {
+	TestWxPayConfigCmd.Flags().String("body", "", "Body")
+}

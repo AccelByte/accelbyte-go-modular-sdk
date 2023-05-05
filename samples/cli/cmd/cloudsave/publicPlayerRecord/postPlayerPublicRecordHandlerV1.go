@@ -1,0 +1,67 @@
+// Copyright (c) 2021 AccelByte Inc. All Rights Reserved.
+// This is licensed software from AccelByte Inc, for limitations
+// and restrictions contact your company contract manager.
+
+// Code generated. DO NOT EDIT.
+
+package publicPlayerRecord
+
+import (
+	"encoding/json"
+
+	cloudsave "github.com/AccelByte/accelbyte-go-sdk/cloudsave-sdk/pkg"
+	"github.com/AccelByte/accelbyte-go-sdk/cloudsave-sdk/pkg/cloudsaveclient/public_player_record"
+	"github.com/AccelByte/accelbyte-go-sdk/cloudsave-sdk/pkg/cloudsaveclientmodels"
+	"github.com/AccelByte/sample-apps/pkg/repository"
+	"github.com/sirupsen/logrus"
+	"github.com/spf13/cobra"
+)
+
+// PostPlayerPublicRecordHandlerV1Cmd represents the PostPlayerPublicRecordHandlerV1 command
+var PostPlayerPublicRecordHandlerV1Cmd = &cobra.Command{
+	Use:   "postPlayerPublicRecordHandlerV1",
+	Short: "Post player public record handler V1",
+	Long:  `Post player public record handler V1`,
+	RunE: func(cmd *cobra.Command, args []string) error {
+		publicPlayerRecordService := &cloudsave.PublicPlayerRecordService{
+			Client:          cloudsave.NewCloudsaveClient(&repository.ConfigRepositoryImpl{}),
+			TokenRepository: &repository.TokenRepositoryImpl{},
+		}
+		bodyString := cmd.Flag("body").Value.String()
+		var body *cloudsaveclientmodels.ModelsPlayerRecordRequest
+		errBody := json.Unmarshal([]byte(bodyString), &body)
+		if errBody != nil {
+			return errBody
+		}
+		key, _ := cmd.Flags().GetString("key")
+		namespace, _ := cmd.Flags().GetString("namespace")
+		userId, _ := cmd.Flags().GetString("userId")
+		input := &public_player_record.PostPlayerPublicRecordHandlerV1Params{
+			Body:      body,
+			Key:       key,
+			Namespace: namespace,
+			UserID:    userId,
+		}
+		created, errCreated := publicPlayerRecordService.PostPlayerPublicRecordHandlerV1Short(input)
+		if errCreated != nil {
+			logrus.Error(errCreated)
+
+			return errCreated
+		}
+
+		logrus.Infof("Response CLI success: %+v", created)
+
+		return nil
+	},
+}
+
+func init() {
+	PostPlayerPublicRecordHandlerV1Cmd.Flags().String("body", "", "Body")
+	_ = PostPlayerPublicRecordHandlerV1Cmd.MarkFlagRequired("body")
+	PostPlayerPublicRecordHandlerV1Cmd.Flags().String("key", "", "Key")
+	_ = PostPlayerPublicRecordHandlerV1Cmd.MarkFlagRequired("key")
+	PostPlayerPublicRecordHandlerV1Cmd.Flags().String("namespace", "", "Namespace")
+	_ = PostPlayerPublicRecordHandlerV1Cmd.MarkFlagRequired("namespace")
+	PostPlayerPublicRecordHandlerV1Cmd.Flags().String("userId", "", "User id")
+	_ = PostPlayerPublicRecordHandlerV1Cmd.MarkFlagRequired("userId")
+}

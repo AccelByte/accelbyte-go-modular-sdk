@@ -1,0 +1,63 @@
+// Copyright (c) 2021 AccelByte Inc. All Rights Reserved.
+// This is licensed software from AccelByte Inc, for limitations
+// and restrictions contact your company contract manager.
+
+// Code generated. DO NOT EDIT.
+
+package users
+
+import (
+	"encoding/json"
+
+	iam "github.com/AccelByte/accelbyte-go-sdk/iam-sdk/pkg"
+	"github.com/AccelByte/accelbyte-go-sdk/iam-sdk/pkg/iamclient/users"
+	"github.com/AccelByte/accelbyte-go-sdk/iam-sdk/pkg/iamclientmodels"
+	"github.com/AccelByte/sample-apps/pkg/repository"
+	"github.com/sirupsen/logrus"
+	"github.com/spf13/cobra"
+)
+
+// BanUserCmd represents the BanUser command
+var BanUserCmd = &cobra.Command{
+	Use:   "banUser",
+	Short: "Ban user",
+	Long:  `Ban user`,
+	RunE: func(cmd *cobra.Command, args []string) error {
+		usersService := &iam.UsersService{
+			Client:          iam.NewIamClient(&repository.ConfigRepositoryImpl{}),
+			TokenRepository: &repository.TokenRepositoryImpl{},
+		}
+		bodyString := cmd.Flag("body").Value.String()
+		var body *iamclientmodels.ModelBanCreateRequest
+		errBody := json.Unmarshal([]byte(bodyString), &body)
+		if errBody != nil {
+			return errBody
+		}
+		namespace, _ := cmd.Flags().GetString("namespace")
+		userId, _ := cmd.Flags().GetString("userId")
+		input := &users.BanUserParams{
+			Body:      body,
+			Namespace: namespace,
+			UserID:    userId,
+		}
+		created, errCreated := usersService.BanUserShort(input)
+		if errCreated != nil {
+			logrus.Error(errCreated)
+
+			return errCreated
+		}
+
+		logrus.Infof("Response CLI success: %+v", created)
+
+		return nil
+	},
+}
+
+func init() {
+	BanUserCmd.Flags().String("body", "", "Body")
+	_ = BanUserCmd.MarkFlagRequired("body")
+	BanUserCmd.Flags().String("namespace", "", "Namespace")
+	_ = BanUserCmd.MarkFlagRequired("namespace")
+	BanUserCmd.Flags().String("userId", "", "User id")
+	_ = BanUserCmd.MarkFlagRequired("userId")
+}

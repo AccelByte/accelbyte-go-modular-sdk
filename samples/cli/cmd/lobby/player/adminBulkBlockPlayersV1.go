@@ -1,0 +1,63 @@
+// Copyright (c) 2021 AccelByte Inc. All Rights Reserved.
+// This is licensed software from AccelByte Inc, for limitations
+// and restrictions contact your company contract manager.
+
+// Code generated. DO NOT EDIT.
+
+package player
+
+import (
+	"encoding/json"
+
+	lobby "github.com/AccelByte/accelbyte-go-sdk/lobby-sdk/pkg"
+	"github.com/AccelByte/accelbyte-go-sdk/lobby-sdk/pkg/lobbyclient/player"
+	"github.com/AccelByte/accelbyte-go-sdk/lobby-sdk/pkg/lobbyclientmodels"
+	"github.com/AccelByte/sample-apps/pkg/repository"
+	"github.com/sirupsen/logrus"
+	"github.com/spf13/cobra"
+)
+
+// AdminBulkBlockPlayersV1Cmd represents the AdminBulkBlockPlayersV1 command
+var AdminBulkBlockPlayersV1Cmd = &cobra.Command{
+	Use:   "adminBulkBlockPlayersV1",
+	Short: "Admin bulk block players V1",
+	Long:  `Admin bulk block players V1`,
+	RunE: func(cmd *cobra.Command, args []string) error {
+		playerService := &lobby.PlayerService{
+			Client:          lobby.NewLobbyClient(&repository.ConfigRepositoryImpl{}),
+			TokenRepository: &repository.TokenRepositoryImpl{},
+		}
+		bodyString := cmd.Flag("body").Value.String()
+		var body *lobbyclientmodels.ModelsListBlockedPlayerRequest
+		errBody := json.Unmarshal([]byte(bodyString), &body)
+		if errBody != nil {
+			return errBody
+		}
+		namespace, _ := cmd.Flags().GetString("namespace")
+		userId, _ := cmd.Flags().GetString("userId")
+		input := &player.AdminBulkBlockPlayersV1Params{
+			Body:      body,
+			Namespace: namespace,
+			UserID:    userId,
+		}
+		errNoContent := playerService.AdminBulkBlockPlayersV1Short(input)
+		if errNoContent != nil {
+			logrus.Error(errNoContent)
+
+			return errNoContent
+		}
+
+		logrus.Infof("Response CLI success.")
+
+		return nil
+	},
+}
+
+func init() {
+	AdminBulkBlockPlayersV1Cmd.Flags().String("body", "", "Body")
+	_ = AdminBulkBlockPlayersV1Cmd.MarkFlagRequired("body")
+	AdminBulkBlockPlayersV1Cmd.Flags().String("namespace", "", "Namespace")
+	_ = AdminBulkBlockPlayersV1Cmd.MarkFlagRequired("namespace")
+	AdminBulkBlockPlayersV1Cmd.Flags().String("userId", "", "User id")
+	_ = AdminBulkBlockPlayersV1Cmd.MarkFlagRequired("userId")
+}

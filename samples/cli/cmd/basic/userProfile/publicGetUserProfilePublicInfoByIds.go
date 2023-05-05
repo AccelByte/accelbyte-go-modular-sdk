@@ -1,0 +1,51 @@
+// Copyright (c) 2021 AccelByte Inc. All Rights Reserved.
+// This is licensed software from AccelByte Inc, for limitations
+// and restrictions contact your company contract manager.
+
+// Code generated. DO NOT EDIT.
+
+package userProfile
+
+import (
+	basic "github.com/AccelByte/accelbyte-go-sdk/basic-sdk/pkg"
+	"github.com/AccelByte/accelbyte-go-sdk/basic-sdk/pkg/basicclient/user_profile"
+	"github.com/AccelByte/sample-apps/pkg/repository"
+	"github.com/sirupsen/logrus"
+	"github.com/spf13/cobra"
+)
+
+// PublicGetUserProfilePublicInfoByIdsCmd represents the PublicGetUserProfilePublicInfoByIds command
+var PublicGetUserProfilePublicInfoByIdsCmd = &cobra.Command{
+	Use:   "publicGetUserProfilePublicInfoByIds",
+	Short: "Public get user profile public info by ids",
+	Long:  `Public get user profile public info by ids`,
+	RunE: func(cmd *cobra.Command, args []string) error {
+		userProfileService := &basic.UserProfileService{
+			Client:          basic.NewBasicClient(&repository.ConfigRepositoryImpl{}),
+			TokenRepository: &repository.TokenRepositoryImpl{},
+		}
+		namespace, _ := cmd.Flags().GetString("namespace")
+		userIds, _ := cmd.Flags().GetString("userIds")
+		input := &user_profile.PublicGetUserProfilePublicInfoByIdsParams{
+			Namespace: namespace,
+			UserIds:   userIds,
+		}
+		ok, errOK := userProfileService.PublicGetUserProfilePublicInfoByIdsShort(input)
+		if errOK != nil {
+			logrus.Error(errOK)
+
+			return errOK
+		}
+
+		logrus.Infof("Response CLI success: %+v", ok)
+
+		return nil
+	},
+}
+
+func init() {
+	PublicGetUserProfilePublicInfoByIdsCmd.Flags().String("namespace", "", "Namespace")
+	_ = PublicGetUserProfilePublicInfoByIdsCmd.MarkFlagRequired("namespace")
+	PublicGetUserProfilePublicInfoByIdsCmd.Flags().String("userIds", "", "User ids")
+	_ = PublicGetUserProfilePublicInfoByIdsCmd.MarkFlagRequired("userIds")
+}
