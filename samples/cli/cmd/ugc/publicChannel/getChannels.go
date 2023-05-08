@@ -7,8 +7,8 @@
 package publicChannel
 
 import (
-	ugc "github.com/AccelByte/accelbyte-go-sdk/ugc-sdk/pkg"
-	"github.com/AccelByte/accelbyte-go-sdk/ugc-sdk/pkg/ugcclient/public_channel"
+	ugc "github.com/AccelByte/accelbyte-go-modular-sdk/ugc-sdk/pkg"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/ugc-sdk/pkg/ugcclient/public_channel"
 	"github.com/AccelByte/sample-apps/pkg/repository"
 	"github.com/sirupsen/logrus"
 	"github.com/spf13/cobra"

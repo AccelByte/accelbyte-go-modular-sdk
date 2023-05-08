@@ -1,60 +1,60 @@
-module github.com/AccelByte/accelbyte-go-sdk/services-api/pkg/factory
+module github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/factory
 
 go 1.18
 
 // for development only (not propagated)
 replace (
-	github.com/AccelByte/accelbyte-go-sdk/services-api => ../../../services-api
-	github.com/AccelByte/accelbyte-go-sdk/achievement-sdk => ../../../achievement-sdk
-	github.com/AccelByte/accelbyte-go-sdk/basic-sdk => ../../../basic-sdk
-	github.com/AccelByte/accelbyte-go-sdk/cloudsave-sdk => ../../../cloudsave-sdk
-	github.com/AccelByte/accelbyte-go-sdk/dslogmanager-sdk => ../../../dslogmanager-sdk
-	github.com/AccelByte/accelbyte-go-sdk/dsmc-sdk => ../../../dsmc-sdk
-	github.com/AccelByte/accelbyte-go-sdk/eventlog-sdk => ../../../eventlog-sdk
-	github.com/AccelByte/accelbyte-go-sdk/gametelemetry-sdk => ../../../gametelemetry-sdk
-	github.com/AccelByte/accelbyte-go-sdk/gdpr-sdk => ../../../gdpr-sdk
-	github.com/AccelByte/accelbyte-go-sdk/group-sdk => ../../../group-sdk
-	github.com/AccelByte/accelbyte-go-sdk/iam-sdk => ../../../iam-sdk
-	github.com/AccelByte/accelbyte-go-sdk/leaderboard-sdk => ../../../leaderboard-sdk
-	github.com/AccelByte/accelbyte-go-sdk/legal-sdk => ../../../legal-sdk
-	github.com/AccelByte/accelbyte-go-sdk/lobby-sdk => ../../../lobby-sdk
-	github.com/AccelByte/accelbyte-go-sdk/match2-sdk => ../../../match2-sdk
-	github.com/AccelByte/accelbyte-go-sdk/matchmaking-sdk => ../../../matchmaking-sdk
-	github.com/AccelByte/accelbyte-go-sdk/platform-sdk => ../../../platform-sdk
-	github.com/AccelByte/accelbyte-go-sdk/qosm-sdk => ../../../qosm-sdk
-	github.com/AccelByte/accelbyte-go-sdk/reporting-sdk => ../../../reporting-sdk
-	github.com/AccelByte/accelbyte-go-sdk/seasonpass-sdk => ../../../seasonpass-sdk
-	github.com/AccelByte/accelbyte-go-sdk/session-sdk => ../../../session-sdk
-	github.com/AccelByte/accelbyte-go-sdk/sessionbrowser-sdk => ../../../sessionbrowser-sdk
-	github.com/AccelByte/accelbyte-go-sdk/social-sdk => ../../../social-sdk
-	github.com/AccelByte/accelbyte-go-sdk/ugc-sdk => ../../../ugc-sdk
+	github.com/AccelByte/accelbyte-go-modular-sdk/services-api => ../../../services-api
+	github.com/AccelByte/accelbyte-go-modular-sdk/achievement-sdk => ../../../achievement-sdk
+	github.com/AccelByte/accelbyte-go-modular-sdk/basic-sdk => ../../../basic-sdk
+	github.com/AccelByte/accelbyte-go-modular-sdk/cloudsave-sdk => ../../../cloudsave-sdk
+	github.com/AccelByte/accelbyte-go-modular-sdk/dslogmanager-sdk => ../../../dslogmanager-sdk
+	github.com/AccelByte/accelbyte-go-modular-sdk/dsmc-sdk => ../../../dsmc-sdk
+	github.com/AccelByte/accelbyte-go-modular-sdk/eventlog-sdk => ../../../eventlog-sdk
+	github.com/AccelByte/accelbyte-go-modular-sdk/gametelemetry-sdk => ../../../gametelemetry-sdk
+	github.com/AccelByte/accelbyte-go-modular-sdk/gdpr-sdk => ../../../gdpr-sdk
+	github.com/AccelByte/accelbyte-go-modular-sdk/group-sdk => ../../../group-sdk
+	github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk => ../../../iam-sdk
+	github.com/AccelByte/accelbyte-go-modular-sdk/leaderboard-sdk => ../../../leaderboard-sdk
+	github.com/AccelByte/accelbyte-go-modular-sdk/legal-sdk => ../../../legal-sdk
+	github.com/AccelByte/accelbyte-go-modular-sdk/lobby-sdk => ../../../lobby-sdk
+	github.com/AccelByte/accelbyte-go-modular-sdk/match2-sdk => ../../../match2-sdk
+	github.com/AccelByte/accelbyte-go-modular-sdk/matchmaking-sdk => ../../../matchmaking-sdk
+	github.com/AccelByte/accelbyte-go-modular-sdk/platform-sdk => ../../../platform-sdk
+	github.com/AccelByte/accelbyte-go-modular-sdk/qosm-sdk => ../../../qosm-sdk
+	github.com/AccelByte/accelbyte-go-modular-sdk/reporting-sdk => ../../../reporting-sdk
+	github.com/AccelByte/accelbyte-go-modular-sdk/seasonpass-sdk => ../../../seasonpass-sdk
+	github.com/AccelByte/accelbyte-go-modular-sdk/session-sdk => ../../../session-sdk
+	github.com/AccelByte/accelbyte-go-modular-sdk/sessionbrowser-sdk => ../../../sessionbrowser-sdk
+	github.com/AccelByte/accelbyte-go-modular-sdk/social-sdk => ../../../social-sdk
+	github.com/AccelByte/accelbyte-go-modular-sdk/ugc-sdk => ../../../ugc-sdk
 )
 
 require (
-	github.com/AccelByte/accelbyte-go-sdk/services-api v0.1.0
-	github.com/AccelByte/accelbyte-go-sdk/achievement-sdk v0.1.0
-	github.com/AccelByte/accelbyte-go-sdk/basic-sdk v0.1.0
-	github.com/AccelByte/accelbyte-go-sdk/cloudsave-sdk v0.1.0
-	github.com/AccelByte/accelbyte-go-sdk/dslogmanager-sdk v0.1.0
-	github.com/AccelByte/accelbyte-go-sdk/dsmc-sdk v0.1.0
-	github.com/AccelByte/accelbyte-go-sdk/eventlog-sdk v0.1.0
-	github.com/AccelByte/accelbyte-go-sdk/gametelemetry-sdk v0.1.0
-	github.com/AccelByte/accelbyte-go-sdk/gdpr-sdk v0.1.0
-	github.com/AccelByte/accelbyte-go-sdk/group-sdk v0.1.0
-	github.com/AccelByte/accelbyte-go-sdk/iam-sdk v0.1.0
-	github.com/AccelByte/accelbyte-go-sdk/leaderboard-sdk v0.1.0
-	github.com/AccelByte/accelbyte-go-sdk/legal-sdk v0.1.0
-	github.com/AccelByte/accelbyte-go-sdk/lobby-sdk v0.1.0
-	github.com/AccelByte/accelbyte-go-sdk/match2-sdk v0.1.0
-	github.com/AccelByte/accelbyte-go-sdk/matchmaking-sdk v0.1.0
-	github.com/AccelByte/accelbyte-go-sdk/platform-sdk v0.1.0
-	github.com/AccelByte/accelbyte-go-sdk/qosm-sdk v0.1.0
-	github.com/AccelByte/accelbyte-go-sdk/reporting-sdk v0.1.0
-	github.com/AccelByte/accelbyte-go-sdk/seasonpass-sdk v0.1.0
-	github.com/AccelByte/accelbyte-go-sdk/session-sdk v0.1.0
-	github.com/AccelByte/accelbyte-go-sdk/sessionbrowser-sdk v0.1.0
-	github.com/AccelByte/accelbyte-go-sdk/social-sdk v0.1.0
-	github.com/AccelByte/accelbyte-go-sdk/ugc-sdk v0.1.0
+	github.com/AccelByte/accelbyte-go-modular-sdk/services-api v0.1.0
+	github.com/AccelByte/accelbyte-go-modular-sdk/achievement-sdk v0.1.0
+	github.com/AccelByte/accelbyte-go-modular-sdk/basic-sdk v0.1.0
+	github.com/AccelByte/accelbyte-go-modular-sdk/cloudsave-sdk v0.1.0
+	github.com/AccelByte/accelbyte-go-modular-sdk/dslogmanager-sdk v0.1.0
+	github.com/AccelByte/accelbyte-go-modular-sdk/dsmc-sdk v0.1.0
+	github.com/AccelByte/accelbyte-go-modular-sdk/eventlog-sdk v0.1.0
+	github.com/AccelByte/accelbyte-go-modular-sdk/gametelemetry-sdk v0.1.0
+	github.com/AccelByte/accelbyte-go-modular-sdk/gdpr-sdk v0.1.0
+	github.com/AccelByte/accelbyte-go-modular-sdk/group-sdk v0.1.0
+	github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk v0.1.0
+	github.com/AccelByte/accelbyte-go-modular-sdk/leaderboard-sdk v0.1.0
+	github.com/AccelByte/accelbyte-go-modular-sdk/legal-sdk v0.1.0
+	github.com/AccelByte/accelbyte-go-modular-sdk/lobby-sdk v0.1.0
+	github.com/AccelByte/accelbyte-go-modular-sdk/match2-sdk v0.1.0
+	github.com/AccelByte/accelbyte-go-modular-sdk/matchmaking-sdk v0.1.0
+	github.com/AccelByte/accelbyte-go-modular-sdk/platform-sdk v0.1.0
+	github.com/AccelByte/accelbyte-go-modular-sdk/qosm-sdk v0.1.0
+	github.com/AccelByte/accelbyte-go-modular-sdk/reporting-sdk v0.1.0
+	github.com/AccelByte/accelbyte-go-modular-sdk/seasonpass-sdk v0.1.0
+	github.com/AccelByte/accelbyte-go-modular-sdk/session-sdk v0.1.0
+	github.com/AccelByte/accelbyte-go-modular-sdk/sessionbrowser-sdk v0.1.0
+	github.com/AccelByte/accelbyte-go-modular-sdk/social-sdk v0.1.0
+	github.com/AccelByte/accelbyte-go-modular-sdk/ugc-sdk v0.1.0
 )
 
 require (

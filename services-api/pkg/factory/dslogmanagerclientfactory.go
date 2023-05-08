@@ -11,15 +11,15 @@ package factory
 import (
 	"strings"
 
-	dslogmanager "github.com/AccelByte/accelbyte-go-sdk/dslogmanager-sdk/pkg"
-	"github.com/AccelByte/accelbyte-go-sdk/dslogmanager-sdk/pkg/dslogmanagerclient"
-	"github.com/AccelByte/accelbyte-go-sdk/services-api/pkg/repository"
+	dslogmanager "github.com/AccelByte/accelbyte-go-modular-sdk/dslogmanager-sdk/pkg"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/dslogmanager-sdk/pkg/dslogmanagerclient"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 )
 
 var dslogmanagerClientInstance *dslogmanagerclient.JusticeDslogmanagerService
 
 // NewDslogmanagerClient
-// Deprecated: please use NewDslogmanagerClient from "github.com/AccelByte/accelbyte-go-sdk/Dslogmanager-sdk/pkg"
+// Deprecated: please use NewDslogmanagerClient from "github.com/AccelByte/accelbyte-go-modular-sdk/Dslogmanager-sdk/pkg"
 func NewDslogmanagerClient(configRepository repository.ConfigRepository) *dslogmanagerclient.JusticeDslogmanagerService {
 	if dslogmanagerClientInstance == nil {
 		baseURL := configRepository.GetJusticeBaseUrl()

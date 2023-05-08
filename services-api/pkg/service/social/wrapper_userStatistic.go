@@ -7,17 +7,17 @@
 package social
 
 import (
-	"github.com/AccelByte/accelbyte-go-sdk/services-api/pkg/repository"
-	"github.com/AccelByte/accelbyte-go-sdk/services-api/pkg/utils"
-	"github.com/AccelByte/accelbyte-go-sdk/services-api/pkg/utils/auth"
-	"github.com/AccelByte/accelbyte-go-sdk/social-sdk/pkg/socialclient"
-	"github.com/AccelByte/accelbyte-go-sdk/social-sdk/pkg/socialclient/user_statistic"
-	"github.com/AccelByte/accelbyte-go-sdk/social-sdk/pkg/socialclientmodels"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils/auth"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/social-sdk/pkg/socialclient"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/social-sdk/pkg/socialclient/user_statistic"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/social-sdk/pkg/socialclientmodels"
 	"github.com/go-openapi/runtime/client"
 )
 
 // UserStatisticService this is use for compatibility with latest modular sdk only
-// Deprecated: please use UserStatisticService imported from "github.com/AccelByte/accelbyte-go-sdk/social-sdk/pkg"
+// Deprecated: please use UserStatisticService imported from "github.com/AccelByte/accelbyte-go-modular-sdk/social-sdk/pkg"
 type UserStatisticService struct {
 	Client                 *socialclient.JusticeSocialService
 	ConfigRepository       repository.ConfigRepository

@@ -10,8 +10,8 @@ import (
 	"bytes"
 	"os"
 
-	platform "github.com/AccelByte/accelbyte-go-sdk/platform-sdk/pkg"
-	"github.com/AccelByte/accelbyte-go-sdk/platform-sdk/pkg/platformclient/store"
+	platform "github.com/AccelByte/accelbyte-go-modular-sdk/platform-sdk/pkg"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/platform-sdk/pkg/platformclient/store"
 	"github.com/AccelByte/sample-apps/pkg/repository"
 	"github.com/sirupsen/logrus"
 	"github.com/spf13/cobra"

@@ -11,15 +11,15 @@ package factory
 import (
 	"strings"
 
-	seasonpass "github.com/AccelByte/accelbyte-go-sdk/seasonpass-sdk/pkg"
-	"github.com/AccelByte/accelbyte-go-sdk/seasonpass-sdk/pkg/seasonpassclient"
-	"github.com/AccelByte/accelbyte-go-sdk/services-api/pkg/repository"
+	seasonpass "github.com/AccelByte/accelbyte-go-modular-sdk/seasonpass-sdk/pkg"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/seasonpass-sdk/pkg/seasonpassclient"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 )
 
 var seasonpassClientInstance *seasonpassclient.JusticeSeasonpassService
 
 // NewSeasonpassClient
-// Deprecated: please use NewSeasonpassClient from "github.com/AccelByte/accelbyte-go-sdk/Seasonpass-sdk/pkg"
+// Deprecated: please use NewSeasonpassClient from "github.com/AccelByte/accelbyte-go-modular-sdk/Seasonpass-sdk/pkg"
 func NewSeasonpassClient(configRepository repository.ConfigRepository) *seasonpassclient.JusticeSeasonpassService {
 	if seasonpassClientInstance == nil {
 		baseURL := configRepository.GetJusticeBaseUrl()

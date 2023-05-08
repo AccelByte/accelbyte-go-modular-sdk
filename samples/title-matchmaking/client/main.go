@@ -16,11 +16,11 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/AccelByte/accelbyte-go-sdk/services-api/pkg/factory"
-	"github.com/AccelByte/accelbyte-go-sdk/services-api/pkg/model"
-	"github.com/AccelByte/accelbyte-go-sdk/services-api/pkg/service"
-	"github.com/AccelByte/accelbyte-go-sdk/services-api/pkg/utils/connectionutils"
-	"github.com/AccelByte/accelbyte-go-sdk/services-api/pkg/utils/parser"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/factory"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/model"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/service"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils/connectionutils"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils/parser"
 	"github.com/sirupsen/logrus"
 
 	"github.com/AccelByte/sample-apps/pkg/repository"

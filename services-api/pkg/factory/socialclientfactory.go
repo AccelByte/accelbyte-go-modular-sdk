@@ -11,15 +11,15 @@ package factory
 import (
 	"strings"
 
-	"github.com/AccelByte/accelbyte-go-sdk/services-api/pkg/repository"
-	social "github.com/AccelByte/accelbyte-go-sdk/social-sdk/pkg"
-	"github.com/AccelByte/accelbyte-go-sdk/social-sdk/pkg/socialclient"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
+	social "github.com/AccelByte/accelbyte-go-modular-sdk/social-sdk/pkg"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/social-sdk/pkg/socialclient"
 )
 
 var socialClientInstance *socialclient.JusticeSocialService
 
 // NewSocialClient
-// Deprecated: please use NewSocialClient from "github.com/AccelByte/accelbyte-go-sdk/Social-sdk/pkg"
+// Deprecated: please use NewSocialClient from "github.com/AccelByte/accelbyte-go-modular-sdk/Social-sdk/pkg"
 func NewSocialClient(configRepository repository.ConfigRepository) *socialclient.JusticeSocialService {
 	if socialClientInstance == nil {
 		baseURL := configRepository.GetJusticeBaseUrl()

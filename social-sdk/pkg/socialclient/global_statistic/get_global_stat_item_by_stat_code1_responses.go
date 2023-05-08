@@ -19,7 +19,7 @@ import (
 	"github.com/go-openapi/runtime"
 	"github.com/go-openapi/strfmt"
 
-	"github.com/AccelByte/accelbyte-go-sdk/social-sdk/pkg/socialclientmodels"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/social-sdk/pkg/socialclientmodels"
 )
 
 // GetGlobalStatItemByStatCode1Reader is a Reader for the GetGlobalStatItemByStatCode1 structure.

@@ -11,15 +11,15 @@ package factory
 import (
 	"strings"
 
-	"github.com/AccelByte/accelbyte-go-sdk/services-api/pkg/repository"
-	sessionbrowser "github.com/AccelByte/accelbyte-go-sdk/sessionbrowser-sdk/pkg"
-	"github.com/AccelByte/accelbyte-go-sdk/sessionbrowser-sdk/pkg/sessionbrowserclient"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
+	sessionbrowser "github.com/AccelByte/accelbyte-go-modular-sdk/sessionbrowser-sdk/pkg"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/sessionbrowser-sdk/pkg/sessionbrowserclient"
 )
 
 var sessionbrowserClientInstance *sessionbrowserclient.JusticeSessionbrowserService
 
 // NewSessionbrowserClient
-// Deprecated: please use NewSessionbrowserClient from "github.com/AccelByte/accelbyte-go-sdk/Sessionbrowser-sdk/pkg"
+// Deprecated: please use NewSessionbrowserClient from "github.com/AccelByte/accelbyte-go-modular-sdk/Sessionbrowser-sdk/pkg"
 func NewSessionbrowserClient(configRepository repository.ConfigRepository) *sessionbrowserclient.JusticeSessionbrowserService {
 	if sessionbrowserClientInstance == nil {
 		baseURL := configRepository.GetJusticeBaseUrl()

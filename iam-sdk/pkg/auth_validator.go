@@ -18,9 +18,9 @@ import (
 	"github.com/AccelByte/bloom"
 	"github.com/AccelByte/go-jose/jwt"
 
-	"github.com/AccelByte/accelbyte-go-sdk/iam-sdk/pkg/iamclient/o_auth2_0"
-	"github.com/AccelByte/accelbyte-go-sdk/iam-sdk/pkg/iamclient/roles"
-	"github.com/AccelByte/accelbyte-go-sdk/iam-sdk/pkg/iamclientmodels"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/o_auth2_0"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/roles"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclientmodels"
 )
 
 type AuthTokenValidator interface {

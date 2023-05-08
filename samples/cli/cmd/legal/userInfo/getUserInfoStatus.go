@@ -7,8 +7,8 @@
 package userInfo
 
 import (
-	legal "github.com/AccelByte/accelbyte-go-sdk/legal-sdk/pkg"
-	"github.com/AccelByte/accelbyte-go-sdk/legal-sdk/pkg/legalclient/user_info"
+	legal "github.com/AccelByte/accelbyte-go-modular-sdk/legal-sdk/pkg"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/legal-sdk/pkg/legalclient/user_info"
 	"github.com/AccelByte/sample-apps/pkg/repository"
 	"github.com/sirupsen/logrus"
 	"github.com/spf13/cobra"

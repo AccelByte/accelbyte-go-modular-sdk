@@ -3,7 +3,7 @@ module github.com/AccelByte/sample-apps
 go 1.18
 
 require (
-	github.com/AccelByte/accelbyte-go-sdk v0.3.0
+	github.com/AccelByte/accelbyte-go-modular-sdk v0.3.0
 	github.com/sirupsen/logrus v1.8.1
 )
 
@@ -37,4 +37,4 @@ require (
 	gopkg.in/yaml.v2 v2.4.0 // indirect
 )
 
-exclude github.com/AccelByte/accelbyte-go-sdk v1.0.0
+exclude github.com/AccelByte/accelbyte-go-modular-sdk v1.0.0

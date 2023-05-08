@@ -9,8 +9,8 @@ package achievement
 import (
 	"strings"
 
-	"github.com/AccelByte/accelbyte-go-sdk/achievement-sdk/pkg/achievementclient"
-	"github.com/AccelByte/accelbyte-go-sdk/services-api/pkg/repository"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/achievement-sdk/pkg/achievementclient"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 )
 
 var achievementClientInstance *achievementclient.JusticeAchievementService

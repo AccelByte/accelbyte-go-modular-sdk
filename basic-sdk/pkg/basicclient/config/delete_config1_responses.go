@@ -19,7 +19,7 @@ import (
 	"github.com/go-openapi/runtime"
 	"github.com/go-openapi/strfmt"
 
-	"github.com/AccelByte/accelbyte-go-sdk/basic-sdk/pkg/basicclientmodels"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/basic-sdk/pkg/basicclientmodels"
 )
 
 // DeleteConfig1Reader is a Reader for the DeleteConfig1 structure.

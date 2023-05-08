@@ -7,8 +7,8 @@
 package slotConfig
 
 import (
-	social "github.com/AccelByte/accelbyte-go-sdk/social-sdk/pkg"
-	"github.com/AccelByte/accelbyte-go-sdk/social-sdk/pkg/socialclient/slot_config"
+	social "github.com/AccelByte/accelbyte-go-modular-sdk/social-sdk/pkg"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/social-sdk/pkg/socialclient/slot_config"
 	"github.com/AccelByte/sample-apps/pkg/repository"
 	"github.com/sirupsen/logrus"
 	"github.com/spf13/cobra"

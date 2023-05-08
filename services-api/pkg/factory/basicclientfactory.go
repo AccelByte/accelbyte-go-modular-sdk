@@ -11,15 +11,15 @@ package factory
 import (
 	"strings"
 
-	basic "github.com/AccelByte/accelbyte-go-sdk/basic-sdk/pkg"
-	"github.com/AccelByte/accelbyte-go-sdk/basic-sdk/pkg/basicclient"
-	"github.com/AccelByte/accelbyte-go-sdk/services-api/pkg/repository"
+	basic "github.com/AccelByte/accelbyte-go-modular-sdk/basic-sdk/pkg"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/basic-sdk/pkg/basicclient"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 )
 
 var basicClientInstance *basicclient.JusticeBasicService
 
 // NewBasicClient
-// Deprecated: please use NewBasicClient from "github.com/AccelByte/accelbyte-go-sdk/Basic-sdk/pkg"
+// Deprecated: please use NewBasicClient from "github.com/AccelByte/accelbyte-go-modular-sdk/Basic-sdk/pkg"
 func NewBasicClient(configRepository repository.ConfigRepository) *basicclient.JusticeBasicService {
 	if basicClientInstance == nil {
 		baseURL := configRepository.GetJusticeBaseUrl()

@@ -11,15 +11,15 @@ package factory
 import (
 	"strings"
 
-	cloudsave "github.com/AccelByte/accelbyte-go-sdk/cloudsave-sdk/pkg"
-	"github.com/AccelByte/accelbyte-go-sdk/cloudsave-sdk/pkg/cloudsaveclient"
-	"github.com/AccelByte/accelbyte-go-sdk/services-api/pkg/repository"
+	cloudsave "github.com/AccelByte/accelbyte-go-modular-sdk/cloudsave-sdk/pkg"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/cloudsave-sdk/pkg/cloudsaveclient"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 )
 
 var cloudsaveClientInstance *cloudsaveclient.JusticeCloudsaveService
 
 // NewCloudsaveClient
-// Deprecated: please use NewCloudsaveClient from "github.com/AccelByte/accelbyte-go-sdk/Cloudsave-sdk/pkg"
+// Deprecated: please use NewCloudsaveClient from "github.com/AccelByte/accelbyte-go-modular-sdk/Cloudsave-sdk/pkg"
 func NewCloudsaveClient(configRepository repository.ConfigRepository) *cloudsaveclient.JusticeCloudsaveService {
 	if cloudsaveClientInstance == nil {
 		baseURL := configRepository.GetJusticeBaseUrl()

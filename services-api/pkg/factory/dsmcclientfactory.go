@@ -11,15 +11,15 @@ package factory
 import (
 	"strings"
 
-	dsmc "github.com/AccelByte/accelbyte-go-sdk/dsmc-sdk/pkg"
-	"github.com/AccelByte/accelbyte-go-sdk/dsmc-sdk/pkg/dsmcclient"
-	"github.com/AccelByte/accelbyte-go-sdk/services-api/pkg/repository"
+	dsmc "github.com/AccelByte/accelbyte-go-modular-sdk/dsmc-sdk/pkg"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/dsmc-sdk/pkg/dsmcclient"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 )
 
 var dsmcClientInstance *dsmcclient.JusticeDsmcService
 
 // NewDsmcClient
-// Deprecated: please use NewDsmcClient from "github.com/AccelByte/accelbyte-go-sdk/Dsmc-sdk/pkg"
+// Deprecated: please use NewDsmcClient from "github.com/AccelByte/accelbyte-go-modular-sdk/Dsmc-sdk/pkg"
 func NewDsmcClient(configRepository repository.ConfigRepository) *dsmcclient.JusticeDsmcService {
 	if dsmcClientInstance == nil {
 		baseURL := configRepository.GetJusticeBaseUrl()

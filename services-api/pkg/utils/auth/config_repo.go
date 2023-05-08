@@ -7,7 +7,7 @@ package auth
 import (
 	"os"
 
-	"github.com/AccelByte/accelbyte-go-sdk/services-api/pkg/constant"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/constant"
 )
 
 type ConfigRepositoryImpl struct {

@@ -3,7 +3,7 @@ module main
 go 1.18
 
 require (
-	github.com/AccelByte/accelbyte-go-sdk v0.37.0
+	github.com/AccelByte/accelbyte-go-modular-sdk v0.37.0
 	github.com/aws/aws-lambda-go v1.37.0
 	github.com/sirupsen/logrus v1.8.1
 )

@@ -7,8 +7,8 @@
 package policyVersions
 
 import (
-	legal "github.com/AccelByte/accelbyte-go-sdk/legal-sdk/pkg"
-	"github.com/AccelByte/accelbyte-go-sdk/legal-sdk/pkg/legalclient/policy_versions"
+	legal "github.com/AccelByte/accelbyte-go-modular-sdk/legal-sdk/pkg"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/legal-sdk/pkg/legalclient/policy_versions"
 	"github.com/AccelByte/sample-apps/pkg/repository"
 	"github.com/sirupsen/logrus"
 	"github.com/spf13/cobra"

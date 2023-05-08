@@ -1,16 +1,16 @@
-module github.com/AccelByte/accelbyte-go-sdk/services-api/pkg/service/iam
+module github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/service/iam
 
 go 1.18
 
 // for development only (not propagated)
 replace (
-	github.com/AccelByte/accelbyte-go-sdk/iam-sdk => ../../../../iam-sdk // required: included by services-api
-	github.com/AccelByte/accelbyte-go-sdk/services-api => ../../../../services-api
+	github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk => ../../../../iam-sdk // required: included by services-api
+	github.com/AccelByte/accelbyte-go-modular-sdk/services-api => ../../../../services-api
 )
 
 require (
-	github.com/AccelByte/accelbyte-go-sdk/iam-sdk v0.1.0
-	github.com/AccelByte/accelbyte-go-sdk/services-api v0.1.0
+	github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk v0.1.0
+	github.com/AccelByte/accelbyte-go-modular-sdk/services-api v0.1.0
 	github.com/go-openapi/runtime v0.19.29
 	github.com/sirupsen/logrus v1.9.0
 )

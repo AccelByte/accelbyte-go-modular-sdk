@@ -11,15 +11,15 @@ package factory
 import (
 	"strings"
 
-	matchmaking "github.com/AccelByte/accelbyte-go-sdk/matchmaking-sdk/pkg"
-	"github.com/AccelByte/accelbyte-go-sdk/matchmaking-sdk/pkg/matchmakingclient"
-	"github.com/AccelByte/accelbyte-go-sdk/services-api/pkg/repository"
+	matchmaking "github.com/AccelByte/accelbyte-go-modular-sdk/matchmaking-sdk/pkg"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/matchmaking-sdk/pkg/matchmakingclient"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 )
 
 var matchmakingClientInstance *matchmakingclient.JusticeMatchmakingService
 
 // NewMatchmakingClient
-// Deprecated: please use NewMatchmakingClient from "github.com/AccelByte/accelbyte-go-sdk/Matchmaking-sdk/pkg"
+// Deprecated: please use NewMatchmakingClient from "github.com/AccelByte/accelbyte-go-modular-sdk/Matchmaking-sdk/pkg"
 func NewMatchmakingClient(configRepository repository.ConfigRepository) *matchmakingclient.JusticeMatchmakingService {
 	if matchmakingClientInstance == nil {
 		baseURL := configRepository.GetJusticeBaseUrl()

@@ -12,15 +12,15 @@ import (
 	"github.com/sirupsen/logrus"
 	"github.com/stretchr/testify/assert"
 
-	"github.com/AccelByte/accelbyte-go-sdk/services-api/pkg/model"
-	"github.com/AccelByte/accelbyte-go-sdk/services-api/pkg/tests/integration"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/model"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/tests/integration"
 
-	"github.com/AccelByte/accelbyte-go-sdk/lobby-sdk/pkg"
-	service "github.com/AccelByte/accelbyte-go-sdk/lobby-sdk/pkg"
-	lobbyAdminNotification "github.com/AccelByte/accelbyte-go-sdk/lobby-sdk/pkg/lobbyclient/admin"
-	"github.com/AccelByte/accelbyte-go-sdk/lobby-sdk/pkg/lobbyclient/notification"
-	"github.com/AccelByte/accelbyte-go-sdk/lobby-sdk/pkg/lobbyclientmodels"
-	"github.com/AccelByte/accelbyte-go-sdk/services-api/pkg/utils/connectionutils"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/lobby-sdk/pkg"
+	service "github.com/AccelByte/accelbyte-go-modular-sdk/lobby-sdk/pkg"
+	lobbyAdminNotification "github.com/AccelByte/accelbyte-go-modular-sdk/lobby-sdk/pkg/lobbyclient/admin"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/lobby-sdk/pkg/lobbyclient/notification"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/lobby-sdk/pkg/lobbyclientmodels"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils/connectionutils"
 )
 
 var (

@@ -7,17 +7,17 @@
 package legal
 
 import (
-	"github.com/AccelByte/accelbyte-go-sdk/legal-sdk/pkg/legalclient"
-	"github.com/AccelByte/accelbyte-go-sdk/legal-sdk/pkg/legalclient/localized_policy_versions"
-	"github.com/AccelByte/accelbyte-go-sdk/legal-sdk/pkg/legalclientmodels"
-	"github.com/AccelByte/accelbyte-go-sdk/services-api/pkg/repository"
-	"github.com/AccelByte/accelbyte-go-sdk/services-api/pkg/utils"
-	"github.com/AccelByte/accelbyte-go-sdk/services-api/pkg/utils/auth"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/legal-sdk/pkg/legalclient"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/legal-sdk/pkg/legalclient/localized_policy_versions"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/legal-sdk/pkg/legalclientmodels"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils/auth"
 	"github.com/go-openapi/runtime/client"
 )
 
 // LocalizedPolicyVersionsService this is use for compatibility with latest modular sdk only
-// Deprecated: please use LocalizedPolicyVersionsService imported from "github.com/AccelByte/accelbyte-go-sdk/legal-sdk/pkg"
+// Deprecated: please use LocalizedPolicyVersionsService imported from "github.com/AccelByte/accelbyte-go-modular-sdk/legal-sdk/pkg"
 type LocalizedPolicyVersionsService struct {
 	Client                 *legalclient.JusticeLegalService
 	ConfigRepository       repository.ConfigRepository

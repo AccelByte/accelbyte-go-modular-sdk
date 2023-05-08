@@ -7,17 +7,17 @@
 package achievement
 
 import (
-	"github.com/AccelByte/accelbyte-go-sdk/achievement-sdk/pkg/achievementclient"
-	"github.com/AccelByte/accelbyte-go-sdk/achievement-sdk/pkg/achievementclient/global_achievements"
-	"github.com/AccelByte/accelbyte-go-sdk/achievement-sdk/pkg/achievementclientmodels"
-	"github.com/AccelByte/accelbyte-go-sdk/services-api/pkg/repository"
-	"github.com/AccelByte/accelbyte-go-sdk/services-api/pkg/utils"
-	"github.com/AccelByte/accelbyte-go-sdk/services-api/pkg/utils/auth"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/achievement-sdk/pkg/achievementclient"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/achievement-sdk/pkg/achievementclient/global_achievements"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/achievement-sdk/pkg/achievementclientmodels"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils/auth"
 	"github.com/go-openapi/runtime/client"
 )
 
 // GlobalAchievementsService this is use for compatibility with latest modular sdk only
-// Deprecated: please use GlobalAchievementsService imported from "github.com/AccelByte/accelbyte-go-sdk/achievement-sdk/pkg"
+// Deprecated: please use GlobalAchievementsService imported from "github.com/AccelByte/accelbyte-go-modular-sdk/achievement-sdk/pkg"
 type GlobalAchievementsService struct {
 	Client                 *achievementclient.JusticeAchievementService
 	ConfigRepository       repository.ConfigRepository

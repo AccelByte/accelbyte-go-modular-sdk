@@ -9,17 +9,17 @@ package platform
 import (
 	"io"
 
-	"github.com/AccelByte/accelbyte-go-sdk/platform-sdk/pkg/platformclient"
-	"github.com/AccelByte/accelbyte-go-sdk/platform-sdk/pkg/platformclient/reward"
-	"github.com/AccelByte/accelbyte-go-sdk/platform-sdk/pkg/platformclientmodels"
-	"github.com/AccelByte/accelbyte-go-sdk/services-api/pkg/repository"
-	"github.com/AccelByte/accelbyte-go-sdk/services-api/pkg/utils"
-	"github.com/AccelByte/accelbyte-go-sdk/services-api/pkg/utils/auth"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/platform-sdk/pkg/platformclient"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/platform-sdk/pkg/platformclient/reward"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/platform-sdk/pkg/platformclientmodels"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils/auth"
 	"github.com/go-openapi/runtime/client"
 )
 
 // RewardService this is use for compatibility with latest modular sdk only
-// Deprecated: please use RewardService imported from "github.com/AccelByte/accelbyte-go-sdk/platform-sdk/pkg"
+// Deprecated: please use RewardService imported from "github.com/AccelByte/accelbyte-go-modular-sdk/platform-sdk/pkg"
 type RewardService struct {
 	Client                 *platformclient.JusticePlatformService
 	ConfigRepository       repository.ConfigRepository

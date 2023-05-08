@@ -9,9 +9,9 @@ package matchFunctions
 import (
 	"encoding/json"
 
-	match2 "github.com/AccelByte/accelbyte-go-sdk/match2-sdk/pkg"
-	"github.com/AccelByte/accelbyte-go-sdk/match2-sdk/pkg/match2client/match_functions"
-	"github.com/AccelByte/accelbyte-go-sdk/match2-sdk/pkg/match2clientmodels"
+	match2 "github.com/AccelByte/accelbyte-go-modular-sdk/match2-sdk/pkg"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/match2-sdk/pkg/match2client/match_functions"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/match2-sdk/pkg/match2clientmodels"
 	"github.com/AccelByte/sample-apps/pkg/repository"
 	"github.com/sirupsen/logrus"
 	"github.com/spf13/cobra"

@@ -7,8 +7,8 @@
 package tags
 
 import (
-	achievement "github.com/AccelByte/accelbyte-go-sdk/achievement-sdk/pkg"
-	"github.com/AccelByte/accelbyte-go-sdk/achievement-sdk/pkg/achievementclient/tags"
+	achievement "github.com/AccelByte/accelbyte-go-modular-sdk/achievement-sdk/pkg"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/achievement-sdk/pkg/achievementclient/tags"
 	"github.com/AccelByte/sample-apps/pkg/repository"
 	"github.com/sirupsen/logrus"
 	"github.com/spf13/cobra"

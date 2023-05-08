@@ -9,8 +9,8 @@ package session
 import (
 	"strings"
 
-	"github.com/AccelByte/accelbyte-go-sdk/services-api/pkg/repository"
-	"github.com/AccelByte/accelbyte-go-sdk/session-sdk/pkg/sessionclient"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/session-sdk/pkg/sessionclient"
 )
 
 var sessionClientInstance *sessionclient.JusticeSessionService

@@ -7,17 +7,17 @@
 package gametelemetry
 
 import (
-	"github.com/AccelByte/accelbyte-go-sdk/gametelemetry-sdk/pkg/gametelemetryclient"
-	"github.com/AccelByte/accelbyte-go-sdk/gametelemetry-sdk/pkg/gametelemetryclient/gametelemetry_operations"
-	"github.com/AccelByte/accelbyte-go-sdk/services-api/pkg/constant"
-	"github.com/AccelByte/accelbyte-go-sdk/services-api/pkg/repository"
-	"github.com/AccelByte/accelbyte-go-sdk/services-api/pkg/utils"
-	"github.com/AccelByte/accelbyte-go-sdk/services-api/pkg/utils/auth"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/gametelemetry-sdk/pkg/gametelemetryclient"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/gametelemetry-sdk/pkg/gametelemetryclient/gametelemetry_operations"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/constant"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils/auth"
 	"github.com/go-openapi/runtime/client"
 )
 
 // GametelemetryOperationsService this is use for compatibility with latest modular sdk only
-// Deprecated: please use GametelemetryOperationsService imported from "github.com/AccelByte/accelbyte-go-sdk/gametelemetry-sdk/pkg"
+// Deprecated: please use GametelemetryOperationsService imported from "github.com/AccelByte/accelbyte-go-modular-sdk/gametelemetry-sdk/pkg"
 type GametelemetryOperationsService struct {
 	Client                 *gametelemetryclient.JusticeGametelemetryService
 	ConfigRepository       repository.ConfigRepository

@@ -11,15 +11,15 @@ package factory
 import (
 	"strings"
 
-	gametelemetry "github.com/AccelByte/accelbyte-go-sdk/gametelemetry-sdk/pkg"
-	"github.com/AccelByte/accelbyte-go-sdk/gametelemetry-sdk/pkg/gametelemetryclient"
-	"github.com/AccelByte/accelbyte-go-sdk/services-api/pkg/repository"
+	gametelemetry "github.com/AccelByte/accelbyte-go-modular-sdk/gametelemetry-sdk/pkg"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/gametelemetry-sdk/pkg/gametelemetryclient"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 )
 
 var gametelemetryClientInstance *gametelemetryclient.JusticeGametelemetryService
 
 // NewGametelemetryClient
-// Deprecated: please use NewGametelemetryClient from "github.com/AccelByte/accelbyte-go-sdk/Gametelemetry-sdk/pkg"
+// Deprecated: please use NewGametelemetryClient from "github.com/AccelByte/accelbyte-go-modular-sdk/Gametelemetry-sdk/pkg"
 func NewGametelemetryClient(configRepository repository.ConfigRepository) *gametelemetryclient.JusticeGametelemetryService {
 	if gametelemetryClientInstance == nil {
 		baseURL := configRepository.GetJusticeBaseUrl()

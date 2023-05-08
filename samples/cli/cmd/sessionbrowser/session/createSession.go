@@ -9,9 +9,9 @@ package session
 import (
 	"encoding/json"
 
-	sessionbrowser "github.com/AccelByte/accelbyte-go-sdk/sessionbrowser-sdk/pkg"
-	"github.com/AccelByte/accelbyte-go-sdk/sessionbrowser-sdk/pkg/sessionbrowserclient/session"
-	"github.com/AccelByte/accelbyte-go-sdk/sessionbrowser-sdk/pkg/sessionbrowserclientmodels"
+	sessionbrowser "github.com/AccelByte/accelbyte-go-modular-sdk/sessionbrowser-sdk/pkg"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/sessionbrowser-sdk/pkg/sessionbrowserclient/session"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/sessionbrowser-sdk/pkg/sessionbrowserclientmodels"
 	"github.com/AccelByte/sample-apps/pkg/repository"
 	"github.com/sirupsen/logrus"
 	"github.com/spf13/cobra"

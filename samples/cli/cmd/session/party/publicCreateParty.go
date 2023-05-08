@@ -9,9 +9,9 @@ package party
 import (
 	"encoding/json"
 
-	session "github.com/AccelByte/accelbyte-go-sdk/session-sdk/pkg"
-	"github.com/AccelByte/accelbyte-go-sdk/session-sdk/pkg/sessionclient/party"
-	"github.com/AccelByte/accelbyte-go-sdk/session-sdk/pkg/sessionclientmodels"
+	session "github.com/AccelByte/accelbyte-go-modular-sdk/session-sdk/pkg"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/session-sdk/pkg/sessionclient/party"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/session-sdk/pkg/sessionclientmodels"
 	"github.com/AccelByte/sample-apps/pkg/repository"
 	"github.com/sirupsen/logrus"
 	"github.com/spf13/cobra"

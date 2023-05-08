@@ -11,15 +11,15 @@ package factory
 import (
 	"strings"
 
-	"github.com/AccelByte/accelbyte-go-sdk/services-api/pkg/repository"
-	ugc "github.com/AccelByte/accelbyte-go-sdk/ugc-sdk/pkg"
-	"github.com/AccelByte/accelbyte-go-sdk/ugc-sdk/pkg/ugcclient"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
+	ugc "github.com/AccelByte/accelbyte-go-modular-sdk/ugc-sdk/pkg"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/ugc-sdk/pkg/ugcclient"
 )
 
 var ugcClientInstance *ugcclient.JusticeUgcService
 
 // NewUgcClient
-// Deprecated: please use NewUgcClient from "github.com/AccelByte/accelbyte-go-sdk/Ugc-sdk/pkg"
+// Deprecated: please use NewUgcClient from "github.com/AccelByte/accelbyte-go-modular-sdk/Ugc-sdk/pkg"
 func NewUgcClient(configRepository repository.ConfigRepository) *ugcclient.JusticeUgcService {
 	if ugcClientInstance == nil {
 		baseURL := configRepository.GetJusticeBaseUrl()

@@ -9,8 +9,8 @@ package platform
 import (
 	"strings"
 
-	"github.com/AccelByte/accelbyte-go-sdk/platform-sdk/pkg/platformclient"
-	"github.com/AccelByte/accelbyte-go-sdk/services-api/pkg/repository"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/platform-sdk/pkg/platformclient"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 )
 
 var platformClientInstance *platformclient.JusticePlatformService

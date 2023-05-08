@@ -11,15 +11,15 @@ package factory
 import (
 	"strings"
 
-	lobby "github.com/AccelByte/accelbyte-go-sdk/lobby-sdk/pkg"
-	"github.com/AccelByte/accelbyte-go-sdk/lobby-sdk/pkg/lobbyclient"
-	"github.com/AccelByte/accelbyte-go-sdk/services-api/pkg/repository"
+	lobby "github.com/AccelByte/accelbyte-go-modular-sdk/lobby-sdk/pkg"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/lobby-sdk/pkg/lobbyclient"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 )
 
 var lobbyClientInstance *lobbyclient.JusticeLobbyService
 
 // NewLobbyClient
-// Deprecated: please use NewLobbyClient from "github.com/AccelByte/accelbyte-go-sdk/Lobby-sdk/pkg"
+// Deprecated: please use NewLobbyClient from "github.com/AccelByte/accelbyte-go-modular-sdk/Lobby-sdk/pkg"
 func NewLobbyClient(configRepository repository.ConfigRepository) *lobbyclient.JusticeLobbyService {
 	if lobbyClientInstance == nil {
 		baseURL := configRepository.GetJusticeBaseUrl()

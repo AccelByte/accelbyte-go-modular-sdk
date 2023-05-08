@@ -18,10 +18,10 @@ import (
 	"github.com/AccelByte/go-jose/jwt"
 	"github.com/pkg/errors"
 
-	iam "github.com/AccelByte/accelbyte-go-sdk/iam-sdk/pkg"
-	"github.com/AccelByte/accelbyte-go-sdk/iam-sdk/pkg/iamclient/o_auth2_0"
-	"github.com/AccelByte/accelbyte-go-sdk/iam-sdk/pkg/iamclient/roles"
-	"github.com/AccelByte/accelbyte-go-sdk/iam-sdk/pkg/iamclientmodels"
+	iam "github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/o_auth2_0"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/roles"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclientmodels"
 )
 
 type AuthTokenValidator interface {
@@ -30,7 +30,7 @@ type AuthTokenValidator interface {
 }
 
 // NewTokenValidator
-// Deprecated: please use NewTokenValidator from github.com/AccelByte/accelbyte-go-sdk/iam-sdk/pkg package
+// Deprecated: please use NewTokenValidator from github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg package
 func NewTokenValidator(authService iam.OAuth20Service, refreshInterval time.Duration) AuthTokenValidator {
 	return &authTokenValidator{
 		authService:     authService,

@@ -19,7 +19,7 @@ import (
 	"github.com/go-openapi/runtime"
 	"github.com/go-openapi/strfmt"
 
-	"github.com/AccelByte/accelbyte-go-sdk/match2-sdk/pkg/match2clientmodels"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/match2-sdk/pkg/match2clientmodels"
 )
 
 // RuleSetDetailsReader is a Reader for the RuleSetDetails structure.

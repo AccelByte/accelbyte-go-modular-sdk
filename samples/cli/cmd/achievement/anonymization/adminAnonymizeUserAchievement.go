@@ -7,8 +7,8 @@
 package anonymization
 
 import (
-	achievement "github.com/AccelByte/accelbyte-go-sdk/achievement-sdk/pkg"
-	"github.com/AccelByte/accelbyte-go-sdk/achievement-sdk/pkg/achievementclient/anonymization"
+	achievement "github.com/AccelByte/accelbyte-go-modular-sdk/achievement-sdk/pkg"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/achievement-sdk/pkg/achievementclient/anonymization"
 	"github.com/AccelByte/sample-apps/pkg/repository"
 	"github.com/sirupsen/logrus"
 	"github.com/spf13/cobra"

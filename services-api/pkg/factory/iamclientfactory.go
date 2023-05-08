@@ -11,15 +11,15 @@ package factory
 import (
 	"strings"
 
-	iam "github.com/AccelByte/accelbyte-go-sdk/iam-sdk/pkg"
-	"github.com/AccelByte/accelbyte-go-sdk/iam-sdk/pkg/iamclient"
-	"github.com/AccelByte/accelbyte-go-sdk/services-api/pkg/repository"
+	iam "github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 )
 
 var iamClientInstance *iamclient.JusticeIamService
 
 // NewIamClient
-// Deprecated: please use NewIamClient from "github.com/AccelByte/accelbyte-go-sdk/Iam-sdk/pkg"
+// Deprecated: please use NewIamClient from "github.com/AccelByte/accelbyte-go-modular-sdk/Iam-sdk/pkg"
 func NewIamClient(configRepository repository.ConfigRepository) *iamclient.JusticeIamService {
 	if iamClientInstance == nil {
 		baseURL := configRepository.GetJusticeBaseUrl()

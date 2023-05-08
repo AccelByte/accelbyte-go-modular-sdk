@@ -11,15 +11,15 @@ package factory
 import (
 	"strings"
 
-	"github.com/AccelByte/accelbyte-go-sdk/services-api/pkg/repository"
-	session "github.com/AccelByte/accelbyte-go-sdk/session-sdk/pkg"
-	"github.com/AccelByte/accelbyte-go-sdk/session-sdk/pkg/sessionclient"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
+	session "github.com/AccelByte/accelbyte-go-modular-sdk/session-sdk/pkg"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/session-sdk/pkg/sessionclient"
 )
 
 var sessionClientInstance *sessionclient.JusticeSessionService
 
 // NewSessionClient
-// Deprecated: please use NewSessionClient from "github.com/AccelByte/accelbyte-go-sdk/Session-sdk/pkg"
+// Deprecated: please use NewSessionClient from "github.com/AccelByte/accelbyte-go-modular-sdk/Session-sdk/pkg"
 func NewSessionClient(configRepository repository.ConfigRepository) *sessionclient.JusticeSessionService {
 	if sessionClientInstance == nil {
 		baseURL := configRepository.GetJusticeBaseUrl()

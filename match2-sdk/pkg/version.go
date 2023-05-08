@@ -12,7 +12,7 @@ import (
 	"os"
 	"strings"
 
-	common "github.com/AccelByte/accelbyte-go-sdk/services-api/pkg"
+	common "github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg"
 )
 
 const ServiceVersion = "2.2.1"

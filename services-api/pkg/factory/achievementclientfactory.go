@@ -11,15 +11,15 @@ package factory
 import (
 	"strings"
 
-	achievement "github.com/AccelByte/accelbyte-go-sdk/achievement-sdk/pkg"
-	"github.com/AccelByte/accelbyte-go-sdk/achievement-sdk/pkg/achievementclient"
-	"github.com/AccelByte/accelbyte-go-sdk/services-api/pkg/repository"
+	achievement "github.com/AccelByte/accelbyte-go-modular-sdk/achievement-sdk/pkg"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/achievement-sdk/pkg/achievementclient"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 )
 
 var achievementClientInstance *achievementclient.JusticeAchievementService
 
 // NewAchievementClient
-// Deprecated: please use NewAchievementClient from "github.com/AccelByte/accelbyte-go-sdk/Achievement-sdk/pkg"
+// Deprecated: please use NewAchievementClient from "github.com/AccelByte/accelbyte-go-modular-sdk/Achievement-sdk/pkg"
 func NewAchievementClient(configRepository repository.ConfigRepository) *achievementclient.JusticeAchievementService {
 	if achievementClientInstance == nil {
 		baseURL := configRepository.GetJusticeBaseUrl()

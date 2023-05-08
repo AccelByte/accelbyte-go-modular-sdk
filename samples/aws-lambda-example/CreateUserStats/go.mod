@@ -4,15 +4,15 @@ go 1.18
 
 // for development only (not propagated)
 replace (
-	github.com/AccelByte/accelbyte-go-sdk/iam-sdk => ../../../iam-sdk
-	github.com/AccelByte/accelbyte-go-sdk/services-api => ../../../services-api
-	github.com/AccelByte/accelbyte-go-sdk/social-sdk => ../../../social-sdk
+	github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk => ../../../iam-sdk
+	github.com/AccelByte/accelbyte-go-modular-sdk/services-api => ../../../services-api
+	github.com/AccelByte/accelbyte-go-modular-sdk/social-sdk => ../../../social-sdk
 )
 
 require (
-	github.com/AccelByte/accelbyte-go-sdk/iam-sdk v0.1.0
-	github.com/AccelByte/accelbyte-go-sdk/services-api v0.1.0
-	github.com/AccelByte/accelbyte-go-sdk/social-sdk v0.1.0
+	github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk v0.1.0
+	github.com/AccelByte/accelbyte-go-modular-sdk/services-api v0.1.0
+	github.com/AccelByte/accelbyte-go-modular-sdk/social-sdk v0.1.0
 	github.com/aws/aws-lambda-go v1.32.0
 	github.com/dgrijalva/jwt-go v3.2.0+incompatible
 )
@@ -51,4 +51,4 @@ require (
 	gopkg.in/yaml.v2 v2.4.0 // indirect
 )
 
-exclude github.com/AccelByte/accelbyte-go-sdk v1.0.0
+exclude github.com/AccelByte/accelbyte-go-modular-sdk v1.0.0

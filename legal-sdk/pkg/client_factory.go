@@ -9,8 +9,8 @@ package legal
 import (
 	"strings"
 
-	"github.com/AccelByte/accelbyte-go-sdk/legal-sdk/pkg/legalclient"
-	"github.com/AccelByte/accelbyte-go-sdk/services-api/pkg/repository"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/legal-sdk/pkg/legalclient"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 )
 
 var legalClientInstance *legalclient.JusticeLegalService

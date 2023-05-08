@@ -7,12 +7,12 @@
 package match2
 
 import (
-	"github.com/AccelByte/accelbyte-go-sdk/match2-sdk/pkg/match2client"
-	"github.com/AccelByte/accelbyte-go-sdk/match2-sdk/pkg/match2client/backfill"
-	"github.com/AccelByte/accelbyte-go-sdk/match2-sdk/pkg/match2clientmodels"
-	"github.com/AccelByte/accelbyte-go-sdk/services-api/pkg/repository"
-	"github.com/AccelByte/accelbyte-go-sdk/services-api/pkg/utils"
-	"github.com/AccelByte/accelbyte-go-sdk/services-api/pkg/utils/auth"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/match2-sdk/pkg/match2client"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/match2-sdk/pkg/match2client/backfill"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/match2-sdk/pkg/match2clientmodels"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils/auth"
 	"github.com/go-openapi/runtime/client"
 )
 

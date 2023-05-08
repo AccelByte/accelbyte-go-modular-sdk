@@ -7,8 +7,8 @@
 package adminTickets
 
 import (
-	reporting "github.com/AccelByte/accelbyte-go-sdk/reporting-sdk/pkg"
-	"github.com/AccelByte/accelbyte-go-sdk/reporting-sdk/pkg/reportingclient/admin_tickets"
+	reporting "github.com/AccelByte/accelbyte-go-modular-sdk/reporting-sdk/pkg"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/reporting-sdk/pkg/reportingclient/admin_tickets"
 	"github.com/AccelByte/sample-apps/pkg/repository"
 	"github.com/sirupsen/logrus"
 	"github.com/spf13/cobra"

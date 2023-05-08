@@ -12,7 +12,7 @@ import (
 	"sync"
 	"time"
 
-	"github.com/AccelByte/accelbyte-go-sdk/services-api/pkg/repository"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 
 	"github.com/gorilla/websocket"
 	"github.com/sirupsen/logrus"

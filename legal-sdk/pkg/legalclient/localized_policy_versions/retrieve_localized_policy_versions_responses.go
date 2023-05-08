@@ -19,7 +19,7 @@ import (
 	"github.com/go-openapi/runtime"
 	"github.com/go-openapi/strfmt"
 
-	"github.com/AccelByte/accelbyte-go-sdk/legal-sdk/pkg/legalclientmodels"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/legal-sdk/pkg/legalclientmodels"
 )
 
 // RetrieveLocalizedPolicyVersionsReader is a Reader for the RetrieveLocalizedPolicyVersions structure.

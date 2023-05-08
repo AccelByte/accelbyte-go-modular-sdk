@@ -11,15 +11,15 @@ package factory
 import (
 	"strings"
 
-	match2 "github.com/AccelByte/accelbyte-go-sdk/match2-sdk/pkg"
-	"github.com/AccelByte/accelbyte-go-sdk/match2-sdk/pkg/match2client"
-	"github.com/AccelByte/accelbyte-go-sdk/services-api/pkg/repository"
+	match2 "github.com/AccelByte/accelbyte-go-modular-sdk/match2-sdk/pkg"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/match2-sdk/pkg/match2client"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 )
 
 var match2ClientInstance *match2client.JusticeMatch2Service
 
 // NewMatch2Client
-// Deprecated: please use NewMatch2Client from "github.com/AccelByte/accelbyte-go-sdk/Match2-sdk/pkg"
+// Deprecated: please use NewMatch2Client from "github.com/AccelByte/accelbyte-go-modular-sdk/Match2-sdk/pkg"
 func NewMatch2Client(configRepository repository.ConfigRepository) *match2client.JusticeMatch2Service {
 	if match2ClientInstance == nil {
 		baseURL := configRepository.GetJusticeBaseUrl()

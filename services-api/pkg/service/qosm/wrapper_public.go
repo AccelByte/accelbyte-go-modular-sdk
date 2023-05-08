@@ -7,17 +7,17 @@
 package qosm
 
 import (
-	"github.com/AccelByte/accelbyte-go-sdk/qosm-sdk/pkg/qosmclient"
-	"github.com/AccelByte/accelbyte-go-sdk/qosm-sdk/pkg/qosmclient/public"
-	"github.com/AccelByte/accelbyte-go-sdk/qosm-sdk/pkg/qosmclientmodels"
-	"github.com/AccelByte/accelbyte-go-sdk/services-api/pkg/repository"
-	"github.com/AccelByte/accelbyte-go-sdk/services-api/pkg/utils"
-	"github.com/AccelByte/accelbyte-go-sdk/services-api/pkg/utils/auth"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/qosm-sdk/pkg/qosmclient"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/qosm-sdk/pkg/qosmclient/public"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/qosm-sdk/pkg/qosmclientmodels"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils/auth"
 	"github.com/go-openapi/runtime/client"
 )
 
 // PublicService this is use for compatibility with latest modular sdk only
-// Deprecated: please use PublicService imported from "github.com/AccelByte/accelbyte-go-sdk/qosm-sdk/pkg"
+// Deprecated: please use PublicService imported from "github.com/AccelByte/accelbyte-go-modular-sdk/qosm-sdk/pkg"
 type PublicService struct {
 	Client                 *qosmclient.JusticeQosmService
 	ConfigRepository       repository.ConfigRepository

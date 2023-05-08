@@ -1,15 +1,15 @@
-module github.com/AccelByte/accelbyte-go-sdk/sessionbrowser-sdk
+module github.com/AccelByte/accelbyte-go-modular-sdk/sessionbrowser-sdk
 
 go 1.18
 
 // for development only (not propagated)
 replace (
-	github.com/AccelByte/accelbyte-go-sdk/iam-sdk => ../iam-sdk // required: included by services-api
-	github.com/AccelByte/accelbyte-go-sdk/services-api => ../services-api
+	github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk => ../iam-sdk // required: included by services-api
+	github.com/AccelByte/accelbyte-go-modular-sdk/services-api => ../services-api
 )
 
 require (
-	github.com/AccelByte/accelbyte-go-sdk/services-api v0.1.0
+	github.com/AccelByte/accelbyte-go-modular-sdk/services-api v0.1.0
 	github.com/go-openapi/errors v0.20.2
 	github.com/go-openapi/runtime v0.19.29
 	github.com/go-openapi/strfmt v0.21.1
@@ -18,7 +18,7 @@ require (
 )
 
 require (
-	github.com/AccelByte/accelbyte-go-sdk/iam-sdk v0.1.0 // indirect
+	github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk v0.1.0 // indirect
 	github.com/PuerkitoBio/purell v1.1.1 // indirect
 	github.com/PuerkitoBio/urlesc v0.0.0-20170810143723-de5bf2ad4578 // indirect
 	github.com/asaskevich/govalidator v0.0.0-20210307081110-f21760c49a8d // indirect

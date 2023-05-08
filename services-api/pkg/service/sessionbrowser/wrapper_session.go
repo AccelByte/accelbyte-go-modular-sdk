@@ -7,17 +7,17 @@
 package sessionbrowser
 
 import (
-	"github.com/AccelByte/accelbyte-go-sdk/services-api/pkg/repository"
-	"github.com/AccelByte/accelbyte-go-sdk/services-api/pkg/utils"
-	"github.com/AccelByte/accelbyte-go-sdk/services-api/pkg/utils/auth"
-	"github.com/AccelByte/accelbyte-go-sdk/sessionbrowser-sdk/pkg/sessionbrowserclient"
-	"github.com/AccelByte/accelbyte-go-sdk/sessionbrowser-sdk/pkg/sessionbrowserclient/session"
-	"github.com/AccelByte/accelbyte-go-sdk/sessionbrowser-sdk/pkg/sessionbrowserclientmodels"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils/auth"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/sessionbrowser-sdk/pkg/sessionbrowserclient"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/sessionbrowser-sdk/pkg/sessionbrowserclient/session"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/sessionbrowser-sdk/pkg/sessionbrowserclientmodels"
 	"github.com/go-openapi/runtime/client"
 )
 
 // SessionService this is use for compatibility with latest modular sdk only
-// Deprecated: please use SessionService imported from "github.com/AccelByte/accelbyte-go-sdk/sessionbrowser-sdk/pkg"
+// Deprecated: please use SessionService imported from "github.com/AccelByte/accelbyte-go-modular-sdk/sessionbrowser-sdk/pkg"
 type SessionService struct {
 	Client                 *sessionbrowserclient.JusticeSessionbrowserService
 	ConfigRepository       repository.ConfigRepository

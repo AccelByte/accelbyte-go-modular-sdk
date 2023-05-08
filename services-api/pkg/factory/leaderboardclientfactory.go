@@ -11,15 +11,15 @@ package factory
 import (
 	"strings"
 
-	leaderboard "github.com/AccelByte/accelbyte-go-sdk/leaderboard-sdk/pkg"
-	"github.com/AccelByte/accelbyte-go-sdk/leaderboard-sdk/pkg/leaderboardclient"
-	"github.com/AccelByte/accelbyte-go-sdk/services-api/pkg/repository"
+	leaderboard "github.com/AccelByte/accelbyte-go-modular-sdk/leaderboard-sdk/pkg"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/leaderboard-sdk/pkg/leaderboardclient"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 )
 
 var leaderboardClientInstance *leaderboardclient.JusticeLeaderboardService
 
 // NewLeaderboardClient
-// Deprecated: please use NewLeaderboardClient from "github.com/AccelByte/accelbyte-go-sdk/Leaderboard-sdk/pkg"
+// Deprecated: please use NewLeaderboardClient from "github.com/AccelByte/accelbyte-go-modular-sdk/Leaderboard-sdk/pkg"
 func NewLeaderboardClient(configRepository repository.ConfigRepository) *leaderboardclient.JusticeLeaderboardService {
 	if leaderboardClientInstance == nil {
 		baseURL := configRepository.GetJusticeBaseUrl()

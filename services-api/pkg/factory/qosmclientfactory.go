@@ -11,15 +11,15 @@ package factory
 import (
 	"strings"
 
-	qosm "github.com/AccelByte/accelbyte-go-sdk/qosm-sdk/pkg"
-	"github.com/AccelByte/accelbyte-go-sdk/qosm-sdk/pkg/qosmclient"
-	"github.com/AccelByte/accelbyte-go-sdk/services-api/pkg/repository"
+	qosm "github.com/AccelByte/accelbyte-go-modular-sdk/qosm-sdk/pkg"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/qosm-sdk/pkg/qosmclient"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 )
 
 var qosmClientInstance *qosmclient.JusticeQosmService
 
 // NewQosmClient
-// Deprecated: please use NewQosmClient from "github.com/AccelByte/accelbyte-go-sdk/Qosm-sdk/pkg"
+// Deprecated: please use NewQosmClient from "github.com/AccelByte/accelbyte-go-modular-sdk/Qosm-sdk/pkg"
 func NewQosmClient(configRepository repository.ConfigRepository) *qosmclient.JusticeQosmService {
 	if qosmClientInstance == nil {
 		baseURL := configRepository.GetJusticeBaseUrl()

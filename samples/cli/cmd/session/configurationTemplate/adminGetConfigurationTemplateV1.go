@@ -7,8 +7,8 @@
 package configurationTemplate
 
 import (
-	session "github.com/AccelByte/accelbyte-go-sdk/session-sdk/pkg"
-	"github.com/AccelByte/accelbyte-go-sdk/session-sdk/pkg/sessionclient/configuration_template"
+	session "github.com/AccelByte/accelbyte-go-modular-sdk/session-sdk/pkg"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/session-sdk/pkg/sessionclient/configuration_template"
 	"github.com/AccelByte/sample-apps/pkg/repository"
 	"github.com/sirupsen/logrus"
 	"github.com/spf13/cobra"

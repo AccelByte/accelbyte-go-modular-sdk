@@ -7,8 +7,8 @@
 package memberRequest
 
 import (
-	group "github.com/AccelByte/accelbyte-go-sdk/group-sdk/pkg"
-	"github.com/AccelByte/accelbyte-go-sdk/group-sdk/pkg/groupclient/member_request"
+	group "github.com/AccelByte/accelbyte-go-modular-sdk/group-sdk/pkg"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/group-sdk/pkg/groupclient/member_request"
 	"github.com/AccelByte/sample-apps/pkg/repository"
 	"github.com/sirupsen/logrus"
 	"github.com/spf13/cobra"

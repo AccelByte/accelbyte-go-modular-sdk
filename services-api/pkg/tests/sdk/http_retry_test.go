@@ -16,14 +16,14 @@ import (
 
 	"github.com/stretchr/testify/assert"
 
-	"github.com/AccelByte/accelbyte-go-sdk/iam-sdk/pkg/iamclientmodels"
-	"github.com/AccelByte/accelbyte-go-sdk/services-api/pkg/repository"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclientmodels"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 
-	"github.com/AccelByte/accelbyte-go-sdk/iam-sdk/pkg"
-	"github.com/AccelByte/accelbyte-go-sdk/iam-sdk/pkg/iamclient/bans"
-	"github.com/AccelByte/accelbyte-go-sdk/lobby-sdk/pkg"
-	lobbyConfig "github.com/AccelByte/accelbyte-go-sdk/lobby-sdk/pkg/lobbyclient/config"
-	"github.com/AccelByte/accelbyte-go-sdk/services-api/pkg/utils"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/bans"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/lobby-sdk/pkg"
+	lobbyConfig "github.com/AccelByte/accelbyte-go-modular-sdk/lobby-sdk/pkg/lobbyclient/config"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils"
 )
 
 var (

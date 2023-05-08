@@ -7,8 +7,8 @@
 package publicReasons
 
 import (
-	reporting "github.com/AccelByte/accelbyte-go-sdk/reporting-sdk/pkg"
-	"github.com/AccelByte/accelbyte-go-sdk/reporting-sdk/pkg/reportingclient/public_reasons"
+	reporting "github.com/AccelByte/accelbyte-go-modular-sdk/reporting-sdk/pkg"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/reporting-sdk/pkg/reportingclient/public_reasons"
 	"github.com/AccelByte/sample-apps/pkg/repository"
 	"github.com/sirupsen/logrus"
 	"github.com/spf13/cobra"

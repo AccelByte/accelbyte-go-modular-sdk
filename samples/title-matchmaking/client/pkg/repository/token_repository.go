@@ -4,7 +4,7 @@
 
 package repository
 
-import "github.com/AccelByte/accelbyte-go-sdk/iam-sdk/pkg/iamclientmodels"
+import "github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclientmodels"
 
 var token iamclientmodels.OauthmodelTokenResponseV3
 

@@ -19,7 +19,7 @@ import (
 	"github.com/go-openapi/runtime"
 	"github.com/go-openapi/strfmt"
 
-	"github.com/AccelByte/accelbyte-go-sdk/group-sdk/pkg/groupclientmodels"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/group-sdk/pkg/groupclientmodels"
 )
 
 // RejectGroupInvitationPublicV1Reader is a Reader for the RejectGroupInvitationPublicV1 structure.

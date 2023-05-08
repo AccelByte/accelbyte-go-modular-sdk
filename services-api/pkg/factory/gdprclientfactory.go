@@ -11,15 +11,15 @@ package factory
 import (
 	"strings"
 
-	gdpr "github.com/AccelByte/accelbyte-go-sdk/gdpr-sdk/pkg"
-	"github.com/AccelByte/accelbyte-go-sdk/gdpr-sdk/pkg/gdprclient"
-	"github.com/AccelByte/accelbyte-go-sdk/services-api/pkg/repository"
+	gdpr "github.com/AccelByte/accelbyte-go-modular-sdk/gdpr-sdk/pkg"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/gdpr-sdk/pkg/gdprclient"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 )
 
 var gdprClientInstance *gdprclient.JusticeGdprService
 
 // NewGdprClient
-// Deprecated: please use NewGdprClient from "github.com/AccelByte/accelbyte-go-sdk/Gdpr-sdk/pkg"
+// Deprecated: please use NewGdprClient from "github.com/AccelByte/accelbyte-go-modular-sdk/Gdpr-sdk/pkg"
 func NewGdprClient(configRepository repository.ConfigRepository) *gdprclient.JusticeGdprService {
 	if gdprClientInstance == nil {
 		baseURL := configRepository.GetJusticeBaseUrl()

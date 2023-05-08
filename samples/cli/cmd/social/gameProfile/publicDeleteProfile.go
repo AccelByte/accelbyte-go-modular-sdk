@@ -7,8 +7,8 @@
 package gameProfile
 
 import (
-	social "github.com/AccelByte/accelbyte-go-sdk/social-sdk/pkg"
-	"github.com/AccelByte/accelbyte-go-sdk/social-sdk/pkg/socialclient/game_profile"
+	social "github.com/AccelByte/accelbyte-go-modular-sdk/social-sdk/pkg"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/social-sdk/pkg/socialclient/game_profile"
 	"github.com/AccelByte/sample-apps/pkg/repository"
 	"github.com/sirupsen/logrus"
 	"github.com/spf13/cobra"

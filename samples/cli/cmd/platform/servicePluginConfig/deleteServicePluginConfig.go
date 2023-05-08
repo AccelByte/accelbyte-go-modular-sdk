@@ -7,8 +7,8 @@
 package servicePluginConfig
 
 import (
-	platform "github.com/AccelByte/accelbyte-go-sdk/platform-sdk/pkg"
-	"github.com/AccelByte/accelbyte-go-sdk/platform-sdk/pkg/platformclient/service_plugin_config"
+	platform "github.com/AccelByte/accelbyte-go-modular-sdk/platform-sdk/pkg"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/platform-sdk/pkg/platformclient/service_plugin_config"
 	"github.com/AccelByte/sample-apps/pkg/repository"
 	"github.com/sirupsen/logrus"
 	"github.com/spf13/cobra"

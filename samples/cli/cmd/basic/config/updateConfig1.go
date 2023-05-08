@@ -9,9 +9,9 @@ package config
 import (
 	"encoding/json"
 
-	basic "github.com/AccelByte/accelbyte-go-sdk/basic-sdk/pkg"
-	"github.com/AccelByte/accelbyte-go-sdk/basic-sdk/pkg/basicclient/config"
-	"github.com/AccelByte/accelbyte-go-sdk/basic-sdk/pkg/basicclientmodels"
+	basic "github.com/AccelByte/accelbyte-go-modular-sdk/basic-sdk/pkg"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/basic-sdk/pkg/basicclient/config"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/basic-sdk/pkg/basicclientmodels"
 	"github.com/AccelByte/sample-apps/pkg/repository"
 	"github.com/sirupsen/logrus"
 	"github.com/spf13/cobra"

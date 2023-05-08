@@ -7,8 +7,8 @@
 package group
 
 import (
-	group "github.com/AccelByte/accelbyte-go-sdk/group-sdk/pkg"
-	group_ "github.com/AccelByte/accelbyte-go-sdk/group-sdk/pkg/groupclient/group"
+	group "github.com/AccelByte/accelbyte-go-modular-sdk/group-sdk/pkg"
+	group_ "github.com/AccelByte/accelbyte-go-modular-sdk/group-sdk/pkg/groupclient/group"
 	"github.com/AccelByte/sample-apps/pkg/repository"
 	"github.com/sirupsen/logrus"
 	"github.com/spf13/cobra"

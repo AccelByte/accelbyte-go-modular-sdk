@@ -11,15 +11,15 @@ package factory
 import (
 	"strings"
 
-	legal "github.com/AccelByte/accelbyte-go-sdk/legal-sdk/pkg"
-	"github.com/AccelByte/accelbyte-go-sdk/legal-sdk/pkg/legalclient"
-	"github.com/AccelByte/accelbyte-go-sdk/services-api/pkg/repository"
+	legal "github.com/AccelByte/accelbyte-go-modular-sdk/legal-sdk/pkg"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/legal-sdk/pkg/legalclient"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 )
 
 var legalClientInstance *legalclient.JusticeLegalService
 
 // NewLegalClient
-// Deprecated: please use NewLegalClient from "github.com/AccelByte/accelbyte-go-sdk/Legal-sdk/pkg"
+// Deprecated: please use NewLegalClient from "github.com/AccelByte/accelbyte-go-modular-sdk/Legal-sdk/pkg"
 func NewLegalClient(configRepository repository.ConfigRepository) *legalclient.JusticeLegalService {
 	if legalClientInstance == nil {
 		baseURL := configRepository.GetJusticeBaseUrl()

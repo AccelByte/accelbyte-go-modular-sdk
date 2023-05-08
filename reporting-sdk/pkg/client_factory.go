@@ -9,8 +9,8 @@ package reporting
 import (
 	"strings"
 
-	"github.com/AccelByte/accelbyte-go-sdk/reporting-sdk/pkg/reportingclient"
-	"github.com/AccelByte/accelbyte-go-sdk/services-api/pkg/repository"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/reporting-sdk/pkg/reportingclient"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 )
 
 var reportingClientInstance *reportingclient.JusticeReportingService

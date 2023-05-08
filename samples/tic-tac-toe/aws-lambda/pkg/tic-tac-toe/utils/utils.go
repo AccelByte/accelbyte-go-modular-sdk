@@ -8,7 +8,7 @@ import (
 	"encoding/json"
 	"strings"
 
-	models "github.com/AccelByte/accelbyte-go-sdk/iam-sdk/pkg/iamclientmodels"
+	models "github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclientmodels"
 	"github.com/golang-jwt/jwt"
 	"github.com/google/uuid"
 )

@@ -9,9 +9,9 @@ package localizedPolicyVersions
 import (
 	"encoding/json"
 
-	legal "github.com/AccelByte/accelbyte-go-sdk/legal-sdk/pkg"
-	"github.com/AccelByte/accelbyte-go-sdk/legal-sdk/pkg/legalclient/localized_policy_versions"
-	"github.com/AccelByte/accelbyte-go-sdk/legal-sdk/pkg/legalclientmodels"
+	legal "github.com/AccelByte/accelbyte-go-modular-sdk/legal-sdk/pkg"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/legal-sdk/pkg/legalclient/localized_policy_versions"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/legal-sdk/pkg/legalclientmodels"
 	"github.com/AccelByte/sample-apps/pkg/repository"
 	"github.com/sirupsen/logrus"
 	"github.com/spf13/cobra"

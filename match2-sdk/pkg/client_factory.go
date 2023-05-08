@@ -9,8 +9,8 @@ package match2
 import (
 	"strings"
 
-	"github.com/AccelByte/accelbyte-go-sdk/match2-sdk/pkg/match2client"
-	"github.com/AccelByte/accelbyte-go-sdk/services-api/pkg/repository"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/match2-sdk/pkg/match2client"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 )
 
 var match2ClientInstance *match2client.JusticeMatch2Service

@@ -19,7 +19,7 @@ import (
 	"github.com/go-openapi/runtime"
 	"github.com/go-openapi/strfmt"
 
-	"github.com/AccelByte/accelbyte-go-sdk/group-sdk/pkg/groupclientmodels"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/group-sdk/pkg/groupclientmodels"
 )
 
 // RejectGroupJoinRequestPublicV2Reader is a Reader for the RejectGroupJoinRequestPublicV2 structure.

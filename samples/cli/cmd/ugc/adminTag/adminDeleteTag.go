@@ -7,8 +7,8 @@
 package adminTag
 
 import (
-	ugc "github.com/AccelByte/accelbyte-go-sdk/ugc-sdk/pkg"
-	"github.com/AccelByte/accelbyte-go-sdk/ugc-sdk/pkg/ugcclient/admin_tag"
+	ugc "github.com/AccelByte/accelbyte-go-modular-sdk/ugc-sdk/pkg"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/ugc-sdk/pkg/ugcclient/admin_tag"
 	"github.com/AccelByte/sample-apps/pkg/repository"
 	"github.com/sirupsen/logrus"
 	"github.com/spf13/cobra"

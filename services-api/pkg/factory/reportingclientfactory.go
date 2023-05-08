@@ -11,15 +11,15 @@ package factory
 import (
 	"strings"
 
-	reporting "github.com/AccelByte/accelbyte-go-sdk/reporting-sdk/pkg"
-	"github.com/AccelByte/accelbyte-go-sdk/reporting-sdk/pkg/reportingclient"
-	"github.com/AccelByte/accelbyte-go-sdk/services-api/pkg/repository"
+	reporting "github.com/AccelByte/accelbyte-go-modular-sdk/reporting-sdk/pkg"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/reporting-sdk/pkg/reportingclient"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 )
 
 var reportingClientInstance *reportingclient.JusticeReportingService
 
 // NewReportingClient
-// Deprecated: please use NewReportingClient from "github.com/AccelByte/accelbyte-go-sdk/Reporting-sdk/pkg"
+// Deprecated: please use NewReportingClient from "github.com/AccelByte/accelbyte-go-modular-sdk/Reporting-sdk/pkg"
 func NewReportingClient(configRepository repository.ConfigRepository) *reportingclient.JusticeReportingService {
 	if reportingClientInstance == nil {
 		baseURL := configRepository.GetJusticeBaseUrl()

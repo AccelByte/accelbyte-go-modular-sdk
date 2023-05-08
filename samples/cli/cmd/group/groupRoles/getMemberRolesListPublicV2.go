@@ -7,8 +7,8 @@
 package groupRoles
 
 import (
-	group "github.com/AccelByte/accelbyte-go-sdk/group-sdk/pkg"
-	"github.com/AccelByte/accelbyte-go-sdk/group-sdk/pkg/groupclient/group_roles"
+	group "github.com/AccelByte/accelbyte-go-modular-sdk/group-sdk/pkg"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/group-sdk/pkg/groupclient/group_roles"
 	"github.com/AccelByte/sample-apps/pkg/repository"
 	"github.com/sirupsen/logrus"
 	"github.com/spf13/cobra"

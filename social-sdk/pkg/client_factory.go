@@ -9,8 +9,8 @@ package social
 import (
 	"strings"
 
-	"github.com/AccelByte/accelbyte-go-sdk/services-api/pkg/repository"
-	"github.com/AccelByte/accelbyte-go-sdk/social-sdk/pkg/socialclient"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/social-sdk/pkg/socialclient"
 )
 
 var socialClientInstance *socialclient.JusticeSocialService

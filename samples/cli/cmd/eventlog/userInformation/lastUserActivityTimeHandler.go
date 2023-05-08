@@ -7,8 +7,8 @@
 package userInformation
 
 import (
-	eventlog "github.com/AccelByte/accelbyte-go-sdk/eventlog-sdk/pkg"
-	"github.com/AccelByte/accelbyte-go-sdk/eventlog-sdk/pkg/eventlogclient/user_information"
+	eventlog "github.com/AccelByte/accelbyte-go-modular-sdk/eventlog-sdk/pkg"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/eventlog-sdk/pkg/eventlogclient/user_information"
 	"github.com/AccelByte/sample-apps/pkg/repository"
 	"github.com/sirupsen/logrus"
 	"github.com/spf13/cobra"

@@ -18,12 +18,12 @@ import (
 	httptransport "github.com/go-openapi/runtime/client"
 	"github.com/go-openapi/strfmt"
 
-	"github.com/AccelByte/accelbyte-go-sdk/group-sdk/pkg/groupclient/configuration"
-	"github.com/AccelByte/accelbyte-go-sdk/group-sdk/pkg/groupclient/group"
-	"github.com/AccelByte/accelbyte-go-sdk/group-sdk/pkg/groupclient/group_member"
-	"github.com/AccelByte/accelbyte-go-sdk/group-sdk/pkg/groupclient/group_roles"
-	"github.com/AccelByte/accelbyte-go-sdk/group-sdk/pkg/groupclient/member_request"
-	"github.com/AccelByte/accelbyte-go-sdk/services-api/pkg/utils"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/group-sdk/pkg/groupclient/configuration"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/group-sdk/pkg/groupclient/group"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/group-sdk/pkg/groupclient/group_member"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/group-sdk/pkg/groupclient/group_roles"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/group-sdk/pkg/groupclient/member_request"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils"
 )
 
 // Default justice group service HTTP client.

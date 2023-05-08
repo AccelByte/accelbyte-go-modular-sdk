@@ -4,19 +4,19 @@ go 1.18
 
 // for development only (not propagated)
 replace (
-	github.com/AccelByte/accelbyte-go-sdk/dsmc-sdk => ../../../dsmc-sdk
-	github.com/AccelByte/accelbyte-go-sdk/iam-sdk => ../../../iam-sdk
-	github.com/AccelByte/accelbyte-go-sdk/lobby-sdk => ../../../lobby-sdk
-	github.com/AccelByte/accelbyte-go-sdk/services-api => ../../../services-api
-	github.com/AccelByte/accelbyte-go-sdk/sessionbrowser-sdk => ../../../sessionbrowser-sdk
+	github.com/AccelByte/accelbyte-go-modular-sdk/dsmc-sdk => ../../../dsmc-sdk
+	github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk => ../../../iam-sdk
+	github.com/AccelByte/accelbyte-go-modular-sdk/lobby-sdk => ../../../lobby-sdk
+	github.com/AccelByte/accelbyte-go-modular-sdk/services-api => ../../../services-api
+	github.com/AccelByte/accelbyte-go-modular-sdk/sessionbrowser-sdk => ../../../sessionbrowser-sdk
 )
 
 require (
-	github.com/AccelByte/accelbyte-go-sdk/services-api v0.1.0
-	github.com/AccelByte/accelbyte-go-sdk/dsmc-sdk v0.1.0
-	github.com/AccelByte/accelbyte-go-sdk/iam-sdk v0.1.0
-	github.com/AccelByte/accelbyte-go-sdk/lobby-sdk v0.1.0
-	github.com/AccelByte/accelbyte-go-sdk/sessionbrowser-sdk v0.1.0
+	github.com/AccelByte/accelbyte-go-modular-sdk/services-api v0.1.0
+	github.com/AccelByte/accelbyte-go-modular-sdk/dsmc-sdk v0.1.0
+	github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk v0.1.0
+	github.com/AccelByte/accelbyte-go-modular-sdk/lobby-sdk v0.1.0
+	github.com/AccelByte/accelbyte-go-modular-sdk/sessionbrowser-sdk v0.1.0
 	github.com/aws/aws-lambda-go v1.26.0
 	github.com/cenkalti/backoff v2.2.1+incompatible
 	github.com/go-redis/redis/v8 v8.11.3
@@ -65,4 +65,4 @@ require (
 	gopkg.in/yaml.v2 v2.4.0 // indirect
 )
 
-exclude github.com/AccelByte/accelbyte-go-sdk v1.0.0
+exclude github.com/AccelByte/accelbyte-go-modular-sdk v1.0.0

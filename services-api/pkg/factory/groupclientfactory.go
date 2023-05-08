@@ -11,15 +11,15 @@ package factory
 import (
 	"strings"
 
-	group "github.com/AccelByte/accelbyte-go-sdk/group-sdk/pkg"
-	"github.com/AccelByte/accelbyte-go-sdk/group-sdk/pkg/groupclient"
-	"github.com/AccelByte/accelbyte-go-sdk/services-api/pkg/repository"
+	group "github.com/AccelByte/accelbyte-go-modular-sdk/group-sdk/pkg"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/group-sdk/pkg/groupclient"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 )
 
 var groupClientInstance *groupclient.JusticeGroupService
 
 // NewGroupClient
-// Deprecated: please use NewGroupClient from "github.com/AccelByte/accelbyte-go-sdk/Group-sdk/pkg"
+// Deprecated: please use NewGroupClient from "github.com/AccelByte/accelbyte-go-modular-sdk/Group-sdk/pkg"
 func NewGroupClient(configRepository repository.ConfigRepository) *groupclient.JusticeGroupService {
 	if groupClientInstance == nil {
 		baseURL := configRepository.GetJusticeBaseUrl()

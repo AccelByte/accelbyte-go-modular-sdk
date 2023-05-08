@@ -7,8 +7,8 @@
 package ruleSets
 
 import (
-	match2 "github.com/AccelByte/accelbyte-go-sdk/match2-sdk/pkg"
-	"github.com/AccelByte/accelbyte-go-sdk/match2-sdk/pkg/match2client/rule_sets"
+	match2 "github.com/AccelByte/accelbyte-go-modular-sdk/match2-sdk/pkg"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/match2-sdk/pkg/match2client/rule_sets"
 	"github.com/AccelByte/sample-apps/pkg/repository"
 	"github.com/sirupsen/logrus"
 	"github.com/spf13/cobra"

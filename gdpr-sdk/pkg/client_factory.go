@@ -9,8 +9,8 @@ package gdpr
 import (
 	"strings"
 
-	"github.com/AccelByte/accelbyte-go-sdk/gdpr-sdk/pkg/gdprclient"
-	"github.com/AccelByte/accelbyte-go-sdk/services-api/pkg/repository"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/gdpr-sdk/pkg/gdprclient"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 )
 
 var gdprClientInstance *gdprclient.JusticeGdprService

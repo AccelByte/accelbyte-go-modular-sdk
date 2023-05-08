@@ -11,15 +11,15 @@ package factory
 import (
 	"strings"
 
-	eventlog "github.com/AccelByte/accelbyte-go-sdk/eventlog-sdk/pkg"
-	"github.com/AccelByte/accelbyte-go-sdk/eventlog-sdk/pkg/eventlogclient"
-	"github.com/AccelByte/accelbyte-go-sdk/services-api/pkg/repository"
+	eventlog "github.com/AccelByte/accelbyte-go-modular-sdk/eventlog-sdk/pkg"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/eventlog-sdk/pkg/eventlogclient"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 )
 
 var eventlogClientInstance *eventlogclient.JusticeEventlogService
 
 // NewEventlogClient
-// Deprecated: please use NewEventlogClient from "github.com/AccelByte/accelbyte-go-sdk/Eventlog-sdk/pkg"
+// Deprecated: please use NewEventlogClient from "github.com/AccelByte/accelbyte-go-modular-sdk/Eventlog-sdk/pkg"
 func NewEventlogClient(configRepository repository.ConfigRepository) *eventlogclient.JusticeEventlogService {
 	if eventlogClientInstance == nil {
 		baseURL := configRepository.GetJusticeBaseUrl()

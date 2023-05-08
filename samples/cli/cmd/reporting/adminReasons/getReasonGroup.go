@@ -7,8 +7,8 @@
 package adminReasons
 
 import (
-	reporting "github.com/AccelByte/accelbyte-go-sdk/reporting-sdk/pkg"
-	"github.com/AccelByte/accelbyte-go-sdk/reporting-sdk/pkg/reportingclient/admin_reasons"
+	reporting "github.com/AccelByte/accelbyte-go-modular-sdk/reporting-sdk/pkg"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/reporting-sdk/pkg/reportingclient/admin_reasons"
 	"github.com/AccelByte/sample-apps/pkg/repository"
 	"github.com/sirupsen/logrus"
 	"github.com/spf13/cobra"

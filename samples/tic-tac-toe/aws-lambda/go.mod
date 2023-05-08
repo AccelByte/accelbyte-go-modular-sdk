@@ -3,15 +3,15 @@ module tic-tac-toe
 go 1.18
 
 replace (
-	github.com/AccelByte/accelbyte-go-sdk/iam-sdk => ../../../iam-sdk
-	github.com/AccelByte/accelbyte-go-sdk/lobby-sdk => ../../../lobby-sdk
-	github.com/AccelByte/accelbyte-go-sdk/services-api => ../../../services-api
+	github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk => ../../../iam-sdk
+	github.com/AccelByte/accelbyte-go-modular-sdk/lobby-sdk => ../../../lobby-sdk
+	github.com/AccelByte/accelbyte-go-modular-sdk/services-api => ../../../services-api
 )
 
 require (
-	github.com/AccelByte/accelbyte-go-sdk/iam-sdk v0.1.0
-	github.com/AccelByte/accelbyte-go-sdk/lobby-sdk v0.1.0
-	github.com/AccelByte/accelbyte-go-sdk/services-api v0.1.0
+	github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk v0.1.0
+	github.com/AccelByte/accelbyte-go-modular-sdk/lobby-sdk v0.1.0
+	github.com/AccelByte/accelbyte-go-modular-sdk/services-api v0.1.0
 	github.com/aws/aws-lambda-go v1.26.0
 	github.com/go-redis/redis/v8 v8.11.3
 	github.com/golang-jwt/jwt v3.2.2+incompatible
@@ -59,4 +59,4 @@ require (
 	gopkg.in/yaml.v2 v2.4.0 // indirect
 )
 
-exclude github.com/AccelByte/accelbyte-go-sdk v1.0.0
+exclude github.com/AccelByte/accelbyte-go-modular-sdk v1.0.0

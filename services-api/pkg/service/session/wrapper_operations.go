@@ -7,16 +7,16 @@
 package session
 
 import (
-	"github.com/AccelByte/accelbyte-go-sdk/services-api/pkg/repository"
-	"github.com/AccelByte/accelbyte-go-sdk/services-api/pkg/utils"
-	"github.com/AccelByte/accelbyte-go-sdk/services-api/pkg/utils/auth"
-	"github.com/AccelByte/accelbyte-go-sdk/session-sdk/pkg/sessionclient"
-	"github.com/AccelByte/accelbyte-go-sdk/session-sdk/pkg/sessionclient/operations"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils/auth"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/session-sdk/pkg/sessionclient"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/session-sdk/pkg/sessionclient/operations"
 	"github.com/go-openapi/runtime/client"
 )
 
 // OperationsService this is use for compatibility with latest modular sdk only
-// Deprecated: please use OperationsService imported from "github.com/AccelByte/accelbyte-go-sdk/session-sdk/pkg"
+// Deprecated: please use OperationsService imported from "github.com/AccelByte/accelbyte-go-modular-sdk/session-sdk/pkg"
 type OperationsService struct {
 	Client                 *sessionclient.JusticeSessionService
 	ConfigRepository       repository.ConfigRepository

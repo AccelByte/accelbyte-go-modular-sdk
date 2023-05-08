@@ -7,16 +7,16 @@ package service
 import (
 	"fmt"
 
-	"github.com/AccelByte/accelbyte-go-sdk/services-api/pkg/model"
-	"github.com/AccelByte/accelbyte-go-sdk/services-api/pkg/repository"
-	"github.com/AccelByte/accelbyte-go-sdk/services-api/pkg/utils"
-	"github.com/AccelByte/accelbyte-go-sdk/services-api/pkg/utils/connectionutils"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/model"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils/connectionutils"
 	"github.com/gorilla/websocket"
 	"github.com/sirupsen/logrus"
 )
 
 // LobbyServiceWebsocket
-// Deprecated: please use LobbyServiceWebsocket imported from "github.com/AccelByte/accelbyte-go-sdk/lobby-sdk/pkg"
+// Deprecated: please use LobbyServiceWebsocket imported from "github.com/AccelByte/accelbyte-go-modular-sdk/lobby-sdk/pkg"
 type LobbyServiceWebsocket struct {
 	ConfigRepository  repository.ConfigRepository
 	TokenRepository   repository.TokenRepository

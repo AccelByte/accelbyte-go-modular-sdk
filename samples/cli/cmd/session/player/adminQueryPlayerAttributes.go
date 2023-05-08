@@ -7,8 +7,8 @@
 package player
 
 import (
-	session "github.com/AccelByte/accelbyte-go-sdk/session-sdk/pkg"
-	"github.com/AccelByte/accelbyte-go-sdk/session-sdk/pkg/sessionclient/player"
+	session "github.com/AccelByte/accelbyte-go-modular-sdk/session-sdk/pkg"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/session-sdk/pkg/sessionclient/player"
 	"github.com/AccelByte/sample-apps/pkg/repository"
 	"github.com/sirupsen/logrus"
 	"github.com/spf13/cobra"
