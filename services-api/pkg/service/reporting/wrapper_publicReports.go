@@ -17,7 +17,7 @@ import (
 )
 
 // PublicReportsService this is use for compatibility with latest modular sdk only
-// Deprecated: please use PublicReportsService imported from "github.com/AccelByte/accelbyte-go-modular-sdk/reporting-sdk/pkg"
+// Deprecated: 2023-03-30 - please use PublicReportsService imported from "github.com/AccelByte/accelbyte-go-modular-sdk/reporting-sdk/pkg"
 type PublicReportsService struct {
 	Client                 *reportingclient.JusticeReportingService
 	ConfigRepository       repository.ConfigRepository
@@ -41,7 +41,7 @@ func (aaa *PublicReportsService) GetAuthSession() auth.Session {
 	}
 }
 
-// deprecated(2022-01-10): please use SubmitReportShort instead.
+// Deprecated: 2022-01-10 - Please use SubmitReportShort instead.
 func (aaa *PublicReportsService) SubmitReport(input *public_reports.SubmitReportParams) (*reportingclientmodels.RestapiSubmitReportResponse, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {

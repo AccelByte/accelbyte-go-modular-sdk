@@ -16,6 +16,8 @@ import (
 	"github.com/go-openapi/runtime/client"
 )
 
+// AdminGroupService this is use for compatibility with latest modular sdk only
+// Deprecated: 2023-03-30 - please use AdminGroupService imported from "github.com/AccelByte/accelbyte-go-modular-sdk/ugc-sdk/pkg"
 type AdminGroupService struct {
 	Client                 *ugcclient.JusticeUgcService
 	ConfigRepository       repository.ConfigRepository
@@ -39,7 +41,7 @@ func (aaa *AdminGroupService) GetAuthSession() auth.Session {
 	}
 }
 
-// deprecated(2022-01-10): please use SingleAdminGetAllGroupsShort instead.
+// Deprecated: 2022-01-10 - Please use SingleAdminGetAllGroupsShort instead.
 func (aaa *AdminGroupService) SingleAdminGetAllGroups(input *admin_group.SingleAdminGetAllGroupsParams) (*ugcclientmodels.ModelsPaginatedGroupResponse, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -62,7 +64,7 @@ func (aaa *AdminGroupService) SingleAdminGetAllGroups(input *admin_group.SingleA
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use AdminCreateGroupShort instead.
+// Deprecated: 2022-01-10 - Please use AdminCreateGroupShort instead.
 func (aaa *AdminGroupService) AdminCreateGroup(input *admin_group.AdminCreateGroupParams) (*ugcclientmodels.ModelsCreateGroupResponse, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -85,7 +87,7 @@ func (aaa *AdminGroupService) AdminCreateGroup(input *admin_group.AdminCreateGro
 	return created.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use SingleAdminGetGroupShort instead.
+// Deprecated: 2022-01-10 - Please use SingleAdminGetGroupShort instead.
 func (aaa *AdminGroupService) SingleAdminGetGroup(input *admin_group.SingleAdminGetGroupParams) (*ugcclientmodels.ModelsCreateGroupResponse, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -108,7 +110,7 @@ func (aaa *AdminGroupService) SingleAdminGetGroup(input *admin_group.SingleAdmin
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use SingleAdminUpdateGroupShort instead.
+// Deprecated: 2022-01-10 - Please use SingleAdminUpdateGroupShort instead.
 func (aaa *AdminGroupService) SingleAdminUpdateGroup(input *admin_group.SingleAdminUpdateGroupParams) (*ugcclientmodels.ModelsCreateGroupResponse, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -134,7 +136,7 @@ func (aaa *AdminGroupService) SingleAdminUpdateGroup(input *admin_group.SingleAd
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use SingleAdminDeleteGroupShort instead.
+// Deprecated: 2022-01-10 - Please use SingleAdminDeleteGroupShort instead.
 func (aaa *AdminGroupService) SingleAdminDeleteGroup(input *admin_group.SingleAdminDeleteGroupParams) error {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -157,7 +159,7 @@ func (aaa *AdminGroupService) SingleAdminDeleteGroup(input *admin_group.SingleAd
 	return nil
 }
 
-// deprecated(2022-01-10): please use SingleAdminGetGroupContentsShort instead.
+// Deprecated: 2022-01-10 - Please use SingleAdminGetGroupContentsShort instead.
 func (aaa *AdminGroupService) SingleAdminGetGroupContents(input *admin_group.SingleAdminGetGroupContentsParams) (*ugcclientmodels.ModelsPaginatedContentDownloadResponse, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -180,7 +182,7 @@ func (aaa *AdminGroupService) SingleAdminGetGroupContents(input *admin_group.Sin
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use AdminGetAllGroupsShort instead.
+// Deprecated: 2022-01-10 - Please use AdminGetAllGroupsShort instead.
 func (aaa *AdminGroupService) AdminGetAllGroups(input *admin_group.AdminGetAllGroupsParams) (*ugcclientmodels.ModelsPaginatedGroupResponse, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -203,7 +205,7 @@ func (aaa *AdminGroupService) AdminGetAllGroups(input *admin_group.AdminGetAllGr
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use AdminGetGroupShort instead.
+// Deprecated: 2022-01-10 - Please use AdminGetGroupShort instead.
 func (aaa *AdminGroupService) AdminGetGroup(input *admin_group.AdminGetGroupParams) (*ugcclientmodels.ModelsCreateGroupResponse, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -226,7 +228,7 @@ func (aaa *AdminGroupService) AdminGetGroup(input *admin_group.AdminGetGroupPara
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use AdminUpdateGroupShort instead.
+// Deprecated: 2022-01-10 - Please use AdminUpdateGroupShort instead.
 func (aaa *AdminGroupService) AdminUpdateGroup(input *admin_group.AdminUpdateGroupParams) (*ugcclientmodels.ModelsCreateGroupResponse, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -252,7 +254,7 @@ func (aaa *AdminGroupService) AdminUpdateGroup(input *admin_group.AdminUpdateGro
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use AdminDeleteGroupShort instead.
+// Deprecated: 2022-01-10 - Please use AdminDeleteGroupShort instead.
 func (aaa *AdminGroupService) AdminDeleteGroup(input *admin_group.AdminDeleteGroupParams) error {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -275,7 +277,7 @@ func (aaa *AdminGroupService) AdminDeleteGroup(input *admin_group.AdminDeleteGro
 	return nil
 }
 
-// deprecated(2022-01-10): please use AdminGetGroupContentsShort instead.
+// Deprecated: 2022-01-10 - Please use AdminGetGroupContentsShort instead.
 func (aaa *AdminGroupService) AdminGetGroupContents(input *admin_group.AdminGetGroupContentsParams) (*ugcclientmodels.ModelsPaginatedContentDownloadResponse, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {

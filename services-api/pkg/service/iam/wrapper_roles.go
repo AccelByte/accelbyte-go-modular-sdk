@@ -17,7 +17,7 @@ import (
 )
 
 // RolesService this is use for compatibility with latest modular sdk only
-// Deprecated: please use RolesService imported from "github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg"
+// Deprecated: 2023-03-30 - please use RolesService imported from "github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg"
 type RolesService struct {
 	Client                 *iamclient.JusticeIamService
 	ConfigRepository       repository.ConfigRepository
@@ -41,7 +41,7 @@ func (aaa *RolesService) GetAuthSession() auth.Session {
 	}
 }
 
-// deprecated(2022-01-10): please use GetRolesShort instead.
+// Deprecated: 2022-01-10 - Please use GetRolesShort instead.
 func (aaa *RolesService) GetRoles(input *roles.GetRolesParams) ([]*iamclientmodels.ModelRoleResponseWithManagers, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -61,7 +61,7 @@ func (aaa *RolesService) GetRoles(input *roles.GetRolesParams) ([]*iamclientmode
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use CreateRoleShort instead.
+// Deprecated: 2022-01-10 - Please use CreateRoleShort instead.
 func (aaa *RolesService) CreateRole(input *roles.CreateRoleParams) (*iamclientmodels.AccountcommonRole, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -84,7 +84,7 @@ func (aaa *RolesService) CreateRole(input *roles.CreateRoleParams) (*iamclientmo
 	return created.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use GetRoleShort instead.
+// Deprecated: 2022-01-10 - Please use GetRoleShort instead.
 func (aaa *RolesService) GetRole(input *roles.GetRoleParams) (*iamclientmodels.ModelRoleResponse, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -107,7 +107,7 @@ func (aaa *RolesService) GetRole(input *roles.GetRoleParams) (*iamclientmodels.M
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use UpdateRoleShort instead.
+// Deprecated: 2022-01-10 - Please use UpdateRoleShort instead.
 func (aaa *RolesService) UpdateRole(input *roles.UpdateRoleParams) (*iamclientmodels.ModelRoleResponse, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -133,7 +133,7 @@ func (aaa *RolesService) UpdateRole(input *roles.UpdateRoleParams) (*iamclientmo
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use DeleteRoleShort instead.
+// Deprecated: 2022-01-10 - Please use DeleteRoleShort instead.
 func (aaa *RolesService) DeleteRole(input *roles.DeleteRoleParams) error {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -156,7 +156,7 @@ func (aaa *RolesService) DeleteRole(input *roles.DeleteRoleParams) error {
 	return nil
 }
 
-// deprecated(2022-01-10): please use GetRoleAdminStatusShort instead.
+// Deprecated: 2022-01-10 - Please use GetRoleAdminStatusShort instead.
 func (aaa *RolesService) GetRoleAdminStatus(input *roles.GetRoleAdminStatusParams) (*iamclientmodels.ModelRoleAdminStatusResponse, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -182,7 +182,7 @@ func (aaa *RolesService) GetRoleAdminStatus(input *roles.GetRoleAdminStatusParam
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use SetRoleAsAdminShort instead.
+// Deprecated: 2022-01-10 - Please use SetRoleAsAdminShort instead.
 func (aaa *RolesService) SetRoleAsAdmin(input *roles.SetRoleAsAdminParams) error {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -208,7 +208,7 @@ func (aaa *RolesService) SetRoleAsAdmin(input *roles.SetRoleAsAdminParams) error
 	return nil
 }
 
-// deprecated(2022-01-10): please use RemoveRoleAdminShort instead.
+// Deprecated: 2022-01-10 - Please use RemoveRoleAdminShort instead.
 func (aaa *RolesService) RemoveRoleAdmin(input *roles.RemoveRoleAdminParams) error {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -234,7 +234,7 @@ func (aaa *RolesService) RemoveRoleAdmin(input *roles.RemoveRoleAdminParams) err
 	return nil
 }
 
-// deprecated(2022-01-10): please use GetRoleManagersShort instead.
+// Deprecated: 2022-01-10 - Please use GetRoleManagersShort instead.
 func (aaa *RolesService) GetRoleManagers(input *roles.GetRoleManagersParams) (*iamclientmodels.ModelRoleManagersResponse, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -260,7 +260,7 @@ func (aaa *RolesService) GetRoleManagers(input *roles.GetRoleManagersParams) (*i
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use AddRoleManagersShort instead.
+// Deprecated: 2022-01-10 - Please use AddRoleManagersShort instead.
 func (aaa *RolesService) AddRoleManagers(input *roles.AddRoleManagersParams) error {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -286,7 +286,7 @@ func (aaa *RolesService) AddRoleManagers(input *roles.AddRoleManagersParams) err
 	return nil
 }
 
-// deprecated(2022-01-10): please use RemoveRoleManagersShort instead.
+// Deprecated: 2022-01-10 - Please use RemoveRoleManagersShort instead.
 func (aaa *RolesService) RemoveRoleManagers(input *roles.RemoveRoleManagersParams) error {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -312,7 +312,7 @@ func (aaa *RolesService) RemoveRoleManagers(input *roles.RemoveRoleManagersParam
 	return nil
 }
 
-// deprecated(2022-01-10): please use GetRoleMembersShort instead.
+// Deprecated: 2022-01-10 - Please use GetRoleMembersShort instead.
 func (aaa *RolesService) GetRoleMembers(input *roles.GetRoleMembersParams) (*iamclientmodels.ModelRoleMembersResponse, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -338,7 +338,7 @@ func (aaa *RolesService) GetRoleMembers(input *roles.GetRoleMembersParams) (*iam
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use AddRoleMembersShort instead.
+// Deprecated: 2022-01-10 - Please use AddRoleMembersShort instead.
 func (aaa *RolesService) AddRoleMembers(input *roles.AddRoleMembersParams) error {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -364,7 +364,7 @@ func (aaa *RolesService) AddRoleMembers(input *roles.AddRoleMembersParams) error
 	return nil
 }
 
-// deprecated(2022-01-10): please use RemoveRoleMembersShort instead.
+// Deprecated: 2022-01-10 - Please use RemoveRoleMembersShort instead.
 func (aaa *RolesService) RemoveRoleMembers(input *roles.RemoveRoleMembersParams) error {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -390,7 +390,7 @@ func (aaa *RolesService) RemoveRoleMembers(input *roles.RemoveRoleMembersParams)
 	return nil
 }
 
-// deprecated(2022-01-10): please use UpdateRolePermissionsShort instead.
+// Deprecated: 2022-01-10 - Please use UpdateRolePermissionsShort instead.
 func (aaa *RolesService) UpdateRolePermissions(input *roles.UpdateRolePermissionsParams) error {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -416,7 +416,7 @@ func (aaa *RolesService) UpdateRolePermissions(input *roles.UpdateRolePermission
 	return nil
 }
 
-// deprecated(2022-01-10): please use AddRolePermissionShort instead.
+// Deprecated: 2022-01-10 - Please use AddRolePermissionShort instead.
 func (aaa *RolesService) AddRolePermission(input *roles.AddRolePermissionParams) error {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -442,7 +442,7 @@ func (aaa *RolesService) AddRolePermission(input *roles.AddRolePermissionParams)
 	return nil
 }
 
-// deprecated(2022-01-10): please use DeleteRolePermissionShort instead.
+// Deprecated: 2022-01-10 - Please use DeleteRolePermissionShort instead.
 func (aaa *RolesService) DeleteRolePermission(input *roles.DeleteRolePermissionParams) error {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -468,7 +468,7 @@ func (aaa *RolesService) DeleteRolePermission(input *roles.DeleteRolePermissionP
 	return nil
 }
 
-// deprecated(2022-01-10): please use AdminGetRolesV3Short instead.
+// Deprecated: 2022-01-10 - Please use AdminGetRolesV3Short instead.
 func (aaa *RolesService) AdminGetRolesV3(input *roles.AdminGetRolesV3Params) (*iamclientmodels.ModelRoleResponseWithManagersAndPaginationV3, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -494,7 +494,7 @@ func (aaa *RolesService) AdminGetRolesV3(input *roles.AdminGetRolesV3Params) (*i
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use AdminCreateRoleV3Short instead.
+// Deprecated: 2022-01-10 - Please use AdminCreateRoleV3Short instead.
 func (aaa *RolesService) AdminCreateRoleV3(input *roles.AdminCreateRoleV3Params) (*iamclientmodels.AccountcommonRoleV3, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -520,7 +520,7 @@ func (aaa *RolesService) AdminCreateRoleV3(input *roles.AdminCreateRoleV3Params)
 	return created.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use AdminGetRoleV3Short instead.
+// Deprecated: 2022-01-10 - Please use AdminGetRoleV3Short instead.
 func (aaa *RolesService) AdminGetRoleV3(input *roles.AdminGetRoleV3Params) (*iamclientmodels.ModelRoleResponseV3, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -549,7 +549,7 @@ func (aaa *RolesService) AdminGetRoleV3(input *roles.AdminGetRoleV3Params) (*iam
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use AdminDeleteRoleV3Short instead.
+// Deprecated: 2022-01-10 - Please use AdminDeleteRoleV3Short instead.
 func (aaa *RolesService) AdminDeleteRoleV3(input *roles.AdminDeleteRoleV3Params) error {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -581,7 +581,7 @@ func (aaa *RolesService) AdminDeleteRoleV3(input *roles.AdminDeleteRoleV3Params)
 	return nil
 }
 
-// deprecated(2022-01-10): please use AdminUpdateRoleV3Short instead.
+// Deprecated: 2022-01-10 - Please use AdminUpdateRoleV3Short instead.
 func (aaa *RolesService) AdminUpdateRoleV3(input *roles.AdminUpdateRoleV3Params) (*iamclientmodels.ModelRoleResponseV3, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -610,7 +610,7 @@ func (aaa *RolesService) AdminUpdateRoleV3(input *roles.AdminUpdateRoleV3Params)
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use AdminGetRoleAdminStatusV3Short instead.
+// Deprecated: 2022-01-10 - Please use AdminGetRoleAdminStatusV3Short instead.
 func (aaa *RolesService) AdminGetRoleAdminStatusV3(input *roles.AdminGetRoleAdminStatusV3Params) (*iamclientmodels.ModelRoleAdminStatusResponseV3, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -639,7 +639,7 @@ func (aaa *RolesService) AdminGetRoleAdminStatusV3(input *roles.AdminGetRoleAdmi
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use AdminUpdateAdminRoleStatusV3Short instead.
+// Deprecated: 2022-01-10 - Please use AdminUpdateAdminRoleStatusV3Short instead.
 func (aaa *RolesService) AdminUpdateAdminRoleStatusV3(input *roles.AdminUpdateAdminRoleStatusV3Params) error {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -668,7 +668,7 @@ func (aaa *RolesService) AdminUpdateAdminRoleStatusV3(input *roles.AdminUpdateAd
 	return nil
 }
 
-// deprecated(2022-01-10): please use AdminRemoveRoleAdminV3Short instead.
+// Deprecated: 2022-01-10 - Please use AdminRemoveRoleAdminV3Short instead.
 func (aaa *RolesService) AdminRemoveRoleAdminV3(input *roles.AdminRemoveRoleAdminV3Params) error {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -697,7 +697,7 @@ func (aaa *RolesService) AdminRemoveRoleAdminV3(input *roles.AdminRemoveRoleAdmi
 	return nil
 }
 
-// deprecated(2022-01-10): please use AdminGetRoleManagersV3Short instead.
+// Deprecated: 2022-01-10 - Please use AdminGetRoleManagersV3Short instead.
 func (aaa *RolesService) AdminGetRoleManagersV3(input *roles.AdminGetRoleManagersV3Params) (*iamclientmodels.ModelRoleManagersResponsesV3, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -726,7 +726,7 @@ func (aaa *RolesService) AdminGetRoleManagersV3(input *roles.AdminGetRoleManager
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use AdminAddRoleManagersV3Short instead.
+// Deprecated: 2022-01-10 - Please use AdminAddRoleManagersV3Short instead.
 func (aaa *RolesService) AdminAddRoleManagersV3(input *roles.AdminAddRoleManagersV3Params) error {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -755,7 +755,7 @@ func (aaa *RolesService) AdminAddRoleManagersV3(input *roles.AdminAddRoleManager
 	return nil
 }
 
-// deprecated(2022-01-10): please use AdminRemoveRoleManagersV3Short instead.
+// Deprecated: 2022-01-10 - Please use AdminRemoveRoleManagersV3Short instead.
 func (aaa *RolesService) AdminRemoveRoleManagersV3(input *roles.AdminRemoveRoleManagersV3Params) error {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -784,7 +784,7 @@ func (aaa *RolesService) AdminRemoveRoleManagersV3(input *roles.AdminRemoveRoleM
 	return nil
 }
 
-// deprecated(2022-01-10): please use AdminGetRoleMembersV3Short instead.
+// Deprecated: 2022-01-10 - Please use AdminGetRoleMembersV3Short instead.
 func (aaa *RolesService) AdminGetRoleMembersV3(input *roles.AdminGetRoleMembersV3Params) (*iamclientmodels.ModelRoleMembersResponseV3, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -813,7 +813,7 @@ func (aaa *RolesService) AdminGetRoleMembersV3(input *roles.AdminGetRoleMembersV
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use AdminAddRoleMembersV3Short instead.
+// Deprecated: 2022-01-10 - Please use AdminAddRoleMembersV3Short instead.
 func (aaa *RolesService) AdminAddRoleMembersV3(input *roles.AdminAddRoleMembersV3Params) error {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -845,7 +845,7 @@ func (aaa *RolesService) AdminAddRoleMembersV3(input *roles.AdminAddRoleMembersV
 	return nil
 }
 
-// deprecated(2022-01-10): please use AdminRemoveRoleMembersV3Short instead.
+// Deprecated: 2022-01-10 - Please use AdminRemoveRoleMembersV3Short instead.
 func (aaa *RolesService) AdminRemoveRoleMembersV3(input *roles.AdminRemoveRoleMembersV3Params) error {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -874,7 +874,7 @@ func (aaa *RolesService) AdminRemoveRoleMembersV3(input *roles.AdminRemoveRoleMe
 	return nil
 }
 
-// deprecated(2022-01-10): please use AdminUpdateRolePermissionsV3Short instead.
+// Deprecated: 2022-01-10 - Please use AdminUpdateRolePermissionsV3Short instead.
 func (aaa *RolesService) AdminUpdateRolePermissionsV3(input *roles.AdminUpdateRolePermissionsV3Params) error {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -903,7 +903,7 @@ func (aaa *RolesService) AdminUpdateRolePermissionsV3(input *roles.AdminUpdateRo
 	return nil
 }
 
-// deprecated(2022-01-10): please use AdminAddRolePermissionsV3Short instead.
+// Deprecated: 2022-01-10 - Please use AdminAddRolePermissionsV3Short instead.
 func (aaa *RolesService) AdminAddRolePermissionsV3(input *roles.AdminAddRolePermissionsV3Params) error {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -932,7 +932,7 @@ func (aaa *RolesService) AdminAddRolePermissionsV3(input *roles.AdminAddRolePerm
 	return nil
 }
 
-// deprecated(2022-01-10): please use AdminDeleteRolePermissionsV3Short instead.
+// Deprecated: 2022-01-10 - Please use AdminDeleteRolePermissionsV3Short instead.
 func (aaa *RolesService) AdminDeleteRolePermissionsV3(input *roles.AdminDeleteRolePermissionsV3Params) error {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -955,7 +955,7 @@ func (aaa *RolesService) AdminDeleteRolePermissionsV3(input *roles.AdminDeleteRo
 	return nil
 }
 
-// deprecated(2022-01-10): please use AdminDeleteRolePermissionV3Short instead.
+// Deprecated: 2022-01-10 - Please use AdminDeleteRolePermissionV3Short instead.
 func (aaa *RolesService) AdminDeleteRolePermissionV3(input *roles.AdminDeleteRolePermissionV3Params) error {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -984,7 +984,7 @@ func (aaa *RolesService) AdminDeleteRolePermissionV3(input *roles.AdminDeleteRol
 	return nil
 }
 
-// deprecated(2022-01-10): please use PublicGetRolesV3Short instead.
+// Deprecated: 2022-01-10 - Please use PublicGetRolesV3Short instead.
 func (aaa *RolesService) PublicGetRolesV3(input *roles.PublicGetRolesV3Params) (*iamclientmodels.ModelRoleNamesResponseV3, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -1001,7 +1001,7 @@ func (aaa *RolesService) PublicGetRolesV3(input *roles.PublicGetRolesV3Params) (
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use PublicGetRoleV3Short instead.
+// Deprecated: 2022-01-10 - Please use PublicGetRoleV3Short instead.
 func (aaa *RolesService) PublicGetRoleV3(input *roles.PublicGetRoleV3Params) (*iamclientmodels.ModelRoleResponse, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -1021,7 +1021,7 @@ func (aaa *RolesService) PublicGetRoleV3(input *roles.PublicGetRoleV3Params) (*i
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use AdminGetRolesV4Short instead.
+// Deprecated: 2022-01-10 - Please use AdminGetRolesV4Short instead.
 func (aaa *RolesService) AdminGetRolesV4(input *roles.AdminGetRolesV4Params) (*iamclientmodels.ModelListRoleV4Response, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -1047,7 +1047,7 @@ func (aaa *RolesService) AdminGetRolesV4(input *roles.AdminGetRolesV4Params) (*i
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use AdminCreateRoleV4Short instead.
+// Deprecated: 2022-01-10 - Please use AdminCreateRoleV4Short instead.
 func (aaa *RolesService) AdminCreateRoleV4(input *roles.AdminCreateRoleV4Params) (*iamclientmodels.ModelRoleV4Response, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -1073,7 +1073,7 @@ func (aaa *RolesService) AdminCreateRoleV4(input *roles.AdminCreateRoleV4Params)
 	return created.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use AdminGetRoleV4Short instead.
+// Deprecated: 2022-01-10 - Please use AdminGetRoleV4Short instead.
 func (aaa *RolesService) AdminGetRoleV4(input *roles.AdminGetRoleV4Params) (*iamclientmodels.ModelRoleV4Response, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -1102,7 +1102,7 @@ func (aaa *RolesService) AdminGetRoleV4(input *roles.AdminGetRoleV4Params) (*iam
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use AdminDeleteRoleV4Short instead.
+// Deprecated: 2022-01-10 - Please use AdminDeleteRoleV4Short instead.
 func (aaa *RolesService) AdminDeleteRoleV4(input *roles.AdminDeleteRoleV4Params) error {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -1131,7 +1131,7 @@ func (aaa *RolesService) AdminDeleteRoleV4(input *roles.AdminDeleteRoleV4Params)
 	return nil
 }
 
-// deprecated(2022-01-10): please use AdminUpdateRoleV4Short instead.
+// Deprecated: 2022-01-10 - Please use AdminUpdateRoleV4Short instead.
 func (aaa *RolesService) AdminUpdateRoleV4(input *roles.AdminUpdateRoleV4Params) (*iamclientmodels.ModelRoleV4Response, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -1157,7 +1157,7 @@ func (aaa *RolesService) AdminUpdateRoleV4(input *roles.AdminUpdateRoleV4Params)
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use AdminUpdateRolePermissionsV4Short instead.
+// Deprecated: 2022-01-10 - Please use AdminUpdateRolePermissionsV4Short instead.
 func (aaa *RolesService) AdminUpdateRolePermissionsV4(input *roles.AdminUpdateRolePermissionsV4Params) (*iamclientmodels.ModelRoleV4Response, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -1183,7 +1183,7 @@ func (aaa *RolesService) AdminUpdateRolePermissionsV4(input *roles.AdminUpdateRo
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use AdminAddRolePermissionsV4Short instead.
+// Deprecated: 2022-01-10 - Please use AdminAddRolePermissionsV4Short instead.
 func (aaa *RolesService) AdminAddRolePermissionsV4(input *roles.AdminAddRolePermissionsV4Params) (*iamclientmodels.ModelRoleV4Response, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -1209,7 +1209,7 @@ func (aaa *RolesService) AdminAddRolePermissionsV4(input *roles.AdminAddRolePerm
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use AdminDeleteRolePermissionsV4Short instead.
+// Deprecated: 2022-01-10 - Please use AdminDeleteRolePermissionsV4Short instead.
 func (aaa *RolesService) AdminDeleteRolePermissionsV4(input *roles.AdminDeleteRolePermissionsV4Params) error {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -1232,7 +1232,7 @@ func (aaa *RolesService) AdminDeleteRolePermissionsV4(input *roles.AdminDeleteRo
 	return nil
 }
 
-// deprecated(2022-01-10): please use AdminListAssignedUsersV4Short instead.
+// Deprecated: 2022-01-10 - Please use AdminListAssignedUsersV4Short instead.
 func (aaa *RolesService) AdminListAssignedUsersV4(input *roles.AdminListAssignedUsersV4Params) (*iamclientmodels.ModelListAssignedUsersV4Response, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -1258,7 +1258,7 @@ func (aaa *RolesService) AdminListAssignedUsersV4(input *roles.AdminListAssigned
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use AdminAssignUserToRoleV4Short instead.
+// Deprecated: 2022-01-10 - Please use AdminAssignUserToRoleV4Short instead.
 func (aaa *RolesService) AdminAssignUserToRoleV4(input *roles.AdminAssignUserToRoleV4Params) (*iamclientmodels.ModelAssignedUserV4Response, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -1290,7 +1290,7 @@ func (aaa *RolesService) AdminAssignUserToRoleV4(input *roles.AdminAssignUserToR
 	return created.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use AdminRevokeUserFromRoleV4Short instead.
+// Deprecated: 2022-01-10 - Please use AdminRevokeUserFromRoleV4Short instead.
 func (aaa *RolesService) AdminRevokeUserFromRoleV4(input *roles.AdminRevokeUserFromRoleV4Params) error {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {

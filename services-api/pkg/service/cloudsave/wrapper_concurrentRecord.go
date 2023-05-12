@@ -16,7 +16,7 @@ import (
 )
 
 // ConcurrentRecordService this is use for compatibility with latest modular sdk only
-// Deprecated: please use ConcurrentRecordService imported from "github.com/AccelByte/accelbyte-go-modular-sdk/cloudsave-sdk/pkg"
+// Deprecated: 2023-03-30 - please use ConcurrentRecordService imported from "github.com/AccelByte/accelbyte-go-modular-sdk/cloudsave-sdk/pkg"
 type ConcurrentRecordService struct {
 	Client                 *cloudsaveclient.JusticeCloudsaveService
 	ConfigRepository       repository.ConfigRepository
@@ -40,7 +40,7 @@ func (aaa *ConcurrentRecordService) GetAuthSession() auth.Session {
 	}
 }
 
-// deprecated(2022-01-10): please use PutGameRecordConcurrentHandlerV1Short instead.
+// Deprecated: 2022-01-10 - Please use PutGameRecordConcurrentHandlerV1Short instead.
 func (aaa *ConcurrentRecordService) PutGameRecordConcurrentHandlerV1(input *concurrent_record.PutGameRecordConcurrentHandlerV1Params) error {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -66,7 +66,7 @@ func (aaa *ConcurrentRecordService) PutGameRecordConcurrentHandlerV1(input *conc
 	return nil
 }
 
-// deprecated(2022-01-10): please use PutPlayerRecordConcurrentHandlerV1Short instead.
+// Deprecated: 2022-01-10 - Please use PutPlayerRecordConcurrentHandlerV1Short instead.
 func (aaa *ConcurrentRecordService) PutPlayerRecordConcurrentHandlerV1(input *concurrent_record.PutPlayerRecordConcurrentHandlerV1Params) error {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -92,7 +92,7 @@ func (aaa *ConcurrentRecordService) PutPlayerRecordConcurrentHandlerV1(input *co
 	return nil
 }
 
-// deprecated(2022-01-10): please use PutPlayerPublicRecordConcurrentHandlerV1Short instead.
+// Deprecated: 2022-01-10 - Please use PutPlayerPublicRecordConcurrentHandlerV1Short instead.
 func (aaa *ConcurrentRecordService) PutPlayerPublicRecordConcurrentHandlerV1(input *concurrent_record.PutPlayerPublicRecordConcurrentHandlerV1Params) error {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {

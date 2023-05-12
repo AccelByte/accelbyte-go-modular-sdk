@@ -16,6 +16,8 @@ import (
 	"github.com/go-openapi/runtime/client"
 )
 
+// CategoryService this is use for compatibility with latest modular sdk only
+// Deprecated: 2023-03-30 - please use CategoryService imported from "github.com/AccelByte/accelbyte-go-modular-sdk/platform-sdk/pkg"
 type CategoryService struct {
 	Client                 *platformclient.JusticePlatformService
 	ConfigRepository       repository.ConfigRepository
@@ -39,7 +41,7 @@ func (aaa *CategoryService) GetAuthSession() auth.Session {
 	}
 }
 
-// deprecated(2022-01-10): please use GetRootCategoriesShort instead.
+// Deprecated: 2022-01-10 - Please use GetRootCategoriesShort instead.
 func (aaa *CategoryService) GetRootCategories(input *category.GetRootCategoriesParams) ([]*platformclientmodels.FullCategoryInfo, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -53,7 +55,7 @@ func (aaa *CategoryService) GetRootCategories(input *category.GetRootCategoriesP
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use CreateCategoryShort instead.
+// Deprecated: 2022-01-10 - Please use CreateCategoryShort instead.
 func (aaa *CategoryService) CreateCategory(input *category.CreateCategoryParams) (*platformclientmodels.FullCategoryInfo, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -79,7 +81,7 @@ func (aaa *CategoryService) CreateCategory(input *category.CreateCategoryParams)
 	return created.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use ListCategoriesBasicShort instead.
+// Deprecated: 2022-01-10 - Please use ListCategoriesBasicShort instead.
 func (aaa *CategoryService) ListCategoriesBasic(input *category.ListCategoriesBasicParams) ([]*platformclientmodels.BasicCategoryInfo, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -93,7 +95,7 @@ func (aaa *CategoryService) ListCategoriesBasic(input *category.ListCategoriesBa
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use GetCategoryShort instead.
+// Deprecated: 2022-01-10 - Please use GetCategoryShort instead.
 func (aaa *CategoryService) GetCategory(input *category.GetCategoryParams) (*platformclientmodels.FullCategoryInfo, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -110,7 +112,7 @@ func (aaa *CategoryService) GetCategory(input *category.GetCategoryParams) (*pla
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use UpdateCategoryShort instead.
+// Deprecated: 2022-01-10 - Please use UpdateCategoryShort instead.
 func (aaa *CategoryService) UpdateCategory(input *category.UpdateCategoryParams) (*platformclientmodels.FullCategoryInfo, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -136,7 +138,7 @@ func (aaa *CategoryService) UpdateCategory(input *category.UpdateCategoryParams)
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use DeleteCategoryShort instead.
+// Deprecated: 2022-01-10 - Please use DeleteCategoryShort instead.
 func (aaa *CategoryService) DeleteCategory(input *category.DeleteCategoryParams) (*platformclientmodels.FullCategoryInfo, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -156,7 +158,7 @@ func (aaa *CategoryService) DeleteCategory(input *category.DeleteCategoryParams)
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use GetChildCategoriesShort instead.
+// Deprecated: 2022-01-10 - Please use GetChildCategoriesShort instead.
 func (aaa *CategoryService) GetChildCategories(input *category.GetChildCategoriesParams) ([]*platformclientmodels.FullCategoryInfo, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -170,7 +172,7 @@ func (aaa *CategoryService) GetChildCategories(input *category.GetChildCategorie
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use GetDescendantCategoriesShort instead.
+// Deprecated: 2022-01-10 - Please use GetDescendantCategoriesShort instead.
 func (aaa *CategoryService) GetDescendantCategories(input *category.GetDescendantCategoriesParams) ([]*platformclientmodels.FullCategoryInfo, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -184,7 +186,7 @@ func (aaa *CategoryService) GetDescendantCategories(input *category.GetDescendan
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use PublicGetRootCategoriesShort instead.
+// Deprecated: 2022-01-10 - Please use PublicGetRootCategoriesShort instead.
 func (aaa *CategoryService) PublicGetRootCategories(input *category.PublicGetRootCategoriesParams) ([]*platformclientmodels.CategoryInfo, error) {
 	ok, err := aaa.Client.Category.PublicGetRootCategories(input)
 	if err != nil {
@@ -194,7 +196,7 @@ func (aaa *CategoryService) PublicGetRootCategories(input *category.PublicGetRoo
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use DownloadCategoriesShort instead.
+// Deprecated: 2022-01-10 - Please use DownloadCategoriesShort instead.
 func (aaa *CategoryService) DownloadCategories(input *category.DownloadCategoriesParams) ([]*platformclientmodels.HierarchicalCategoryInfo, error) {
 	ok, notFound, err := aaa.Client.Category.DownloadCategories(input)
 	if notFound != nil {
@@ -207,7 +209,7 @@ func (aaa *CategoryService) DownloadCategories(input *category.DownloadCategorie
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use PublicGetCategoryShort instead.
+// Deprecated: 2022-01-10 - Please use PublicGetCategoryShort instead.
 func (aaa *CategoryService) PublicGetCategory(input *category.PublicGetCategoryParams) (*platformclientmodels.CategoryInfo, error) {
 	ok, notFound, err := aaa.Client.Category.PublicGetCategory(input)
 	if notFound != nil {
@@ -220,7 +222,7 @@ func (aaa *CategoryService) PublicGetCategory(input *category.PublicGetCategoryP
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use PublicGetChildCategoriesShort instead.
+// Deprecated: 2022-01-10 - Please use PublicGetChildCategoriesShort instead.
 func (aaa *CategoryService) PublicGetChildCategories(input *category.PublicGetChildCategoriesParams) ([]*platformclientmodels.CategoryInfo, error) {
 	ok, err := aaa.Client.Category.PublicGetChildCategories(input)
 	if err != nil {
@@ -230,7 +232,7 @@ func (aaa *CategoryService) PublicGetChildCategories(input *category.PublicGetCh
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use PublicGetDescendantCategoriesShort instead.
+// Deprecated: 2022-01-10 - Please use PublicGetDescendantCategoriesShort instead.
 func (aaa *CategoryService) PublicGetDescendantCategories(input *category.PublicGetDescendantCategoriesParams) ([]*platformclientmodels.CategoryInfo, error) {
 	ok, err := aaa.Client.Category.PublicGetDescendantCategories(input)
 	if err != nil {

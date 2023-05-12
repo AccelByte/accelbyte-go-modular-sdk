@@ -18,6 +18,8 @@ import (
 	"github.com/go-openapi/runtime/client"
 )
 
+// SlotService this is use for compatibility with latest modular sdk only
+// Deprecated: 2023-03-30 - please use SlotService imported from "github.com/AccelByte/accelbyte-go-modular-sdk/social-sdk/pkg"
 type SlotService struct {
 	Client                 *socialclient.JusticeSocialService
 	ConfigRepository       repository.ConfigRepository
@@ -41,7 +43,7 @@ func (aaa *SlotService) GetAuthSession() auth.Session {
 	}
 }
 
-// deprecated(2022-01-10): please use GetUserNamespaceSlotsShort instead.
+// Deprecated: 2022-01-10 - Please use GetUserNamespaceSlotsShort instead.
 func (aaa *SlotService) GetUserNamespaceSlots(input *slot.GetUserNamespaceSlotsParams) ([]*socialclientmodels.SlotInfo, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -55,7 +57,7 @@ func (aaa *SlotService) GetUserNamespaceSlots(input *slot.GetUserNamespaceSlotsP
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use GetSlotDataShort instead.
+// Deprecated: 2022-01-10 - Please use GetSlotDataShort instead.
 func (aaa *SlotService) GetSlotData(input *slot.GetSlotDataParams, writer io.Writer) (io.Writer, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -72,7 +74,7 @@ func (aaa *SlotService) GetSlotData(input *slot.GetSlotDataParams, writer io.Wri
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use PublicGetUserNamespaceSlotsShort instead.
+// Deprecated: 2022-01-10 - Please use PublicGetUserNamespaceSlotsShort instead.
 func (aaa *SlotService) PublicGetUserNamespaceSlots(input *slot.PublicGetUserNamespaceSlotsParams) ([]*socialclientmodels.SlotInfo, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -86,7 +88,7 @@ func (aaa *SlotService) PublicGetUserNamespaceSlots(input *slot.PublicGetUserNam
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use PublicCreateUserNamespaceSlotShort instead.
+// Deprecated: 2022-01-10 - Please use PublicCreateUserNamespaceSlotShort instead.
 func (aaa *SlotService) PublicCreateUserNamespaceSlot(input *slot.PublicCreateUserNamespaceSlotParams) error {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -106,7 +108,7 @@ func (aaa *SlotService) PublicCreateUserNamespaceSlot(input *slot.PublicCreateUs
 	return nil
 }
 
-// deprecated(2022-01-10): please use PublicGetSlotDataShort instead.
+// Deprecated: 2022-01-10 - Please use PublicGetSlotDataShort instead.
 func (aaa *SlotService) PublicGetSlotData(input *slot.PublicGetSlotDataParams, writer io.Writer) (io.Writer, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -123,7 +125,7 @@ func (aaa *SlotService) PublicGetSlotData(input *slot.PublicGetSlotDataParams, w
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use PublicUpdateUserNamespaceSlotShort instead.
+// Deprecated: 2022-01-10 - Please use PublicUpdateUserNamespaceSlotShort instead.
 func (aaa *SlotService) PublicUpdateUserNamespaceSlot(input *slot.PublicUpdateUserNamespaceSlotParams) (*socialclientmodels.SlotInfo, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -143,7 +145,7 @@ func (aaa *SlotService) PublicUpdateUserNamespaceSlot(input *slot.PublicUpdateUs
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use PublicDeleteUserNamespaceSlotShort instead.
+// Deprecated: 2022-01-10 - Please use PublicDeleteUserNamespaceSlotShort instead.
 func (aaa *SlotService) PublicDeleteUserNamespaceSlot(input *slot.PublicDeleteUserNamespaceSlotParams) error {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -160,7 +162,7 @@ func (aaa *SlotService) PublicDeleteUserNamespaceSlot(input *slot.PublicDeleteUs
 	return nil
 }
 
-// deprecated(2022-01-10): please use PublicUpdateUserNamespaceSlotMetadataShort instead.
+// Deprecated: 2022-01-10 - Please use PublicUpdateUserNamespaceSlotMetadataShort instead.
 func (aaa *SlotService) PublicUpdateUserNamespaceSlotMetadata(input *slot.PublicUpdateUserNamespaceSlotMetadataParams) (*socialclientmodels.SlotInfo, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {

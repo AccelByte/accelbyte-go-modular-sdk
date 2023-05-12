@@ -17,7 +17,7 @@ import (
 )
 
 // UserStatisticService this is use for compatibility with latest modular sdk only
-// Deprecated: please use UserStatisticService imported from "github.com/AccelByte/accelbyte-go-modular-sdk/social-sdk/pkg"
+// Deprecated: 2023-03-30 - please use UserStatisticService imported from "github.com/AccelByte/accelbyte-go-modular-sdk/social-sdk/pkg"
 type UserStatisticService struct {
 	Client                 *socialclient.JusticeSocialService
 	ConfigRepository       repository.ConfigRepository
@@ -41,7 +41,7 @@ func (aaa *UserStatisticService) GetAuthSession() auth.Session {
 	}
 }
 
-// deprecated(2022-01-10): please use BulkFetchStatItemsShort instead.
+// Deprecated: 2022-01-10 - Please use BulkFetchStatItemsShort instead.
 func (aaa *UserStatisticService) BulkFetchStatItems(input *user_statistic.BulkFetchStatItemsParams) ([]*socialclientmodels.UserStatItemInfo, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -58,7 +58,7 @@ func (aaa *UserStatisticService) BulkFetchStatItems(input *user_statistic.BulkFe
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use BulkIncUserStatItemShort instead.
+// Deprecated: 2022-01-10 - Please use BulkIncUserStatItemShort instead.
 func (aaa *UserStatisticService) BulkIncUserStatItem(input *user_statistic.BulkIncUserStatItemParams) ([]*socialclientmodels.BulkStatOperationResult, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -75,7 +75,7 @@ func (aaa *UserStatisticService) BulkIncUserStatItem(input *user_statistic.BulkI
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use BulkIncUserStatItemValueShort instead.
+// Deprecated: 2022-01-10 - Please use BulkIncUserStatItemValueShort instead.
 func (aaa *UserStatisticService) BulkIncUserStatItemValue(input *user_statistic.BulkIncUserStatItemValueParams) ([]*socialclientmodels.BulkStatOperationResult, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -92,7 +92,7 @@ func (aaa *UserStatisticService) BulkIncUserStatItemValue(input *user_statistic.
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use BulkFetchOrDefaultStatItemsShort instead.
+// Deprecated: 2022-01-10 - Please use BulkFetchOrDefaultStatItemsShort instead.
 func (aaa *UserStatisticService) BulkFetchOrDefaultStatItems(input *user_statistic.BulkFetchOrDefaultStatItemsParams) ([]*socialclientmodels.ADTOObjectForUserStatItemValue, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -112,7 +112,7 @@ func (aaa *UserStatisticService) BulkFetchOrDefaultStatItems(input *user_statist
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use BulkResetUserStatItemShort instead.
+// Deprecated: 2022-01-10 - Please use BulkResetUserStatItemShort instead.
 func (aaa *UserStatisticService) BulkResetUserStatItem(input *user_statistic.BulkResetUserStatItemParams) ([]*socialclientmodels.BulkStatOperationResult, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -129,7 +129,7 @@ func (aaa *UserStatisticService) BulkResetUserStatItem(input *user_statistic.Bul
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use GetUserStatItemsShort instead.
+// Deprecated: 2022-01-10 - Please use GetUserStatItemsShort instead.
 func (aaa *UserStatisticService) GetUserStatItems(input *user_statistic.GetUserStatItemsParams) (*socialclientmodels.UserStatItemPagingSlicedResult, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -143,7 +143,7 @@ func (aaa *UserStatisticService) GetUserStatItems(input *user_statistic.GetUserS
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use BulkCreateUserStatItemsShort instead.
+// Deprecated: 2022-01-10 - Please use BulkCreateUserStatItemsShort instead.
 func (aaa *UserStatisticService) BulkCreateUserStatItems(input *user_statistic.BulkCreateUserStatItemsParams) ([]*socialclientmodels.BulkStatOperationResult, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -160,7 +160,7 @@ func (aaa *UserStatisticService) BulkCreateUserStatItems(input *user_statistic.B
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use BulkIncUserStatItem1Short instead.
+// Deprecated: 2022-01-10 - Please use BulkIncUserStatItem1Short instead.
 func (aaa *UserStatisticService) BulkIncUserStatItem1(input *user_statistic.BulkIncUserStatItem1Params) ([]*socialclientmodels.BulkStatOperationResult, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -177,7 +177,7 @@ func (aaa *UserStatisticService) BulkIncUserStatItem1(input *user_statistic.Bulk
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use BulkIncUserStatItemValue1Short instead.
+// Deprecated: 2022-01-10 - Please use BulkIncUserStatItemValue1Short instead.
 func (aaa *UserStatisticService) BulkIncUserStatItemValue1(input *user_statistic.BulkIncUserStatItemValue1Params) ([]*socialclientmodels.BulkStatOperationResult, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -194,7 +194,7 @@ func (aaa *UserStatisticService) BulkIncUserStatItemValue1(input *user_statistic
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use BulkResetUserStatItem1Short instead.
+// Deprecated: 2022-01-10 - Please use BulkResetUserStatItem1Short instead.
 func (aaa *UserStatisticService) BulkResetUserStatItem1(input *user_statistic.BulkResetUserStatItem1Params) ([]*socialclientmodels.BulkStatOperationResult, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -211,7 +211,7 @@ func (aaa *UserStatisticService) BulkResetUserStatItem1(input *user_statistic.Bu
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use CreateUserStatItemShort instead.
+// Deprecated: 2022-01-10 - Please use CreateUserStatItemShort instead.
 func (aaa *UserStatisticService) CreateUserStatItem(input *user_statistic.CreateUserStatItemParams) error {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -231,7 +231,7 @@ func (aaa *UserStatisticService) CreateUserStatItem(input *user_statistic.Create
 	return nil
 }
 
-// deprecated(2022-01-10): please use DeleteUserStatItemsShort instead.
+// Deprecated: 2022-01-10 - Please use DeleteUserStatItemsShort instead.
 func (aaa *UserStatisticService) DeleteUserStatItems(input *user_statistic.DeleteUserStatItemsParams) error {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -254,7 +254,7 @@ func (aaa *UserStatisticService) DeleteUserStatItems(input *user_statistic.Delet
 	return nil
 }
 
-// deprecated(2022-01-10): please use IncUserStatItemValueShort instead.
+// Deprecated: 2022-01-10 - Please use IncUserStatItemValueShort instead.
 func (aaa *UserStatisticService) IncUserStatItemValue(input *user_statistic.IncUserStatItemValueParams) (*socialclientmodels.StatItemIncResult, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -277,7 +277,7 @@ func (aaa *UserStatisticService) IncUserStatItemValue(input *user_statistic.IncU
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use ResetUserStatItemValueShort instead.
+// Deprecated: 2022-01-10 - Please use ResetUserStatItemValueShort instead.
 func (aaa *UserStatisticService) ResetUserStatItemValue(input *user_statistic.ResetUserStatItemValueParams) (*socialclientmodels.StatItemIncResult, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -297,7 +297,7 @@ func (aaa *UserStatisticService) ResetUserStatItemValue(input *user_statistic.Re
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use BulkFetchStatItems1Short instead.
+// Deprecated: 2022-01-10 - Please use BulkFetchStatItems1Short instead.
 func (aaa *UserStatisticService) BulkFetchStatItems1(input *user_statistic.BulkFetchStatItems1Params) ([]*socialclientmodels.UserStatItemInfo, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -314,7 +314,7 @@ func (aaa *UserStatisticService) BulkFetchStatItems1(input *user_statistic.BulkF
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use PublicBulkIncUserStatItemShort instead.
+// Deprecated: 2022-01-10 - Please use PublicBulkIncUserStatItemShort instead.
 func (aaa *UserStatisticService) PublicBulkIncUserStatItem(input *user_statistic.PublicBulkIncUserStatItemParams) ([]*socialclientmodels.BulkStatOperationResult, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -331,7 +331,7 @@ func (aaa *UserStatisticService) PublicBulkIncUserStatItem(input *user_statistic
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use PublicBulkIncUserStatItemValueShort instead.
+// Deprecated: 2022-01-10 - Please use PublicBulkIncUserStatItemValueShort instead.
 func (aaa *UserStatisticService) PublicBulkIncUserStatItemValue(input *user_statistic.PublicBulkIncUserStatItemValueParams) ([]*socialclientmodels.BulkStatOperationResult, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -348,7 +348,7 @@ func (aaa *UserStatisticService) PublicBulkIncUserStatItemValue(input *user_stat
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use BulkResetUserStatItem2Short instead.
+// Deprecated: 2022-01-10 - Please use BulkResetUserStatItem2Short instead.
 func (aaa *UserStatisticService) BulkResetUserStatItem2(input *user_statistic.BulkResetUserStatItem2Params) ([]*socialclientmodels.BulkStatOperationResult, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -365,7 +365,7 @@ func (aaa *UserStatisticService) BulkResetUserStatItem2(input *user_statistic.Bu
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use PublicQueryUserStatItemsShort instead.
+// Deprecated: 2022-01-10 - Please use PublicQueryUserStatItemsShort instead.
 func (aaa *UserStatisticService) PublicQueryUserStatItems(input *user_statistic.PublicQueryUserStatItemsParams) (*socialclientmodels.UserStatItemPagingSlicedResult, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -379,7 +379,7 @@ func (aaa *UserStatisticService) PublicQueryUserStatItems(input *user_statistic.
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use PublicBulkCreateUserStatItemsShort instead.
+// Deprecated: 2022-01-10 - Please use PublicBulkCreateUserStatItemsShort instead.
 func (aaa *UserStatisticService) PublicBulkCreateUserStatItems(input *user_statistic.PublicBulkCreateUserStatItemsParams) ([]*socialclientmodels.BulkStatOperationResult, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -396,7 +396,7 @@ func (aaa *UserStatisticService) PublicBulkCreateUserStatItems(input *user_stati
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use PublicQueryUserStatItems1Short instead.
+// Deprecated: 2022-01-10 - Please use PublicQueryUserStatItems1Short instead.
 func (aaa *UserStatisticService) PublicQueryUserStatItems1(input *user_statistic.PublicQueryUserStatItems1Params) ([]*socialclientmodels.ADTOObjectForUserStatItemValue, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -419,7 +419,7 @@ func (aaa *UserStatisticService) PublicQueryUserStatItems1(input *user_statistic
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use PublicBulkIncUserStatItem1Short instead.
+// Deprecated: 2022-01-10 - Please use PublicBulkIncUserStatItem1Short instead.
 func (aaa *UserStatisticService) PublicBulkIncUserStatItem1(input *user_statistic.PublicBulkIncUserStatItem1Params) ([]*socialclientmodels.BulkStatOperationResult, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -436,7 +436,7 @@ func (aaa *UserStatisticService) PublicBulkIncUserStatItem1(input *user_statisti
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use BulkIncUserStatItemValue2Short instead.
+// Deprecated: 2022-01-10 - Please use BulkIncUserStatItemValue2Short instead.
 func (aaa *UserStatisticService) BulkIncUserStatItemValue2(input *user_statistic.BulkIncUserStatItemValue2Params) ([]*socialclientmodels.BulkStatOperationResult, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -453,7 +453,7 @@ func (aaa *UserStatisticService) BulkIncUserStatItemValue2(input *user_statistic
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use BulkResetUserStatItem3Short instead.
+// Deprecated: 2022-01-10 - Please use BulkResetUserStatItem3Short instead.
 func (aaa *UserStatisticService) BulkResetUserStatItem3(input *user_statistic.BulkResetUserStatItem3Params) ([]*socialclientmodels.BulkStatOperationResult, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -470,7 +470,7 @@ func (aaa *UserStatisticService) BulkResetUserStatItem3(input *user_statistic.Bu
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use PublicCreateUserStatItemShort instead.
+// Deprecated: 2022-01-10 - Please use PublicCreateUserStatItemShort instead.
 func (aaa *UserStatisticService) PublicCreateUserStatItem(input *user_statistic.PublicCreateUserStatItemParams) error {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -490,7 +490,7 @@ func (aaa *UserStatisticService) PublicCreateUserStatItem(input *user_statistic.
 	return nil
 }
 
-// deprecated(2022-01-10): please use DeleteUserStatItems1Short instead.
+// Deprecated: 2022-01-10 - Please use DeleteUserStatItems1Short instead.
 func (aaa *UserStatisticService) DeleteUserStatItems1(input *user_statistic.DeleteUserStatItems1Params) error {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -513,7 +513,7 @@ func (aaa *UserStatisticService) DeleteUserStatItems1(input *user_statistic.Dele
 	return nil
 }
 
-// deprecated(2022-01-10): please use PublicIncUserStatItemShort instead.
+// Deprecated: 2022-01-10 - Please use PublicIncUserStatItemShort instead.
 func (aaa *UserStatisticService) PublicIncUserStatItem(input *user_statistic.PublicIncUserStatItemParams) (*socialclientmodels.StatItemIncResult, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -536,7 +536,7 @@ func (aaa *UserStatisticService) PublicIncUserStatItem(input *user_statistic.Pub
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use PublicIncUserStatItemValueShort instead.
+// Deprecated: 2022-01-10 - Please use PublicIncUserStatItemValueShort instead.
 func (aaa *UserStatisticService) PublicIncUserStatItemValue(input *user_statistic.PublicIncUserStatItemValueParams) (*socialclientmodels.StatItemIncResult, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -559,7 +559,7 @@ func (aaa *UserStatisticService) PublicIncUserStatItemValue(input *user_statisti
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use ResetUserStatItemValue1Short instead.
+// Deprecated: 2022-01-10 - Please use ResetUserStatItemValue1Short instead.
 func (aaa *UserStatisticService) ResetUserStatItemValue1(input *user_statistic.ResetUserStatItemValue1Params) (*socialclientmodels.StatItemIncResult, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -579,7 +579,7 @@ func (aaa *UserStatisticService) ResetUserStatItemValue1(input *user_statistic.R
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use BulkUpdateUserStatItemV2Short instead.
+// Deprecated: 2022-01-10 - Please use BulkUpdateUserStatItemV2Short instead.
 func (aaa *UserStatisticService) BulkUpdateUserStatItemV2(input *user_statistic.BulkUpdateUserStatItemV2Params) ([]*socialclientmodels.BulkStatOperationResult, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -596,7 +596,7 @@ func (aaa *UserStatisticService) BulkUpdateUserStatItemV2(input *user_statistic.
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use BulkFetchOrDefaultStatItems1Short instead.
+// Deprecated: 2022-01-10 - Please use BulkFetchOrDefaultStatItems1Short instead.
 func (aaa *UserStatisticService) BulkFetchOrDefaultStatItems1(input *user_statistic.BulkFetchOrDefaultStatItems1Params) ([]*socialclientmodels.ADTOObjectForUserStatItemValue, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -616,7 +616,7 @@ func (aaa *UserStatisticService) BulkFetchOrDefaultStatItems1(input *user_statis
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use BulkUpdateUserStatItemShort instead.
+// Deprecated: 2022-01-10 - Please use BulkUpdateUserStatItemShort instead.
 func (aaa *UserStatisticService) BulkUpdateUserStatItem(input *user_statistic.BulkUpdateUserStatItemParams) ([]*socialclientmodels.BulkStatOperationResult, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -633,7 +633,7 @@ func (aaa *UserStatisticService) BulkUpdateUserStatItem(input *user_statistic.Bu
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use BulkResetUserStatItemValuesShort instead.
+// Deprecated: 2022-01-10 - Please use BulkResetUserStatItemValuesShort instead.
 func (aaa *UserStatisticService) BulkResetUserStatItemValues(input *user_statistic.BulkResetUserStatItemValuesParams) ([]*socialclientmodels.BulkStatOperationResult, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -650,7 +650,7 @@ func (aaa *UserStatisticService) BulkResetUserStatItemValues(input *user_statist
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use DeleteUserStatItems2Short instead.
+// Deprecated: 2022-01-10 - Please use DeleteUserStatItems2Short instead.
 func (aaa *UserStatisticService) DeleteUserStatItems2(input *user_statistic.DeleteUserStatItems2Params) error {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -673,7 +673,7 @@ func (aaa *UserStatisticService) DeleteUserStatItems2(input *user_statistic.Dele
 	return nil
 }
 
-// deprecated(2022-01-10): please use UpdateUserStatItemValueShort instead.
+// Deprecated: 2022-01-10 - Please use UpdateUserStatItemValueShort instead.
 func (aaa *UserStatisticService) UpdateUserStatItemValue(input *user_statistic.UpdateUserStatItemValueParams) (*socialclientmodels.StatItemIncResult, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -699,7 +699,7 @@ func (aaa *UserStatisticService) UpdateUserStatItemValue(input *user_statistic.U
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use BulkUpdateUserStatItem1Short instead.
+// Deprecated: 2022-01-10 - Please use BulkUpdateUserStatItem1Short instead.
 func (aaa *UserStatisticService) BulkUpdateUserStatItem1(input *user_statistic.BulkUpdateUserStatItem1Params) ([]*socialclientmodels.BulkStatOperationResult, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -716,7 +716,7 @@ func (aaa *UserStatisticService) BulkUpdateUserStatItem1(input *user_statistic.B
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use PublicQueryUserStatItems2Short instead.
+// Deprecated: 2022-01-10 - Please use PublicQueryUserStatItems2Short instead.
 func (aaa *UserStatisticService) PublicQueryUserStatItems2(input *user_statistic.PublicQueryUserStatItems2Params) ([]*socialclientmodels.ADTOObjectForUserStatItemValue, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -739,7 +739,7 @@ func (aaa *UserStatisticService) PublicQueryUserStatItems2(input *user_statistic
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use BulkUpdateUserStatItem2Short instead.
+// Deprecated: 2022-01-10 - Please use BulkUpdateUserStatItem2Short instead.
 func (aaa *UserStatisticService) BulkUpdateUserStatItem2(input *user_statistic.BulkUpdateUserStatItem2Params) ([]*socialclientmodels.BulkStatOperationResult, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -756,7 +756,7 @@ func (aaa *UserStatisticService) BulkUpdateUserStatItem2(input *user_statistic.B
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use UpdateUserStatItemValue1Short instead.
+// Deprecated: 2022-01-10 - Please use UpdateUserStatItemValue1Short instead.
 func (aaa *UserStatisticService) UpdateUserStatItemValue1(input *user_statistic.UpdateUserStatItemValue1Params) (*socialclientmodels.StatItemIncResult, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {

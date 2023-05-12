@@ -13,24 +13,18 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 )
 
-var leaderboardClientInstance *leaderboardclient.JusticeLeaderboardService
-
 func NewLeaderboardClient(configRepository repository.ConfigRepository) *leaderboardclient.JusticeLeaderboardService {
-	if leaderboardClientInstance == nil {
-		baseURL := configRepository.GetJusticeBaseUrl()
-		if len(baseURL) > 0 {
-			baseURLSplit := strings.Split(baseURL, "://")
-			httpClientConfig := &leaderboardclient.TransportConfig{
-				Host:          baseURLSplit[1],
-				BasePath:      "",
-				Schemes:       []string{baseURLSplit[0]},
-				UserAgentFunc: GetUserAgent,
-			}
-			leaderboardClientInstance = leaderboardclient.NewHTTPClientWithConfig(nil, httpClientConfig)
-		} else {
-			leaderboardClientInstance = leaderboardclient.NewHTTPClient(nil)
+	baseURL := configRepository.GetJusticeBaseUrl()
+	if len(baseURL) > 0 {
+		baseURLSplit := strings.Split(baseURL, "://")
+		httpClientConfig := &leaderboardclient.TransportConfig{
+			Host:          baseURLSplit[1],
+			BasePath:      "",
+			Schemes:       []string{baseURLSplit[0]},
+			UserAgentFunc: GetUserAgent,
 		}
+		return leaderboardclient.NewHTTPClientWithConfig(nil, httpClientConfig)
+	} else {
+		return leaderboardclient.NewHTTPClient(nil)
 	}
-
-	return leaderboardClientInstance
 }

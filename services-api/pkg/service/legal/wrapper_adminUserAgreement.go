@@ -17,7 +17,7 @@ import (
 )
 
 // AdminUserAgreementService this is use for compatibility with latest modular sdk only
-// Deprecated: please use AdminUserAgreementService imported from "github.com/AccelByte/accelbyte-go-modular-sdk/legal-sdk/pkg"
+// Deprecated: 2023-03-30 - please use AdminUserAgreementService imported from "github.com/AccelByte/accelbyte-go-modular-sdk/legal-sdk/pkg"
 type AdminUserAgreementService struct {
 	Client                 *legalclient.JusticeLegalService
 	ConfigRepository       repository.ConfigRepository
@@ -41,7 +41,7 @@ func (aaa *AdminUserAgreementService) GetAuthSession() auth.Session {
 	}
 }
 
-// deprecated(2022-01-10): please use IndirectBulkAcceptVersionedPolicyShort instead.
+// Deprecated: 2022-01-10 - Please use IndirectBulkAcceptVersionedPolicyShort instead.
 func (aaa *AdminUserAgreementService) IndirectBulkAcceptVersionedPolicy(input *admin_user_agreement.IndirectBulkAcceptVersionedPolicyParams) (*legalclientmodels.AcceptAgreementResponse, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {

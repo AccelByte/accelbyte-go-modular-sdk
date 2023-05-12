@@ -19,7 +19,7 @@ import (
 var sessionClientInstance *sessionclient.JusticeSessionService
 
 // NewSessionClient
-// Deprecated: please use NewSessionClient from "github.com/AccelByte/accelbyte-go-modular-sdk/Session-sdk/pkg"
+// Deprecated: 2023-03-30 - please use NewSessionClient from "github.com/AccelByte/accelbyte-go-modular-sdk/Session-sdk/pkg"
 func NewSessionClient(configRepository repository.ConfigRepository) *sessionclient.JusticeSessionService {
 	if sessionClientInstance == nil {
 		baseURL := configRepository.GetJusticeBaseUrl()

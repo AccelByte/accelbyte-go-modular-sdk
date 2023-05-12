@@ -16,6 +16,8 @@ import (
 	"github.com/go-openapi/runtime/client"
 )
 
+// SessionService this is use for compatibility with latest modular sdk only
+// Deprecated: 2023-03-30 - please use SessionService imported from "github.com/AccelByte/accelbyte-go-modular-sdk/dsmc-sdk/pkg"
 type SessionService struct {
 	Client                 *dsmcclient.JusticeDsmcService
 	ConfigRepository       repository.ConfigRepository
@@ -39,7 +41,7 @@ func (aaa *SessionService) GetAuthSession() auth.Session {
 	}
 }
 
-// deprecated(2022-01-10): please use CreateSessionShort instead.
+// Deprecated: 2022-01-10 - Please use CreateSessionShort instead.
 func (aaa *SessionService) CreateSession(input *session.CreateSessionParams) (*dsmcclientmodels.ModelsSessionResponse, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -71,7 +73,7 @@ func (aaa *SessionService) CreateSession(input *session.CreateSessionParams) (*d
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use ClaimServerShort instead.
+// Deprecated: 2022-01-10 - Please use ClaimServerShort instead.
 func (aaa *SessionService) ClaimServer(input *session.ClaimServerParams) error {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -103,7 +105,7 @@ func (aaa *SessionService) ClaimServer(input *session.ClaimServerParams) error {
 	return nil
 }
 
-// deprecated(2022-01-10): please use GetSessionShort instead.
+// Deprecated: 2022-01-10 - Please use GetSessionShort instead.
 func (aaa *SessionService) GetSession(input *session.GetSessionParams) (*dsmcclientmodels.ModelsSessionResponse, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {

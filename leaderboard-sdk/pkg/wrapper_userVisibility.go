@@ -16,6 +16,8 @@ import (
 	"github.com/go-openapi/runtime/client"
 )
 
+// UserVisibilityService this is use for compatibility with latest modular sdk only
+// Deprecated: 2023-03-30 - please use UserVisibilityService imported from "github.com/AccelByte/accelbyte-go-modular-sdk/leaderboard-sdk/pkg"
 type UserVisibilityService struct {
 	Client                 *leaderboardclient.JusticeLeaderboardService
 	ConfigRepository       repository.ConfigRepository
@@ -39,7 +41,7 @@ func (aaa *UserVisibilityService) GetAuthSession() auth.Session {
 	}
 }
 
-// deprecated(2022-01-10): please use GetHiddenUsersV2Short instead.
+// Deprecated: 2022-01-10 - Please use GetHiddenUsersV2Short instead.
 func (aaa *UserVisibilityService) GetHiddenUsersV2(input *user_visibility.GetHiddenUsersV2Params) (*leaderboardclientmodels.ModelsGetHiddenUserResponse, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -68,7 +70,7 @@ func (aaa *UserVisibilityService) GetHiddenUsersV2(input *user_visibility.GetHid
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use GetUserVisibilityStatusV2Short instead.
+// Deprecated: 2022-01-10 - Please use GetUserVisibilityStatusV2Short instead.
 func (aaa *UserVisibilityService) GetUserVisibilityStatusV2(input *user_visibility.GetUserVisibilityStatusV2Params) (*leaderboardclientmodels.ModelsGetUserVisibilityResponse, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -97,7 +99,7 @@ func (aaa *UserVisibilityService) GetUserVisibilityStatusV2(input *user_visibili
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use SetUserLeaderboardVisibilityStatusV2Short instead.
+// Deprecated: 2022-01-10 - Please use SetUserLeaderboardVisibilityStatusV2Short instead.
 func (aaa *UserVisibilityService) SetUserLeaderboardVisibilityStatusV2(input *user_visibility.SetUserLeaderboardVisibilityStatusV2Params) (*leaderboardclientmodels.ModelsGetUserVisibilityResponse, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -126,7 +128,7 @@ func (aaa *UserVisibilityService) SetUserLeaderboardVisibilityStatusV2(input *us
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use SetUserVisibilityStatusV2Short instead.
+// Deprecated: 2022-01-10 - Please use SetUserVisibilityStatusV2Short instead.
 func (aaa *UserVisibilityService) SetUserVisibilityStatusV2(input *user_visibility.SetUserVisibilityStatusV2Params) (*leaderboardclientmodels.ModelsGetUserVisibilityResponse, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {

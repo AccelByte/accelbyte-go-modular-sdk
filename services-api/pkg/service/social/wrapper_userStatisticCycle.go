@@ -17,7 +17,7 @@ import (
 )
 
 // UserStatisticCycleService this is use for compatibility with latest modular sdk only
-// Deprecated: please use UserStatisticCycleService imported from "github.com/AccelByte/accelbyte-go-modular-sdk/social-sdk/pkg"
+// Deprecated: 2023-03-30 - please use UserStatisticCycleService imported from "github.com/AccelByte/accelbyte-go-modular-sdk/social-sdk/pkg"
 type UserStatisticCycleService struct {
 	Client                 *socialclient.JusticeSocialService
 	ConfigRepository       repository.ConfigRepository
@@ -41,7 +41,7 @@ func (aaa *UserStatisticCycleService) GetAuthSession() auth.Session {
 	}
 }
 
-// deprecated(2022-01-10): please use GetUserStatCycleItemsShort instead.
+// Deprecated: 2022-01-10 - Please use GetUserStatCycleItemsShort instead.
 func (aaa *UserStatisticCycleService) GetUserStatCycleItems(input *user_statistic_cycle.GetUserStatCycleItemsParams) (*socialclientmodels.UserStatCycleItemPagingSlicedResult, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -58,7 +58,7 @@ func (aaa *UserStatisticCycleService) GetUserStatCycleItems(input *user_statisti
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use GetUserStatCycleItems1Short instead.
+// Deprecated: 2022-01-10 - Please use GetUserStatCycleItems1Short instead.
 func (aaa *UserStatisticCycleService) GetUserStatCycleItems1(input *user_statistic_cycle.GetUserStatCycleItems1Params) (*socialclientmodels.UserStatCycleItemPagingSlicedResult, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {

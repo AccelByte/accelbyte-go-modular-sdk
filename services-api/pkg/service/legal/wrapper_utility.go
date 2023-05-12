@@ -17,7 +17,7 @@ import (
 )
 
 // UtilityService this is use for compatibility with latest modular sdk only
-// Deprecated: please use UtilityService imported from "github.com/AccelByte/accelbyte-go-modular-sdk/legal-sdk/pkg"
+// Deprecated: 2023-03-30 - please use UtilityService imported from "github.com/AccelByte/accelbyte-go-modular-sdk/legal-sdk/pkg"
 type UtilityService struct {
 	Client                 *legalclient.JusticeLegalService
 	ConfigRepository       repository.ConfigRepository
@@ -41,7 +41,7 @@ func (aaa *UtilityService) GetAuthSession() auth.Session {
 	}
 }
 
-// deprecated(2022-01-10): please use CheckReadinessShort instead.
+// Deprecated: 2022-01-10 - Please use CheckReadinessShort instead.
 func (aaa *UtilityService) CheckReadiness(input *utility.CheckReadinessParams) (*legalclientmodels.LegalReadinessStatusResponse, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {

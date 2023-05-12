@@ -17,7 +17,7 @@ import (
 )
 
 // DsmcOperationsService this is use for compatibility with latest modular sdk only
-// Deprecated: please use DsmcOperationsService imported from "github.com/AccelByte/accelbyte-go-modular-sdk/dsmc-sdk/pkg"
+// Deprecated: 2023-03-30 - please use DsmcOperationsService imported from "github.com/AccelByte/accelbyte-go-modular-sdk/dsmc-sdk/pkg"
 type DsmcOperationsService struct {
 	Client                 *dsmcclient.JusticeDsmcService
 	ConfigRepository       repository.ConfigRepository
@@ -41,7 +41,7 @@ func (aaa *DsmcOperationsService) GetAuthSession() auth.Session {
 	}
 }
 
-// deprecated(2022-01-10): please use PublicGetMessagesShort instead.
+// Deprecated: 2022-01-10 - Please use PublicGetMessagesShort instead.
 func (aaa *DsmcOperationsService) PublicGetMessages(input *dsmc_operations.PublicGetMessagesParams) ([]*dsmcclientmodels.LogAppMessageDeclaration, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {

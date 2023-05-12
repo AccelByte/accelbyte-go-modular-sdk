@@ -17,7 +17,7 @@ import (
 )
 
 // PublicService this is use for compatibility with latest modular sdk only
-// Deprecated: please use PublicService imported from "github.com/AccelByte/accelbyte-go-modular-sdk/dsmc-sdk/pkg"
+// Deprecated: 2023-03-30 - please use PublicService imported from "github.com/AccelByte/accelbyte-go-modular-sdk/dsmc-sdk/pkg"
 type PublicService struct {
 	Client                 *dsmcclient.JusticeDsmcService
 	ConfigRepository       repository.ConfigRepository
@@ -41,7 +41,7 @@ func (aaa *PublicService) GetAuthSession() auth.Session {
 	}
 }
 
-// deprecated(2022-01-10): please use GetDefaultProviderShort instead.
+// Deprecated: 2022-01-10 - Please use GetDefaultProviderShort instead.
 func (aaa *PublicService) GetDefaultProvider(input *public.GetDefaultProviderParams) (*dsmcclientmodels.ModelsDefaultProvider, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -55,7 +55,7 @@ func (aaa *PublicService) GetDefaultProvider(input *public.GetDefaultProviderPar
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use ListProvidersShort instead.
+// Deprecated: 2022-01-10 - Please use ListProvidersShort instead.
 func (aaa *PublicService) ListProviders(input *public.ListProvidersParams) ([]string, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -69,7 +69,7 @@ func (aaa *PublicService) ListProviders(input *public.ListProvidersParams) ([]st
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use ListProvidersByRegionShort instead.
+// Deprecated: 2022-01-10 - Please use ListProvidersByRegionShort instead.
 func (aaa *PublicService) ListProvidersByRegion(input *public.ListProvidersByRegionParams) (*dsmcclientmodels.ModelsDefaultProvider, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {

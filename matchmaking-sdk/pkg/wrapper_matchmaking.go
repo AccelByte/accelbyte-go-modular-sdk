@@ -18,6 +18,8 @@ import (
 	"github.com/go-openapi/runtime/client"
 )
 
+// MatchmakingService this is use for compatibility with latest modular sdk only
+// Deprecated: 2023-03-30 - please use MatchmakingService imported from "github.com/AccelByte/accelbyte-go-modular-sdk/matchmaking-sdk/pkg"
 type MatchmakingService struct {
 	Client                 *matchmakingclient.JusticeMatchmakingService
 	ConfigRepository       repository.ConfigRepository
@@ -41,7 +43,7 @@ func (aaa *MatchmakingService) GetAuthSession() auth.Session {
 	}
 }
 
-// deprecated(2022-01-10): please use GetAllChannelsHandlerShort instead.
+// Deprecated: 2022-01-10 - Please use GetAllChannelsHandlerShort instead.
 func (aaa *MatchmakingService) GetAllChannelsHandler(input *matchmaking.GetAllChannelsHandlerParams) (*matchmakingclientmodels.ModelsGetChannelsResponse, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -70,7 +72,7 @@ func (aaa *MatchmakingService) GetAllChannelsHandler(input *matchmaking.GetAllCh
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use CreateChannelHandlerShort instead.
+// Deprecated: 2022-01-10 - Please use CreateChannelHandlerShort instead.
 func (aaa *MatchmakingService) CreateChannelHandler(input *matchmaking.CreateChannelHandlerParams) (*matchmakingclientmodels.ModelsCreateChannelResponse, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -99,7 +101,7 @@ func (aaa *MatchmakingService) CreateChannelHandler(input *matchmaking.CreateCha
 	return created.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use DeleteChannelHandlerShort instead.
+// Deprecated: 2022-01-10 - Please use DeleteChannelHandlerShort instead.
 func (aaa *MatchmakingService) DeleteChannelHandler(input *matchmaking.DeleteChannelHandlerParams) error {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -122,7 +124,7 @@ func (aaa *MatchmakingService) DeleteChannelHandler(input *matchmaking.DeleteCha
 	return nil
 }
 
-// deprecated(2022-01-10): please use StoreMatchResultsShort instead.
+// Deprecated: 2022-01-10 - Please use StoreMatchResultsShort instead.
 func (aaa *MatchmakingService) StoreMatchResults(input *matchmaking.StoreMatchResultsParams) (*matchmakingclientmodels.ModelsMatchResultResponse, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -148,7 +150,7 @@ func (aaa *MatchmakingService) StoreMatchResults(input *matchmaking.StoreMatchRe
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use RebalanceShort instead.
+// Deprecated: 2022-01-10 - Please use RebalanceShort instead.
 func (aaa *MatchmakingService) Rebalance(input *matchmaking.RebalanceParams) (*matchmakingclientmodels.ModelsRebalanceResponse, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -177,7 +179,7 @@ func (aaa *MatchmakingService) Rebalance(input *matchmaking.RebalanceParams) (*m
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use QueueSessionHandlerShort instead.
+// Deprecated: 2022-01-10 - Please use QueueSessionHandlerShort instead.
 func (aaa *MatchmakingService) QueueSessionHandler(input *matchmaking.QueueSessionHandlerParams) error {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -203,7 +205,7 @@ func (aaa *MatchmakingService) QueueSessionHandler(input *matchmaking.QueueSessi
 	return nil
 }
 
-// deprecated(2022-01-10): please use DequeueSessionHandlerShort instead.
+// Deprecated: 2022-01-10 - Please use DequeueSessionHandlerShort instead.
 func (aaa *MatchmakingService) DequeueSessionHandler(input *matchmaking.DequeueSessionHandlerParams) error {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -232,7 +234,7 @@ func (aaa *MatchmakingService) DequeueSessionHandler(input *matchmaking.DequeueS
 	return nil
 }
 
-// deprecated(2022-01-10): please use QuerySessionHandlerShort instead.
+// Deprecated: 2022-01-10 - Please use QuerySessionHandlerShort instead.
 func (aaa *MatchmakingService) QuerySessionHandler(input *matchmaking.QuerySessionHandlerParams) (*matchmakingclientmodels.ModelsMatchmakingResult, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -261,7 +263,7 @@ func (aaa *MatchmakingService) QuerySessionHandler(input *matchmaking.QuerySessi
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use GetAllPartyInAllChannelShort instead.
+// Deprecated: 2022-01-10 - Please use GetAllPartyInAllChannelShort instead.
 func (aaa *MatchmakingService) GetAllPartyInAllChannel(input *matchmaking.GetAllPartyInAllChannelParams) (map[string][]matchmakingclientmodels.ModelsMatchingParty, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -290,7 +292,7 @@ func (aaa *MatchmakingService) GetAllPartyInAllChannel(input *matchmaking.GetAll
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use BulkGetSessionsShort instead.
+// Deprecated: 2022-01-10 - Please use BulkGetSessionsShort instead.
 func (aaa *MatchmakingService) BulkGetSessions(input *matchmaking.BulkGetSessionsParams) ([]*matchmakingclientmodels.ModelsMatchmakingResult, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -319,7 +321,7 @@ func (aaa *MatchmakingService) BulkGetSessions(input *matchmaking.BulkGetSession
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use ExportChannelsShort instead.
+// Deprecated: 2022-01-10 - Please use ExportChannelsShort instead.
 func (aaa *MatchmakingService) ExportChannels(input *matchmaking.ExportChannelsParams, writer io.Writer) (io.Writer, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -342,7 +344,7 @@ func (aaa *MatchmakingService) ExportChannels(input *matchmaking.ExportChannelsP
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use ImportChannelsShort instead.
+// Deprecated: 2022-01-10 - Please use ImportChannelsShort instead.
 func (aaa *MatchmakingService) ImportChannels(input *matchmaking.ImportChannelsParams) (*matchmakingclientmodels.ModelsImportConfigResponse, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -368,7 +370,7 @@ func (aaa *MatchmakingService) ImportChannels(input *matchmaking.ImportChannelsP
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use GetSingleMatchmakingChannelShort instead.
+// Deprecated: 2022-01-10 - Please use GetSingleMatchmakingChannelShort instead.
 func (aaa *MatchmakingService) GetSingleMatchmakingChannel(input *matchmaking.GetSingleMatchmakingChannelParams) (*matchmakingclientmodels.ModelsChannelV1, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -397,7 +399,7 @@ func (aaa *MatchmakingService) GetSingleMatchmakingChannel(input *matchmaking.Ge
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use UpdateMatchmakingChannelShort instead.
+// Deprecated: 2022-01-10 - Please use UpdateMatchmakingChannelShort instead.
 func (aaa *MatchmakingService) UpdateMatchmakingChannel(input *matchmaking.UpdateMatchmakingChannelParams) error {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -426,7 +428,7 @@ func (aaa *MatchmakingService) UpdateMatchmakingChannel(input *matchmaking.Updat
 	return nil
 }
 
-// deprecated(2022-01-10): please use GetAllPartyInChannelShort instead.
+// Deprecated: 2022-01-10 - Please use GetAllPartyInChannelShort instead.
 func (aaa *MatchmakingService) GetAllPartyInChannel(input *matchmaking.GetAllPartyInChannelParams) ([]*matchmakingclientmodels.ModelsMatchingParty, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -455,7 +457,7 @@ func (aaa *MatchmakingService) GetAllPartyInChannel(input *matchmaking.GetAllPar
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use GetAllSessionsInChannelShort instead.
+// Deprecated: 2022-01-10 - Please use GetAllSessionsInChannelShort instead.
 func (aaa *MatchmakingService) GetAllSessionsInChannel(input *matchmaking.GetAllSessionsInChannelParams) ([]*matchmakingclientmodels.ModelsMatchmakingResult, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -484,7 +486,7 @@ func (aaa *MatchmakingService) GetAllSessionsInChannel(input *matchmaking.GetAll
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use AddUserIntoSessionInChannelShort instead.
+// Deprecated: 2022-01-10 - Please use AddUserIntoSessionInChannelShort instead.
 func (aaa *MatchmakingService) AddUserIntoSessionInChannel(input *matchmaking.AddUserIntoSessionInChannelParams) error {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -513,7 +515,7 @@ func (aaa *MatchmakingService) AddUserIntoSessionInChannel(input *matchmaking.Ad
 	return nil
 }
 
-// deprecated(2022-01-10): please use DeleteSessionInChannelShort instead.
+// Deprecated: 2022-01-10 - Please use DeleteSessionInChannelShort instead.
 func (aaa *MatchmakingService) DeleteSessionInChannel(input *matchmaking.DeleteSessionInChannelParams) error {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -542,7 +544,7 @@ func (aaa *MatchmakingService) DeleteSessionInChannel(input *matchmaking.DeleteS
 	return nil
 }
 
-// deprecated(2022-01-10): please use DeleteUserFromSessionInChannelShort instead.
+// Deprecated: 2022-01-10 - Please use DeleteUserFromSessionInChannelShort instead.
 func (aaa *MatchmakingService) DeleteUserFromSessionInChannel(input *matchmaking.DeleteUserFromSessionInChannelParams) error {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -574,7 +576,7 @@ func (aaa *MatchmakingService) DeleteUserFromSessionInChannel(input *matchmaking
 	return nil
 }
 
-// deprecated(2022-01-10): please use SearchSessionsShort instead.
+// Deprecated: 2022-01-10 - Please use SearchSessionsShort instead.
 func (aaa *MatchmakingService) SearchSessions(input *matchmaking.SearchSessionsParams) (*matchmakingclientmodels.ServiceGetSessionHistorySearchResponse, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -603,7 +605,7 @@ func (aaa *MatchmakingService) SearchSessions(input *matchmaking.SearchSessionsP
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use GetSessionHistoryDetailedShort instead.
+// Deprecated: 2022-01-10 - Please use GetSessionHistoryDetailedShort instead.
 func (aaa *MatchmakingService) GetSessionHistoryDetailed(input *matchmaking.GetSessionHistoryDetailedParams) ([]*matchmakingclientmodels.ServiceGetSessionHistoryDetailedResponseItem, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -632,7 +634,7 @@ func (aaa *MatchmakingService) GetSessionHistoryDetailed(input *matchmaking.GetS
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use PublicGetAllMatchmakingChannelShort instead.
+// Deprecated: 2022-01-10 - Please use PublicGetAllMatchmakingChannelShort instead.
 func (aaa *MatchmakingService) PublicGetAllMatchmakingChannel(input *matchmaking.PublicGetAllMatchmakingChannelParams) ([]*matchmakingclientmodels.ModelsChannelV1, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -661,7 +663,7 @@ func (aaa *MatchmakingService) PublicGetAllMatchmakingChannel(input *matchmaking
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use PublicGetSingleMatchmakingChannelShort instead.
+// Deprecated: 2022-01-10 - Please use PublicGetSingleMatchmakingChannelShort instead.
 func (aaa *MatchmakingService) PublicGetSingleMatchmakingChannel(input *matchmaking.PublicGetSingleMatchmakingChannelParams) (*matchmakingclientmodels.ModelsChannelV1, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -690,7 +692,7 @@ func (aaa *MatchmakingService) PublicGetSingleMatchmakingChannel(input *matchmak
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use SearchSessionsV2Short instead.
+// Deprecated: 2022-01-10 - Please use SearchSessionsV2Short instead.
 func (aaa *MatchmakingService) SearchSessionsV2(input *matchmaking.SearchSessionsV2Params) (*matchmakingclientmodels.ServiceGetSessionHistorySearchResponseV2, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {

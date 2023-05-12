@@ -18,6 +18,8 @@ import (
 	"github.com/go-openapi/runtime/client"
 )
 
+// AllTerminatedServersService this is use for compatibility with latest modular sdk only
+// Deprecated: 2023-03-30 - please use AllTerminatedServersService imported from "github.com/AccelByte/accelbyte-go-modular-sdk/dslogmanager-sdk/pkg"
 type AllTerminatedServersService struct {
 	Client                 *dslogmanagerclient.JusticeDslogmanagerService
 	ConfigRepository       repository.ConfigRepository
@@ -41,7 +43,7 @@ func (aaa *AllTerminatedServersService) GetAuthSession() auth.Session {
 	}
 }
 
-// deprecated(2022-01-10): please use BatchDownloadServerLogsShort instead.
+// Deprecated: 2022-01-10 - Please use BatchDownloadServerLogsShort instead.
 func (aaa *AllTerminatedServersService) BatchDownloadServerLogs(input *all_terminated_servers.BatchDownloadServerLogsParams, writer io.Writer) (io.Writer, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -61,7 +63,7 @@ func (aaa *AllTerminatedServersService) BatchDownloadServerLogs(input *all_termi
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use ListAllTerminatedServersShort instead.
+// Deprecated: 2022-01-10 - Please use ListAllTerminatedServersShort instead.
 func (aaa *AllTerminatedServersService) ListAllTerminatedServers(input *all_terminated_servers.ListAllTerminatedServersParams) (*dslogmanagerclientmodels.ModelsListTerminatedServersResponse, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {

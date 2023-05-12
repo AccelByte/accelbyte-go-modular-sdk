@@ -16,6 +16,8 @@ import (
 	"github.com/go-openapi/runtime/client"
 )
 
+// CurrencyService this is use for compatibility with latest modular sdk only
+// Deprecated: 2023-03-30 - please use CurrencyService imported from "github.com/AccelByte/accelbyte-go-modular-sdk/platform-sdk/pkg"
 type CurrencyService struct {
 	Client                 *platformclient.JusticePlatformService
 	ConfigRepository       repository.ConfigRepository
@@ -39,7 +41,7 @@ func (aaa *CurrencyService) GetAuthSession() auth.Session {
 	}
 }
 
-// deprecated(2022-01-10): please use ListCurrenciesShort instead.
+// Deprecated: 2022-01-10 - Please use ListCurrenciesShort instead.
 func (aaa *CurrencyService) ListCurrencies(input *currency.ListCurrenciesParams) ([]*platformclientmodels.CurrencyInfo, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -53,7 +55,7 @@ func (aaa *CurrencyService) ListCurrencies(input *currency.ListCurrenciesParams)
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use CreateCurrencyShort instead.
+// Deprecated: 2022-01-10 - Please use CreateCurrencyShort instead.
 func (aaa *CurrencyService) CreateCurrency(input *currency.CreateCurrencyParams) (*platformclientmodels.CurrencyInfo, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -73,7 +75,7 @@ func (aaa *CurrencyService) CreateCurrency(input *currency.CreateCurrencyParams)
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use UpdateCurrencyShort instead.
+// Deprecated: 2022-01-10 - Please use UpdateCurrencyShort instead.
 func (aaa *CurrencyService) UpdateCurrency(input *currency.UpdateCurrencyParams) (*platformclientmodels.CurrencyInfo, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -93,7 +95,7 @@ func (aaa *CurrencyService) UpdateCurrency(input *currency.UpdateCurrencyParams)
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use DeleteCurrencyShort instead.
+// Deprecated: 2022-01-10 - Please use DeleteCurrencyShort instead.
 func (aaa *CurrencyService) DeleteCurrency(input *currency.DeleteCurrencyParams) (*platformclientmodels.CurrencyInfo, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -110,7 +112,7 @@ func (aaa *CurrencyService) DeleteCurrency(input *currency.DeleteCurrencyParams)
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use GetCurrencyConfigShort instead.
+// Deprecated: 2022-01-10 - Please use GetCurrencyConfigShort instead.
 func (aaa *CurrencyService) GetCurrencyConfig(input *currency.GetCurrencyConfigParams) (*platformclientmodels.CurrencyConfig, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -127,7 +129,7 @@ func (aaa *CurrencyService) GetCurrencyConfig(input *currency.GetCurrencyConfigP
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use GetCurrencySummaryShort instead.
+// Deprecated: 2022-01-10 - Please use GetCurrencySummaryShort instead.
 func (aaa *CurrencyService) GetCurrencySummary(input *currency.GetCurrencySummaryParams) (*platformclientmodels.CurrencySummary, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -144,7 +146,7 @@ func (aaa *CurrencyService) GetCurrencySummary(input *currency.GetCurrencySummar
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use PublicListCurrenciesShort instead.
+// Deprecated: 2022-01-10 - Please use PublicListCurrenciesShort instead.
 func (aaa *CurrencyService) PublicListCurrencies(input *currency.PublicListCurrenciesParams) ([]*platformclientmodels.CurrencyInfo, error) {
 	ok, err := aaa.Client.Currency.PublicListCurrencies(input)
 	if err != nil {

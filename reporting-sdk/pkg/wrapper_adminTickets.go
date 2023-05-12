@@ -16,6 +16,8 @@ import (
 	"github.com/go-openapi/runtime/client"
 )
 
+// AdminTicketsService this is use for compatibility with latest modular sdk only
+// Deprecated: 2023-03-30 - please use AdminTicketsService imported from "github.com/AccelByte/accelbyte-go-modular-sdk/reporting-sdk/pkg"
 type AdminTicketsService struct {
 	Client                 *reportingclient.JusticeReportingService
 	ConfigRepository       repository.ConfigRepository
@@ -39,7 +41,7 @@ func (aaa *AdminTicketsService) GetAuthSession() auth.Session {
 	}
 }
 
-// deprecated(2022-01-10): please use ListTicketsShort instead.
+// Deprecated: 2022-01-10 - Please use ListTicketsShort instead.
 func (aaa *AdminTicketsService) ListTickets(input *admin_tickets.ListTicketsParams) (*reportingclientmodels.RestapiTicketListResponse, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -56,7 +58,7 @@ func (aaa *AdminTicketsService) ListTickets(input *admin_tickets.ListTicketsPara
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use TicketStatisticShort instead.
+// Deprecated: 2022-01-10 - Please use TicketStatisticShort instead.
 func (aaa *AdminTicketsService) TicketStatistic(input *admin_tickets.TicketStatisticParams) (*reportingclientmodels.RestapiTicketStatisticResponse, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -73,7 +75,7 @@ func (aaa *AdminTicketsService) TicketStatistic(input *admin_tickets.TicketStati
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use GetTicketDetailShort instead.
+// Deprecated: 2022-01-10 - Please use GetTicketDetailShort instead.
 func (aaa *AdminTicketsService) GetTicketDetail(input *admin_tickets.GetTicketDetailParams) (*reportingclientmodels.RestapiTicketResponse, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -93,7 +95,7 @@ func (aaa *AdminTicketsService) GetTicketDetail(input *admin_tickets.GetTicketDe
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use DeleteTicketShort instead.
+// Deprecated: 2022-01-10 - Please use DeleteTicketShort instead.
 func (aaa *AdminTicketsService) DeleteTicket(input *admin_tickets.DeleteTicketParams) error {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -113,7 +115,7 @@ func (aaa *AdminTicketsService) DeleteTicket(input *admin_tickets.DeleteTicketPa
 	return nil
 }
 
-// deprecated(2022-01-10): please use GetReportsByTicketShort instead.
+// Deprecated: 2022-01-10 - Please use GetReportsByTicketShort instead.
 func (aaa *AdminTicketsService) GetReportsByTicket(input *admin_tickets.GetReportsByTicketParams) (*reportingclientmodels.RestapiReportListResponse, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -130,7 +132,7 @@ func (aaa *AdminTicketsService) GetReportsByTicket(input *admin_tickets.GetRepor
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use UpdateTicketResolutionsShort instead.
+// Deprecated: 2022-01-10 - Please use UpdateTicketResolutionsShort instead.
 func (aaa *AdminTicketsService) UpdateTicketResolutions(input *admin_tickets.UpdateTicketResolutionsParams) (*reportingclientmodels.RestapiTicketResponse, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {

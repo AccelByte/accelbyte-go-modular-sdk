@@ -16,6 +16,8 @@ import (
 	"github.com/go-openapi/runtime/client"
 )
 
+// PublicChannelService this is use for compatibility with latest modular sdk only
+// Deprecated: 2023-03-30 - please use PublicChannelService imported from "github.com/AccelByte/accelbyte-go-modular-sdk/ugc-sdk/pkg"
 type PublicChannelService struct {
 	Client                 *ugcclient.JusticeUgcService
 	ConfigRepository       repository.ConfigRepository
@@ -39,7 +41,7 @@ func (aaa *PublicChannelService) GetAuthSession() auth.Session {
 	}
 }
 
-// deprecated(2022-01-10): please use GetChannelsShort instead.
+// Deprecated: 2022-01-10 - Please use GetChannelsShort instead.
 func (aaa *PublicChannelService) GetChannels(input *public_channel.GetChannelsParams) (*ugcclientmodels.ModelsPaginatedGetChannelResponse, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -62,7 +64,7 @@ func (aaa *PublicChannelService) GetChannels(input *public_channel.GetChannelsPa
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use CreateChannelShort instead.
+// Deprecated: 2022-01-10 - Please use CreateChannelShort instead.
 func (aaa *PublicChannelService) CreateChannel(input *public_channel.CreateChannelParams) (*ugcclientmodels.ModelsChannelResponse, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -85,7 +87,7 @@ func (aaa *PublicChannelService) CreateChannel(input *public_channel.CreateChann
 	return created.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use UpdateChannelShort instead.
+// Deprecated: 2022-01-10 - Please use UpdateChannelShort instead.
 func (aaa *PublicChannelService) UpdateChannel(input *public_channel.UpdateChannelParams) (*ugcclientmodels.ModelsChannelResponse, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -111,7 +113,7 @@ func (aaa *PublicChannelService) UpdateChannel(input *public_channel.UpdateChann
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use DeleteChannelShort instead.
+// Deprecated: 2022-01-10 - Please use DeleteChannelShort instead.
 func (aaa *PublicChannelService) DeleteChannel(input *public_channel.DeleteChannelParams) error {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {

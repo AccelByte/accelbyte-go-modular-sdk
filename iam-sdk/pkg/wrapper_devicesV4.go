@@ -16,6 +16,8 @@ import (
 	"github.com/go-openapi/runtime/client"
 )
 
+// DevicesV4Service this is use for compatibility with latest modular sdk only
+// Deprecated: 2023-03-30 - please use DevicesV4Service imported from "github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg"
 type DevicesV4Service struct {
 	Client                 *iamclient.JusticeIamService
 	ConfigRepository       repository.ConfigRepository
@@ -39,7 +41,7 @@ func (aaa *DevicesV4Service) GetAuthSession() auth.Session {
 	}
 }
 
-// deprecated(2022-01-10): please use AdminGetDevicesByUserV4Short instead.
+// Deprecated: 2022-01-10 - Please use AdminGetDevicesByUserV4Short instead.
 func (aaa *DevicesV4Service) AdminGetDevicesByUserV4(input *devices_v4.AdminGetDevicesByUserV4Params) (*iamclientmodels.ModelDevicesResponseV4, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -68,7 +70,7 @@ func (aaa *DevicesV4Service) AdminGetDevicesByUserV4(input *devices_v4.AdminGetD
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use AdminGetBannedDevicesV4Short instead.
+// Deprecated: 2022-01-10 - Please use AdminGetBannedDevicesV4Short instead.
 func (aaa *DevicesV4Service) AdminGetBannedDevicesV4(input *devices_v4.AdminGetBannedDevicesV4Params) (*iamclientmodels.ModelDeviceBannedResponseV4, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -91,7 +93,7 @@ func (aaa *DevicesV4Service) AdminGetBannedDevicesV4(input *devices_v4.AdminGetB
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use AdminGetUserDeviceBansV4Short instead.
+// Deprecated: 2022-01-10 - Please use AdminGetUserDeviceBansV4Short instead.
 func (aaa *DevicesV4Service) AdminGetUserDeviceBansV4(input *devices_v4.AdminGetUserDeviceBansV4Params) (*iamclientmodels.ModelDeviceBansResponseV4, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -117,7 +119,7 @@ func (aaa *DevicesV4Service) AdminGetUserDeviceBansV4(input *devices_v4.AdminGet
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use AdminBanDeviceV4Short instead.
+// Deprecated: 2022-01-10 - Please use AdminBanDeviceV4Short instead.
 func (aaa *DevicesV4Service) AdminBanDeviceV4(input *devices_v4.AdminBanDeviceV4Params) error {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -146,7 +148,7 @@ func (aaa *DevicesV4Service) AdminBanDeviceV4(input *devices_v4.AdminBanDeviceV4
 	return nil
 }
 
-// deprecated(2022-01-10): please use AdminGetDeviceBanV4Short instead.
+// Deprecated: 2022-01-10 - Please use AdminGetDeviceBanV4Short instead.
 func (aaa *DevicesV4Service) AdminGetDeviceBanV4(input *devices_v4.AdminGetDeviceBanV4Params) (*iamclientmodels.ModelDeviceBanResponseV4, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -175,7 +177,7 @@ func (aaa *DevicesV4Service) AdminGetDeviceBanV4(input *devices_v4.AdminGetDevic
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use AdminUpdateDeviceBanV4Short instead.
+// Deprecated: 2022-01-10 - Please use AdminUpdateDeviceBanV4Short instead.
 func (aaa *DevicesV4Service) AdminUpdateDeviceBanV4(input *devices_v4.AdminUpdateDeviceBanV4Params) error {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -207,7 +209,7 @@ func (aaa *DevicesV4Service) AdminUpdateDeviceBanV4(input *devices_v4.AdminUpdat
 	return nil
 }
 
-// deprecated(2022-01-10): please use AdminGenerateReportV4Short instead.
+// Deprecated: 2022-01-10 - Please use AdminGenerateReportV4Short instead.
 func (aaa *DevicesV4Service) AdminGenerateReportV4(input *devices_v4.AdminGenerateReportV4Params) error {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -236,7 +238,7 @@ func (aaa *DevicesV4Service) AdminGenerateReportV4(input *devices_v4.AdminGenera
 	return nil
 }
 
-// deprecated(2022-01-10): please use AdminGetDeviceTypesV4Short instead.
+// Deprecated: 2022-01-10 - Please use AdminGetDeviceTypesV4Short instead.
 func (aaa *DevicesV4Service) AdminGetDeviceTypesV4(input *devices_v4.AdminGetDeviceTypesV4Params) (*iamclientmodels.ModelDeviceTypesResponseV4, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -259,7 +261,7 @@ func (aaa *DevicesV4Service) AdminGetDeviceTypesV4(input *devices_v4.AdminGetDev
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use AdminGetDeviceBansV4Short instead.
+// Deprecated: 2022-01-10 - Please use AdminGetDeviceBansV4Short instead.
 func (aaa *DevicesV4Service) AdminGetDeviceBansV4(input *devices_v4.AdminGetDeviceBansV4Params) (*iamclientmodels.ModelDeviceBansResponseV4, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -285,7 +287,7 @@ func (aaa *DevicesV4Service) AdminGetDeviceBansV4(input *devices_v4.AdminGetDevi
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use AdminDecryptDeviceV4Short instead.
+// Deprecated: 2022-01-10 - Please use AdminDecryptDeviceV4Short instead.
 func (aaa *DevicesV4Service) AdminDecryptDeviceV4(input *devices_v4.AdminDecryptDeviceV4Params) (*iamclientmodels.ModelDeviceIDDecryptResponseV4, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -311,7 +313,7 @@ func (aaa *DevicesV4Service) AdminDecryptDeviceV4(input *devices_v4.AdminDecrypt
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use AdminUnbanDeviceV4Short instead.
+// Deprecated: 2022-01-10 - Please use AdminUnbanDeviceV4Short instead.
 func (aaa *DevicesV4Service) AdminUnbanDeviceV4(input *devices_v4.AdminUnbanDeviceV4Params) error {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -337,7 +339,7 @@ func (aaa *DevicesV4Service) AdminUnbanDeviceV4(input *devices_v4.AdminUnbanDevi
 	return nil
 }
 
-// deprecated(2022-01-10): please use AdminGetUsersByDeviceV4Short instead.
+// Deprecated: 2022-01-10 - Please use AdminGetUsersByDeviceV4Short instead.
 func (aaa *DevicesV4Service) AdminGetUsersByDeviceV4(input *devices_v4.AdminGetUsersByDeviceV4Params) (*iamclientmodels.ModelDeviceUsersResponseV4, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {

@@ -16,6 +16,8 @@ import (
 	"github.com/go-openapi/runtime/client"
 )
 
+// AdminExtensionCategoriesandAutoModerationActionsService this is use for compatibility with latest modular sdk only
+// Deprecated: 2023-03-30 - please use AdminExtensionCategoriesandAutoModerationActionsService imported from "github.com/AccelByte/accelbyte-go-modular-sdk/reporting-sdk/pkg"
 type AdminExtensionCategoriesandAutoModerationActionsService struct {
 	Client                 *reportingclient.JusticeReportingService
 	ConfigRepository       repository.ConfigRepository
@@ -39,7 +41,7 @@ func (aaa *AdminExtensionCategoriesandAutoModerationActionsService) GetAuthSessi
 	}
 }
 
-// deprecated(2022-01-10): please use AdminFindActionListShort instead.
+// Deprecated: 2022-01-10 - Please use AdminFindActionListShort instead.
 func (aaa *AdminExtensionCategoriesandAutoModerationActionsService) AdminFindActionList(input *admin_extension_categories_and_auto_moderation_actions.AdminFindActionListParams) (*reportingclientmodels.RestapiActionListAPIResponse, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -59,7 +61,7 @@ func (aaa *AdminExtensionCategoriesandAutoModerationActionsService) AdminFindAct
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use AdminCreateModActionShort instead.
+// Deprecated: 2022-01-10 - Please use AdminCreateModActionShort instead.
 func (aaa *AdminExtensionCategoriesandAutoModerationActionsService) AdminCreateModAction(input *admin_extension_categories_and_auto_moderation_actions.AdminCreateModActionParams) (*reportingclientmodels.RestapiActionAPIResponse, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -79,7 +81,7 @@ func (aaa *AdminExtensionCategoriesandAutoModerationActionsService) AdminCreateM
 	return created.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use AdminFindExtensionCategoryListShort instead.
+// Deprecated: 2022-01-10 - Please use AdminFindExtensionCategoryListShort instead.
 func (aaa *AdminExtensionCategoriesandAutoModerationActionsService) AdminFindExtensionCategoryList(input *admin_extension_categories_and_auto_moderation_actions.AdminFindExtensionCategoryListParams) (*reportingclientmodels.RestapiExtensionCategoryListAPIResponse, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -99,7 +101,7 @@ func (aaa *AdminExtensionCategoriesandAutoModerationActionsService) AdminFindExt
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use AdminCreateExtensionCategoryShort instead.
+// Deprecated: 2022-01-10 - Please use AdminCreateExtensionCategoryShort instead.
 func (aaa *AdminExtensionCategoriesandAutoModerationActionsService) AdminCreateExtensionCategory(input *admin_extension_categories_and_auto_moderation_actions.AdminCreateExtensionCategoryParams) (*reportingclientmodels.RestapiExtensionCategoryAPIResponse, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {

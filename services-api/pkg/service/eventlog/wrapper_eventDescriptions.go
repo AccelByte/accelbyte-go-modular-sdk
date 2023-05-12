@@ -17,7 +17,7 @@ import (
 )
 
 // EventDescriptionsService this is use for compatibility with latest modular sdk only
-// Deprecated: please use EventDescriptionsService imported from "github.com/AccelByte/accelbyte-go-modular-sdk/eventlog-sdk/pkg"
+// Deprecated: 2023-03-30 - please use EventDescriptionsService imported from "github.com/AccelByte/accelbyte-go-modular-sdk/eventlog-sdk/pkg"
 type EventDescriptionsService struct {
 	Client                 *eventlogclient.JusticeEventlogService
 	ConfigRepository       repository.ConfigRepository
@@ -41,7 +41,7 @@ func (aaa *EventDescriptionsService) GetAuthSession() auth.Session {
 	}
 }
 
-// deprecated(2022-01-10): please use AgentTypeDescriptionHandlerShort instead.
+// Deprecated: 2022-01-10 - Please use AgentTypeDescriptionHandlerShort instead.
 func (aaa *EventDescriptionsService) AgentTypeDescriptionHandler(input *event_descriptions.AgentTypeDescriptionHandlerParams) (*eventlogclientmodels.ModelsMultipleAgentType, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -55,7 +55,7 @@ func (aaa *EventDescriptionsService) AgentTypeDescriptionHandler(input *event_de
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use SpecificAgentTypeDescriptionHandlerShort instead.
+// Deprecated: 2022-01-10 - Please use SpecificAgentTypeDescriptionHandlerShort instead.
 func (aaa *EventDescriptionsService) SpecificAgentTypeDescriptionHandler(input *event_descriptions.SpecificAgentTypeDescriptionHandlerParams) (*eventlogclientmodels.ModelsMultipleAgentType, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -75,7 +75,7 @@ func (aaa *EventDescriptionsService) SpecificAgentTypeDescriptionHandler(input *
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use EventIDDescriptionHandlerShort instead.
+// Deprecated: 2022-01-10 - Please use EventIDDescriptionHandlerShort instead.
 func (aaa *EventDescriptionsService) EventIDDescriptionHandler(input *event_descriptions.EventIDDescriptionHandlerParams) (*eventlogclientmodels.ModelsMultipleEventID, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -89,7 +89,7 @@ func (aaa *EventDescriptionsService) EventIDDescriptionHandler(input *event_desc
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use SpecificEventIDDescriptionHandlerShort instead.
+// Deprecated: 2022-01-10 - Please use SpecificEventIDDescriptionHandlerShort instead.
 func (aaa *EventDescriptionsService) SpecificEventIDDescriptionHandler(input *event_descriptions.SpecificEventIDDescriptionHandlerParams) (*eventlogclientmodels.ModelsMultipleEventID, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -109,7 +109,7 @@ func (aaa *EventDescriptionsService) SpecificEventIDDescriptionHandler(input *ev
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use EventLevelDescriptionHandlerShort instead.
+// Deprecated: 2022-01-10 - Please use EventLevelDescriptionHandlerShort instead.
 func (aaa *EventDescriptionsService) EventLevelDescriptionHandler(input *event_descriptions.EventLevelDescriptionHandlerParams) (*eventlogclientmodels.ModelsMultipleEventLevel, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -123,7 +123,7 @@ func (aaa *EventDescriptionsService) EventLevelDescriptionHandler(input *event_d
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use SpecificEventLevelDescriptionHandlerShort instead.
+// Deprecated: 2022-01-10 - Please use SpecificEventLevelDescriptionHandlerShort instead.
 func (aaa *EventDescriptionsService) SpecificEventLevelDescriptionHandler(input *event_descriptions.SpecificEventLevelDescriptionHandlerParams) (*eventlogclientmodels.ModelsMultipleEventLevel, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -143,7 +143,7 @@ func (aaa *EventDescriptionsService) SpecificEventLevelDescriptionHandler(input 
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use EventTypeDescriptionHandlerShort instead.
+// Deprecated: 2022-01-10 - Please use EventTypeDescriptionHandlerShort instead.
 func (aaa *EventDescriptionsService) EventTypeDescriptionHandler(input *event_descriptions.EventTypeDescriptionHandlerParams) (*eventlogclientmodels.ModelsMultipleEventType, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -157,7 +157,7 @@ func (aaa *EventDescriptionsService) EventTypeDescriptionHandler(input *event_de
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use SpecificEventTypeDescriptionHandlerShort instead.
+// Deprecated: 2022-01-10 - Please use SpecificEventTypeDescriptionHandlerShort instead.
 func (aaa *EventDescriptionsService) SpecificEventTypeDescriptionHandler(input *event_descriptions.SpecificEventTypeDescriptionHandlerParams) (*eventlogclientmodels.ModelsMultipleEventType, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -177,7 +177,7 @@ func (aaa *EventDescriptionsService) SpecificEventTypeDescriptionHandler(input *
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use UXNameDescriptionHandlerShort instead.
+// Deprecated: 2022-01-10 - Please use UXNameDescriptionHandlerShort instead.
 func (aaa *EventDescriptionsService) UXNameDescriptionHandler(input *event_descriptions.UXNameDescriptionHandlerParams) (*eventlogclientmodels.ModelsMultipleUX, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -191,7 +191,7 @@ func (aaa *EventDescriptionsService) UXNameDescriptionHandler(input *event_descr
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use SpecificUXDescriptionHandlerShort instead.
+// Deprecated: 2022-01-10 - Please use SpecificUXDescriptionHandlerShort instead.
 func (aaa *EventDescriptionsService) SpecificUXDescriptionHandler(input *event_descriptions.SpecificUXDescriptionHandlerParams) (*eventlogclientmodels.ModelsMultipleUX, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {

@@ -18,6 +18,8 @@ import (
 	"github.com/go-openapi/runtime/client"
 )
 
+// RewardService this is use for compatibility with latest modular sdk only
+// Deprecated: 2023-03-30 - please use RewardService imported from "github.com/AccelByte/accelbyte-go-modular-sdk/platform-sdk/pkg"
 type RewardService struct {
 	Client                 *platformclient.JusticePlatformService
 	ConfigRepository       repository.ConfigRepository
@@ -41,7 +43,7 @@ func (aaa *RewardService) GetAuthSession() auth.Session {
 	}
 }
 
-// deprecated(2022-01-10): please use CreateRewardShort instead.
+// Deprecated: 2022-01-10 - Please use CreateRewardShort instead.
 func (aaa *RewardService) CreateReward(input *reward.CreateRewardParams) (*platformclientmodels.RewardInfo, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -64,7 +66,7 @@ func (aaa *RewardService) CreateReward(input *reward.CreateRewardParams) (*platf
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use QueryRewardsShort instead.
+// Deprecated: 2022-01-10 - Please use QueryRewardsShort instead.
 func (aaa *RewardService) QueryRewards(input *reward.QueryRewardsParams) (*platformclientmodels.RewardPagingSlicedResult, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -81,7 +83,7 @@ func (aaa *RewardService) QueryRewards(input *reward.QueryRewardsParams) (*platf
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use ExportRewardsShort instead.
+// Deprecated: 2022-01-10 - Please use ExportRewardsShort instead.
 func (aaa *RewardService) ExportRewards(input *reward.ExportRewardsParams, writer io.Writer) (io.Writer, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -95,7 +97,7 @@ func (aaa *RewardService) ExportRewards(input *reward.ExportRewardsParams, write
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use ImportRewardsShort instead.
+// Deprecated: 2022-01-10 - Please use ImportRewardsShort instead.
 func (aaa *RewardService) ImportRewards(input *reward.ImportRewardsParams) error {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -112,7 +114,7 @@ func (aaa *RewardService) ImportRewards(input *reward.ImportRewardsParams) error
 	return nil
 }
 
-// deprecated(2022-01-10): please use GetRewardShort instead.
+// Deprecated: 2022-01-10 - Please use GetRewardShort instead.
 func (aaa *RewardService) GetReward(input *reward.GetRewardParams) (*platformclientmodels.RewardInfo, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -129,7 +131,7 @@ func (aaa *RewardService) GetReward(input *reward.GetRewardParams) (*platformcli
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use UpdateRewardShort instead.
+// Deprecated: 2022-01-10 - Please use UpdateRewardShort instead.
 func (aaa *RewardService) UpdateReward(input *reward.UpdateRewardParams) (*platformclientmodels.RewardInfo, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -149,7 +151,7 @@ func (aaa *RewardService) UpdateReward(input *reward.UpdateRewardParams) (*platf
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use DeleteRewardShort instead.
+// Deprecated: 2022-01-10 - Please use DeleteRewardShort instead.
 func (aaa *RewardService) DeleteReward(input *reward.DeleteRewardParams) (*platformclientmodels.RewardInfo, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -166,7 +168,7 @@ func (aaa *RewardService) DeleteReward(input *reward.DeleteRewardParams) (*platf
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use CheckEventConditionShort instead.
+// Deprecated: 2022-01-10 - Please use CheckEventConditionShort instead.
 func (aaa *RewardService) CheckEventCondition(input *reward.CheckEventConditionParams) (*platformclientmodels.ConditionMatchResult, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -183,7 +185,7 @@ func (aaa *RewardService) CheckEventCondition(input *reward.CheckEventConditionP
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use DeleteRewardConditionRecordShort instead.
+// Deprecated: 2022-01-10 - Please use DeleteRewardConditionRecordShort instead.
 func (aaa *RewardService) DeleteRewardConditionRecord(input *reward.DeleteRewardConditionRecordParams) error {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -197,7 +199,7 @@ func (aaa *RewardService) DeleteRewardConditionRecord(input *reward.DeleteReward
 	return nil
 }
 
-// deprecated(2022-01-10): please use GetRewardByCodeShort instead.
+// Deprecated: 2022-01-10 - Please use GetRewardByCodeShort instead.
 func (aaa *RewardService) GetRewardByCode(input *reward.GetRewardByCodeParams) (*platformclientmodels.RewardInfo, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -214,7 +216,7 @@ func (aaa *RewardService) GetRewardByCode(input *reward.GetRewardByCodeParams) (
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use QueryRewards1Short instead.
+// Deprecated: 2022-01-10 - Please use QueryRewards1Short instead.
 func (aaa *RewardService) QueryRewards1(input *reward.QueryRewards1Params) (*platformclientmodels.RewardPagingSlicedResult, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -231,7 +233,7 @@ func (aaa *RewardService) QueryRewards1(input *reward.QueryRewards1Params) (*pla
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use GetReward1Short instead.
+// Deprecated: 2022-01-10 - Please use GetReward1Short instead.
 func (aaa *RewardService) GetReward1(input *reward.GetReward1Params) (*platformclientmodels.RewardInfo, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {

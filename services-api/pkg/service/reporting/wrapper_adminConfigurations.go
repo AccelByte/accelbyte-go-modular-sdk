@@ -17,7 +17,7 @@ import (
 )
 
 // AdminConfigurationsService this is use for compatibility with latest modular sdk only
-// Deprecated: please use AdminConfigurationsService imported from "github.com/AccelByte/accelbyte-go-modular-sdk/reporting-sdk/pkg"
+// Deprecated: 2023-03-30 - please use AdminConfigurationsService imported from "github.com/AccelByte/accelbyte-go-modular-sdk/reporting-sdk/pkg"
 type AdminConfigurationsService struct {
 	Client                 *reportingclient.JusticeReportingService
 	ConfigRepository       repository.ConfigRepository
@@ -41,7 +41,7 @@ func (aaa *AdminConfigurationsService) GetAuthSession() auth.Session {
 	}
 }
 
-// deprecated(2022-01-10): please use GetShort instead.
+// Deprecated: 2022-01-10 - Please use GetShort instead.
 func (aaa *AdminConfigurationsService) Get(input *admin_configurations.GetParams) (*reportingclientmodels.RestapiConfigResponse, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -58,7 +58,7 @@ func (aaa *AdminConfigurationsService) Get(input *admin_configurations.GetParams
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use UpsertShort instead.
+// Deprecated: 2022-01-10 - Please use UpsertShort instead.
 func (aaa *AdminConfigurationsService) Upsert(input *admin_configurations.UpsertParams) (*reportingclientmodels.RestapiConfigResponse, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {

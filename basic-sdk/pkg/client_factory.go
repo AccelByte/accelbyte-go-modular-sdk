@@ -13,24 +13,18 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 )
 
-var basicClientInstance *basicclient.JusticeBasicService
-
 func NewBasicClient(configRepository repository.ConfigRepository) *basicclient.JusticeBasicService {
-	if basicClientInstance == nil {
-		baseURL := configRepository.GetJusticeBaseUrl()
-		if len(baseURL) > 0 {
-			baseURLSplit := strings.Split(baseURL, "://")
-			httpClientConfig := &basicclient.TransportConfig{
-				Host:          baseURLSplit[1],
-				BasePath:      "",
-				Schemes:       []string{baseURLSplit[0]},
-				UserAgentFunc: GetUserAgent,
-			}
-			basicClientInstance = basicclient.NewHTTPClientWithConfig(nil, httpClientConfig)
-		} else {
-			basicClientInstance = basicclient.NewHTTPClient(nil)
+	baseURL := configRepository.GetJusticeBaseUrl()
+	if len(baseURL) > 0 {
+		baseURLSplit := strings.Split(baseURL, "://")
+		httpClientConfig := &basicclient.TransportConfig{
+			Host:          baseURLSplit[1],
+			BasePath:      "",
+			Schemes:       []string{baseURLSplit[0]},
+			UserAgentFunc: GetUserAgent,
 		}
+		return basicclient.NewHTTPClientWithConfig(nil, httpClientConfig)
+	} else {
+		return basicclient.NewHTTPClient(nil)
 	}
-
-	return basicClientInstance
 }

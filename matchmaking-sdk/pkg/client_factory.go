@@ -13,24 +13,18 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 )
 
-var matchmakingClientInstance *matchmakingclient.JusticeMatchmakingService
-
 func NewMatchmakingClient(configRepository repository.ConfigRepository) *matchmakingclient.JusticeMatchmakingService {
-	if matchmakingClientInstance == nil {
-		baseURL := configRepository.GetJusticeBaseUrl()
-		if len(baseURL) > 0 {
-			baseURLSplit := strings.Split(baseURL, "://")
-			httpClientConfig := &matchmakingclient.TransportConfig{
-				Host:          baseURLSplit[1],
-				BasePath:      "",
-				Schemes:       []string{baseURLSplit[0]},
-				UserAgentFunc: GetUserAgent,
-			}
-			matchmakingClientInstance = matchmakingclient.NewHTTPClientWithConfig(nil, httpClientConfig)
-		} else {
-			matchmakingClientInstance = matchmakingclient.NewHTTPClient(nil)
+	baseURL := configRepository.GetJusticeBaseUrl()
+	if len(baseURL) > 0 {
+		baseURLSplit := strings.Split(baseURL, "://")
+		httpClientConfig := &matchmakingclient.TransportConfig{
+			Host:          baseURLSplit[1],
+			BasePath:      "",
+			Schemes:       []string{baseURLSplit[0]},
+			UserAgentFunc: GetUserAgent,
 		}
+		return matchmakingclient.NewHTTPClientWithConfig(nil, httpClientConfig)
+	} else {
+		return matchmakingclient.NewHTTPClient(nil)
 	}
-
-	return matchmakingClientInstance
 }

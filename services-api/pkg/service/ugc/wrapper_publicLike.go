@@ -17,7 +17,7 @@ import (
 )
 
 // PublicLikeService this is use for compatibility with latest modular sdk only
-// Deprecated: please use PublicLikeService imported from "github.com/AccelByte/accelbyte-go-modular-sdk/ugc-sdk/pkg"
+// Deprecated: 2023-03-30 - please use PublicLikeService imported from "github.com/AccelByte/accelbyte-go-modular-sdk/ugc-sdk/pkg"
 type PublicLikeService struct {
 	Client                 *ugcclient.JusticeUgcService
 	ConfigRepository       repository.ConfigRepository
@@ -41,7 +41,7 @@ func (aaa *PublicLikeService) GetAuthSession() auth.Session {
 	}
 }
 
-// deprecated(2022-01-10): please use GetLikedContentShort instead.
+// Deprecated: 2022-01-10 - Please use GetLikedContentShort instead.
 func (aaa *PublicLikeService) GetLikedContent(input *public_like.GetLikedContentParams) (*ugcclientmodels.ModelsPaginatedContentDownloadResponse, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -64,7 +64,7 @@ func (aaa *PublicLikeService) GetLikedContent(input *public_like.GetLikedContent
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use UpdateContentLikeStatusShort instead.
+// Deprecated: 2022-01-10 - Please use UpdateContentLikeStatusShort instead.
 func (aaa *PublicLikeService) UpdateContentLikeStatus(input *public_like.UpdateContentLikeStatusParams) (*ugcclientmodels.ModelsContentLikeResponse, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {

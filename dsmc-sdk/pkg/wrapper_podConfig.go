@@ -16,6 +16,8 @@ import (
 	"github.com/go-openapi/runtime/client"
 )
 
+// PodConfigService this is use for compatibility with latest modular sdk only
+// Deprecated: 2023-03-30 - please use PodConfigService imported from "github.com/AccelByte/accelbyte-go-modular-sdk/dsmc-sdk/pkg"
 type PodConfigService struct {
 	Client                 *dsmcclient.JusticeDsmcService
 	ConfigRepository       repository.ConfigRepository
@@ -39,7 +41,7 @@ func (aaa *PodConfigService) GetAuthSession() auth.Session {
 	}
 }
 
-// deprecated(2022-01-10): please use GetLowestInstanceSpecShort instead.
+// Deprecated: 2022-01-10 - Please use GetLowestInstanceSpecShort instead.
 func (aaa *PodConfigService) GetLowestInstanceSpec(input *pod_config.GetLowestInstanceSpecParams) (*dsmcclientmodels.ModelsInstanceSpec, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -59,7 +61,7 @@ func (aaa *PodConfigService) GetLowestInstanceSpec(input *pod_config.GetLowestIn
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use GetAllPodConfigShort instead.
+// Deprecated: 2022-01-10 - Please use GetAllPodConfigShort instead.
 func (aaa *PodConfigService) GetAllPodConfig(input *pod_config.GetAllPodConfigParams) (*dsmcclientmodels.ModelsListPodConfigResponse, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -82,7 +84,7 @@ func (aaa *PodConfigService) GetAllPodConfig(input *pod_config.GetAllPodConfigPa
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use GetPodConfigShort instead.
+// Deprecated: 2022-01-10 - Please use GetPodConfigShort instead.
 func (aaa *PodConfigService) GetPodConfig(input *pod_config.GetPodConfigParams) (*dsmcclientmodels.ModelsPodConfigRecord, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -108,7 +110,7 @@ func (aaa *PodConfigService) GetPodConfig(input *pod_config.GetPodConfigParams) 
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use CreatePodConfigShort instead.
+// Deprecated: 2022-01-10 - Please use CreatePodConfigShort instead.
 func (aaa *PodConfigService) CreatePodConfig(input *pod_config.CreatePodConfigParams) (*dsmcclientmodels.ModelsPodConfigRecord, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -134,7 +136,7 @@ func (aaa *PodConfigService) CreatePodConfig(input *pod_config.CreatePodConfigPa
 	return created.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use DeletePodConfigShort instead.
+// Deprecated: 2022-01-10 - Please use DeletePodConfigShort instead.
 func (aaa *PodConfigService) DeletePodConfig(input *pod_config.DeletePodConfigParams) error {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -163,7 +165,7 @@ func (aaa *PodConfigService) DeletePodConfig(input *pod_config.DeletePodConfigPa
 	return nil
 }
 
-// deprecated(2022-01-10): please use UpdatePodConfigShort instead.
+// Deprecated: 2022-01-10 - Please use UpdatePodConfigShort instead.
 func (aaa *PodConfigService) UpdatePodConfig(input *pod_config.UpdatePodConfigParams) (*dsmcclientmodels.ModelsPodConfigRecord, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {

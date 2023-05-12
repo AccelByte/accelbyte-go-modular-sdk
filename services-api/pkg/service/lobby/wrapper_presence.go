@@ -17,7 +17,7 @@ import (
 )
 
 // PresenceService this is use for compatibility with latest modular sdk only
-// Deprecated: please use PresenceService imported from "github.com/AccelByte/accelbyte-go-modular-sdk/lobby-sdk/pkg"
+// Deprecated: 2023-03-30 - please use PresenceService imported from "github.com/AccelByte/accelbyte-go-modular-sdk/lobby-sdk/pkg"
 type PresenceService struct {
 	Client                 *lobbyclient.JusticeLobbyService
 	ConfigRepository       repository.ConfigRepository
@@ -41,7 +41,7 @@ func (aaa *PresenceService) GetAuthSession() auth.Session {
 	}
 }
 
-// deprecated(2022-01-10): please use UsersPresenceHandlerV1Short instead.
+// Deprecated: 2022-01-10 - Please use UsersPresenceHandlerV1Short instead.
 func (aaa *PresenceService) UsersPresenceHandlerV1(input *presence.UsersPresenceHandlerV1Params) (*lobbyclientmodels.HandlersGetUsersPresenceResponse, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {

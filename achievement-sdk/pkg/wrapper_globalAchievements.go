@@ -16,6 +16,8 @@ import (
 	"github.com/go-openapi/runtime/client"
 )
 
+// GlobalAchievementsService this is use for compatibility with latest modular sdk only
+// Deprecated: 2023-03-30 - please use GlobalAchievementsService imported from "github.com/AccelByte/accelbyte-go-modular-sdk/achievement-sdk/pkg"
 type GlobalAchievementsService struct {
 	Client                 *achievementclient.JusticeAchievementService
 	ConfigRepository       repository.ConfigRepository
@@ -39,7 +41,7 @@ func (aaa *GlobalAchievementsService) GetAuthSession() auth.Session {
 	}
 }
 
-// deprecated(2022-01-10): please use AdminListGlobalAchievementsShort instead.
+// Deprecated: 2022-01-10 - Please use AdminListGlobalAchievementsShort instead.
 func (aaa *GlobalAchievementsService) AdminListGlobalAchievements(input *global_achievements.AdminListGlobalAchievementsParams) (*achievementclientmodels.ModelsPaginatedGlobalAchievementResponse, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -62,7 +64,7 @@ func (aaa *GlobalAchievementsService) AdminListGlobalAchievements(input *global_
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use AdminListGlobalAchievementContributorsShort instead.
+// Deprecated: 2022-01-10 - Please use AdminListGlobalAchievementContributorsShort instead.
 func (aaa *GlobalAchievementsService) AdminListGlobalAchievementContributors(input *global_achievements.AdminListGlobalAchievementContributorsParams) (*achievementclientmodels.ModelsPaginatedContributorResponse, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -85,7 +87,7 @@ func (aaa *GlobalAchievementsService) AdminListGlobalAchievementContributors(inp
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use ResetGlobalAchievementShort instead.
+// Deprecated: 2022-01-10 - Please use ResetGlobalAchievementShort instead.
 func (aaa *GlobalAchievementsService) ResetGlobalAchievement(input *global_achievements.ResetGlobalAchievementParams) error {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -108,7 +110,7 @@ func (aaa *GlobalAchievementsService) ResetGlobalAchievement(input *global_achie
 	return nil
 }
 
-// deprecated(2022-01-10): please use AdminListUserContributionsShort instead.
+// Deprecated: 2022-01-10 - Please use AdminListUserContributionsShort instead.
 func (aaa *GlobalAchievementsService) AdminListUserContributions(input *global_achievements.AdminListUserContributionsParams) (*achievementclientmodels.ModelsPaginatedUserContributionResponse, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -131,7 +133,7 @@ func (aaa *GlobalAchievementsService) AdminListUserContributions(input *global_a
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use PublicListGlobalAchievementsShort instead.
+// Deprecated: 2022-01-10 - Please use PublicListGlobalAchievementsShort instead.
 func (aaa *GlobalAchievementsService) PublicListGlobalAchievements(input *global_achievements.PublicListGlobalAchievementsParams) (*achievementclientmodels.ModelsPaginatedGlobalAchievementResponse, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -154,7 +156,7 @@ func (aaa *GlobalAchievementsService) PublicListGlobalAchievements(input *global
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use ListGlobalAchievementContributorsShort instead.
+// Deprecated: 2022-01-10 - Please use ListGlobalAchievementContributorsShort instead.
 func (aaa *GlobalAchievementsService) ListGlobalAchievementContributors(input *global_achievements.ListGlobalAchievementContributorsParams) (*achievementclientmodels.ModelsPaginatedContributorResponse, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -177,7 +179,7 @@ func (aaa *GlobalAchievementsService) ListGlobalAchievementContributors(input *g
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use ListUserContributionsShort instead.
+// Deprecated: 2022-01-10 - Please use ListUserContributionsShort instead.
 func (aaa *GlobalAchievementsService) ListUserContributions(input *global_achievements.ListUserContributionsParams) (*achievementclientmodels.ModelsPaginatedUserContributionResponse, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -200,7 +202,7 @@ func (aaa *GlobalAchievementsService) ListUserContributions(input *global_achiev
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use ClaimGlobalAchievementRewardShort instead.
+// Deprecated: 2022-01-10 - Please use ClaimGlobalAchievementRewardShort instead.
 func (aaa *GlobalAchievementsService) ClaimGlobalAchievementReward(input *global_achievements.ClaimGlobalAchievementRewardParams) error {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {

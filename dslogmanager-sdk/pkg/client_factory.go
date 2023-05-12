@@ -13,24 +13,18 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 )
 
-var dslogmanagerClientInstance *dslogmanagerclient.JusticeDslogmanagerService
-
 func NewDslogmanagerClient(configRepository repository.ConfigRepository) *dslogmanagerclient.JusticeDslogmanagerService {
-	if dslogmanagerClientInstance == nil {
-		baseURL := configRepository.GetJusticeBaseUrl()
-		if len(baseURL) > 0 {
-			baseURLSplit := strings.Split(baseURL, "://")
-			httpClientConfig := &dslogmanagerclient.TransportConfig{
-				Host:          baseURLSplit[1],
-				BasePath:      "",
-				Schemes:       []string{baseURLSplit[0]},
-				UserAgentFunc: GetUserAgent,
-			}
-			dslogmanagerClientInstance = dslogmanagerclient.NewHTTPClientWithConfig(nil, httpClientConfig)
-		} else {
-			dslogmanagerClientInstance = dslogmanagerclient.NewHTTPClient(nil)
+	baseURL := configRepository.GetJusticeBaseUrl()
+	if len(baseURL) > 0 {
+		baseURLSplit := strings.Split(baseURL, "://")
+		httpClientConfig := &dslogmanagerclient.TransportConfig{
+			Host:          baseURLSplit[1],
+			BasePath:      "",
+			Schemes:       []string{baseURLSplit[0]},
+			UserAgentFunc: GetUserAgent,
 		}
+		return dslogmanagerclient.NewHTTPClientWithConfig(nil, httpClientConfig)
+	} else {
+		return dslogmanagerclient.NewHTTPClient(nil)
 	}
-
-	return dslogmanagerClientInstance
 }

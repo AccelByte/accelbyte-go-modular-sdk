@@ -16,6 +16,8 @@ import (
 	"github.com/go-openapi/runtime/client"
 )
 
+// BaseLegalPoliciesService this is use for compatibility with latest modular sdk only
+// Deprecated: 2023-03-30 - please use BaseLegalPoliciesService imported from "github.com/AccelByte/accelbyte-go-modular-sdk/legal-sdk/pkg"
 type BaseLegalPoliciesService struct {
 	Client                 *legalclient.JusticeLegalService
 	ConfigRepository       repository.ConfigRepository
@@ -39,7 +41,7 @@ func (aaa *BaseLegalPoliciesService) GetAuthSession() auth.Session {
 	}
 }
 
-// deprecated(2022-01-10): please use RetrieveAllLegalPoliciesShort instead.
+// Deprecated: 2022-01-10 - Please use RetrieveAllLegalPoliciesShort instead.
 func (aaa *BaseLegalPoliciesService) RetrieveAllLegalPolicies(input *base_legal_policies.RetrieveAllLegalPoliciesParams) ([]*legalclientmodels.RetrieveBasePolicyResponse, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -53,7 +55,7 @@ func (aaa *BaseLegalPoliciesService) RetrieveAllLegalPolicies(input *base_legal_
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use CreatePolicyShort instead.
+// Deprecated: 2022-01-10 - Please use CreatePolicyShort instead.
 func (aaa *BaseLegalPoliciesService) CreatePolicy(input *base_legal_policies.CreatePolicyParams) (*legalclientmodels.CreateBasePolicyResponse, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -76,7 +78,7 @@ func (aaa *BaseLegalPoliciesService) CreatePolicy(input *base_legal_policies.Cre
 	return created.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use RetrieveSinglePolicyShort instead.
+// Deprecated: 2022-01-10 - Please use RetrieveSinglePolicyShort instead.
 func (aaa *BaseLegalPoliciesService) RetrieveSinglePolicy(input *base_legal_policies.RetrieveSinglePolicyParams) (*legalclientmodels.RetrieveBasePolicyResponse, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -93,7 +95,7 @@ func (aaa *BaseLegalPoliciesService) RetrieveSinglePolicy(input *base_legal_poli
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use PartialUpdatePolicyShort instead.
+// Deprecated: 2022-01-10 - Please use PartialUpdatePolicyShort instead.
 func (aaa *BaseLegalPoliciesService) PartialUpdatePolicy(input *base_legal_policies.PartialUpdatePolicyParams) (*legalclientmodels.UpdateBasePolicyResponse, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -113,7 +115,7 @@ func (aaa *BaseLegalPoliciesService) PartialUpdatePolicy(input *base_legal_polic
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use RetrievePolicyCountryShort instead.
+// Deprecated: 2022-01-10 - Please use RetrievePolicyCountryShort instead.
 func (aaa *BaseLegalPoliciesService) RetrievePolicyCountry(input *base_legal_policies.RetrievePolicyCountryParams) (*legalclientmodels.RetrievePolicyResponse, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -130,7 +132,7 @@ func (aaa *BaseLegalPoliciesService) RetrievePolicyCountry(input *base_legal_pol
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use RetrieveAllPolicyTypesShort instead.
+// Deprecated: 2022-01-10 - Please use RetrieveAllPolicyTypesShort instead.
 func (aaa *BaseLegalPoliciesService) RetrieveAllPolicyTypes(input *base_legal_policies.RetrieveAllPolicyTypesParams) ([]*legalclientmodels.RetrievePolicyTypeResponse, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {

@@ -17,7 +17,7 @@ import (
 )
 
 // AdminService this is use for compatibility with latest modular sdk only
-// Deprecated: please use AdminService imported from "github.com/AccelByte/accelbyte-go-modular-sdk/dslogmanager-sdk/pkg"
+// Deprecated: 2023-03-30 - please use AdminService imported from "github.com/AccelByte/accelbyte-go-modular-sdk/dslogmanager-sdk/pkg"
 type AdminService struct {
 	Client                 *dslogmanagerclient.JusticeDslogmanagerService
 	ConfigRepository       repository.ConfigRepository
@@ -41,7 +41,7 @@ func (aaa *AdminService) GetAuthSession() auth.Session {
 	}
 }
 
-// deprecated(2022-01-10): please use GetServerLogsShort instead.
+// Deprecated: 2022-01-10 - Please use GetServerLogsShort instead.
 func (aaa *AdminService) GetServerLogs(input *admin.GetServerLogsParams) (*dslogmanagerclientmodels.ModelsServerLogs, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {

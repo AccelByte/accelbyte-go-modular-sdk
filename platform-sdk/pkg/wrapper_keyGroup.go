@@ -16,6 +16,8 @@ import (
 	"github.com/go-openapi/runtime/client"
 )
 
+// KeyGroupService this is use for compatibility with latest modular sdk only
+// Deprecated: 2023-03-30 - please use KeyGroupService imported from "github.com/AccelByte/accelbyte-go-modular-sdk/platform-sdk/pkg"
 type KeyGroupService struct {
 	Client                 *platformclient.JusticePlatformService
 	ConfigRepository       repository.ConfigRepository
@@ -39,7 +41,7 @@ func (aaa *KeyGroupService) GetAuthSession() auth.Session {
 	}
 }
 
-// deprecated(2022-01-10): please use QueryKeyGroupsShort instead.
+// Deprecated: 2022-01-10 - Please use QueryKeyGroupsShort instead.
 func (aaa *KeyGroupService) QueryKeyGroups(input *key_group.QueryKeyGroupsParams) (*platformclientmodels.KeyGroupPagingSlicedResult, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -53,7 +55,7 @@ func (aaa *KeyGroupService) QueryKeyGroups(input *key_group.QueryKeyGroupsParams
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use CreateKeyGroupShort instead.
+// Deprecated: 2022-01-10 - Please use CreateKeyGroupShort instead.
 func (aaa *KeyGroupService) CreateKeyGroup(input *key_group.CreateKeyGroupParams) (*platformclientmodels.KeyGroupInfo, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -73,7 +75,7 @@ func (aaa *KeyGroupService) CreateKeyGroup(input *key_group.CreateKeyGroupParams
 	return created.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use GetKeyGroupByBoothNameShort instead.
+// Deprecated: 2022-01-10 - Please use GetKeyGroupByBoothNameShort instead.
 func (aaa *KeyGroupService) GetKeyGroupByBoothName(input *key_group.GetKeyGroupByBoothNameParams) (*platformclientmodels.KeyGroupInfo, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -90,7 +92,7 @@ func (aaa *KeyGroupService) GetKeyGroupByBoothName(input *key_group.GetKeyGroupB
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use GetKeyGroupShort instead.
+// Deprecated: 2022-01-10 - Please use GetKeyGroupShort instead.
 func (aaa *KeyGroupService) GetKeyGroup(input *key_group.GetKeyGroupParams) (*platformclientmodels.KeyGroupInfo, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -107,7 +109,7 @@ func (aaa *KeyGroupService) GetKeyGroup(input *key_group.GetKeyGroupParams) (*pl
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use UpdateKeyGroupShort instead.
+// Deprecated: 2022-01-10 - Please use UpdateKeyGroupShort instead.
 func (aaa *KeyGroupService) UpdateKeyGroup(input *key_group.UpdateKeyGroupParams) (*platformclientmodels.KeyGroupInfo, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -130,7 +132,7 @@ func (aaa *KeyGroupService) UpdateKeyGroup(input *key_group.UpdateKeyGroupParams
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use GetKeyGroupDynamicShort instead.
+// Deprecated: 2022-01-10 - Please use GetKeyGroupDynamicShort instead.
 func (aaa *KeyGroupService) GetKeyGroupDynamic(input *key_group.GetKeyGroupDynamicParams) (*platformclientmodels.KeyGroupDynamicInfo, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -147,7 +149,7 @@ func (aaa *KeyGroupService) GetKeyGroupDynamic(input *key_group.GetKeyGroupDynam
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use ListKeysShort instead.
+// Deprecated: 2022-01-10 - Please use ListKeysShort instead.
 func (aaa *KeyGroupService) ListKeys(input *key_group.ListKeysParams) (*platformclientmodels.KeyPagingSliceResult, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -161,7 +163,7 @@ func (aaa *KeyGroupService) ListKeys(input *key_group.ListKeysParams) (*platform
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use UploadKeysShort instead.
+// Deprecated: 2022-01-10 - Please use UploadKeysShort instead.
 func (aaa *KeyGroupService) UploadKeys(input *key_group.UploadKeysParams) (*platformclientmodels.BulkOperationResult, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {

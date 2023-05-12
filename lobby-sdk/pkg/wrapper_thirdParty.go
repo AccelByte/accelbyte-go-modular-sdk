@@ -16,6 +16,8 @@ import (
 	"github.com/go-openapi/runtime/client"
 )
 
+// ThirdPartyService this is use for compatibility with latest modular sdk only
+// Deprecated: 2023-03-30 - please use ThirdPartyService imported from "github.com/AccelByte/accelbyte-go-modular-sdk/lobby-sdk/pkg"
 type ThirdPartyService struct {
 	Client                 *lobbyclient.JusticeLobbyService
 	ConfigRepository       repository.ConfigRepository
@@ -39,7 +41,7 @@ func (aaa *ThirdPartyService) GetAuthSession() auth.Session {
 	}
 }
 
-// deprecated(2022-01-10): please use AdminGetThirdPartyConfigShort instead.
+// Deprecated: 2022-01-10 - Please use AdminGetThirdPartyConfigShort instead.
 func (aaa *ThirdPartyService) AdminGetThirdPartyConfig(input *third_party.AdminGetThirdPartyConfigParams) (*lobbyclientmodels.ModelsGetConfigResponse, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -65,7 +67,7 @@ func (aaa *ThirdPartyService) AdminGetThirdPartyConfig(input *third_party.AdminG
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use AdminUpdateThirdPartyConfigShort instead.
+// Deprecated: 2022-01-10 - Please use AdminUpdateThirdPartyConfigShort instead.
 func (aaa *ThirdPartyService) AdminUpdateThirdPartyConfig(input *third_party.AdminUpdateThirdPartyConfigParams) (*lobbyclientmodels.ModelsUpdateConfigResponse, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -91,7 +93,7 @@ func (aaa *ThirdPartyService) AdminUpdateThirdPartyConfig(input *third_party.Adm
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use AdminCreateThirdPartyConfigShort instead.
+// Deprecated: 2022-01-10 - Please use AdminCreateThirdPartyConfigShort instead.
 func (aaa *ThirdPartyService) AdminCreateThirdPartyConfig(input *third_party.AdminCreateThirdPartyConfigParams) (*lobbyclientmodels.ModelsCreateConfigResponse, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -120,7 +122,7 @@ func (aaa *ThirdPartyService) AdminCreateThirdPartyConfig(input *third_party.Adm
 	return created.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use AdminDeleteThirdPartyConfigShort instead.
+// Deprecated: 2022-01-10 - Please use AdminDeleteThirdPartyConfigShort instead.
 func (aaa *ThirdPartyService) AdminDeleteThirdPartyConfig(input *third_party.AdminDeleteThirdPartyConfigParams) (string, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {

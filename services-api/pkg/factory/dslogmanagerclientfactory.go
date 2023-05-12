@@ -19,7 +19,7 @@ import (
 var dslogmanagerClientInstance *dslogmanagerclient.JusticeDslogmanagerService
 
 // NewDslogmanagerClient
-// Deprecated: please use NewDslogmanagerClient from "github.com/AccelByte/accelbyte-go-modular-sdk/Dslogmanager-sdk/pkg"
+// Deprecated: 2023-03-30 - please use NewDslogmanagerClient from "github.com/AccelByte/accelbyte-go-modular-sdk/Dslogmanager-sdk/pkg"
 func NewDslogmanagerClient(configRepository repository.ConfigRepository) *dslogmanagerclient.JusticeDslogmanagerService {
 	if dslogmanagerClientInstance == nil {
 		baseURL := configRepository.GetJusticeBaseUrl()

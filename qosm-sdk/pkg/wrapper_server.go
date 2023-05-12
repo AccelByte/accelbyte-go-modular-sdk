@@ -15,6 +15,8 @@ import (
 	"github.com/go-openapi/runtime/client"
 )
 
+// ServerService this is use for compatibility with latest modular sdk only
+// Deprecated: 2023-03-30 - please use ServerService imported from "github.com/AccelByte/accelbyte-go-modular-sdk/qosm-sdk/pkg"
 type ServerService struct {
 	Client                 *qosmclient.JusticeQosmService
 	ConfigRepository       repository.ConfigRepository
@@ -38,7 +40,7 @@ func (aaa *ServerService) GetAuthSession() auth.Session {
 	}
 }
 
-// deprecated(2022-01-10): please use HeartbeatShort instead.
+// Deprecated: 2022-01-10 - Please use HeartbeatShort instead.
 func (aaa *ServerService) Heartbeat(input *server.HeartbeatParams) error {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {

@@ -16,6 +16,8 @@ import (
 	"github.com/go-openapi/runtime/client"
 )
 
+// DataRetrievalService this is use for compatibility with latest modular sdk only
+// Deprecated: 2023-03-30 - please use DataRetrievalService imported from "github.com/AccelByte/accelbyte-go-modular-sdk/gdpr-sdk/pkg"
 type DataRetrievalService struct {
 	Client                 *gdprclient.JusticeGdprService
 	ConfigRepository       repository.ConfigRepository
@@ -39,7 +41,7 @@ func (aaa *DataRetrievalService) GetAuthSession() auth.Session {
 	}
 }
 
-// deprecated(2022-01-10): please use GetAdminEmailConfigurationShort instead.
+// Deprecated: 2022-01-10 - Please use GetAdminEmailConfigurationShort instead.
 func (aaa *DataRetrievalService) GetAdminEmailConfiguration(input *data_retrieval.GetAdminEmailConfigurationParams) ([]string, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -59,7 +61,7 @@ func (aaa *DataRetrievalService) GetAdminEmailConfiguration(input *data_retrieva
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use UpdateAdminEmailConfigurationShort instead.
+// Deprecated: 2022-01-10 - Please use UpdateAdminEmailConfigurationShort instead.
 func (aaa *DataRetrievalService) UpdateAdminEmailConfiguration(input *data_retrieval.UpdateAdminEmailConfigurationParams) error {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -82,7 +84,7 @@ func (aaa *DataRetrievalService) UpdateAdminEmailConfiguration(input *data_retri
 	return nil
 }
 
-// deprecated(2022-01-10): please use SaveAdminEmailConfigurationShort instead.
+// Deprecated: 2022-01-10 - Please use SaveAdminEmailConfigurationShort instead.
 func (aaa *DataRetrievalService) SaveAdminEmailConfiguration(input *data_retrieval.SaveAdminEmailConfigurationParams) error {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -105,7 +107,7 @@ func (aaa *DataRetrievalService) SaveAdminEmailConfiguration(input *data_retriev
 	return nil
 }
 
-// deprecated(2022-01-10): please use DeleteAdminEmailConfigurationShort instead.
+// Deprecated: 2022-01-10 - Please use DeleteAdminEmailConfigurationShort instead.
 func (aaa *DataRetrievalService) DeleteAdminEmailConfiguration(input *data_retrieval.DeleteAdminEmailConfigurationParams) error {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -134,7 +136,7 @@ func (aaa *DataRetrievalService) DeleteAdminEmailConfiguration(input *data_retri
 	return nil
 }
 
-// deprecated(2022-01-10): please use AdminGetListPersonalDataRequestShort instead.
+// Deprecated: 2022-01-10 - Please use AdminGetListPersonalDataRequestShort instead.
 func (aaa *DataRetrievalService) AdminGetListPersonalDataRequest(input *data_retrieval.AdminGetListPersonalDataRequestParams) (*gdprclientmodels.ModelsListPersonalDataResponse, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -163,7 +165,7 @@ func (aaa *DataRetrievalService) AdminGetListPersonalDataRequest(input *data_ret
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use AdminGetUserPersonalDataRequestsShort instead.
+// Deprecated: 2022-01-10 - Please use AdminGetUserPersonalDataRequestsShort instead.
 func (aaa *DataRetrievalService) AdminGetUserPersonalDataRequests(input *data_retrieval.AdminGetUserPersonalDataRequestsParams) (*gdprclientmodels.ModelsUserPersonalDataResponse, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -186,7 +188,7 @@ func (aaa *DataRetrievalService) AdminGetUserPersonalDataRequests(input *data_re
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use AdminRequestDataRetrievalShort instead.
+// Deprecated: 2022-01-10 - Please use AdminRequestDataRetrievalShort instead.
 func (aaa *DataRetrievalService) AdminRequestDataRetrieval(input *data_retrieval.AdminRequestDataRetrievalParams) (*gdprclientmodels.ModelsDataRetrievalResponse, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -209,7 +211,7 @@ func (aaa *DataRetrievalService) AdminRequestDataRetrieval(input *data_retrieval
 	return created.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use AdminCancelUserPersonalDataRequestShort instead.
+// Deprecated: 2022-01-10 - Please use AdminCancelUserPersonalDataRequestShort instead.
 func (aaa *DataRetrievalService) AdminCancelUserPersonalDataRequest(input *data_retrieval.AdminCancelUserPersonalDataRequestParams) error {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -235,7 +237,7 @@ func (aaa *DataRetrievalService) AdminCancelUserPersonalDataRequest(input *data_
 	return nil
 }
 
-// deprecated(2022-01-10): please use AdminGeneratePersonalDataURLShort instead.
+// Deprecated: 2022-01-10 - Please use AdminGeneratePersonalDataURLShort instead.
 func (aaa *DataRetrievalService) AdminGeneratePersonalDataURL(input *data_retrieval.AdminGeneratePersonalDataURLParams) (*gdprclientmodels.ModelsUserDataURL, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -261,7 +263,7 @@ func (aaa *DataRetrievalService) AdminGeneratePersonalDataURL(input *data_retrie
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use PublicGetUserPersonalDataRequestsShort instead.
+// Deprecated: 2022-01-10 - Please use PublicGetUserPersonalDataRequestsShort instead.
 func (aaa *DataRetrievalService) PublicGetUserPersonalDataRequests(input *data_retrieval.PublicGetUserPersonalDataRequestsParams) (*gdprclientmodels.ModelsUserPersonalDataResponse, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -284,7 +286,7 @@ func (aaa *DataRetrievalService) PublicGetUserPersonalDataRequests(input *data_r
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use PublicRequestDataRetrievalShort instead.
+// Deprecated: 2022-01-10 - Please use PublicRequestDataRetrievalShort instead.
 func (aaa *DataRetrievalService) PublicRequestDataRetrieval(input *data_retrieval.PublicRequestDataRetrievalParams) (*gdprclientmodels.ModelsDataRetrievalResponse, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -307,7 +309,7 @@ func (aaa *DataRetrievalService) PublicRequestDataRetrieval(input *data_retrieva
 	return created.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use PublicCancelUserPersonalDataRequestShort instead.
+// Deprecated: 2022-01-10 - Please use PublicCancelUserPersonalDataRequestShort instead.
 func (aaa *DataRetrievalService) PublicCancelUserPersonalDataRequest(input *data_retrieval.PublicCancelUserPersonalDataRequestParams) error {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -333,7 +335,7 @@ func (aaa *DataRetrievalService) PublicCancelUserPersonalDataRequest(input *data
 	return nil
 }
 
-// deprecated(2022-01-10): please use PublicGeneratePersonalDataURLShort instead.
+// Deprecated: 2022-01-10 - Please use PublicGeneratePersonalDataURLShort instead.
 func (aaa *DataRetrievalService) PublicGeneratePersonalDataURL(input *data_retrieval.PublicGeneratePersonalDataURLParams) (*gdprclientmodels.ModelsUserDataURL, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {

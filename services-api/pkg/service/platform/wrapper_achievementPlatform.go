@@ -17,7 +17,7 @@ import (
 )
 
 // AchievementPlatformService this is use for compatibility with latest modular sdk only
-// Deprecated: please use AchievementPlatformService imported from "github.com/AccelByte/accelbyte-go-modular-sdk/platform-sdk/pkg"
+// Deprecated: 2023-03-30 - please use AchievementPlatformService imported from "github.com/AccelByte/accelbyte-go-modular-sdk/platform-sdk/pkg"
 type AchievementPlatformService struct {
 	Client                 *platformclient.JusticePlatformService
 	ConfigRepository       repository.ConfigRepository
@@ -41,7 +41,7 @@ func (aaa *AchievementPlatformService) GetAuthSession() auth.Session {
 	}
 }
 
-// deprecated(2022-01-10): please use UnlockSteamUserAchievementShort instead.
+// Deprecated: 2022-01-10 - Please use UnlockSteamUserAchievementShort instead.
 func (aaa *AchievementPlatformService) UnlockSteamUserAchievement(input *achievement_platform.UnlockSteamUserAchievementParams) error {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -61,7 +61,7 @@ func (aaa *AchievementPlatformService) UnlockSteamUserAchievement(input *achieve
 	return nil
 }
 
-// deprecated(2022-01-10): please use GetXblUserAchievementsShort instead.
+// Deprecated: 2022-01-10 - Please use GetXblUserAchievementsShort instead.
 func (aaa *AchievementPlatformService) GetXblUserAchievements(input *achievement_platform.GetXblUserAchievementsParams) (*platformclientmodels.XblUserAchievements, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -78,7 +78,7 @@ func (aaa *AchievementPlatformService) GetXblUserAchievements(input *achievement
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use UpdateXblUserAchievementShort instead.
+// Deprecated: 2022-01-10 - Please use UpdateXblUserAchievementShort instead.
 func (aaa *AchievementPlatformService) UpdateXblUserAchievement(input *achievement_platform.UpdateXblUserAchievementParams) error {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {

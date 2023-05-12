@@ -17,7 +17,7 @@ import (
 )
 
 // SessionService this is use for compatibility with latest modular sdk only
-// Deprecated: please use SessionService imported from "github.com/AccelByte/accelbyte-go-modular-sdk/sessionbrowser-sdk/pkg"
+// Deprecated: 2023-03-30 - please use SessionService imported from "github.com/AccelByte/accelbyte-go-modular-sdk/sessionbrowser-sdk/pkg"
 type SessionService struct {
 	Client                 *sessionbrowserclient.JusticeSessionbrowserService
 	ConfigRepository       repository.ConfigRepository
@@ -41,7 +41,7 @@ func (aaa *SessionService) GetAuthSession() auth.Session {
 	}
 }
 
-// deprecated(2022-01-10): please use AdminQuerySessionShort instead.
+// Deprecated: 2022-01-10 - Please use AdminQuerySessionShort instead.
 func (aaa *SessionService) AdminQuerySession(input *session.AdminQuerySessionParams) (*sessionbrowserclientmodels.ModelsSessionQueryResponse, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -61,7 +61,7 @@ func (aaa *SessionService) AdminQuerySession(input *session.AdminQuerySessionPar
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use GetTotalActiveSessionShort instead.
+// Deprecated: 2022-01-10 - Please use GetTotalActiveSessionShort instead.
 func (aaa *SessionService) GetTotalActiveSession(input *session.GetTotalActiveSessionParams) (*sessionbrowserclientmodels.ModelsCountActiveSessionResponse, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -81,7 +81,7 @@ func (aaa *SessionService) GetTotalActiveSession(input *session.GetTotalActiveSe
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use GetActiveCustomGameSessionsShort instead.
+// Deprecated: 2022-01-10 - Please use GetActiveCustomGameSessionsShort instead.
 func (aaa *SessionService) GetActiveCustomGameSessions(input *session.GetActiveCustomGameSessionsParams) (*sessionbrowserclientmodels.ModelsActiveCustomGameResponse, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -101,7 +101,7 @@ func (aaa *SessionService) GetActiveCustomGameSessions(input *session.GetActiveC
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use GetActiveMatchmakingGameSessionsShort instead.
+// Deprecated: 2022-01-10 - Please use GetActiveMatchmakingGameSessionsShort instead.
 func (aaa *SessionService) GetActiveMatchmakingGameSessions(input *session.GetActiveMatchmakingGameSessionsParams) (*sessionbrowserclientmodels.ModelsActiveMatchmakingGameResponse, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -121,7 +121,7 @@ func (aaa *SessionService) GetActiveMatchmakingGameSessions(input *session.GetAc
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use AdminGetSessionShort instead.
+// Deprecated: 2022-01-10 - Please use AdminGetSessionShort instead.
 func (aaa *SessionService) AdminGetSession(input *session.AdminGetSessionParams) (*sessionbrowserclientmodels.ModelsAdminSessionResponse, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -141,7 +141,7 @@ func (aaa *SessionService) AdminGetSession(input *session.AdminGetSessionParams)
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use AdminDeleteSessionShort instead.
+// Deprecated: 2022-01-10 - Please use AdminDeleteSessionShort instead.
 func (aaa *SessionService) AdminDeleteSession(input *session.AdminDeleteSessionParams) (*sessionbrowserclientmodels.ModelsAdminSessionResponse, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -164,7 +164,7 @@ func (aaa *SessionService) AdminDeleteSession(input *session.AdminDeleteSessionP
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use AdminSearchSessionsV2Short instead.
+// Deprecated: 2022-01-10 - Please use AdminSearchSessionsV2Short instead.
 func (aaa *SessionService) AdminSearchSessionsV2(input *session.AdminSearchSessionsV2Params) (*sessionbrowserclientmodels.ModelsGetSessionHistorySearchResponseV2, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -190,7 +190,7 @@ func (aaa *SessionService) AdminSearchSessionsV2(input *session.AdminSearchSessi
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use GetSessionHistoryDetailedShort instead.
+// Deprecated: 2022-01-10 - Please use GetSessionHistoryDetailedShort instead.
 func (aaa *SessionService) GetSessionHistoryDetailed(input *session.GetSessionHistoryDetailedParams) ([]*sessionbrowserclientmodels.ModelsGetSessionHistoryDetailedResponseItem, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -216,7 +216,7 @@ func (aaa *SessionService) GetSessionHistoryDetailed(input *session.GetSessionHi
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use UserQuerySessionShort instead.
+// Deprecated: 2022-01-10 - Please use UserQuerySessionShort instead.
 func (aaa *SessionService) UserQuerySession(input *session.UserQuerySessionParams) (*sessionbrowserclientmodels.ModelsSessionQueryResponse, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -236,7 +236,7 @@ func (aaa *SessionService) UserQuerySession(input *session.UserQuerySessionParam
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use CreateSessionShort instead.
+// Deprecated: 2022-01-10 - Please use CreateSessionShort instead.
 func (aaa *SessionService) CreateSession(input *session.CreateSessionParams) (*sessionbrowserclientmodels.ModelsSessionResponse, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -262,7 +262,7 @@ func (aaa *SessionService) CreateSession(input *session.CreateSessionParams) (*s
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use GetSessionByUserIDsShort instead.
+// Deprecated: 2022-01-10 - Please use GetSessionByUserIDsShort instead.
 func (aaa *SessionService) GetSessionByUserIDs(input *session.GetSessionByUserIDsParams) (*sessionbrowserclientmodels.ModelsSessionByUserIDsResponse, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -282,7 +282,7 @@ func (aaa *SessionService) GetSessionByUserIDs(input *session.GetSessionByUserID
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use GetSessionShort instead.
+// Deprecated: 2022-01-10 - Please use GetSessionShort instead.
 func (aaa *SessionService) GetSession(input *session.GetSessionParams) (*sessionbrowserclientmodels.ModelsSessionResponse, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -302,7 +302,7 @@ func (aaa *SessionService) GetSession(input *session.GetSessionParams) (*session
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use UpdateSessionShort instead.
+// Deprecated: 2022-01-10 - Please use UpdateSessionShort instead.
 func (aaa *SessionService) UpdateSession(input *session.UpdateSessionParams) (*sessionbrowserclientmodels.ModelsSessionResponse, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -325,7 +325,7 @@ func (aaa *SessionService) UpdateSession(input *session.UpdateSessionParams) (*s
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use DeleteSessionShort instead.
+// Deprecated: 2022-01-10 - Please use DeleteSessionShort instead.
 func (aaa *SessionService) DeleteSession(input *session.DeleteSessionParams) (*sessionbrowserclientmodels.ModelsSessionResponse, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -348,7 +348,7 @@ func (aaa *SessionService) DeleteSession(input *session.DeleteSessionParams) (*s
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use JoinSessionShort instead.
+// Deprecated: 2022-01-10 - Please use JoinSessionShort instead.
 func (aaa *SessionService) JoinSession(input *session.JoinSessionParams) (*sessionbrowserclientmodels.ModelsSessionResponse, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -374,7 +374,7 @@ func (aaa *SessionService) JoinSession(input *session.JoinSessionParams) (*sessi
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use DeleteSessionLocalDSShort instead.
+// Deprecated: 2022-01-10 - Please use DeleteSessionLocalDSShort instead.
 func (aaa *SessionService) DeleteSessionLocalDS(input *session.DeleteSessionLocalDSParams) (*sessionbrowserclientmodels.ModelsSessionResponse, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -397,7 +397,7 @@ func (aaa *SessionService) DeleteSessionLocalDS(input *session.DeleteSessionLoca
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use AddPlayerToSessionShort instead.
+// Deprecated: 2022-01-10 - Please use AddPlayerToSessionShort instead.
 func (aaa *SessionService) AddPlayerToSession(input *session.AddPlayerToSessionParams) (*sessionbrowserclientmodels.ModelsAddPlayerResponse, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -420,7 +420,7 @@ func (aaa *SessionService) AddPlayerToSession(input *session.AddPlayerToSessionP
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use RemovePlayerFromSessionShort instead.
+// Deprecated: 2022-01-10 - Please use RemovePlayerFromSessionShort instead.
 func (aaa *SessionService) RemovePlayerFromSession(input *session.RemovePlayerFromSessionParams) (*sessionbrowserclientmodels.ModelsAddPlayerResponse, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -443,7 +443,7 @@ func (aaa *SessionService) RemovePlayerFromSession(input *session.RemovePlayerFr
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use UpdateSettingsShort instead.
+// Deprecated: 2022-01-10 - Please use UpdateSettingsShort instead.
 func (aaa *SessionService) UpdateSettings(input *session.UpdateSettingsParams) (*sessionbrowserclientmodels.ModelsSessionResponse, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -466,7 +466,7 @@ func (aaa *SessionService) UpdateSettings(input *session.UpdateSettingsParams) (
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use GetRecentPlayerShort instead.
+// Deprecated: 2022-01-10 - Please use GetRecentPlayerShort instead.
 func (aaa *SessionService) GetRecentPlayer(input *session.GetRecentPlayerParams) (*sessionbrowserclientmodels.ModelsRecentPlayerQueryResponse, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {

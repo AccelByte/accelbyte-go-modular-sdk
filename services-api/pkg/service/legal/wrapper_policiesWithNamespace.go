@@ -16,7 +16,7 @@ import (
 )
 
 // PoliciesWithNamespaceService this is use for compatibility with latest modular sdk only
-// Deprecated: please use PoliciesWithNamespaceService imported from "github.com/AccelByte/accelbyte-go-modular-sdk/legal-sdk/pkg"
+// Deprecated: 2023-03-30 - please use PoliciesWithNamespaceService imported from "github.com/AccelByte/accelbyte-go-modular-sdk/legal-sdk/pkg"
 type PoliciesWithNamespaceService struct {
 	Client                 *legalclient.JusticeLegalService
 	ConfigRepository       repository.ConfigRepository
@@ -40,7 +40,7 @@ func (aaa *PoliciesWithNamespaceService) GetAuthSession() auth.Session {
 	}
 }
 
-// deprecated(2022-01-10): please use UpdatePolicy1Short instead.
+// Deprecated: 2022-01-10 - Please use UpdatePolicy1Short instead.
 func (aaa *PoliciesWithNamespaceService) UpdatePolicy1(input *policies_with_namespace.UpdatePolicy1Params) error {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -57,7 +57,7 @@ func (aaa *PoliciesWithNamespaceService) UpdatePolicy1(input *policies_with_name
 	return nil
 }
 
-// deprecated(2022-01-10): please use SetDefaultPolicy3Short instead.
+// Deprecated: 2022-01-10 - Please use SetDefaultPolicy3Short instead.
 func (aaa *PoliciesWithNamespaceService) SetDefaultPolicy3(input *policies_with_namespace.SetDefaultPolicy3Params) error {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {

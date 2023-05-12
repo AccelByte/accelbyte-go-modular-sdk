@@ -16,6 +16,8 @@ import (
 	"github.com/go-openapi/runtime/client"
 )
 
+// TagsService this is use for compatibility with latest modular sdk only
+// Deprecated: 2023-03-30 - please use TagsService imported from "github.com/AccelByte/accelbyte-go-modular-sdk/achievement-sdk/pkg"
 type TagsService struct {
 	Client                 *achievementclient.JusticeAchievementService
 	ConfigRepository       repository.ConfigRepository
@@ -39,7 +41,7 @@ func (aaa *TagsService) GetAuthSession() auth.Session {
 	}
 }
 
-// deprecated(2022-01-10): please use AdminListTagsShort instead.
+// Deprecated: 2022-01-10 - Please use AdminListTagsShort instead.
 func (aaa *TagsService) AdminListTags(input *tags.AdminListTagsParams) (*achievementclientmodels.ModelsPaginatedTagResponse, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -65,7 +67,7 @@ func (aaa *TagsService) AdminListTags(input *tags.AdminListTagsParams) (*achieve
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use PublicListTagsShort instead.
+// Deprecated: 2022-01-10 - Please use PublicListTagsShort instead.
 func (aaa *TagsService) PublicListTags(input *tags.PublicListTagsParams) (*achievementclientmodels.ModelsPaginatedTagResponse, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {

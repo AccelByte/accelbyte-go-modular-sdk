@@ -16,6 +16,8 @@ import (
 	"github.com/go-openapi/runtime/client"
 )
 
+// OAuthService this is use for compatibility with latest modular sdk only
+// Deprecated: 2023-03-30 - please use OAuthService imported from "github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg"
 type OAuthService struct {
 	Client                 *iamclient.JusticeIamService
 	ConfigRepository       repository.ConfigRepository
@@ -39,7 +41,7 @@ func (aaa *OAuthService) GetAuthSession() auth.Session {
 	}
 }
 
-// deprecated(2022-01-10): please use AuthorizationShort instead.
+// Deprecated: 2022-01-10 - Please use AuthorizationShort instead.
 func (aaa *OAuthService) Authorization(input *o_auth.AuthorizationParams) (string, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -53,7 +55,7 @@ func (aaa *OAuthService) Authorization(input *o_auth.AuthorizationParams) (strin
 	return found.Location, nil
 }
 
-// deprecated(2022-01-10): please use GetJWKSShort instead.
+// Deprecated: 2022-01-10 - Please use GetJWKSShort instead.
 func (aaa *OAuthService) GetJWKS(input *o_auth.GetJWKSParams) (*iamclientmodels.OauthcommonJWKSet, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -67,7 +69,7 @@ func (aaa *OAuthService) GetJWKS(input *o_auth.GetJWKSParams) (*iamclientmodels.
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use PlatformTokenRequestHandlerShort instead.
+// Deprecated: 2022-01-10 - Please use PlatformTokenRequestHandlerShort instead.
 func (aaa *OAuthService) PlatformTokenRequestHandler(input *o_auth.PlatformTokenRequestHandlerParams) (*iamclientmodels.OauthmodelTokenResponse, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -87,7 +89,7 @@ func (aaa *OAuthService) PlatformTokenRequestHandler(input *o_auth.PlatformToken
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use RevokeUserShort instead.
+// Deprecated: 2022-01-10 - Please use RevokeUserShort instead.
 func (aaa *OAuthService) RevokeUser(input *o_auth.RevokeUserParams) error {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -104,7 +106,7 @@ func (aaa *OAuthService) RevokeUser(input *o_auth.RevokeUserParams) error {
 	return nil
 }
 
-// deprecated(2022-01-10): please use GetRevocationListShort instead.
+// Deprecated: 2022-01-10 - Please use GetRevocationListShort instead.
 func (aaa *OAuthService) GetRevocationList(input *o_auth.GetRevocationListParams) (*iamclientmodels.OauthapiRevocationList, error) {
 	clientID := aaa.ConfigRepository.GetClientId()
 	clientSecret := aaa.ConfigRepository.GetClientSecret()
@@ -119,7 +121,7 @@ func (aaa *OAuthService) GetRevocationList(input *o_auth.GetRevocationListParams
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use RevokeTokenShort instead.
+// Deprecated: 2022-01-10 - Please use RevokeTokenShort instead.
 func (aaa *OAuthService) RevokeToken(input *o_auth.RevokeTokenParams) error {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -139,7 +141,7 @@ func (aaa *OAuthService) RevokeToken(input *o_auth.RevokeTokenParams) error {
 	return nil
 }
 
-// deprecated(2022-01-10): please use RevokeAUserShort instead.
+// Deprecated: 2022-01-10 - Please use RevokeAUserShort instead.
 func (aaa *OAuthService) RevokeAUser(input *o_auth.RevokeAUserParams) error {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -159,7 +161,7 @@ func (aaa *OAuthService) RevokeAUser(input *o_auth.RevokeAUserParams) error {
 	return nil
 }
 
-// deprecated(2022-01-10): please use TokenGrantShort instead.
+// Deprecated: 2022-01-10 - Please use TokenGrantShort instead.
 func (aaa *OAuthService) TokenGrant(input *o_auth.TokenGrantParams) (*iamclientmodels.OauthmodelTokenResponse, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -179,7 +181,7 @@ func (aaa *OAuthService) TokenGrant(input *o_auth.TokenGrantParams) (*iamclientm
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use VerifyTokenShort instead.
+// Deprecated: 2022-01-10 - Please use VerifyTokenShort instead.
 func (aaa *OAuthService) VerifyToken(input *o_auth.VerifyTokenParams) (*iamclientmodels.OauthmodelTokenResponse, error) {
 	clientID := aaa.ConfigRepository.GetClientId()
 	clientSecret := aaa.ConfigRepository.GetClientSecret()

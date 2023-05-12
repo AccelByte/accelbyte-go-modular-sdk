@@ -15,6 +15,8 @@ import (
 	"github.com/go-openapi/runtime/client"
 )
 
+// AnonymizationService this is use for compatibility with latest modular sdk only
+// Deprecated: 2023-03-30 - please use AnonymizationService imported from "github.com/AccelByte/accelbyte-go-modular-sdk/legal-sdk/pkg"
 type AnonymizationService struct {
 	Client                 *legalclient.JusticeLegalService
 	ConfigRepository       repository.ConfigRepository
@@ -38,7 +40,7 @@ func (aaa *AnonymizationService) GetAuthSession() auth.Session {
 	}
 }
 
-// deprecated(2022-01-10): please use AnonymizeUserAgreementShort instead.
+// Deprecated: 2022-01-10 - Please use AnonymizeUserAgreementShort instead.
 func (aaa *AnonymizationService) AnonymizeUserAgreement(input *anonymization.AnonymizeUserAgreementParams) error {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {

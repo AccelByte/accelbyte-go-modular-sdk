@@ -17,7 +17,7 @@ import (
 )
 
 // MatchFunctionsService this is use for compatibility with latest modular sdk only
-// Deprecated: please use MatchFunctionsService imported from "github.com/AccelByte/accelbyte-go-modular-sdk/match2-sdk/pkg"
+// Deprecated: 2023-03-30 - please use MatchFunctionsService imported from "github.com/AccelByte/accelbyte-go-modular-sdk/match2-sdk/pkg"
 type MatchFunctionsService struct {
 	Client                 *match2client.JusticeMatch2Service
 	ConfigRepository       repository.ConfigRepository
@@ -41,7 +41,7 @@ func (aaa *MatchFunctionsService) GetAuthSession() auth.Session {
 	}
 }
 
-// deprecated(2022-01-10): please use MatchFunctionListShort instead.
+// Deprecated: 2022-01-10 - Please use MatchFunctionListShort instead.
 func (aaa *MatchFunctionsService) MatchFunctionList(input *match_functions.MatchFunctionListParams) (*match2clientmodels.APIListMatchFunctionsResponse, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -64,7 +64,7 @@ func (aaa *MatchFunctionsService) MatchFunctionList(input *match_functions.Match
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use CreateMatchFunctionShort instead.
+// Deprecated: 2022-01-10 - Please use CreateMatchFunctionShort instead.
 func (aaa *MatchFunctionsService) CreateMatchFunction(input *match_functions.CreateMatchFunctionParams) error {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -93,7 +93,7 @@ func (aaa *MatchFunctionsService) CreateMatchFunction(input *match_functions.Cre
 	return nil
 }
 
-// deprecated(2022-01-10): please use DeleteMatchFunctionShort instead.
+// Deprecated: 2022-01-10 - Please use DeleteMatchFunctionShort instead.
 func (aaa *MatchFunctionsService) DeleteMatchFunction(input *match_functions.DeleteMatchFunctionParams) error {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {

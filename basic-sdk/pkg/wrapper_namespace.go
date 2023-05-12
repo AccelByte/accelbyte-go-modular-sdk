@@ -16,6 +16,8 @@ import (
 	"github.com/go-openapi/runtime/client"
 )
 
+// NamespaceService this is use for compatibility with latest modular sdk only
+// Deprecated: 2023-03-30 - please use NamespaceService imported from "github.com/AccelByte/accelbyte-go-modular-sdk/basic-sdk/pkg"
 type NamespaceService struct {
 	Client                 *basicclient.JusticeBasicService
 	ConfigRepository       repository.ConfigRepository
@@ -39,7 +41,7 @@ func (aaa *NamespaceService) GetAuthSession() auth.Session {
 	}
 }
 
-// deprecated(2022-01-10): please use GetNamespacesShort instead.
+// Deprecated: 2022-01-10 - Please use GetNamespacesShort instead.
 func (aaa *NamespaceService) GetNamespaces(input *namespace.GetNamespacesParams) ([]*basicclientmodels.NamespaceInfo, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -59,7 +61,7 @@ func (aaa *NamespaceService) GetNamespaces(input *namespace.GetNamespacesParams)
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use CreateNamespaceShort instead.
+// Deprecated: 2022-01-10 - Please use CreateNamespaceShort instead.
 func (aaa *NamespaceService) CreateNamespace(input *namespace.CreateNamespaceParams) (*basicclientmodels.NamespaceInfo, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -85,7 +87,7 @@ func (aaa *NamespaceService) CreateNamespace(input *namespace.CreateNamespacePar
 	return created.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use GetNamespaceShort instead.
+// Deprecated: 2022-01-10 - Please use GetNamespaceShort instead.
 func (aaa *NamespaceService) GetNamespace(input *namespace.GetNamespaceParams) (*basicclientmodels.NamespaceInfo, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -111,7 +113,7 @@ func (aaa *NamespaceService) GetNamespace(input *namespace.GetNamespaceParams) (
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use DeleteNamespaceShort instead.
+// Deprecated: 2022-01-10 - Please use DeleteNamespaceShort instead.
 func (aaa *NamespaceService) DeleteNamespace(input *namespace.DeleteNamespaceParams) (*basicclientmodels.NamespaceInfo, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -140,7 +142,7 @@ func (aaa *NamespaceService) DeleteNamespace(input *namespace.DeleteNamespacePar
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use UpdateNamespaceShort instead.
+// Deprecated: 2022-01-10 - Please use UpdateNamespaceShort instead.
 func (aaa *NamespaceService) UpdateNamespace(input *namespace.UpdateNamespaceParams) (*basicclientmodels.NamespaceInfo, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -169,7 +171,7 @@ func (aaa *NamespaceService) UpdateNamespace(input *namespace.UpdateNamespacePar
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use GetGameNamespacesShort instead.
+// Deprecated: 2022-01-10 - Please use GetGameNamespacesShort instead.
 func (aaa *NamespaceService) GetGameNamespaces(input *namespace.GetGameNamespacesParams) ([]*basicclientmodels.NamespaceInfo, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -189,7 +191,7 @@ func (aaa *NamespaceService) GetGameNamespaces(input *namespace.GetGameNamespace
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use GetNamespacePublisherShort instead.
+// Deprecated: 2022-01-10 - Please use GetNamespacePublisherShort instead.
 func (aaa *NamespaceService) GetNamespacePublisher(input *namespace.GetNamespacePublisherParams) (*basicclientmodels.NamespacePublisherInfo, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -215,7 +217,7 @@ func (aaa *NamespaceService) GetNamespacePublisher(input *namespace.GetNamespace
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use ChangeNamespaceStatusShort instead.
+// Deprecated: 2022-01-10 - Please use ChangeNamespaceStatusShort instead.
 func (aaa *NamespaceService) ChangeNamespaceStatus(input *namespace.ChangeNamespaceStatusParams) (*basicclientmodels.NamespaceInfo, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -244,7 +246,7 @@ func (aaa *NamespaceService) ChangeNamespaceStatus(input *namespace.ChangeNamesp
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use PublicGetNamespacesShort instead.
+// Deprecated: 2022-01-10 - Please use PublicGetNamespacesShort instead.
 func (aaa *NamespaceService) PublicGetNamespaces(input *namespace.PublicGetNamespacesParams) ([]*basicclientmodels.NamespaceInfo, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -261,7 +263,7 @@ func (aaa *NamespaceService) PublicGetNamespaces(input *namespace.PublicGetNames
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use PublicGetNamespacePublisherShort instead.
+// Deprecated: 2022-01-10 - Please use PublicGetNamespacePublisherShort instead.
 func (aaa *NamespaceService) PublicGetNamespacePublisher(input *namespace.PublicGetNamespacePublisherParams) (*basicclientmodels.NamespacePublisherInfo, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {

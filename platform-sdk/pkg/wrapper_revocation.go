@@ -16,6 +16,8 @@ import (
 	"github.com/go-openapi/runtime/client"
 )
 
+// RevocationService this is use for compatibility with latest modular sdk only
+// Deprecated: 2023-03-30 - please use RevocationService imported from "github.com/AccelByte/accelbyte-go-modular-sdk/platform-sdk/pkg"
 type RevocationService struct {
 	Client                 *platformclient.JusticePlatformService
 	ConfigRepository       repository.ConfigRepository
@@ -39,7 +41,7 @@ func (aaa *RevocationService) GetAuthSession() auth.Session {
 	}
 }
 
-// deprecated(2022-01-10): please use GetPaymentCallbackConfig1Short instead.
+// Deprecated: 2022-01-10 - Please use GetPaymentCallbackConfig1Short instead.
 func (aaa *RevocationService) GetPaymentCallbackConfig1(input *revocation.GetPaymentCallbackConfig1Params) (*platformclientmodels.RevocationConfigInfo, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -56,7 +58,7 @@ func (aaa *RevocationService) GetPaymentCallbackConfig1(input *revocation.GetPay
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use UpdateRevocationConfigShort instead.
+// Deprecated: 2022-01-10 - Please use UpdateRevocationConfigShort instead.
 func (aaa *RevocationService) UpdateRevocationConfig(input *revocation.UpdateRevocationConfigParams) (*platformclientmodels.RevocationConfigInfo, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -70,7 +72,7 @@ func (aaa *RevocationService) UpdateRevocationConfig(input *revocation.UpdateRev
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use DeleteRevocationConfigShort instead.
+// Deprecated: 2022-01-10 - Please use DeleteRevocationConfigShort instead.
 func (aaa *RevocationService) DeleteRevocationConfig(input *revocation.DeleteRevocationConfigParams) error {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -84,7 +86,7 @@ func (aaa *RevocationService) DeleteRevocationConfig(input *revocation.DeleteRev
 	return nil
 }
 
-// deprecated(2022-01-10): please use QueryRevocationHistoriesShort instead.
+// Deprecated: 2022-01-10 - Please use QueryRevocationHistoriesShort instead.
 func (aaa *RevocationService) QueryRevocationHistories(input *revocation.QueryRevocationHistoriesParams) (*platformclientmodels.RevocationHistoryPagingSlicedResult, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -98,7 +100,7 @@ func (aaa *RevocationService) QueryRevocationHistories(input *revocation.QueryRe
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use DoRevocationShort instead.
+// Deprecated: 2022-01-10 - Please use DoRevocationShort instead.
 func (aaa *RevocationService) DoRevocation(input *revocation.DoRevocationParams) (*platformclientmodels.RevocationResult, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {

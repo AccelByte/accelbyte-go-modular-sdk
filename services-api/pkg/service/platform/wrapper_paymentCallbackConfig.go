@@ -17,7 +17,7 @@ import (
 )
 
 // PaymentCallbackConfigService this is use for compatibility with latest modular sdk only
-// Deprecated: please use PaymentCallbackConfigService imported from "github.com/AccelByte/accelbyte-go-modular-sdk/platform-sdk/pkg"
+// Deprecated: 2023-03-30 - please use PaymentCallbackConfigService imported from "github.com/AccelByte/accelbyte-go-modular-sdk/platform-sdk/pkg"
 type PaymentCallbackConfigService struct {
 	Client                 *platformclient.JusticePlatformService
 	ConfigRepository       repository.ConfigRepository
@@ -41,7 +41,7 @@ func (aaa *PaymentCallbackConfigService) GetAuthSession() auth.Session {
 	}
 }
 
-// deprecated(2022-01-10): please use GetPaymentCallbackConfigShort instead.
+// Deprecated: 2022-01-10 - Please use GetPaymentCallbackConfigShort instead.
 func (aaa *PaymentCallbackConfigService) GetPaymentCallbackConfig(input *payment_callback_config.GetPaymentCallbackConfigParams) (*platformclientmodels.PaymentCallbackConfigInfo, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -58,7 +58,7 @@ func (aaa *PaymentCallbackConfigService) GetPaymentCallbackConfig(input *payment
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use UpdatePaymentCallbackConfigShort instead.
+// Deprecated: 2022-01-10 - Please use UpdatePaymentCallbackConfigShort instead.
 func (aaa *PaymentCallbackConfigService) UpdatePaymentCallbackConfig(input *payment_callback_config.UpdatePaymentCallbackConfigParams) (*platformclientmodels.PaymentCallbackConfigInfo, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {

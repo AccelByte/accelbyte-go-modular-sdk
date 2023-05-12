@@ -16,6 +16,8 @@ import (
 	"github.com/go-openapi/runtime/client"
 )
 
+// TelemetryService this is use for compatibility with latest modular sdk only
+// Deprecated: 2023-03-30 - please use TelemetryService imported from "github.com/AccelByte/accelbyte-go-modular-sdk/gametelemetry-sdk/pkg"
 type TelemetryService struct {
 	Client                 *gametelemetryclient.JusticeGametelemetryService
 	ConfigRepository       repository.ConfigRepository
@@ -39,7 +41,7 @@ func (aaa *TelemetryService) GetAuthSession() auth.Session {
 	}
 }
 
-// deprecated(2022-01-10): please use GetEventsGameTelemetryV1AdminNamespacesNamespaceEventsGetShort instead.
+// Deprecated: 2022-01-10 - Please use GetEventsGameTelemetryV1AdminNamespacesNamespaceEventsGetShort instead.
 func (aaa *TelemetryService) GetEventsGameTelemetryV1AdminNamespacesNamespaceEventsGet(input *telemetry.GetEventsGameTelemetryV1AdminNamespacesNamespaceEventsGetParams) error {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {

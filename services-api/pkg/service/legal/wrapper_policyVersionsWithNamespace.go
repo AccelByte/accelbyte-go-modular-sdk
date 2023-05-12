@@ -17,7 +17,7 @@ import (
 )
 
 // PolicyVersionsWithNamespaceService this is use for compatibility with latest modular sdk only
-// Deprecated: please use PolicyVersionsWithNamespaceService imported from "github.com/AccelByte/accelbyte-go-modular-sdk/legal-sdk/pkg"
+// Deprecated: 2023-03-30 - please use PolicyVersionsWithNamespaceService imported from "github.com/AccelByte/accelbyte-go-modular-sdk/legal-sdk/pkg"
 type PolicyVersionsWithNamespaceService struct {
 	Client                 *legalclient.JusticeLegalService
 	ConfigRepository       repository.ConfigRepository
@@ -41,7 +41,7 @@ func (aaa *PolicyVersionsWithNamespaceService) GetAuthSession() auth.Session {
 	}
 }
 
-// deprecated(2022-01-10): please use UpdatePolicyVersion1Short instead.
+// Deprecated: 2022-01-10 - Please use UpdatePolicyVersion1Short instead.
 func (aaa *PolicyVersionsWithNamespaceService) UpdatePolicyVersion1(input *policy_versions_with_namespace.UpdatePolicyVersion1Params) (*legalclientmodels.UpdatePolicyVersionResponse, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -61,7 +61,7 @@ func (aaa *PolicyVersionsWithNamespaceService) UpdatePolicyVersion1(input *polic
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use PublishPolicyVersion1Short instead.
+// Deprecated: 2022-01-10 - Please use PublishPolicyVersion1Short instead.
 func (aaa *PolicyVersionsWithNamespaceService) PublishPolicyVersion1(input *policy_versions_with_namespace.PublishPolicyVersion1Params) error {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -81,7 +81,7 @@ func (aaa *PolicyVersionsWithNamespaceService) PublishPolicyVersion1(input *poli
 	return nil
 }
 
-// deprecated(2022-01-10): please use RetrieveSinglePolicyVersion1Short instead.
+// Deprecated: 2022-01-10 - Please use RetrieveSinglePolicyVersion1Short instead.
 func (aaa *PolicyVersionsWithNamespaceService) RetrieveSinglePolicyVersion1(input *policy_versions_with_namespace.RetrieveSinglePolicyVersion1Params) ([]*legalclientmodels.RetrievePolicyVersionResponse, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -98,7 +98,7 @@ func (aaa *PolicyVersionsWithNamespaceService) RetrieveSinglePolicyVersion1(inpu
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use CreatePolicyVersion1Short instead.
+// Deprecated: 2022-01-10 - Please use CreatePolicyVersion1Short instead.
 func (aaa *PolicyVersionsWithNamespaceService) CreatePolicyVersion1(input *policy_versions_with_namespace.CreatePolicyVersion1Params) (*legalclientmodels.CreatePolicyVersionResponse, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {

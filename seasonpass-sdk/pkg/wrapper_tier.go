@@ -16,6 +16,8 @@ import (
 	"github.com/go-openapi/runtime/client"
 )
 
+// TierService this is use for compatibility with latest modular sdk only
+// Deprecated: 2023-03-30 - please use TierService imported from "github.com/AccelByte/accelbyte-go-modular-sdk/seasonpass-sdk/pkg"
 type TierService struct {
 	Client                 *seasonpassclient.JusticeSeasonpassService
 	ConfigRepository       repository.ConfigRepository
@@ -39,7 +41,7 @@ func (aaa *TierService) GetAuthSession() auth.Session {
 	}
 }
 
-// deprecated(2022-01-10): please use QueryTiersShort instead.
+// Deprecated: 2022-01-10 - Please use QueryTiersShort instead.
 func (aaa *TierService) QueryTiers(input *tier.QueryTiersParams) (*seasonpassclientmodels.TierPagingSlicedResult, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -59,7 +61,7 @@ func (aaa *TierService) QueryTiers(input *tier.QueryTiersParams) (*seasonpasscli
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use CreateTierShort instead.
+// Deprecated: 2022-01-10 - Please use CreateTierShort instead.
 func (aaa *TierService) CreateTier(input *tier.CreateTierParams) ([]*seasonpassclientmodels.Tier, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -85,7 +87,7 @@ func (aaa *TierService) CreateTier(input *tier.CreateTierParams) ([]*seasonpassc
 	return created.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use UpdateTierShort instead.
+// Deprecated: 2022-01-10 - Please use UpdateTierShort instead.
 func (aaa *TierService) UpdateTier(input *tier.UpdateTierParams) (*seasonpassclientmodels.Tier, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -111,7 +113,7 @@ func (aaa *TierService) UpdateTier(input *tier.UpdateTierParams) (*seasonpasscli
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use DeleteTierShort instead.
+// Deprecated: 2022-01-10 - Please use DeleteTierShort instead.
 func (aaa *TierService) DeleteTier(input *tier.DeleteTierParams) error {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -134,7 +136,7 @@ func (aaa *TierService) DeleteTier(input *tier.DeleteTierParams) error {
 	return nil
 }
 
-// deprecated(2022-01-10): please use ReorderTierShort instead.
+// Deprecated: 2022-01-10 - Please use ReorderTierShort instead.
 func (aaa *TierService) ReorderTier(input *tier.ReorderTierParams) (*seasonpassclientmodels.Tier, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -160,7 +162,7 @@ func (aaa *TierService) ReorderTier(input *tier.ReorderTierParams) (*seasonpassc
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use GrantUserExpShort instead.
+// Deprecated: 2022-01-10 - Please use GrantUserExpShort instead.
 func (aaa *TierService) GrantUserExp(input *tier.GrantUserExpParams) (*seasonpassclientmodels.UserSeasonSummary, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -177,7 +179,7 @@ func (aaa *TierService) GrantUserExp(input *tier.GrantUserExpParams) (*seasonpas
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use GrantUserTierShort instead.
+// Deprecated: 2022-01-10 - Please use GrantUserTierShort instead.
 func (aaa *TierService) GrantUserTier(input *tier.GrantUserTierParams) (*seasonpassclientmodels.UserSeasonSummary, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {

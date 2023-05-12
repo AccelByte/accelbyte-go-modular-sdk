@@ -16,7 +16,7 @@ import (
 )
 
 // LobbyServiceWebsocket
-// Deprecated: please use LobbyServiceWebsocket imported from "github.com/AccelByte/accelbyte-go-modular-sdk/lobby-sdk/pkg"
+// Deprecated: 2023-03-30 - please use LobbyServiceWebsocket imported from "github.com/AccelByte/accelbyte-go-modular-sdk/lobby-sdk/pkg"
 type LobbyServiceWebsocket struct {
 	ConfigRepository  repository.ConfigRepository
 	TokenRepository   repository.TokenRepository

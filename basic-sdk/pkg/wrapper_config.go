@@ -16,6 +16,8 @@ import (
 	"github.com/go-openapi/runtime/client"
 )
 
+// ConfigService this is use for compatibility with latest modular sdk only
+// Deprecated: 2023-03-30 - please use ConfigService imported from "github.com/AccelByte/accelbyte-go-modular-sdk/basic-sdk/pkg"
 type ConfigService struct {
 	Client                 *basicclient.JusticeBasicService
 	ConfigRepository       repository.ConfigRepository
@@ -39,7 +41,7 @@ func (aaa *ConfigService) GetAuthSession() auth.Session {
 	}
 }
 
-// deprecated(2022-01-10): please use CreateConfigShort instead.
+// Deprecated: 2022-01-10 - Please use CreateConfigShort instead.
 func (aaa *ConfigService) CreateConfig(input *config.CreateConfigParams) (*basicclientmodels.ConfigInfo, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -65,7 +67,7 @@ func (aaa *ConfigService) CreateConfig(input *config.CreateConfigParams) (*basic
 	return created.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use GetConfig1Short instead.
+// Deprecated: 2022-01-10 - Please use GetConfig1Short instead.
 func (aaa *ConfigService) GetConfig1(input *config.GetConfig1Params) (*basicclientmodels.ConfigInfo, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -91,7 +93,7 @@ func (aaa *ConfigService) GetConfig1(input *config.GetConfig1Params) (*basicclie
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use DeleteConfig1Short instead.
+// Deprecated: 2022-01-10 - Please use DeleteConfig1Short instead.
 func (aaa *ConfigService) DeleteConfig1(input *config.DeleteConfig1Params) error {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -117,7 +119,7 @@ func (aaa *ConfigService) DeleteConfig1(input *config.DeleteConfig1Params) error
 	return nil
 }
 
-// deprecated(2022-01-10): please use UpdateConfig1Short instead.
+// Deprecated: 2022-01-10 - Please use UpdateConfig1Short instead.
 func (aaa *ConfigService) UpdateConfig1(input *config.UpdateConfig1Params) (*basicclientmodels.ConfigInfo, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
