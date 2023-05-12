@@ -18,10 +18,10 @@ import (
 	"github.com/AccelByte/go-jose/jwt"
 	"github.com/pkg/errors"
 
-	iam "github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/o_auth2_0"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/roles"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclientmodels"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/service/iam"
 )
 
 type AuthTokenValidator interface {
