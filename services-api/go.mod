@@ -3,9 +3,13 @@ module github.com/AccelByte/accelbyte-go-modular-sdk/services-api
 go 1.18
 
 // for development only (not propagated)
-replace github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk => ../iam-sdk
+replace (
+	github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk => ../iam-sdk
+	github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/service/iam => ./pkg/service/iam
+)
 
 require (
+	github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/service/iam v0.0.0-00010101000000-000000000000
 	github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk v0.1.0
 	github.com/AccelByte/go-jose v2.1.4+incompatible
 	github.com/go-openapi/errors v0.20.2 // indirect
