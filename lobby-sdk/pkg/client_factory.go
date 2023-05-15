@@ -13,24 +13,18 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 )
 
-var lobbyClientInstance *lobbyclient.JusticeLobbyService
-
 func NewLobbyClient(configRepository repository.ConfigRepository) *lobbyclient.JusticeLobbyService {
-	if lobbyClientInstance == nil {
-		baseURL := configRepository.GetJusticeBaseUrl()
-		if len(baseURL) > 0 {
-			baseURLSplit := strings.Split(baseURL, "://")
-			httpClientConfig := &lobbyclient.TransportConfig{
-				Host:          baseURLSplit[1],
-				BasePath:      "",
-				Schemes:       []string{baseURLSplit[0]},
-				UserAgentFunc: GetUserAgent,
-			}
-			lobbyClientInstance = lobbyclient.NewHTTPClientWithConfig(nil, httpClientConfig)
-		} else {
-			lobbyClientInstance = lobbyclient.NewHTTPClient(nil)
+	baseURL := configRepository.GetJusticeBaseUrl()
+	if len(baseURL) > 0 {
+		baseURLSplit := strings.Split(baseURL, "://")
+		httpClientConfig := &lobbyclient.TransportConfig{
+			Host:          baseURLSplit[1],
+			BasePath:      "",
+			Schemes:       []string{baseURLSplit[0]},
+			UserAgentFunc: GetUserAgent,
 		}
+		return lobbyclient.NewHTTPClientWithConfig(nil, httpClientConfig)
+	} else {
+		return lobbyclient.NewHTTPClient(nil)
 	}
-
-	return lobbyClientInstance
 }

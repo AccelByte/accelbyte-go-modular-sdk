@@ -13,24 +13,18 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 )
 
-var achievementClientInstance *achievementclient.JusticeAchievementService
-
 func NewAchievementClient(configRepository repository.ConfigRepository) *achievementclient.JusticeAchievementService {
-	if achievementClientInstance == nil {
-		baseURL := configRepository.GetJusticeBaseUrl()
-		if len(baseURL) > 0 {
-			baseURLSplit := strings.Split(baseURL, "://")
-			httpClientConfig := &achievementclient.TransportConfig{
-				Host:          baseURLSplit[1],
-				BasePath:      "",
-				Schemes:       []string{baseURLSplit[0]},
-				UserAgentFunc: GetUserAgent,
-			}
-			achievementClientInstance = achievementclient.NewHTTPClientWithConfig(nil, httpClientConfig)
-		} else {
-			achievementClientInstance = achievementclient.NewHTTPClient(nil)
+	baseURL := configRepository.GetJusticeBaseUrl()
+	if len(baseURL) > 0 {
+		baseURLSplit := strings.Split(baseURL, "://")
+		httpClientConfig := &achievementclient.TransportConfig{
+			Host:          baseURLSplit[1],
+			BasePath:      "",
+			Schemes:       []string{baseURLSplit[0]},
+			UserAgentFunc: GetUserAgent,
 		}
+		return achievementclient.NewHTTPClientWithConfig(nil, httpClientConfig)
+	} else {
+		return achievementclient.NewHTTPClient(nil)
 	}
-
-	return achievementClientInstance
 }

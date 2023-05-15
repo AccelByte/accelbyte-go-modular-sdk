@@ -17,7 +17,7 @@ import (
 )
 
 // PublicFollowService this is use for compatibility with latest modular sdk only
-// Deprecated: please use PublicFollowService imported from "github.com/AccelByte/accelbyte-go-modular-sdk/ugc-sdk/pkg"
+// Deprecated: 2023-03-30 - please use PublicFollowService imported from "github.com/AccelByte/accelbyte-go-modular-sdk/ugc-sdk/pkg"
 type PublicFollowService struct {
 	Client                 *ugcclient.JusticeUgcService
 	ConfigRepository       repository.ConfigRepository
@@ -41,7 +41,7 @@ func (aaa *PublicFollowService) GetAuthSession() auth.Session {
 	}
 }
 
-// deprecated(2022-01-10): please use GetFollowedContentShort instead.
+// Deprecated: 2022-01-10 - Please use GetFollowedContentShort instead.
 func (aaa *PublicFollowService) GetFollowedContent(input *public_follow.GetFollowedContentParams) (*ugcclientmodels.ModelsPaginatedContentDownloadResponse, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -64,7 +64,7 @@ func (aaa *PublicFollowService) GetFollowedContent(input *public_follow.GetFollo
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use GetFollowedUsersShort instead.
+// Deprecated: 2022-01-10 - Please use GetFollowedUsersShort instead.
 func (aaa *PublicFollowService) GetFollowedUsers(input *public_follow.GetFollowedUsersParams) (*ugcclientmodels.ModelsPaginatedCreatorOverviewResponse, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -87,7 +87,7 @@ func (aaa *PublicFollowService) GetFollowedUsers(input *public_follow.GetFollowe
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use UpdateUserFollowStatusShort instead.
+// Deprecated: 2022-01-10 - Please use UpdateUserFollowStatusShort instead.
 func (aaa *PublicFollowService) UpdateUserFollowStatus(input *public_follow.UpdateUserFollowStatusParams) (*ugcclientmodels.ModelsUserFollowResponse, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -113,7 +113,7 @@ func (aaa *PublicFollowService) UpdateUserFollowStatus(input *public_follow.Upda
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use GetPublicFollowersShort instead.
+// Deprecated: 2022-01-10 - Please use GetPublicFollowersShort instead.
 func (aaa *PublicFollowService) GetPublicFollowers(input *public_follow.GetPublicFollowersParams) (*ugcclientmodels.ModelsPaginatedCreatorOverviewResponse, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -136,7 +136,7 @@ func (aaa *PublicFollowService) GetPublicFollowers(input *public_follow.GetPubli
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use GetPublicFollowingShort instead.
+// Deprecated: 2022-01-10 - Please use GetPublicFollowingShort instead.
 func (aaa *PublicFollowService) GetPublicFollowing(input *public_follow.GetPublicFollowingParams) (*ugcclientmodels.ModelsPaginatedCreatorOverviewResponse, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {

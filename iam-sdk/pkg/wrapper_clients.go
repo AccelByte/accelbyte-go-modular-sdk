@@ -16,6 +16,8 @@ import (
 	"github.com/go-openapi/runtime/client"
 )
 
+// ClientsService this is use for compatibility with latest modular sdk only
+// Deprecated: 2023-03-30 - please use ClientsService imported from "github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg"
 type ClientsService struct {
 	Client                 *iamclient.JusticeIamService
 	ConfigRepository       repository.ConfigRepository
@@ -39,7 +41,7 @@ func (aaa *ClientsService) GetAuthSession() auth.Session {
 	}
 }
 
-// deprecated(2022-01-10): please use GetClientsShort instead.
+// Deprecated: 2022-01-10 - Please use GetClientsShort instead.
 func (aaa *ClientsService) GetClients(input *clients.GetClientsParams) ([]*iamclientmodels.ClientmodelClientResponse, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -59,7 +61,7 @@ func (aaa *ClientsService) GetClients(input *clients.GetClientsParams) ([]*iamcl
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use CreateClientShort instead.
+// Deprecated: 2022-01-10 - Please use CreateClientShort instead.
 func (aaa *ClientsService) CreateClient(input *clients.CreateClientParams) (*iamclientmodels.ClientmodelClientCreationResponse, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -85,7 +87,7 @@ func (aaa *ClientsService) CreateClient(input *clients.CreateClientParams) (*iam
 	return created.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use GetClientShort instead.
+// Deprecated: 2022-01-10 - Please use GetClientShort instead.
 func (aaa *ClientsService) GetClient(input *clients.GetClientParams) (*iamclientmodels.ClientmodelClientResponse, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -108,7 +110,7 @@ func (aaa *ClientsService) GetClient(input *clients.GetClientParams) (*iamclient
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use UpdateClientShort instead.
+// Deprecated: 2022-01-10 - Please use UpdateClientShort instead.
 func (aaa *ClientsService) UpdateClient(input *clients.UpdateClientParams) (*iamclientmodels.ClientmodelClientResponse, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -134,7 +136,7 @@ func (aaa *ClientsService) UpdateClient(input *clients.UpdateClientParams) (*iam
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use DeleteClientShort instead.
+// Deprecated: 2022-01-10 - Please use DeleteClientShort instead.
 func (aaa *ClientsService) DeleteClient(input *clients.DeleteClientParams) error {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -157,7 +159,7 @@ func (aaa *ClientsService) DeleteClient(input *clients.DeleteClientParams) error
 	return nil
 }
 
-// deprecated(2022-01-10): please use UpdateClientPermissionShort instead.
+// Deprecated: 2022-01-10 - Please use UpdateClientPermissionShort instead.
 func (aaa *ClientsService) UpdateClientPermission(input *clients.UpdateClientPermissionParams) error {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -183,7 +185,7 @@ func (aaa *ClientsService) UpdateClientPermission(input *clients.UpdateClientPer
 	return nil
 }
 
-// deprecated(2022-01-10): please use AddClientPermissionShort instead.
+// Deprecated: 2022-01-10 - Please use AddClientPermissionShort instead.
 func (aaa *ClientsService) AddClientPermission(input *clients.AddClientPermissionParams) error {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -209,7 +211,7 @@ func (aaa *ClientsService) AddClientPermission(input *clients.AddClientPermissio
 	return nil
 }
 
-// deprecated(2022-01-10): please use DeleteClientPermissionShort instead.
+// Deprecated: 2022-01-10 - Please use DeleteClientPermissionShort instead.
 func (aaa *ClientsService) DeleteClientPermission(input *clients.DeleteClientPermissionParams) error {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -235,7 +237,7 @@ func (aaa *ClientsService) DeleteClientPermission(input *clients.DeleteClientPer
 	return nil
 }
 
-// deprecated(2022-01-10): please use UpdateClientSecretShort instead.
+// Deprecated: 2022-01-10 - Please use UpdateClientSecretShort instead.
 func (aaa *ClientsService) UpdateClientSecret(input *clients.UpdateClientSecretParams) error {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -261,7 +263,7 @@ func (aaa *ClientsService) UpdateClientSecret(input *clients.UpdateClientSecretP
 	return nil
 }
 
-// deprecated(2022-01-10): please use GetClientsbyNamespaceShort instead.
+// Deprecated: 2022-01-10 - Please use GetClientsbyNamespaceShort instead.
 func (aaa *ClientsService) GetClientsbyNamespace(input *clients.GetClientsbyNamespaceParams) ([]*iamclientmodels.ClientmodelClientResponse, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -281,7 +283,7 @@ func (aaa *ClientsService) GetClientsbyNamespace(input *clients.GetClientsbyName
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use CreateClientByNamespaceShort instead.
+// Deprecated: 2022-01-10 - Please use CreateClientByNamespaceShort instead.
 func (aaa *ClientsService) CreateClientByNamespace(input *clients.CreateClientByNamespaceParams) (*iamclientmodels.ClientmodelClientCreationResponse, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -307,7 +309,7 @@ func (aaa *ClientsService) CreateClientByNamespace(input *clients.CreateClientBy
 	return created.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use DeleteClientByNamespaceShort instead.
+// Deprecated: 2022-01-10 - Please use DeleteClientByNamespaceShort instead.
 func (aaa *ClientsService) DeleteClientByNamespace(input *clients.DeleteClientByNamespaceParams) error {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -330,7 +332,7 @@ func (aaa *ClientsService) DeleteClientByNamespace(input *clients.DeleteClientBy
 	return nil
 }
 
-// deprecated(2022-01-10): please use AdminGetClientsByNamespaceV3Short instead.
+// Deprecated: 2022-01-10 - Please use AdminGetClientsByNamespaceV3Short instead.
 func (aaa *ClientsService) AdminGetClientsByNamespaceV3(input *clients.AdminGetClientsByNamespaceV3Params) (*iamclientmodels.ClientmodelClientsV3Response, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -353,7 +355,7 @@ func (aaa *ClientsService) AdminGetClientsByNamespaceV3(input *clients.AdminGetC
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use AdminCreateClientV3Short instead.
+// Deprecated: 2022-01-10 - Please use AdminCreateClientV3Short instead.
 func (aaa *ClientsService) AdminCreateClientV3(input *clients.AdminCreateClientV3Params) (*iamclientmodels.ClientmodelClientV3Response, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -379,7 +381,7 @@ func (aaa *ClientsService) AdminCreateClientV3(input *clients.AdminCreateClientV
 	return created.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use AdminGetClientsbyNamespacebyIDV3Short instead.
+// Deprecated: 2022-01-10 - Please use AdminGetClientsbyNamespacebyIDV3Short instead.
 func (aaa *ClientsService) AdminGetClientsbyNamespacebyIDV3(input *clients.AdminGetClientsbyNamespacebyIDV3Params) (*iamclientmodels.ClientmodelClientV3Response, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -405,7 +407,7 @@ func (aaa *ClientsService) AdminGetClientsbyNamespacebyIDV3(input *clients.Admin
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use AdminDeleteClientV3Short instead.
+// Deprecated: 2022-01-10 - Please use AdminDeleteClientV3Short instead.
 func (aaa *ClientsService) AdminDeleteClientV3(input *clients.AdminDeleteClientV3Params) error {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -434,7 +436,7 @@ func (aaa *ClientsService) AdminDeleteClientV3(input *clients.AdminDeleteClientV
 	return nil
 }
 
-// deprecated(2022-01-10): please use AdminUpdateClientV3Short instead.
+// Deprecated: 2022-01-10 - Please use AdminUpdateClientV3Short instead.
 func (aaa *ClientsService) AdminUpdateClientV3(input *clients.AdminUpdateClientV3Params) (*iamclientmodels.ClientmodelClientV3Response, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -460,7 +462,7 @@ func (aaa *ClientsService) AdminUpdateClientV3(input *clients.AdminUpdateClientV
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use AdminUpdateClientPermissionV3Short instead.
+// Deprecated: 2022-01-10 - Please use AdminUpdateClientPermissionV3Short instead.
 func (aaa *ClientsService) AdminUpdateClientPermissionV3(input *clients.AdminUpdateClientPermissionV3Params) error {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -486,7 +488,7 @@ func (aaa *ClientsService) AdminUpdateClientPermissionV3(input *clients.AdminUpd
 	return nil
 }
 
-// deprecated(2022-01-10): please use AdminAddClientPermissionsV3Short instead.
+// Deprecated: 2022-01-10 - Please use AdminAddClientPermissionsV3Short instead.
 func (aaa *ClientsService) AdminAddClientPermissionsV3(input *clients.AdminAddClientPermissionsV3Params) error {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -512,7 +514,7 @@ func (aaa *ClientsService) AdminAddClientPermissionsV3(input *clients.AdminAddCl
 	return nil
 }
 
-// deprecated(2022-01-10): please use AdminDeleteClientPermissionV3Short instead.
+// Deprecated: 2022-01-10 - Please use AdminDeleteClientPermissionV3Short instead.
 func (aaa *ClientsService) AdminDeleteClientPermissionV3(input *clients.AdminDeleteClientPermissionV3Params) error {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -538,7 +540,7 @@ func (aaa *ClientsService) AdminDeleteClientPermissionV3(input *clients.AdminDel
 	return nil
 }
 
-// deprecated(2022-01-10): please use AdminUpdateClientSecretV3Short instead.
+// Deprecated: 2022-01-10 - Please use AdminUpdateClientSecretV3Short instead.
 func (aaa *ClientsService) AdminUpdateClientSecretV3(input *clients.AdminUpdateClientSecretV3Params) error {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {

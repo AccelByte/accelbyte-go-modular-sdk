@@ -17,7 +17,7 @@ import (
 )
 
 // UserInfoService this is use for compatibility with latest modular sdk only
-// Deprecated: please use UserInfoService imported from "github.com/AccelByte/accelbyte-go-modular-sdk/legal-sdk/pkg"
+// Deprecated: 2023-03-30 - please use UserInfoService imported from "github.com/AccelByte/accelbyte-go-modular-sdk/legal-sdk/pkg"
 type UserInfoService struct {
 	Client                 *legalclient.JusticeLegalService
 	ConfigRepository       repository.ConfigRepository
@@ -41,7 +41,7 @@ func (aaa *UserInfoService) GetAuthSession() auth.Session {
 	}
 }
 
-// deprecated(2022-01-10): please use GetUserInfoStatusShort instead.
+// Deprecated: 2022-01-10 - Please use GetUserInfoStatusShort instead.
 func (aaa *UserInfoService) GetUserInfoStatus(input *user_info.GetUserInfoStatusParams) ([]*legalclientmodels.RetrieveUserInfoCacheStatusResponse, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -55,7 +55,7 @@ func (aaa *UserInfoService) GetUserInfoStatus(input *user_info.GetUserInfoStatus
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use SyncUserInfoShort instead.
+// Deprecated: 2022-01-10 - Please use SyncUserInfoShort instead.
 func (aaa *UserInfoService) SyncUserInfo(input *user_info.SyncUserInfoParams) error {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -69,7 +69,7 @@ func (aaa *UserInfoService) SyncUserInfo(input *user_info.SyncUserInfoParams) er
 	return nil
 }
 
-// deprecated(2022-01-10): please use InvalidateUserInfoCacheShort instead.
+// Deprecated: 2022-01-10 - Please use InvalidateUserInfoCacheShort instead.
 func (aaa *UserInfoService) InvalidateUserInfoCache(input *user_info.InvalidateUserInfoCacheParams) error {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {

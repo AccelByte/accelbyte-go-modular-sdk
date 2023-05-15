@@ -16,6 +16,8 @@ import (
 	"github.com/go-openapi/runtime/client"
 )
 
+// PartyService this is use for compatibility with latest modular sdk only
+// Deprecated: 2023-03-30 - please use PartyService imported from "github.com/AccelByte/accelbyte-go-modular-sdk/lobby-sdk/pkg"
 type PartyService struct {
 	Client                 *lobbyclient.JusticeLobbyService
 	ConfigRepository       repository.ConfigRepository
@@ -39,7 +41,7 @@ func (aaa *PartyService) GetAuthSession() auth.Session {
 	}
 }
 
-// deprecated(2022-01-10): please use AdminGetPartyDataV1Short instead.
+// Deprecated: 2022-01-10 - Please use AdminGetPartyDataV1Short instead.
 func (aaa *PartyService) AdminGetPartyDataV1(input *party.AdminGetPartyDataV1Params) (*lobbyclientmodels.ModelsPartyData, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -68,7 +70,7 @@ func (aaa *PartyService) AdminGetPartyDataV1(input *party.AdminGetPartyDataV1Par
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use AdminGetUserPartyV1Short instead.
+// Deprecated: 2022-01-10 - Please use AdminGetUserPartyV1Short instead.
 func (aaa *PartyService) AdminGetUserPartyV1(input *party.AdminGetUserPartyV1Params) (*lobbyclientmodels.ModelsPartyData, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -97,7 +99,7 @@ func (aaa *PartyService) AdminGetUserPartyV1(input *party.AdminGetUserPartyV1Par
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use PublicGetPartyDataV1Short instead.
+// Deprecated: 2022-01-10 - Please use PublicGetPartyDataV1Short instead.
 func (aaa *PartyService) PublicGetPartyDataV1(input *party.PublicGetPartyDataV1Params) (*lobbyclientmodels.ModelsPartyData, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -126,7 +128,7 @@ func (aaa *PartyService) PublicGetPartyDataV1(input *party.PublicGetPartyDataV1P
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use PublicUpdatePartyAttributesV1Short instead.
+// Deprecated: 2022-01-10 - Please use PublicUpdatePartyAttributesV1Short instead.
 func (aaa *PartyService) PublicUpdatePartyAttributesV1(input *party.PublicUpdatePartyAttributesV1Params) (*lobbyclientmodels.ModelsPartyData, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -158,7 +160,7 @@ func (aaa *PartyService) PublicUpdatePartyAttributesV1(input *party.PublicUpdate
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use PublicSetPartyLimitV1Short instead.
+// Deprecated: 2022-01-10 - Please use PublicSetPartyLimitV1Short instead.
 func (aaa *PartyService) PublicSetPartyLimitV1(input *party.PublicSetPartyLimitV1Params) error {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {

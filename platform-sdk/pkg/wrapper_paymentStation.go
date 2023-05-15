@@ -17,6 +17,8 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils/auth"
 )
 
+// PaymentStationService this is use for compatibility with latest modular sdk only
+// Deprecated: 2023-03-30 - please use PaymentStationService imported from "github.com/AccelByte/accelbyte-go-modular-sdk/platform-sdk/pkg"
 type PaymentStationService struct {
 	Client                 *platformclient.JusticePlatformService
 	ConfigRepository       repository.ConfigRepository
@@ -40,7 +42,7 @@ func (aaa *PaymentStationService) GetAuthSession() auth.Session {
 	}
 }
 
-// deprecated(2022-01-10): please use GetPaymentCustomizationShort instead.
+// Deprecated: 2022-01-10 - Please use GetPaymentCustomizationShort instead.
 func (aaa *PaymentStationService) GetPaymentCustomization(input *payment_station.GetPaymentCustomizationParams) (*platformclientmodels.Customization, error) {
 	ok, err := aaa.Client.PaymentStation.GetPaymentCustomization(input)
 	if err != nil {
@@ -50,7 +52,7 @@ func (aaa *PaymentStationService) GetPaymentCustomization(input *payment_station
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use PublicGetPaymentURLShort instead.
+// Deprecated: 2022-01-10 - Please use PublicGetPaymentURLShort instead.
 func (aaa *PaymentStationService) PublicGetPaymentURL(input *payment_station.PublicGetPaymentURLParams) (*platformclientmodels.PaymentURL, error) {
 	ok, badRequest, forbidden, notFound, err := aaa.Client.PaymentStation.PublicGetPaymentURL(input)
 	if badRequest != nil {
@@ -69,7 +71,7 @@ func (aaa *PaymentStationService) PublicGetPaymentURL(input *payment_station.Pub
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use PublicGetPaymentMethodsShort instead.
+// Deprecated: 2022-01-10 - Please use PublicGetPaymentMethodsShort instead.
 func (aaa *PaymentStationService) PublicGetPaymentMethods(input *payment_station.PublicGetPaymentMethodsParams) ([]*platformclientmodels.PaymentMethod, error) {
 	ok, notFound, err := aaa.Client.PaymentStation.PublicGetPaymentMethods(input)
 	if notFound != nil {
@@ -82,7 +84,7 @@ func (aaa *PaymentStationService) PublicGetPaymentMethods(input *payment_station
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use PublicGetUnpaidPaymentOrderShort instead.
+// Deprecated: 2022-01-10 - Please use PublicGetUnpaidPaymentOrderShort instead.
 func (aaa *PaymentStationService) PublicGetUnpaidPaymentOrder(input *payment_station.PublicGetUnpaidPaymentOrderParams) (*platformclientmodels.PaymentOrderDetails, error) {
 	ok, notFound, conflict, err := aaa.Client.PaymentStation.PublicGetUnpaidPaymentOrder(input)
 	if notFound != nil {
@@ -98,7 +100,7 @@ func (aaa *PaymentStationService) PublicGetUnpaidPaymentOrder(input *payment_sta
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use PayShort instead.
+// Deprecated: 2022-01-10 - Please use PayShort instead.
 func (aaa *PaymentStationService) Pay(input *payment_station.PayParams) (*platformclientmodels.PaymentProcessResult, error) {
 	ok, badRequest, notFound, conflict, err := aaa.Client.PaymentStation.Pay(input)
 	if badRequest != nil {
@@ -117,7 +119,7 @@ func (aaa *PaymentStationService) Pay(input *payment_station.PayParams) (*platfo
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use PublicCheckPaymentOrderPaidStatusShort instead.
+// Deprecated: 2022-01-10 - Please use PublicCheckPaymentOrderPaidStatusShort instead.
 func (aaa *PaymentStationService) PublicCheckPaymentOrderPaidStatus(input *payment_station.PublicCheckPaymentOrderPaidStatusParams) (*platformclientmodels.PaymentOrderPaidResult, error) {
 	ok, notFound, err := aaa.Client.PaymentStation.PublicCheckPaymentOrderPaidStatus(input)
 	if notFound != nil {
@@ -130,7 +132,7 @@ func (aaa *PaymentStationService) PublicCheckPaymentOrderPaidStatus(input *payme
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use GetPaymentPublicConfigShort instead.
+// Deprecated: 2022-01-10 - Please use GetPaymentPublicConfigShort instead.
 func (aaa *PaymentStationService) GetPaymentPublicConfig(input *payment_station.GetPaymentPublicConfigParams) (map[string]interface{}, error) {
 	ok, err := aaa.Client.PaymentStation.GetPaymentPublicConfig(input)
 	if err != nil {
@@ -140,7 +142,7 @@ func (aaa *PaymentStationService) GetPaymentPublicConfig(input *payment_station.
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use PublicGetQRCodeShort instead.
+// Deprecated: 2022-01-10 - Please use PublicGetQRCodeShort instead.
 func (aaa *PaymentStationService) PublicGetQRCode(input *payment_station.PublicGetQRCodeParams, writer io.Writer) (io.Writer, error) {
 	ok, err := aaa.Client.PaymentStation.PublicGetQRCode(input, writer)
 	if err != nil {
@@ -150,7 +152,7 @@ func (aaa *PaymentStationService) PublicGetQRCode(input *payment_station.PublicG
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use PublicNormalizePaymentReturnURLShort instead.
+// Deprecated: 2022-01-10 - Please use PublicNormalizePaymentReturnURLShort instead.
 func (aaa *PaymentStationService) PublicNormalizePaymentReturnURL(input *payment_station.PublicNormalizePaymentReturnURLParams) error {
 	_, temporaryRedirect, err := aaa.Client.PaymentStation.PublicNormalizePaymentReturnURL(input)
 	if temporaryRedirect != nil {
@@ -163,7 +165,7 @@ func (aaa *PaymentStationService) PublicNormalizePaymentReturnURL(input *payment
 	return nil
 }
 
-// deprecated(2022-01-10): please use GetPaymentTaxValueShort instead.
+// Deprecated: 2022-01-10 - Please use GetPaymentTaxValueShort instead.
 func (aaa *PaymentStationService) GetPaymentTaxValue(input *payment_station.GetPaymentTaxValueParams) (*platformclientmodels.TaxResult, error) {
 	ok, badRequest, notFound, err := aaa.Client.PaymentStation.GetPaymentTaxValue(input)
 	if badRequest != nil {

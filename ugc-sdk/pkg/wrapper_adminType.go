@@ -16,6 +16,8 @@ import (
 	"github.com/go-openapi/runtime/client"
 )
 
+// AdminTypeService this is use for compatibility with latest modular sdk only
+// Deprecated: 2023-03-30 - please use AdminTypeService imported from "github.com/AccelByte/accelbyte-go-modular-sdk/ugc-sdk/pkg"
 type AdminTypeService struct {
 	Client                 *ugcclient.JusticeUgcService
 	ConfigRepository       repository.ConfigRepository
@@ -39,7 +41,7 @@ func (aaa *AdminTypeService) GetAuthSession() auth.Session {
 	}
 }
 
-// deprecated(2022-01-10): please use AdminGetTypeShort instead.
+// Deprecated: 2022-01-10 - Please use AdminGetTypeShort instead.
 func (aaa *AdminTypeService) AdminGetType(input *admin_type.AdminGetTypeParams) (*ugcclientmodels.ModelsPaginatedGetTypeResponse, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -62,7 +64,7 @@ func (aaa *AdminTypeService) AdminGetType(input *admin_type.AdminGetTypeParams) 
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use AdminCreateTypeShort instead.
+// Deprecated: 2022-01-10 - Please use AdminCreateTypeShort instead.
 func (aaa *AdminTypeService) AdminCreateType(input *admin_type.AdminCreateTypeParams) (*ugcclientmodels.ModelsCreateTypeResponse, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -88,7 +90,7 @@ func (aaa *AdminTypeService) AdminCreateType(input *admin_type.AdminCreateTypePa
 	return created.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use AdminUpdateTypeShort instead.
+// Deprecated: 2022-01-10 - Please use AdminUpdateTypeShort instead.
 func (aaa *AdminTypeService) AdminUpdateType(input *admin_type.AdminUpdateTypeParams) (*ugcclientmodels.ModelsCreateTypeResponse, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -117,7 +119,7 @@ func (aaa *AdminTypeService) AdminUpdateType(input *admin_type.AdminUpdateTypePa
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use AdminDeleteTypeShort instead.
+// Deprecated: 2022-01-10 - Please use AdminDeleteTypeShort instead.
 func (aaa *AdminTypeService) AdminDeleteType(input *admin_type.AdminDeleteTypeParams) error {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {

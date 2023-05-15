@@ -17,7 +17,7 @@ import (
 )
 
 // PoliciesService this is use for compatibility with latest modular sdk only
-// Deprecated: please use PoliciesService imported from "github.com/AccelByte/accelbyte-go-modular-sdk/legal-sdk/pkg"
+// Deprecated: 2023-03-30 - please use PoliciesService imported from "github.com/AccelByte/accelbyte-go-modular-sdk/legal-sdk/pkg"
 type PoliciesService struct {
 	Client                 *legalclient.JusticeLegalService
 	ConfigRepository       repository.ConfigRepository
@@ -41,7 +41,7 @@ func (aaa *PoliciesService) GetAuthSession() auth.Session {
 	}
 }
 
-// deprecated(2022-01-10): please use RetrievePoliciesShort instead.
+// Deprecated: 2022-01-10 - Please use RetrievePoliciesShort instead.
 func (aaa *PoliciesService) RetrievePolicies(input *policies.RetrievePoliciesParams) ([]*legalclientmodels.RetrievePolicyResponse, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -55,7 +55,7 @@ func (aaa *PoliciesService) RetrievePolicies(input *policies.RetrievePoliciesPar
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use UpdatePolicyShort instead.
+// Deprecated: 2022-01-10 - Please use UpdatePolicyShort instead.
 func (aaa *PoliciesService) UpdatePolicy(input *policies.UpdatePolicyParams) error {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -72,7 +72,7 @@ func (aaa *PoliciesService) UpdatePolicy(input *policies.UpdatePolicyParams) err
 	return nil
 }
 
-// deprecated(2022-01-10): please use SetDefaultPolicy2Short instead.
+// Deprecated: 2022-01-10 - Please use SetDefaultPolicy2Short instead.
 func (aaa *PoliciesService) SetDefaultPolicy2(input *policies.SetDefaultPolicy2Params) error {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -89,7 +89,7 @@ func (aaa *PoliciesService) SetDefaultPolicy2(input *policies.SetDefaultPolicy2P
 	return nil
 }
 
-// deprecated(2022-01-10): please use RetrieveLatestPoliciesShort instead.
+// Deprecated: 2022-01-10 - Please use RetrieveLatestPoliciesShort instead.
 func (aaa *PoliciesService) RetrieveLatestPolicies(input *policies.RetrieveLatestPoliciesParams) ([]*legalclientmodels.RetrievePolicyPublicResponse, error) {
 	ok, err := aaa.Client.Policies.RetrieveLatestPolicies(input)
 	if err != nil {
@@ -99,7 +99,7 @@ func (aaa *PoliciesService) RetrieveLatestPolicies(input *policies.RetrieveLates
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use RetrieveLatestPoliciesPublicShort instead.
+// Deprecated: 2022-01-10 - Please use RetrieveLatestPoliciesPublicShort instead.
 func (aaa *PoliciesService) RetrieveLatestPoliciesPublic(input *policies.RetrieveLatestPoliciesPublicParams) ([]*legalclientmodels.RetrievePolicyPublicResponse, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -116,7 +116,7 @@ func (aaa *PoliciesService) RetrieveLatestPoliciesPublic(input *policies.Retriev
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use RetrieveLatestPoliciesByNamespaceAndCountryPublicShort instead.
+// Deprecated: 2022-01-10 - Please use RetrieveLatestPoliciesByNamespaceAndCountryPublicShort instead.
 func (aaa *PoliciesService) RetrieveLatestPoliciesByNamespaceAndCountryPublic(input *policies.RetrieveLatestPoliciesByNamespaceAndCountryPublicParams) ([]*legalclientmodels.RetrievePolicyPublicResponse, error) {
 	ok, err := aaa.Client.Policies.RetrieveLatestPoliciesByNamespaceAndCountryPublic(input)
 	if err != nil {

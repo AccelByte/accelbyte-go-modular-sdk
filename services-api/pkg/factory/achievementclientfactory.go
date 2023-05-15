@@ -19,7 +19,7 @@ import (
 var achievementClientInstance *achievementclient.JusticeAchievementService
 
 // NewAchievementClient
-// Deprecated: please use NewAchievementClient from "github.com/AccelByte/accelbyte-go-modular-sdk/Achievement-sdk/pkg"
+// Deprecated: 2023-03-30 - please use NewAchievementClient from "github.com/AccelByte/accelbyte-go-modular-sdk/Achievement-sdk/pkg"
 func NewAchievementClient(configRepository repository.ConfigRepository) *achievementclient.JusticeAchievementService {
 	if achievementClientInstance == nil {
 		baseURL := configRepository.GetJusticeBaseUrl()

@@ -16,6 +16,8 @@ import (
 	"github.com/go-openapi/runtime/client"
 )
 
+// PublicTagService this is use for compatibility with latest modular sdk only
+// Deprecated: 2023-03-30 - please use PublicTagService imported from "github.com/AccelByte/accelbyte-go-modular-sdk/ugc-sdk/pkg"
 type PublicTagService struct {
 	Client                 *ugcclient.JusticeUgcService
 	ConfigRepository       repository.ConfigRepository
@@ -39,7 +41,7 @@ func (aaa *PublicTagService) GetAuthSession() auth.Session {
 	}
 }
 
-// deprecated(2022-01-10): please use GetTagShort instead.
+// Deprecated: 2022-01-10 - Please use GetTagShort instead.
 func (aaa *PublicTagService) GetTag(input *public_tag.GetTagParams) (*ugcclientmodels.ModelsPaginatedGetTagResponse, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {

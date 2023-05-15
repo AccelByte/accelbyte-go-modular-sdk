@@ -13,24 +13,18 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 )
 
-var reportingClientInstance *reportingclient.JusticeReportingService
-
 func NewReportingClient(configRepository repository.ConfigRepository) *reportingclient.JusticeReportingService {
-	if reportingClientInstance == nil {
-		baseURL := configRepository.GetJusticeBaseUrl()
-		if len(baseURL) > 0 {
-			baseURLSplit := strings.Split(baseURL, "://")
-			httpClientConfig := &reportingclient.TransportConfig{
-				Host:          baseURLSplit[1],
-				BasePath:      "",
-				Schemes:       []string{baseURLSplit[0]},
-				UserAgentFunc: GetUserAgent,
-			}
-			reportingClientInstance = reportingclient.NewHTTPClientWithConfig(nil, httpClientConfig)
-		} else {
-			reportingClientInstance = reportingclient.NewHTTPClient(nil)
+	baseURL := configRepository.GetJusticeBaseUrl()
+	if len(baseURL) > 0 {
+		baseURLSplit := strings.Split(baseURL, "://")
+		httpClientConfig := &reportingclient.TransportConfig{
+			Host:          baseURLSplit[1],
+			BasePath:      "",
+			Schemes:       []string{baseURLSplit[0]},
+			UserAgentFunc: GetUserAgent,
 		}
+		return reportingclient.NewHTTPClientWithConfig(nil, httpClientConfig)
+	} else {
+		return reportingclient.NewHTTPClient(nil)
 	}
-
-	return reportingClientInstance
 }

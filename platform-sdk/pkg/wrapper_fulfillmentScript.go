@@ -16,6 +16,8 @@ import (
 	"github.com/go-openapi/runtime/client"
 )
 
+// FulfillmentScriptService this is use for compatibility with latest modular sdk only
+// Deprecated: 2023-03-30 - please use FulfillmentScriptService imported from "github.com/AccelByte/accelbyte-go-modular-sdk/platform-sdk/pkg"
 type FulfillmentScriptService struct {
 	Client                 *platformclient.JusticePlatformService
 	ConfigRepository       repository.ConfigRepository
@@ -39,7 +41,7 @@ func (aaa *FulfillmentScriptService) GetAuthSession() auth.Session {
 	}
 }
 
-// deprecated(2022-01-10): please use ListFulfillmentScriptsShort instead.
+// Deprecated: 2022-01-10 - Please use ListFulfillmentScriptsShort instead.
 func (aaa *FulfillmentScriptService) ListFulfillmentScripts(input *fulfillment_script.ListFulfillmentScriptsParams) ([]*platformclientmodels.FulfillmentScriptInfo, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -53,7 +55,7 @@ func (aaa *FulfillmentScriptService) ListFulfillmentScripts(input *fulfillment_s
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use TestFulfillmentScriptEvalShort instead.
+// Deprecated: 2022-01-10 - Please use TestFulfillmentScriptEvalShort instead.
 func (aaa *FulfillmentScriptService) TestFulfillmentScriptEval(input *fulfillment_script.TestFulfillmentScriptEvalParams) (*platformclientmodels.FulfillmentScriptEvalTestResult, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -67,7 +69,7 @@ func (aaa *FulfillmentScriptService) TestFulfillmentScriptEval(input *fulfillmen
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use GetFulfillmentScriptShort instead.
+// Deprecated: 2022-01-10 - Please use GetFulfillmentScriptShort instead.
 func (aaa *FulfillmentScriptService) GetFulfillmentScript(input *fulfillment_script.GetFulfillmentScriptParams) (*platformclientmodels.FulfillmentScriptInfo, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -84,7 +86,7 @@ func (aaa *FulfillmentScriptService) GetFulfillmentScript(input *fulfillment_scr
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use CreateFulfillmentScriptShort instead.
+// Deprecated: 2022-01-10 - Please use CreateFulfillmentScriptShort instead.
 func (aaa *FulfillmentScriptService) CreateFulfillmentScript(input *fulfillment_script.CreateFulfillmentScriptParams) (*platformclientmodels.FulfillmentScriptInfo, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -101,7 +103,7 @@ func (aaa *FulfillmentScriptService) CreateFulfillmentScript(input *fulfillment_
 	return created.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use DeleteFulfillmentScriptShort instead.
+// Deprecated: 2022-01-10 - Please use DeleteFulfillmentScriptShort instead.
 func (aaa *FulfillmentScriptService) DeleteFulfillmentScript(input *fulfillment_script.DeleteFulfillmentScriptParams) error {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -115,7 +117,7 @@ func (aaa *FulfillmentScriptService) DeleteFulfillmentScript(input *fulfillment_
 	return nil
 }
 
-// deprecated(2022-01-10): please use UpdateFulfillmentScriptShort instead.
+// Deprecated: 2022-01-10 - Please use UpdateFulfillmentScriptShort instead.
 func (aaa *FulfillmentScriptService) UpdateFulfillmentScript(input *fulfillment_script.UpdateFulfillmentScriptParams) (*platformclientmodels.FulfillmentScriptInfo, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {

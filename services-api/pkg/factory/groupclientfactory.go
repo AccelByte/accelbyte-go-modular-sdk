@@ -19,7 +19,7 @@ import (
 var groupClientInstance *groupclient.JusticeGroupService
 
 // NewGroupClient
-// Deprecated: please use NewGroupClient from "github.com/AccelByte/accelbyte-go-modular-sdk/Group-sdk/pkg"
+// Deprecated: 2023-03-30 - please use NewGroupClient from "github.com/AccelByte/accelbyte-go-modular-sdk/Group-sdk/pkg"
 func NewGroupClient(configRepository repository.ConfigRepository) *groupclient.JusticeGroupService {
 	if groupClientInstance == nil {
 		baseURL := configRepository.GetJusticeBaseUrl()

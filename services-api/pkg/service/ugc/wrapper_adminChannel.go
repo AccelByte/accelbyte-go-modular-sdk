@@ -17,7 +17,7 @@ import (
 )
 
 // AdminChannelService this is use for compatibility with latest modular sdk only
-// Deprecated: please use AdminChannelService imported from "github.com/AccelByte/accelbyte-go-modular-sdk/ugc-sdk/pkg"
+// Deprecated: 2023-03-30 - please use AdminChannelService imported from "github.com/AccelByte/accelbyte-go-modular-sdk/ugc-sdk/pkg"
 type AdminChannelService struct {
 	Client                 *ugcclient.JusticeUgcService
 	ConfigRepository       repository.ConfigRepository
@@ -41,7 +41,7 @@ func (aaa *AdminChannelService) GetAuthSession() auth.Session {
 	}
 }
 
-// deprecated(2022-01-10): please use SingleAdminGetChannelShort instead.
+// Deprecated: 2022-01-10 - Please use SingleAdminGetChannelShort instead.
 func (aaa *AdminChannelService) SingleAdminGetChannel(input *admin_channel.SingleAdminGetChannelParams) (*ugcclientmodels.ModelsPaginatedGetChannelResponse, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -64,7 +64,7 @@ func (aaa *AdminChannelService) SingleAdminGetChannel(input *admin_channel.Singl
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use AdminCreateChannelShort instead.
+// Deprecated: 2022-01-10 - Please use AdminCreateChannelShort instead.
 func (aaa *AdminChannelService) AdminCreateChannel(input *admin_channel.AdminCreateChannelParams) (*ugcclientmodels.ModelsChannelResponse, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -87,7 +87,7 @@ func (aaa *AdminChannelService) AdminCreateChannel(input *admin_channel.AdminCre
 	return created.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use SingleAdminUpdateChannelShort instead.
+// Deprecated: 2022-01-10 - Please use SingleAdminUpdateChannelShort instead.
 func (aaa *AdminChannelService) SingleAdminUpdateChannel(input *admin_channel.SingleAdminUpdateChannelParams) (*ugcclientmodels.ModelsChannelResponse, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -113,7 +113,7 @@ func (aaa *AdminChannelService) SingleAdminUpdateChannel(input *admin_channel.Si
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use SingleAdminDeleteChannelShort instead.
+// Deprecated: 2022-01-10 - Please use SingleAdminDeleteChannelShort instead.
 func (aaa *AdminChannelService) SingleAdminDeleteChannel(input *admin_channel.SingleAdminDeleteChannelParams) error {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -136,7 +136,7 @@ func (aaa *AdminChannelService) SingleAdminDeleteChannel(input *admin_channel.Si
 	return nil
 }
 
-// deprecated(2022-01-10): please use AdminGetChannelShort instead.
+// Deprecated: 2022-01-10 - Please use AdminGetChannelShort instead.
 func (aaa *AdminChannelService) AdminGetChannel(input *admin_channel.AdminGetChannelParams) (*ugcclientmodels.ModelsPaginatedGetChannelResponse, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -159,7 +159,7 @@ func (aaa *AdminChannelService) AdminGetChannel(input *admin_channel.AdminGetCha
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use AdminUpdateChannelShort instead.
+// Deprecated: 2022-01-10 - Please use AdminUpdateChannelShort instead.
 func (aaa *AdminChannelService) AdminUpdateChannel(input *admin_channel.AdminUpdateChannelParams) (*ugcclientmodels.ModelsChannelResponse, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -185,7 +185,7 @@ func (aaa *AdminChannelService) AdminUpdateChannel(input *admin_channel.AdminUpd
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use AdminDeleteChannelShort instead.
+// Deprecated: 2022-01-10 - Please use AdminDeleteChannelShort instead.
 func (aaa *AdminChannelService) AdminDeleteChannel(input *admin_channel.AdminDeleteChannelParams) error {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {

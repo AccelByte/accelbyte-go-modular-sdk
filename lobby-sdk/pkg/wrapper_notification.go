@@ -16,6 +16,8 @@ import (
 	"github.com/go-openapi/runtime/client"
 )
 
+// NotificationService this is use for compatibility with latest modular sdk only
+// Deprecated: 2023-03-30 - please use NotificationService imported from "github.com/AccelByte/accelbyte-go-modular-sdk/lobby-sdk/pkg"
 type NotificationService struct {
 	Client                 *lobbyclient.JusticeLobbyService
 	ConfigRepository       repository.ConfigRepository
@@ -39,7 +41,7 @@ func (aaa *NotificationService) GetAuthSession() auth.Session {
 	}
 }
 
-// deprecated(2022-01-10): please use SendMultipleUsersFreeformNotificationV1AdminShort instead.
+// Deprecated: 2022-01-10 - Please use SendMultipleUsersFreeformNotificationV1AdminShort instead.
 func (aaa *NotificationService) SendMultipleUsersFreeformNotificationV1Admin(input *notification.SendMultipleUsersFreeformNotificationV1AdminParams) error {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -62,7 +64,7 @@ func (aaa *NotificationService) SendMultipleUsersFreeformNotificationV1Admin(inp
 	return nil
 }
 
-// deprecated(2022-01-10): please use SendUsersFreeformNotificationV1AdminShort instead.
+// Deprecated: 2022-01-10 - Please use SendUsersFreeformNotificationV1AdminShort instead.
 func (aaa *NotificationService) SendUsersFreeformNotificationV1Admin(input *notification.SendUsersFreeformNotificationV1AdminParams) error {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -88,7 +90,7 @@ func (aaa *NotificationService) SendUsersFreeformNotificationV1Admin(input *noti
 	return nil
 }
 
-// deprecated(2022-01-10): please use SendPartyFreeformNotificationV1AdminShort instead.
+// Deprecated: 2022-01-10 - Please use SendPartyFreeformNotificationV1AdminShort instead.
 func (aaa *NotificationService) SendPartyFreeformNotificationV1Admin(input *notification.SendPartyFreeformNotificationV1AdminParams) error {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -114,7 +116,7 @@ func (aaa *NotificationService) SendPartyFreeformNotificationV1Admin(input *noti
 	return nil
 }
 
-// deprecated(2022-01-10): please use SendPartyTemplatedNotificationV1AdminShort instead.
+// Deprecated: 2022-01-10 - Please use SendPartyTemplatedNotificationV1AdminShort instead.
 func (aaa *NotificationService) SendPartyTemplatedNotificationV1Admin(input *notification.SendPartyTemplatedNotificationV1AdminParams) error {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -140,7 +142,7 @@ func (aaa *NotificationService) SendPartyTemplatedNotificationV1Admin(input *not
 	return nil
 }
 
-// deprecated(2022-01-10): please use GetAllNotificationTemplatesV1AdminShort instead.
+// Deprecated: 2022-01-10 - Please use GetAllNotificationTemplatesV1AdminShort instead.
 func (aaa *NotificationService) GetAllNotificationTemplatesV1Admin(input *notification.GetAllNotificationTemplatesV1AdminParams) ([]*lobbyclientmodels.ModelNotificationTemplateResponse, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -169,7 +171,7 @@ func (aaa *NotificationService) GetAllNotificationTemplatesV1Admin(input *notifi
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use CreateNotificationTemplateV1AdminShort instead.
+// Deprecated: 2022-01-10 - Please use CreateNotificationTemplateV1AdminShort instead.
 func (aaa *NotificationService) CreateNotificationTemplateV1Admin(input *notification.CreateNotificationTemplateV1AdminParams) error {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -198,7 +200,7 @@ func (aaa *NotificationService) CreateNotificationTemplateV1Admin(input *notific
 	return nil
 }
 
-// deprecated(2022-01-10): please use SendUsersTemplatedNotificationV1AdminShort instead.
+// Deprecated: 2022-01-10 - Please use SendUsersTemplatedNotificationV1AdminShort instead.
 func (aaa *NotificationService) SendUsersTemplatedNotificationV1Admin(input *notification.SendUsersTemplatedNotificationV1AdminParams) error {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -224,7 +226,7 @@ func (aaa *NotificationService) SendUsersTemplatedNotificationV1Admin(input *not
 	return nil
 }
 
-// deprecated(2022-01-10): please use GetTemplateSlugLocalizationsTemplateV1AdminShort instead.
+// Deprecated: 2022-01-10 - Please use GetTemplateSlugLocalizationsTemplateV1AdminShort instead.
 func (aaa *NotificationService) GetTemplateSlugLocalizationsTemplateV1Admin(input *notification.GetTemplateSlugLocalizationsTemplateV1AdminParams) (*lobbyclientmodels.ModelGetAllNotificationTemplateSlugResp, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -250,7 +252,7 @@ func (aaa *NotificationService) GetTemplateSlugLocalizationsTemplateV1Admin(inpu
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use DeleteNotificationTemplateSlugV1AdminShort instead.
+// Deprecated: 2022-01-10 - Please use DeleteNotificationTemplateSlugV1AdminShort instead.
 func (aaa *NotificationService) DeleteNotificationTemplateSlugV1Admin(input *notification.DeleteNotificationTemplateSlugV1AdminParams) error {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -276,7 +278,7 @@ func (aaa *NotificationService) DeleteNotificationTemplateSlugV1Admin(input *not
 	return nil
 }
 
-// deprecated(2022-01-10): please use GetSingleTemplateLocalizationV1AdminShort instead.
+// Deprecated: 2022-01-10 - Please use GetSingleTemplateLocalizationV1AdminShort instead.
 func (aaa *NotificationService) GetSingleTemplateLocalizationV1Admin(input *notification.GetSingleTemplateLocalizationV1AdminParams) (*lobbyclientmodels.ModelLocalization, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -302,7 +304,7 @@ func (aaa *NotificationService) GetSingleTemplateLocalizationV1Admin(input *noti
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use UpdateTemplateLocalizationV1AdminShort instead.
+// Deprecated: 2022-01-10 - Please use UpdateTemplateLocalizationV1AdminShort instead.
 func (aaa *NotificationService) UpdateTemplateLocalizationV1Admin(input *notification.UpdateTemplateLocalizationV1AdminParams) error {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -331,7 +333,7 @@ func (aaa *NotificationService) UpdateTemplateLocalizationV1Admin(input *notific
 	return nil
 }
 
-// deprecated(2022-01-10): please use DeleteTemplateLocalizationV1AdminShort instead.
+// Deprecated: 2022-01-10 - Please use DeleteTemplateLocalizationV1AdminShort instead.
 func (aaa *NotificationService) DeleteTemplateLocalizationV1Admin(input *notification.DeleteTemplateLocalizationV1AdminParams) error {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -357,7 +359,7 @@ func (aaa *NotificationService) DeleteTemplateLocalizationV1Admin(input *notific
 	return nil
 }
 
-// deprecated(2022-01-10): please use PublishTemplateLocalizationV1AdminShort instead.
+// Deprecated: 2022-01-10 - Please use PublishTemplateLocalizationV1AdminShort instead.
 func (aaa *NotificationService) PublishTemplateLocalizationV1Admin(input *notification.PublishTemplateLocalizationV1AdminParams) error {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -383,7 +385,7 @@ func (aaa *NotificationService) PublishTemplateLocalizationV1Admin(input *notifi
 	return nil
 }
 
-// deprecated(2022-01-10): please use GetAllNotificationTopicsV1AdminShort instead.
+// Deprecated: 2022-01-10 - Please use GetAllNotificationTopicsV1AdminShort instead.
 func (aaa *NotificationService) GetAllNotificationTopicsV1Admin(input *notification.GetAllNotificationTopicsV1AdminParams) (*lobbyclientmodels.ModelGetAllNotificationTopicsResponse, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -409,7 +411,7 @@ func (aaa *NotificationService) GetAllNotificationTopicsV1Admin(input *notificat
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use CreateNotificationTopicV1AdminShort instead.
+// Deprecated: 2022-01-10 - Please use CreateNotificationTopicV1AdminShort instead.
 func (aaa *NotificationService) CreateNotificationTopicV1Admin(input *notification.CreateNotificationTopicV1AdminParams) error {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -432,7 +434,7 @@ func (aaa *NotificationService) CreateNotificationTopicV1Admin(input *notificati
 	return nil
 }
 
-// deprecated(2022-01-10): please use GetNotificationTopicV1AdminShort instead.
+// Deprecated: 2022-01-10 - Please use GetNotificationTopicV1AdminShort instead.
 func (aaa *NotificationService) GetNotificationTopicV1Admin(input *notification.GetNotificationTopicV1AdminParams) (*lobbyclientmodels.ModelNotificationTopicResponseV1, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -458,7 +460,7 @@ func (aaa *NotificationService) GetNotificationTopicV1Admin(input *notification.
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use UpdateNotificationTopicV1AdminShort instead.
+// Deprecated: 2022-01-10 - Please use UpdateNotificationTopicV1AdminShort instead.
 func (aaa *NotificationService) UpdateNotificationTopicV1Admin(input *notification.UpdateNotificationTopicV1AdminParams) error {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -487,7 +489,7 @@ func (aaa *NotificationService) UpdateNotificationTopicV1Admin(input *notificati
 	return nil
 }
 
-// deprecated(2022-01-10): please use DeleteNotificationTopicV1AdminShort instead.
+// Deprecated: 2022-01-10 - Please use DeleteNotificationTopicV1AdminShort instead.
 func (aaa *NotificationService) DeleteNotificationTopicV1Admin(input *notification.DeleteNotificationTopicV1AdminParams) error {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -513,7 +515,7 @@ func (aaa *NotificationService) DeleteNotificationTopicV1Admin(input *notificati
 	return nil
 }
 
-// deprecated(2022-01-10): please use SendSpecificUserFreeformNotificationV1AdminShort instead.
+// Deprecated: 2022-01-10 - Please use SendSpecificUserFreeformNotificationV1AdminShort instead.
 func (aaa *NotificationService) SendSpecificUserFreeformNotificationV1Admin(input *notification.SendSpecificUserFreeformNotificationV1AdminParams) error {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -539,7 +541,7 @@ func (aaa *NotificationService) SendSpecificUserFreeformNotificationV1Admin(inpu
 	return nil
 }
 
-// deprecated(2022-01-10): please use SendSpecificUserTemplatedNotificationV1AdminShort instead.
+// Deprecated: 2022-01-10 - Please use SendSpecificUserTemplatedNotificationV1AdminShort instead.
 func (aaa *NotificationService) SendSpecificUserTemplatedNotificationV1Admin(input *notification.SendSpecificUserTemplatedNotificationV1AdminParams) error {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -565,7 +567,7 @@ func (aaa *NotificationService) SendSpecificUserTemplatedNotificationV1Admin(inp
 	return nil
 }
 
-// deprecated(2022-01-10): please use GetTopicByNamespaceShort instead.
+// Deprecated: 2022-01-10 - Please use GetTopicByNamespaceShort instead.
 func (aaa *NotificationService) GetTopicByNamespace(input *notification.GetTopicByNamespaceParams) (*lobbyclientmodels.ModelTopicByNamespacesResponse, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -591,7 +593,7 @@ func (aaa *NotificationService) GetTopicByNamespace(input *notification.GetTopic
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use CreateTopicShort instead.
+// Deprecated: 2022-01-10 - Please use CreateTopicShort instead.
 func (aaa *NotificationService) CreateTopic(input *notification.CreateTopicParams) error {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -617,7 +619,7 @@ func (aaa *NotificationService) CreateTopic(input *notification.CreateTopicParam
 	return nil
 }
 
-// deprecated(2022-01-10): please use GetTopicByTopicNameShort instead.
+// Deprecated: 2022-01-10 - Please use GetTopicByTopicNameShort instead.
 func (aaa *NotificationService) GetTopicByTopicName(input *notification.GetTopicByTopicNameParams) (*lobbyclientmodels.ModelNotificationTopicResponse, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -643,7 +645,7 @@ func (aaa *NotificationService) GetTopicByTopicName(input *notification.GetTopic
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use UpdateTopicByTopicNameShort instead.
+// Deprecated: 2022-01-10 - Please use UpdateTopicByTopicNameShort instead.
 func (aaa *NotificationService) UpdateTopicByTopicName(input *notification.UpdateTopicByTopicNameParams) error {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -669,7 +671,7 @@ func (aaa *NotificationService) UpdateTopicByTopicName(input *notification.Updat
 	return nil
 }
 
-// deprecated(2022-01-10): please use DeleteTopicByTopicNameShort instead.
+// Deprecated: 2022-01-10 - Please use DeleteTopicByTopicNameShort instead.
 func (aaa *NotificationService) DeleteTopicByTopicName(input *notification.DeleteTopicByTopicNameParams) error {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -695,7 +697,7 @@ func (aaa *NotificationService) DeleteTopicByTopicName(input *notification.Delet
 	return nil
 }
 
-// deprecated(2022-01-10): please use FreeFormNotificationByUserIDShort instead.
+// Deprecated: 2022-01-10 - Please use FreeFormNotificationByUserIDShort instead.
 func (aaa *NotificationService) FreeFormNotificationByUserID(input *notification.FreeFormNotificationByUserIDParams) error {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -721,7 +723,7 @@ func (aaa *NotificationService) FreeFormNotificationByUserID(input *notification
 	return nil
 }
 
-// deprecated(2022-01-10): please use NotificationWithTemplateByUserIDShort instead.
+// Deprecated: 2022-01-10 - Please use NotificationWithTemplateByUserIDShort instead.
 func (aaa *NotificationService) NotificationWithTemplateByUserID(input *notification.NotificationWithTemplateByUserIDParams) error {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {

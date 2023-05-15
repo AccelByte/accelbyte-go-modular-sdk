@@ -17,7 +17,7 @@ import (
 )
 
 // EntitlementService this is use for compatibility with latest modular sdk only
-// Deprecated: please use EntitlementService imported from "github.com/AccelByte/accelbyte-go-modular-sdk/platform-sdk/pkg"
+// Deprecated: 2023-03-30 - please use EntitlementService imported from "github.com/AccelByte/accelbyte-go-modular-sdk/platform-sdk/pkg"
 type EntitlementService struct {
 	Client                 *platformclient.JusticePlatformService
 	ConfigRepository       repository.ConfigRepository
@@ -41,7 +41,7 @@ func (aaa *EntitlementService) GetAuthSession() auth.Session {
 	}
 }
 
-// deprecated(2022-01-10): please use QueryEntitlementsShort instead.
+// Deprecated: 2022-01-10 - Please use QueryEntitlementsShort instead.
 func (aaa *EntitlementService) QueryEntitlements(input *entitlement.QueryEntitlementsParams) (*platformclientmodels.EntitlementPagingSlicedResult, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -55,7 +55,55 @@ func (aaa *EntitlementService) QueryEntitlements(input *entitlement.QueryEntitle
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use GetEntitlementShort instead.
+// Deprecated: 2022-01-10 - Please use QueryEntitlements1Short instead.
+func (aaa *EntitlementService) QueryEntitlements1(input *entitlement.QueryEntitlements1Params) (*platformclientmodels.EntitlementPagingSlicedResult, error) {
+	token, err := aaa.TokenRepository.GetToken()
+	if err != nil {
+		return nil, err
+	}
+	ok, err := aaa.Client.Entitlement.QueryEntitlements1(input, client.BearerToken(*token.AccessToken))
+	if err != nil {
+		return nil, err
+	}
+
+	return ok.GetPayload(), nil
+}
+
+// Deprecated: 2022-01-10 - Please use GrantEntitlementsShort instead.
+func (aaa *EntitlementService) GrantEntitlements(input *entitlement.GrantEntitlementsParams) (*platformclientmodels.BulkEntitlementGrantResult, error) {
+	token, err := aaa.TokenRepository.GetToken()
+	if err != nil {
+		return nil, err
+	}
+	ok, unprocessableEntity, err := aaa.Client.Entitlement.GrantEntitlements(input, client.BearerToken(*token.AccessToken))
+	if unprocessableEntity != nil {
+		return nil, unprocessableEntity
+	}
+	if err != nil {
+		return nil, err
+	}
+
+	return ok.GetPayload(), nil
+}
+
+// Deprecated: 2022-01-10 - Please use RevokeEntitlementsShort instead.
+func (aaa *EntitlementService) RevokeEntitlements(input *entitlement.RevokeEntitlementsParams) (*platformclientmodels.BulkEntitlementRevokeResult, error) {
+	token, err := aaa.TokenRepository.GetToken()
+	if err != nil {
+		return nil, err
+	}
+	ok, unprocessableEntity, err := aaa.Client.Entitlement.RevokeEntitlements(input, client.BearerToken(*token.AccessToken))
+	if unprocessableEntity != nil {
+		return nil, unprocessableEntity
+	}
+	if err != nil {
+		return nil, err
+	}
+
+	return ok.GetPayload(), nil
+}
+
+// Deprecated: 2022-01-10 - Please use GetEntitlementShort instead.
 func (aaa *EntitlementService) GetEntitlement(input *entitlement.GetEntitlementParams) (*platformclientmodels.EntitlementInfo, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -72,7 +120,7 @@ func (aaa *EntitlementService) GetEntitlement(input *entitlement.GetEntitlementP
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use QueryUserEntitlementsShort instead.
+// Deprecated: 2022-01-10 - Please use QueryUserEntitlementsShort instead.
 func (aaa *EntitlementService) QueryUserEntitlements(input *entitlement.QueryUserEntitlementsParams) (*platformclientmodels.EntitlementPagingSlicedResult, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -86,7 +134,7 @@ func (aaa *EntitlementService) QueryUserEntitlements(input *entitlement.QueryUse
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use GrantUserEntitlementShort instead.
+// Deprecated: 2022-01-10 - Please use GrantUserEntitlementShort instead.
 func (aaa *EntitlementService) GrantUserEntitlement(input *entitlement.GrantUserEntitlementParams) ([]*platformclientmodels.StackableEntitlementInfo, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -106,7 +154,7 @@ func (aaa *EntitlementService) GrantUserEntitlement(input *entitlement.GrantUser
 	return created.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use GetUserAppEntitlementByAppIDShort instead.
+// Deprecated: 2022-01-10 - Please use GetUserAppEntitlementByAppIDShort instead.
 func (aaa *EntitlementService) GetUserAppEntitlementByAppID(input *entitlement.GetUserAppEntitlementByAppIDParams) (*platformclientmodels.AppEntitlementInfo, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -123,7 +171,7 @@ func (aaa *EntitlementService) GetUserAppEntitlementByAppID(input *entitlement.G
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use QueryUserEntitlementsByAppTypeShort instead.
+// Deprecated: 2022-01-10 - Please use QueryUserEntitlementsByAppTypeShort instead.
 func (aaa *EntitlementService) QueryUserEntitlementsByAppType(input *entitlement.QueryUserEntitlementsByAppTypeParams) (*platformclientmodels.AppEntitlementPagingSlicedResult, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -137,7 +185,7 @@ func (aaa *EntitlementService) QueryUserEntitlementsByAppType(input *entitlement
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use GetUserEntitlementByItemIDShort instead.
+// Deprecated: 2022-01-10 - Please use GetUserEntitlementByItemIDShort instead.
 func (aaa *EntitlementService) GetUserEntitlementByItemID(input *entitlement.GetUserEntitlementByItemIDParams) (*platformclientmodels.EntitlementInfo, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -154,7 +202,7 @@ func (aaa *EntitlementService) GetUserEntitlementByItemID(input *entitlement.Get
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use GetUserActiveEntitlementsByItemIdsShort instead.
+// Deprecated: 2022-01-10 - Please use GetUserActiveEntitlementsByItemIdsShort instead.
 func (aaa *EntitlementService) GetUserActiveEntitlementsByItemIds(input *entitlement.GetUserActiveEntitlementsByItemIdsParams) ([]*platformclientmodels.EntitlementInfo, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -168,7 +216,7 @@ func (aaa *EntitlementService) GetUserActiveEntitlementsByItemIds(input *entitle
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use GetUserEntitlementBySkuShort instead.
+// Deprecated: 2022-01-10 - Please use GetUserEntitlementBySkuShort instead.
 func (aaa *EntitlementService) GetUserEntitlementBySku(input *entitlement.GetUserEntitlementBySkuParams) (*platformclientmodels.EntitlementInfo, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -185,7 +233,7 @@ func (aaa *EntitlementService) GetUserEntitlementBySku(input *entitlement.GetUse
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use ExistsAnyUserActiveEntitlementShort instead.
+// Deprecated: 2022-01-10 - Please use ExistsAnyUserActiveEntitlementShort instead.
 func (aaa *EntitlementService) ExistsAnyUserActiveEntitlement(input *entitlement.ExistsAnyUserActiveEntitlementParams) (*platformclientmodels.Ownership, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -199,7 +247,7 @@ func (aaa *EntitlementService) ExistsAnyUserActiveEntitlement(input *entitlement
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use ExistsAnyUserActiveEntitlementByItemIdsShort instead.
+// Deprecated: 2022-01-10 - Please use ExistsAnyUserActiveEntitlementByItemIdsShort instead.
 func (aaa *EntitlementService) ExistsAnyUserActiveEntitlementByItemIds(input *entitlement.ExistsAnyUserActiveEntitlementByItemIdsParams) (*platformclientmodels.Ownership, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -213,7 +261,7 @@ func (aaa *EntitlementService) ExistsAnyUserActiveEntitlementByItemIds(input *en
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use GetUserAppEntitlementOwnershipByAppIDShort instead.
+// Deprecated: 2022-01-10 - Please use GetUserAppEntitlementOwnershipByAppIDShort instead.
 func (aaa *EntitlementService) GetUserAppEntitlementOwnershipByAppID(input *entitlement.GetUserAppEntitlementOwnershipByAppIDParams) (*platformclientmodels.Ownership, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -227,7 +275,7 @@ func (aaa *EntitlementService) GetUserAppEntitlementOwnershipByAppID(input *enti
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use GetUserEntitlementOwnershipByItemIDShort instead.
+// Deprecated: 2022-01-10 - Please use GetUserEntitlementOwnershipByItemIDShort instead.
 func (aaa *EntitlementService) GetUserEntitlementOwnershipByItemID(input *entitlement.GetUserEntitlementOwnershipByItemIDParams) (*platformclientmodels.TimedOwnership, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -241,7 +289,7 @@ func (aaa *EntitlementService) GetUserEntitlementOwnershipByItemID(input *entitl
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use GetUserEntitlementOwnershipByItemIdsShort instead.
+// Deprecated: 2022-01-10 - Please use GetUserEntitlementOwnershipByItemIdsShort instead.
 func (aaa *EntitlementService) GetUserEntitlementOwnershipByItemIds(input *entitlement.GetUserEntitlementOwnershipByItemIdsParams) ([]*platformclientmodels.EntitlementOwnership, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -255,7 +303,7 @@ func (aaa *EntitlementService) GetUserEntitlementOwnershipByItemIds(input *entit
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use GetUserEntitlementOwnershipBySkuShort instead.
+// Deprecated: 2022-01-10 - Please use GetUserEntitlementOwnershipBySkuShort instead.
 func (aaa *EntitlementService) GetUserEntitlementOwnershipBySku(input *entitlement.GetUserEntitlementOwnershipBySkuParams) (*platformclientmodels.TimedOwnership, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -269,7 +317,21 @@ func (aaa *EntitlementService) GetUserEntitlementOwnershipBySku(input *entitleme
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use RevokeUserEntitlementsShort instead.
+// Deprecated: 2022-01-10 - Please use RevokeAllEntitlementsShort instead.
+func (aaa *EntitlementService) RevokeAllEntitlements(input *entitlement.RevokeAllEntitlementsParams) (*platformclientmodels.BulkOperationResult, error) {
+	token, err := aaa.TokenRepository.GetToken()
+	if err != nil {
+		return nil, err
+	}
+	ok, err := aaa.Client.Entitlement.RevokeAllEntitlements(input, client.BearerToken(*token.AccessToken))
+	if err != nil {
+		return nil, err
+	}
+
+	return ok.GetPayload(), nil
+}
+
+// Deprecated: 2022-01-10 - Please use RevokeUserEntitlementsShort instead.
 func (aaa *EntitlementService) RevokeUserEntitlements(input *entitlement.RevokeUserEntitlementsParams) (*platformclientmodels.BulkOperationResult, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -283,7 +345,7 @@ func (aaa *EntitlementService) RevokeUserEntitlements(input *entitlement.RevokeU
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use GetUserEntitlementShort instead.
+// Deprecated: 2022-01-10 - Please use GetUserEntitlementShort instead.
 func (aaa *EntitlementService) GetUserEntitlement(input *entitlement.GetUserEntitlementParams) (*platformclientmodels.EntitlementInfo, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -300,7 +362,7 @@ func (aaa *EntitlementService) GetUserEntitlement(input *entitlement.GetUserEnti
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use UpdateUserEntitlementShort instead.
+// Deprecated: 2022-01-10 - Please use UpdateUserEntitlementShort instead.
 func (aaa *EntitlementService) UpdateUserEntitlement(input *entitlement.UpdateUserEntitlementParams) (*platformclientmodels.EntitlementInfo, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -323,13 +385,16 @@ func (aaa *EntitlementService) UpdateUserEntitlement(input *entitlement.UpdateUs
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use ConsumeUserEntitlementShort instead.
+// Deprecated: 2022-01-10 - Please use ConsumeUserEntitlementShort instead.
 func (aaa *EntitlementService) ConsumeUserEntitlement(input *entitlement.ConsumeUserEntitlementParams) (*platformclientmodels.EntitlementDecrementResult, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
 		return nil, err
 	}
-	ok, notFound, conflict, err := aaa.Client.Entitlement.ConsumeUserEntitlement(input, client.BearerToken(*token.AccessToken))
+	ok, badRequest, notFound, conflict, err := aaa.Client.Entitlement.ConsumeUserEntitlement(input, client.BearerToken(*token.AccessToken))
+	if badRequest != nil {
+		return nil, badRequest
+	}
 	if notFound != nil {
 		return nil, notFound
 	}
@@ -343,7 +408,7 @@ func (aaa *EntitlementService) ConsumeUserEntitlement(input *entitlement.Consume
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use DisableUserEntitlementShort instead.
+// Deprecated: 2022-01-10 - Please use DisableUserEntitlementShort instead.
 func (aaa *EntitlementService) DisableUserEntitlement(input *entitlement.DisableUserEntitlementParams) (*platformclientmodels.EntitlementInfo, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -363,7 +428,7 @@ func (aaa *EntitlementService) DisableUserEntitlement(input *entitlement.Disable
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use EnableUserEntitlementShort instead.
+// Deprecated: 2022-01-10 - Please use EnableUserEntitlementShort instead.
 func (aaa *EntitlementService) EnableUserEntitlement(input *entitlement.EnableUserEntitlementParams) (*platformclientmodels.EntitlementInfo, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -383,7 +448,7 @@ func (aaa *EntitlementService) EnableUserEntitlement(input *entitlement.EnableUs
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use GetUserEntitlementHistoriesShort instead.
+// Deprecated: 2022-01-10 - Please use GetUserEntitlementHistoriesShort instead.
 func (aaa *EntitlementService) GetUserEntitlementHistories(input *entitlement.GetUserEntitlementHistoriesParams) ([]*platformclientmodels.EntitlementHistoryInfo, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -397,7 +462,7 @@ func (aaa *EntitlementService) GetUserEntitlementHistories(input *entitlement.Ge
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use RevokeUserEntitlementShort instead.
+// Deprecated: 2022-01-10 - Please use RevokeUserEntitlementShort instead.
 func (aaa *EntitlementService) RevokeUserEntitlement(input *entitlement.RevokeUserEntitlementParams) (*platformclientmodels.EntitlementInfo, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -414,7 +479,44 @@ func (aaa *EntitlementService) RevokeUserEntitlement(input *entitlement.RevokeUs
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use PublicExistsAnyMyActiveEntitlementShort instead.
+// Deprecated: 2022-01-10 - Please use RevokeUseCountShort instead.
+func (aaa *EntitlementService) RevokeUseCount(input *entitlement.RevokeUseCountParams) (*platformclientmodels.EntitlementInfo, error) {
+	token, err := aaa.TokenRepository.GetToken()
+	if err != nil {
+		return nil, err
+	}
+	ok, notFound, err := aaa.Client.Entitlement.RevokeUseCount(input, client.BearerToken(*token.AccessToken))
+	if notFound != nil {
+		return nil, notFound
+	}
+	if err != nil {
+		return nil, err
+	}
+
+	return ok.GetPayload(), nil
+}
+
+// Deprecated: 2022-01-10 - Please use SellUserEntitlementShort instead.
+func (aaa *EntitlementService) SellUserEntitlement(input *entitlement.SellUserEntitlementParams) (*platformclientmodels.EntitlementSoldResult, error) {
+	token, err := aaa.TokenRepository.GetToken()
+	if err != nil {
+		return nil, err
+	}
+	ok, notFound, conflict, err := aaa.Client.Entitlement.SellUserEntitlement(input, client.BearerToken(*token.AccessToken))
+	if notFound != nil {
+		return nil, notFound
+	}
+	if conflict != nil {
+		return nil, conflict
+	}
+	if err != nil {
+		return nil, err
+	}
+
+	return ok.GetPayload(), nil
+}
+
+// Deprecated: 2022-01-10 - Please use PublicExistsAnyMyActiveEntitlementShort instead.
 func (aaa *EntitlementService) PublicExistsAnyMyActiveEntitlement(input *entitlement.PublicExistsAnyMyActiveEntitlementParams) (*platformclientmodels.Ownership, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -428,7 +530,7 @@ func (aaa *EntitlementService) PublicExistsAnyMyActiveEntitlement(input *entitle
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use PublicGetMyAppEntitlementOwnershipByAppIDShort instead.
+// Deprecated: 2022-01-10 - Please use PublicGetMyAppEntitlementOwnershipByAppIDShort instead.
 func (aaa *EntitlementService) PublicGetMyAppEntitlementOwnershipByAppID(input *entitlement.PublicGetMyAppEntitlementOwnershipByAppIDParams) (*platformclientmodels.Ownership, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -442,7 +544,7 @@ func (aaa *EntitlementService) PublicGetMyAppEntitlementOwnershipByAppID(input *
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use PublicGetMyEntitlementOwnershipByItemIDShort instead.
+// Deprecated: 2022-01-10 - Please use PublicGetMyEntitlementOwnershipByItemIDShort instead.
 func (aaa *EntitlementService) PublicGetMyEntitlementOwnershipByItemID(input *entitlement.PublicGetMyEntitlementOwnershipByItemIDParams) (*platformclientmodels.TimedOwnership, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -456,7 +558,7 @@ func (aaa *EntitlementService) PublicGetMyEntitlementOwnershipByItemID(input *en
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use PublicGetMyEntitlementOwnershipBySkuShort instead.
+// Deprecated: 2022-01-10 - Please use PublicGetMyEntitlementOwnershipBySkuShort instead.
 func (aaa *EntitlementService) PublicGetMyEntitlementOwnershipBySku(input *entitlement.PublicGetMyEntitlementOwnershipBySkuParams) (*platformclientmodels.TimedOwnership, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -470,7 +572,7 @@ func (aaa *EntitlementService) PublicGetMyEntitlementOwnershipBySku(input *entit
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use PublicGetEntitlementOwnershipTokenShort instead.
+// Deprecated: 2022-01-10 - Please use PublicGetEntitlementOwnershipTokenShort instead.
 func (aaa *EntitlementService) PublicGetEntitlementOwnershipToken(input *entitlement.PublicGetEntitlementOwnershipTokenParams) (*platformclientmodels.OwnershipToken, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -484,7 +586,7 @@ func (aaa *EntitlementService) PublicGetEntitlementOwnershipToken(input *entitle
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use PublicQueryUserEntitlementsShort instead.
+// Deprecated: 2022-01-10 - Please use PublicQueryUserEntitlementsShort instead.
 func (aaa *EntitlementService) PublicQueryUserEntitlements(input *entitlement.PublicQueryUserEntitlementsParams) (*platformclientmodels.EntitlementPagingSlicedResult, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -498,7 +600,7 @@ func (aaa *EntitlementService) PublicQueryUserEntitlements(input *entitlement.Pu
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use PublicGetUserAppEntitlementByAppIDShort instead.
+// Deprecated: 2022-01-10 - Please use PublicGetUserAppEntitlementByAppIDShort instead.
 func (aaa *EntitlementService) PublicGetUserAppEntitlementByAppID(input *entitlement.PublicGetUserAppEntitlementByAppIDParams) (*platformclientmodels.AppEntitlementInfo, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -515,7 +617,7 @@ func (aaa *EntitlementService) PublicGetUserAppEntitlementByAppID(input *entitle
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use PublicQueryUserEntitlementsByAppTypeShort instead.
+// Deprecated: 2022-01-10 - Please use PublicQueryUserEntitlementsByAppTypeShort instead.
 func (aaa *EntitlementService) PublicQueryUserEntitlementsByAppType(input *entitlement.PublicQueryUserEntitlementsByAppTypeParams) (*platformclientmodels.AppEntitlementPagingSlicedResult, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -529,7 +631,7 @@ func (aaa *EntitlementService) PublicQueryUserEntitlementsByAppType(input *entit
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use PublicGetUserEntitlementByItemIDShort instead.
+// Deprecated: 2022-01-10 - Please use PublicGetUserEntitlementByItemIDShort instead.
 func (aaa *EntitlementService) PublicGetUserEntitlementByItemID(input *entitlement.PublicGetUserEntitlementByItemIDParams) (*platformclientmodels.EntitlementInfo, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -546,7 +648,7 @@ func (aaa *EntitlementService) PublicGetUserEntitlementByItemID(input *entitleme
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use PublicGetUserEntitlementBySkuShort instead.
+// Deprecated: 2022-01-10 - Please use PublicGetUserEntitlementBySkuShort instead.
 func (aaa *EntitlementService) PublicGetUserEntitlementBySku(input *entitlement.PublicGetUserEntitlementBySkuParams) (*platformclientmodels.EntitlementInfo, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -563,7 +665,7 @@ func (aaa *EntitlementService) PublicGetUserEntitlementBySku(input *entitlement.
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use PublicExistsAnyUserActiveEntitlementShort instead.
+// Deprecated: 2022-01-10 - Please use PublicExistsAnyUserActiveEntitlementShort instead.
 func (aaa *EntitlementService) PublicExistsAnyUserActiveEntitlement(input *entitlement.PublicExistsAnyUserActiveEntitlementParams) (*platformclientmodels.Ownership, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -577,7 +679,7 @@ func (aaa *EntitlementService) PublicExistsAnyUserActiveEntitlement(input *entit
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use PublicGetUserAppEntitlementOwnershipByAppIDShort instead.
+// Deprecated: 2022-01-10 - Please use PublicGetUserAppEntitlementOwnershipByAppIDShort instead.
 func (aaa *EntitlementService) PublicGetUserAppEntitlementOwnershipByAppID(input *entitlement.PublicGetUserAppEntitlementOwnershipByAppIDParams) (*platformclientmodels.Ownership, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -591,7 +693,7 @@ func (aaa *EntitlementService) PublicGetUserAppEntitlementOwnershipByAppID(input
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use PublicGetUserEntitlementOwnershipByItemIDShort instead.
+// Deprecated: 2022-01-10 - Please use PublicGetUserEntitlementOwnershipByItemIDShort instead.
 func (aaa *EntitlementService) PublicGetUserEntitlementOwnershipByItemID(input *entitlement.PublicGetUserEntitlementOwnershipByItemIDParams) (*platformclientmodels.TimedOwnership, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -605,7 +707,7 @@ func (aaa *EntitlementService) PublicGetUserEntitlementOwnershipByItemID(input *
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use PublicGetUserEntitlementOwnershipByItemIdsShort instead.
+// Deprecated: 2022-01-10 - Please use PublicGetUserEntitlementOwnershipByItemIdsShort instead.
 func (aaa *EntitlementService) PublicGetUserEntitlementOwnershipByItemIds(input *entitlement.PublicGetUserEntitlementOwnershipByItemIdsParams) ([]*platformclientmodels.EntitlementOwnership, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -619,7 +721,7 @@ func (aaa *EntitlementService) PublicGetUserEntitlementOwnershipByItemIds(input 
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use PublicGetUserEntitlementOwnershipBySkuShort instead.
+// Deprecated: 2022-01-10 - Please use PublicGetUserEntitlementOwnershipBySkuShort instead.
 func (aaa *EntitlementService) PublicGetUserEntitlementOwnershipBySku(input *entitlement.PublicGetUserEntitlementOwnershipBySkuParams) (*platformclientmodels.TimedOwnership, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -633,7 +735,7 @@ func (aaa *EntitlementService) PublicGetUserEntitlementOwnershipBySku(input *ent
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use PublicGetUserEntitlementShort instead.
+// Deprecated: 2022-01-10 - Please use PublicGetUserEntitlementShort instead.
 func (aaa *EntitlementService) PublicGetUserEntitlement(input *entitlement.PublicGetUserEntitlementParams) (*platformclientmodels.EntitlementInfo, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -650,7 +752,7 @@ func (aaa *EntitlementService) PublicGetUserEntitlement(input *entitlement.Publi
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use PublicConsumeUserEntitlementShort instead.
+// Deprecated: 2022-01-10 - Please use PublicConsumeUserEntitlementShort instead.
 func (aaa *EntitlementService) PublicConsumeUserEntitlement(input *entitlement.PublicConsumeUserEntitlementParams) (*platformclientmodels.EntitlementDecrementResult, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -660,6 +762,26 @@ func (aaa *EntitlementService) PublicConsumeUserEntitlement(input *entitlement.P
 	if badRequest != nil {
 		return nil, badRequest
 	}
+	if notFound != nil {
+		return nil, notFound
+	}
+	if conflict != nil {
+		return nil, conflict
+	}
+	if err != nil {
+		return nil, err
+	}
+
+	return ok.GetPayload(), nil
+}
+
+// Deprecated: 2022-01-10 - Please use PublicSellUserEntitlementShort instead.
+func (aaa *EntitlementService) PublicSellUserEntitlement(input *entitlement.PublicSellUserEntitlementParams) (*platformclientmodels.EntitlementSoldResult, error) {
+	token, err := aaa.TokenRepository.GetToken()
+	if err != nil {
+		return nil, err
+	}
+	ok, notFound, conflict, err := aaa.Client.Entitlement.PublicSellUserEntitlement(input, client.BearerToken(*token.AccessToken))
 	if notFound != nil {
 		return nil, notFound
 	}
@@ -691,6 +813,81 @@ func (aaa *EntitlementService) QueryEntitlementsShort(input *entitlement.QueryEn
 	}
 
 	ok, err := aaa.Client.Entitlement.QueryEntitlementsShort(input, authInfoWriter)
+	if err != nil {
+		return nil, err
+	}
+
+	return ok.GetPayload(), nil
+}
+
+func (aaa *EntitlementService) QueryEntitlements1Short(input *entitlement.QueryEntitlements1Params) (*platformclientmodels.EntitlementPagingSlicedResult, error) {
+	authInfoWriter := input.AuthInfoWriter
+	if authInfoWriter == nil {
+		security := [][]string{
+			{"bearer"},
+		}
+		authInfoWriter = auth.AuthInfoWriter(aaa.GetAuthSession(), security, "")
+	}
+	if input.RetryPolicy == nil {
+		input.RetryPolicy = &utils.Retry{
+			MaxTries:   utils.MaxTries,
+			Backoff:    utils.NewConstantBackoff(0),
+			Transport:  aaa.Client.Runtime.Transport,
+			RetryCodes: utils.RetryCodes,
+		}
+	}
+
+	ok, err := aaa.Client.Entitlement.QueryEntitlements1Short(input, authInfoWriter)
+	if err != nil {
+		return nil, err
+	}
+
+	return ok.GetPayload(), nil
+}
+
+func (aaa *EntitlementService) GrantEntitlementsShort(input *entitlement.GrantEntitlementsParams) (*platformclientmodels.BulkEntitlementGrantResult, error) {
+	authInfoWriter := input.AuthInfoWriter
+	if authInfoWriter == nil {
+		security := [][]string{
+			{"bearer"},
+		}
+		authInfoWriter = auth.AuthInfoWriter(aaa.GetAuthSession(), security, "")
+	}
+	if input.RetryPolicy == nil {
+		input.RetryPolicy = &utils.Retry{
+			MaxTries:   utils.MaxTries,
+			Backoff:    utils.NewConstantBackoff(0),
+			Transport:  aaa.Client.Runtime.Transport,
+			RetryCodes: utils.RetryCodes,
+		}
+	}
+
+	ok, err := aaa.Client.Entitlement.GrantEntitlementsShort(input, authInfoWriter)
+	if err != nil {
+		return nil, err
+	}
+
+	return ok.GetPayload(), nil
+}
+
+func (aaa *EntitlementService) RevokeEntitlementsShort(input *entitlement.RevokeEntitlementsParams) (*platformclientmodels.BulkEntitlementRevokeResult, error) {
+	authInfoWriter := input.AuthInfoWriter
+	if authInfoWriter == nil {
+		security := [][]string{
+			{"bearer"},
+		}
+		authInfoWriter = auth.AuthInfoWriter(aaa.GetAuthSession(), security, "")
+	}
+	if input.RetryPolicy == nil {
+		input.RetryPolicy = &utils.Retry{
+			MaxTries:   utils.MaxTries,
+			Backoff:    utils.NewConstantBackoff(0),
+			Transport:  aaa.Client.Runtime.Transport,
+			RetryCodes: utils.RetryCodes,
+		}
+	}
+
+	ok, err := aaa.Client.Entitlement.RevokeEntitlementsShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
 	}
@@ -1048,6 +1245,31 @@ func (aaa *EntitlementService) GetUserEntitlementOwnershipBySkuShort(input *enti
 	return ok.GetPayload(), nil
 }
 
+func (aaa *EntitlementService) RevokeAllEntitlementsShort(input *entitlement.RevokeAllEntitlementsParams) (*platformclientmodels.BulkOperationResult, error) {
+	authInfoWriter := input.AuthInfoWriter
+	if authInfoWriter == nil {
+		security := [][]string{
+			{"bearer"},
+		}
+		authInfoWriter = auth.AuthInfoWriter(aaa.GetAuthSession(), security, "")
+	}
+	if input.RetryPolicy == nil {
+		input.RetryPolicy = &utils.Retry{
+			MaxTries:   utils.MaxTries,
+			Backoff:    utils.NewConstantBackoff(0),
+			Transport:  aaa.Client.Runtime.Transport,
+			RetryCodes: utils.RetryCodes,
+		}
+	}
+
+	ok, err := aaa.Client.Entitlement.RevokeAllEntitlementsShort(input, authInfoWriter)
+	if err != nil {
+		return nil, err
+	}
+
+	return ok.GetPayload(), nil
+}
+
 func (aaa *EntitlementService) RevokeUserEntitlementsShort(input *entitlement.RevokeUserEntitlementsParams) (*platformclientmodels.BulkOperationResult, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
@@ -1241,6 +1463,56 @@ func (aaa *EntitlementService) RevokeUserEntitlementShort(input *entitlement.Rev
 	}
 
 	ok, err := aaa.Client.Entitlement.RevokeUserEntitlementShort(input, authInfoWriter)
+	if err != nil {
+		return nil, err
+	}
+
+	return ok.GetPayload(), nil
+}
+
+func (aaa *EntitlementService) RevokeUseCountShort(input *entitlement.RevokeUseCountParams) (*platformclientmodels.EntitlementInfo, error) {
+	authInfoWriter := input.AuthInfoWriter
+	if authInfoWriter == nil {
+		security := [][]string{
+			{"bearer"},
+		}
+		authInfoWriter = auth.AuthInfoWriter(aaa.GetAuthSession(), security, "")
+	}
+	if input.RetryPolicy == nil {
+		input.RetryPolicy = &utils.Retry{
+			MaxTries:   utils.MaxTries,
+			Backoff:    utils.NewConstantBackoff(0),
+			Transport:  aaa.Client.Runtime.Transport,
+			RetryCodes: utils.RetryCodes,
+		}
+	}
+
+	ok, err := aaa.Client.Entitlement.RevokeUseCountShort(input, authInfoWriter)
+	if err != nil {
+		return nil, err
+	}
+
+	return ok.GetPayload(), nil
+}
+
+func (aaa *EntitlementService) SellUserEntitlementShort(input *entitlement.SellUserEntitlementParams) (*platformclientmodels.EntitlementSoldResult, error) {
+	authInfoWriter := input.AuthInfoWriter
+	if authInfoWriter == nil {
+		security := [][]string{
+			{"bearer"},
+		}
+		authInfoWriter = auth.AuthInfoWriter(aaa.GetAuthSession(), security, "")
+	}
+	if input.RetryPolicy == nil {
+		input.RetryPolicy = &utils.Retry{
+			MaxTries:   utils.MaxTries,
+			Backoff:    utils.NewConstantBackoff(0),
+			Transport:  aaa.Client.Runtime.Transport,
+			RetryCodes: utils.RetryCodes,
+		}
+	}
+
+	ok, err := aaa.Client.Entitlement.SellUserEntitlementShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
 	}
@@ -1666,6 +1938,31 @@ func (aaa *EntitlementService) PublicConsumeUserEntitlementShort(input *entitlem
 	}
 
 	ok, err := aaa.Client.Entitlement.PublicConsumeUserEntitlementShort(input, authInfoWriter)
+	if err != nil {
+		return nil, err
+	}
+
+	return ok.GetPayload(), nil
+}
+
+func (aaa *EntitlementService) PublicSellUserEntitlementShort(input *entitlement.PublicSellUserEntitlementParams) (*platformclientmodels.EntitlementSoldResult, error) {
+	authInfoWriter := input.AuthInfoWriter
+	if authInfoWriter == nil {
+		security := [][]string{
+			{"bearer"},
+		}
+		authInfoWriter = auth.AuthInfoWriter(aaa.GetAuthSession(), security, "")
+	}
+	if input.RetryPolicy == nil {
+		input.RetryPolicy = &utils.Retry{
+			MaxTries:   utils.MaxTries,
+			Backoff:    utils.NewConstantBackoff(0),
+			Transport:  aaa.Client.Runtime.Transport,
+			RetryCodes: utils.RetryCodes,
+		}
+	}
+
+	ok, err := aaa.Client.Entitlement.PublicSellUserEntitlementShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
 	}

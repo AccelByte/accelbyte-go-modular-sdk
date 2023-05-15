@@ -17,7 +17,7 @@ import (
 )
 
 // PublicContentService this is use for compatibility with latest modular sdk only
-// Deprecated: please use PublicContentService imported from "github.com/AccelByte/accelbyte-go-modular-sdk/ugc-sdk/pkg"
+// Deprecated: 2023-03-30 - please use PublicContentService imported from "github.com/AccelByte/accelbyte-go-modular-sdk/ugc-sdk/pkg"
 type PublicContentService struct {
 	Client                 *ugcclient.JusticeUgcService
 	ConfigRepository       repository.ConfigRepository
@@ -41,7 +41,7 @@ func (aaa *PublicContentService) GetAuthSession() auth.Session {
 	}
 }
 
-// deprecated(2022-01-10): please use SearchChannelSpecificContentShort instead.
+// Deprecated: 2022-01-10 - Please use SearchChannelSpecificContentShort instead.
 func (aaa *PublicContentService) SearchChannelSpecificContent(input *public_content.SearchChannelSpecificContentParams) (*ugcclientmodels.ModelsPaginatedContentDownloadResponse, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -64,7 +64,7 @@ func (aaa *PublicContentService) SearchChannelSpecificContent(input *public_cont
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use PublicSearchContentShort instead.
+// Deprecated: 2022-01-10 - Please use PublicSearchContentShort instead.
 func (aaa *PublicContentService) PublicSearchContent(input *public_content.PublicSearchContentParams) (*ugcclientmodels.ModelsPaginatedContentDownloadResponse, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -87,7 +87,7 @@ func (aaa *PublicContentService) PublicSearchContent(input *public_content.Publi
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use PublicGetContentBulkShort instead.
+// Deprecated: 2022-01-10 - Please use PublicGetContentBulkShort instead.
 func (aaa *PublicContentService) PublicGetContentBulk(input *public_content.PublicGetContentBulkParams) ([]*ugcclientmodels.ModelsContentDownloadResponse, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -110,7 +110,7 @@ func (aaa *PublicContentService) PublicGetContentBulk(input *public_content.Publ
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use PublicDownloadContentByShareCodeShort instead.
+// Deprecated: 2022-01-10 - Please use PublicDownloadContentByShareCodeShort instead.
 func (aaa *PublicContentService) PublicDownloadContentByShareCode(input *public_content.PublicDownloadContentByShareCodeParams) (*ugcclientmodels.ModelsContentDownloadResponse, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -133,7 +133,7 @@ func (aaa *PublicContentService) PublicDownloadContentByShareCode(input *public_
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use PublicDownloadContentByContentIDShort instead.
+// Deprecated: 2022-01-10 - Please use PublicDownloadContentByContentIDShort instead.
 func (aaa *PublicContentService) PublicDownloadContentByContentID(input *public_content.PublicDownloadContentByContentIDParams) (*ugcclientmodels.ModelsContentDownloadResponse, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -156,7 +156,7 @@ func (aaa *PublicContentService) PublicDownloadContentByContentID(input *public_
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use PublicDownloadContentPreviewShort instead.
+// Deprecated: 2022-01-10 - Please use PublicDownloadContentPreviewShort instead.
 func (aaa *PublicContentService) PublicDownloadContentPreview(input *public_content.PublicDownloadContentPreviewParams) (*ugcclientmodels.ModelsGetContentPreviewResponse, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -179,7 +179,7 @@ func (aaa *PublicContentService) PublicDownloadContentPreview(input *public_cont
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use CreateContentDirectShort instead.
+// Deprecated: 2022-01-10 - Please use CreateContentDirectShort instead.
 func (aaa *PublicContentService) CreateContentDirect(input *public_content.CreateContentDirectParams) (*ugcclientmodels.ModelsCreateContentResponse, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -202,7 +202,7 @@ func (aaa *PublicContentService) CreateContentDirect(input *public_content.Creat
 	return created.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use CreateContentS3Short instead.
+// Deprecated: 2022-01-10 - Please use CreateContentS3Short instead.
 func (aaa *PublicContentService) CreateContentS3(input *public_content.CreateContentS3Params) (*ugcclientmodels.ModelsCreateContentResponse, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -225,7 +225,7 @@ func (aaa *PublicContentService) CreateContentS3(input *public_content.CreateCon
 	return created.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use UpdateContentS3Short instead.
+// Deprecated: 2022-01-10 - Please use UpdateContentS3Short instead.
 func (aaa *PublicContentService) UpdateContentS3(input *public_content.UpdateContentS3Params) (*ugcclientmodels.ModelsCreateContentResponse, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -251,7 +251,7 @@ func (aaa *PublicContentService) UpdateContentS3(input *public_content.UpdateCon
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use UpdateContentDirectShort instead.
+// Deprecated: 2022-01-10 - Please use UpdateContentDirectShort instead.
 func (aaa *PublicContentService) UpdateContentDirect(input *public_content.UpdateContentDirectParams) (*ugcclientmodels.ModelsCreateContentResponse, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -277,7 +277,7 @@ func (aaa *PublicContentService) UpdateContentDirect(input *public_content.Updat
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use DeleteContentShort instead.
+// Deprecated: 2022-01-10 - Please use DeleteContentShort instead.
 func (aaa *PublicContentService) DeleteContent(input *public_content.DeleteContentParams) error {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -300,7 +300,7 @@ func (aaa *PublicContentService) DeleteContent(input *public_content.DeleteConte
 	return nil
 }
 
-// deprecated(2022-01-10): please use PublicGetUserContentShort instead.
+// Deprecated: 2022-01-10 - Please use PublicGetUserContentShort instead.
 func (aaa *PublicContentService) PublicGetUserContent(input *public_content.PublicGetUserContentParams) (*ugcclientmodels.ModelsPaginatedContentDownloadResponse, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -323,7 +323,7 @@ func (aaa *PublicContentService) PublicGetUserContent(input *public_content.Publ
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use UpdateScreenshotsShort instead.
+// Deprecated: 2022-01-10 - Please use UpdateScreenshotsShort instead.
 func (aaa *PublicContentService) UpdateScreenshots(input *public_content.UpdateScreenshotsParams) (*ugcclientmodels.ModelsUpdateScreenshotResponse, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -349,7 +349,7 @@ func (aaa *PublicContentService) UpdateScreenshots(input *public_content.UpdateS
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use UploadContentScreenshotShort instead.
+// Deprecated: 2022-01-10 - Please use UploadContentScreenshotShort instead.
 func (aaa *PublicContentService) UploadContentScreenshot(input *public_content.UploadContentScreenshotParams) (*ugcclientmodels.ModelsCreateScreenshotResponse, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -372,7 +372,7 @@ func (aaa *PublicContentService) UploadContentScreenshot(input *public_content.U
 	return created.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use DeleteContentScreenshotShort instead.
+// Deprecated: 2022-01-10 - Please use DeleteContentScreenshotShort instead.
 func (aaa *PublicContentService) DeleteContentScreenshot(input *public_content.DeleteContentScreenshotParams) error {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {

@@ -16,6 +16,8 @@ import (
 	"github.com/go-openapi/runtime/client"
 )
 
+// DataDeletionService this is use for compatibility with latest modular sdk only
+// Deprecated: 2023-03-30 - please use DataDeletionService imported from "github.com/AccelByte/accelbyte-go-modular-sdk/gdpr-sdk/pkg"
 type DataDeletionService struct {
 	Client                 *gdprclient.JusticeGdprService
 	ConfigRepository       repository.ConfigRepository
@@ -39,7 +41,7 @@ func (aaa *DataDeletionService) GetAuthSession() auth.Session {
 	}
 }
 
-// deprecated(2022-01-10): please use AdminGetListDeletionDataRequestShort instead.
+// Deprecated: 2022-01-10 - Please use AdminGetListDeletionDataRequestShort instead.
 func (aaa *DataDeletionService) AdminGetListDeletionDataRequest(input *data_deletion.AdminGetListDeletionDataRequestParams) (*gdprclientmodels.ModelsListDeletionDataResponse, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -68,7 +70,7 @@ func (aaa *DataDeletionService) AdminGetListDeletionDataRequest(input *data_dele
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use AdminGetUserAccountDeletionRequestShort instead.
+// Deprecated: 2022-01-10 - Please use AdminGetUserAccountDeletionRequestShort instead.
 func (aaa *DataDeletionService) AdminGetUserAccountDeletionRequest(input *data_deletion.AdminGetUserAccountDeletionRequestParams) (*gdprclientmodels.ModelsDeletionData, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -94,7 +96,7 @@ func (aaa *DataDeletionService) AdminGetUserAccountDeletionRequest(input *data_d
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use AdminSubmitUserAccountDeletionRequestShort instead.
+// Deprecated: 2022-01-10 - Please use AdminSubmitUserAccountDeletionRequestShort instead.
 func (aaa *DataDeletionService) AdminSubmitUserAccountDeletionRequest(input *data_deletion.AdminSubmitUserAccountDeletionRequestParams) (*gdprclientmodels.ModelsRequestDeleteResponse, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -123,7 +125,7 @@ func (aaa *DataDeletionService) AdminSubmitUserAccountDeletionRequest(input *dat
 	return created.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use AdminCancelUserAccountDeletionRequestShort instead.
+// Deprecated: 2022-01-10 - Please use AdminCancelUserAccountDeletionRequestShort instead.
 func (aaa *DataDeletionService) AdminCancelUserAccountDeletionRequest(input *data_deletion.AdminCancelUserAccountDeletionRequestParams) error {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -152,7 +154,7 @@ func (aaa *DataDeletionService) AdminCancelUserAccountDeletionRequest(input *dat
 	return nil
 }
 
-// deprecated(2022-01-10): please use PublicSubmitUserAccountDeletionRequestShort instead.
+// Deprecated: 2022-01-10 - Please use PublicSubmitUserAccountDeletionRequestShort instead.
 func (aaa *DataDeletionService) PublicSubmitUserAccountDeletionRequest(input *data_deletion.PublicSubmitUserAccountDeletionRequestParams) (*gdprclientmodels.ModelsRequestDeleteResponse, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -181,7 +183,7 @@ func (aaa *DataDeletionService) PublicSubmitUserAccountDeletionRequest(input *da
 	return created.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use PublicCancelUserAccountDeletionRequestShort instead.
+// Deprecated: 2022-01-10 - Please use PublicCancelUserAccountDeletionRequestShort instead.
 func (aaa *DataDeletionService) PublicCancelUserAccountDeletionRequest(input *data_deletion.PublicCancelUserAccountDeletionRequestParams) error {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -207,7 +209,7 @@ func (aaa *DataDeletionService) PublicCancelUserAccountDeletionRequest(input *da
 	return nil
 }
 
-// deprecated(2022-01-10): please use PublicGetUserAccountDeletionStatusShort instead.
+// Deprecated: 2022-01-10 - Please use PublicGetUserAccountDeletionStatusShort instead.
 func (aaa *DataDeletionService) PublicGetUserAccountDeletionStatus(input *data_deletion.PublicGetUserAccountDeletionStatusParams) (*gdprclientmodels.ModelsDeletionStatus, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {

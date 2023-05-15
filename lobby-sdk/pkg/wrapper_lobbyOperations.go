@@ -16,6 +16,8 @@ import (
 	"github.com/go-openapi/runtime/client"
 )
 
+// LobbyOperationsService this is use for compatibility with latest modular sdk only
+// Deprecated: 2023-03-30 - please use LobbyOperationsService imported from "github.com/AccelByte/accelbyte-go-modular-sdk/lobby-sdk/pkg"
 type LobbyOperationsService struct {
 	Client                 *lobbyclient.JusticeLobbyService
 	ConfigRepository       repository.ConfigRepository
@@ -39,7 +41,7 @@ func (aaa *LobbyOperationsService) GetAuthSession() auth.Session {
 	}
 }
 
-// deprecated(2022-01-10): please use AdminUpdatePartyAttributesV1Short instead.
+// Deprecated: 2022-01-10 - Please use AdminUpdatePartyAttributesV1Short instead.
 func (aaa *LobbyOperationsService) AdminUpdatePartyAttributesV1(input *lobby_operations.AdminUpdatePartyAttributesV1Params) (*lobbyclientmodels.ModelsPartyData, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -71,7 +73,7 @@ func (aaa *LobbyOperationsService) AdminUpdatePartyAttributesV1(input *lobby_ope
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use AdminJoinPartyV1Short instead.
+// Deprecated: 2022-01-10 - Please use AdminJoinPartyV1Short instead.
 func (aaa *LobbyOperationsService) AdminJoinPartyV1(input *lobby_operations.AdminJoinPartyV1Params) error {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -103,7 +105,7 @@ func (aaa *LobbyOperationsService) AdminJoinPartyV1(input *lobby_operations.Admi
 	return nil
 }
 
-// deprecated(2022-01-10): please use PublicGetMessagesShort instead.
+// Deprecated: 2022-01-10 - Please use PublicGetMessagesShort instead.
 func (aaa *LobbyOperationsService) PublicGetMessages(input *lobby_operations.PublicGetMessagesParams) ([]*lobbyclientmodels.LogAppMessageDeclaration, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {

@@ -16,6 +16,8 @@ import (
 	"github.com/go-openapi/runtime/client"
 )
 
+// UserActionService this is use for compatibility with latest modular sdk only
+// Deprecated: 2023-03-30 - please use UserActionService imported from "github.com/AccelByte/accelbyte-go-modular-sdk/basic-sdk/pkg"
 type UserActionService struct {
 	Client                 *basicclient.JusticeBasicService
 	ConfigRepository       repository.ConfigRepository
@@ -39,7 +41,7 @@ func (aaa *UserActionService) GetAuthSession() auth.Session {
 	}
 }
 
-// deprecated(2022-01-10): please use GetActionsShort instead.
+// Deprecated: 2022-01-10 - Please use GetActionsShort instead.
 func (aaa *UserActionService) GetActions(input *user_action.GetActionsParams) ([]*basicclientmodels.Action, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -62,7 +64,7 @@ func (aaa *UserActionService) GetActions(input *user_action.GetActionsParams) ([
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use BanUsersShort instead.
+// Deprecated: 2022-01-10 - Please use BanUsersShort instead.
 func (aaa *UserActionService) BanUsers(input *user_action.BanUsersParams) error {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -88,7 +90,7 @@ func (aaa *UserActionService) BanUsers(input *user_action.BanUsersParams) error 
 	return nil
 }
 
-// deprecated(2022-01-10): please use GetBannedUsersShort instead.
+// Deprecated: 2022-01-10 - Please use GetBannedUsersShort instead.
 func (aaa *UserActionService) GetBannedUsers(input *user_action.GetBannedUsersParams) ([]*basicclientmodels.ADTOObjectForEQU8UserBanStatus, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -114,7 +116,7 @@ func (aaa *UserActionService) GetBannedUsers(input *user_action.GetBannedUsersPa
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use ReportUserShort instead.
+// Deprecated: 2022-01-10 - Please use ReportUserShort instead.
 func (aaa *UserActionService) ReportUser(input *user_action.ReportUserParams) error {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -131,7 +133,7 @@ func (aaa *UserActionService) ReportUser(input *user_action.ReportUserParams) er
 	return nil
 }
 
-// deprecated(2022-01-10): please use GetUserStatusShort instead.
+// Deprecated: 2022-01-10 - Please use GetUserStatusShort instead.
 func (aaa *UserActionService) GetUserStatus(input *user_action.GetUserStatusParams) (*basicclientmodels.ADTOObjectForEQU8UserStatus, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -157,7 +159,7 @@ func (aaa *UserActionService) GetUserStatus(input *user_action.GetUserStatusPara
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use UnBanUsersShort instead.
+// Deprecated: 2022-01-10 - Please use UnBanUsersShort instead.
 func (aaa *UserActionService) UnBanUsers(input *user_action.UnBanUsersParams) error {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -183,7 +185,7 @@ func (aaa *UserActionService) UnBanUsers(input *user_action.UnBanUsersParams) er
 	return nil
 }
 
-// deprecated(2022-01-10): please use PublicReportUserShort instead.
+// Deprecated: 2022-01-10 - Please use PublicReportUserShort instead.
 func (aaa *UserActionService) PublicReportUser(input *user_action.PublicReportUserParams) error {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {

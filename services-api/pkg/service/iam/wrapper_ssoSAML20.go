@@ -16,7 +16,7 @@ import (
 )
 
 // SSOSAML20Service this is use for compatibility with latest modular sdk only
-// Deprecated: please use SSOSAML20Service imported from "github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg"
+// Deprecated: 2023-03-30 - please use SSOSAML20Service imported from "github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg"
 type SSOSAML20Service struct {
 	Client                 *iamclient.JusticeIamService
 	ConfigRepository       repository.ConfigRepository
@@ -40,7 +40,7 @@ func (aaa *SSOSAML20Service) GetAuthSession() auth.Session {
 	}
 }
 
-// deprecated(2022-01-10): please use PlatformAuthenticateSAMLV3HandlerShort instead.
+// Deprecated: 2022-01-10 - Please use PlatformAuthenticateSAMLV3HandlerShort instead.
 func (aaa *SSOSAML20Service) PlatformAuthenticateSAMLV3Handler(input *sso_saml_2_0.PlatformAuthenticateSAMLV3HandlerParams) (string, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {

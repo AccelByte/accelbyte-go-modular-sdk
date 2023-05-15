@@ -33,6 +33,7 @@ import (
 	"github.com/AccelByte/sample-apps/cmd/platform/reward"
 	"github.com/AccelByte/sample-apps/cmd/platform/section"
 	"github.com/AccelByte/sample-apps/cmd/platform/servicePluginConfig"
+	"github.com/AccelByte/sample-apps/cmd/platform/sessionPlatform"
 	"github.com/AccelByte/sample-apps/cmd/platform/store"
 	"github.com/AccelByte/sample-apps/cmd/platform/subscription"
 	"github.com/AccelByte/sample-apps/cmd/platform/ticket"
@@ -98,6 +99,9 @@ func init() {
 	PlatformCmd.AddCommand(dlc.UpdatePlatformDLCConfigCmd)
 	PlatformCmd.AddCommand(dlc.DeletePlatformDLCConfigCmd)
 	PlatformCmd.AddCommand(entitlement.QueryEntitlementsCmd)
+	PlatformCmd.AddCommand(entitlement.QueryEntitlements1Cmd)
+	PlatformCmd.AddCommand(entitlement.GrantEntitlementsCmd)
+	PlatformCmd.AddCommand(entitlement.RevokeEntitlementsCmd)
 	PlatformCmd.AddCommand(entitlement.GetEntitlementCmd)
 	PlatformCmd.AddCommand(fulfillment.QueryFulfillmentHistoriesCmd)
 	PlatformCmd.AddCommand(iap.GetAppleIAPConfigCmd)
@@ -140,6 +144,7 @@ func init() {
 	PlatformCmd.AddCommand(item.BulkGetLocaleItemsCmd)
 	PlatformCmd.AddCommand(item.GetAvailablePredicateTypesCmd)
 	PlatformCmd.AddCommand(item.ValidateItemPurchaseConditionCmd)
+	PlatformCmd.AddCommand(item.BulkUpdateRegionDataCmd)
 	PlatformCmd.AddCommand(item.SearchItemsCmd)
 	PlatformCmd.AddCommand(item.QueryUncategorizedItemsCmd)
 	PlatformCmd.AddCommand(item.GetItemCmd)
@@ -182,7 +187,7 @@ func init() {
 	PlatformCmd.AddCommand(wallet.GetPlatformWalletConfigCmd)
 	PlatformCmd.AddCommand(wallet.UpdatePlatformWalletConfigCmd)
 	PlatformCmd.AddCommand(wallet.ResetPlatformWalletConfigCmd)
-	PlatformCmd.AddCommand(revocation.GetPaymentCallbackConfig1Cmd)
+	PlatformCmd.AddCommand(revocation.GetRevocationConfigCmd)
 	PlatformCmd.AddCommand(revocation.UpdateRevocationConfigCmd)
 	PlatformCmd.AddCommand(revocation.DeleteRevocationConfigCmd)
 	PlatformCmd.AddCommand(revocation.QueryRevocationHistoriesCmd)
@@ -239,6 +244,7 @@ func init() {
 	PlatformCmd.AddCommand(anonymization.AnonymizeRevocationCmd)
 	PlatformCmd.AddCommand(anonymization.AnonymizeSubscriptionCmd)
 	PlatformCmd.AddCommand(anonymization.AnonymizeWalletCmd)
+	PlatformCmd.AddCommand(dlc.GetUserDLCByPlatformCmd)
 	PlatformCmd.AddCommand(dlc.GetUserDLCCmd)
 	PlatformCmd.AddCommand(entitlement.QueryUserEntitlementsCmd)
 	PlatformCmd.AddCommand(entitlement.GrantUserEntitlementCmd)
@@ -253,6 +259,7 @@ func init() {
 	PlatformCmd.AddCommand(entitlement.GetUserEntitlementOwnershipByItemIdCmd)
 	PlatformCmd.AddCommand(entitlement.GetUserEntitlementOwnershipByItemIdsCmd)
 	PlatformCmd.AddCommand(entitlement.GetUserEntitlementOwnershipBySkuCmd)
+	PlatformCmd.AddCommand(entitlement.RevokeAllEntitlementsCmd)
 	PlatformCmd.AddCommand(entitlement.RevokeUserEntitlementsCmd)
 	PlatformCmd.AddCommand(entitlement.GetUserEntitlementCmd)
 	PlatformCmd.AddCommand(entitlement.UpdateUserEntitlementCmd)
@@ -261,6 +268,8 @@ func init() {
 	PlatformCmd.AddCommand(entitlement.EnableUserEntitlementCmd)
 	PlatformCmd.AddCommand(entitlement.GetUserEntitlementHistoriesCmd)
 	PlatformCmd.AddCommand(entitlement.RevokeUserEntitlementCmd)
+	PlatformCmd.AddCommand(entitlement.RevokeUseCountCmd)
+	PlatformCmd.AddCommand(entitlement.SellUserEntitlementCmd)
 	PlatformCmd.AddCommand(fulfillment.FulfillItemCmd)
 	PlatformCmd.AddCommand(fulfillment.RedeemCodeCmd)
 	PlatformCmd.AddCommand(fulfillment.FulfillRewardsCmd)
@@ -282,6 +291,7 @@ func init() {
 	PlatformCmd.AddCommand(payment.RefundUserPaymentOrderCmd)
 	PlatformCmd.AddCommand(campaign.ApplyUserRedemptionCmd)
 	PlatformCmd.AddCommand(revocation.DoRevocationCmd)
+	PlatformCmd.AddCommand(sessionPlatform.RegisterXblSessionsCmd)
 	PlatformCmd.AddCommand(subscription.QueryUserSubscriptionsCmd)
 	PlatformCmd.AddCommand(subscription.GetUserSubscriptionActivitiesCmd)
 	PlatformCmd.AddCommand(subscription.PlatformSubscribeSubscriptionCmd)
@@ -310,6 +320,8 @@ func init() {
 	PlatformCmd.AddCommand(view.UpdateViewCmd)
 	PlatformCmd.AddCommand(view.DeleteViewCmd)
 	PlatformCmd.AddCommand(wallet.QueryWalletsCmd)
+	PlatformCmd.AddCommand(wallet.BulkCreditCmd)
+	PlatformCmd.AddCommand(wallet.BulkDebitCmd)
 	PlatformCmd.AddCommand(wallet.GetWalletCmd)
 	PlatformCmd.AddCommand(orderDedicated.SyncOrdersCmd)
 	PlatformCmd.AddCommand(paymentConfig.TestAdyenConfigCmd)
@@ -401,6 +413,7 @@ func init() {
 	PlatformCmd.AddCommand(entitlement.PublicGetUserEntitlementOwnershipBySkuCmd)
 	PlatformCmd.AddCommand(entitlement.PublicGetUserEntitlementCmd)
 	PlatformCmd.AddCommand(entitlement.PublicConsumeUserEntitlementCmd)
+	PlatformCmd.AddCommand(entitlement.PublicSellUserEntitlementCmd)
 	PlatformCmd.AddCommand(fulfillment.PublicRedeemCodeCmd)
 	PlatformCmd.AddCommand(iap.PublicFulfillAppleIAPItemCmd)
 	PlatformCmd.AddCommand(iap.SyncEpicGamesInventoryCmd)

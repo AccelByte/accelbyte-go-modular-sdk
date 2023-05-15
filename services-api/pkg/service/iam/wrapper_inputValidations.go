@@ -17,7 +17,7 @@ import (
 )
 
 // InputValidationsService this is use for compatibility with latest modular sdk only
-// Deprecated: please use InputValidationsService imported from "github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg"
+// Deprecated: 2023-03-30 - please use InputValidationsService imported from "github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg"
 type InputValidationsService struct {
 	Client                 *iamclient.JusticeIamService
 	ConfigRepository       repository.ConfigRepository
@@ -41,7 +41,7 @@ func (aaa *InputValidationsService) GetAuthSession() auth.Session {
 	}
 }
 
-// deprecated(2022-01-10): please use AdminGetInputValidationsShort instead.
+// Deprecated: 2022-01-10 - Please use AdminGetInputValidationsShort instead.
 func (aaa *InputValidationsService) AdminGetInputValidations(input *input_validations.AdminGetInputValidationsParams) (*iamclientmodels.ModelInputValidationsResponse, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -61,7 +61,7 @@ func (aaa *InputValidationsService) AdminGetInputValidations(input *input_valida
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use AdminUpdateInputValidationsShort instead.
+// Deprecated: 2022-01-10 - Please use AdminUpdateInputValidationsShort instead.
 func (aaa *InputValidationsService) AdminUpdateInputValidations(input *input_validations.AdminUpdateInputValidationsParams) error {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -84,7 +84,7 @@ func (aaa *InputValidationsService) AdminUpdateInputValidations(input *input_val
 	return nil
 }
 
-// deprecated(2022-01-10): please use AdminResetInputValidationsShort instead.
+// Deprecated: 2022-01-10 - Please use AdminResetInputValidationsShort instead.
 func (aaa *InputValidationsService) AdminResetInputValidations(input *input_validations.AdminResetInputValidationsParams) error {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -107,7 +107,7 @@ func (aaa *InputValidationsService) AdminResetInputValidations(input *input_vali
 	return nil
 }
 
-// deprecated(2022-01-10): please use PublicGetInputValidationsShort instead.
+// Deprecated: 2022-01-10 - Please use PublicGetInputValidationsShort instead.
 func (aaa *InputValidationsService) PublicGetInputValidations(input *input_validations.PublicGetInputValidationsParams) (*iamclientmodels.ModelInputValidationsPublicResponse, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {

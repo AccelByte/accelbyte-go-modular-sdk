@@ -17,7 +17,7 @@ import (
 )
 
 // EQU8ConfigService this is use for compatibility with latest modular sdk only
-// Deprecated: please use EQU8ConfigService imported from "github.com/AccelByte/accelbyte-go-modular-sdk/basic-sdk/pkg"
+// Deprecated: 2023-03-30 - please use EQU8ConfigService imported from "github.com/AccelByte/accelbyte-go-modular-sdk/basic-sdk/pkg"
 type EQU8ConfigService struct {
 	Client                 *basicclient.JusticeBasicService
 	ConfigRepository       repository.ConfigRepository
@@ -41,7 +41,7 @@ func (aaa *EQU8ConfigService) GetAuthSession() auth.Session {
 	}
 }
 
-// deprecated(2022-01-10): please use GetConfigShort instead.
+// Deprecated: 2022-01-10 - Please use GetConfigShort instead.
 func (aaa *EQU8ConfigService) GetConfig(input *equ8_config.GetConfigParams) (*basicclientmodels.EQU8Config, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -61,7 +61,7 @@ func (aaa *EQU8ConfigService) GetConfig(input *equ8_config.GetConfigParams) (*ba
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use DeleteConfigShort instead.
+// Deprecated: 2022-01-10 - Please use DeleteConfigShort instead.
 func (aaa *EQU8ConfigService) DeleteConfig(input *equ8_config.DeleteConfigParams) error {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -75,7 +75,7 @@ func (aaa *EQU8ConfigService) DeleteConfig(input *equ8_config.DeleteConfigParams
 	return nil
 }
 
-// deprecated(2022-01-10): please use UpdateConfigShort instead.
+// Deprecated: 2022-01-10 - Please use UpdateConfigShort instead.
 func (aaa *EQU8ConfigService) UpdateConfig(input *equ8_config.UpdateConfigParams) (*basicclientmodels.EQU8Config, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {

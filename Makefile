@@ -12,7 +12,7 @@ lint:
 	rm -f lint.err
 	find -type f -iname go.mod -not -path "*/.justice-codegen-sdk/*" -not -path "*/.cache/*" -exec dirname {} \; | while read DIRECTORY; do \
 		echo "# $$DIRECTORY"; \
-		docker run -t --rm -u $$(id -u):$$(id -g) -v $$(pwd):/data/ -w /data/ -e GOCACHE=/data/.cache/go-build -e GOPATH=/data/.cache -e GOLANGCI_LINT_CACHE=/data/.cache/go-lint golangci/golangci-lint:v1.42.1\
+		docker run -t --rm -u $$(id -u):$$(id -g) -v $$(pwd):/data/ -w /data/ -e GOCACHE=/data/.cache/go-build -e GOLANGCI_LINT_CACHE=/data/.cache/go-lint golangci/golangci-lint:v1.42.1\
 				sh -c "cd $$DIRECTORY && golangci-lint -v --timeout 5m --max-same-issues 0 --max-issues-per-linter 0 --color never run || (touch /data/lint.err && echo Lint Issue: $$DIRECTORY)"; \
 	done
 	[ ! -f lint.err ] || (rm lint.err && exit 1)
@@ -32,8 +32,8 @@ samples:
 	rm -f samples.err
 	find ./samples -type f -name main.go -exec dirname {} \; | while read DIRECTORY; do \
 		echo "# $$DIRECTORY"; \
-		docker run -t --rm -u $$(id -u):$$(id -g) -v $$(pwd):/data/ -w /data/ -e GOCACHE=/data/.cache/go-build -e GOPATH=/data/.cache $(GOLANG_DOCKER_IMAGE) \
-				sh -c "cd '$$DIRECTORY' && go build" || touch samples.err; \
+		docker run -t --rm -u $$(id -u):$$(id -g) -v $$(pwd):/data/ -w /data/ -e GOCACHE=/data/.cache/go-build $(GOLANG_DOCKER_IMAGE) \
+				sh -c "cd '$$DIRECTORY' && go build -tags all" || touch samples.err; \
 	done
 	[ ! -f samples.err ]
 
@@ -45,27 +45,27 @@ test_core:
 	(bash "$(SDK_MOCK_SERVER_PATH)/mock-server.sh" -s /data/spec &) && \
 	(for i in $$(seq 1 10); do bash -c "timeout 1 echo > /dev/tcp/127.0.0.1/8080" 2>/dev/null && exit 0 || sleep 10; done; exit 1) && \
 	docker run -t --rm -u $$(id -u):$$(id -g) -v $$(pwd):/data/ -w /data/ --network host \
-		-e AB_HTTPBIN_URL=http://localhost -e GOCACHE=/data/.cache/go-build -e GOPATH=/data/.cache $(GOLANG_DOCKER_IMAGE) \
+		-e AB_HTTPBIN_URL=http://localhost -e GOCACHE=/data/.cache/go-build $(GOLANG_DOCKER_IMAGE) \
 		sh -c "cd services-api && go test -v -race \
-			github.com/AccelByte/accelbyte-go-sdk/services-api/pkg/utils/... \
-            github.com/AccelByte/accelbyte-go-sdk/services-api/pkg/repository/..." && \
+			github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils/... \
+            github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository/..." && \
 	docker run -t --rm -u $$(id -u):$$(id -g) -v $$(pwd):/data/ -w /data/ --network host \
-		-e AB_HTTPBIN_URL=http://localhost -e GOCACHE=/data/.cache/go-build -e GOPATH=/data/.cache $(GOLANG_DOCKER_IMAGE) \
-		sh -c "cd iam-sdk && go test -v -race github.com/AccelByte/accelbyte-go-sdk/iam-sdk/pkg" && \
+		-e AB_HTTPBIN_URL=http://localhost -e GOCACHE=/data/.cache/go-build $(GOLANG_DOCKER_IMAGE) \
+		sh -c "cd iam-sdk && go test -v -race github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg" && \
 	docker run -t --rm -u $$(id -u):$$(id -g) -v $$(pwd):/data/ -w /data/ --network host \
-		-e AB_HTTPBIN_URL=http://localhost -e GOCACHE=/data/.cache/go-build -e GOPATH=/data/.cache $(GOLANG_DOCKER_IMAGE) \
+		-e AB_HTTPBIN_URL=http://localhost -e GOCACHE=/data/.cache/go-build $(GOLANG_DOCKER_IMAGE) \
 		sh -c "cd services-api/pkg/tests && go test -v -race \
-			github.com/AccelByte/accelbyte-go-sdk/services-api/pkg/tests/sdk"
+			github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/tests/sdk"
 
 test_integration:
 	@test -n "$(ENV_FILE_PATH)" || (echo "ENV_FILE_PATH is not set" ; exit 1)
-	docker run -t --rm -u $$(id -u):$$(id -g) --env-file $(ENV_FILE_PATH) -v $$(pwd):/data/ -w /data/ -e GOCACHE=/data/.cache/go-build -e GOPATH=/data/.cache $(GOLANG_DOCKER_IMAGE) \
-			sh -c "cd services-api/pkg/tests && go test -v github.com/AccelByte/accelbyte-go-sdk/services-api/pkg/tests/integration"
+	docker run -t --rm -u $$(id -u):$$(id -g) --env-file $(ENV_FILE_PATH) -v $$(pwd):/data/ -w /data/ -e GOCACHE=/data/.cache/go-build $(GOLANG_DOCKER_IMAGE) \
+			sh -c "cd services-api/pkg/tests && go test -tags all -v github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/tests/integration"
 
 test_cli:
 	@test -n "$(SDK_MOCK_SERVER_PATH)" || (echo "SDK_MOCK_SERVER_PATH is not set" ; exit 1)
 	rm -f test.err
-	docker run -t --rm -u $$(id -u):$$(id -g) -v $$(pwd):/data/ -w /data/ -e GOCACHE=/data/.cache/go-build -e GOPATH=/data/.cache $(GOLANG_DOCKER_IMAGE) \
+	docker run -t --rm -u $$(id -u):$$(id -g) -v $$(pwd):/data/ -w /data/ -e GOCACHE=/data/.cache/go-build $(GOLANG_DOCKER_IMAGE) \
 			sh -c "cd samples/cli && go build"
 	sed -i "s/\r//" "$(SDK_MOCK_SERVER_PATH)/mock-server.sh" && \
 			trap "docker stop justice-codegen-sdk-mock-server" EXIT && \
@@ -97,5 +97,5 @@ version:
 		VERSION_NEW=$$(awk -v part=$$VERSION_PART -F. "{OFS=\".\"; \$$part+=1; print \$$0}" $(SERVICE)-sdk/pkg/version.txt) && \
 		echo $${VERSION_NEW} > $(SERVICE)-sdk/pkg/version.txt && \
 		if [ $(SERVICE) = "iam" ]; then echo $${VERSION_NEW} > services-api/pkg/service/iam/version.txt; fi && \
-		sed -i "s/github.com\/abdularis\/accelbyte-go-sdk\/$(SERVICE)-sdk v[0-9]\+\.[0-9]\+\.[0-9]\+/github.com\/abdularis\/accelbyte-go-sdk\/$(SERVICE)-sdk v$$VERSION_NEW/" services-api/pkg/service/$(SERVICE)/go.mod && \
-		sed -i "s/github.com\/abdularis\/accelbyte-go-sdk\/services-api\/pkg\/service\/$(SERVICE) v[0-9]\+\.[0-9]\+\.[0-9]\+/github.com\/abdularis\/accelbyte-go-sdk\/services-api\/pkg\/service\/$(SERVICE) v$$VERSION_NEW/" $(SERVICE)-sdk/go.mod
+		sed -i "s/github.com\/abdularis\/accelbyte-go-modular-sdk\/$(SERVICE)-sdk v[0-9]\+\.[0-9]\+\.[0-9]\+/github.com\/abdularis\/accelbyte-go-modular-sdk\/$(SERVICE)-sdk v$$VERSION_NEW/" services-api/pkg/service/$(SERVICE)/go.mod && \
+		sed -i "s/github.com\/abdularis\/accelbyte-go-modular-sdk\/services-api\/pkg\/service\/$(SERVICE) v[0-9]\+\.[0-9]\+\.[0-9]\+/github.com\/abdularis\/accelbyte-go-modular-sdk\/services-api\/pkg\/service\/$(SERVICE) v$$VERSION_NEW/" $(SERVICE)-sdk/go.mod

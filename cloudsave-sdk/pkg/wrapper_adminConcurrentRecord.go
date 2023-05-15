@@ -15,6 +15,8 @@ import (
 	"github.com/go-openapi/runtime/client"
 )
 
+// AdminConcurrentRecordService this is use for compatibility with latest modular sdk only
+// Deprecated: 2023-03-30 - please use AdminConcurrentRecordService imported from "github.com/AccelByte/accelbyte-go-modular-sdk/cloudsave-sdk/pkg"
 type AdminConcurrentRecordService struct {
 	Client                 *cloudsaveclient.JusticeCloudsaveService
 	ConfigRepository       repository.ConfigRepository
@@ -38,7 +40,7 @@ func (aaa *AdminConcurrentRecordService) GetAuthSession() auth.Session {
 	}
 }
 
-// deprecated(2022-01-10): please use AdminPutGameRecordConcurrentHandlerV1Short instead.
+// Deprecated: 2022-01-10 - Please use AdminPutGameRecordConcurrentHandlerV1Short instead.
 func (aaa *AdminConcurrentRecordService) AdminPutGameRecordConcurrentHandlerV1(input *admin_concurrent_record.AdminPutGameRecordConcurrentHandlerV1Params) error {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -64,7 +66,7 @@ func (aaa *AdminConcurrentRecordService) AdminPutGameRecordConcurrentHandlerV1(i
 	return nil
 }
 
-// deprecated(2022-01-10): please use AdminPutPlayerRecordConcurrentHandlerV1Short instead.
+// Deprecated: 2022-01-10 - Please use AdminPutPlayerRecordConcurrentHandlerV1Short instead.
 func (aaa *AdminConcurrentRecordService) AdminPutPlayerRecordConcurrentHandlerV1(input *admin_concurrent_record.AdminPutPlayerRecordConcurrentHandlerV1Params) error {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -90,7 +92,7 @@ func (aaa *AdminConcurrentRecordService) AdminPutPlayerRecordConcurrentHandlerV1
 	return nil
 }
 
-// deprecated(2022-01-10): please use AdminPutPlayerPublicRecordConcurrentHandlerV1Short instead.
+// Deprecated: 2022-01-10 - Please use AdminPutPlayerPublicRecordConcurrentHandlerV1Short instead.
 func (aaa *AdminConcurrentRecordService) AdminPutPlayerPublicRecordConcurrentHandlerV1(input *admin_concurrent_record.AdminPutPlayerPublicRecordConcurrentHandlerV1Params) error {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {

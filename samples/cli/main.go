@@ -151,7 +151,7 @@ func main() {
 	}
 }
 
-// messageHandler is callback function how to handle incoming ws message
+//messageHandler is callback function how to handle incoming ws message
 var messageHandler = func(dataByte []byte) {
 	message, err := parser.UnmarshalResponse(dataByte)
 	if err != nil {

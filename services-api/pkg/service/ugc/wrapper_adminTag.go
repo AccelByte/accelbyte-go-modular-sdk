@@ -17,7 +17,7 @@ import (
 )
 
 // AdminTagService this is use for compatibility with latest modular sdk only
-// Deprecated: please use AdminTagService imported from "github.com/AccelByte/accelbyte-go-modular-sdk/ugc-sdk/pkg"
+// Deprecated: 2023-03-30 - please use AdminTagService imported from "github.com/AccelByte/accelbyte-go-modular-sdk/ugc-sdk/pkg"
 type AdminTagService struct {
 	Client                 *ugcclient.JusticeUgcService
 	ConfigRepository       repository.ConfigRepository
@@ -41,7 +41,7 @@ func (aaa *AdminTagService) GetAuthSession() auth.Session {
 	}
 }
 
-// deprecated(2022-01-10): please use AdminGetTagShort instead.
+// Deprecated: 2022-01-10 - Please use AdminGetTagShort instead.
 func (aaa *AdminTagService) AdminGetTag(input *admin_tag.AdminGetTagParams) (*ugcclientmodels.ModelsPaginatedGetTagResponse, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -64,7 +64,7 @@ func (aaa *AdminTagService) AdminGetTag(input *admin_tag.AdminGetTagParams) (*ug
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use AdminCreateTagShort instead.
+// Deprecated: 2022-01-10 - Please use AdminCreateTagShort instead.
 func (aaa *AdminTagService) AdminCreateTag(input *admin_tag.AdminCreateTagParams) (*ugcclientmodels.ModelsCreateTagResponse, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -90,7 +90,7 @@ func (aaa *AdminTagService) AdminCreateTag(input *admin_tag.AdminCreateTagParams
 	return created.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use AdminUpdateTagShort instead.
+// Deprecated: 2022-01-10 - Please use AdminUpdateTagShort instead.
 func (aaa *AdminTagService) AdminUpdateTag(input *admin_tag.AdminUpdateTagParams) (*ugcclientmodels.ModelsCreateTagResponse, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -119,7 +119,7 @@ func (aaa *AdminTagService) AdminUpdateTag(input *admin_tag.AdminUpdateTagParams
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use AdminDeleteTagShort instead.
+// Deprecated: 2022-01-10 - Please use AdminDeleteTagShort instead.
 func (aaa *AdminTagService) AdminDeleteTag(input *admin_tag.AdminDeleteTagParams) error {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {

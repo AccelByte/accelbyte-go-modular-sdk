@@ -16,6 +16,8 @@ import (
 	"github.com/go-openapi/runtime/client"
 )
 
+// OrderDedicatedService this is use for compatibility with latest modular sdk only
+// Deprecated: 2023-03-30 - please use OrderDedicatedService imported from "github.com/AccelByte/accelbyte-go-modular-sdk/platform-sdk/pkg"
 type OrderDedicatedService struct {
 	Client                 *platformclient.JusticePlatformService
 	ConfigRepository       repository.ConfigRepository
@@ -39,7 +41,7 @@ func (aaa *OrderDedicatedService) GetAuthSession() auth.Session {
 	}
 }
 
-// deprecated(2022-01-10): please use SyncOrdersShort instead.
+// Deprecated: 2022-01-10 - Please use SyncOrdersShort instead.
 func (aaa *OrderDedicatedService) SyncOrders(input *order_dedicated.SyncOrdersParams) (*platformclientmodels.OrderSyncResult, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {

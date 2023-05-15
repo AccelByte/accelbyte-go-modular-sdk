@@ -19,7 +19,7 @@ import (
 var lobbyClientInstance *lobbyclient.JusticeLobbyService
 
 // NewLobbyClient
-// Deprecated: please use NewLobbyClient from "github.com/AccelByte/accelbyte-go-modular-sdk/Lobby-sdk/pkg"
+// Deprecated: 2023-03-30 - please use NewLobbyClient from "github.com/AccelByte/accelbyte-go-modular-sdk/Lobby-sdk/pkg"
 func NewLobbyClient(configRepository repository.ConfigRepository) *lobbyclient.JusticeLobbyService {
 	if lobbyClientInstance == nil {
 		baseURL := configRepository.GetJusticeBaseUrl()

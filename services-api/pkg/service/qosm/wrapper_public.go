@@ -17,7 +17,7 @@ import (
 )
 
 // PublicService this is use for compatibility with latest modular sdk only
-// Deprecated: please use PublicService imported from "github.com/AccelByte/accelbyte-go-modular-sdk/qosm-sdk/pkg"
+// Deprecated: 2023-03-30 - please use PublicService imported from "github.com/AccelByte/accelbyte-go-modular-sdk/qosm-sdk/pkg"
 type PublicService struct {
 	Client                 *qosmclient.JusticeQosmService
 	ConfigRepository       repository.ConfigRepository
@@ -41,7 +41,7 @@ func (aaa *PublicService) GetAuthSession() auth.Session {
 	}
 }
 
-// deprecated(2022-01-10): please use ListServerPerNamespaceShort instead.
+// Deprecated: 2022-01-10 - Please use ListServerPerNamespaceShort instead.
 func (aaa *PublicService) ListServerPerNamespace(input *public.ListServerPerNamespaceParams) (*qosmclientmodels.ModelsListServerResponse, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -58,7 +58,7 @@ func (aaa *PublicService) ListServerPerNamespace(input *public.ListServerPerName
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use ListServerShort instead.
+// Deprecated: 2022-01-10 - Please use ListServerShort instead.
 func (aaa *PublicService) ListServer(input *public.ListServerParams) (*qosmclientmodels.ModelsListServerResponse, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {

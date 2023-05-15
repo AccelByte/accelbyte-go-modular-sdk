@@ -17,7 +17,7 @@ import (
 )
 
 // UserDataService this is use for compatibility with latest modular sdk only
-// Deprecated: please use UserDataService imported from "github.com/AccelByte/accelbyte-go-modular-sdk/leaderboard-sdk/pkg"
+// Deprecated: 2023-03-30 - please use UserDataService imported from "github.com/AccelByte/accelbyte-go-modular-sdk/leaderboard-sdk/pkg"
 type UserDataService struct {
 	Client                 *leaderboardclient.JusticeLeaderboardService
 	ConfigRepository       repository.ConfigRepository
@@ -41,7 +41,7 @@ func (aaa *UserDataService) GetAuthSession() auth.Session {
 	}
 }
 
-// deprecated(2022-01-10): please use GetUserLeaderboardRankingsAdminV1Short instead.
+// Deprecated: 2022-01-10 - Please use GetUserLeaderboardRankingsAdminV1Short instead.
 func (aaa *UserDataService) GetUserLeaderboardRankingsAdminV1(input *user_data.GetUserLeaderboardRankingsAdminV1Params) (*leaderboardclientmodels.ModelsGetAllUserLeaderboardsResp, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {

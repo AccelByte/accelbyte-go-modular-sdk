@@ -17,7 +17,7 @@ import (
 )
 
 // ServerService this is use for compatibility with latest modular sdk only
-// Deprecated: please use ServerService imported from "github.com/AccelByte/accelbyte-go-modular-sdk/dsmc-sdk/pkg"
+// Deprecated: 2023-03-30 - please use ServerService imported from "github.com/AccelByte/accelbyte-go-modular-sdk/dsmc-sdk/pkg"
 type ServerService struct {
 	Client                 *dsmcclient.JusticeDsmcService
 	ConfigRepository       repository.ConfigRepository
@@ -41,7 +41,7 @@ func (aaa *ServerService) GetAuthSession() auth.Session {
 	}
 }
 
-// deprecated(2022-01-10): please use DeregisterLocalServerShort instead.
+// Deprecated: 2022-01-10 - Please use DeregisterLocalServerShort instead.
 func (aaa *ServerService) DeregisterLocalServer(input *server.DeregisterLocalServerParams) error {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -64,7 +64,7 @@ func (aaa *ServerService) DeregisterLocalServer(input *server.DeregisterLocalSer
 	return nil
 }
 
-// deprecated(2022-01-10): please use RegisterLocalServerShort instead.
+// Deprecated: 2022-01-10 - Please use RegisterLocalServerShort instead.
 func (aaa *ServerService) RegisterLocalServer(input *server.RegisterLocalServerParams) (*dsmcclientmodels.ModelsServer, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -90,7 +90,7 @@ func (aaa *ServerService) RegisterLocalServer(input *server.RegisterLocalServerP
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use RegisterServerShort instead.
+// Deprecated: 2022-01-10 - Please use RegisterServerShort instead.
 func (aaa *ServerService) RegisterServer(input *server.RegisterServerParams) (*dsmcclientmodels.ModelsServer, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -116,7 +116,7 @@ func (aaa *ServerService) RegisterServer(input *server.RegisterServerParams) (*d
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use ShutdownServerShort instead.
+// Deprecated: 2022-01-10 - Please use ShutdownServerShort instead.
 func (aaa *ServerService) ShutdownServer(input *server.ShutdownServerParams) error {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -142,7 +142,7 @@ func (aaa *ServerService) ShutdownServer(input *server.ShutdownServerParams) err
 	return nil
 }
 
-// deprecated(2022-01-10): please use GetServerSessionShort instead.
+// Deprecated: 2022-01-10 - Please use GetServerSessionShort instead.
 func (aaa *ServerService) GetServerSession(input *server.GetServerSessionParams) (*dsmcclientmodels.ModelsServerSessionResponse, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {

@@ -16,6 +16,8 @@ import (
 	"github.com/go-openapi/runtime/client"
 )
 
+// AdminService this is use for compatibility with latest modular sdk only
+// Deprecated: 2023-03-30 - please use AdminService imported from "github.com/AccelByte/accelbyte-go-modular-sdk/dsmc-sdk/pkg"
 type AdminService struct {
 	Client                 *dsmcclient.JusticeDsmcService
 	ConfigRepository       repository.ConfigRepository
@@ -39,7 +41,7 @@ func (aaa *AdminService) GetAuthSession() auth.Session {
 	}
 }
 
-// deprecated(2022-01-10): please use ListServerShort instead.
+// Deprecated: 2022-01-10 - Please use ListServerShort instead.
 func (aaa *AdminService) ListServer(input *admin.ListServerParams) (*dsmcclientmodels.ModelsListServerResponse, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -59,7 +61,7 @@ func (aaa *AdminService) ListServer(input *admin.ListServerParams) (*dsmcclientm
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use CountServerShort instead.
+// Deprecated: 2022-01-10 - Please use CountServerShort instead.
 func (aaa *AdminService) CountServer(input *admin.CountServerParams) (*dsmcclientmodels.ModelsCountServerResponse, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -79,7 +81,7 @@ func (aaa *AdminService) CountServer(input *admin.CountServerParams) (*dsmcclien
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use CountServerDetailedShort instead.
+// Deprecated: 2022-01-10 - Please use CountServerDetailedShort instead.
 func (aaa *AdminService) CountServerDetailed(input *admin.CountServerDetailedParams) (*dsmcclientmodels.ModelsDetailedCountServerResponse, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -99,7 +101,7 @@ func (aaa *AdminService) CountServerDetailed(input *admin.CountServerDetailedPar
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use ListLocalServerShort instead.
+// Deprecated: 2022-01-10 - Please use ListLocalServerShort instead.
 func (aaa *AdminService) ListLocalServer(input *admin.ListLocalServerParams) (*dsmcclientmodels.ModelsListServerResponse, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -119,7 +121,7 @@ func (aaa *AdminService) ListLocalServer(input *admin.ListLocalServerParams) (*d
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use DeleteLocalServerShort instead.
+// Deprecated: 2022-01-10 - Please use DeleteLocalServerShort instead.
 func (aaa *AdminService) DeleteLocalServer(input *admin.DeleteLocalServerParams) error {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -139,7 +141,7 @@ func (aaa *AdminService) DeleteLocalServer(input *admin.DeleteLocalServerParams)
 	return nil
 }
 
-// deprecated(2022-01-10): please use GetServerShort instead.
+// Deprecated: 2022-01-10 - Please use GetServerShort instead.
 func (aaa *AdminService) GetServer(input *admin.GetServerParams) (*dsmcclientmodels.ModelsServer, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -162,7 +164,7 @@ func (aaa *AdminService) GetServer(input *admin.GetServerParams) (*dsmcclientmod
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use DeleteServerShort instead.
+// Deprecated: 2022-01-10 - Please use DeleteServerShort instead.
 func (aaa *AdminService) DeleteServer(input *admin.DeleteServerParams) error {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -185,7 +187,7 @@ func (aaa *AdminService) DeleteServer(input *admin.DeleteServerParams) error {
 	return nil
 }
 
-// deprecated(2022-01-10): please use ListSessionShort instead.
+// Deprecated: 2022-01-10 - Please use ListSessionShort instead.
 func (aaa *AdminService) ListSession(input *admin.ListSessionParams) (*dsmcclientmodels.ModelsListSessionResponse, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -205,7 +207,7 @@ func (aaa *AdminService) ListSession(input *admin.ListSessionParams) (*dsmcclien
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use CountSessionShort instead.
+// Deprecated: 2022-01-10 - Please use CountSessionShort instead.
 func (aaa *AdminService) CountSession(input *admin.CountSessionParams) (*dsmcclientmodels.ModelsCountSessionResponse, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -225,7 +227,7 @@ func (aaa *AdminService) CountSession(input *admin.CountSessionParams) (*dsmccli
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use DeleteSessionShort instead.
+// Deprecated: 2022-01-10 - Please use DeleteSessionShort instead.
 func (aaa *AdminService) DeleteSession(input *admin.DeleteSessionParams) error {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {

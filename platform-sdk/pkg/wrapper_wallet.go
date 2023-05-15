@@ -16,6 +16,8 @@ import (
 	"github.com/go-openapi/runtime/client"
 )
 
+// WalletService this is use for compatibility with latest modular sdk only
+// Deprecated: 2023-03-30 - please use WalletService imported from "github.com/AccelByte/accelbyte-go-modular-sdk/platform-sdk/pkg"
 type WalletService struct {
 	Client                 *platformclient.JusticePlatformService
 	ConfigRepository       repository.ConfigRepository
@@ -39,7 +41,7 @@ func (aaa *WalletService) GetAuthSession() auth.Session {
 	}
 }
 
-// deprecated(2022-01-10): please use GetPlatformWalletConfigShort instead.
+// Deprecated: 2022-01-10 - Please use GetPlatformWalletConfigShort instead.
 func (aaa *WalletService) GetPlatformWalletConfig(input *wallet.GetPlatformWalletConfigParams) (*platformclientmodels.PlatformWalletConfigInfo, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -53,7 +55,7 @@ func (aaa *WalletService) GetPlatformWalletConfig(input *wallet.GetPlatformWalle
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use UpdatePlatformWalletConfigShort instead.
+// Deprecated: 2022-01-10 - Please use UpdatePlatformWalletConfigShort instead.
 func (aaa *WalletService) UpdatePlatformWalletConfig(input *wallet.UpdatePlatformWalletConfigParams) (*platformclientmodels.PlatformWalletConfigInfo, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -67,7 +69,7 @@ func (aaa *WalletService) UpdatePlatformWalletConfig(input *wallet.UpdatePlatfor
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use ResetPlatformWalletConfigShort instead.
+// Deprecated: 2022-01-10 - Please use ResetPlatformWalletConfigShort instead.
 func (aaa *WalletService) ResetPlatformWalletConfig(input *wallet.ResetPlatformWalletConfigParams) (*platformclientmodels.PlatformWalletConfigInfo, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -81,7 +83,7 @@ func (aaa *WalletService) ResetPlatformWalletConfig(input *wallet.ResetPlatformW
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use QueryUserCurrencyWalletsShort instead.
+// Deprecated: 2022-01-10 - Please use QueryUserCurrencyWalletsShort instead.
 func (aaa *WalletService) QueryUserCurrencyWallets(input *wallet.QueryUserCurrencyWalletsParams) ([]*platformclientmodels.CurrencyWallet, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -95,7 +97,7 @@ func (aaa *WalletService) QueryUserCurrencyWallets(input *wallet.QueryUserCurren
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use DebitUserWalletByCurrencyCodeShort instead.
+// Deprecated: 2022-01-10 - Please use DebitUserWalletByCurrencyCodeShort instead.
 func (aaa *WalletService) DebitUserWalletByCurrencyCode(input *wallet.DebitUserWalletByCurrencyCodeParams) (*platformclientmodels.WalletInfo, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -118,7 +120,7 @@ func (aaa *WalletService) DebitUserWalletByCurrencyCode(input *wallet.DebitUserW
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use ListUserCurrencyTransactionsShort instead.
+// Deprecated: 2022-01-10 - Please use ListUserCurrencyTransactionsShort instead.
 func (aaa *WalletService) ListUserCurrencyTransactions(input *wallet.ListUserCurrencyTransactionsParams) (*platformclientmodels.WalletTransactionPagingSlicedResult, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -135,7 +137,7 @@ func (aaa *WalletService) ListUserCurrencyTransactions(input *wallet.ListUserCur
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use CheckWalletShort instead.
+// Deprecated: 2022-01-10 - Please use CheckWalletShort instead.
 func (aaa *WalletService) CheckWallet(input *wallet.CheckWalletParams) error {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -158,7 +160,7 @@ func (aaa *WalletService) CheckWallet(input *wallet.CheckWalletParams) error {
 	return nil
 }
 
-// deprecated(2022-01-10): please use CreditUserWalletShort instead.
+// Deprecated: 2022-01-10 - Please use CreditUserWalletShort instead.
 func (aaa *WalletService) CreditUserWallet(input *wallet.CreditUserWalletParams) (*platformclientmodels.WalletInfo, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -178,7 +180,7 @@ func (aaa *WalletService) CreditUserWallet(input *wallet.CreditUserWalletParams)
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use PayWithUserWalletShort instead.
+// Deprecated: 2022-01-10 - Please use PayWithUserWalletShort instead.
 func (aaa *WalletService) PayWithUserWallet(input *wallet.PayWithUserWalletParams) (*platformclientmodels.PlatformWallet, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -198,7 +200,7 @@ func (aaa *WalletService) PayWithUserWallet(input *wallet.PayWithUserWalletParam
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use GetUserWalletShort instead.
+// Deprecated: 2022-01-10 - Please use GetUserWalletShort instead.
 func (aaa *WalletService) GetUserWallet(input *wallet.GetUserWalletParams) (*platformclientmodels.WalletInfo, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -215,7 +217,7 @@ func (aaa *WalletService) GetUserWallet(input *wallet.GetUserWalletParams) (*pla
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use DebitUserWalletShort instead.
+// Deprecated: 2022-01-10 - Please use DebitUserWalletShort instead.
 func (aaa *WalletService) DebitUserWallet(input *wallet.DebitUserWalletParams) (*platformclientmodels.WalletInfo, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -241,7 +243,7 @@ func (aaa *WalletService) DebitUserWallet(input *wallet.DebitUserWalletParams) (
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use DisableUserWalletShort instead.
+// Deprecated: 2022-01-10 - Please use DisableUserWalletShort instead.
 func (aaa *WalletService) DisableUserWallet(input *wallet.DisableUserWalletParams) error {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -261,7 +263,7 @@ func (aaa *WalletService) DisableUserWallet(input *wallet.DisableUserWalletParam
 	return nil
 }
 
-// deprecated(2022-01-10): please use EnableUserWalletShort instead.
+// Deprecated: 2022-01-10 - Please use EnableUserWalletShort instead.
 func (aaa *WalletService) EnableUserWallet(input *wallet.EnableUserWalletParams) error {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -281,7 +283,7 @@ func (aaa *WalletService) EnableUserWallet(input *wallet.EnableUserWalletParams)
 	return nil
 }
 
-// deprecated(2022-01-10): please use ListUserWalletTransactionsShort instead.
+// Deprecated: 2022-01-10 - Please use ListUserWalletTransactionsShort instead.
 func (aaa *WalletService) ListUserWalletTransactions(input *wallet.ListUserWalletTransactionsParams) (*platformclientmodels.DetailedWalletTransactionPagingSlicedResult, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -298,7 +300,7 @@ func (aaa *WalletService) ListUserWalletTransactions(input *wallet.ListUserWalle
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use QueryWalletsShort instead.
+// Deprecated: 2022-01-10 - Please use QueryWalletsShort instead.
 func (aaa *WalletService) QueryWallets(input *wallet.QueryWalletsParams) (*platformclientmodels.WalletPagingSlicedResult, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -312,7 +314,41 @@ func (aaa *WalletService) QueryWallets(input *wallet.QueryWalletsParams) (*platf
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use GetWalletShort instead.
+// Deprecated: 2022-01-10 - Please use BulkCreditShort instead.
+func (aaa *WalletService) BulkCredit(input *wallet.BulkCreditParams) (*platformclientmodels.BulkCreditResult, error) {
+	token, err := aaa.TokenRepository.GetToken()
+	if err != nil {
+		return nil, err
+	}
+	ok, unprocessableEntity, err := aaa.Client.Wallet.BulkCredit(input, client.BearerToken(*token.AccessToken))
+	if unprocessableEntity != nil {
+		return nil, unprocessableEntity
+	}
+	if err != nil {
+		return nil, err
+	}
+
+	return ok.GetPayload(), nil
+}
+
+// Deprecated: 2022-01-10 - Please use BulkDebitShort instead.
+func (aaa *WalletService) BulkDebit(input *wallet.BulkDebitParams) (*platformclientmodels.BulkDebitResult, error) {
+	token, err := aaa.TokenRepository.GetToken()
+	if err != nil {
+		return nil, err
+	}
+	ok, unprocessableEntity, err := aaa.Client.Wallet.BulkDebit(input, client.BearerToken(*token.AccessToken))
+	if unprocessableEntity != nil {
+		return nil, unprocessableEntity
+	}
+	if err != nil {
+		return nil, err
+	}
+
+	return ok.GetPayload(), nil
+}
+
+// Deprecated: 2022-01-10 - Please use GetWalletShort instead.
 func (aaa *WalletService) GetWallet(input *wallet.GetWalletParams) (*platformclientmodels.WalletInfo, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -329,7 +365,7 @@ func (aaa *WalletService) GetWallet(input *wallet.GetWalletParams) (*platformcli
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use PublicGetMyWalletShort instead.
+// Deprecated: 2022-01-10 - Please use PublicGetMyWalletShort instead.
 func (aaa *WalletService) PublicGetMyWallet(input *wallet.PublicGetMyWalletParams) (*platformclientmodels.PlatformWallet, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -343,7 +379,7 @@ func (aaa *WalletService) PublicGetMyWallet(input *wallet.PublicGetMyWalletParam
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use PublicGetWalletShort instead.
+// Deprecated: 2022-01-10 - Please use PublicGetWalletShort instead.
 func (aaa *WalletService) PublicGetWallet(input *wallet.PublicGetWalletParams) (*platformclientmodels.PlatformWallet, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -357,7 +393,7 @@ func (aaa *WalletService) PublicGetWallet(input *wallet.PublicGetWalletParams) (
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use PublicListUserWalletTransactionsShort instead.
+// Deprecated: 2022-01-10 - Please use PublicListUserWalletTransactionsShort instead.
 func (aaa *WalletService) PublicListUserWalletTransactions(input *wallet.PublicListUserWalletTransactionsParams) (*platformclientmodels.WalletTransactionPagingSlicedResult, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -739,6 +775,56 @@ func (aaa *WalletService) QueryWalletsShort(input *wallet.QueryWalletsParams) (*
 	}
 
 	ok, err := aaa.Client.Wallet.QueryWalletsShort(input, authInfoWriter)
+	if err != nil {
+		return nil, err
+	}
+
+	return ok.GetPayload(), nil
+}
+
+func (aaa *WalletService) BulkCreditShort(input *wallet.BulkCreditParams) (*platformclientmodels.BulkCreditResult, error) {
+	authInfoWriter := input.AuthInfoWriter
+	if authInfoWriter == nil {
+		security := [][]string{
+			{"bearer"},
+		}
+		authInfoWriter = auth.AuthInfoWriter(aaa.GetAuthSession(), security, "")
+	}
+	if input.RetryPolicy == nil {
+		input.RetryPolicy = &utils.Retry{
+			MaxTries:   utils.MaxTries,
+			Backoff:    utils.NewConstantBackoff(0),
+			Transport:  aaa.Client.Runtime.Transport,
+			RetryCodes: utils.RetryCodes,
+		}
+	}
+
+	ok, err := aaa.Client.Wallet.BulkCreditShort(input, authInfoWriter)
+	if err != nil {
+		return nil, err
+	}
+
+	return ok.GetPayload(), nil
+}
+
+func (aaa *WalletService) BulkDebitShort(input *wallet.BulkDebitParams) (*platformclientmodels.BulkDebitResult, error) {
+	authInfoWriter := input.AuthInfoWriter
+	if authInfoWriter == nil {
+		security := [][]string{
+			{"bearer"},
+		}
+		authInfoWriter = auth.AuthInfoWriter(aaa.GetAuthSession(), security, "")
+	}
+	if input.RetryPolicy == nil {
+		input.RetryPolicy = &utils.Retry{
+			MaxTries:   utils.MaxTries,
+			Backoff:    utils.NewConstantBackoff(0),
+			Transport:  aaa.Client.Runtime.Transport,
+			RetryCodes: utils.RetryCodes,
+		}
+	}
+
+	ok, err := aaa.Client.Wallet.BulkDebitShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
 	}

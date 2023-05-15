@@ -16,7 +16,7 @@ import (
 )
 
 // SSOService this is use for compatibility with latest modular sdk only
-// Deprecated: please use SSOService imported from "github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg"
+// Deprecated: 2023-03-30 - please use SSOService imported from "github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg"
 type SSOService struct {
 	Client                 *iamclient.JusticeIamService
 	ConfigRepository       repository.ConfigRepository
@@ -40,7 +40,7 @@ func (aaa *SSOService) GetAuthSession() auth.Session {
 	}
 }
 
-// deprecated(2022-01-10): please use LoginSSOClientShort instead.
+// Deprecated: 2022-01-10 - Please use LoginSSOClientShort instead.
 func (aaa *SSOService) LoginSSOClient(input *sso.LoginSSOClientParams) error {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -54,7 +54,7 @@ func (aaa *SSOService) LoginSSOClient(input *sso.LoginSSOClientParams) error {
 	return nil
 }
 
-// deprecated(2022-01-10): please use LogoutSSOClientShort instead.
+// Deprecated: 2022-01-10 - Please use LogoutSSOClientShort instead.
 func (aaa *SSOService) LogoutSSOClient(input *sso.LogoutSSOClientParams) error {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {

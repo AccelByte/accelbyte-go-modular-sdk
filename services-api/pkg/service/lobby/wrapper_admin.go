@@ -17,7 +17,7 @@ import (
 )
 
 // AdminService this is use for compatibility with latest modular sdk only
-// Deprecated: please use AdminService imported from "github.com/AccelByte/accelbyte-go-modular-sdk/lobby-sdk/pkg"
+// Deprecated: 2023-03-30 - please use AdminService imported from "github.com/AccelByte/accelbyte-go-modular-sdk/lobby-sdk/pkg"
 type AdminService struct {
 	Client                 *lobbyclient.JusticeLobbyService
 	ConfigRepository       repository.ConfigRepository
@@ -41,7 +41,7 @@ func (aaa *AdminService) GetAuthSession() auth.Session {
 	}
 }
 
-// deprecated(2022-01-10): please use FreeFormNotificationShort instead.
+// Deprecated: 2022-01-10 - Please use FreeFormNotificationShort instead.
 func (aaa *AdminService) FreeFormNotification(input *admin.FreeFormNotificationParams) error {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -67,7 +67,7 @@ func (aaa *AdminService) FreeFormNotification(input *admin.FreeFormNotificationP
 	return nil
 }
 
-// deprecated(2022-01-10): please use NotificationWithTemplateShort instead.
+// Deprecated: 2022-01-10 - Please use NotificationWithTemplateShort instead.
 func (aaa *AdminService) NotificationWithTemplate(input *admin.NotificationWithTemplateParams) error {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -93,7 +93,7 @@ func (aaa *AdminService) NotificationWithTemplate(input *admin.NotificationWithT
 	return nil
 }
 
-// deprecated(2022-01-10): please use GetGameTemplateShort instead.
+// Deprecated: 2022-01-10 - Please use GetGameTemplateShort instead.
 func (aaa *AdminService) GetGameTemplate(input *admin.GetGameTemplateParams) ([]*lobbyclientmodels.ModelTemplateResponse, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -119,7 +119,7 @@ func (aaa *AdminService) GetGameTemplate(input *admin.GetGameTemplateParams) ([]
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use CreateTemplateShort instead.
+// Deprecated: 2022-01-10 - Please use CreateTemplateShort instead.
 func (aaa *AdminService) CreateTemplate(input *admin.CreateTemplateParams) error {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -145,7 +145,7 @@ func (aaa *AdminService) CreateTemplate(input *admin.CreateTemplateParams) error
 	return nil
 }
 
-// deprecated(2022-01-10): please use GetSlugTemplateShort instead.
+// Deprecated: 2022-01-10 - Please use GetSlugTemplateShort instead.
 func (aaa *AdminService) GetSlugTemplate(input *admin.GetSlugTemplateParams) (*lobbyclientmodels.ModelTemplateLocalizationResponse, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -171,7 +171,7 @@ func (aaa *AdminService) GetSlugTemplate(input *admin.GetSlugTemplateParams) (*l
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use DeleteTemplateSlugShort instead.
+// Deprecated: 2022-01-10 - Please use DeleteTemplateSlugShort instead.
 func (aaa *AdminService) DeleteTemplateSlug(input *admin.DeleteTemplateSlugParams) error {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -197,7 +197,7 @@ func (aaa *AdminService) DeleteTemplateSlug(input *admin.DeleteTemplateSlugParam
 	return nil
 }
 
-// deprecated(2022-01-10): please use GetLocalizationTemplateShort instead.
+// Deprecated: 2022-01-10 - Please use GetLocalizationTemplateShort instead.
 func (aaa *AdminService) GetLocalizationTemplate(input *admin.GetLocalizationTemplateParams) (*lobbyclientmodels.ModelTemplateLocalization, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -223,7 +223,7 @@ func (aaa *AdminService) GetLocalizationTemplate(input *admin.GetLocalizationTem
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use UpdateLocalizationTemplateShort instead.
+// Deprecated: 2022-01-10 - Please use UpdateLocalizationTemplateShort instead.
 func (aaa *AdminService) UpdateLocalizationTemplate(input *admin.UpdateLocalizationTemplateParams) error {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -249,7 +249,7 @@ func (aaa *AdminService) UpdateLocalizationTemplate(input *admin.UpdateLocalizat
 	return nil
 }
 
-// deprecated(2022-01-10): please use DeleteTemplateLocalizationShort instead.
+// Deprecated: 2022-01-10 - Please use DeleteTemplateLocalizationShort instead.
 func (aaa *AdminService) DeleteTemplateLocalization(input *admin.DeleteTemplateLocalizationParams) error {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -275,7 +275,7 @@ func (aaa *AdminService) DeleteTemplateLocalization(input *admin.DeleteTemplateL
 	return nil
 }
 
-// deprecated(2022-01-10): please use PublishTemplateShort instead.
+// Deprecated: 2022-01-10 - Please use PublishTemplateShort instead.
 func (aaa *AdminService) PublishTemplate(input *admin.PublishTemplateParams) error {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {

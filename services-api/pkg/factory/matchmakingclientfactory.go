@@ -19,7 +19,7 @@ import (
 var matchmakingClientInstance *matchmakingclient.JusticeMatchmakingService
 
 // NewMatchmakingClient
-// Deprecated: please use NewMatchmakingClient from "github.com/AccelByte/accelbyte-go-modular-sdk/Matchmaking-sdk/pkg"
+// Deprecated: 2023-03-30 - please use NewMatchmakingClient from "github.com/AccelByte/accelbyte-go-modular-sdk/Matchmaking-sdk/pkg"
 func NewMatchmakingClient(configRepository repository.ConfigRepository) *matchmakingclient.JusticeMatchmakingService {
 	if matchmakingClientInstance == nil {
 		baseURL := configRepository.GetJusticeBaseUrl()

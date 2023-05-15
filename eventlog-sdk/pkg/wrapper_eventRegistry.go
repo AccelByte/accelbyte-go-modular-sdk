@@ -16,6 +16,8 @@ import (
 	"github.com/go-openapi/runtime/client"
 )
 
+// EventRegistryService this is use for compatibility with latest modular sdk only
+// Deprecated: 2023-03-30 - please use EventRegistryService imported from "github.com/AccelByte/accelbyte-go-modular-sdk/eventlog-sdk/pkg"
 type EventRegistryService struct {
 	Client                 *eventlogclient.JusticeEventlogService
 	ConfigRepository       repository.ConfigRepository
@@ -39,7 +41,7 @@ func (aaa *EventRegistryService) GetAuthSession() auth.Session {
 	}
 }
 
-// deprecated(2022-01-10): please use GetRegisteredEventsHandlerShort instead.
+// Deprecated: 2022-01-10 - Please use GetRegisteredEventsHandlerShort instead.
 func (aaa *EventRegistryService) GetRegisteredEventsHandler(input *event_registry.GetRegisteredEventsHandlerParams) (*eventlogclientmodels.ModelsEventRegistry, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -62,7 +64,7 @@ func (aaa *EventRegistryService) GetRegisteredEventsHandler(input *event_registr
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use RegisterEventHandlerShort instead.
+// Deprecated: 2022-01-10 - Please use RegisterEventHandlerShort instead.
 func (aaa *EventRegistryService) RegisterEventHandler(input *event_registry.RegisterEventHandlerParams) error {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -91,7 +93,7 @@ func (aaa *EventRegistryService) RegisterEventHandler(input *event_registry.Regi
 	return nil
 }
 
-// deprecated(2022-01-10): please use GetRegisteredEventIDHandlerShort instead.
+// Deprecated: 2022-01-10 - Please use GetRegisteredEventIDHandlerShort instead.
 func (aaa *EventRegistryService) GetRegisteredEventIDHandler(input *event_registry.GetRegisteredEventIDHandlerParams) (*eventlogclientmodels.ModelsEventRegistry, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -120,7 +122,7 @@ func (aaa *EventRegistryService) GetRegisteredEventIDHandler(input *event_regist
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use UpdateEventRegistryHandlerShort instead.
+// Deprecated: 2022-01-10 - Please use UpdateEventRegistryHandlerShort instead.
 func (aaa *EventRegistryService) UpdateEventRegistryHandler(input *event_registry.UpdateEventRegistryHandlerParams) error {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -149,7 +151,7 @@ func (aaa *EventRegistryService) UpdateEventRegistryHandler(input *event_registr
 	return nil
 }
 
-// deprecated(2022-01-10): please use UnregisterEventIDHandlerShort instead.
+// Deprecated: 2022-01-10 - Please use UnregisterEventIDHandlerShort instead.
 func (aaa *EventRegistryService) UnregisterEventIDHandler(input *event_registry.UnregisterEventIDHandlerParams) error {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -175,7 +177,7 @@ func (aaa *EventRegistryService) UnregisterEventIDHandler(input *event_registry.
 	return nil
 }
 
-// deprecated(2022-01-10): please use GetRegisteredEventsByEventTypeHandlerShort instead.
+// Deprecated: 2022-01-10 - Please use GetRegisteredEventsByEventTypeHandlerShort instead.
 func (aaa *EventRegistryService) GetRegisteredEventsByEventTypeHandler(input *event_registry.GetRegisteredEventsByEventTypeHandlerParams) (*eventlogclientmodels.ModelsEventRegistry, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {

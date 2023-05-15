@@ -19,7 +19,7 @@ import (
 )
 
 // TerminatedServersService this is use for compatibility with latest modular sdk only
-// Deprecated: please use TerminatedServersService imported from "github.com/AccelByte/accelbyte-go-modular-sdk/dslogmanager-sdk/pkg"
+// Deprecated: 2023-03-30 - please use TerminatedServersService imported from "github.com/AccelByte/accelbyte-go-modular-sdk/dslogmanager-sdk/pkg"
 type TerminatedServersService struct {
 	Client                 *dslogmanagerclient.JusticeDslogmanagerService
 	ConfigRepository       repository.ConfigRepository
@@ -43,7 +43,7 @@ func (aaa *TerminatedServersService) GetAuthSession() auth.Session {
 	}
 }
 
-// deprecated(2022-01-10): please use ListTerminatedServersShort instead.
+// Deprecated: 2022-01-10 - Please use ListTerminatedServersShort instead.
 func (aaa *TerminatedServersService) ListTerminatedServers(input *terminated_servers.ListTerminatedServersParams) (*dslogmanagerclientmodels.ModelsListTerminatedServersResponse, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -66,7 +66,7 @@ func (aaa *TerminatedServersService) ListTerminatedServers(input *terminated_ser
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use DownloadServerLogsShort instead.
+// Deprecated: 2022-01-10 - Please use DownloadServerLogsShort instead.
 func (aaa *TerminatedServersService) DownloadServerLogs(input *terminated_servers.DownloadServerLogsParams, writer io.Writer) (io.Writer, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -86,7 +86,7 @@ func (aaa *TerminatedServersService) DownloadServerLogs(input *terminated_server
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use CheckServerLogsShort instead.
+// Deprecated: 2022-01-10 - Please use CheckServerLogsShort instead.
 func (aaa *TerminatedServersService) CheckServerLogs(input *terminated_servers.CheckServerLogsParams) (*dslogmanagerclientmodels.ModelsLogFileStatus, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {

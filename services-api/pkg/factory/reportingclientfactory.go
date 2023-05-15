@@ -19,7 +19,7 @@ import (
 var reportingClientInstance *reportingclient.JusticeReportingService
 
 // NewReportingClient
-// Deprecated: please use NewReportingClient from "github.com/AccelByte/accelbyte-go-modular-sdk/Reporting-sdk/pkg"
+// Deprecated: 2023-03-30 - please use NewReportingClient from "github.com/AccelByte/accelbyte-go-modular-sdk/Reporting-sdk/pkg"
 func NewReportingClient(configRepository repository.ConfigRepository) *reportingclient.JusticeReportingService {
 	if reportingClientInstance == nil {
 		baseURL := configRepository.GetJusticeBaseUrl()

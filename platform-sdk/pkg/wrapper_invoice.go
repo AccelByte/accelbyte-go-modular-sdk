@@ -18,6 +18,8 @@ import (
 	"github.com/go-openapi/runtime/client"
 )
 
+// InvoiceService this is use for compatibility with latest modular sdk only
+// Deprecated: 2023-03-30 - please use InvoiceService imported from "github.com/AccelByte/accelbyte-go-modular-sdk/platform-sdk/pkg"
 type InvoiceService struct {
 	Client                 *platformclient.JusticePlatformService
 	ConfigRepository       repository.ConfigRepository
@@ -41,7 +43,7 @@ func (aaa *InvoiceService) GetAuthSession() auth.Session {
 	}
 }
 
-// deprecated(2022-01-10): please use DownloadInvoiceDetailsShort instead.
+// Deprecated: 2022-01-10 - Please use DownloadInvoiceDetailsShort instead.
 func (aaa *InvoiceService) DownloadInvoiceDetails(input *invoice.DownloadInvoiceDetailsParams, writer io.Writer) (io.Writer, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -55,7 +57,7 @@ func (aaa *InvoiceService) DownloadInvoiceDetails(input *invoice.DownloadInvoice
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use GenerateInvoiceSummaryShort instead.
+// Deprecated: 2022-01-10 - Please use GenerateInvoiceSummaryShort instead.
 func (aaa *InvoiceService) GenerateInvoiceSummary(input *invoice.GenerateInvoiceSummaryParams) (*platformclientmodels.InvoiceSummary, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {

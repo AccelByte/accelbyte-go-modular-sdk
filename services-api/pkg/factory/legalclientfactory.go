@@ -19,7 +19,7 @@ import (
 var legalClientInstance *legalclient.JusticeLegalService
 
 // NewLegalClient
-// Deprecated: please use NewLegalClient from "github.com/AccelByte/accelbyte-go-modular-sdk/Legal-sdk/pkg"
+// Deprecated: 2023-03-30 - please use NewLegalClient from "github.com/AccelByte/accelbyte-go-modular-sdk/Legal-sdk/pkg"
 func NewLegalClient(configRepository repository.ConfigRepository) *legalclient.JusticeLegalService {
 	if legalClientInstance == nil {
 		baseURL := configRepository.GetJusticeBaseUrl()

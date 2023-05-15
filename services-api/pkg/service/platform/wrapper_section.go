@@ -17,7 +17,7 @@ import (
 )
 
 // SectionService this is use for compatibility with latest modular sdk only
-// Deprecated: please use SectionService imported from "github.com/AccelByte/accelbyte-go-modular-sdk/platform-sdk/pkg"
+// Deprecated: 2023-03-30 - please use SectionService imported from "github.com/AccelByte/accelbyte-go-modular-sdk/platform-sdk/pkg"
 type SectionService struct {
 	Client                 *platformclient.JusticePlatformService
 	ConfigRepository       repository.ConfigRepository
@@ -41,7 +41,7 @@ func (aaa *SectionService) GetAuthSession() auth.Session {
 	}
 }
 
-// deprecated(2022-01-10): please use QuerySectionsShort instead.
+// Deprecated: 2022-01-10 - Please use QuerySectionsShort instead.
 func (aaa *SectionService) QuerySections(input *section.QuerySectionsParams) (*platformclientmodels.SectionPagingSlicedResult, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -61,7 +61,7 @@ func (aaa *SectionService) QuerySections(input *section.QuerySectionsParams) (*p
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use CreateSectionShort instead.
+// Deprecated: 2022-01-10 - Please use CreateSectionShort instead.
 func (aaa *SectionService) CreateSection(input *section.CreateSectionParams) (*platformclientmodels.FullSectionInfo, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -87,7 +87,7 @@ func (aaa *SectionService) CreateSection(input *section.CreateSectionParams) (*p
 	return created.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use PurgeExpiredSectionShort instead.
+// Deprecated: 2022-01-10 - Please use PurgeExpiredSectionShort instead.
 func (aaa *SectionService) PurgeExpiredSection(input *section.PurgeExpiredSectionParams) error {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -104,7 +104,7 @@ func (aaa *SectionService) PurgeExpiredSection(input *section.PurgeExpiredSectio
 	return nil
 }
 
-// deprecated(2022-01-10): please use GetSectionShort instead.
+// Deprecated: 2022-01-10 - Please use GetSectionShort instead.
 func (aaa *SectionService) GetSection(input *section.GetSectionParams) (*platformclientmodels.FullSectionInfo, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -121,7 +121,7 @@ func (aaa *SectionService) GetSection(input *section.GetSectionParams) (*platfor
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use UpdateSectionShort instead.
+// Deprecated: 2022-01-10 - Please use UpdateSectionShort instead.
 func (aaa *SectionService) UpdateSection(input *section.UpdateSectionParams) (*platformclientmodels.FullSectionInfo, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -147,7 +147,7 @@ func (aaa *SectionService) UpdateSection(input *section.UpdateSectionParams) (*p
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use DeleteSectionShort instead.
+// Deprecated: 2022-01-10 - Please use DeleteSectionShort instead.
 func (aaa *SectionService) DeleteSection(input *section.DeleteSectionParams) error {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -167,7 +167,7 @@ func (aaa *SectionService) DeleteSection(input *section.DeleteSectionParams) err
 	return nil
 }
 
-// deprecated(2022-01-10): please use PublicListActiveSectionsShort instead.
+// Deprecated: 2022-01-10 - Please use PublicListActiveSectionsShort instead.
 func (aaa *SectionService) PublicListActiveSections(input *section.PublicListActiveSectionsParams) ([]*platformclientmodels.SectionInfo, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {

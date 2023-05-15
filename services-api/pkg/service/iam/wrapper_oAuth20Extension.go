@@ -19,7 +19,7 @@ import (
 )
 
 // OAuth20ExtensionService this is use for compatibility with latest modular sdk only
-// Deprecated: please use OAuth20ExtensionService imported from "github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg"
+// Deprecated: 2023-03-30 - please use OAuth20ExtensionService imported from "github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg"
 type OAuth20ExtensionService struct {
 	Client                 *iamclient.JusticeIamService
 	ConfigRepository       repository.ConfigRepository
@@ -43,7 +43,7 @@ func (aaa *OAuth20ExtensionService) GetAuthSession() auth.Session {
 	}
 }
 
-// deprecated(2022-01-10): please use UserAuthenticationV3Short instead.
+// Deprecated: 2022-01-10 - Please use UserAuthenticationV3Short instead.
 func (aaa *OAuth20ExtensionService) UserAuthenticationV3(input *o_auth2_0_extension.UserAuthenticationV3Params) (string, error) {
 	clientID := aaa.ConfigRepository.GetClientId()
 	clientSecret := aaa.ConfigRepository.GetClientSecret()
@@ -65,7 +65,7 @@ func (aaa *OAuth20ExtensionService) UserAuthenticationV3(input *o_auth2_0_extens
 	return code, nil
 }
 
-// deprecated(2022-01-10): please use AuthenticationWithPlatformLinkV3Short instead.
+// Deprecated: 2022-01-10 - Please use AuthenticationWithPlatformLinkV3Short instead.
 func (aaa *OAuth20ExtensionService) AuthenticationWithPlatformLinkV3(input *o_auth2_0_extension.AuthenticationWithPlatformLinkV3Params) (*iamclientmodels.OauthmodelTokenResponseV3, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -88,7 +88,7 @@ func (aaa *OAuth20ExtensionService) AuthenticationWithPlatformLinkV3(input *o_au
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use GenerateTokenByNewHeadlessAccountV3Short instead.
+// Deprecated: 2022-01-10 - Please use GenerateTokenByNewHeadlessAccountV3Short instead.
 func (aaa *OAuth20ExtensionService) GenerateTokenByNewHeadlessAccountV3(input *o_auth2_0_extension.GenerateTokenByNewHeadlessAccountV3Params) (*iamclientmodels.OauthmodelTokenResponseV3, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -111,7 +111,7 @@ func (aaa *OAuth20ExtensionService) GenerateTokenByNewHeadlessAccountV3(input *o
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use RequestOneTimeLinkingCodeV3Short instead.
+// Deprecated: 2022-01-10 - Please use RequestOneTimeLinkingCodeV3Short instead.
 func (aaa *OAuth20ExtensionService) RequestOneTimeLinkingCodeV3(input *o_auth2_0_extension.RequestOneTimeLinkingCodeV3Params) (*iamclientmodels.OauthmodelOneTimeLinkingCodeResponse, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -125,7 +125,7 @@ func (aaa *OAuth20ExtensionService) RequestOneTimeLinkingCodeV3(input *o_auth2_0
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use ValidateOneTimeLinkingCodeV3Short instead.
+// Deprecated: 2022-01-10 - Please use ValidateOneTimeLinkingCodeV3Short instead.
 func (aaa *OAuth20ExtensionService) ValidateOneTimeLinkingCodeV3(input *o_auth2_0_extension.ValidateOneTimeLinkingCodeV3Params) (*iamclientmodels.OauthmodelOneTimeLinkingCodeValidationResponse, error) {
 	ok, err := aaa.Client.OAuth20Extension.ValidateOneTimeLinkingCodeV3(input)
 	if err != nil {
@@ -135,7 +135,7 @@ func (aaa *OAuth20ExtensionService) ValidateOneTimeLinkingCodeV3(input *o_auth2_
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use RequestTokenByOneTimeLinkCodeResponseV3Short instead.
+// Deprecated: 2022-01-10 - Please use RequestTokenByOneTimeLinkCodeResponseV3Short instead.
 func (aaa *OAuth20ExtensionService) RequestTokenByOneTimeLinkCodeResponseV3(input *o_auth2_0_extension.RequestTokenByOneTimeLinkCodeResponseV3Params) (*iamclientmodels.OauthmodelTokenResponseV3, error) {
 	ok, err := aaa.Client.OAuth20Extension.RequestTokenByOneTimeLinkCodeResponseV3(input)
 	if err != nil {
@@ -145,7 +145,7 @@ func (aaa *OAuth20ExtensionService) RequestTokenByOneTimeLinkCodeResponseV3(inpu
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use GetCountryLocationV3Short instead.
+// Deprecated: 2022-01-10 - Please use GetCountryLocationV3Short instead.
 func (aaa *OAuth20ExtensionService) GetCountryLocationV3(input *o_auth2_0_extension.GetCountryLocationV3Params) (*iamclientmodels.OauthmodelCountryLocationResponse, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -159,7 +159,7 @@ func (aaa *OAuth20ExtensionService) GetCountryLocationV3(input *o_auth2_0_extens
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use LogoutShort instead.
+// Deprecated: 2022-01-10 - Please use LogoutShort instead.
 func (aaa *OAuth20ExtensionService) Logout(input *o_auth2_0_extension.LogoutParams) error {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -173,7 +173,7 @@ func (aaa *OAuth20ExtensionService) Logout(input *o_auth2_0_extension.LogoutPara
 	return nil
 }
 
-// deprecated(2022-01-10): please use RequestGameTokenCodeResponseV3Short instead.
+// Deprecated: 2022-01-10 - Please use RequestGameTokenCodeResponseV3Short instead.
 func (aaa *OAuth20ExtensionService) RequestGameTokenCodeResponseV3(input *o_auth2_0_extension.RequestGameTokenCodeResponseV3Params) (*iamclientmodels.OauthmodelGameTokenCodeResponse, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -187,7 +187,7 @@ func (aaa *OAuth20ExtensionService) RequestGameTokenCodeResponseV3(input *o_auth
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use PlatformAuthenticationV3Short instead.
+// Deprecated: 2022-01-10 - Please use PlatformAuthenticationV3Short instead.
 func (aaa *OAuth20ExtensionService) PlatformAuthenticationV3(input *o_auth2_0_extension.PlatformAuthenticationV3Params) (string, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -201,7 +201,7 @@ func (aaa *OAuth20ExtensionService) PlatformAuthenticationV3(input *o_auth2_0_ex
 	return found.Location, nil
 }
 
-// deprecated(2022-01-10): please use RequestGameTokenResponseV3Short instead.
+// Deprecated: 2022-01-10 - Please use RequestGameTokenResponseV3Short instead.
 func (aaa *OAuth20ExtensionService) RequestGameTokenResponseV3(input *o_auth2_0_extension.RequestGameTokenResponseV3Params) (*iamclientmodels.OauthmodelTokenResponseV3, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {

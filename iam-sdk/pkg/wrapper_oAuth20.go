@@ -19,6 +19,8 @@ import (
 	"github.com/go-openapi/runtime/client"
 )
 
+// OAuth20Service this is use for compatibility with latest modular sdk only
+// Deprecated: 2023-03-30 - please use OAuth20Service imported from "github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg"
 type OAuth20Service struct {
 	Client                 *iamclient.JusticeIamService
 	ConfigRepository       repository.ConfigRepository
@@ -42,7 +44,7 @@ func (aaa *OAuth20Service) GetAuthSession() auth.Session {
 	}
 }
 
-// deprecated(2022-01-10): please use AdminRetrieveUserThirdPartyPlatformTokenV3Short instead.
+// Deprecated: 2022-01-10 - Please use AdminRetrieveUserThirdPartyPlatformTokenV3Short instead.
 func (aaa *OAuth20Service) AdminRetrieveUserThirdPartyPlatformTokenV3(input *o_auth2_0.AdminRetrieveUserThirdPartyPlatformTokenV3Params) (*iamclientmodels.OauthmodelTokenThirdPartyResponse, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -65,7 +67,7 @@ func (aaa *OAuth20Service) AdminRetrieveUserThirdPartyPlatformTokenV3(input *o_a
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use RevokeUserV3Short instead.
+// Deprecated: 2022-01-10 - Please use RevokeUserV3Short instead.
 func (aaa *OAuth20Service) RevokeUserV3(input *o_auth2_0.RevokeUserV3Params) error {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -88,7 +90,7 @@ func (aaa *OAuth20Service) RevokeUserV3(input *o_auth2_0.RevokeUserV3Params) err
 	return nil
 }
 
-// deprecated(2022-01-10): please use AuthorizeV3Short instead.
+// Deprecated: 2022-01-10 - Please use AuthorizeV3Short instead.
 func (aaa *OAuth20Service) AuthorizeV3(input *o_auth2_0.AuthorizeV3Params) (string, error) {
 	clientID := aaa.ConfigRepository.GetClientId()
 	clientSecret := aaa.ConfigRepository.GetClientSecret()
@@ -110,7 +112,7 @@ func (aaa *OAuth20Service) AuthorizeV3(input *o_auth2_0.AuthorizeV3Params) (stri
 	return requestID, nil
 }
 
-// deprecated(2022-01-10): please use TokenIntrospectionV3Short instead.
+// Deprecated: 2022-01-10 - Please use TokenIntrospectionV3Short instead.
 func (aaa *OAuth20Service) TokenIntrospectionV3(input *o_auth2_0.TokenIntrospectionV3Params) (*iamclientmodels.OauthmodelTokenIntrospectResponse, error) {
 	clientID := aaa.ConfigRepository.GetClientId()
 	clientSecret := aaa.ConfigRepository.GetClientSecret()
@@ -128,7 +130,7 @@ func (aaa *OAuth20Service) TokenIntrospectionV3(input *o_auth2_0.TokenIntrospect
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use GetJWKSV3Short instead.
+// Deprecated: 2022-01-10 - Please use GetJWKSV3Short instead.
 func (aaa *OAuth20Service) GetJWKSV3(input *o_auth2_0.GetJWKSV3Params) (*iamclientmodels.OauthcommonJWKSet, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -142,7 +144,7 @@ func (aaa *OAuth20Service) GetJWKSV3(input *o_auth2_0.GetJWKSV3Params) (*iamclie
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use SendMFAAuthenticationCodeShort instead.
+// Deprecated: 2022-01-10 - Please use SendMFAAuthenticationCodeShort instead.
 func (aaa *OAuth20Service) SendMFAAuthenticationCode(input *o_auth2_0.SendMFAAuthenticationCodeParams) error {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -171,7 +173,7 @@ func (aaa *OAuth20Service) SendMFAAuthenticationCode(input *o_auth2_0.SendMFAAut
 	return nil
 }
 
-// deprecated(2022-01-10): please use Change2FAMethodShort instead.
+// Deprecated: 2022-01-10 - Please use Change2FAMethodShort instead.
 func (aaa *OAuth20Service) Change2FAMethod(input *o_auth2_0.Change2FAMethodParams) error {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -194,7 +196,7 @@ func (aaa *OAuth20Service) Change2FAMethod(input *o_auth2_0.Change2FAMethodParam
 	return nil
 }
 
-// deprecated(2022-01-10): please use Verify2FACodeShort instead.
+// Deprecated: 2022-01-10 - Please use Verify2FACodeShort instead.
 func (aaa *OAuth20Service) Verify2FACode(input *o_auth2_0.Verify2FACodeParams) (*iamclientmodels.OauthmodelTokenResponseV3, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -211,7 +213,7 @@ func (aaa *OAuth20Service) Verify2FACode(input *o_auth2_0.Verify2FACodeParams) (
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use RetrieveUserThirdPartyPlatformTokenV3Short instead.
+// Deprecated: 2022-01-10 - Please use RetrieveUserThirdPartyPlatformTokenV3Short instead.
 func (aaa *OAuth20Service) RetrieveUserThirdPartyPlatformTokenV3(input *o_auth2_0.RetrieveUserThirdPartyPlatformTokenV3Params) (*iamclientmodels.OauthmodelTokenThirdPartyResponse, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -234,7 +236,7 @@ func (aaa *OAuth20Service) RetrieveUserThirdPartyPlatformTokenV3(input *o_auth2_
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use AuthCodeRequestV3Short instead.
+// Deprecated: 2022-01-10 - Please use AuthCodeRequestV3Short instead.
 func (aaa *OAuth20Service) AuthCodeRequestV3(input *o_auth2_0.AuthCodeRequestV3Params) (string, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -248,7 +250,7 @@ func (aaa *OAuth20Service) AuthCodeRequestV3(input *o_auth2_0.AuthCodeRequestV3P
 	return found.Location, nil
 }
 
-// deprecated(2022-01-10): please use PlatformTokenGrantV3Short instead.
+// Deprecated: 2022-01-10 - Please use PlatformTokenGrantV3Short instead.
 func (aaa *OAuth20Service) PlatformTokenGrantV3(input *o_auth2_0.PlatformTokenGrantV3Params) (*iamclientmodels.OauthmodelTokenResponse, error) {
 	clientID := aaa.ConfigRepository.GetClientId()
 	clientSecret := aaa.ConfigRepository.GetClientSecret()
@@ -269,7 +271,7 @@ func (aaa *OAuth20Service) PlatformTokenGrantV3(input *o_auth2_0.PlatformTokenGr
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use GetRevocationListV3Short instead.
+// Deprecated: 2022-01-10 - Please use GetRevocationListV3Short instead.
 func (aaa *OAuth20Service) GetRevocationListV3(input *o_auth2_0.GetRevocationListV3Params) (*iamclientmodels.OauthapiRevocationList, error) {
 	clientID := aaa.ConfigRepository.GetClientId()
 	clientSecret := aaa.ConfigRepository.GetClientSecret()
@@ -284,7 +286,7 @@ func (aaa *OAuth20Service) GetRevocationListV3(input *o_auth2_0.GetRevocationLis
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use TokenRevocationV3Short instead.
+// Deprecated: 2022-01-10 - Please use TokenRevocationV3Short instead.
 func (aaa *OAuth20Service) TokenRevocationV3(input *o_auth2_0.TokenRevocationV3Params) error {
 	clientID := aaa.ConfigRepository.GetClientId()
 	clientSecret := aaa.ConfigRepository.GetClientSecret()
@@ -302,7 +304,7 @@ func (aaa *OAuth20Service) TokenRevocationV3(input *o_auth2_0.TokenRevocationV3P
 	return nil
 }
 
-// deprecated(2022-01-10): please use TokenGrantV3Short instead.
+// Deprecated: 2022-01-10 - Please use TokenGrantV3Short instead.
 func (aaa *OAuth20Service) TokenGrantV3(input *o_auth2_0.TokenGrantV3Params) (*iamclientmodels.OauthmodelTokenWithDeviceCookieResponseV3, error) {
 	clientID := aaa.ConfigRepository.GetClientId()
 	clientSecret := aaa.ConfigRepository.GetClientSecret()
@@ -333,7 +335,7 @@ func (aaa *OAuth20Service) TokenGrantV3(input *o_auth2_0.TokenGrantV3Params) (*i
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use VerifyTokenV3Short instead.
+// Deprecated: 2022-01-10 - Please use VerifyTokenV3Short instead.
 func (aaa *OAuth20Service) VerifyTokenV3(input *o_auth2_0.VerifyTokenV3Params) (*iamclientmodels.OauthmodelTokenResponseV3, error) {
 	clientID := aaa.ConfigRepository.GetClientId()
 	clientSecret := aaa.ConfigRepository.GetClientSecret()

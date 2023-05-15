@@ -13,24 +13,18 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 )
 
-var groupClientInstance *groupclient.JusticeGroupService
-
 func NewGroupClient(configRepository repository.ConfigRepository) *groupclient.JusticeGroupService {
-	if groupClientInstance == nil {
-		baseURL := configRepository.GetJusticeBaseUrl()
-		if len(baseURL) > 0 {
-			baseURLSplit := strings.Split(baseURL, "://")
-			httpClientConfig := &groupclient.TransportConfig{
-				Host:          baseURLSplit[1],
-				BasePath:      "",
-				Schemes:       []string{baseURLSplit[0]},
-				UserAgentFunc: GetUserAgent,
-			}
-			groupClientInstance = groupclient.NewHTTPClientWithConfig(nil, httpClientConfig)
-		} else {
-			groupClientInstance = groupclient.NewHTTPClient(nil)
+	baseURL := configRepository.GetJusticeBaseUrl()
+	if len(baseURL) > 0 {
+		baseURLSplit := strings.Split(baseURL, "://")
+		httpClientConfig := &groupclient.TransportConfig{
+			Host:          baseURLSplit[1],
+			BasePath:      "",
+			Schemes:       []string{baseURLSplit[0]},
+			UserAgentFunc: GetUserAgent,
 		}
+		return groupclient.NewHTTPClientWithConfig(nil, httpClientConfig)
+	} else {
+		return groupclient.NewHTTPClient(nil)
 	}
-
-	return groupClientInstance
 }

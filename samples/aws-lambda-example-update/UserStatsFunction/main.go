@@ -133,7 +133,7 @@ func deleteRequest(evt events.LambdaFunctionURLRequest) (events.LambdaFunctionUR
 		StatCode:  evt.QueryStringParameters["statCode"],
 		UserID:    evt.QueryStringParameters["userId"],
 	}
-	errDeleteUserStatItems := userStatisticService.DeleteUserStatItems(inputDeleteUserStatItem)
+	errDeleteUserStatItems := userStatisticService.DeleteUserStatItemsShort(inputDeleteUserStatItem)
 	if errDeleteUserStatItems != nil {
 		errString := fmt.Errorf("failed to delete user stat code. %s", errDeleteUserStatItems.Error())
 		logrus.Error(errString)

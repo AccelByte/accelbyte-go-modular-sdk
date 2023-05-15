@@ -19,7 +19,7 @@ import (
 var qosmClientInstance *qosmclient.JusticeQosmService
 
 // NewQosmClient
-// Deprecated: please use NewQosmClient from "github.com/AccelByte/accelbyte-go-modular-sdk/Qosm-sdk/pkg"
+// Deprecated: 2023-03-30 - please use NewQosmClient from "github.com/AccelByte/accelbyte-go-modular-sdk/Qosm-sdk/pkg"
 func NewQosmClient(configRepository repository.ConfigRepository) *qosmclient.JusticeQosmService {
 	if qosmClientInstance == nil {
 		baseURL := configRepository.GetJusticeBaseUrl()

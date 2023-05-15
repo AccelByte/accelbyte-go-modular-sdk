@@ -17,7 +17,7 @@ import (
 )
 
 // MatchmakingOperationsService this is use for compatibility with latest modular sdk only
-// Deprecated: please use MatchmakingOperationsService imported from "github.com/AccelByte/accelbyte-go-modular-sdk/matchmaking-sdk/pkg"
+// Deprecated: 2023-03-30 - please use MatchmakingOperationsService imported from "github.com/AccelByte/accelbyte-go-modular-sdk/matchmaking-sdk/pkg"
 type MatchmakingOperationsService struct {
 	Client                 *matchmakingclient.JusticeMatchmakingService
 	ConfigRepository       repository.ConfigRepository
@@ -41,7 +41,7 @@ func (aaa *MatchmakingOperationsService) GetAuthSession() auth.Session {
 	}
 }
 
-// deprecated(2022-01-10): please use GetHealthcheckInfoShort instead.
+// Deprecated: 2022-01-10 - Please use GetHealthcheckInfoShort instead.
 func (aaa *MatchmakingOperationsService) GetHealthcheckInfo(input *matchmaking_operations.GetHealthcheckInfoParams) error {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -55,7 +55,7 @@ func (aaa *MatchmakingOperationsService) GetHealthcheckInfo(input *matchmaking_o
 	return nil
 }
 
-// deprecated(2022-01-10): please use HandlerV3HealthzShort instead.
+// Deprecated: 2022-01-10 - Please use HandlerV3HealthzShort instead.
 func (aaa *MatchmakingOperationsService) HandlerV3Healthz(input *matchmaking_operations.HandlerV3HealthzParams) error {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -69,7 +69,7 @@ func (aaa *MatchmakingOperationsService) HandlerV3Healthz(input *matchmaking_ope
 	return nil
 }
 
-// deprecated(2022-01-10): please use PublicGetMessagesShort instead.
+// Deprecated: 2022-01-10 - Please use PublicGetMessagesShort instead.
 func (aaa *MatchmakingOperationsService) PublicGetMessages(input *matchmaking_operations.PublicGetMessagesParams) ([]*matchmakingclientmodels.LogAppMessageDeclaration, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -86,7 +86,7 @@ func (aaa *MatchmakingOperationsService) PublicGetMessages(input *matchmaking_op
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use VersionCheckHandlerShort instead.
+// Deprecated: 2022-01-10 - Please use VersionCheckHandlerShort instead.
 func (aaa *MatchmakingOperationsService) VersionCheckHandler(input *matchmaking_operations.VersionCheckHandlerParams) error {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {

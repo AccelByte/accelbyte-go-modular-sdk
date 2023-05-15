@@ -17,7 +17,7 @@ import (
 )
 
 // DeploymentConfigService this is use for compatibility with latest modular sdk only
-// Deprecated: please use DeploymentConfigService imported from "github.com/AccelByte/accelbyte-go-modular-sdk/dsmc-sdk/pkg"
+// Deprecated: 2023-03-30 - please use DeploymentConfigService imported from "github.com/AccelByte/accelbyte-go-modular-sdk/dsmc-sdk/pkg"
 type DeploymentConfigService struct {
 	Client                 *dsmcclient.JusticeDsmcService
 	ConfigRepository       repository.ConfigRepository
@@ -41,7 +41,7 @@ func (aaa *DeploymentConfigService) GetAuthSession() auth.Session {
 	}
 }
 
-// deprecated(2022-01-10): please use GetAllDeploymentShort instead.
+// Deprecated: 2022-01-10 - Please use GetAllDeploymentShort instead.
 func (aaa *DeploymentConfigService) GetAllDeployment(input *deployment_config.GetAllDeploymentParams) (*dsmcclientmodels.ModelsListDeploymentResponse, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -64,7 +64,7 @@ func (aaa *DeploymentConfigService) GetAllDeployment(input *deployment_config.Ge
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use GetDeploymentShort instead.
+// Deprecated: 2022-01-10 - Please use GetDeploymentShort instead.
 func (aaa *DeploymentConfigService) GetDeployment(input *deployment_config.GetDeploymentParams) (*dsmcclientmodels.ModelsDeploymentWithOverride, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -90,7 +90,7 @@ func (aaa *DeploymentConfigService) GetDeployment(input *deployment_config.GetDe
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use CreateDeploymentShort instead.
+// Deprecated: 2022-01-10 - Please use CreateDeploymentShort instead.
 func (aaa *DeploymentConfigService) CreateDeployment(input *deployment_config.CreateDeploymentParams) (*dsmcclientmodels.ModelsDeploymentWithOverride, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -116,7 +116,7 @@ func (aaa *DeploymentConfigService) CreateDeployment(input *deployment_config.Cr
 	return created.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use DeleteDeploymentShort instead.
+// Deprecated: 2022-01-10 - Please use DeleteDeploymentShort instead.
 func (aaa *DeploymentConfigService) DeleteDeployment(input *deployment_config.DeleteDeploymentParams) error {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -142,7 +142,7 @@ func (aaa *DeploymentConfigService) DeleteDeployment(input *deployment_config.De
 	return nil
 }
 
-// deprecated(2022-01-10): please use UpdateDeploymentShort instead.
+// Deprecated: 2022-01-10 - Please use UpdateDeploymentShort instead.
 func (aaa *DeploymentConfigService) UpdateDeployment(input *deployment_config.UpdateDeploymentParams) (*dsmcclientmodels.ModelsDeploymentWithOverride, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -168,7 +168,7 @@ func (aaa *DeploymentConfigService) UpdateDeployment(input *deployment_config.Up
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use CreateRootRegionOverrideShort instead.
+// Deprecated: 2022-01-10 - Please use CreateRootRegionOverrideShort instead.
 func (aaa *DeploymentConfigService) CreateRootRegionOverride(input *deployment_config.CreateRootRegionOverrideParams) (*dsmcclientmodels.ModelsDeploymentWithOverride, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -197,7 +197,7 @@ func (aaa *DeploymentConfigService) CreateRootRegionOverride(input *deployment_c
 	return created.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use DeleteRootRegionOverrideShort instead.
+// Deprecated: 2022-01-10 - Please use DeleteRootRegionOverrideShort instead.
 func (aaa *DeploymentConfigService) DeleteRootRegionOverride(input *deployment_config.DeleteRootRegionOverrideParams) (*dsmcclientmodels.ModelsDeploymentWithOverride, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -223,7 +223,7 @@ func (aaa *DeploymentConfigService) DeleteRootRegionOverride(input *deployment_c
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use UpdateRootRegionOverrideShort instead.
+// Deprecated: 2022-01-10 - Please use UpdateRootRegionOverrideShort instead.
 func (aaa *DeploymentConfigService) UpdateRootRegionOverride(input *deployment_config.UpdateRootRegionOverrideParams) (*dsmcclientmodels.ModelsDeploymentWithOverride, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -249,7 +249,7 @@ func (aaa *DeploymentConfigService) UpdateRootRegionOverride(input *deployment_c
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use CreateDeploymentOverrideShort instead.
+// Deprecated: 2022-01-10 - Please use CreateDeploymentOverrideShort instead.
 func (aaa *DeploymentConfigService) CreateDeploymentOverride(input *deployment_config.CreateDeploymentOverrideParams) (*dsmcclientmodels.ModelsDeploymentWithOverride, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -278,7 +278,7 @@ func (aaa *DeploymentConfigService) CreateDeploymentOverride(input *deployment_c
 	return created.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use DeleteDeploymentOverrideShort instead.
+// Deprecated: 2022-01-10 - Please use DeleteDeploymentOverrideShort instead.
 func (aaa *DeploymentConfigService) DeleteDeploymentOverride(input *deployment_config.DeleteDeploymentOverrideParams) (*dsmcclientmodels.ModelsDeploymentWithOverride, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -304,7 +304,7 @@ func (aaa *DeploymentConfigService) DeleteDeploymentOverride(input *deployment_c
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use UpdateDeploymentOverrideShort instead.
+// Deprecated: 2022-01-10 - Please use UpdateDeploymentOverrideShort instead.
 func (aaa *DeploymentConfigService) UpdateDeploymentOverride(input *deployment_config.UpdateDeploymentOverrideParams) (*dsmcclientmodels.ModelsDeploymentWithOverride, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -330,7 +330,7 @@ func (aaa *DeploymentConfigService) UpdateDeploymentOverride(input *deployment_c
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use CreateOverrideRegionOverrideShort instead.
+// Deprecated: 2022-01-10 - Please use CreateOverrideRegionOverrideShort instead.
 func (aaa *DeploymentConfigService) CreateOverrideRegionOverride(input *deployment_config.CreateOverrideRegionOverrideParams) (*dsmcclientmodels.ModelsDeploymentWithOverride, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -359,7 +359,7 @@ func (aaa *DeploymentConfigService) CreateOverrideRegionOverride(input *deployme
 	return created.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use DeleteOverrideRegionOverrideShort instead.
+// Deprecated: 2022-01-10 - Please use DeleteOverrideRegionOverrideShort instead.
 func (aaa *DeploymentConfigService) DeleteOverrideRegionOverride(input *deployment_config.DeleteOverrideRegionOverrideParams) (*dsmcclientmodels.ModelsDeploymentWithOverride, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -385,7 +385,7 @@ func (aaa *DeploymentConfigService) DeleteOverrideRegionOverride(input *deployme
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use UpdateOverrideRegionOverrideShort instead.
+// Deprecated: 2022-01-10 - Please use UpdateOverrideRegionOverrideShort instead.
 func (aaa *DeploymentConfigService) UpdateOverrideRegionOverride(input *deployment_config.UpdateOverrideRegionOverrideParams) (*dsmcclientmodels.ModelsDeploymentWithOverride, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {

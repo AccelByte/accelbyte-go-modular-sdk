@@ -17,7 +17,7 @@ import (
 )
 
 // SocialMatchmakingService this is use for compatibility with latest modular sdk only
-// Deprecated: please use SocialMatchmakingService imported from "github.com/AccelByte/accelbyte-go-modular-sdk/matchmaking-sdk/pkg"
+// Deprecated: 2023-03-30 - please use SocialMatchmakingService imported from "github.com/AccelByte/accelbyte-go-modular-sdk/matchmaking-sdk/pkg"
 type SocialMatchmakingService struct {
 	Client                 *matchmakingclient.JusticeMatchmakingService
 	ConfigRepository       repository.ConfigRepository
@@ -41,7 +41,7 @@ func (aaa *SocialMatchmakingService) GetAuthSession() auth.Session {
 	}
 }
 
-// deprecated(2022-01-10): please use UpdatePlayTimeWeightShort instead.
+// Deprecated: 2022-01-10 - Please use UpdatePlayTimeWeightShort instead.
 func (aaa *SocialMatchmakingService) UpdatePlayTimeWeight(input *social_matchmaking.UpdatePlayTimeWeightParams) (*matchmakingclientmodels.ModelsUpdatePlayerPlaytimeWeightResponse, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {

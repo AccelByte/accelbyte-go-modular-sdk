@@ -16,6 +16,8 @@ import (
 	"github.com/go-openapi/runtime/client"
 )
 
+// FileUploadService this is use for compatibility with latest modular sdk only
+// Deprecated: 2023-03-30 - please use FileUploadService imported from "github.com/AccelByte/accelbyte-go-modular-sdk/basic-sdk/pkg"
 type FileUploadService struct {
 	Client                 *basicclient.JusticeBasicService
 	ConfigRepository       repository.ConfigRepository
@@ -39,7 +41,7 @@ func (aaa *FileUploadService) GetAuthSession() auth.Session {
 	}
 }
 
-// deprecated(2022-01-10): please use GeneratedUploadURLShort instead.
+// Deprecated: 2022-01-10 - Please use GeneratedUploadURLShort instead.
 func (aaa *FileUploadService) GeneratedUploadURL(input *file_upload.GeneratedUploadURLParams) (*basicclientmodels.FileUploadURLInfo, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -65,7 +67,7 @@ func (aaa *FileUploadService) GeneratedUploadURL(input *file_upload.GeneratedUpl
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use GeneratedUserUploadContentURLShort instead.
+// Deprecated: 2022-01-10 - Please use GeneratedUserUploadContentURLShort instead.
 func (aaa *FileUploadService) GeneratedUserUploadContentURL(input *file_upload.GeneratedUserUploadContentURLParams) (*basicclientmodels.FileUploadURLInfo, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -94,7 +96,7 @@ func (aaa *FileUploadService) GeneratedUserUploadContentURL(input *file_upload.G
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use PublicGeneratedUploadURLShort instead.
+// Deprecated: 2022-01-10 - Please use PublicGeneratedUploadURLShort instead.
 func (aaa *FileUploadService) PublicGeneratedUploadURL(input *file_upload.PublicGeneratedUploadURLParams) (*basicclientmodels.FileUploadURLInfo, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -120,7 +122,7 @@ func (aaa *FileUploadService) PublicGeneratedUploadURL(input *file_upload.Public
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use PublicGeneratedUserUploadContentURLShort instead.
+// Deprecated: 2022-01-10 - Please use PublicGeneratedUserUploadContentURLShort instead.
 func (aaa *FileUploadService) PublicGeneratedUserUploadContentURL(input *file_upload.PublicGeneratedUserUploadContentURLParams) (*basicclientmodels.FileUploadURLInfo, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {

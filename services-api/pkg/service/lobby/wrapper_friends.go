@@ -17,7 +17,7 @@ import (
 )
 
 // FriendsService this is use for compatibility with latest modular sdk only
-// Deprecated: please use FriendsService imported from "github.com/AccelByte/accelbyte-go-modular-sdk/lobby-sdk/pkg"
+// Deprecated: 2023-03-30 - please use FriendsService imported from "github.com/AccelByte/accelbyte-go-modular-sdk/lobby-sdk/pkg"
 type FriendsService struct {
 	Client                 *lobbyclient.JusticeLobbyService
 	ConfigRepository       repository.ConfigRepository
@@ -41,7 +41,7 @@ func (aaa *FriendsService) GetAuthSession() auth.Session {
 	}
 }
 
-// deprecated(2022-01-10): please use GetUserFriendsUpdatedShort instead.
+// Deprecated: 2022-01-10 - Please use GetUserFriendsUpdatedShort instead.
 func (aaa *FriendsService) GetUserFriendsUpdated(input *friends.GetUserFriendsUpdatedParams) ([]*lobbyclientmodels.ModelGetUserFriendsResponse, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -70,7 +70,7 @@ func (aaa *FriendsService) GetUserFriendsUpdated(input *friends.GetUserFriendsUp
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use GetUserIncomingFriendsShort instead.
+// Deprecated: 2022-01-10 - Please use GetUserIncomingFriendsShort instead.
 func (aaa *FriendsService) GetUserIncomingFriends(input *friends.GetUserIncomingFriendsParams) ([]*lobbyclientmodels.ModelGetUserIncomingFriendsResponse, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -99,7 +99,7 @@ func (aaa *FriendsService) GetUserIncomingFriends(input *friends.GetUserIncoming
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use GetUserIncomingFriendsWithTimeShort instead.
+// Deprecated: 2022-01-10 - Please use GetUserIncomingFriendsWithTimeShort instead.
 func (aaa *FriendsService) GetUserIncomingFriendsWithTime(input *friends.GetUserIncomingFriendsWithTimeParams) ([]*lobbyclientmodels.ModelLoadIncomingFriendsWithTimeResponse, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -128,7 +128,7 @@ func (aaa *FriendsService) GetUserIncomingFriendsWithTime(input *friends.GetUser
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use GetUserOutgoingFriendsShort instead.
+// Deprecated: 2022-01-10 - Please use GetUserOutgoingFriendsShort instead.
 func (aaa *FriendsService) GetUserOutgoingFriends(input *friends.GetUserOutgoingFriendsParams) ([]*lobbyclientmodels.ModelGetUserOutgoingFriendsResponse, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -157,7 +157,7 @@ func (aaa *FriendsService) GetUserOutgoingFriends(input *friends.GetUserOutgoing
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use GetUserOutgoingFriendsWithTimeShort instead.
+// Deprecated: 2022-01-10 - Please use GetUserOutgoingFriendsWithTimeShort instead.
 func (aaa *FriendsService) GetUserOutgoingFriendsWithTime(input *friends.GetUserOutgoingFriendsWithTimeParams) ([]*lobbyclientmodels.ModelLoadOutgoingFriendsWithTimeResponse, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -186,7 +186,7 @@ func (aaa *FriendsService) GetUserOutgoingFriendsWithTime(input *friends.GetUser
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use UserRequestFriendShort instead.
+// Deprecated: 2022-01-10 - Please use UserRequestFriendShort instead.
 func (aaa *FriendsService) UserRequestFriend(input *friends.UserRequestFriendParams) error {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -218,7 +218,7 @@ func (aaa *FriendsService) UserRequestFriend(input *friends.UserRequestFriendPar
 	return nil
 }
 
-// deprecated(2022-01-10): please use UserAcceptFriendRequestShort instead.
+// Deprecated: 2022-01-10 - Please use UserAcceptFriendRequestShort instead.
 func (aaa *FriendsService) UserAcceptFriendRequest(input *friends.UserAcceptFriendRequestParams) error {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -247,7 +247,7 @@ func (aaa *FriendsService) UserAcceptFriendRequest(input *friends.UserAcceptFrie
 	return nil
 }
 
-// deprecated(2022-01-10): please use UserCancelFriendRequestShort instead.
+// Deprecated: 2022-01-10 - Please use UserCancelFriendRequestShort instead.
 func (aaa *FriendsService) UserCancelFriendRequest(input *friends.UserCancelFriendRequestParams) error {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -276,7 +276,7 @@ func (aaa *FriendsService) UserCancelFriendRequest(input *friends.UserCancelFrie
 	return nil
 }
 
-// deprecated(2022-01-10): please use UserRejectFriendRequestShort instead.
+// Deprecated: 2022-01-10 - Please use UserRejectFriendRequestShort instead.
 func (aaa *FriendsService) UserRejectFriendRequest(input *friends.UserRejectFriendRequestParams) error {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -305,7 +305,7 @@ func (aaa *FriendsService) UserRejectFriendRequest(input *friends.UserRejectFrie
 	return nil
 }
 
-// deprecated(2022-01-10): please use UserGetFriendshipStatusShort instead.
+// Deprecated: 2022-01-10 - Please use UserGetFriendshipStatusShort instead.
 func (aaa *FriendsService) UserGetFriendshipStatus(input *friends.UserGetFriendshipStatusParams) (*lobbyclientmodels.ModelUserGetFriendshipStatusResponse, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -331,7 +331,7 @@ func (aaa *FriendsService) UserGetFriendshipStatus(input *friends.UserGetFriends
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use UserUnfriendRequestShort instead.
+// Deprecated: 2022-01-10 - Please use UserUnfriendRequestShort instead.
 func (aaa *FriendsService) UserUnfriendRequest(input *friends.UserUnfriendRequestParams) error {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -360,7 +360,7 @@ func (aaa *FriendsService) UserUnfriendRequest(input *friends.UserUnfriendReques
 	return nil
 }
 
-// deprecated(2022-01-10): please use AddFriendsWithoutConfirmationShort instead.
+// Deprecated: 2022-01-10 - Please use AddFriendsWithoutConfirmationShort instead.
 func (aaa *FriendsService) AddFriendsWithoutConfirmation(input *friends.AddFriendsWithoutConfirmationParams) error {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -386,7 +386,7 @@ func (aaa *FriendsService) AddFriendsWithoutConfirmation(input *friends.AddFrien
 	return nil
 }
 
-// deprecated(2022-01-10): please use GetListOfFriendsShort instead.
+// Deprecated: 2022-01-10 - Please use GetListOfFriendsShort instead.
 func (aaa *FriendsService) GetListOfFriends(input *friends.GetListOfFriendsParams) (*lobbyclientmodels.ModelGetFriendsResponse, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {

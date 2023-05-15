@@ -16,6 +16,8 @@ import (
 	"github.com/go-openapi/runtime/client"
 )
 
+// BackfillService this is use for compatibility with latest modular sdk only
+// Deprecated: 2023-03-30 - please use BackfillService imported from "github.com/AccelByte/accelbyte-go-modular-sdk/match2-sdk/pkg"
 type BackfillService struct {
 	Client                 *match2client.JusticeMatch2Service
 	ConfigRepository       repository.ConfigRepository
@@ -39,7 +41,7 @@ func (aaa *BackfillService) GetAuthSession() auth.Session {
 	}
 }
 
-// deprecated(2022-01-10): please use CreateBackfillShort instead.
+// Deprecated: 2022-01-10 - Please use CreateBackfillShort instead.
 func (aaa *BackfillService) CreateBackfill(input *backfill.CreateBackfillParams) (*match2clientmodels.APIBackfillCreateResponse, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -71,7 +73,7 @@ func (aaa *BackfillService) CreateBackfill(input *backfill.CreateBackfillParams)
 	return created.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use GetBackfillProposalShort instead.
+// Deprecated: 2022-01-10 - Please use GetBackfillProposalShort instead.
 func (aaa *BackfillService) GetBackfillProposal(input *backfill.GetBackfillProposalParams) (*match2clientmodels.APIBackfillProposalResponse, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -100,7 +102,7 @@ func (aaa *BackfillService) GetBackfillProposal(input *backfill.GetBackfillPropo
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use GetBackfillShort instead.
+// Deprecated: 2022-01-10 - Please use GetBackfillShort instead.
 func (aaa *BackfillService) GetBackfill(input *backfill.GetBackfillParams) (*match2clientmodels.APIBackfillGetResponse, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -129,7 +131,7 @@ func (aaa *BackfillService) GetBackfill(input *backfill.GetBackfillParams) (*mat
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use DeleteBackfillShort instead.
+// Deprecated: 2022-01-10 - Please use DeleteBackfillShort instead.
 func (aaa *BackfillService) DeleteBackfill(input *backfill.DeleteBackfillParams) error {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -155,7 +157,7 @@ func (aaa *BackfillService) DeleteBackfill(input *backfill.DeleteBackfillParams)
 	return nil
 }
 
-// deprecated(2022-01-10): please use AcceptBackfillShort instead.
+// Deprecated: 2022-01-10 - Please use AcceptBackfillShort instead.
 func (aaa *BackfillService) AcceptBackfill(input *backfill.AcceptBackfillParams) error {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -184,7 +186,7 @@ func (aaa *BackfillService) AcceptBackfill(input *backfill.AcceptBackfillParams)
 	return nil
 }
 
-// deprecated(2022-01-10): please use RejectBackfillShort instead.
+// Deprecated: 2022-01-10 - Please use RejectBackfillShort instead.
 func (aaa *BackfillService) RejectBackfill(input *backfill.RejectBackfillParams) error {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {

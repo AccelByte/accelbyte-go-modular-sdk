@@ -16,6 +16,8 @@ import (
 	"github.com/go-openapi/runtime/client"
 )
 
+// FulfillmentService this is use for compatibility with latest modular sdk only
+// Deprecated: 2023-03-30 - please use FulfillmentService imported from "github.com/AccelByte/accelbyte-go-modular-sdk/platform-sdk/pkg"
 type FulfillmentService struct {
 	Client                 *platformclient.JusticePlatformService
 	ConfigRepository       repository.ConfigRepository
@@ -39,7 +41,7 @@ func (aaa *FulfillmentService) GetAuthSession() auth.Session {
 	}
 }
 
-// deprecated(2022-01-10): please use QueryFulfillmentHistoriesShort instead.
+// Deprecated: 2022-01-10 - Please use QueryFulfillmentHistoriesShort instead.
 func (aaa *FulfillmentService) QueryFulfillmentHistories(input *fulfillment.QueryFulfillmentHistoriesParams) (*platformclientmodels.FulfillmentHistoryPagingSlicedResult, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -53,7 +55,7 @@ func (aaa *FulfillmentService) QueryFulfillmentHistories(input *fulfillment.Quer
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use FulfillItemShort instead.
+// Deprecated: 2022-01-10 - Please use FulfillItemShort instead.
 func (aaa *FulfillmentService) FulfillItem(input *fulfillment.FulfillItemParams) (*platformclientmodels.FulfillmentResult, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -76,7 +78,7 @@ func (aaa *FulfillmentService) FulfillItem(input *fulfillment.FulfillItemParams)
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use RedeemCodeShort instead.
+// Deprecated: 2022-01-10 - Please use RedeemCodeShort instead.
 func (aaa *FulfillmentService) RedeemCode(input *fulfillment.RedeemCodeParams) (*platformclientmodels.FulfillmentResult, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -99,7 +101,7 @@ func (aaa *FulfillmentService) RedeemCode(input *fulfillment.RedeemCodeParams) (
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use FulfillRewardsShort instead.
+// Deprecated: 2022-01-10 - Please use FulfillRewardsShort instead.
 func (aaa *FulfillmentService) FulfillRewards(input *fulfillment.FulfillRewardsParams) error {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -122,7 +124,7 @@ func (aaa *FulfillmentService) FulfillRewards(input *fulfillment.FulfillRewardsP
 	return nil
 }
 
-// deprecated(2022-01-10): please use PublicRedeemCodeShort instead.
+// Deprecated: 2022-01-10 - Please use PublicRedeemCodeShort instead.
 func (aaa *FulfillmentService) PublicRedeemCode(input *fulfillment.PublicRedeemCodeParams) (*platformclientmodels.FulfillmentResult, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {

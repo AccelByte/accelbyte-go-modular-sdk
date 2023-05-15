@@ -16,6 +16,8 @@ import (
 	"github.com/go-openapi/runtime/client"
 )
 
+// PublicReasonsService this is use for compatibility with latest modular sdk only
+// Deprecated: 2023-03-30 - please use PublicReasonsService imported from "github.com/AccelByte/accelbyte-go-modular-sdk/reporting-sdk/pkg"
 type PublicReasonsService struct {
 	Client                 *reportingclient.JusticeReportingService
 	ConfigRepository       repository.ConfigRepository
@@ -39,7 +41,7 @@ func (aaa *PublicReasonsService) GetAuthSession() auth.Session {
 	}
 }
 
-// deprecated(2022-01-10): please use PublicListReasonGroupsShort instead.
+// Deprecated: 2022-01-10 - Please use PublicListReasonGroupsShort instead.
 func (aaa *PublicReasonsService) PublicListReasonGroups(input *public_reasons.PublicListReasonGroupsParams) (*reportingclientmodels.RestapiReasonGroupListResponse, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -56,7 +58,7 @@ func (aaa *PublicReasonsService) PublicListReasonGroups(input *public_reasons.Pu
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use PublicGetReasonsShort instead.
+// Deprecated: 2022-01-10 - Please use PublicGetReasonsShort instead.
 func (aaa *PublicReasonsService) PublicGetReasons(input *public_reasons.PublicGetReasonsParams) (*reportingclientmodels.RestapiPublicReasonListResponse, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {

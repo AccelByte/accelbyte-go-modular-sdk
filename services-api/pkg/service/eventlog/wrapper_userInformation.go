@@ -17,7 +17,7 @@ import (
 )
 
 // UserInformationService this is use for compatibility with latest modular sdk only
-// Deprecated: please use UserInformationService imported from "github.com/AccelByte/accelbyte-go-modular-sdk/eventlog-sdk/pkg"
+// Deprecated: 2023-03-30 - please use UserInformationService imported from "github.com/AccelByte/accelbyte-go-modular-sdk/eventlog-sdk/pkg"
 type UserInformationService struct {
 	Client                 *eventlogclient.JusticeEventlogService
 	ConfigRepository       repository.ConfigRepository
@@ -41,7 +41,7 @@ func (aaa *UserInformationService) GetAuthSession() auth.Session {
 	}
 }
 
-// deprecated(2022-01-10): please use GetUserActivitiesHandlerShort instead.
+// Deprecated: 2022-01-10 - Please use GetUserActivitiesHandlerShort instead.
 func (aaa *UserInformationService) GetUserActivitiesHandler(input *user_information.GetUserActivitiesHandlerParams) (*eventlogclientmodels.ModelsEventResponse, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -70,7 +70,7 @@ func (aaa *UserInformationService) GetUserActivitiesHandler(input *user_informat
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use DeleteUserActivitiesHandlerShort instead.
+// Deprecated: 2022-01-10 - Please use DeleteUserActivitiesHandlerShort instead.
 func (aaa *UserInformationService) DeleteUserActivitiesHandler(input *user_information.DeleteUserActivitiesHandlerParams) error {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -96,7 +96,7 @@ func (aaa *UserInformationService) DeleteUserActivitiesHandler(input *user_infor
 	return nil
 }
 
-// deprecated(2022-01-10): please use LastUserActivityTimeHandlerShort instead.
+// Deprecated: 2022-01-10 - Please use LastUserActivityTimeHandlerShort instead.
 func (aaa *UserInformationService) LastUserActivityTimeHandler(input *user_information.LastUserActivityTimeHandlerParams) (*eventlogclientmodels.ModelsUserLastActivity, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {

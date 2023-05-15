@@ -16,6 +16,8 @@ import (
 	"github.com/go-openapi/runtime/client"
 )
 
+// PublicDownloadCountService this is use for compatibility with latest modular sdk only
+// Deprecated: 2023-03-30 - please use PublicDownloadCountService imported from "github.com/AccelByte/accelbyte-go-modular-sdk/ugc-sdk/pkg"
 type PublicDownloadCountService struct {
 	Client                 *ugcclient.JusticeUgcService
 	ConfigRepository       repository.ConfigRepository
@@ -39,7 +41,7 @@ func (aaa *PublicDownloadCountService) GetAuthSession() auth.Session {
 	}
 }
 
-// deprecated(2022-01-10): please use AddDownloadCountShort instead.
+// Deprecated: 2022-01-10 - Please use AddDownloadCountShort instead.
 func (aaa *PublicDownloadCountService) AddDownloadCount(input *public_download_count.AddDownloadCountParams) (*ugcclientmodels.ModelsAddDownloadCountResponse, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {

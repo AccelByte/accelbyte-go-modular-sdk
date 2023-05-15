@@ -17,7 +17,7 @@ import (
 )
 
 // AdminReportsService this is use for compatibility with latest modular sdk only
-// Deprecated: please use AdminReportsService imported from "github.com/AccelByte/accelbyte-go-modular-sdk/reporting-sdk/pkg"
+// Deprecated: 2023-03-30 - please use AdminReportsService imported from "github.com/AccelByte/accelbyte-go-modular-sdk/reporting-sdk/pkg"
 type AdminReportsService struct {
 	Client                 *reportingclient.JusticeReportingService
 	ConfigRepository       repository.ConfigRepository
@@ -41,7 +41,7 @@ func (aaa *AdminReportsService) GetAuthSession() auth.Session {
 	}
 }
 
-// deprecated(2022-01-10): please use ListReportsShort instead.
+// Deprecated: 2022-01-10 - Please use ListReportsShort instead.
 func (aaa *AdminReportsService) ListReports(input *admin_reports.ListReportsParams) (*reportingclientmodels.RestapiReportListResponse, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -58,7 +58,7 @@ func (aaa *AdminReportsService) ListReports(input *admin_reports.ListReportsPara
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use AdminSubmitReportShort instead.
+// Deprecated: 2022-01-10 - Please use AdminSubmitReportShort instead.
 func (aaa *AdminReportsService) AdminSubmitReport(input *admin_reports.AdminSubmitReportParams) (*reportingclientmodels.RestapiSubmitReportResponse, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {

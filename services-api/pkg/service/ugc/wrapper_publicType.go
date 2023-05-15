@@ -17,7 +17,7 @@ import (
 )
 
 // PublicTypeService this is use for compatibility with latest modular sdk only
-// Deprecated: please use PublicTypeService imported from "github.com/AccelByte/accelbyte-go-modular-sdk/ugc-sdk/pkg"
+// Deprecated: 2023-03-30 - please use PublicTypeService imported from "github.com/AccelByte/accelbyte-go-modular-sdk/ugc-sdk/pkg"
 type PublicTypeService struct {
 	Client                 *ugcclient.JusticeUgcService
 	ConfigRepository       repository.ConfigRepository
@@ -41,7 +41,7 @@ func (aaa *PublicTypeService) GetAuthSession() auth.Session {
 	}
 }
 
-// deprecated(2022-01-10): please use GetTypeShort instead.
+// Deprecated: 2022-01-10 - Please use GetTypeShort instead.
 func (aaa *PublicTypeService) GetType(input *public_type.GetTypeParams) (*ugcclientmodels.ModelsPaginatedGetTypeResponse, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {

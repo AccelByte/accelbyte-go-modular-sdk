@@ -13,24 +13,18 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/ugc-sdk/pkg/ugcclient"
 )
 
-var ugcClientInstance *ugcclient.JusticeUgcService
-
 func NewUgcClient(configRepository repository.ConfigRepository) *ugcclient.JusticeUgcService {
-	if ugcClientInstance == nil {
-		baseURL := configRepository.GetJusticeBaseUrl()
-		if len(baseURL) > 0 {
-			baseURLSplit := strings.Split(baseURL, "://")
-			httpClientConfig := &ugcclient.TransportConfig{
-				Host:          baseURLSplit[1],
-				BasePath:      "",
-				Schemes:       []string{baseURLSplit[0]},
-				UserAgentFunc: GetUserAgent,
-			}
-			ugcClientInstance = ugcclient.NewHTTPClientWithConfig(nil, httpClientConfig)
-		} else {
-			ugcClientInstance = ugcclient.NewHTTPClient(nil)
+	baseURL := configRepository.GetJusticeBaseUrl()
+	if len(baseURL) > 0 {
+		baseURLSplit := strings.Split(baseURL, "://")
+		httpClientConfig := &ugcclient.TransportConfig{
+			Host:          baseURLSplit[1],
+			BasePath:      "",
+			Schemes:       []string{baseURLSplit[0]},
+			UserAgentFunc: GetUserAgent,
 		}
+		return ugcclient.NewHTTPClientWithConfig(nil, httpClientConfig)
+	} else {
+		return ugcclient.NewHTTPClient(nil)
 	}
-
-	return ugcClientInstance
 }

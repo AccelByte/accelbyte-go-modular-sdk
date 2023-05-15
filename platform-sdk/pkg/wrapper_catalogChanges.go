@@ -16,6 +16,8 @@ import (
 	"github.com/go-openapi/runtime/client"
 )
 
+// CatalogChangesService this is use for compatibility with latest modular sdk only
+// Deprecated: 2023-03-30 - please use CatalogChangesService imported from "github.com/AccelByte/accelbyte-go-modular-sdk/platform-sdk/pkg"
 type CatalogChangesService struct {
 	Client                 *platformclient.JusticePlatformService
 	ConfigRepository       repository.ConfigRepository
@@ -39,8 +41,8 @@ func (aaa *CatalogChangesService) GetAuthSession() auth.Session {
 	}
 }
 
-// deprecated(2022-01-10): please use QueryChangesShort instead.
-func (aaa *CatalogChangesService) QueryChanges(input *catalog_changes.QueryChangesParams) ([]*platformclientmodels.CatalogChangePagingSlicedResult, error) {
+// Deprecated: 2022-01-10 - Please use QueryChangesShort instead.
+func (aaa *CatalogChangesService) QueryChanges(input *catalog_changes.QueryChangesParams) (*platformclientmodels.CatalogChangePagingSlicedResult, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
 		return nil, err
@@ -53,7 +55,7 @@ func (aaa *CatalogChangesService) QueryChanges(input *catalog_changes.QueryChang
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use PublishAllShort instead.
+// Deprecated: 2022-01-10 - Please use PublishAllShort instead.
 func (aaa *CatalogChangesService) PublishAll(input *catalog_changes.PublishAllParams) (*platformclientmodels.StoreInfo, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -73,7 +75,7 @@ func (aaa *CatalogChangesService) PublishAll(input *catalog_changes.PublishAllPa
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use PublishSelectedShort instead.
+// Deprecated: 2022-01-10 - Please use PublishSelectedShort instead.
 func (aaa *CatalogChangesService) PublishSelected(input *catalog_changes.PublishSelectedParams) (*platformclientmodels.StoreInfo, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -96,7 +98,7 @@ func (aaa *CatalogChangesService) PublishSelected(input *catalog_changes.Publish
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use SelectAllRecordsShort instead.
+// Deprecated: 2022-01-10 - Please use SelectAllRecordsShort instead.
 func (aaa *CatalogChangesService) SelectAllRecords(input *catalog_changes.SelectAllRecordsParams) error {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -113,7 +115,7 @@ func (aaa *CatalogChangesService) SelectAllRecords(input *catalog_changes.Select
 	return nil
 }
 
-// deprecated(2022-01-10): please use GetStatisticShort instead.
+// Deprecated: 2022-01-10 - Please use GetStatisticShort instead.
 func (aaa *CatalogChangesService) GetStatistic(input *catalog_changes.GetStatisticParams) (*platformclientmodels.CatalogChangeStatistics, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -127,7 +129,7 @@ func (aaa *CatalogChangesService) GetStatistic(input *catalog_changes.GetStatist
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use UnselectAllRecordsShort instead.
+// Deprecated: 2022-01-10 - Please use UnselectAllRecordsShort instead.
 func (aaa *CatalogChangesService) UnselectAllRecords(input *catalog_changes.UnselectAllRecordsParams) error {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -144,7 +146,7 @@ func (aaa *CatalogChangesService) UnselectAllRecords(input *catalog_changes.Unse
 	return nil
 }
 
-// deprecated(2022-01-10): please use SelectRecordShort instead.
+// Deprecated: 2022-01-10 - Please use SelectRecordShort instead.
 func (aaa *CatalogChangesService) SelectRecord(input *catalog_changes.SelectRecordParams) error {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -161,7 +163,7 @@ func (aaa *CatalogChangesService) SelectRecord(input *catalog_changes.SelectReco
 	return nil
 }
 
-// deprecated(2022-01-10): please use UnselectRecordShort instead.
+// Deprecated: 2022-01-10 - Please use UnselectRecordShort instead.
 func (aaa *CatalogChangesService) UnselectRecord(input *catalog_changes.UnselectRecordParams) error {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -181,7 +183,7 @@ func (aaa *CatalogChangesService) UnselectRecord(input *catalog_changes.Unselect
 	return nil
 }
 
-func (aaa *CatalogChangesService) QueryChangesShort(input *catalog_changes.QueryChangesParams) ([]*platformclientmodels.CatalogChangePagingSlicedResult, error) {
+func (aaa *CatalogChangesService) QueryChangesShort(input *catalog_changes.QueryChangesParams) (*platformclientmodels.CatalogChangePagingSlicedResult, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{

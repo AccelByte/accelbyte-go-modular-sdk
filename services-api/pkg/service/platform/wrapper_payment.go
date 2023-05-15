@@ -17,7 +17,7 @@ import (
 )
 
 // PaymentService this is use for compatibility with latest modular sdk only
-// Deprecated: please use PaymentService imported from "github.com/AccelByte/accelbyte-go-modular-sdk/platform-sdk/pkg"
+// Deprecated: 2023-03-30 - please use PaymentService imported from "github.com/AccelByte/accelbyte-go-modular-sdk/platform-sdk/pkg"
 type PaymentService struct {
 	Client                 *platformclient.JusticePlatformService
 	ConfigRepository       repository.ConfigRepository
@@ -41,7 +41,7 @@ func (aaa *PaymentService) GetAuthSession() auth.Session {
 	}
 }
 
-// deprecated(2022-01-10): please use QueryPaymentNotificationsShort instead.
+// Deprecated: 2022-01-10 - Please use QueryPaymentNotificationsShort instead.
 func (aaa *PaymentService) QueryPaymentNotifications(input *payment.QueryPaymentNotificationsParams) (*platformclientmodels.PaymentNotificationPagingSlicedResult, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -55,7 +55,7 @@ func (aaa *PaymentService) QueryPaymentNotifications(input *payment.QueryPayment
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use QueryPaymentOrdersShort instead.
+// Deprecated: 2022-01-10 - Please use QueryPaymentOrdersShort instead.
 func (aaa *PaymentService) QueryPaymentOrders(input *payment.QueryPaymentOrdersParams) (*platformclientmodels.PaymentOrderPagingSlicedResult, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -69,7 +69,7 @@ func (aaa *PaymentService) QueryPaymentOrders(input *payment.QueryPaymentOrdersP
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use ListExtOrderNoByExtTxIDShort instead.
+// Deprecated: 2022-01-10 - Please use ListExtOrderNoByExtTxIDShort instead.
 func (aaa *PaymentService) ListExtOrderNoByExtTxID(input *payment.ListExtOrderNoByExtTxIDParams) ([]string, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -83,7 +83,7 @@ func (aaa *PaymentService) ListExtOrderNoByExtTxID(input *payment.ListExtOrderNo
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use GetPaymentOrderShort instead.
+// Deprecated: 2022-01-10 - Please use GetPaymentOrderShort instead.
 func (aaa *PaymentService) GetPaymentOrder(input *payment.GetPaymentOrderParams) (*platformclientmodels.PaymentOrderInfo, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -100,7 +100,7 @@ func (aaa *PaymentService) GetPaymentOrder(input *payment.GetPaymentOrderParams)
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use ChargePaymentOrderShort instead.
+// Deprecated: 2022-01-10 - Please use ChargePaymentOrderShort instead.
 func (aaa *PaymentService) ChargePaymentOrder(input *payment.ChargePaymentOrderParams) (*platformclientmodels.PaymentOrderInfo, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -123,7 +123,7 @@ func (aaa *PaymentService) ChargePaymentOrder(input *payment.ChargePaymentOrderP
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use SimulatePaymentOrderNotificationShort instead.
+// Deprecated: 2022-01-10 - Please use SimulatePaymentOrderNotificationShort instead.
 func (aaa *PaymentService) SimulatePaymentOrderNotification(input *payment.SimulatePaymentOrderNotificationParams) (*platformclientmodels.NotificationProcessResult, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -143,7 +143,7 @@ func (aaa *PaymentService) SimulatePaymentOrderNotification(input *payment.Simul
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use GetPaymentOrderChargeStatusShort instead.
+// Deprecated: 2022-01-10 - Please use GetPaymentOrderChargeStatusShort instead.
 func (aaa *PaymentService) GetPaymentOrderChargeStatus(input *payment.GetPaymentOrderChargeStatusParams) (*platformclientmodels.PaymentOrderChargeStatus, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -160,7 +160,7 @@ func (aaa *PaymentService) GetPaymentOrderChargeStatus(input *payment.GetPayment
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use CreateUserPaymentOrderShort instead.
+// Deprecated: 2022-01-10 - Please use CreateUserPaymentOrderShort instead.
 func (aaa *PaymentService) CreateUserPaymentOrder(input *payment.CreateUserPaymentOrderParams) (*platformclientmodels.PaymentOrderInfo, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -189,7 +189,7 @@ func (aaa *PaymentService) CreateUserPaymentOrder(input *payment.CreateUserPayme
 	return created.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use RefundUserPaymentOrderShort instead.
+// Deprecated: 2022-01-10 - Please use RefundUserPaymentOrderShort instead.
 func (aaa *PaymentService) RefundUserPaymentOrder(input *payment.RefundUserPaymentOrderParams) (*platformclientmodels.PaymentOrderInfo, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {

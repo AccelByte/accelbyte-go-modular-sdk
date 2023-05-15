@@ -17,7 +17,7 @@ import (
 )
 
 // MatchPoolsService this is use for compatibility with latest modular sdk only
-// Deprecated: please use MatchPoolsService imported from "github.com/AccelByte/accelbyte-go-modular-sdk/match2-sdk/pkg"
+// Deprecated: 2023-03-30 - please use MatchPoolsService imported from "github.com/AccelByte/accelbyte-go-modular-sdk/match2-sdk/pkg"
 type MatchPoolsService struct {
 	Client                 *match2client.JusticeMatch2Service
 	ConfigRepository       repository.ConfigRepository
@@ -41,7 +41,7 @@ func (aaa *MatchPoolsService) GetAuthSession() auth.Session {
 	}
 }
 
-// deprecated(2022-01-10): please use MatchPoolListShort instead.
+// Deprecated: 2022-01-10 - Please use MatchPoolListShort instead.
 func (aaa *MatchPoolsService) MatchPoolList(input *match_pools.MatchPoolListParams) (*match2clientmodels.APIListMatchPoolsResponse, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -64,7 +64,7 @@ func (aaa *MatchPoolsService) MatchPoolList(input *match_pools.MatchPoolListPara
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use CreateMatchPoolShort instead.
+// Deprecated: 2022-01-10 - Please use CreateMatchPoolShort instead.
 func (aaa *MatchPoolsService) CreateMatchPool(input *match_pools.CreateMatchPoolParams) error {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -93,7 +93,7 @@ func (aaa *MatchPoolsService) CreateMatchPool(input *match_pools.CreateMatchPool
 	return nil
 }
 
-// deprecated(2022-01-10): please use MatchPoolDetailsShort instead.
+// Deprecated: 2022-01-10 - Please use MatchPoolDetailsShort instead.
 func (aaa *MatchPoolsService) MatchPoolDetails(input *match_pools.MatchPoolDetailsParams) (*match2clientmodels.APIMatchPool, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -116,7 +116,7 @@ func (aaa *MatchPoolsService) MatchPoolDetails(input *match_pools.MatchPoolDetai
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use UpdateMatchPoolShort instead.
+// Deprecated: 2022-01-10 - Please use UpdateMatchPoolShort instead.
 func (aaa *MatchPoolsService) UpdateMatchPool(input *match_pools.UpdateMatchPoolParams) (*match2clientmodels.APIMatchPool, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -145,7 +145,7 @@ func (aaa *MatchPoolsService) UpdateMatchPool(input *match_pools.UpdateMatchPool
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use DeleteMatchPoolShort instead.
+// Deprecated: 2022-01-10 - Please use DeleteMatchPoolShort instead.
 func (aaa *MatchPoolsService) DeleteMatchPool(input *match_pools.DeleteMatchPoolParams) error {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -171,7 +171,7 @@ func (aaa *MatchPoolsService) DeleteMatchPool(input *match_pools.DeleteMatchPool
 	return nil
 }
 
-// deprecated(2022-01-10): please use MatchPoolMetricShort instead.
+// Deprecated: 2022-01-10 - Please use MatchPoolMetricShort instead.
 func (aaa *MatchPoolsService) MatchPoolMetric(input *match_pools.MatchPoolMetricParams) (*match2clientmodels.APITicketMetricResultRecord, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {

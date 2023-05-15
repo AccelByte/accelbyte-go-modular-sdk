@@ -16,6 +16,8 @@ import (
 	"github.com/go-openapi/runtime/client"
 )
 
+// EligibilitiesService this is use for compatibility with latest modular sdk only
+// Deprecated: 2023-03-30 - please use EligibilitiesService imported from "github.com/AccelByte/accelbyte-go-modular-sdk/legal-sdk/pkg"
 type EligibilitiesService struct {
 	Client                 *legalclient.JusticeLegalService
 	ConfigRepository       repository.ConfigRepository
@@ -39,7 +41,7 @@ func (aaa *EligibilitiesService) GetAuthSession() auth.Session {
 	}
 }
 
-// deprecated(2022-01-10): please use RetrieveEligibilitiesPublicShort instead.
+// Deprecated: 2022-01-10 - Please use RetrieveEligibilitiesPublicShort instead.
 func (aaa *EligibilitiesService) RetrieveEligibilitiesPublic(input *eligibilities.RetrieveEligibilitiesPublicParams) ([]*legalclientmodels.RetrieveUserEligibilitiesResponse, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -59,7 +61,7 @@ func (aaa *EligibilitiesService) RetrieveEligibilitiesPublic(input *eligibilitie
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use RetrieveEligibilitiesPublicIndirectShort instead.
+// Deprecated: 2022-01-10 - Please use RetrieveEligibilitiesPublicIndirectShort instead.
 func (aaa *EligibilitiesService) RetrieveEligibilitiesPublicIndirect(input *eligibilities.RetrieveEligibilitiesPublicIndirectParams) (*legalclientmodels.RetrieveUserEligibilitiesIndirectResponse, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {

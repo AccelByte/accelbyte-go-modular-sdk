@@ -19,7 +19,7 @@ import (
 var basicClientInstance *basicclient.JusticeBasicService
 
 // NewBasicClient
-// Deprecated: please use NewBasicClient from "github.com/AccelByte/accelbyte-go-modular-sdk/Basic-sdk/pkg"
+// Deprecated: 2023-03-30 - please use NewBasicClient from "github.com/AccelByte/accelbyte-go-modular-sdk/Basic-sdk/pkg"
 func NewBasicClient(configRepository repository.ConfigRepository) *basicclient.JusticeBasicService {
 	if basicClientInstance == nil {
 		baseURL := configRepository.GetJusticeBaseUrl()

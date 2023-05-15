@@ -17,7 +17,7 @@ import (
 )
 
 // TicketService this is use for compatibility with latest modular sdk only
-// Deprecated: please use TicketService imported from "github.com/AccelByte/accelbyte-go-modular-sdk/platform-sdk/pkg"
+// Deprecated: 2023-03-30 - please use TicketService imported from "github.com/AccelByte/accelbyte-go-modular-sdk/platform-sdk/pkg"
 type TicketService struct {
 	Client                 *platformclient.JusticePlatformService
 	ConfigRepository       repository.ConfigRepository
@@ -41,7 +41,7 @@ func (aaa *TicketService) GetAuthSession() auth.Session {
 	}
 }
 
-// deprecated(2022-01-10): please use GetTicketDynamicShort instead.
+// Deprecated: 2022-01-10 - Please use GetTicketDynamicShort instead.
 func (aaa *TicketService) GetTicketDynamic(input *ticket.GetTicketDynamicParams) (*platformclientmodels.TicketDynamicInfo, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -58,7 +58,7 @@ func (aaa *TicketService) GetTicketDynamic(input *ticket.GetTicketDynamicParams)
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use DecreaseTicketSaleShort instead.
+// Deprecated: 2022-01-10 - Please use DecreaseTicketSaleShort instead.
 func (aaa *TicketService) DecreaseTicketSale(input *ticket.DecreaseTicketSaleParams) error {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -78,7 +78,7 @@ func (aaa *TicketService) DecreaseTicketSale(input *ticket.DecreaseTicketSalePar
 	return nil
 }
 
-// deprecated(2022-01-10): please use GetTicketBoothIDShort instead.
+// Deprecated: 2022-01-10 - Please use GetTicketBoothIDShort instead.
 func (aaa *TicketService) GetTicketBoothID(input *ticket.GetTicketBoothIDParams) (*platformclientmodels.TicketBoothID, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -95,7 +95,7 @@ func (aaa *TicketService) GetTicketBoothID(input *ticket.GetTicketBoothIDParams)
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use IncreaseTicketSaleShort instead.
+// Deprecated: 2022-01-10 - Please use IncreaseTicketSaleShort instead.
 func (aaa *TicketService) IncreaseTicketSale(input *ticket.IncreaseTicketSaleParams) (*platformclientmodels.TicketSaleIncrementResult, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -115,7 +115,7 @@ func (aaa *TicketService) IncreaseTicketSale(input *ticket.IncreaseTicketSalePar
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use AcquireUserTicketShort instead.
+// Deprecated: 2022-01-10 - Please use AcquireUserTicketShort instead.
 func (aaa *TicketService) AcquireUserTicket(input *ticket.AcquireUserTicketParams) (*platformclientmodels.TicketAcquireResult, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {

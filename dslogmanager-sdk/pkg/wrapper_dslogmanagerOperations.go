@@ -16,6 +16,8 @@ import (
 	"github.com/go-openapi/runtime/client"
 )
 
+// DslogmanagerOperationsService this is use for compatibility with latest modular sdk only
+// Deprecated: 2023-03-30 - please use DslogmanagerOperationsService imported from "github.com/AccelByte/accelbyte-go-modular-sdk/dslogmanager-sdk/pkg"
 type DslogmanagerOperationsService struct {
 	Client                 *dslogmanagerclient.JusticeDslogmanagerService
 	ConfigRepository       repository.ConfigRepository
@@ -39,7 +41,7 @@ func (aaa *DslogmanagerOperationsService) GetAuthSession() auth.Session {
 	}
 }
 
-// deprecated(2022-01-10): please use PublicGetMessagesShort instead.
+// Deprecated: 2022-01-10 - Please use PublicGetMessagesShort instead.
 func (aaa *DslogmanagerOperationsService) PublicGetMessages(input *dslogmanager_operations.PublicGetMessagesParams) ([]*dslogmanagerclientmodels.LogAppMessageDeclaration, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {

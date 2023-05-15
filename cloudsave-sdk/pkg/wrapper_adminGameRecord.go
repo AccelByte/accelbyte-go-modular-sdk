@@ -16,6 +16,8 @@ import (
 	"github.com/go-openapi/runtime/client"
 )
 
+// AdminGameRecordService this is use for compatibility with latest modular sdk only
+// Deprecated: 2023-03-30 - please use AdminGameRecordService imported from "github.com/AccelByte/accelbyte-go-modular-sdk/cloudsave-sdk/pkg"
 type AdminGameRecordService struct {
 	Client                 *cloudsaveclient.JusticeCloudsaveService
 	ConfigRepository       repository.ConfigRepository
@@ -39,7 +41,7 @@ func (aaa *AdminGameRecordService) GetAuthSession() auth.Session {
 	}
 }
 
-// deprecated(2022-01-10): please use ListGameRecordsHandlerV1Short instead.
+// Deprecated: 2022-01-10 - Please use ListGameRecordsHandlerV1Short instead.
 func (aaa *AdminGameRecordService) ListGameRecordsHandlerV1(input *admin_game_record.ListGameRecordsHandlerV1Params) (*cloudsaveclientmodels.ModelsListGameRecordKeysResponse, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -59,7 +61,7 @@ func (aaa *AdminGameRecordService) ListGameRecordsHandlerV1(input *admin_game_re
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use AdminGetGameRecordHandlerV1Short instead.
+// Deprecated: 2022-01-10 - Please use AdminGetGameRecordHandlerV1Short instead.
 func (aaa *AdminGameRecordService) AdminGetGameRecordHandlerV1(input *admin_game_record.AdminGetGameRecordHandlerV1Params) (*cloudsaveclientmodels.ModelsGameRecordResponse, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -82,7 +84,7 @@ func (aaa *AdminGameRecordService) AdminGetGameRecordHandlerV1(input *admin_game
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use AdminPutGameRecordHandlerV1Short instead.
+// Deprecated: 2022-01-10 - Please use AdminPutGameRecordHandlerV1Short instead.
 func (aaa *AdminGameRecordService) AdminPutGameRecordHandlerV1(input *admin_game_record.AdminPutGameRecordHandlerV1Params) (*cloudsaveclientmodels.ModelsGameRecordResponse, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -102,7 +104,7 @@ func (aaa *AdminGameRecordService) AdminPutGameRecordHandlerV1(input *admin_game
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use AdminPostGameRecordHandlerV1Short instead.
+// Deprecated: 2022-01-10 - Please use AdminPostGameRecordHandlerV1Short instead.
 func (aaa *AdminGameRecordService) AdminPostGameRecordHandlerV1(input *admin_game_record.AdminPostGameRecordHandlerV1Params) (*cloudsaveclientmodels.ModelsGameRecordResponse, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -122,7 +124,7 @@ func (aaa *AdminGameRecordService) AdminPostGameRecordHandlerV1(input *admin_gam
 	return created.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use AdminDeleteGameRecordHandlerV1Short instead.
+// Deprecated: 2022-01-10 - Please use AdminDeleteGameRecordHandlerV1Short instead.
 func (aaa *AdminGameRecordService) AdminDeleteGameRecordHandlerV1(input *admin_game_record.AdminDeleteGameRecordHandlerV1Params) error {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {

@@ -17,7 +17,7 @@ import (
 )
 
 // ChatService this is use for compatibility with latest modular sdk only
-// Deprecated: please use ChatService imported from "github.com/AccelByte/accelbyte-go-modular-sdk/lobby-sdk/pkg"
+// Deprecated: 2023-03-30 - please use ChatService imported from "github.com/AccelByte/accelbyte-go-modular-sdk/lobby-sdk/pkg"
 type ChatService struct {
 	Client                 *lobbyclient.JusticeLobbyService
 	ConfigRepository       repository.ConfigRepository
@@ -41,7 +41,7 @@ func (aaa *ChatService) GetAuthSession() auth.Session {
 	}
 }
 
-// deprecated(2022-01-10): please use PersonalChatHistoryShort instead.
+// Deprecated: 2022-01-10 - Please use PersonalChatHistoryShort instead.
 func (aaa *ChatService) PersonalChatHistory(input *chat.PersonalChatHistoryParams) ([]*lobbyclientmodels.ModelChatMessageResponse, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -70,7 +70,7 @@ func (aaa *ChatService) PersonalChatHistory(input *chat.PersonalChatHistoryParam
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use AdminChatHistoryShort instead.
+// Deprecated: 2022-01-10 - Please use AdminChatHistoryShort instead.
 func (aaa *ChatService) AdminChatHistory(input *chat.AdminChatHistoryParams) ([]*lobbyclientmodels.ModelChatMessageResponse, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -99,7 +99,7 @@ func (aaa *ChatService) AdminChatHistory(input *chat.AdminChatHistoryParams) ([]
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use GetPersonalChatHistoryV1PublicShort instead.
+// Deprecated: 2022-01-10 - Please use GetPersonalChatHistoryV1PublicShort instead.
 func (aaa *ChatService) GetPersonalChatHistoryV1Public(input *chat.GetPersonalChatHistoryV1PublicParams) ([]*lobbyclientmodels.ModelChatMessageResponse, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {

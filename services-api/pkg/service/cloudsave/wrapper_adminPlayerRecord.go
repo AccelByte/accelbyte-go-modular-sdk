@@ -17,7 +17,7 @@ import (
 )
 
 // AdminPlayerRecordService this is use for compatibility with latest modular sdk only
-// Deprecated: please use AdminPlayerRecordService imported from "github.com/AccelByte/accelbyte-go-modular-sdk/cloudsave-sdk/pkg"
+// Deprecated: 2023-03-30 - please use AdminPlayerRecordService imported from "github.com/AccelByte/accelbyte-go-modular-sdk/cloudsave-sdk/pkg"
 type AdminPlayerRecordService struct {
 	Client                 *cloudsaveclient.JusticeCloudsaveService
 	ConfigRepository       repository.ConfigRepository
@@ -41,7 +41,7 @@ func (aaa *AdminPlayerRecordService) GetAuthSession() auth.Session {
 	}
 }
 
-// deprecated(2022-01-10): please use BulkGetPlayerRecordSizeHandlerV1Short instead.
+// Deprecated: 2022-01-10 - Please use BulkGetPlayerRecordSizeHandlerV1Short instead.
 func (aaa *AdminPlayerRecordService) BulkGetPlayerRecordSizeHandlerV1(input *admin_player_record.BulkGetPlayerRecordSizeHandlerV1Params) (*cloudsaveclientmodels.ModelsBulkGetPlayerRecordSizeResponse, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -67,7 +67,7 @@ func (aaa *AdminPlayerRecordService) BulkGetPlayerRecordSizeHandlerV1(input *adm
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use ListPlayerRecordHandlerV1Short instead.
+// Deprecated: 2022-01-10 - Please use ListPlayerRecordHandlerV1Short instead.
 func (aaa *AdminPlayerRecordService) ListPlayerRecordHandlerV1(input *admin_player_record.ListPlayerRecordHandlerV1Params) (*cloudsaveclientmodels.ModelsListPlayerRecordKeysResponse, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -90,7 +90,7 @@ func (aaa *AdminPlayerRecordService) ListPlayerRecordHandlerV1(input *admin_play
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use AdminRetrievePlayerRecordsShort instead.
+// Deprecated: 2022-01-10 - Please use AdminRetrievePlayerRecordsShort instead.
 func (aaa *AdminPlayerRecordService) AdminRetrievePlayerRecords(input *admin_player_record.AdminRetrievePlayerRecordsParams) (*cloudsaveclientmodels.ModelsListPlayerRecordKeysResponse, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -113,7 +113,7 @@ func (aaa *AdminPlayerRecordService) AdminRetrievePlayerRecords(input *admin_pla
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use AdminGetPlayerRecordHandlerV1Short instead.
+// Deprecated: 2022-01-10 - Please use AdminGetPlayerRecordHandlerV1Short instead.
 func (aaa *AdminPlayerRecordService) AdminGetPlayerRecordHandlerV1(input *admin_player_record.AdminGetPlayerRecordHandlerV1Params) (*cloudsaveclientmodels.ModelsPlayerRecordResponse, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -136,7 +136,7 @@ func (aaa *AdminPlayerRecordService) AdminGetPlayerRecordHandlerV1(input *admin_
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use AdminPutPlayerRecordHandlerV1Short instead.
+// Deprecated: 2022-01-10 - Please use AdminPutPlayerRecordHandlerV1Short instead.
 func (aaa *AdminPlayerRecordService) AdminPutPlayerRecordHandlerV1(input *admin_player_record.AdminPutPlayerRecordHandlerV1Params) (*cloudsaveclientmodels.ModelsPlayerRecordResponse, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -156,7 +156,7 @@ func (aaa *AdminPlayerRecordService) AdminPutPlayerRecordHandlerV1(input *admin_
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use AdminPostPlayerRecordHandlerV1Short instead.
+// Deprecated: 2022-01-10 - Please use AdminPostPlayerRecordHandlerV1Short instead.
 func (aaa *AdminPlayerRecordService) AdminPostPlayerRecordHandlerV1(input *admin_player_record.AdminPostPlayerRecordHandlerV1Params) (*cloudsaveclientmodels.ModelsPlayerRecordResponse, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -176,7 +176,7 @@ func (aaa *AdminPlayerRecordService) AdminPostPlayerRecordHandlerV1(input *admin
 	return created.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use AdminDeletePlayerRecordHandlerV1Short instead.
+// Deprecated: 2022-01-10 - Please use AdminDeletePlayerRecordHandlerV1Short instead.
 func (aaa *AdminPlayerRecordService) AdminDeletePlayerRecordHandlerV1(input *admin_player_record.AdminDeletePlayerRecordHandlerV1Params) error {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -196,7 +196,7 @@ func (aaa *AdminPlayerRecordService) AdminDeletePlayerRecordHandlerV1(input *adm
 	return nil
 }
 
-// deprecated(2022-01-10): please use AdminGetPlayerPublicRecordHandlerV1Short instead.
+// Deprecated: 2022-01-10 - Please use AdminGetPlayerPublicRecordHandlerV1Short instead.
 func (aaa *AdminPlayerRecordService) AdminGetPlayerPublicRecordHandlerV1(input *admin_player_record.AdminGetPlayerPublicRecordHandlerV1Params) (*cloudsaveclientmodels.ModelsPlayerRecordResponse, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -219,7 +219,7 @@ func (aaa *AdminPlayerRecordService) AdminGetPlayerPublicRecordHandlerV1(input *
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use AdminPutPlayerPublicRecordHandlerV1Short instead.
+// Deprecated: 2022-01-10 - Please use AdminPutPlayerPublicRecordHandlerV1Short instead.
 func (aaa *AdminPlayerRecordService) AdminPutPlayerPublicRecordHandlerV1(input *admin_player_record.AdminPutPlayerPublicRecordHandlerV1Params) (*cloudsaveclientmodels.ModelsPlayerRecordResponse, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -242,7 +242,7 @@ func (aaa *AdminPlayerRecordService) AdminPutPlayerPublicRecordHandlerV1(input *
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use AdminPostPlayerPublicRecordHandlerV1Short instead.
+// Deprecated: 2022-01-10 - Please use AdminPostPlayerPublicRecordHandlerV1Short instead.
 func (aaa *AdminPlayerRecordService) AdminPostPlayerPublicRecordHandlerV1(input *admin_player_record.AdminPostPlayerPublicRecordHandlerV1Params) (*cloudsaveclientmodels.ModelsPlayerRecordResponse, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -265,7 +265,7 @@ func (aaa *AdminPlayerRecordService) AdminPostPlayerPublicRecordHandlerV1(input 
 	return created.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use AdminDeletePlayerPublicRecordHandlerV1Short instead.
+// Deprecated: 2022-01-10 - Please use AdminDeletePlayerPublicRecordHandlerV1Short instead.
 func (aaa *AdminPlayerRecordService) AdminDeletePlayerPublicRecordHandlerV1(input *admin_player_record.AdminDeletePlayerPublicRecordHandlerV1Params) error {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -288,7 +288,7 @@ func (aaa *AdminPlayerRecordService) AdminDeletePlayerPublicRecordHandlerV1(inpu
 	return nil
 }
 
-// deprecated(2022-01-10): please use AdminGetPlayerRecordSizeHandlerV1Short instead.
+// Deprecated: 2022-01-10 - Please use AdminGetPlayerRecordSizeHandlerV1Short instead.
 func (aaa *AdminPlayerRecordService) AdminGetPlayerRecordSizeHandlerV1(input *admin_player_record.AdminGetPlayerRecordSizeHandlerV1Params) (*cloudsaveclientmodels.ModelsPlayerRecordSizeResponse, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {

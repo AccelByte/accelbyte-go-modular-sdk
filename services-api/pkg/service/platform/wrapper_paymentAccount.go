@@ -17,7 +17,7 @@ import (
 )
 
 // PaymentAccountService this is use for compatibility with latest modular sdk only
-// Deprecated: please use PaymentAccountService imported from "github.com/AccelByte/accelbyte-go-modular-sdk/platform-sdk/pkg"
+// Deprecated: 2023-03-30 - please use PaymentAccountService imported from "github.com/AccelByte/accelbyte-go-modular-sdk/platform-sdk/pkg"
 type PaymentAccountService struct {
 	Client                 *platformclient.JusticePlatformService
 	ConfigRepository       repository.ConfigRepository
@@ -41,7 +41,7 @@ func (aaa *PaymentAccountService) GetAuthSession() auth.Session {
 	}
 }
 
-// deprecated(2022-01-10): please use PublicGetPaymentAccountsShort instead.
+// Deprecated: 2022-01-10 - Please use PublicGetPaymentAccountsShort instead.
 func (aaa *PaymentAccountService) PublicGetPaymentAccounts(input *payment_account.PublicGetPaymentAccountsParams) ([]*platformclientmodels.PaymentAccount, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -55,7 +55,7 @@ func (aaa *PaymentAccountService) PublicGetPaymentAccounts(input *payment_accoun
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use PublicDeletePaymentAccountShort instead.
+// Deprecated: 2022-01-10 - Please use PublicDeletePaymentAccountShort instead.
 func (aaa *PaymentAccountService) PublicDeletePaymentAccount(input *payment_account.PublicDeletePaymentAccountParams) error {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {

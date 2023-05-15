@@ -19,7 +19,7 @@ import (
 var ugcClientInstance *ugcclient.JusticeUgcService
 
 // NewUgcClient
-// Deprecated: please use NewUgcClient from "github.com/AccelByte/accelbyte-go-modular-sdk/Ugc-sdk/pkg"
+// Deprecated: 2023-03-30 - please use NewUgcClient from "github.com/AccelByte/accelbyte-go-modular-sdk/Ugc-sdk/pkg"
 func NewUgcClient(configRepository repository.ConfigRepository) *ugcclient.JusticeUgcService {
 	if ugcClientInstance == nil {
 		baseURL := configRepository.GetJusticeBaseUrl()

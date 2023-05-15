@@ -17,7 +17,7 @@ import (
 )
 
 // PublicCreatorService this is use for compatibility with latest modular sdk only
-// Deprecated: please use PublicCreatorService imported from "github.com/AccelByte/accelbyte-go-modular-sdk/ugc-sdk/pkg"
+// Deprecated: 2023-03-30 - please use PublicCreatorService imported from "github.com/AccelByte/accelbyte-go-modular-sdk/ugc-sdk/pkg"
 type PublicCreatorService struct {
 	Client                 *ugcclient.JusticeUgcService
 	ConfigRepository       repository.ConfigRepository
@@ -41,7 +41,7 @@ func (aaa *PublicCreatorService) GetAuthSession() auth.Session {
 	}
 }
 
-// deprecated(2022-01-10): please use PublicSearchCreatorShort instead.
+// Deprecated: 2022-01-10 - Please use PublicSearchCreatorShort instead.
 func (aaa *PublicCreatorService) PublicSearchCreator(input *public_creator.PublicSearchCreatorParams) (*ugcclientmodels.ModelsPaginatedCreatorOverviewResponse, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -64,7 +64,7 @@ func (aaa *PublicCreatorService) PublicSearchCreator(input *public_creator.Publi
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use PublicGetCreatorShort instead.
+// Deprecated: 2022-01-10 - Please use PublicGetCreatorShort instead.
 func (aaa *PublicCreatorService) PublicGetCreator(input *public_creator.PublicGetCreatorParams) (*ugcclientmodels.ModelsCreatorResponse, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {

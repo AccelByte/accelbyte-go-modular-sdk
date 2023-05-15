@@ -17,7 +17,7 @@ import (
 )
 
 // UsersService this is use for compatibility with latest modular sdk only
-// Deprecated: please use UsersService imported from "github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg"
+// Deprecated: 2023-03-30 - please use UsersService imported from "github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg"
 type UsersService struct {
 	Client                 *iamclient.JusticeIamService
 	ConfigRepository       repository.ConfigRepository
@@ -41,7 +41,7 @@ func (aaa *UsersService) GetAuthSession() auth.Session {
 	}
 }
 
-// deprecated(2022-01-10): please use CreateUserShort instead.
+// Deprecated: 2022-01-10 - Please use CreateUserShort instead.
 func (aaa *UsersService) CreateUser(input *users.CreateUserParams) (*iamclientmodels.ModelUserCreateResponse, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -67,7 +67,7 @@ func (aaa *UsersService) CreateUser(input *users.CreateUserParams) (*iamclientmo
 	return created.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use GetAdminUsersByRoleIDShort instead.
+// Deprecated: 2022-01-10 - Please use GetAdminUsersByRoleIDShort instead.
 func (aaa *UsersService) GetAdminUsersByRoleID(input *users.GetAdminUsersByRoleIDParams) (*iamclientmodels.ModelGetAdminUsersResponse, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -96,7 +96,7 @@ func (aaa *UsersService) GetAdminUsersByRoleID(input *users.GetAdminUsersByRoleI
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use GetUserByLoginIDShort instead.
+// Deprecated: 2022-01-10 - Please use GetUserByLoginIDShort instead.
 func (aaa *UsersService) GetUserByLoginID(input *users.GetUserByLoginIDParams) (*iamclientmodels.ModelPublicUserResponse, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -119,7 +119,7 @@ func (aaa *UsersService) GetUserByLoginID(input *users.GetUserByLoginIDParams) (
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use GetUserByPlatformUserIDShort instead.
+// Deprecated: 2022-01-10 - Please use GetUserByPlatformUserIDShort instead.
 func (aaa *UsersService) GetUserByPlatformUserID(input *users.GetUserByPlatformUserIDParams) (*iamclientmodels.ModelPublicUserResponse, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -145,7 +145,7 @@ func (aaa *UsersService) GetUserByPlatformUserID(input *users.GetUserByPlatformU
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use ForgotPasswordShort instead.
+// Deprecated: 2022-01-10 - Please use ForgotPasswordShort instead.
 func (aaa *UsersService) ForgotPassword(input *users.ForgotPasswordParams) error {
 	clientID := aaa.ConfigRepository.GetClientId()
 	clientSecret := aaa.ConfigRepository.GetClientSecret()
@@ -169,7 +169,7 @@ func (aaa *UsersService) ForgotPassword(input *users.ForgotPasswordParams) error
 	return nil
 }
 
-// deprecated(2022-01-10): please use GetUsersByLoginIdsShort instead.
+// Deprecated: 2022-01-10 - Please use GetUsersByLoginIdsShort instead.
 func (aaa *UsersService) GetUsersByLoginIds(input *users.GetUsersByLoginIdsParams) (*iamclientmodels.ModelPublicUsersResponse, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -192,7 +192,7 @@ func (aaa *UsersService) GetUsersByLoginIds(input *users.GetUsersByLoginIdsParam
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use ResetPasswordShort instead.
+// Deprecated: 2022-01-10 - Please use ResetPasswordShort instead.
 func (aaa *UsersService) ResetPassword(input *users.ResetPasswordParams) error {
 	clientID := aaa.ConfigRepository.GetClientId()
 	clientSecret := aaa.ConfigRepository.GetClientSecret()
@@ -216,7 +216,7 @@ func (aaa *UsersService) ResetPassword(input *users.ResetPasswordParams) error {
 	return nil
 }
 
-// deprecated(2022-01-10): please use SearchUserShort instead.
+// Deprecated: 2022-01-10 - Please use SearchUserShort instead.
 func (aaa *UsersService) SearchUser(input *users.SearchUserParams) (*iamclientmodels.ModelSearchUsersResponse, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -239,7 +239,7 @@ func (aaa *UsersService) SearchUser(input *users.SearchUserParams) (*iamclientmo
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use GetUserByUserIDShort instead.
+// Deprecated: 2022-01-10 - Please use GetUserByUserIDShort instead.
 func (aaa *UsersService) GetUserByUserID(input *users.GetUserByUserIDParams) (*iamclientmodels.ModelUserResponse, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -259,7 +259,7 @@ func (aaa *UsersService) GetUserByUserID(input *users.GetUserByUserIDParams) (*i
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use UpdateUserShort instead.
+// Deprecated: 2022-01-10 - Please use UpdateUserShort instead.
 func (aaa *UsersService) UpdateUser(input *users.UpdateUserParams) (*iamclientmodels.ModelUserResponse, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -288,7 +288,7 @@ func (aaa *UsersService) UpdateUser(input *users.UpdateUserParams) (*iamclientmo
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use DeleteUserShort instead.
+// Deprecated: 2022-01-10 - Please use DeleteUserShort instead.
 func (aaa *UsersService) DeleteUser(input *users.DeleteUserParams) error {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -311,7 +311,7 @@ func (aaa *UsersService) DeleteUser(input *users.DeleteUserParams) error {
 	return nil
 }
 
-// deprecated(2022-01-10): please use BanUserShort instead.
+// Deprecated: 2022-01-10 - Please use BanUserShort instead.
 func (aaa *UsersService) BanUser(input *users.BanUserParams) (*iamclientmodels.ModelUserBanResponse, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -340,7 +340,7 @@ func (aaa *UsersService) BanUser(input *users.BanUserParams) (*iamclientmodels.M
 	return created.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use GetUserBanHistoryShort instead.
+// Deprecated: 2022-01-10 - Please use GetUserBanHistoryShort instead.
 func (aaa *UsersService) GetUserBanHistory(input *users.GetUserBanHistoryParams) ([]*iamclientmodels.ModelUserBanResponse, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -363,7 +363,7 @@ func (aaa *UsersService) GetUserBanHistory(input *users.GetUserBanHistoryParams)
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use DisableUserBanShort instead.
+// Deprecated: 2022-01-10 - Please use DisableUserBanShort instead.
 func (aaa *UsersService) DisableUserBan(input *users.DisableUserBanParams) (*iamclientmodels.ModelUserBanResponse, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -389,7 +389,7 @@ func (aaa *UsersService) DisableUserBan(input *users.DisableUserBanParams) (*iam
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use EnableUserBanShort instead.
+// Deprecated: 2022-01-10 - Please use EnableUserBanShort instead.
 func (aaa *UsersService) EnableUserBan(input *users.EnableUserBanParams) (*iamclientmodels.ModelUserBanResponse, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -415,7 +415,7 @@ func (aaa *UsersService) EnableUserBan(input *users.EnableUserBanParams) (*iamcl
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use ListCrossNamespaceAccountLinkShort instead.
+// Deprecated: 2022-01-10 - Please use ListCrossNamespaceAccountLinkShort instead.
 func (aaa *UsersService) ListCrossNamespaceAccountLink(input *users.ListCrossNamespaceAccountLinkParams) error {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -441,7 +441,7 @@ func (aaa *UsersService) ListCrossNamespaceAccountLink(input *users.ListCrossNam
 	return nil
 }
 
-// deprecated(2022-01-10): please use DisableUserShort instead.
+// Deprecated: 2022-01-10 - Please use DisableUserShort instead.
 func (aaa *UsersService) DisableUser(input *users.DisableUserParams) error {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -470,7 +470,7 @@ func (aaa *UsersService) DisableUser(input *users.DisableUserParams) error {
 	return nil
 }
 
-// deprecated(2022-01-10): please use EnableUserShort instead.
+// Deprecated: 2022-01-10 - Please use EnableUserShort instead.
 func (aaa *UsersService) EnableUser(input *users.EnableUserParams) error {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -496,7 +496,7 @@ func (aaa *UsersService) EnableUser(input *users.EnableUserParams) error {
 	return nil
 }
 
-// deprecated(2022-01-10): please use GetUserInformationShort instead.
+// Deprecated: 2022-01-10 - Please use GetUserInformationShort instead.
 func (aaa *UsersService) GetUserInformation(input *users.GetUserInformationParams) (*iamclientmodels.ModelUserInformation, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -519,7 +519,7 @@ func (aaa *UsersService) GetUserInformation(input *users.GetUserInformationParam
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use DeleteUserInformationShort instead.
+// Deprecated: 2022-01-10 - Please use DeleteUserInformationShort instead.
 func (aaa *UsersService) DeleteUserInformation(input *users.DeleteUserInformationParams) error {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -542,7 +542,7 @@ func (aaa *UsersService) DeleteUserInformation(input *users.DeleteUserInformatio
 	return nil
 }
 
-// deprecated(2022-01-10): please use GetUserLoginHistoriesShort instead.
+// Deprecated: 2022-01-10 - Please use GetUserLoginHistoriesShort instead.
 func (aaa *UsersService) GetUserLoginHistories(input *users.GetUserLoginHistoriesParams) (*iamclientmodels.ModelLoginHistoriesResponse, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -565,7 +565,7 @@ func (aaa *UsersService) GetUserLoginHistories(input *users.GetUserLoginHistorie
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use UpdatePasswordShort instead.
+// Deprecated: 2022-01-10 - Please use UpdatePasswordShort instead.
 func (aaa *UsersService) UpdatePassword(input *users.UpdatePasswordParams) error {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -594,7 +594,7 @@ func (aaa *UsersService) UpdatePassword(input *users.UpdatePasswordParams) error
 	return nil
 }
 
-// deprecated(2022-01-10): please use SaveUserPermissionShort instead.
+// Deprecated: 2022-01-10 - Please use SaveUserPermissionShort instead.
 func (aaa *UsersService) SaveUserPermission(input *users.SaveUserPermissionParams) error {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -620,7 +620,7 @@ func (aaa *UsersService) SaveUserPermission(input *users.SaveUserPermissionParam
 	return nil
 }
 
-// deprecated(2022-01-10): please use AddUserPermissionShort instead.
+// Deprecated: 2022-01-10 - Please use AddUserPermissionShort instead.
 func (aaa *UsersService) AddUserPermission(input *users.AddUserPermissionParams) error {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -646,7 +646,7 @@ func (aaa *UsersService) AddUserPermission(input *users.AddUserPermissionParams)
 	return nil
 }
 
-// deprecated(2022-01-10): please use DeleteUserPermissionShort instead.
+// Deprecated: 2022-01-10 - Please use DeleteUserPermissionShort instead.
 func (aaa *UsersService) DeleteUserPermission(input *users.DeleteUserPermissionParams) error {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -672,7 +672,7 @@ func (aaa *UsersService) DeleteUserPermission(input *users.DeleteUserPermissionP
 	return nil
 }
 
-// deprecated(2022-01-10): please use GetUserPlatformAccountsShort instead.
+// Deprecated: 2022-01-10 - Please use GetUserPlatformAccountsShort instead.
 func (aaa *UsersService) GetUserPlatformAccounts(input *users.GetUserPlatformAccountsParams) ([]*iamclientmodels.AccountcommonUserLinkedPlatform, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -695,7 +695,7 @@ func (aaa *UsersService) GetUserPlatformAccounts(input *users.GetUserPlatformAcc
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use GetUserMappingShort instead.
+// Deprecated: 2022-01-10 - Please use GetUserMappingShort instead.
 func (aaa *UsersService) GetUserMapping(input *users.GetUserMappingParams) (*iamclientmodels.ModelGetUserMapping, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -721,7 +721,7 @@ func (aaa *UsersService) GetUserMapping(input *users.GetUserMappingParams) (*iam
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use GetUserJusticePlatformAccountShort instead.
+// Deprecated: 2022-01-10 - Please use GetUserJusticePlatformAccountShort instead.
 func (aaa *UsersService) GetUserJusticePlatformAccount(input *users.GetUserJusticePlatformAccountParams) (*iamclientmodels.ModelGetUserJusticePlatformAccountResponse, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -744,7 +744,7 @@ func (aaa *UsersService) GetUserJusticePlatformAccount(input *users.GetUserJusti
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use PlatformLinkShort instead.
+// Deprecated: 2022-01-10 - Please use PlatformLinkShort instead.
 func (aaa *UsersService) PlatformLink(input *users.PlatformLinkParams) error {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -776,7 +776,7 @@ func (aaa *UsersService) PlatformLink(input *users.PlatformLinkParams) error {
 	return nil
 }
 
-// deprecated(2022-01-10): please use PlatformUnlinkShort instead.
+// Deprecated: 2022-01-10 - Please use PlatformUnlinkShort instead.
 func (aaa *UsersService) PlatformUnlink(input *users.PlatformUnlinkParams) error {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -805,7 +805,7 @@ func (aaa *UsersService) PlatformUnlink(input *users.PlatformUnlinkParams) error
 	return nil
 }
 
-// deprecated(2022-01-10): please use GetPublisherUserShort instead.
+// Deprecated: 2022-01-10 - Please use GetPublisherUserShort instead.
 func (aaa *UsersService) GetPublisherUser(input *users.GetPublisherUserParams) (*iamclientmodels.ModelGetPublisherUserResponse, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -831,7 +831,7 @@ func (aaa *UsersService) GetPublisherUser(input *users.GetPublisherUserParams) (
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use SaveUserRolesShort instead.
+// Deprecated: 2022-01-10 - Please use SaveUserRolesShort instead.
 func (aaa *UsersService) SaveUserRoles(input *users.SaveUserRolesParams) error {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -860,7 +860,7 @@ func (aaa *UsersService) SaveUserRoles(input *users.SaveUserRolesParams) error {
 	return nil
 }
 
-// deprecated(2022-01-10): please use AddUserRoleShort instead.
+// Deprecated: 2022-01-10 - Please use AddUserRoleShort instead.
 func (aaa *UsersService) AddUserRole(input *users.AddUserRoleParams) error {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -889,7 +889,7 @@ func (aaa *UsersService) AddUserRole(input *users.AddUserRoleParams) error {
 	return nil
 }
 
-// deprecated(2022-01-10): please use DeleteUserRoleShort instead.
+// Deprecated: 2022-01-10 - Please use DeleteUserRoleShort instead.
 func (aaa *UsersService) DeleteUserRole(input *users.DeleteUserRoleParams) error {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -915,7 +915,7 @@ func (aaa *UsersService) DeleteUserRole(input *users.DeleteUserRoleParams) error
 	return nil
 }
 
-// deprecated(2022-01-10): please use UpgradeHeadlessAccountShort instead.
+// Deprecated: 2022-01-10 - Please use UpgradeHeadlessAccountShort instead.
 func (aaa *UsersService) UpgradeHeadlessAccount(input *users.UpgradeHeadlessAccountParams) (*iamclientmodels.ModelUserResponse, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -938,7 +938,7 @@ func (aaa *UsersService) UpgradeHeadlessAccount(input *users.UpgradeHeadlessAcco
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use UpgradeHeadlessAccountWithVerificationCodeShort instead.
+// Deprecated: 2022-01-10 - Please use UpgradeHeadlessAccountWithVerificationCodeShort instead.
 func (aaa *UsersService) UpgradeHeadlessAccountWithVerificationCode(input *users.UpgradeHeadlessAccountWithVerificationCodeParams) (*iamclientmodels.ModelUserResponse, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -964,7 +964,7 @@ func (aaa *UsersService) UpgradeHeadlessAccountWithVerificationCode(input *users
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use UserVerificationShort instead.
+// Deprecated: 2022-01-10 - Please use UserVerificationShort instead.
 func (aaa *UsersService) UserVerification(input *users.UserVerificationParams) error {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -993,7 +993,7 @@ func (aaa *UsersService) UserVerification(input *users.UserVerificationParams) e
 	return nil
 }
 
-// deprecated(2022-01-10): please use SendVerificationCodeShort instead.
+// Deprecated: 2022-01-10 - Please use SendVerificationCodeShort instead.
 func (aaa *UsersService) SendVerificationCode(input *users.SendVerificationCodeParams) error {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -1028,7 +1028,7 @@ func (aaa *UsersService) SendVerificationCode(input *users.SendVerificationCodeP
 	return nil
 }
 
-// deprecated(2022-01-10): please use AdminGetAgeRestrictionStatusV2Short instead.
+// Deprecated: 2022-01-10 - Please use AdminGetAgeRestrictionStatusV2Short instead.
 func (aaa *UsersService) AdminGetAgeRestrictionStatusV2(input *users.AdminGetAgeRestrictionStatusV2Params) (*iamclientmodels.ModelAgeRestrictionResponse, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -1051,7 +1051,7 @@ func (aaa *UsersService) AdminGetAgeRestrictionStatusV2(input *users.AdminGetAge
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use AdminUpdateAgeRestrictionConfigV2Short instead.
+// Deprecated: 2022-01-10 - Please use AdminUpdateAgeRestrictionConfigV2Short instead.
 func (aaa *UsersService) AdminUpdateAgeRestrictionConfigV2(input *users.AdminUpdateAgeRestrictionConfigV2Params) (*iamclientmodels.ModelAgeRestrictionResponse, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -1077,7 +1077,7 @@ func (aaa *UsersService) AdminUpdateAgeRestrictionConfigV2(input *users.AdminUpd
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use GetListCountryAgeRestrictionShort instead.
+// Deprecated: 2022-01-10 - Please use GetListCountryAgeRestrictionShort instead.
 func (aaa *UsersService) GetListCountryAgeRestriction(input *users.GetListCountryAgeRestrictionParams) ([]*iamclientmodels.AccountcommonCountryAgeRestriction, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -1100,7 +1100,7 @@ func (aaa *UsersService) GetListCountryAgeRestriction(input *users.GetListCountr
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use UpdateCountryAgeRestrictionShort instead.
+// Deprecated: 2022-01-10 - Please use UpdateCountryAgeRestrictionShort instead.
 func (aaa *UsersService) UpdateCountryAgeRestriction(input *users.UpdateCountryAgeRestrictionParams) (*iamclientmodels.ModelCountry, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -1126,7 +1126,7 @@ func (aaa *UsersService) UpdateCountryAgeRestriction(input *users.UpdateCountryA
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use AdminSearchUsersV2Short instead.
+// Deprecated: 2022-01-10 - Please use AdminSearchUsersV2Short instead.
 func (aaa *UsersService) AdminSearchUsersV2(input *users.AdminSearchUsersV2Params) (*iamclientmodels.ModelSearchUsersByPlatformIDResponse, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -1149,7 +1149,7 @@ func (aaa *UsersService) AdminSearchUsersV2(input *users.AdminSearchUsersV2Param
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use AdminGetUserByUserIDV2Short instead.
+// Deprecated: 2022-01-10 - Please use AdminGetUserByUserIDV2Short instead.
 func (aaa *UsersService) AdminGetUserByUserIDV2(input *users.AdminGetUserByUserIDV2Params) (*iamclientmodels.ModelUserResponse, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -1169,7 +1169,7 @@ func (aaa *UsersService) AdminGetUserByUserIDV2(input *users.AdminGetUserByUserI
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use AdminUpdateUserV2Short instead.
+// Deprecated: 2022-01-10 - Please use AdminUpdateUserV2Short instead.
 func (aaa *UsersService) AdminUpdateUserV2(input *users.AdminUpdateUserV2Params) (*iamclientmodels.ModelUserResponse, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -1198,7 +1198,7 @@ func (aaa *UsersService) AdminUpdateUserV2(input *users.AdminUpdateUserV2Params)
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use AdminBanUserV2Short instead.
+// Deprecated: 2022-01-10 - Please use AdminBanUserV2Short instead.
 func (aaa *UsersService) AdminBanUserV2(input *users.AdminBanUserV2Params) (*iamclientmodels.ModelUserBanResponse, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -1227,7 +1227,7 @@ func (aaa *UsersService) AdminBanUserV2(input *users.AdminBanUserV2Params) (*iam
 	return created.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use AdminGetUserBanV2Short instead.
+// Deprecated: 2022-01-10 - Please use AdminGetUserBanV2Short instead.
 func (aaa *UsersService) AdminGetUserBanV2(input *users.AdminGetUserBanV2Params) ([]*iamclientmodels.ModelUserBanResponse, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -1250,7 +1250,7 @@ func (aaa *UsersService) AdminGetUserBanV2(input *users.AdminGetUserBanV2Params)
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use AdminDisableUserV2Short instead.
+// Deprecated: 2022-01-10 - Please use AdminDisableUserV2Short instead.
 func (aaa *UsersService) AdminDisableUserV2(input *users.AdminDisableUserV2Params) error {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -1279,7 +1279,7 @@ func (aaa *UsersService) AdminDisableUserV2(input *users.AdminDisableUserV2Param
 	return nil
 }
 
-// deprecated(2022-01-10): please use AdminEnableUserV2Short instead.
+// Deprecated: 2022-01-10 - Please use AdminEnableUserV2Short instead.
 func (aaa *UsersService) AdminEnableUserV2(input *users.AdminEnableUserV2Params) error {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -1305,7 +1305,7 @@ func (aaa *UsersService) AdminEnableUserV2(input *users.AdminEnableUserV2Params)
 	return nil
 }
 
-// deprecated(2022-01-10): please use AdminResetPasswordV2Short instead.
+// Deprecated: 2022-01-10 - Please use AdminResetPasswordV2Short instead.
 func (aaa *UsersService) AdminResetPasswordV2(input *users.AdminResetPasswordV2Params) error {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -1334,7 +1334,7 @@ func (aaa *UsersService) AdminResetPasswordV2(input *users.AdminResetPasswordV2P
 	return nil
 }
 
-// deprecated(2022-01-10): please use AdminDeletePlatformLinkV2Short instead.
+// Deprecated: 2022-01-10 - Please use AdminDeletePlatformLinkV2Short instead.
 func (aaa *UsersService) AdminDeletePlatformLinkV2(input *users.AdminDeletePlatformLinkV2Params) error {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -1363,7 +1363,7 @@ func (aaa *UsersService) AdminDeletePlatformLinkV2(input *users.AdminDeletePlatf
 	return nil
 }
 
-// deprecated(2022-01-10): please use AdminPutUserRolesV2Short instead.
+// Deprecated: 2022-01-10 - Please use AdminPutUserRolesV2Short instead.
 func (aaa *UsersService) AdminPutUserRolesV2(input *users.AdminPutUserRolesV2Params) error {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -1389,7 +1389,7 @@ func (aaa *UsersService) AdminPutUserRolesV2(input *users.AdminPutUserRolesV2Par
 	return nil
 }
 
-// deprecated(2022-01-10): please use AdminCreateUserRolesV2Short instead.
+// Deprecated: 2022-01-10 - Please use AdminCreateUserRolesV2Short instead.
 func (aaa *UsersService) AdminCreateUserRolesV2(input *users.AdminCreateUserRolesV2Params) error {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -1418,7 +1418,7 @@ func (aaa *UsersService) AdminCreateUserRolesV2(input *users.AdminCreateUserRole
 	return nil
 }
 
-// deprecated(2022-01-10): please use PublicGetCountryAgeRestrictionShort instead.
+// Deprecated: 2022-01-10 - Please use PublicGetCountryAgeRestrictionShort instead.
 func (aaa *UsersService) PublicGetCountryAgeRestriction(input *users.PublicGetCountryAgeRestrictionParams) (*iamclientmodels.AccountcommonCountry, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -1438,7 +1438,7 @@ func (aaa *UsersService) PublicGetCountryAgeRestriction(input *users.PublicGetCo
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use PublicCreateUserV2Short instead.
+// Deprecated: 2022-01-10 - Please use PublicCreateUserV2Short instead.
 func (aaa *UsersService) PublicCreateUserV2(input *users.PublicCreateUserV2Params) (*iamclientmodels.ModelUserCreateResponse, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -1464,7 +1464,7 @@ func (aaa *UsersService) PublicCreateUserV2(input *users.PublicCreateUserV2Param
 	return created.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use PublicForgotPasswordV2Short instead.
+// Deprecated: 2022-01-10 - Please use PublicForgotPasswordV2Short instead.
 func (aaa *UsersService) PublicForgotPasswordV2(input *users.PublicForgotPasswordV2Params) error {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -1490,7 +1490,7 @@ func (aaa *UsersService) PublicForgotPasswordV2(input *users.PublicForgotPasswor
 	return nil
 }
 
-// deprecated(2022-01-10): please use PublicResetPasswordV2Short instead.
+// Deprecated: 2022-01-10 - Please use PublicResetPasswordV2Short instead.
 func (aaa *UsersService) PublicResetPasswordV2(input *users.PublicResetPasswordV2Params) error {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -1516,7 +1516,7 @@ func (aaa *UsersService) PublicResetPasswordV2(input *users.PublicResetPasswordV
 	return nil
 }
 
-// deprecated(2022-01-10): please use PublicGetUserByUserIDV2Short instead.
+// Deprecated: 2022-01-10 - Please use PublicGetUserByUserIDV2Short instead.
 func (aaa *UsersService) PublicGetUserByUserIDV2(input *users.PublicGetUserByUserIDV2Params) (*iamclientmodels.ModelUserResponse, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -1536,7 +1536,7 @@ func (aaa *UsersService) PublicGetUserByUserIDV2(input *users.PublicGetUserByUse
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use PublicUpdateUserV2Short instead.
+// Deprecated: 2022-01-10 - Please use PublicUpdateUserV2Short instead.
 func (aaa *UsersService) PublicUpdateUserV2(input *users.PublicUpdateUserV2Params) ([]*iamclientmodels.ModelUserResponse, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -1565,7 +1565,7 @@ func (aaa *UsersService) PublicUpdateUserV2(input *users.PublicUpdateUserV2Param
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use PublicGetUserBanShort instead.
+// Deprecated: 2022-01-10 - Please use PublicGetUserBanShort instead.
 func (aaa *UsersService) PublicGetUserBan(input *users.PublicGetUserBanParams) ([]*iamclientmodels.ModelUserBanResponse, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -1588,7 +1588,7 @@ func (aaa *UsersService) PublicGetUserBan(input *users.PublicGetUserBanParams) (
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use PublicUpdatePasswordV2Short instead.
+// Deprecated: 2022-01-10 - Please use PublicUpdatePasswordV2Short instead.
 func (aaa *UsersService) PublicUpdatePasswordV2(input *users.PublicUpdatePasswordV2Params) error {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -1617,7 +1617,7 @@ func (aaa *UsersService) PublicUpdatePasswordV2(input *users.PublicUpdatePasswor
 	return nil
 }
 
-// deprecated(2022-01-10): please use GetListJusticePlatformAccountsShort instead.
+// Deprecated: 2022-01-10 - Please use GetListJusticePlatformAccountsShort instead.
 func (aaa *UsersService) GetListJusticePlatformAccounts(input *users.GetListJusticePlatformAccountsParams) ([]*iamclientmodels.ModelGetUserMapping, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -1637,7 +1637,7 @@ func (aaa *UsersService) GetListJusticePlatformAccounts(input *users.GetListJust
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use PublicPlatformLinkV2Short instead.
+// Deprecated: 2022-01-10 - Please use PublicPlatformLinkV2Short instead.
 func (aaa *UsersService) PublicPlatformLinkV2(input *users.PublicPlatformLinkV2Params) error {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -1669,7 +1669,7 @@ func (aaa *UsersService) PublicPlatformLinkV2(input *users.PublicPlatformLinkV2P
 	return nil
 }
 
-// deprecated(2022-01-10): please use PublicDeletePlatformLinkV2Short instead.
+// Deprecated: 2022-01-10 - Please use PublicDeletePlatformLinkV2Short instead.
 func (aaa *UsersService) PublicDeletePlatformLinkV2(input *users.PublicDeletePlatformLinkV2Params) error {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -1698,7 +1698,7 @@ func (aaa *UsersService) PublicDeletePlatformLinkV2(input *users.PublicDeletePla
 	return nil
 }
 
-// deprecated(2022-01-10): please use ListAdminsV3Short instead.
+// Deprecated: 2022-01-10 - Please use ListAdminsV3Short instead.
 func (aaa *UsersService) ListAdminsV3(input *users.ListAdminsV3Params) (*iamclientmodels.ModelGetUsersResponseWithPaginationV3, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -1721,7 +1721,7 @@ func (aaa *UsersService) ListAdminsV3(input *users.ListAdminsV3Params) (*iamclie
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use AdminGetAgeRestrictionStatusV3Short instead.
+// Deprecated: 2022-01-10 - Please use AdminGetAgeRestrictionStatusV3Short instead.
 func (aaa *UsersService) AdminGetAgeRestrictionStatusV3(input *users.AdminGetAgeRestrictionStatusV3Params) (*iamclientmodels.ModelAgeRestrictionResponseV3, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -1750,7 +1750,7 @@ func (aaa *UsersService) AdminGetAgeRestrictionStatusV3(input *users.AdminGetAge
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use AdminUpdateAgeRestrictionConfigV3Short instead.
+// Deprecated: 2022-01-10 - Please use AdminUpdateAgeRestrictionConfigV3Short instead.
 func (aaa *UsersService) AdminUpdateAgeRestrictionConfigV3(input *users.AdminUpdateAgeRestrictionConfigV3Params) (*iamclientmodels.ModelAgeRestrictionResponseV3, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -1776,7 +1776,7 @@ func (aaa *UsersService) AdminUpdateAgeRestrictionConfigV3(input *users.AdminUpd
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use AdminGetListCountryAgeRestrictionV3Short instead.
+// Deprecated: 2022-01-10 - Please use AdminGetListCountryAgeRestrictionV3Short instead.
 func (aaa *UsersService) AdminGetListCountryAgeRestrictionV3(input *users.AdminGetListCountryAgeRestrictionV3Params) ([]*iamclientmodels.ModelCountryV3Response, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -1802,7 +1802,7 @@ func (aaa *UsersService) AdminGetListCountryAgeRestrictionV3(input *users.AdminG
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use AdminUpdateCountryAgeRestrictionV3Short instead.
+// Deprecated: 2022-01-10 - Please use AdminUpdateCountryAgeRestrictionV3Short instead.
 func (aaa *UsersService) AdminUpdateCountryAgeRestrictionV3(input *users.AdminUpdateCountryAgeRestrictionV3Params) (*iamclientmodels.ModelCountryV3Response, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -1831,7 +1831,7 @@ func (aaa *UsersService) AdminUpdateCountryAgeRestrictionV3(input *users.AdminUp
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use AdminGetUserByPlatformUserIDV3Short instead.
+// Deprecated: 2022-01-10 - Please use AdminGetUserByPlatformUserIDV3Short instead.
 func (aaa *UsersService) AdminGetUserByPlatformUserIDV3(input *users.AdminGetUserByPlatformUserIDV3Params) (*iamclientmodels.ModelUserResponseV3, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -1857,7 +1857,7 @@ func (aaa *UsersService) AdminGetUserByPlatformUserIDV3(input *users.AdminGetUse
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use GetAdminUsersByRoleIDV3Short instead.
+// Deprecated: 2022-01-10 - Please use GetAdminUsersByRoleIDV3Short instead.
 func (aaa *UsersService) GetAdminUsersByRoleIDV3(input *users.GetAdminUsersByRoleIDV3Params) (*iamclientmodels.ModelGetUsersResponseWithPaginationV3, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -1886,7 +1886,7 @@ func (aaa *UsersService) GetAdminUsersByRoleIDV3(input *users.GetAdminUsersByRol
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use AdminGetUserByEmailAddressV3Short instead.
+// Deprecated: 2022-01-10 - Please use AdminGetUserByEmailAddressV3Short instead.
 func (aaa *UsersService) AdminGetUserByEmailAddressV3(input *users.AdminGetUserByEmailAddressV3Params) (*iamclientmodels.ModelUserResponseV3, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -1915,7 +1915,7 @@ func (aaa *UsersService) AdminGetUserByEmailAddressV3(input *users.AdminGetUserB
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use AdminListUserIDByUserIDsV3Short instead.
+// Deprecated: 2022-01-10 - Please use AdminListUserIDByUserIDsV3Short instead.
 func (aaa *UsersService) AdminListUserIDByUserIDsV3(input *users.AdminListUserIDByUserIDsV3Params) (*iamclientmodels.ModelListUserInformationResult, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -1941,7 +1941,7 @@ func (aaa *UsersService) AdminListUserIDByUserIDsV3(input *users.AdminListUserID
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use AdminInviteUserV3Short instead.
+// Deprecated: 2022-01-10 - Please use AdminInviteUserV3Short instead.
 func (aaa *UsersService) AdminInviteUserV3(input *users.AdminInviteUserV3Params) (*iamclientmodels.ModelInviteUserResponseV3, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -1976,7 +1976,7 @@ func (aaa *UsersService) AdminInviteUserV3(input *users.AdminInviteUserV3Params)
 	return created.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use AdminQueryThirdPlatformLinkHistoryV3Short instead.
+// Deprecated: 2022-01-10 - Please use AdminQueryThirdPlatformLinkHistoryV3Short instead.
 func (aaa *UsersService) AdminQueryThirdPlatformLinkHistoryV3(input *users.AdminQueryThirdPlatformLinkHistoryV3Params) (*iamclientmodels.ModelLinkingHistoryResponseWithPaginationV3, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -2002,7 +2002,7 @@ func (aaa *UsersService) AdminQueryThirdPlatformLinkHistoryV3(input *users.Admin
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use AdminListUsersV3Short instead.
+// Deprecated: 2022-01-10 - Please use AdminListUsersV3Short instead.
 func (aaa *UsersService) AdminListUsersV3(input *users.AdminListUsersV3Params) (*iamclientmodels.AccountcommonListUsersWithPlatformAccountsResponse, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -2028,7 +2028,7 @@ func (aaa *UsersService) AdminListUsersV3(input *users.AdminListUsersV3Params) (
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use AdminSearchUserV3Short instead.
+// Deprecated: 2022-01-10 - Please use AdminSearchUserV3Short instead.
 func (aaa *UsersService) AdminSearchUserV3(input *users.AdminSearchUserV3Params) (*iamclientmodels.ModelSearchUsersResponseWithPaginationV3, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -2054,7 +2054,7 @@ func (aaa *UsersService) AdminSearchUserV3(input *users.AdminSearchUserV3Params)
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use AdminGetBulkUserByEmailAddressV3Short instead.
+// Deprecated: 2022-01-10 - Please use AdminGetBulkUserByEmailAddressV3Short instead.
 func (aaa *UsersService) AdminGetBulkUserByEmailAddressV3(input *users.AdminGetBulkUserByEmailAddressV3Params) (*iamclientmodels.ModelListUserResponseV3, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -2083,7 +2083,7 @@ func (aaa *UsersService) AdminGetBulkUserByEmailAddressV3(input *users.AdminGetB
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use AdminGetUserByUserIDV3Short instead.
+// Deprecated: 2022-01-10 - Please use AdminGetUserByUserIDV3Short instead.
 func (aaa *UsersService) AdminGetUserByUserIDV3(input *users.AdminGetUserByUserIDV3Params) (*iamclientmodels.ModelUserResponseV3, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -2112,7 +2112,7 @@ func (aaa *UsersService) AdminGetUserByUserIDV3(input *users.AdminGetUserByUserI
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use AdminUpdateUserV3Short instead.
+// Deprecated: 2022-01-10 - Please use AdminUpdateUserV3Short instead.
 func (aaa *UsersService) AdminUpdateUserV3(input *users.AdminUpdateUserV3Params) (*iamclientmodels.ModelUserResponseV3, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -2144,7 +2144,7 @@ func (aaa *UsersService) AdminUpdateUserV3(input *users.AdminUpdateUserV3Params)
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use AdminGetUserBanV3Short instead.
+// Deprecated: 2022-01-10 - Please use AdminGetUserBanV3Short instead.
 func (aaa *UsersService) AdminGetUserBanV3(input *users.AdminGetUserBanV3Params) (*iamclientmodels.ModelGetUserBanV3Response, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -2173,7 +2173,7 @@ func (aaa *UsersService) AdminGetUserBanV3(input *users.AdminGetUserBanV3Params)
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use AdminBanUserV3Short instead.
+// Deprecated: 2022-01-10 - Please use AdminBanUserV3Short instead.
 func (aaa *UsersService) AdminBanUserV3(input *users.AdminBanUserV3Params) (*iamclientmodels.ModelUserBanResponseV3, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -2202,7 +2202,7 @@ func (aaa *UsersService) AdminBanUserV3(input *users.AdminBanUserV3Params) (*iam
 	return created.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use AdminUpdateUserBanV3Short instead.
+// Deprecated: 2022-01-10 - Please use AdminUpdateUserBanV3Short instead.
 func (aaa *UsersService) AdminUpdateUserBanV3(input *users.AdminUpdateUserBanV3Params) (*iamclientmodels.ModelUserBanResponseV3, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -2231,7 +2231,7 @@ func (aaa *UsersService) AdminUpdateUserBanV3(input *users.AdminUpdateUserBanV3P
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use AdminSendVerificationCodeV3Short instead.
+// Deprecated: 2022-01-10 - Please use AdminSendVerificationCodeV3Short instead.
 func (aaa *UsersService) AdminSendVerificationCodeV3(input *users.AdminSendVerificationCodeV3Params) error {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -2263,7 +2263,7 @@ func (aaa *UsersService) AdminSendVerificationCodeV3(input *users.AdminSendVerif
 	return nil
 }
 
-// deprecated(2022-01-10): please use AdminVerifyAccountV3Short instead.
+// Deprecated: 2022-01-10 - Please use AdminVerifyAccountV3Short instead.
 func (aaa *UsersService) AdminVerifyAccountV3(input *users.AdminVerifyAccountV3Params) error {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -2292,7 +2292,7 @@ func (aaa *UsersService) AdminVerifyAccountV3(input *users.AdminVerifyAccountV3P
 	return nil
 }
 
-// deprecated(2022-01-10): please use GetUserVerificationCodeShort instead.
+// Deprecated: 2022-01-10 - Please use GetUserVerificationCodeShort instead.
 func (aaa *UsersService) GetUserVerificationCode(input *users.GetUserVerificationCodeParams) (*iamclientmodels.ModelVerificationCodeResponse, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -2318,7 +2318,7 @@ func (aaa *UsersService) GetUserVerificationCode(input *users.GetUserVerificatio
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use AdminGetUserDeletionStatusV3Short instead.
+// Deprecated: 2022-01-10 - Please use AdminGetUserDeletionStatusV3Short instead.
 func (aaa *UsersService) AdminGetUserDeletionStatusV3(input *users.AdminGetUserDeletionStatusV3Params) (*iamclientmodels.ModelUserDeletionStatusResponse, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -2344,7 +2344,7 @@ func (aaa *UsersService) AdminGetUserDeletionStatusV3(input *users.AdminGetUserD
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use AdminUpdateUserDeletionStatusV3Short instead.
+// Deprecated: 2022-01-10 - Please use AdminUpdateUserDeletionStatusV3Short instead.
 func (aaa *UsersService) AdminUpdateUserDeletionStatusV3(input *users.AdminUpdateUserDeletionStatusV3Params) error {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -2373,7 +2373,7 @@ func (aaa *UsersService) AdminUpdateUserDeletionStatusV3(input *users.AdminUpdat
 	return nil
 }
 
-// deprecated(2022-01-10): please use AdminUpgradeHeadlessAccountV3Short instead.
+// Deprecated: 2022-01-10 - Please use AdminUpgradeHeadlessAccountV3Short instead.
 func (aaa *UsersService) AdminUpgradeHeadlessAccountV3(input *users.AdminUpgradeHeadlessAccountV3Params) (*iamclientmodels.ModelUserResponseV3, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -2405,7 +2405,7 @@ func (aaa *UsersService) AdminUpgradeHeadlessAccountV3(input *users.AdminUpgrade
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use AdminDeleteUserInformationV3Short instead.
+// Deprecated: 2022-01-10 - Please use AdminDeleteUserInformationV3Short instead.
 func (aaa *UsersService) AdminDeleteUserInformationV3(input *users.AdminDeleteUserInformationV3Params) error {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -2428,7 +2428,7 @@ func (aaa *UsersService) AdminDeleteUserInformationV3(input *users.AdminDeleteUs
 	return nil
 }
 
-// deprecated(2022-01-10): please use AdminGetUserLoginHistoriesV3Short instead.
+// Deprecated: 2022-01-10 - Please use AdminGetUserLoginHistoriesV3Short instead.
 func (aaa *UsersService) AdminGetUserLoginHistoriesV3(input *users.AdminGetUserLoginHistoriesV3Params) (*iamclientmodels.ModelLoginHistoriesResponse, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -2451,7 +2451,7 @@ func (aaa *UsersService) AdminGetUserLoginHistoriesV3(input *users.AdminGetUserL
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use AdminResetPasswordV3Short instead.
+// Deprecated: 2022-01-10 - Please use AdminResetPasswordV3Short instead.
 func (aaa *UsersService) AdminResetPasswordV3(input *users.AdminResetPasswordV3Params) error {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -2480,7 +2480,7 @@ func (aaa *UsersService) AdminResetPasswordV3(input *users.AdminResetPasswordV3P
 	return nil
 }
 
-// deprecated(2022-01-10): please use AdminUpdateUserPermissionV3Short instead.
+// Deprecated: 2022-01-10 - Please use AdminUpdateUserPermissionV3Short instead.
 func (aaa *UsersService) AdminUpdateUserPermissionV3(input *users.AdminUpdateUserPermissionV3Params) error {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -2506,7 +2506,7 @@ func (aaa *UsersService) AdminUpdateUserPermissionV3(input *users.AdminUpdateUse
 	return nil
 }
 
-// deprecated(2022-01-10): please use AdminAddUserPermissionsV3Short instead.
+// Deprecated: 2022-01-10 - Please use AdminAddUserPermissionsV3Short instead.
 func (aaa *UsersService) AdminAddUserPermissionsV3(input *users.AdminAddUserPermissionsV3Params) error {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -2532,7 +2532,7 @@ func (aaa *UsersService) AdminAddUserPermissionsV3(input *users.AdminAddUserPerm
 	return nil
 }
 
-// deprecated(2022-01-10): please use AdminDeleteUserPermissionBulkV3Short instead.
+// Deprecated: 2022-01-10 - Please use AdminDeleteUserPermissionBulkV3Short instead.
 func (aaa *UsersService) AdminDeleteUserPermissionBulkV3(input *users.AdminDeleteUserPermissionBulkV3Params) error {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -2558,7 +2558,7 @@ func (aaa *UsersService) AdminDeleteUserPermissionBulkV3(input *users.AdminDelet
 	return nil
 }
 
-// deprecated(2022-01-10): please use AdminDeleteUserPermissionV3Short instead.
+// Deprecated: 2022-01-10 - Please use AdminDeleteUserPermissionV3Short instead.
 func (aaa *UsersService) AdminDeleteUserPermissionV3(input *users.AdminDeleteUserPermissionV3Params) error {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -2584,7 +2584,7 @@ func (aaa *UsersService) AdminDeleteUserPermissionV3(input *users.AdminDeleteUse
 	return nil
 }
 
-// deprecated(2022-01-10): please use AdminGetUserPlatformAccountsV3Short instead.
+// Deprecated: 2022-01-10 - Please use AdminGetUserPlatformAccountsV3Short instead.
 func (aaa *UsersService) AdminGetUserPlatformAccountsV3(input *users.AdminGetUserPlatformAccountsV3Params) (*iamclientmodels.AccountcommonUserLinkedPlatformsResponseV3, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -2613,7 +2613,7 @@ func (aaa *UsersService) AdminGetUserPlatformAccountsV3(input *users.AdminGetUse
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use AdminGetListJusticePlatformAccountsShort instead.
+// Deprecated: 2022-01-10 - Please use AdminGetListJusticePlatformAccountsShort instead.
 func (aaa *UsersService) AdminGetListJusticePlatformAccounts(input *users.AdminGetListJusticePlatformAccountsParams) ([]*iamclientmodels.ModelGetUserMapping, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -2642,7 +2642,7 @@ func (aaa *UsersService) AdminGetListJusticePlatformAccounts(input *users.AdminG
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use AdminGetUserMappingShort instead.
+// Deprecated: 2022-01-10 - Please use AdminGetUserMappingShort instead.
 func (aaa *UsersService) AdminGetUserMapping(input *users.AdminGetUserMappingParams) (*iamclientmodels.ModelGetUserMappingV3, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -2668,7 +2668,7 @@ func (aaa *UsersService) AdminGetUserMapping(input *users.AdminGetUserMappingPar
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use AdminCreateJusticeUserShort instead.
+// Deprecated: 2022-01-10 - Please use AdminCreateJusticeUserShort instead.
 func (aaa *UsersService) AdminCreateJusticeUser(input *users.AdminCreateJusticeUserParams) (*iamclientmodels.ModelCreateJusticeUserResponse, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -2697,7 +2697,7 @@ func (aaa *UsersService) AdminCreateJusticeUser(input *users.AdminCreateJusticeU
 	return created.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use AdminLinkPlatformAccountShort instead.
+// Deprecated: 2022-01-10 - Please use AdminLinkPlatformAccountShort instead.
 func (aaa *UsersService) AdminLinkPlatformAccount(input *users.AdminLinkPlatformAccountParams) error {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -2723,7 +2723,7 @@ func (aaa *UsersService) AdminLinkPlatformAccount(input *users.AdminLinkPlatform
 	return nil
 }
 
-// deprecated(2022-01-10): please use AdminPlatformUnlinkV3Short instead.
+// Deprecated: 2022-01-10 - Please use AdminPlatformUnlinkV3Short instead.
 func (aaa *UsersService) AdminPlatformUnlinkV3(input *users.AdminPlatformUnlinkV3Params) error {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -2752,7 +2752,7 @@ func (aaa *UsersService) AdminPlatformUnlinkV3(input *users.AdminPlatformUnlinkV
 	return nil
 }
 
-// deprecated(2022-01-10): please use AdminPlatformLinkV3Short instead.
+// Deprecated: 2022-01-10 - Please use AdminPlatformLinkV3Short instead.
 func (aaa *UsersService) AdminPlatformLinkV3(input *users.AdminPlatformLinkV3Params) error {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -2784,7 +2784,7 @@ func (aaa *UsersService) AdminPlatformLinkV3(input *users.AdminPlatformLinkV3Par
 	return nil
 }
 
-// deprecated(2022-01-10): please use AdminGetThirdPartyPlatformTokenLinkStatusV3Short instead.
+// Deprecated: 2022-01-10 - Please use AdminGetThirdPartyPlatformTokenLinkStatusV3Short instead.
 func (aaa *UsersService) AdminGetThirdPartyPlatformTokenLinkStatusV3(input *users.AdminGetThirdPartyPlatformTokenLinkStatusV3Params) (*iamclientmodels.ModelTokenThirdPartyLinkStatusResponse, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -2813,7 +2813,7 @@ func (aaa *UsersService) AdminGetThirdPartyPlatformTokenLinkStatusV3(input *user
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use AdminDeleteUserRolesV3Short instead.
+// Deprecated: 2022-01-10 - Please use AdminDeleteUserRolesV3Short instead.
 func (aaa *UsersService) AdminDeleteUserRolesV3(input *users.AdminDeleteUserRolesV3Params) error {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -2839,7 +2839,7 @@ func (aaa *UsersService) AdminDeleteUserRolesV3(input *users.AdminDeleteUserRole
 	return nil
 }
 
-// deprecated(2022-01-10): please use AdminSaveUserRoleV3Short instead.
+// Deprecated: 2022-01-10 - Please use AdminSaveUserRoleV3Short instead.
 func (aaa *UsersService) AdminSaveUserRoleV3(input *users.AdminSaveUserRoleV3Params) error {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -2871,7 +2871,7 @@ func (aaa *UsersService) AdminSaveUserRoleV3(input *users.AdminSaveUserRoleV3Par
 	return nil
 }
 
-// deprecated(2022-01-10): please use AdminAddUserRoleV3Short instead.
+// Deprecated: 2022-01-10 - Please use AdminAddUserRoleV3Short instead.
 func (aaa *UsersService) AdminAddUserRoleV3(input *users.AdminAddUserRoleV3Params) error {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -2903,7 +2903,7 @@ func (aaa *UsersService) AdminAddUserRoleV3(input *users.AdminAddUserRoleV3Param
 	return nil
 }
 
-// deprecated(2022-01-10): please use AdminDeleteUserRoleV3Short instead.
+// Deprecated: 2022-01-10 - Please use AdminDeleteUserRoleV3Short instead.
 func (aaa *UsersService) AdminDeleteUserRoleV3(input *users.AdminDeleteUserRoleV3Params) error {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -2932,7 +2932,7 @@ func (aaa *UsersService) AdminDeleteUserRoleV3(input *users.AdminDeleteUserRoleV
 	return nil
 }
 
-// deprecated(2022-01-10): please use AdminUpdateUserStatusV3Short instead.
+// Deprecated: 2022-01-10 - Please use AdminUpdateUserStatusV3Short instead.
 func (aaa *UsersService) AdminUpdateUserStatusV3(input *users.AdminUpdateUserStatusV3Params) error {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -2961,7 +2961,7 @@ func (aaa *UsersService) AdminUpdateUserStatusV3(input *users.AdminUpdateUserSta
 	return nil
 }
 
-// deprecated(2022-01-10): please use AdminVerifyUserWithoutVerificationCodeV3Short instead.
+// Deprecated: 2022-01-10 - Please use AdminVerifyUserWithoutVerificationCodeV3Short instead.
 func (aaa *UsersService) AdminVerifyUserWithoutVerificationCodeV3(input *users.AdminVerifyUserWithoutVerificationCodeV3Params) error {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -2993,7 +2993,7 @@ func (aaa *UsersService) AdminVerifyUserWithoutVerificationCodeV3(input *users.A
 	return nil
 }
 
-// deprecated(2022-01-10): please use AdminGetMyUserV3Short instead.
+// Deprecated: 2022-01-10 - Please use AdminGetMyUserV3Short instead.
 func (aaa *UsersService) AdminGetMyUserV3(input *users.AdminGetMyUserV3Params) (*iamclientmodels.ModelUserResponseV3, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -3013,7 +3013,7 @@ func (aaa *UsersService) AdminGetMyUserV3(input *users.AdminGetMyUserV3Params) (
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use PublicGetCountryAgeRestrictionV3Short instead.
+// Deprecated: 2022-01-10 - Please use PublicGetCountryAgeRestrictionV3Short instead.
 func (aaa *UsersService) PublicGetCountryAgeRestrictionV3(input *users.PublicGetCountryAgeRestrictionV3Params) (*iamclientmodels.ModelCountryV3Response, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -3033,7 +3033,7 @@ func (aaa *UsersService) PublicGetCountryAgeRestrictionV3(input *users.PublicGet
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use PublicListUserIDByPlatformUserIDsV3Short instead.
+// Deprecated: 2022-01-10 - Please use PublicListUserIDByPlatformUserIDsV3Short instead.
 func (aaa *UsersService) PublicListUserIDByPlatformUserIDsV3(input *users.PublicListUserIDByPlatformUserIDsV3Params) (*iamclientmodels.AccountcommonUserPlatforms, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -3059,7 +3059,7 @@ func (aaa *UsersService) PublicListUserIDByPlatformUserIDsV3(input *users.Public
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use PublicGetUserByPlatformUserIDV3Short instead.
+// Deprecated: 2022-01-10 - Please use PublicGetUserByPlatformUserIDV3Short instead.
 func (aaa *UsersService) PublicGetUserByPlatformUserIDV3(input *users.PublicGetUserByPlatformUserIDV3Params) (*iamclientmodels.ModelUserResponseV3, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -3085,7 +3085,7 @@ func (aaa *UsersService) PublicGetUserByPlatformUserIDV3(input *users.PublicGetU
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use PublicGetAsyncStatusShort instead.
+// Deprecated: 2022-01-10 - Please use PublicGetAsyncStatusShort instead.
 func (aaa *UsersService) PublicGetAsyncStatus(input *users.PublicGetAsyncStatusParams) (*iamclientmodels.ModelLinkRequest, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -3108,7 +3108,7 @@ func (aaa *UsersService) PublicGetAsyncStatus(input *users.PublicGetAsyncStatusP
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use PublicSearchUserV3Short instead.
+// Deprecated: 2022-01-10 - Please use PublicSearchUserV3Short instead.
 func (aaa *UsersService) PublicSearchUserV3(input *users.PublicSearchUserV3Params) (*iamclientmodels.ModelPublicUserInformationResponseV3, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -3134,7 +3134,7 @@ func (aaa *UsersService) PublicSearchUserV3(input *users.PublicSearchUserV3Param
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use PublicCreateUserV3Short instead.
+// Deprecated: 2022-01-10 - Please use PublicCreateUserV3Short instead.
 func (aaa *UsersService) PublicCreateUserV3(input *users.PublicCreateUserV3Params) (*iamclientmodels.ModelUserCreateResponseV3, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -3160,7 +3160,7 @@ func (aaa *UsersService) PublicCreateUserV3(input *users.PublicCreateUserV3Param
 	return created.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use CheckUserAvailabilityShort instead.
+// Deprecated: 2022-01-10 - Please use CheckUserAvailabilityShort instead.
 func (aaa *UsersService) CheckUserAvailability(input *users.CheckUserAvailabilityParams) error {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -3183,7 +3183,7 @@ func (aaa *UsersService) CheckUserAvailability(input *users.CheckUserAvailabilit
 	return nil
 }
 
-// deprecated(2022-01-10): please use PublicBulkGetUsersShort instead.
+// Deprecated: 2022-01-10 - Please use PublicBulkGetUsersShort instead.
 func (aaa *UsersService) PublicBulkGetUsers(input *users.PublicBulkGetUsersParams) (*iamclientmodels.ModelListBulkUserResponse, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -3203,7 +3203,7 @@ func (aaa *UsersService) PublicBulkGetUsers(input *users.PublicBulkGetUsersParam
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use PublicSendRegistrationCodeShort instead.
+// Deprecated: 2022-01-10 - Please use PublicSendRegistrationCodeShort instead.
 func (aaa *UsersService) PublicSendRegistrationCode(input *users.PublicSendRegistrationCodeParams) error {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -3223,7 +3223,7 @@ func (aaa *UsersService) PublicSendRegistrationCode(input *users.PublicSendRegis
 	return nil
 }
 
-// deprecated(2022-01-10): please use PublicVerifyRegistrationCodeShort instead.
+// Deprecated: 2022-01-10 - Please use PublicVerifyRegistrationCodeShort instead.
 func (aaa *UsersService) PublicVerifyRegistrationCode(input *users.PublicVerifyRegistrationCodeParams) error {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -3240,7 +3240,7 @@ func (aaa *UsersService) PublicVerifyRegistrationCode(input *users.PublicVerifyR
 	return nil
 }
 
-// deprecated(2022-01-10): please use PublicForgotPasswordV3Short instead.
+// Deprecated: 2022-01-10 - Please use PublicForgotPasswordV3Short instead.
 func (aaa *UsersService) PublicForgotPasswordV3(input *users.PublicForgotPasswordV3Params) error {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -3263,7 +3263,7 @@ func (aaa *UsersService) PublicForgotPasswordV3(input *users.PublicForgotPasswor
 	return nil
 }
 
-// deprecated(2022-01-10): please use GetAdminInvitationV3Short instead.
+// Deprecated: 2022-01-10 - Please use GetAdminInvitationV3Short instead.
 func (aaa *UsersService) GetAdminInvitationV3(input *users.GetAdminInvitationV3Params) (*iamclientmodels.ModelUserInvitationV3, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -3283,7 +3283,7 @@ func (aaa *UsersService) GetAdminInvitationV3(input *users.GetAdminInvitationV3P
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use CreateUserFromInvitationV3Short instead.
+// Deprecated: 2022-01-10 - Please use CreateUserFromInvitationV3Short instead.
 func (aaa *UsersService) CreateUserFromInvitationV3(input *users.CreateUserFromInvitationV3Params) (*iamclientmodels.ModelUserCreateResponseV3, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -3306,7 +3306,7 @@ func (aaa *UsersService) CreateUserFromInvitationV3(input *users.CreateUserFromI
 	return created.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use UpdateUserV3Short instead.
+// Deprecated: 2022-01-10 - Please use UpdateUserV3Short instead.
 func (aaa *UsersService) UpdateUserV3(input *users.UpdateUserV3Params) (*iamclientmodels.ModelUserResponseV3, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -3332,7 +3332,7 @@ func (aaa *UsersService) UpdateUserV3(input *users.UpdateUserV3Params) (*iamclie
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use PublicPartialUpdateUserV3Short instead.
+// Deprecated: 2022-01-10 - Please use PublicPartialUpdateUserV3Short instead.
 func (aaa *UsersService) PublicPartialUpdateUserV3(input *users.PublicPartialUpdateUserV3Params) (*iamclientmodels.ModelUserResponseV3, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -3358,7 +3358,7 @@ func (aaa *UsersService) PublicPartialUpdateUserV3(input *users.PublicPartialUpd
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use PublicSendVerificationCodeV3Short instead.
+// Deprecated: 2022-01-10 - Please use PublicSendVerificationCodeV3Short instead.
 func (aaa *UsersService) PublicSendVerificationCodeV3(input *users.PublicSendVerificationCodeV3Params) error {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -3387,7 +3387,7 @@ func (aaa *UsersService) PublicSendVerificationCodeV3(input *users.PublicSendVer
 	return nil
 }
 
-// deprecated(2022-01-10): please use PublicUserVerificationV3Short instead.
+// Deprecated: 2022-01-10 - Please use PublicUserVerificationV3Short instead.
 func (aaa *UsersService) PublicUserVerificationV3(input *users.PublicUserVerificationV3Params) error {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -3413,7 +3413,7 @@ func (aaa *UsersService) PublicUserVerificationV3(input *users.PublicUserVerific
 	return nil
 }
 
-// deprecated(2022-01-10): please use PublicUpgradeHeadlessAccountV3Short instead.
+// Deprecated: 2022-01-10 - Please use PublicUpgradeHeadlessAccountV3Short instead.
 func (aaa *UsersService) PublicUpgradeHeadlessAccountV3(input *users.PublicUpgradeHeadlessAccountV3Params) (*iamclientmodels.ModelUserResponseV3, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -3445,7 +3445,7 @@ func (aaa *UsersService) PublicUpgradeHeadlessAccountV3(input *users.PublicUpgra
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use PublicVerifyHeadlessAccountV3Short instead.
+// Deprecated: 2022-01-10 - Please use PublicVerifyHeadlessAccountV3Short instead.
 func (aaa *UsersService) PublicVerifyHeadlessAccountV3(input *users.PublicVerifyHeadlessAccountV3Params) (*iamclientmodels.ModelUserResponseV3, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -3474,7 +3474,7 @@ func (aaa *UsersService) PublicVerifyHeadlessAccountV3(input *users.PublicVerify
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use PublicUpdatePasswordV3Short instead.
+// Deprecated: 2022-01-10 - Please use PublicUpdatePasswordV3Short instead.
 func (aaa *UsersService) PublicUpdatePasswordV3(input *users.PublicUpdatePasswordV3Params) error {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -3497,7 +3497,7 @@ func (aaa *UsersService) PublicUpdatePasswordV3(input *users.PublicUpdatePasswor
 	return nil
 }
 
-// deprecated(2022-01-10): please use PublicCreateJusticeUserShort instead.
+// Deprecated: 2022-01-10 - Please use PublicCreateJusticeUserShort instead.
 func (aaa *UsersService) PublicCreateJusticeUser(input *users.PublicCreateJusticeUserParams) (*iamclientmodels.ModelCreateJusticeUserResponse, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -3526,7 +3526,7 @@ func (aaa *UsersService) PublicCreateJusticeUser(input *users.PublicCreateJustic
 	return created.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use PublicPlatformLinkV3Short instead.
+// Deprecated: 2022-01-10 - Please use PublicPlatformLinkV3Short instead.
 func (aaa *UsersService) PublicPlatformLinkV3(input *users.PublicPlatformLinkV3Params) error {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -3555,7 +3555,7 @@ func (aaa *UsersService) PublicPlatformLinkV3(input *users.PublicPlatformLinkV3P
 	return nil
 }
 
-// deprecated(2022-01-10): please use PublicPlatformUnlinkV3Short instead.
+// Deprecated: 2022-01-10 - Please use PublicPlatformUnlinkV3Short instead.
 func (aaa *UsersService) PublicPlatformUnlinkV3(input *users.PublicPlatformUnlinkV3Params) error {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -3581,7 +3581,7 @@ func (aaa *UsersService) PublicPlatformUnlinkV3(input *users.PublicPlatformUnlin
 	return nil
 }
 
-// deprecated(2022-01-10): please use PublicPlatformUnlinkAllV3Short instead.
+// Deprecated: 2022-01-10 - Please use PublicPlatformUnlinkAllV3Short instead.
 func (aaa *UsersService) PublicPlatformUnlinkAllV3(input *users.PublicPlatformUnlinkAllV3Params) error {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -3607,7 +3607,7 @@ func (aaa *UsersService) PublicPlatformUnlinkAllV3(input *users.PublicPlatformUn
 	return nil
 }
 
-// deprecated(2022-01-10): please use PublicForcePlatformLinkV3Short instead.
+// Deprecated: 2022-01-10 - Please use PublicForcePlatformLinkV3Short instead.
 func (aaa *UsersService) PublicForcePlatformLinkV3(input *users.PublicForcePlatformLinkV3Params) error {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -3636,7 +3636,7 @@ func (aaa *UsersService) PublicForcePlatformLinkV3(input *users.PublicForcePlatf
 	return nil
 }
 
-// deprecated(2022-01-10): please use PublicWebLinkPlatformShort instead.
+// Deprecated: 2022-01-10 - Please use PublicWebLinkPlatformShort instead.
 func (aaa *UsersService) PublicWebLinkPlatform(input *users.PublicWebLinkPlatformParams) (*iamclientmodels.ModelWebLinkingResponse, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -3659,7 +3659,7 @@ func (aaa *UsersService) PublicWebLinkPlatform(input *users.PublicWebLinkPlatfor
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use PublicWebLinkPlatformEstablishShort instead.
+// Deprecated: 2022-01-10 - Please use PublicWebLinkPlatformEstablishShort instead.
 func (aaa *UsersService) PublicWebLinkPlatformEstablish(input *users.PublicWebLinkPlatformEstablishParams) (string, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -3673,7 +3673,7 @@ func (aaa *UsersService) PublicWebLinkPlatformEstablish(input *users.PublicWebLi
 	return found.Location, nil
 }
 
-// deprecated(2022-01-10): please use ResetPasswordV3Short instead.
+// Deprecated: 2022-01-10 - Please use ResetPasswordV3Short instead.
 func (aaa *UsersService) ResetPasswordV3(input *users.ResetPasswordV3Params) error {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -3696,7 +3696,7 @@ func (aaa *UsersService) ResetPasswordV3(input *users.ResetPasswordV3Params) err
 	return nil
 }
 
-// deprecated(2022-01-10): please use PublicGetUserByUserIDV3Short instead.
+// Deprecated: 2022-01-10 - Please use PublicGetUserByUserIDV3Short instead.
 func (aaa *UsersService) PublicGetUserByUserIDV3(input *users.PublicGetUserByUserIDV3Params) (*iamclientmodels.ModelPublicUserResponseV3, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -3719,7 +3719,7 @@ func (aaa *UsersService) PublicGetUserByUserIDV3(input *users.PublicGetUserByUse
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use PublicGetUserBanHistoryV3Short instead.
+// Deprecated: 2022-01-10 - Please use PublicGetUserBanHistoryV3Short instead.
 func (aaa *UsersService) PublicGetUserBanHistoryV3(input *users.PublicGetUserBanHistoryV3Params) (*iamclientmodels.ModelGetUserBanV3Response, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -3748,7 +3748,7 @@ func (aaa *UsersService) PublicGetUserBanHistoryV3(input *users.PublicGetUserBan
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use PublicListUserAllPlatformAccountsDistinctV3Short instead.
+// Deprecated: 2022-01-10 - Please use PublicListUserAllPlatformAccountsDistinctV3Short instead.
 func (aaa *UsersService) PublicListUserAllPlatformAccountsDistinctV3(input *users.PublicListUserAllPlatformAccountsDistinctV3Params) (*iamclientmodels.AccountcommonDistinctPlatformResponseV3, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -3777,7 +3777,7 @@ func (aaa *UsersService) PublicListUserAllPlatformAccountsDistinctV3(input *user
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use PublicGetUserInformationV3Short instead.
+// Deprecated: 2022-01-10 - Please use PublicGetUserInformationV3Short instead.
 func (aaa *UsersService) PublicGetUserInformationV3(input *users.PublicGetUserInformationV3Params) (*iamclientmodels.AccountcommonUserInformationV3, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -3803,7 +3803,7 @@ func (aaa *UsersService) PublicGetUserInformationV3(input *users.PublicGetUserIn
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use PublicGetUserLoginHistoriesV3Short instead.
+// Deprecated: 2022-01-10 - Please use PublicGetUserLoginHistoriesV3Short instead.
 func (aaa *UsersService) PublicGetUserLoginHistoriesV3(input *users.PublicGetUserLoginHistoriesV3Params) (*iamclientmodels.ModelLoginHistoriesResponse, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -3826,7 +3826,7 @@ func (aaa *UsersService) PublicGetUserLoginHistoriesV3(input *users.PublicGetUse
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use PublicGetUserPlatformAccountsV3Short instead.
+// Deprecated: 2022-01-10 - Please use PublicGetUserPlatformAccountsV3Short instead.
 func (aaa *UsersService) PublicGetUserPlatformAccountsV3(input *users.PublicGetUserPlatformAccountsV3Params) (*iamclientmodels.AccountcommonUserLinkedPlatformsResponseV3, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -3855,7 +3855,7 @@ func (aaa *UsersService) PublicGetUserPlatformAccountsV3(input *users.PublicGetU
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use PublicListJusticePlatformAccountsV3Short instead.
+// Deprecated: 2022-01-10 - Please use PublicListJusticePlatformAccountsV3Short instead.
 func (aaa *UsersService) PublicListJusticePlatformAccountsV3(input *users.PublicListJusticePlatformAccountsV3Params) ([]*iamclientmodels.ModelGetUserMappingV3, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -3884,7 +3884,7 @@ func (aaa *UsersService) PublicListJusticePlatformAccountsV3(input *users.Public
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use PublicLinkPlatformAccountShort instead.
+// Deprecated: 2022-01-10 - Please use PublicLinkPlatformAccountShort instead.
 func (aaa *UsersService) PublicLinkPlatformAccount(input *users.PublicLinkPlatformAccountParams) error {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -3910,7 +3910,7 @@ func (aaa *UsersService) PublicLinkPlatformAccount(input *users.PublicLinkPlatfo
 	return nil
 }
 
-// deprecated(2022-01-10): please use PublicForceLinkPlatformWithProgressionShort instead.
+// Deprecated: 2022-01-10 - Please use PublicForceLinkPlatformWithProgressionShort instead.
 func (aaa *UsersService) PublicForceLinkPlatformWithProgression(input *users.PublicForceLinkPlatformWithProgressionParams) error {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -3936,7 +3936,7 @@ func (aaa *UsersService) PublicForceLinkPlatformWithProgression(input *users.Pub
 	return nil
 }
 
-// deprecated(2022-01-10): please use PublicGetPublisherUserV3Short instead.
+// Deprecated: 2022-01-10 - Please use PublicGetPublisherUserV3Short instead.
 func (aaa *UsersService) PublicGetPublisherUserV3(input *users.PublicGetPublisherUserV3Params) (*iamclientmodels.ModelGetPublisherUserV3Response, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -3962,7 +3962,7 @@ func (aaa *UsersService) PublicGetPublisherUserV3(input *users.PublicGetPublishe
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use PublicValidateUserByUserIDAndPasswordV3Short instead.
+// Deprecated: 2022-01-10 - Please use PublicValidateUserByUserIDAndPasswordV3Short instead.
 func (aaa *UsersService) PublicValidateUserByUserIDAndPasswordV3(input *users.PublicValidateUserByUserIDAndPasswordV3Params) error {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -3991,7 +3991,7 @@ func (aaa *UsersService) PublicValidateUserByUserIDAndPasswordV3(input *users.Pu
 	return nil
 }
 
-// deprecated(2022-01-10): please use PublicGetMyUserV3Short instead.
+// Deprecated: 2022-01-10 - Please use PublicGetMyUserV3Short instead.
 func (aaa *UsersService) PublicGetMyUserV3(input *users.PublicGetMyUserV3Params) (*iamclientmodels.ModelUserResponseV3, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -4011,7 +4011,7 @@ func (aaa *UsersService) PublicGetMyUserV3(input *users.PublicGetMyUserV3Params)
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use PublicGetLinkHeadlessAccountToMyAccountConflictV3Short instead.
+// Deprecated: 2022-01-10 - Please use PublicGetLinkHeadlessAccountToMyAccountConflictV3Short instead.
 func (aaa *UsersService) PublicGetLinkHeadlessAccountToMyAccountConflictV3(input *users.PublicGetLinkHeadlessAccountToMyAccountConflictV3Params) (*iamclientmodels.ModelGetLinkHeadlessAccountConflictResponse, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -4037,7 +4037,7 @@ func (aaa *UsersService) PublicGetLinkHeadlessAccountToMyAccountConflictV3(input
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use LinkHeadlessAccountToMyAccountV3Short instead.
+// Deprecated: 2022-01-10 - Please use LinkHeadlessAccountToMyAccountV3Short instead.
 func (aaa *UsersService) LinkHeadlessAccountToMyAccountV3(input *users.LinkHeadlessAccountToMyAccountV3Params) error {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -4063,7 +4063,7 @@ func (aaa *UsersService) LinkHeadlessAccountToMyAccountV3(input *users.LinkHeadl
 	return nil
 }
 
-// deprecated(2022-01-10): please use PublicSendVerificationLinkV3Short instead.
+// Deprecated: 2022-01-10 - Please use PublicSendVerificationLinkV3Short instead.
 func (aaa *UsersService) PublicSendVerificationLinkV3(input *users.PublicSendVerificationLinkV3Params) error {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -4089,7 +4089,7 @@ func (aaa *UsersService) PublicSendVerificationLinkV3(input *users.PublicSendVer
 	return nil
 }
 
-// deprecated(2022-01-10): please use PublicVerifyUserByLinkV3Short instead.
+// Deprecated: 2022-01-10 - Please use PublicVerifyUserByLinkV3Short instead.
 func (aaa *UsersService) PublicVerifyUserByLinkV3(input *users.PublicVerifyUserByLinkV3Params) (string, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {

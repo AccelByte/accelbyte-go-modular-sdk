@@ -17,7 +17,7 @@ import (
 )
 
 // PolicyVersionsService this is use for compatibility with latest modular sdk only
-// Deprecated: please use PolicyVersionsService imported from "github.com/AccelByte/accelbyte-go-modular-sdk/legal-sdk/pkg"
+// Deprecated: 2023-03-30 - please use PolicyVersionsService imported from "github.com/AccelByte/accelbyte-go-modular-sdk/legal-sdk/pkg"
 type PolicyVersionsService struct {
 	Client                 *legalclient.JusticeLegalService
 	ConfigRepository       repository.ConfigRepository
@@ -41,7 +41,7 @@ func (aaa *PolicyVersionsService) GetAuthSession() auth.Session {
 	}
 }
 
-// deprecated(2022-01-10): please use UpdatePolicyVersionShort instead.
+// Deprecated: 2022-01-10 - Please use UpdatePolicyVersionShort instead.
 func (aaa *PolicyVersionsService) UpdatePolicyVersion(input *policy_versions.UpdatePolicyVersionParams) (*legalclientmodels.UpdatePolicyVersionResponse, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -61,7 +61,7 @@ func (aaa *PolicyVersionsService) UpdatePolicyVersion(input *policy_versions.Upd
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use PublishPolicyVersionShort instead.
+// Deprecated: 2022-01-10 - Please use PublishPolicyVersionShort instead.
 func (aaa *PolicyVersionsService) PublishPolicyVersion(input *policy_versions.PublishPolicyVersionParams) error {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -81,7 +81,7 @@ func (aaa *PolicyVersionsService) PublishPolicyVersion(input *policy_versions.Pu
 	return nil
 }
 
-// deprecated(2022-01-10): please use RetrieveSinglePolicyVersionShort instead.
+// Deprecated: 2022-01-10 - Please use RetrieveSinglePolicyVersionShort instead.
 func (aaa *PolicyVersionsService) RetrieveSinglePolicyVersion(input *policy_versions.RetrieveSinglePolicyVersionParams) ([]*legalclientmodels.RetrievePolicyVersionResponse, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -98,7 +98,7 @@ func (aaa *PolicyVersionsService) RetrieveSinglePolicyVersion(input *policy_vers
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use CreatePolicyVersionShort instead.
+// Deprecated: 2022-01-10 - Please use CreatePolicyVersionShort instead.
 func (aaa *PolicyVersionsService) CreatePolicyVersion(input *policy_versions.CreatePolicyVersionParams) (*legalclientmodels.CreatePolicyVersionResponse, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {

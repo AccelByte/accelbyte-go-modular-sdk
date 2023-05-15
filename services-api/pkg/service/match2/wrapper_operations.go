@@ -16,7 +16,7 @@ import (
 )
 
 // OperationsService this is use for compatibility with latest modular sdk only
-// Deprecated: please use OperationsService imported from "github.com/AccelByte/accelbyte-go-modular-sdk/match2-sdk/pkg"
+// Deprecated: 2023-03-30 - please use OperationsService imported from "github.com/AccelByte/accelbyte-go-modular-sdk/match2-sdk/pkg"
 type OperationsService struct {
 	Client                 *match2client.JusticeMatch2Service
 	ConfigRepository       repository.ConfigRepository
@@ -40,7 +40,7 @@ func (aaa *OperationsService) GetAuthSession() auth.Session {
 	}
 }
 
-// deprecated(2022-01-10): please use GetHealthcheckInfoShort instead.
+// Deprecated: 2022-01-10 - Please use GetHealthcheckInfoShort instead.
 func (aaa *OperationsService) GetHealthcheckInfo(input *operations.GetHealthcheckInfoParams) error {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -54,7 +54,7 @@ func (aaa *OperationsService) GetHealthcheckInfo(input *operations.GetHealthchec
 	return nil
 }
 
-// deprecated(2022-01-10): please use GetHealthcheckInfoV1Short instead.
+// Deprecated: 2022-01-10 - Please use GetHealthcheckInfoV1Short instead.
 func (aaa *OperationsService) GetHealthcheckInfoV1(input *operations.GetHealthcheckInfoV1Params) error {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -68,7 +68,7 @@ func (aaa *OperationsService) GetHealthcheckInfoV1(input *operations.GetHealthch
 	return nil
 }
 
-// deprecated(2022-01-10): please use VersionCheckHandlerShort instead.
+// Deprecated: 2022-01-10 - Please use VersionCheckHandlerShort instead.
 func (aaa *OperationsService) VersionCheckHandler(input *operations.VersionCheckHandlerParams) error {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {

@@ -17,7 +17,7 @@ import (
 )
 
 // MemberRequestService this is use for compatibility with latest modular sdk only
-// Deprecated: please use MemberRequestService imported from "github.com/AccelByte/accelbyte-go-modular-sdk/group-sdk/pkg"
+// Deprecated: 2023-03-30 - please use MemberRequestService imported from "github.com/AccelByte/accelbyte-go-modular-sdk/group-sdk/pkg"
 type MemberRequestService struct {
 	Client                 *groupclient.JusticeGroupService
 	ConfigRepository       repository.ConfigRepository
@@ -41,7 +41,7 @@ func (aaa *MemberRequestService) GetAuthSession() auth.Session {
 	}
 }
 
-// deprecated(2022-01-10): please use GetGroupJoinRequestPublicV1Short instead.
+// Deprecated: 2022-01-10 - Please use GetGroupJoinRequestPublicV1Short instead.
 func (aaa *MemberRequestService) GetGroupJoinRequestPublicV1(input *member_request.GetGroupJoinRequestPublicV1Params) (*groupclientmodels.ModelsGetMemberRequestsListResponseV1, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -67,7 +67,7 @@ func (aaa *MemberRequestService) GetGroupJoinRequestPublicV1(input *member_reque
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use GetGroupInvitationRequestPublicV1Short instead.
+// Deprecated: 2022-01-10 - Please use GetGroupInvitationRequestPublicV1Short instead.
 func (aaa *MemberRequestService) GetGroupInvitationRequestPublicV1(input *member_request.GetGroupInvitationRequestPublicV1Params) (*groupclientmodels.ModelsGetMemberRequestsListResponseV1, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -93,7 +93,7 @@ func (aaa *MemberRequestService) GetGroupInvitationRequestPublicV1(input *member
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use GetGroupInviteRequestPublicV2Short instead.
+// Deprecated: 2022-01-10 - Please use GetGroupInviteRequestPublicV2Short instead.
 func (aaa *MemberRequestService) GetGroupInviteRequestPublicV2(input *member_request.GetGroupInviteRequestPublicV2Params) (*groupclientmodels.ModelsGetMemberRequestsListResponseV1, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -119,7 +119,7 @@ func (aaa *MemberRequestService) GetGroupInviteRequestPublicV2(input *member_req
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use GetGroupJoinRequestPublicV2Short instead.
+// Deprecated: 2022-01-10 - Please use GetGroupJoinRequestPublicV2Short instead.
 func (aaa *MemberRequestService) GetGroupJoinRequestPublicV2(input *member_request.GetGroupJoinRequestPublicV2Params) (*groupclientmodels.ModelsGetMemberRequestsListResponseV1, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
@@ -145,7 +145,7 @@ func (aaa *MemberRequestService) GetGroupJoinRequestPublicV2(input *member_reque
 	return ok.GetPayload(), nil
 }
 
-// deprecated(2022-01-10): please use GetMyGroupJoinRequestV2Short instead.
+// Deprecated: 2022-01-10 - Please use GetMyGroupJoinRequestV2Short instead.
 func (aaa *MemberRequestService) GetMyGroupJoinRequestV2(input *member_request.GetMyGroupJoinRequestV2Params) (*groupclientmodels.ModelsGetMemberRequestsListResponseV1, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
