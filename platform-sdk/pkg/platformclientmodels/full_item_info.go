@@ -126,9 +126,18 @@ type FullItemInfo struct {
 	// Required: true
 	RegionData map[string][]RegionDataItem `json:"regionData"`
 
+	// saleConfig
+	SaleConfig *SaleConfig `json:"saleConfig,omitempty"`
+
 	// Season type, required while itemType is SEASON
 	// Enum: ['PASS', 'TIER']
 	SeasonType string `json:"seasonType,omitempty"`
+
+	// whether it is sold in section only
+	SectionExclusive bool `json:"sectionExclusive"`
+
+	// sellable
+	Sellable bool `json:"sellable"`
 
 	// Sku
 	Sku string `json:"sku,omitempty"`

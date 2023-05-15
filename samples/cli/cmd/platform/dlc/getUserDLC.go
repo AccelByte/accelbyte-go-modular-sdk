@@ -30,7 +30,7 @@ var GetUserDLCCmd = &cobra.Command{
 		input := &dlc.GetUserDLCParams{
 			Namespace: namespace,
 			UserID:    userId,
-			Type:      type_,
+			Type:      &type_,
 		}
 		ok, errOK := dlcService.GetUserDLCShort(input)
 		if errOK != nil {
@@ -51,5 +51,4 @@ func init() {
 	GetUserDLCCmd.Flags().String("userId", "", "User id")
 	_ = GetUserDLCCmd.MarkFlagRequired("userId")
 	GetUserDLCCmd.Flags().String("type", "", "Type")
-	_ = GetUserDLCCmd.MarkFlagRequired("type")
 }

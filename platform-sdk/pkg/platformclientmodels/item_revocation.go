@@ -23,6 +23,9 @@ type ItemRevocation struct {
 	// creditrevocations
 	CreditRevocations []*CreditRevocation `json:"creditRevocations,omitempty"`
 
+	// customrevocation
+	CustomRevocation interface{} `json:"customRevocation,omitempty"`
+
 	// entitlementrevocations
 	EntitlementRevocations []*EntitlementRevocation `json:"entitlementRevocations,omitempty"`
 
@@ -43,12 +46,18 @@ type ItemRevocation struct {
 	// Format: int64
 	Quantity int64 `json:"quantity,omitempty"`
 
+	// reason
+	Reason string `json:"reason,omitempty"`
+
 	// skipped
 	Skipped bool `json:"skipped"`
 
 	// status
 	// Enum: ['FAIL', 'SUCCESS']
 	Status string `json:"status,omitempty"`
+
+	// strategy
+	Strategy string `json:"strategy,omitempty"`
 }
 
 // Validate validates this Item revocation

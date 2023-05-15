@@ -143,9 +143,18 @@ type PopulatedItemInfo struct {
 	// Region data
 	RegionData []*RegionDataItem `json:"regionData,omitempty"`
 
+	// sale config
+	SaleConfig *SaleConfig `json:"saleConfig,omitempty"`
+
 	// Season type, required while itemType is SEASON
 	// Enum: ['PASS', 'TIER']
 	SeasonType string `json:"seasonType,omitempty"`
+
+	// whether it is sold in section only
+	SectionExclusive bool `json:"sectionExclusive"`
+
+	// whether allow to sell back to store
+	Sellable bool `json:"sellable"`
 
 	// Sku
 	Sku string `json:"sku,omitempty"`

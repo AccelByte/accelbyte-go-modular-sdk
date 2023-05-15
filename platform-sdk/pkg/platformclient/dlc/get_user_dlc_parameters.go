@@ -77,7 +77,7 @@ type GetUserDLCParams struct {
 	/*UserID*/
 	UserID string
 	/*Type*/
-	Type string
+	Type *string
 
 	timeout        time.Duration
 	AuthInfoWriter runtime.ClientAuthInfoWriter
@@ -155,13 +155,13 @@ func (o *GetUserDLCParams) SetUserID(userID string) {
 }
 
 // WithType adds the typeVar to the get user dlc params
-func (o *GetUserDLCParams) WithType(typeVar string) *GetUserDLCParams {
+func (o *GetUserDLCParams) WithType(typeVar *string) *GetUserDLCParams {
 	o.SetType(typeVar)
 	return o
 }
 
 // SetType adds the type to the get user dlc params
-func (o *GetUserDLCParams) SetType(typeVar string) {
+func (o *GetUserDLCParams) SetType(typeVar *string) {
 	o.Type = typeVar
 }
 
@@ -183,13 +183,20 @@ func (o *GetUserDLCParams) WriteToRequest(r runtime.ClientRequest, reg strfmt.Re
 		return err
 	}
 
-	// query param type
-	qrType := o.Type
-	qType := qrType
-	if qType != "" {
-		if err := r.SetQueryParam("type", qType); err != nil {
-			return err
+	if o.Type != nil {
+
+		// query param type
+		var qrType string
+		if o.Type != nil {
+			qrType = *o.Type
 		}
+		qType := qrType
+		if qType != "" {
+			if err := r.SetQueryParam("type", qType); err != nil {
+				return err
+			}
+		}
+
 	}
 
 	// setting the default header value

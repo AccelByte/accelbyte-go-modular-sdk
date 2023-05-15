@@ -96,7 +96,7 @@ type StackableEntitlementInfo struct {
 	StartDate *strfmt.DateTime `json:"startDate,omitempty"`
 
 	// entitlement status
-	// Enum: ['ACTIVE', 'CONSUMED', 'INACTIVE', 'REVOKED']
+	// Enum: ['ACTIVE', 'CONSUMED', 'INACTIVE', 'REVOKED', 'SOLD']
 	// Required: true
 	Status *string `json:"status"`
 
@@ -404,7 +404,7 @@ var stackableEntitlementInfoTypeStatusPropEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["ACTIVE", "CONSUMED", "INACTIVE", "REVOKED"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["ACTIVE", "CONSUMED", "INACTIVE", "REVOKED", "SOLD"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
@@ -425,6 +425,9 @@ const (
 
 	// StackableEntitlementInfoStatusREVOKED captures enum value "REVOKED"
 	StackableEntitlementInfoStatusREVOKED string = "REVOKED"
+
+	// StackableEntitlementInfoStatusSOLD captures enum value "SOLD"
+	StackableEntitlementInfoStatusSOLD string = "SOLD"
 )
 
 // prop value enum

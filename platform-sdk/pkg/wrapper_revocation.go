@@ -41,13 +41,13 @@ func (aaa *RevocationService) GetAuthSession() auth.Session {
 	}
 }
 
-// Deprecated: 2022-01-10 - Please use GetPaymentCallbackConfig1Short instead.
-func (aaa *RevocationService) GetPaymentCallbackConfig1(input *revocation.GetPaymentCallbackConfig1Params) (*platformclientmodels.RevocationConfigInfo, error) {
+// Deprecated: 2022-01-10 - Please use GetRevocationConfigShort instead.
+func (aaa *RevocationService) GetRevocationConfig(input *revocation.GetRevocationConfigParams) (*platformclientmodels.RevocationConfigInfo, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
 		return nil, err
 	}
-	ok, notFound, err := aaa.Client.Revocation.GetPaymentCallbackConfig1(input, client.BearerToken(*token.AccessToken))
+	ok, notFound, err := aaa.Client.Revocation.GetRevocationConfig(input, client.BearerToken(*token.AccessToken))
 	if notFound != nil {
 		return nil, notFound
 	}
@@ -114,7 +114,7 @@ func (aaa *RevocationService) DoRevocation(input *revocation.DoRevocationParams)
 	return ok.GetPayload(), nil
 }
 
-func (aaa *RevocationService) GetPaymentCallbackConfig1Short(input *revocation.GetPaymentCallbackConfig1Params) (*platformclientmodels.RevocationConfigInfo, error) {
+func (aaa *RevocationService) GetRevocationConfigShort(input *revocation.GetRevocationConfigParams) (*platformclientmodels.RevocationConfigInfo, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -131,7 +131,7 @@ func (aaa *RevocationService) GetPaymentCallbackConfig1Short(input *revocation.G
 		}
 	}
 
-	ok, err := aaa.Client.Revocation.GetPaymentCallbackConfig1Short(input, authInfoWriter)
+	ok, err := aaa.Client.Revocation.GetRevocationConfigShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
 	}

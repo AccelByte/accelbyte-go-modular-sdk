@@ -29,6 +29,13 @@ replace (
 	github.com/AccelByte/accelbyte-go-modular-sdk/ugc-sdk => ../../../ugc-sdk
 )
 
+// for development only (not propagated)
+replace (
+	github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/factory => ../../../services-api/pkg/factory
+	github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/service/platform => ../../../services-api/pkg/service/platform
+	github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/service/seasonpass => ../../../services-api/pkg/service/seasonpass
+)
+
 require (
 	github.com/AccelByte/accelbyte-go-modular-sdk/achievement-sdk v0.1.0
 	github.com/AccelByte/accelbyte-go-modular-sdk/basic-sdk v0.1.0
@@ -50,6 +57,9 @@ require (
 	github.com/AccelByte/accelbyte-go-modular-sdk/reporting-sdk v0.1.0
 	github.com/AccelByte/accelbyte-go-modular-sdk/seasonpass-sdk v0.1.0
 	github.com/AccelByte/accelbyte-go-modular-sdk/services-api v0.1.0
+	github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/factory v0.0.0-00010101000000-000000000000
+	github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/service/platform v0.0.0-00010101000000-000000000000
+	github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/service/seasonpass v0.0.0-00010101000000-000000000000
 	github.com/AccelByte/accelbyte-go-modular-sdk/session-sdk v0.1.0
 	github.com/AccelByte/accelbyte-go-modular-sdk/sessionbrowser-sdk v0.1.0
 	github.com/AccelByte/accelbyte-go-modular-sdk/social-sdk v0.1.0

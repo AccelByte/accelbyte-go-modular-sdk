@@ -55,6 +55,54 @@ func (aaa *EntitlementService) QueryEntitlements(input *entitlement.QueryEntitle
 	return ok.GetPayload(), nil
 }
 
+// Deprecated: 2022-01-10 - Please use QueryEntitlements1Short instead.
+func (aaa *EntitlementService) QueryEntitlements1(input *entitlement.QueryEntitlements1Params) (*platformclientmodels.EntitlementPagingSlicedResult, error) {
+	token, err := aaa.TokenRepository.GetToken()
+	if err != nil {
+		return nil, err
+	}
+	ok, err := aaa.Client.Entitlement.QueryEntitlements1(input, client.BearerToken(*token.AccessToken))
+	if err != nil {
+		return nil, err
+	}
+
+	return ok.GetPayload(), nil
+}
+
+// Deprecated: 2022-01-10 - Please use GrantEntitlementsShort instead.
+func (aaa *EntitlementService) GrantEntitlements(input *entitlement.GrantEntitlementsParams) (*platformclientmodels.BulkEntitlementGrantResult, error) {
+	token, err := aaa.TokenRepository.GetToken()
+	if err != nil {
+		return nil, err
+	}
+	ok, unprocessableEntity, err := aaa.Client.Entitlement.GrantEntitlements(input, client.BearerToken(*token.AccessToken))
+	if unprocessableEntity != nil {
+		return nil, unprocessableEntity
+	}
+	if err != nil {
+		return nil, err
+	}
+
+	return ok.GetPayload(), nil
+}
+
+// Deprecated: 2022-01-10 - Please use RevokeEntitlementsShort instead.
+func (aaa *EntitlementService) RevokeEntitlements(input *entitlement.RevokeEntitlementsParams) (*platformclientmodels.BulkEntitlementRevokeResult, error) {
+	token, err := aaa.TokenRepository.GetToken()
+	if err != nil {
+		return nil, err
+	}
+	ok, unprocessableEntity, err := aaa.Client.Entitlement.RevokeEntitlements(input, client.BearerToken(*token.AccessToken))
+	if unprocessableEntity != nil {
+		return nil, unprocessableEntity
+	}
+	if err != nil {
+		return nil, err
+	}
+
+	return ok.GetPayload(), nil
+}
+
 // Deprecated: 2022-01-10 - Please use GetEntitlementShort instead.
 func (aaa *EntitlementService) GetEntitlement(input *entitlement.GetEntitlementParams) (*platformclientmodels.EntitlementInfo, error) {
 	token, err := aaa.TokenRepository.GetToken()
@@ -269,6 +317,20 @@ func (aaa *EntitlementService) GetUserEntitlementOwnershipBySku(input *entitleme
 	return ok.GetPayload(), nil
 }
 
+// Deprecated: 2022-01-10 - Please use RevokeAllEntitlementsShort instead.
+func (aaa *EntitlementService) RevokeAllEntitlements(input *entitlement.RevokeAllEntitlementsParams) (*platformclientmodels.BulkOperationResult, error) {
+	token, err := aaa.TokenRepository.GetToken()
+	if err != nil {
+		return nil, err
+	}
+	ok, err := aaa.Client.Entitlement.RevokeAllEntitlements(input, client.BearerToken(*token.AccessToken))
+	if err != nil {
+		return nil, err
+	}
+
+	return ok.GetPayload(), nil
+}
+
 // Deprecated: 2022-01-10 - Please use RevokeUserEntitlementsShort instead.
 func (aaa *EntitlementService) RevokeUserEntitlements(input *entitlement.RevokeUserEntitlementsParams) (*platformclientmodels.BulkOperationResult, error) {
 	token, err := aaa.TokenRepository.GetToken()
@@ -329,7 +391,10 @@ func (aaa *EntitlementService) ConsumeUserEntitlement(input *entitlement.Consume
 	if err != nil {
 		return nil, err
 	}
-	ok, notFound, conflict, err := aaa.Client.Entitlement.ConsumeUserEntitlement(input, client.BearerToken(*token.AccessToken))
+	ok, badRequest, notFound, conflict, err := aaa.Client.Entitlement.ConsumeUserEntitlement(input, client.BearerToken(*token.AccessToken))
+	if badRequest != nil {
+		return nil, badRequest
+	}
 	if notFound != nil {
 		return nil, notFound
 	}
@@ -406,6 +471,43 @@ func (aaa *EntitlementService) RevokeUserEntitlement(input *entitlement.RevokeUs
 	ok, notFound, err := aaa.Client.Entitlement.RevokeUserEntitlement(input, client.BearerToken(*token.AccessToken))
 	if notFound != nil {
 		return nil, notFound
+	}
+	if err != nil {
+		return nil, err
+	}
+
+	return ok.GetPayload(), nil
+}
+
+// Deprecated: 2022-01-10 - Please use RevokeUseCountShort instead.
+func (aaa *EntitlementService) RevokeUseCount(input *entitlement.RevokeUseCountParams) (*platformclientmodels.EntitlementInfo, error) {
+	token, err := aaa.TokenRepository.GetToken()
+	if err != nil {
+		return nil, err
+	}
+	ok, notFound, err := aaa.Client.Entitlement.RevokeUseCount(input, client.BearerToken(*token.AccessToken))
+	if notFound != nil {
+		return nil, notFound
+	}
+	if err != nil {
+		return nil, err
+	}
+
+	return ok.GetPayload(), nil
+}
+
+// Deprecated: 2022-01-10 - Please use SellUserEntitlementShort instead.
+func (aaa *EntitlementService) SellUserEntitlement(input *entitlement.SellUserEntitlementParams) (*platformclientmodels.EntitlementSoldResult, error) {
+	token, err := aaa.TokenRepository.GetToken()
+	if err != nil {
+		return nil, err
+	}
+	ok, notFound, conflict, err := aaa.Client.Entitlement.SellUserEntitlement(input, client.BearerToken(*token.AccessToken))
+	if notFound != nil {
+		return nil, notFound
+	}
+	if conflict != nil {
+		return nil, conflict
 	}
 	if err != nil {
 		return nil, err
@@ -673,6 +775,26 @@ func (aaa *EntitlementService) PublicConsumeUserEntitlement(input *entitlement.P
 	return ok.GetPayload(), nil
 }
 
+// Deprecated: 2022-01-10 - Please use PublicSellUserEntitlementShort instead.
+func (aaa *EntitlementService) PublicSellUserEntitlement(input *entitlement.PublicSellUserEntitlementParams) (*platformclientmodels.EntitlementSoldResult, error) {
+	token, err := aaa.TokenRepository.GetToken()
+	if err != nil {
+		return nil, err
+	}
+	ok, notFound, conflict, err := aaa.Client.Entitlement.PublicSellUserEntitlement(input, client.BearerToken(*token.AccessToken))
+	if notFound != nil {
+		return nil, notFound
+	}
+	if conflict != nil {
+		return nil, conflict
+	}
+	if err != nil {
+		return nil, err
+	}
+
+	return ok.GetPayload(), nil
+}
+
 func (aaa *EntitlementService) QueryEntitlementsShort(input *entitlement.QueryEntitlementsParams) (*platformclientmodels.EntitlementPagingSlicedResult, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
@@ -691,6 +813,81 @@ func (aaa *EntitlementService) QueryEntitlementsShort(input *entitlement.QueryEn
 	}
 
 	ok, err := aaa.Client.Entitlement.QueryEntitlementsShort(input, authInfoWriter)
+	if err != nil {
+		return nil, err
+	}
+
+	return ok.GetPayload(), nil
+}
+
+func (aaa *EntitlementService) QueryEntitlements1Short(input *entitlement.QueryEntitlements1Params) (*platformclientmodels.EntitlementPagingSlicedResult, error) {
+	authInfoWriter := input.AuthInfoWriter
+	if authInfoWriter == nil {
+		security := [][]string{
+			{"bearer"},
+		}
+		authInfoWriter = auth.AuthInfoWriter(aaa.GetAuthSession(), security, "")
+	}
+	if input.RetryPolicy == nil {
+		input.RetryPolicy = &utils.Retry{
+			MaxTries:   utils.MaxTries,
+			Backoff:    utils.NewConstantBackoff(0),
+			Transport:  aaa.Client.Runtime.Transport,
+			RetryCodes: utils.RetryCodes,
+		}
+	}
+
+	ok, err := aaa.Client.Entitlement.QueryEntitlements1Short(input, authInfoWriter)
+	if err != nil {
+		return nil, err
+	}
+
+	return ok.GetPayload(), nil
+}
+
+func (aaa *EntitlementService) GrantEntitlementsShort(input *entitlement.GrantEntitlementsParams) (*platformclientmodels.BulkEntitlementGrantResult, error) {
+	authInfoWriter := input.AuthInfoWriter
+	if authInfoWriter == nil {
+		security := [][]string{
+			{"bearer"},
+		}
+		authInfoWriter = auth.AuthInfoWriter(aaa.GetAuthSession(), security, "")
+	}
+	if input.RetryPolicy == nil {
+		input.RetryPolicy = &utils.Retry{
+			MaxTries:   utils.MaxTries,
+			Backoff:    utils.NewConstantBackoff(0),
+			Transport:  aaa.Client.Runtime.Transport,
+			RetryCodes: utils.RetryCodes,
+		}
+	}
+
+	ok, err := aaa.Client.Entitlement.GrantEntitlementsShort(input, authInfoWriter)
+	if err != nil {
+		return nil, err
+	}
+
+	return ok.GetPayload(), nil
+}
+
+func (aaa *EntitlementService) RevokeEntitlementsShort(input *entitlement.RevokeEntitlementsParams) (*platformclientmodels.BulkEntitlementRevokeResult, error) {
+	authInfoWriter := input.AuthInfoWriter
+	if authInfoWriter == nil {
+		security := [][]string{
+			{"bearer"},
+		}
+		authInfoWriter = auth.AuthInfoWriter(aaa.GetAuthSession(), security, "")
+	}
+	if input.RetryPolicy == nil {
+		input.RetryPolicy = &utils.Retry{
+			MaxTries:   utils.MaxTries,
+			Backoff:    utils.NewConstantBackoff(0),
+			Transport:  aaa.Client.Runtime.Transport,
+			RetryCodes: utils.RetryCodes,
+		}
+	}
+
+	ok, err := aaa.Client.Entitlement.RevokeEntitlementsShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
 	}
@@ -1048,6 +1245,31 @@ func (aaa *EntitlementService) GetUserEntitlementOwnershipBySkuShort(input *enti
 	return ok.GetPayload(), nil
 }
 
+func (aaa *EntitlementService) RevokeAllEntitlementsShort(input *entitlement.RevokeAllEntitlementsParams) (*platformclientmodels.BulkOperationResult, error) {
+	authInfoWriter := input.AuthInfoWriter
+	if authInfoWriter == nil {
+		security := [][]string{
+			{"bearer"},
+		}
+		authInfoWriter = auth.AuthInfoWriter(aaa.GetAuthSession(), security, "")
+	}
+	if input.RetryPolicy == nil {
+		input.RetryPolicy = &utils.Retry{
+			MaxTries:   utils.MaxTries,
+			Backoff:    utils.NewConstantBackoff(0),
+			Transport:  aaa.Client.Runtime.Transport,
+			RetryCodes: utils.RetryCodes,
+		}
+	}
+
+	ok, err := aaa.Client.Entitlement.RevokeAllEntitlementsShort(input, authInfoWriter)
+	if err != nil {
+		return nil, err
+	}
+
+	return ok.GetPayload(), nil
+}
+
 func (aaa *EntitlementService) RevokeUserEntitlementsShort(input *entitlement.RevokeUserEntitlementsParams) (*platformclientmodels.BulkOperationResult, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
@@ -1241,6 +1463,56 @@ func (aaa *EntitlementService) RevokeUserEntitlementShort(input *entitlement.Rev
 	}
 
 	ok, err := aaa.Client.Entitlement.RevokeUserEntitlementShort(input, authInfoWriter)
+	if err != nil {
+		return nil, err
+	}
+
+	return ok.GetPayload(), nil
+}
+
+func (aaa *EntitlementService) RevokeUseCountShort(input *entitlement.RevokeUseCountParams) (*platformclientmodels.EntitlementInfo, error) {
+	authInfoWriter := input.AuthInfoWriter
+	if authInfoWriter == nil {
+		security := [][]string{
+			{"bearer"},
+		}
+		authInfoWriter = auth.AuthInfoWriter(aaa.GetAuthSession(), security, "")
+	}
+	if input.RetryPolicy == nil {
+		input.RetryPolicy = &utils.Retry{
+			MaxTries:   utils.MaxTries,
+			Backoff:    utils.NewConstantBackoff(0),
+			Transport:  aaa.Client.Runtime.Transport,
+			RetryCodes: utils.RetryCodes,
+		}
+	}
+
+	ok, err := aaa.Client.Entitlement.RevokeUseCountShort(input, authInfoWriter)
+	if err != nil {
+		return nil, err
+	}
+
+	return ok.GetPayload(), nil
+}
+
+func (aaa *EntitlementService) SellUserEntitlementShort(input *entitlement.SellUserEntitlementParams) (*platformclientmodels.EntitlementSoldResult, error) {
+	authInfoWriter := input.AuthInfoWriter
+	if authInfoWriter == nil {
+		security := [][]string{
+			{"bearer"},
+		}
+		authInfoWriter = auth.AuthInfoWriter(aaa.GetAuthSession(), security, "")
+	}
+	if input.RetryPolicy == nil {
+		input.RetryPolicy = &utils.Retry{
+			MaxTries:   utils.MaxTries,
+			Backoff:    utils.NewConstantBackoff(0),
+			Transport:  aaa.Client.Runtime.Transport,
+			RetryCodes: utils.RetryCodes,
+		}
+	}
+
+	ok, err := aaa.Client.Entitlement.SellUserEntitlementShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
 	}
@@ -1666,6 +1938,31 @@ func (aaa *EntitlementService) PublicConsumeUserEntitlementShort(input *entitlem
 	}
 
 	ok, err := aaa.Client.Entitlement.PublicConsumeUserEntitlementShort(input, authInfoWriter)
+	if err != nil {
+		return nil, err
+	}
+
+	return ok.GetPayload(), nil
+}
+
+func (aaa *EntitlementService) PublicSellUserEntitlementShort(input *entitlement.PublicSellUserEntitlementParams) (*platformclientmodels.EntitlementSoldResult, error) {
+	authInfoWriter := input.AuthInfoWriter
+	if authInfoWriter == nil {
+		security := [][]string{
+			{"bearer"},
+		}
+		authInfoWriter = auth.AuthInfoWriter(aaa.GetAuthSession(), security, "")
+	}
+	if input.RetryPolicy == nil {
+		input.RetryPolicy = &utils.Retry{
+			MaxTries:   utils.MaxTries,
+			Backoff:    utils.NewConstantBackoff(0),
+			Transport:  aaa.Client.Runtime.Transport,
+			RetryCodes: utils.RetryCodes,
+		}
+	}
+
+	ok, err := aaa.Client.Entitlement.PublicSellUserEntitlementShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
 	}

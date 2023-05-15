@@ -42,6 +42,9 @@ type RevocationHistoryInfo struct {
 	// namespace
 	Namespace string `json:"namespace,omitempty"`
 
+	// revocation errors
+	RevocationErrors []*RevocationError `json:"revocationErrors,omitempty"`
+
 	// revoke entries
 	RevokeEntries []*RevokeEntry `json:"revokeEntries,omitempty"`
 
@@ -51,6 +54,9 @@ type RevocationHistoryInfo struct {
 	// status
 	// Enum: ['FAIL', 'SUCCESS']
 	Status string `json:"status,omitempty"`
+
+	// transactionId, Order No, DLC Order No.
+	TransactionID string `json:"transactionId,omitempty"`
 
 	// updated at
 	// Format: date-time

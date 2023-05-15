@@ -42,6 +42,8 @@ type ClientService interface {
 	UpdatePlatformDLCConfigShort(params *UpdatePlatformDLCConfigParams, authInfo runtime.ClientAuthInfoWriter) (*UpdatePlatformDLCConfigOK, error)
 	DeletePlatformDLCConfig(params *DeletePlatformDLCConfigParams, authInfo runtime.ClientAuthInfoWriter) (*DeletePlatformDLCConfigNoContent, error)
 	DeletePlatformDLCConfigShort(params *DeletePlatformDLCConfigParams, authInfo runtime.ClientAuthInfoWriter) (*DeletePlatformDLCConfigNoContent, error)
+	GetUserDLCByPlatform(params *GetUserDLCByPlatformParams, authInfo runtime.ClientAuthInfoWriter) (*GetUserDLCByPlatformOK, error)
+	GetUserDLCByPlatformShort(params *GetUserDLCByPlatformParams, authInfo runtime.ClientAuthInfoWriter) (*GetUserDLCByPlatformOK, error)
 	GetUserDLC(params *GetUserDLCParams, authInfo runtime.ClientAuthInfoWriter) (*GetUserDLCOK, error)
 	GetUserDLCShort(params *GetUserDLCParams, authInfo runtime.ClientAuthInfoWriter) (*GetUserDLCOK, error)
 	SyncEpicGameDLC(params *SyncEpicGameDLCParams, authInfo runtime.ClientAuthInfoWriter) (*SyncEpicGameDLCNoContent, *SyncEpicGameDLCBadRequest, error)
@@ -668,10 +670,110 @@ func (a *Client) DeletePlatformDLCConfigShort(params *DeletePlatformDLCConfigPar
 }
 
 /*
+Deprecated: 2022-08-10 - Use GetUserDLCByPlatformShort instead.
+
+GetUserDLCByPlatform get user dlc by platform
+Get user dlc by platform.
+Other detail info:
+
+  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:USER:{userId}:IAP", action=2 (READ)
+  *  Returns : user dlc
+*/
+func (a *Client) GetUserDLCByPlatform(params *GetUserDLCByPlatformParams, authInfo runtime.ClientAuthInfoWriter) (*GetUserDLCByPlatformOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewGetUserDLCByPlatformParams()
+	}
+
+	if params.Context == nil {
+		params.Context = context.Background()
+	}
+
+	if params.RetryPolicy != nil {
+		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "getUserDLCByPlatform",
+		Method:             "GET",
+		PathPattern:        "/platform/admin/namespaces/{namespace}/users/{userId}/dlc",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetUserDLCByPlatformReader{formats: a.formats},
+		AuthInfo:           authInfo,
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+
+	switch v := result.(type) {
+
+	case *GetUserDLCByPlatformOK:
+		return v, nil
+
+	default:
+		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
+	}
+}
+
+/*
+GetUserDLCByPlatformShort get user dlc by platform
+Get user dlc by platform.
+Other detail info:
+
+  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:USER:{userId}:IAP", action=2 (READ)
+  *  Returns : user dlc
+*/
+func (a *Client) GetUserDLCByPlatformShort(params *GetUserDLCByPlatformParams, authInfo runtime.ClientAuthInfoWriter) (*GetUserDLCByPlatformOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewGetUserDLCByPlatformParams()
+	}
+
+	if params.Context == nil {
+		params.Context = context.Background()
+	}
+
+	if params.RetryPolicy != nil {
+		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "getUserDLCByPlatform",
+		Method:             "GET",
+		PathPattern:        "/platform/admin/namespaces/{namespace}/users/{userId}/dlc",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetUserDLCByPlatformReader{formats: a.formats},
+		AuthInfo:           authInfo,
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+
+	switch v := result.(type) {
+
+	case *GetUserDLCByPlatformOK:
+		return v, nil
+
+	default:
+		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
+	}
+}
+
+/*
 Deprecated: 2022-08-10 - Use GetUserDLCShort instead.
 
-GetUserDLC get user dlc by platform
-Get user dlc by platform.
+GetUserDLC get user dlc records
+Get user dlc records.
 Other detail info:
 
   * Required permission : resource="ADMIN:NAMESPACE:{namespace}:USER:{userId}:IAP", action=2 (READ)
@@ -694,7 +796,7 @@ func (a *Client) GetUserDLC(params *GetUserDLCParams, authInfo runtime.ClientAut
 	result, err := a.transport.Submit(&runtime.ClientOperation{
 		ID:                 "getUserDLC",
 		Method:             "GET",
-		PathPattern:        "/platform/admin/namespaces/{namespace}/users/{userId}/dlc",
+		PathPattern:        "/platform/admin/namespaces/{namespace}/users/{userId}/dlc/records",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"https"},
@@ -719,8 +821,8 @@ func (a *Client) GetUserDLC(params *GetUserDLCParams, authInfo runtime.ClientAut
 }
 
 /*
-GetUserDLCShort get user dlc by platform
-Get user dlc by platform.
+GetUserDLCShort get user dlc records
+Get user dlc records.
 Other detail info:
 
   * Required permission : resource="ADMIN:NAMESPACE:{namespace}:USER:{userId}:IAP", action=2 (READ)
@@ -743,7 +845,7 @@ func (a *Client) GetUserDLCShort(params *GetUserDLCParams, authInfo runtime.Clie
 	result, err := a.transport.Submit(&runtime.ClientOperation{
 		ID:                 "getUserDLC",
 		Method:             "GET",
-		PathPattern:        "/platform/admin/namespaces/{namespace}/users/{userId}/dlc",
+		PathPattern:        "/platform/admin/namespaces/{namespace}/users/{userId}/dlc/records",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"https"},

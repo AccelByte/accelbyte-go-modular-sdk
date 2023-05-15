@@ -54,9 +54,8 @@ type OrderInfo struct {
 	DiscountedPrice *int32 `json:"discountedPrice"`
 
 	// payment expire time
-	// Required: true
 	// Format: date-time
-	ExpireTime strfmt.DateTime `json:"expireTime"`
+	ExpireTime *strfmt.DateTime `json:"expireTime,omitempty"`
 
 	// extra field to store external order information
 	Ext interface{} `json:"ext,omitempty"`
@@ -185,9 +184,6 @@ func (m *OrderInfo) Validate(formats strfmt.Registry) error {
 	if err := m.validateDiscountedPrice(formats); err != nil {
 		res = append(res, err)
 	}
-	if err := m.validateExpireTime(formats); err != nil {
-		res = append(res, err)
-	}
 	if err := m.validateItemID(formats); err != nil {
 		res = append(res, err)
 	}
@@ -259,19 +255,6 @@ func (m *OrderInfo) validateCurrency(formats strfmt.Registry) error {
 func (m *OrderInfo) validateDiscountedPrice(formats strfmt.Registry) error {
 
 	if err := validate.Required("discountedPrice", "body", m.DiscountedPrice); err != nil {
-		return err
-	}
-
-	return nil
-}
-
-func (m *OrderInfo) validateExpireTime(formats strfmt.Registry) error {
-
-	if err := validate.Required("expireTime", "body", strfmt.DateTime(m.ExpireTime)); err != nil {
-		return err
-	}
-
-	if err := validate.FormatOf("expireTime", "body", "date-time", m.ExpireTime.String(), formats); err != nil {
 		return err
 	}
 

@@ -41,6 +41,7 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/platform-sdk/pkg/platformclient/reward"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/platform-sdk/pkg/platformclient/section"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/platform-sdk/pkg/platformclient/service_plugin_config"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/platform-sdk/pkg/platformclient/session_platform"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/platform-sdk/pkg/platformclient/store"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/platform-sdk/pkg/platformclient/subscription"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/platform-sdk/pkg/platformclient/ticket"
@@ -136,6 +137,7 @@ func New(transport runtime.ClientTransport, runtime *httptransport.Runtime, form
 	cli.Reward = reward.New(transport, formats)
 	cli.Section = section.New(transport, formats)
 	cli.ServicePluginConfig = service_plugin_config.New(transport, formats)
+	cli.SessionPlatform = session_platform.New(transport, formats)
 	cli.Store = store.New(transport, formats)
 	cli.Subscription = subscription.New(transport, formats)
 	cli.Ticket = ticket.New(transport, formats)
@@ -254,6 +256,8 @@ type JusticePlatformService struct {
 
 	ServicePluginConfig service_plugin_config.ClientService
 
+	SessionPlatform session_platform.ClientService
+
 	Store store.ClientService
 
 	Subscription subscription.ClientService
@@ -297,6 +301,7 @@ func (c *JusticePlatformService) SetTransport(transport runtime.ClientTransport)
 	c.Reward.SetTransport(transport)
 	c.Section.SetTransport(transport)
 	c.ServicePluginConfig.SetTransport(transport)
+	c.SessionPlatform.SetTransport(transport)
 	c.Store.SetTransport(transport)
 	c.Subscription.SetTransport(transport)
 	c.Ticket.SetTransport(transport)

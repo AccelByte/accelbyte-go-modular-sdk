@@ -49,7 +49,10 @@ func (aaa *RewardService) CreateReward(input *reward.CreateRewardParams) (*platf
 	if err != nil {
 		return nil, err
 	}
-	ok, notFound, conflict, unprocessableEntity, err := aaa.Client.Reward.CreateReward(input, client.BearerToken(*token.AccessToken))
+	ok, badRequest, notFound, conflict, unprocessableEntity, err := aaa.Client.Reward.CreateReward(input, client.BearerToken(*token.AccessToken))
+	if badRequest != nil {
+		return nil, badRequest
+	}
 	if notFound != nil {
 		return nil, notFound
 	}
@@ -103,9 +106,12 @@ func (aaa *RewardService) ImportRewards(input *reward.ImportRewardsParams) error
 	if err != nil {
 		return err
 	}
-	_, badRequest, err := aaa.Client.Reward.ImportRewards(input, client.BearerToken(*token.AccessToken))
+	_, badRequest, conflict, err := aaa.Client.Reward.ImportRewards(input, client.BearerToken(*token.AccessToken))
 	if badRequest != nil {
 		return badRequest
+	}
+	if conflict != nil {
+		return conflict
 	}
 	if err != nil {
 		return err
@@ -137,7 +143,10 @@ func (aaa *RewardService) UpdateReward(input *reward.UpdateRewardParams) (*platf
 	if err != nil {
 		return nil, err
 	}
-	ok, notFound, conflict, err := aaa.Client.Reward.UpdateReward(input, client.BearerToken(*token.AccessToken))
+	ok, badRequest, notFound, conflict, err := aaa.Client.Reward.UpdateReward(input, client.BearerToken(*token.AccessToken))
+	if badRequest != nil {
+		return nil, badRequest
+	}
 	if notFound != nil {
 		return nil, notFound
 	}

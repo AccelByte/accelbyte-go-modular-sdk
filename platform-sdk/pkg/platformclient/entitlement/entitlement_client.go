@@ -32,6 +32,12 @@ type Client struct {
 type ClientService interface {
 	QueryEntitlements(params *QueryEntitlementsParams, authInfo runtime.ClientAuthInfoWriter) (*QueryEntitlementsOK, error)
 	QueryEntitlementsShort(params *QueryEntitlementsParams, authInfo runtime.ClientAuthInfoWriter) (*QueryEntitlementsOK, error)
+	QueryEntitlements1(params *QueryEntitlements1Params, authInfo runtime.ClientAuthInfoWriter) (*QueryEntitlements1OK, error)
+	QueryEntitlements1Short(params *QueryEntitlements1Params, authInfo runtime.ClientAuthInfoWriter) (*QueryEntitlements1OK, error)
+	GrantEntitlements(params *GrantEntitlementsParams, authInfo runtime.ClientAuthInfoWriter) (*GrantEntitlementsOK, *GrantEntitlementsUnprocessableEntity, error)
+	GrantEntitlementsShort(params *GrantEntitlementsParams, authInfo runtime.ClientAuthInfoWriter) (*GrantEntitlementsOK, error)
+	RevokeEntitlements(params *RevokeEntitlementsParams, authInfo runtime.ClientAuthInfoWriter) (*RevokeEntitlementsOK, *RevokeEntitlementsUnprocessableEntity, error)
+	RevokeEntitlementsShort(params *RevokeEntitlementsParams, authInfo runtime.ClientAuthInfoWriter) (*RevokeEntitlementsOK, error)
 	GetEntitlement(params *GetEntitlementParams, authInfo runtime.ClientAuthInfoWriter) (*GetEntitlementOK, *GetEntitlementNotFound, error)
 	GetEntitlementShort(params *GetEntitlementParams, authInfo runtime.ClientAuthInfoWriter) (*GetEntitlementOK, error)
 	QueryUserEntitlements(params *QueryUserEntitlementsParams, authInfo runtime.ClientAuthInfoWriter) (*QueryUserEntitlementsOK, error)
@@ -60,13 +66,15 @@ type ClientService interface {
 	GetUserEntitlementOwnershipByItemIdsShort(params *GetUserEntitlementOwnershipByItemIdsParams, authInfo runtime.ClientAuthInfoWriter) (*GetUserEntitlementOwnershipByItemIdsOK, error)
 	GetUserEntitlementOwnershipBySku(params *GetUserEntitlementOwnershipBySkuParams, authInfo runtime.ClientAuthInfoWriter) (*GetUserEntitlementOwnershipBySkuOK, error)
 	GetUserEntitlementOwnershipBySkuShort(params *GetUserEntitlementOwnershipBySkuParams, authInfo runtime.ClientAuthInfoWriter) (*GetUserEntitlementOwnershipBySkuOK, error)
+	RevokeAllEntitlements(params *RevokeAllEntitlementsParams, authInfo runtime.ClientAuthInfoWriter) (*RevokeAllEntitlementsOK, error)
+	RevokeAllEntitlementsShort(params *RevokeAllEntitlementsParams, authInfo runtime.ClientAuthInfoWriter) (*RevokeAllEntitlementsOK, error)
 	RevokeUserEntitlements(params *RevokeUserEntitlementsParams, authInfo runtime.ClientAuthInfoWriter) (*RevokeUserEntitlementsOK, error)
 	RevokeUserEntitlementsShort(params *RevokeUserEntitlementsParams, authInfo runtime.ClientAuthInfoWriter) (*RevokeUserEntitlementsOK, error)
 	GetUserEntitlement(params *GetUserEntitlementParams, authInfo runtime.ClientAuthInfoWriter) (*GetUserEntitlementOK, *GetUserEntitlementNotFound, error)
 	GetUserEntitlementShort(params *GetUserEntitlementParams, authInfo runtime.ClientAuthInfoWriter) (*GetUserEntitlementOK, error)
 	UpdateUserEntitlement(params *UpdateUserEntitlementParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateUserEntitlementOK, *UpdateUserEntitlementNotFound, *UpdateUserEntitlementConflict, *UpdateUserEntitlementUnprocessableEntity, error)
 	UpdateUserEntitlementShort(params *UpdateUserEntitlementParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateUserEntitlementOK, error)
-	ConsumeUserEntitlement(params *ConsumeUserEntitlementParams, authInfo runtime.ClientAuthInfoWriter) (*ConsumeUserEntitlementOK, *ConsumeUserEntitlementNotFound, *ConsumeUserEntitlementConflict, error)
+	ConsumeUserEntitlement(params *ConsumeUserEntitlementParams, authInfo runtime.ClientAuthInfoWriter) (*ConsumeUserEntitlementOK, *ConsumeUserEntitlementBadRequest, *ConsumeUserEntitlementNotFound, *ConsumeUserEntitlementConflict, error)
 	ConsumeUserEntitlementShort(params *ConsumeUserEntitlementParams, authInfo runtime.ClientAuthInfoWriter) (*ConsumeUserEntitlementOK, error)
 	DisableUserEntitlement(params *DisableUserEntitlementParams, authInfo runtime.ClientAuthInfoWriter) (*DisableUserEntitlementOK, *DisableUserEntitlementNotFound, *DisableUserEntitlementConflict, error)
 	DisableUserEntitlementShort(params *DisableUserEntitlementParams, authInfo runtime.ClientAuthInfoWriter) (*DisableUserEntitlementOK, error)
@@ -76,6 +84,10 @@ type ClientService interface {
 	GetUserEntitlementHistoriesShort(params *GetUserEntitlementHistoriesParams, authInfo runtime.ClientAuthInfoWriter) (*GetUserEntitlementHistoriesOK, error)
 	RevokeUserEntitlement(params *RevokeUserEntitlementParams, authInfo runtime.ClientAuthInfoWriter) (*RevokeUserEntitlementOK, *RevokeUserEntitlementNotFound, error)
 	RevokeUserEntitlementShort(params *RevokeUserEntitlementParams, authInfo runtime.ClientAuthInfoWriter) (*RevokeUserEntitlementOK, error)
+	RevokeUseCount(params *RevokeUseCountParams, authInfo runtime.ClientAuthInfoWriter) (*RevokeUseCountOK, *RevokeUseCountNotFound, error)
+	RevokeUseCountShort(params *RevokeUseCountParams, authInfo runtime.ClientAuthInfoWriter) (*RevokeUseCountOK, error)
+	SellUserEntitlement(params *SellUserEntitlementParams, authInfo runtime.ClientAuthInfoWriter) (*SellUserEntitlementOK, *SellUserEntitlementNotFound, *SellUserEntitlementConflict, error)
+	SellUserEntitlementShort(params *SellUserEntitlementParams, authInfo runtime.ClientAuthInfoWriter) (*SellUserEntitlementOK, error)
 	PublicExistsAnyMyActiveEntitlement(params *PublicExistsAnyMyActiveEntitlementParams, authInfo runtime.ClientAuthInfoWriter) (*PublicExistsAnyMyActiveEntitlementOK, error)
 	PublicExistsAnyMyActiveEntitlementShort(params *PublicExistsAnyMyActiveEntitlementParams, authInfo runtime.ClientAuthInfoWriter) (*PublicExistsAnyMyActiveEntitlementOK, error)
 	PublicGetMyAppEntitlementOwnershipByAppID(params *PublicGetMyAppEntitlementOwnershipByAppIDParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGetMyAppEntitlementOwnershipByAppIDOK, error)
@@ -110,6 +122,8 @@ type ClientService interface {
 	PublicGetUserEntitlementShort(params *PublicGetUserEntitlementParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGetUserEntitlementOK, error)
 	PublicConsumeUserEntitlement(params *PublicConsumeUserEntitlementParams, authInfo runtime.ClientAuthInfoWriter) (*PublicConsumeUserEntitlementOK, *PublicConsumeUserEntitlementBadRequest, *PublicConsumeUserEntitlementNotFound, *PublicConsumeUserEntitlementConflict, error)
 	PublicConsumeUserEntitlementShort(params *PublicConsumeUserEntitlementParams, authInfo runtime.ClientAuthInfoWriter) (*PublicConsumeUserEntitlementOK, error)
+	PublicSellUserEntitlement(params *PublicSellUserEntitlementParams, authInfo runtime.ClientAuthInfoWriter) (*PublicSellUserEntitlementOK, *PublicSellUserEntitlementNotFound, *PublicSellUserEntitlementConflict, error)
+	PublicSellUserEntitlementShort(params *PublicSellUserEntitlementParams, authInfo runtime.ClientAuthInfoWriter) (*PublicSellUserEntitlementOK, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -210,6 +224,318 @@ func (a *Client) QueryEntitlementsShort(params *QueryEntitlementsParams, authInf
 
 	case *QueryEntitlementsOK:
 		return v, nil
+
+	default:
+		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
+	}
+}
+
+/*
+Deprecated: 2022-08-10 - Use QueryEntitlements1Short instead.
+
+QueryEntitlements1 query entitlements by item ids
+Query entitlements by Item Ids.
+
+Other detail info:
+
+  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:ENTITLEMENT", action=2 (READ)
+  *  Returns : entitlement list
+*/
+func (a *Client) QueryEntitlements1(params *QueryEntitlements1Params, authInfo runtime.ClientAuthInfoWriter) (*QueryEntitlements1OK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewQueryEntitlements1Params()
+	}
+
+	if params.Context == nil {
+		params.Context = context.Background()
+	}
+
+	if params.RetryPolicy != nil {
+		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "queryEntitlements_1",
+		Method:             "GET",
+		PathPattern:        "/platform/admin/namespaces/{namespace}/entitlements/byItemIds",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &QueryEntitlements1Reader{formats: a.formats},
+		AuthInfo:           authInfo,
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+
+	switch v := result.(type) {
+
+	case *QueryEntitlements1OK:
+		return v, nil
+
+	default:
+		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
+	}
+}
+
+/*
+QueryEntitlements1Short query entitlements by item ids
+Query entitlements by Item Ids.
+
+Other detail info:
+
+  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:ENTITLEMENT", action=2 (READ)
+  *  Returns : entitlement list
+*/
+func (a *Client) QueryEntitlements1Short(params *QueryEntitlements1Params, authInfo runtime.ClientAuthInfoWriter) (*QueryEntitlements1OK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewQueryEntitlements1Params()
+	}
+
+	if params.Context == nil {
+		params.Context = context.Background()
+	}
+
+	if params.RetryPolicy != nil {
+		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "queryEntitlements_1",
+		Method:             "GET",
+		PathPattern:        "/platform/admin/namespaces/{namespace}/entitlements/byItemIds",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &QueryEntitlements1Reader{formats: a.formats},
+		AuthInfo:           authInfo,
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+
+	switch v := result.(type) {
+
+	case *QueryEntitlements1OK:
+		return v, nil
+
+	default:
+		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
+	}
+}
+
+/*
+Deprecated: 2022-08-10 - Use GrantEntitlementsShort instead.
+
+GrantEntitlements grant entitlements to different users
+Grant entitlements to multiple users, skipped granting will be treated as fail.
+Other detail info:
+
+  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:ENTITLEMENT", action=4 (UPDATE)
+  *  Returns : bulk grant entitlements result
+*/
+func (a *Client) GrantEntitlements(params *GrantEntitlementsParams, authInfo runtime.ClientAuthInfoWriter) (*GrantEntitlementsOK, *GrantEntitlementsUnprocessableEntity, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewGrantEntitlementsParams()
+	}
+
+	if params.Context == nil {
+		params.Context = context.Background()
+	}
+
+	if params.RetryPolicy != nil {
+		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "grantEntitlements",
+		Method:             "POST",
+		PathPattern:        "/platform/admin/namespaces/{namespace}/entitlements/grant",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GrantEntitlementsReader{formats: a.formats},
+		AuthInfo:           authInfo,
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, nil, err
+	}
+
+	switch v := result.(type) {
+
+	case *GrantEntitlementsOK:
+		return v, nil, nil
+
+	case *GrantEntitlementsUnprocessableEntity:
+		return nil, v, nil
+
+	default:
+		return nil, nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
+	}
+}
+
+/*
+GrantEntitlementsShort grant entitlements to different users
+Grant entitlements to multiple users, skipped granting will be treated as fail.
+Other detail info:
+
+  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:ENTITLEMENT", action=4 (UPDATE)
+  *  Returns : bulk grant entitlements result
+*/
+func (a *Client) GrantEntitlementsShort(params *GrantEntitlementsParams, authInfo runtime.ClientAuthInfoWriter) (*GrantEntitlementsOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewGrantEntitlementsParams()
+	}
+
+	if params.Context == nil {
+		params.Context = context.Background()
+	}
+
+	if params.RetryPolicy != nil {
+		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "grantEntitlements",
+		Method:             "POST",
+		PathPattern:        "/platform/admin/namespaces/{namespace}/entitlements/grant",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GrantEntitlementsReader{formats: a.formats},
+		AuthInfo:           authInfo,
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+
+	switch v := result.(type) {
+
+	case *GrantEntitlementsOK:
+		return v, nil
+	case *GrantEntitlementsUnprocessableEntity:
+		return nil, v
+
+	default:
+		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
+	}
+}
+
+/*
+Deprecated: 2022-08-10 - Use RevokeEntitlementsShort instead.
+
+RevokeEntitlements revoke entitlements by ids
+Revoke entitlements, skipped revocation will be treated as fail.
+Other detail info:
+
+  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:ENTITLEMENT", action=4 (UPDATE)
+  *  Returns : bulk revoke entitlements result
+*/
+func (a *Client) RevokeEntitlements(params *RevokeEntitlementsParams, authInfo runtime.ClientAuthInfoWriter) (*RevokeEntitlementsOK, *RevokeEntitlementsUnprocessableEntity, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewRevokeEntitlementsParams()
+	}
+
+	if params.Context == nil {
+		params.Context = context.Background()
+	}
+
+	if params.RetryPolicy != nil {
+		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "revokeEntitlements",
+		Method:             "POST",
+		PathPattern:        "/platform/admin/namespaces/{namespace}/entitlements/revoke",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &RevokeEntitlementsReader{formats: a.formats},
+		AuthInfo:           authInfo,
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, nil, err
+	}
+
+	switch v := result.(type) {
+
+	case *RevokeEntitlementsOK:
+		return v, nil, nil
+
+	case *RevokeEntitlementsUnprocessableEntity:
+		return nil, v, nil
+
+	default:
+		return nil, nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
+	}
+}
+
+/*
+RevokeEntitlementsShort revoke entitlements by ids
+Revoke entitlements, skipped revocation will be treated as fail.
+Other detail info:
+
+  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:ENTITLEMENT", action=4 (UPDATE)
+  *  Returns : bulk revoke entitlements result
+*/
+func (a *Client) RevokeEntitlementsShort(params *RevokeEntitlementsParams, authInfo runtime.ClientAuthInfoWriter) (*RevokeEntitlementsOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewRevokeEntitlementsParams()
+	}
+
+	if params.Context == nil {
+		params.Context = context.Background()
+	}
+
+	if params.RetryPolicy != nil {
+		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "revokeEntitlements",
+		Method:             "POST",
+		PathPattern:        "/platform/admin/namespaces/{namespace}/entitlements/revoke",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &RevokeEntitlementsReader{formats: a.formats},
+		AuthInfo:           authInfo,
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+
+	switch v := result.(type) {
+
+	case *RevokeEntitlementsOK:
+		return v, nil
+	case *RevokeEntitlementsUnprocessableEntity:
+		return nil, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1653,6 +1979,106 @@ func (a *Client) GetUserEntitlementOwnershipBySkuShort(params *GetUserEntitlemen
 }
 
 /*
+Deprecated: 2022-08-10 - Use RevokeAllEntitlementsShort instead.
+
+RevokeAllEntitlements revoke all entitlements of a user (this api is for testing purpose only)
+Revoke all entitlements of a user (This API is for testing purpose only)
+Other detail info:
+
+  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:USER:{userId}:ENTITLEMENT", action=4 (UPDATE)
+  *  Returns : revoked entitlements count
+*/
+func (a *Client) RevokeAllEntitlements(params *RevokeAllEntitlementsParams, authInfo runtime.ClientAuthInfoWriter) (*RevokeAllEntitlementsOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewRevokeAllEntitlementsParams()
+	}
+
+	if params.Context == nil {
+		params.Context = context.Background()
+	}
+
+	if params.RetryPolicy != nil {
+		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "revokeAllEntitlements",
+		Method:             "PUT",
+		PathPattern:        "/platform/admin/namespaces/{namespace}/users/{userId}/entitlements/revoke",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &RevokeAllEntitlementsReader{formats: a.formats},
+		AuthInfo:           authInfo,
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+
+	switch v := result.(type) {
+
+	case *RevokeAllEntitlementsOK:
+		return v, nil
+
+	default:
+		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
+	}
+}
+
+/*
+RevokeAllEntitlementsShort revoke all entitlements of a user (this api is for testing purpose only)
+Revoke all entitlements of a user (This API is for testing purpose only)
+Other detail info:
+
+  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:USER:{userId}:ENTITLEMENT", action=4 (UPDATE)
+  *  Returns : revoked entitlements count
+*/
+func (a *Client) RevokeAllEntitlementsShort(params *RevokeAllEntitlementsParams, authInfo runtime.ClientAuthInfoWriter) (*RevokeAllEntitlementsOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewRevokeAllEntitlementsParams()
+	}
+
+	if params.Context == nil {
+		params.Context = context.Background()
+	}
+
+	if params.RetryPolicy != nil {
+		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "revokeAllEntitlements",
+		Method:             "PUT",
+		PathPattern:        "/platform/admin/namespaces/{namespace}/users/{userId}/entitlements/revoke",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &RevokeAllEntitlementsReader{formats: a.formats},
+		AuthInfo:           authInfo,
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+
+	switch v := result.(type) {
+
+	case *RevokeAllEntitlementsOK:
+		return v, nil
+
+	default:
+		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
+	}
+}
+
+/*
 Deprecated: 2022-08-10 - Use RevokeUserEntitlementsShort instead.
 
 RevokeUserEntitlements revoke user's entitlements by ids
@@ -1984,7 +2410,7 @@ Other detail info:
   * Required permission : resource="ADMIN:NAMESPACE:{namespace}:USER:{userId}:ENTITLEMENT", action=4 (UPDATE)
   *  Returns : consumed entitlement
 */
-func (a *Client) ConsumeUserEntitlement(params *ConsumeUserEntitlementParams, authInfo runtime.ClientAuthInfoWriter) (*ConsumeUserEntitlementOK, *ConsumeUserEntitlementNotFound, *ConsumeUserEntitlementConflict, error) {
+func (a *Client) ConsumeUserEntitlement(params *ConsumeUserEntitlementParams, authInfo runtime.ClientAuthInfoWriter) (*ConsumeUserEntitlementOK, *ConsumeUserEntitlementBadRequest, *ConsumeUserEntitlementNotFound, *ConsumeUserEntitlementConflict, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewConsumeUserEntitlementParams()
@@ -2012,22 +2438,25 @@ func (a *Client) ConsumeUserEntitlement(params *ConsumeUserEntitlementParams, au
 		Client:             params.HTTPClient,
 	})
 	if err != nil {
-		return nil, nil, nil, err
+		return nil, nil, nil, nil, err
 	}
 
 	switch v := result.(type) {
 
 	case *ConsumeUserEntitlementOK:
-		return v, nil, nil, nil
+		return v, nil, nil, nil, nil
+
+	case *ConsumeUserEntitlementBadRequest:
+		return nil, v, nil, nil, nil
 
 	case *ConsumeUserEntitlementNotFound:
-		return nil, v, nil, nil
+		return nil, nil, v, nil, nil
 
 	case *ConsumeUserEntitlementConflict:
-		return nil, nil, v, nil
+		return nil, nil, nil, v, nil
 
 	default:
-		return nil, nil, nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
+		return nil, nil, nil, nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
 	}
 }
 
@@ -2074,6 +2503,8 @@ func (a *Client) ConsumeUserEntitlementShort(params *ConsumeUserEntitlementParam
 
 	case *ConsumeUserEntitlementOK:
 		return v, nil
+	case *ConsumeUserEntitlementBadRequest:
+		return nil, v
 	case *ConsumeUserEntitlementNotFound:
 		return nil, v
 	case *ConsumeUserEntitlementConflict:
@@ -2506,6 +2937,217 @@ func (a *Client) RevokeUserEntitlementShort(params *RevokeUserEntitlementParams,
 	case *RevokeUserEntitlementOK:
 		return v, nil
 	case *RevokeUserEntitlementNotFound:
+		return nil, v
+
+	default:
+		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
+	}
+}
+
+/*
+Deprecated: 2022-08-10 - Use RevokeUseCountShort instead.
+
+RevokeUseCount revoke specified use count of user entitlement
+Revoke specified use count of user entitlement.
+Other detail info:
+
+  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:USER:{userId}:ENTITLEMENT", action=4 (UPDATE)
+  *  Returns : revoke entitlement
+*/
+func (a *Client) RevokeUseCount(params *RevokeUseCountParams, authInfo runtime.ClientAuthInfoWriter) (*RevokeUseCountOK, *RevokeUseCountNotFound, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewRevokeUseCountParams()
+	}
+
+	if params.Context == nil {
+		params.Context = context.Background()
+	}
+
+	if params.RetryPolicy != nil {
+		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "revokeUseCount",
+		Method:             "PUT",
+		PathPattern:        "/platform/admin/namespaces/{namespace}/users/{userId}/entitlements/{entitlementId}/revokeByUseCount",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &RevokeUseCountReader{formats: a.formats},
+		AuthInfo:           authInfo,
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, nil, err
+	}
+
+	switch v := result.(type) {
+
+	case *RevokeUseCountOK:
+		return v, nil, nil
+
+	case *RevokeUseCountNotFound:
+		return nil, v, nil
+
+	default:
+		return nil, nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
+	}
+}
+
+/*
+RevokeUseCountShort revoke specified use count of user entitlement
+Revoke specified use count of user entitlement.
+Other detail info:
+
+  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:USER:{userId}:ENTITLEMENT", action=4 (UPDATE)
+  *  Returns : revoke entitlement
+*/
+func (a *Client) RevokeUseCountShort(params *RevokeUseCountParams, authInfo runtime.ClientAuthInfoWriter) (*RevokeUseCountOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewRevokeUseCountParams()
+	}
+
+	if params.Context == nil {
+		params.Context = context.Background()
+	}
+
+	if params.RetryPolicy != nil {
+		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "revokeUseCount",
+		Method:             "PUT",
+		PathPattern:        "/platform/admin/namespaces/{namespace}/users/{userId}/entitlements/{entitlementId}/revokeByUseCount",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &RevokeUseCountReader{formats: a.formats},
+		AuthInfo:           authInfo,
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+
+	switch v := result.(type) {
+
+	case *RevokeUseCountOK:
+		return v, nil
+	case *RevokeUseCountNotFound:
+		return nil, v
+
+	default:
+		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
+	}
+}
+
+/*
+Deprecated: 2022-08-10 - Use SellUserEntitlementShort instead.
+
+SellUserEntitlement sell user entitlement
+Sell user entitlement. If the entitlement is consumable, useCount is 0, the status will be CONSUMED. If the entitlement is durable, the status will be SOLD. Other detail info:
+  * Required permission : resource=ADMIN:NAMESPACE:{namespace}:USER:{userId}:ENTITLEMENT, action=4 (UPDATE)
+  *  Returns : entitlement
+*/
+func (a *Client) SellUserEntitlement(params *SellUserEntitlementParams, authInfo runtime.ClientAuthInfoWriter) (*SellUserEntitlementOK, *SellUserEntitlementNotFound, *SellUserEntitlementConflict, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewSellUserEntitlementParams()
+	}
+
+	if params.Context == nil {
+		params.Context = context.Background()
+	}
+
+	if params.RetryPolicy != nil {
+		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "sellUserEntitlement",
+		Method:             "PUT",
+		PathPattern:        "/platform/admin/namespaces/{namespace}/users/{userId}/entitlements/{entitlementId}/sell",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &SellUserEntitlementReader{formats: a.formats},
+		AuthInfo:           authInfo,
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, nil, nil, err
+	}
+
+	switch v := result.(type) {
+
+	case *SellUserEntitlementOK:
+		return v, nil, nil, nil
+
+	case *SellUserEntitlementNotFound:
+		return nil, v, nil, nil
+
+	case *SellUserEntitlementConflict:
+		return nil, nil, v, nil
+
+	default:
+		return nil, nil, nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
+	}
+}
+
+/*
+SellUserEntitlementShort sell user entitlement
+Sell user entitlement. If the entitlement is consumable, useCount is 0, the status will be CONSUMED. If the entitlement is durable, the status will be SOLD. Other detail info:
+  * Required permission : resource=ADMIN:NAMESPACE:{namespace}:USER:{userId}:ENTITLEMENT, action=4 (UPDATE)
+  *  Returns : entitlement
+*/
+func (a *Client) SellUserEntitlementShort(params *SellUserEntitlementParams, authInfo runtime.ClientAuthInfoWriter) (*SellUserEntitlementOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewSellUserEntitlementParams()
+	}
+
+	if params.Context == nil {
+		params.Context = context.Background()
+	}
+
+	if params.RetryPolicy != nil {
+		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "sellUserEntitlement",
+		Method:             "PUT",
+		PathPattern:        "/platform/admin/namespaces/{namespace}/users/{userId}/entitlements/{entitlementId}/sell",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &SellUserEntitlementReader{formats: a.formats},
+		AuthInfo:           authInfo,
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+
+	switch v := result.(type) {
+
+	case *SellUserEntitlementOK:
+		return v, nil
+	case *SellUserEntitlementNotFound:
+		return nil, v
+	case *SellUserEntitlementConflict:
 		return nil, v
 
 	default:
@@ -4411,6 +5053,112 @@ func (a *Client) PublicConsumeUserEntitlementShort(params *PublicConsumeUserEnti
 	case *PublicConsumeUserEntitlementNotFound:
 		return nil, v
 	case *PublicConsumeUserEntitlementConflict:
+		return nil, v
+
+	default:
+		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
+	}
+}
+
+/*
+Deprecated: 2022-08-10 - Use PublicSellUserEntitlementShort instead.
+
+PublicSellUserEntitlement sell user entitlement
+Sell user entitlement. If the entitlement is consumable, useCount is 0, the status will be CONSUMED. If the entitlement is durable, the status will be SOLD. Other detail info:
+  * Required permission : resource="NAMESPACE:{namespace}:USER:{userId}:ENTITLEMENT", action=4 (UPDATE)
+  *  Returns : entitlement
+*/
+func (a *Client) PublicSellUserEntitlement(params *PublicSellUserEntitlementParams, authInfo runtime.ClientAuthInfoWriter) (*PublicSellUserEntitlementOK, *PublicSellUserEntitlementNotFound, *PublicSellUserEntitlementConflict, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewPublicSellUserEntitlementParams()
+	}
+
+	if params.Context == nil {
+		params.Context = context.Background()
+	}
+
+	if params.RetryPolicy != nil {
+		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "publicSellUserEntitlement",
+		Method:             "PUT",
+		PathPattern:        "/platform/public/namespaces/{namespace}/users/{userId}/entitlements/{entitlementId}/sell",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &PublicSellUserEntitlementReader{formats: a.formats},
+		AuthInfo:           authInfo,
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, nil, nil, err
+	}
+
+	switch v := result.(type) {
+
+	case *PublicSellUserEntitlementOK:
+		return v, nil, nil, nil
+
+	case *PublicSellUserEntitlementNotFound:
+		return nil, v, nil, nil
+
+	case *PublicSellUserEntitlementConflict:
+		return nil, nil, v, nil
+
+	default:
+		return nil, nil, nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
+	}
+}
+
+/*
+PublicSellUserEntitlementShort sell user entitlement
+Sell user entitlement. If the entitlement is consumable, useCount is 0, the status will be CONSUMED. If the entitlement is durable, the status will be SOLD. Other detail info:
+  * Required permission : resource="NAMESPACE:{namespace}:USER:{userId}:ENTITLEMENT", action=4 (UPDATE)
+  *  Returns : entitlement
+*/
+func (a *Client) PublicSellUserEntitlementShort(params *PublicSellUserEntitlementParams, authInfo runtime.ClientAuthInfoWriter) (*PublicSellUserEntitlementOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewPublicSellUserEntitlementParams()
+	}
+
+	if params.Context == nil {
+		params.Context = context.Background()
+	}
+
+	if params.RetryPolicy != nil {
+		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "publicSellUserEntitlement",
+		Method:             "PUT",
+		PathPattern:        "/platform/public/namespaces/{namespace}/users/{userId}/entitlements/{entitlementId}/sell",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &PublicSellUserEntitlementReader{formats: a.formats},
+		AuthInfo:           authInfo,
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+
+	switch v := result.(type) {
+
+	case *PublicSellUserEntitlementOK:
+		return v, nil
+	case *PublicSellUserEntitlementNotFound:
+		return nil, v
+	case *PublicSellUserEntitlementConflict:
 		return nil, v
 
 	default:

@@ -40,7 +40,7 @@ func (o *GetUserDLCReader) ReadResponse(response runtime.ClientResponse, consume
 			return nil, err
 		}
 
-		return nil, fmt.Errorf("Requested GET /platform/admin/namespaces/{namespace}/users/{userId}/dlc returns an error %d: %s", response.Code(), string(data))
+		return nil, fmt.Errorf("Requested GET /platform/admin/namespaces/{namespace}/users/{userId}/dlc/records returns an error %d: %s", response.Code(), string(data))
 	}
 }
 
@@ -54,11 +54,11 @@ func NewGetUserDLCOK() *GetUserDLCOK {
   successful operation
 */
 type GetUserDLCOK struct {
-	Payload *platformclientmodels.UserDLC
+	Payload []*platformclientmodels.UserDLCRecord
 }
 
 func (o *GetUserDLCOK) Error() string {
-	return fmt.Sprintf("[GET /platform/admin/namespaces/{namespace}/users/{userId}/dlc][%d] getUserDlcOK  %+v", 200, o.ToJSONString())
+	return fmt.Sprintf("[GET /platform/admin/namespaces/{namespace}/users/{userId}/dlc/records][%d] getUserDlcOK  %+v", 200, o.ToJSONString())
 }
 
 func (o *GetUserDLCOK) ToJSONString() string {
@@ -76,7 +76,7 @@ func (o *GetUserDLCOK) ToJSONString() string {
 	return fmt.Sprintf("%+v", string(b))
 }
 
-func (o *GetUserDLCOK) GetPayload() *platformclientmodels.UserDLC {
+func (o *GetUserDLCOK) GetPayload() []*platformclientmodels.UserDLCRecord {
 	return o.Payload
 }
 
@@ -87,10 +87,8 @@ func (o *GetUserDLCOK) readResponse(response runtime.ClientResponse, consumer ru
 		consumer = runtime.ByteStreamConsumer()
 	}
 
-	o.Payload = new(platformclientmodels.UserDLC)
-
 	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
 		return err
 	}
 

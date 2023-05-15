@@ -17,6 +17,9 @@ import (
 // swagger:model Entitlement revocation config.
 type EntitlementRevocationConfig struct {
 
+	// consumable entitlement revocation config
+	Consumable *ConsumableEntitlementRevocationConfig `json:"consumable,omitempty"`
+
 	// durable entitlement revocation config
 	Durable *DurableEntitlementRevocationConfig `json:"durable,omitempty"`
 }

@@ -66,6 +66,8 @@ type ClientService interface {
 	GetAvailablePredicateTypesShort(params *GetAvailablePredicateTypesParams, authInfo runtime.ClientAuthInfoWriter) (*GetAvailablePredicateTypesOK, error)
 	ValidateItemPurchaseCondition(params *ValidateItemPurchaseConditionParams, authInfo runtime.ClientAuthInfoWriter) (*ValidateItemPurchaseConditionOK, *ValidateItemPurchaseConditionUnprocessableEntity, error)
 	ValidateItemPurchaseConditionShort(params *ValidateItemPurchaseConditionParams, authInfo runtime.ClientAuthInfoWriter) (*ValidateItemPurchaseConditionOK, error)
+	BulkUpdateRegionData(params *BulkUpdateRegionDataParams, authInfo runtime.ClientAuthInfoWriter) (*BulkUpdateRegionDataNoContent, *BulkUpdateRegionDataBadRequest, *BulkUpdateRegionDataNotFound, *BulkUpdateRegionDataConflict, *BulkUpdateRegionDataUnprocessableEntity, error)
+	BulkUpdateRegionDataShort(params *BulkUpdateRegionDataParams, authInfo runtime.ClientAuthInfoWriter) (*BulkUpdateRegionDataNoContent, error)
 	SearchItems(params *SearchItemsParams, authInfo runtime.ClientAuthInfoWriter) (*SearchItemsOK, *SearchItemsNotFound, error)
 	SearchItemsShort(params *SearchItemsParams, authInfo runtime.ClientAuthInfoWriter) (*SearchItemsOK, error)
 	QueryUncategorizedItems(params *QueryUncategorizedItemsParams, authInfo runtime.ClientAuthInfoWriter) (*QueryUncategorizedItemsOK, *QueryUncategorizedItemsNotFound, *QueryUncategorizedItemsUnprocessableEntity, error)
@@ -2483,6 +2485,124 @@ func (a *Client) ValidateItemPurchaseConditionShort(params *ValidateItemPurchase
 	case *ValidateItemPurchaseConditionOK:
 		return v, nil
 	case *ValidateItemPurchaseConditionUnprocessableEntity:
+		return nil, v
+
+	default:
+		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
+	}
+}
+
+/*
+Deprecated: 2022-08-10 - Use BulkUpdateRegionDataShort instead.
+
+BulkUpdateRegionData update item's region data in bulk
+This API is used to update region data of items in bulk
+Other detail info:
+
+  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:ITEM", action=4 (UPDATE)
+*/
+func (a *Client) BulkUpdateRegionData(params *BulkUpdateRegionDataParams, authInfo runtime.ClientAuthInfoWriter) (*BulkUpdateRegionDataNoContent, *BulkUpdateRegionDataBadRequest, *BulkUpdateRegionDataNotFound, *BulkUpdateRegionDataConflict, *BulkUpdateRegionDataUnprocessableEntity, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewBulkUpdateRegionDataParams()
+	}
+
+	if params.Context == nil {
+		params.Context = context.Background()
+	}
+
+	if params.RetryPolicy != nil {
+		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "bulkUpdateRegionData",
+		Method:             "PUT",
+		PathPattern:        "/platform/admin/namespaces/{namespace}/items/regiondata",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &BulkUpdateRegionDataReader{formats: a.formats},
+		AuthInfo:           authInfo,
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, nil, nil, nil, nil, err
+	}
+
+	switch v := result.(type) {
+
+	case *BulkUpdateRegionDataNoContent:
+		return v, nil, nil, nil, nil, nil
+
+	case *BulkUpdateRegionDataBadRequest:
+		return nil, v, nil, nil, nil, nil
+
+	case *BulkUpdateRegionDataNotFound:
+		return nil, nil, v, nil, nil, nil
+
+	case *BulkUpdateRegionDataConflict:
+		return nil, nil, nil, v, nil, nil
+
+	case *BulkUpdateRegionDataUnprocessableEntity:
+		return nil, nil, nil, nil, v, nil
+
+	default:
+		return nil, nil, nil, nil, nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
+	}
+}
+
+/*
+BulkUpdateRegionDataShort update item's region data in bulk
+This API is used to update region data of items in bulk
+Other detail info:
+
+  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:ITEM", action=4 (UPDATE)
+*/
+func (a *Client) BulkUpdateRegionDataShort(params *BulkUpdateRegionDataParams, authInfo runtime.ClientAuthInfoWriter) (*BulkUpdateRegionDataNoContent, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewBulkUpdateRegionDataParams()
+	}
+
+	if params.Context == nil {
+		params.Context = context.Background()
+	}
+
+	if params.RetryPolicy != nil {
+		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "bulkUpdateRegionData",
+		Method:             "PUT",
+		PathPattern:        "/platform/admin/namespaces/{namespace}/items/regiondata",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &BulkUpdateRegionDataReader{formats: a.formats},
+		AuthInfo:           authInfo,
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+
+	switch v := result.(type) {
+
+	case *BulkUpdateRegionDataNoContent:
+		return v, nil
+	case *BulkUpdateRegionDataBadRequest:
+		return nil, v
+	case *BulkUpdateRegionDataNotFound:
+		return nil, v
+	case *BulkUpdateRegionDataConflict:
+		return nil, v
+	case *BulkUpdateRegionDataUnprocessableEntity:
 		return nil, v
 
 	default:

@@ -60,10 +60,9 @@ type WalletTransactionInfo struct {
 	// Required: true
 	UserID *string `json:"userId"`
 
-	// Action type
+	// Action type, remove expired limited time balance will not have wallet action.
 	// Enum: ['CREDIT', 'DEBIT', 'PAYMENT']
-	// Required: true
-	WalletAction *string `json:"walletAction"`
+	WalletAction string `json:"walletAction,omitempty"`
 }
 
 // Validate validates this Wallet transaction info
@@ -89,9 +88,6 @@ func (m *WalletTransactionInfo) Validate(formats strfmt.Registry) error {
 		res = append(res, err)
 	}
 	if err := m.validateUserID(formats); err != nil {
-		res = append(res, err)
-	}
-	if err := m.validateWalletAction(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -201,20 +197,6 @@ func (m *WalletTransactionInfo) validateWalletActionEnum(path, location string, 
 	if err := validate.EnumCase(path, location, value, walletTransactionInfoTypeWalletActionPropEnum, true); err != nil {
 		return err
 	}
-	return nil
-}
-
-func (m *WalletTransactionInfo) validateWalletAction(formats strfmt.Registry) error {
-
-	if err := validate.Required("walletAction", "body", m.WalletAction); err != nil {
-		return err
-	}
-
-	// value enum
-	if err := m.validateWalletActionEnum("walletAction", "body", *m.WalletAction); err != nil {
-		return err
-	}
-
 	return nil
 }
 

@@ -54,7 +54,7 @@ type AppEntitlementInfo struct {
 	StartDate *strfmt.DateTime `json:"startDate,omitempty"`
 
 	// entitlement status
-	// Enum: ['ACTIVE', 'CONSUMED', 'INACTIVE', 'REVOKED']
+	// Enum: ['ACTIVE', 'CONSUMED', 'INACTIVE', 'REVOKED', 'SOLD']
 	// Required: true
 	Status *string `json:"status"`
 
@@ -150,7 +150,7 @@ var appEntitlementInfoTypeStatusPropEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["ACTIVE", "CONSUMED", "INACTIVE", "REVOKED"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["ACTIVE", "CONSUMED", "INACTIVE", "REVOKED", "SOLD"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
@@ -171,6 +171,9 @@ const (
 
 	// AppEntitlementInfoStatusREVOKED captures enum value "REVOKED"
 	AppEntitlementInfoStatusREVOKED string = "REVOKED"
+
+	// AppEntitlementInfoStatusSOLD captures enum value "SOLD"
+	AppEntitlementInfoStatusSOLD string = "SOLD"
 )
 
 // prop value enum

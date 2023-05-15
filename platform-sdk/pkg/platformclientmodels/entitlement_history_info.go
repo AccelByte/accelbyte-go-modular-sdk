@@ -21,7 +21,7 @@ import (
 type EntitlementHistoryInfo struct {
 
 	// The action of entitlement, like GRANT, REVOKE
-	// Enum: ['DECREMENT', 'DISABLE', 'ENABLE', 'GRANT', 'REVOKE', 'UPDATE']
+	// Enum: ['DECREMENT', 'DISABLE', 'ENABLE', 'GRANT', 'REVOKE', 'SELL_BACK', 'UPDATE']
 	// Required: true
 	Action *string `json:"action"`
 
@@ -42,14 +42,21 @@ type EntitlementHistoryInfo struct {
 	// Required: true
 	Operator *string `json:"operator"`
 
+	// reason
+	Reason string `json:"reason,omitempty"`
+
 	// History update time
 	// Required: true
 	// Format: date-time
 	UpdatedAt strfmt.DateTime `json:"updatedAt"`
 
-	// The use count of a consumable entitlement.
+	// The reminder use count of a consumable entitlement.
 	// Format: int32
 	UseCount int32 `json:"useCount,omitempty"`
+
+	// changed use count.
+	// Format: int32
+	UseCountChange int32 `json:"useCountChange,omitempty"`
 
 	// The owner id of entitlement
 	// Required: true
@@ -92,7 +99,7 @@ var entitlementHistoryInfoTypeActionPropEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["DECREMENT", "DISABLE", "ENABLE", "GRANT", "REVOKE", "UPDATE"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["DECREMENT", "DISABLE", "ENABLE", "GRANT", "REVOKE", "SELL_BACK", "UPDATE"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
@@ -116,6 +123,9 @@ const (
 
 	// EntitlementHistoryInfoActionREVOKE captures enum value "REVOKE"
 	EntitlementHistoryInfoActionREVOKE string = "REVOKE"
+
+	// EntitlementHistoryInfoActionSELLBACK captures enum value "SELL_BACK"
+	EntitlementHistoryInfoActionSELLBACK string = "SELL_BACK"
 
 	// EntitlementHistoryInfoActionUPDATE captures enum value "UPDATE"
 	EntitlementHistoryInfoActionUPDATE string = "UPDATE"

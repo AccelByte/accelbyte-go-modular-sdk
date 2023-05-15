@@ -19,8 +19,7 @@ import (
 type AppleIAPConfigInfo struct {
 
 	// bundleId
-	// Required: true
-	BundleID *string `json:"bundleId"`
+	BundleID string `json:"bundleId,omitempty"`
 
 	// namespace
 	// Required: true
@@ -34,9 +33,6 @@ type AppleIAPConfigInfo struct {
 func (m *AppleIAPConfigInfo) Validate(formats strfmt.Registry) error {
 	var res []error
 
-	if err := m.validateBundleID(formats); err != nil {
-		res = append(res, err)
-	}
 	if err := m.validateNamespace(formats); err != nil {
 		res = append(res, err)
 	}
@@ -44,15 +40,6 @@ func (m *AppleIAPConfigInfo) Validate(formats strfmt.Registry) error {
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
-	return nil
-}
-
-func (m *AppleIAPConfigInfo) validateBundleID(formats strfmt.Registry) error {
-
-	if err := validate.Required("bundleId", "body", m.BundleID); err != nil {
-		return err
-	}
-
 	return nil
 }
 

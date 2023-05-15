@@ -39,6 +39,7 @@ var QueryItems1Cmd = &cobra.Command{
 		limit, _ := cmd.Flags().GetInt32("limit")
 		offset, _ := cmd.Flags().GetInt32("offset")
 		region, _ := cmd.Flags().GetString("region")
+		sectionExclusive, _ := cmd.Flags().GetBool("sectionExclusive")
 		sortByString := cmd.Flag("sortBy").Value.String()
 		var sortBy []string
 		errSortBy := json.Unmarshal([]byte(sortByString), &sortBy)
@@ -62,6 +63,7 @@ var QueryItems1Cmd = &cobra.Command{
 			Limit:                  &limit,
 			Offset:                 &offset,
 			Region:                 &region,
+			SectionExclusive:       &sectionExclusive,
 			SortBy:                 sortBy,
 			StoreID:                &storeId,
 			Tags:                   &tags,
@@ -95,6 +97,7 @@ func init() {
 	QueryItems1Cmd.Flags().Int32("limit", 20, "Limit")
 	QueryItems1Cmd.Flags().Int32("offset", 0, "Offset")
 	QueryItems1Cmd.Flags().String("region", "", "Region")
+	QueryItems1Cmd.Flags().Bool("sectionExclusive", false, "Section exclusive")
 	QueryItems1Cmd.Flags().String("sortBy", "", "Sort by")
 	QueryItems1Cmd.Flags().String("storeId", "", "Store id")
 	QueryItems1Cmd.Flags().String("tags", "", "Tags")

@@ -60,7 +60,7 @@ test_core:
 test_integration:
 	@test -n "$(ENV_FILE_PATH)" || (echo "ENV_FILE_PATH is not set" ; exit 1)
 	docker run -t --rm -u $$(id -u):$$(id -g) --env-file $(ENV_FILE_PATH) -v $$(pwd):/data/ -w /data/ -e GOCACHE=/data/.cache/go-build $(GOLANG_DOCKER_IMAGE) \
-			sh -c "cd services-api/pkg/tests && go test -v github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/tests/integration"
+			sh -c "cd services-api/pkg/tests && go test -tags all -v github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/tests/integration"
 
 test_cli:
 	@test -n "$(SDK_MOCK_SERVER_PATH)" || (echo "SDK_MOCK_SERVER_PATH is not set" ; exit 1)

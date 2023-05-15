@@ -32,7 +32,7 @@ type EntitlementUpdate struct {
 	StartDate *strfmt.DateTime `json:"startDate,omitempty"`
 
 	// status
-	// Enum: ['ACTIVE', 'CONSUMED', 'INACTIVE', 'REVOKED']
+	// Enum: ['ACTIVE', 'CONSUMED', 'INACTIVE', 'REVOKED', 'SOLD']
 	Status string `json:"status,omitempty"`
 
 	// useCount of a consumable entitlement
@@ -54,7 +54,7 @@ var entitlementUpdateTypeStatusPropEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["ACTIVE", "CONSUMED", "INACTIVE", "REVOKED"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["ACTIVE", "CONSUMED", "INACTIVE", "REVOKED", "SOLD"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
@@ -75,6 +75,9 @@ const (
 
 	// EntitlementUpdateStatusREVOKED captures enum value "REVOKED"
 	EntitlementUpdateStatusREVOKED string = "REVOKED"
+
+	// EntitlementUpdateStatusSOLD captures enum value "SOLD"
+	EntitlementUpdateStatusSOLD string = "SOLD"
 )
 
 // prop value enum

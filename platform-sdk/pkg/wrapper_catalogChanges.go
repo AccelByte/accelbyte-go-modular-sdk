@@ -42,7 +42,7 @@ func (aaa *CatalogChangesService) GetAuthSession() auth.Session {
 }
 
 // Deprecated: 2022-01-10 - Please use QueryChangesShort instead.
-func (aaa *CatalogChangesService) QueryChanges(input *catalog_changes.QueryChangesParams) ([]*platformclientmodels.CatalogChangePagingSlicedResult, error) {
+func (aaa *CatalogChangesService) QueryChanges(input *catalog_changes.QueryChangesParams) (*platformclientmodels.CatalogChangePagingSlicedResult, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
 		return nil, err
@@ -183,7 +183,7 @@ func (aaa *CatalogChangesService) UnselectRecord(input *catalog_changes.Unselect
 	return nil
 }
 
-func (aaa *CatalogChangesService) QueryChangesShort(input *catalog_changes.QueryChangesParams) ([]*platformclientmodels.CatalogChangePagingSlicedResult, error) {
+func (aaa *CatalogChangesService) QueryChangesShort(input *catalog_changes.QueryChangesParams) (*platformclientmodels.CatalogChangePagingSlicedResult, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
