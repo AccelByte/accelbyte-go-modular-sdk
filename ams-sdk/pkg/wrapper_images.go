@@ -4,28 +4,28 @@
 
 // Code generated. DO NOT EDIT.
 
-package lobby
+package ams
 
 import (
-	"github.com/AccelByte/accelbyte-go-modular-sdk/lobby-sdk/pkg/lobbyclient"
-	"github.com/AccelByte/accelbyte-go-modular-sdk/lobby-sdk/pkg/lobbyclient/chat"
-	"github.com/AccelByte/accelbyte-go-modular-sdk/lobby-sdk/pkg/lobbyclientmodels"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/ams-sdk/pkg/amsclient"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/ams-sdk/pkg/amsclient/images"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/ams-sdk/pkg/amsclientmodels"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils/auth"
 	"github.com/go-openapi/runtime/client"
 )
 
-// ChatService this is use for compatibility with latest modular sdk only
-// Deprecated: 2023-03-30 - please use ChatService imported from "github.com/AccelByte/accelbyte-go-modular-sdk/lobby-sdk/pkg"
-type ChatService struct {
-	Client                 *lobbyclient.JusticeLobbyService
+// ImagesService this is use for compatibility with latest modular sdk only
+// Deprecated: 2023-03-30 - please use ImagesService imported from "github.com/AccelByte/accelbyte-go-modular-sdk/ams-sdk/pkg"
+type ImagesService struct {
+	Client                 *amsclient.JusticeAmsService
 	ConfigRepository       repository.ConfigRepository
 	TokenRepository        repository.TokenRepository
 	RefreshTokenRepository repository.RefreshTokenRepository
 }
 
-func (aaa *ChatService) GetAuthSession() auth.Session {
+func (aaa *ImagesService) GetAuthSession() auth.Session {
 	if aaa.RefreshTokenRepository != nil {
 		return auth.Session{
 			aaa.TokenRepository,
@@ -41,16 +41,13 @@ func (aaa *ChatService) GetAuthSession() auth.Session {
 	}
 }
 
-// Deprecated: 2022-01-10 - Please use PersonalChatHistoryShort instead.
-func (aaa *ChatService) PersonalChatHistory(input *chat.PersonalChatHistoryParams) ([]*lobbyclientmodels.ModelChatMessageResponse, error) {
+// Deprecated: 2022-01-10 - Please use ImageListShort instead.
+func (aaa *ImagesService) ImageList(input *images.ImageListParams) (*amsclientmodels.APIImageList, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
 		return nil, err
 	}
-	ok, badRequest, unauthorized, forbidden, notFound, internalServerError, err := aaa.Client.Chat.PersonalChatHistory(input, client.BearerToken(*token.AccessToken))
-	if badRequest != nil {
-		return nil, badRequest
-	}
+	ok, unauthorized, forbidden, notFound, internalServerError, err := aaa.Client.Images.ImageList(input, client.BearerToken(*token.AccessToken))
 	if unauthorized != nil {
 		return nil, unauthorized
 	}
@@ -70,16 +67,13 @@ func (aaa *ChatService) PersonalChatHistory(input *chat.PersonalChatHistoryParam
 	return ok.GetPayload(), nil
 }
 
-// Deprecated: 2022-01-10 - Please use AdminChatHistoryShort instead.
-func (aaa *ChatService) AdminChatHistory(input *chat.AdminChatHistoryParams) ([]*lobbyclientmodels.ModelChatMessageResponse, error) {
+// Deprecated: 2022-01-10 - Please use ImageGetShort instead.
+func (aaa *ImagesService) ImageGet(input *images.ImageGetParams) (*amsclientmodels.APIImageDetails, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
 		return nil, err
 	}
-	ok, badRequest, unauthorized, forbidden, notFound, internalServerError, err := aaa.Client.Chat.AdminChatHistory(input, client.BearerToken(*token.AccessToken))
-	if badRequest != nil {
-		return nil, badRequest
-	}
+	ok, unauthorized, forbidden, notFound, internalServerError, err := aaa.Client.Images.ImageGet(input, client.BearerToken(*token.AccessToken))
 	if unauthorized != nil {
 		return nil, unauthorized
 	}
@@ -99,16 +93,13 @@ func (aaa *ChatService) AdminChatHistory(input *chat.AdminChatHistoryParams) ([]
 	return ok.GetPayload(), nil
 }
 
-// Deprecated: 2022-01-10 - Please use GetPersonalChatHistoryV1PublicShort instead.
-func (aaa *ChatService) GetPersonalChatHistoryV1Public(input *chat.GetPersonalChatHistoryV1PublicParams) ([]*lobbyclientmodels.ModelChatMessageResponse, error) {
+// Deprecated: 2022-01-10 - Please use ImagePatchShort instead.
+func (aaa *ImagesService) ImagePatch(input *images.ImagePatchParams) (*amsclientmodels.APIImageDetails, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
 		return nil, err
 	}
-	ok, badRequest, unauthorized, forbidden, notFound, internalServerError, err := aaa.Client.Chat.GetPersonalChatHistoryV1Public(input, client.BearerToken(*token.AccessToken))
-	if badRequest != nil {
-		return nil, badRequest
-	}
+	ok, unauthorized, forbidden, notFound, internalServerError, err := aaa.Client.Images.ImagePatch(input, client.BearerToken(*token.AccessToken))
 	if unauthorized != nil {
 		return nil, unauthorized
 	}
@@ -128,7 +119,7 @@ func (aaa *ChatService) GetPersonalChatHistoryV1Public(input *chat.GetPersonalCh
 	return ok.GetPayload(), nil
 }
 
-func (aaa *ChatService) PersonalChatHistoryShort(input *chat.PersonalChatHistoryParams) ([]*lobbyclientmodels.ModelChatMessageResponse, error) {
+func (aaa *ImagesService) ImageListShort(input *images.ImageListParams) (*amsclientmodels.APIImageList, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -145,7 +136,7 @@ func (aaa *ChatService) PersonalChatHistoryShort(input *chat.PersonalChatHistory
 		}
 	}
 
-	ok, err := aaa.Client.Chat.PersonalChatHistoryShort(input, authInfoWriter)
+	ok, err := aaa.Client.Images.ImageListShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
 	}
@@ -153,7 +144,7 @@ func (aaa *ChatService) PersonalChatHistoryShort(input *chat.PersonalChatHistory
 	return ok.GetPayload(), nil
 }
 
-func (aaa *ChatService) AdminChatHistoryShort(input *chat.AdminChatHistoryParams) ([]*lobbyclientmodels.ModelChatMessageResponse, error) {
+func (aaa *ImagesService) ImageGetShort(input *images.ImageGetParams) (*amsclientmodels.APIImageDetails, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -170,7 +161,7 @@ func (aaa *ChatService) AdminChatHistoryShort(input *chat.AdminChatHistoryParams
 		}
 	}
 
-	ok, err := aaa.Client.Chat.AdminChatHistoryShort(input, authInfoWriter)
+	ok, err := aaa.Client.Images.ImageGetShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
 	}
@@ -178,7 +169,7 @@ func (aaa *ChatService) AdminChatHistoryShort(input *chat.AdminChatHistoryParams
 	return ok.GetPayload(), nil
 }
 
-func (aaa *ChatService) GetPersonalChatHistoryV1PublicShort(input *chat.GetPersonalChatHistoryV1PublicParams) ([]*lobbyclientmodels.ModelChatMessageResponse, error) {
+func (aaa *ImagesService) ImagePatchShort(input *images.ImagePatchParams) (*amsclientmodels.APIImageDetails, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -195,7 +186,7 @@ func (aaa *ChatService) GetPersonalChatHistoryV1PublicShort(input *chat.GetPerso
 		}
 	}
 
-	ok, err := aaa.Client.Chat.GetPersonalChatHistoryV1PublicShort(input, authInfoWriter)
+	ok, err := aaa.Client.Images.ImagePatchShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
 	}

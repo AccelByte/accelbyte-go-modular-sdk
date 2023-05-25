@@ -9,8 +9,8 @@ replace (
 )
 
 require (
-	github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/service/iam v0.0.0-00010101000000-000000000000
 	github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk v0.1.0
+	github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/service/iam v0.0.0-00010101000000-000000000000
 	github.com/AccelByte/go-jose v2.1.4+incompatible
 	github.com/go-openapi/errors v0.20.2 // indirect
 	github.com/go-openapi/runtime v0.19.29

@@ -6,6 +6,7 @@ go 1.18
 replace (
 	github.com/AccelByte/accelbyte-go-modular-sdk/services-api => ../../../services-api
 	github.com/AccelByte/accelbyte-go-modular-sdk/achievement-sdk => ../../../achievement-sdk
+	github.com/AccelByte/accelbyte-go-modular-sdk/ams-sdk => ../../../ams-sdk
 	github.com/AccelByte/accelbyte-go-modular-sdk/basic-sdk => ../../../basic-sdk
 	github.com/AccelByte/accelbyte-go-modular-sdk/cloudsave-sdk => ../../../cloudsave-sdk
 	github.com/AccelByte/accelbyte-go-modular-sdk/dslogmanager-sdk => ../../../dslogmanager-sdk
@@ -33,6 +34,7 @@ replace (
 require (
 	github.com/AccelByte/accelbyte-go-modular-sdk/services-api v0.1.0
 	github.com/AccelByte/accelbyte-go-modular-sdk/achievement-sdk v0.1.0
+	github.com/AccelByte/accelbyte-go-modular-sdk/ams-sdk v0.1.0
 	github.com/AccelByte/accelbyte-go-modular-sdk/basic-sdk v0.1.0
 	github.com/AccelByte/accelbyte-go-modular-sdk/cloudsave-sdk v0.1.0
 	github.com/AccelByte/accelbyte-go-modular-sdk/dslogmanager-sdk v0.1.0
