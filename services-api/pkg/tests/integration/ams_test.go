@@ -7,28 +7,27 @@ package integration_test
 import (
 	"testing"
 
+	ams "github.com/AccelByte/accelbyte-go-modular-sdk/ams-sdk/pkg"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/ams-sdk/pkg/amsclient/fleets"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/ams-sdk/pkg/amsclient/images"
-	"github.com/AccelByte/accelbyte-go-modular-sdk/ams-sdk/pkg/amsclientmodels"
-	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/service/ams"
-	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/tests/integration"
-	"github.com/stretchr/testify/assert"
-
 	"github.com/AccelByte/accelbyte-go-modular-sdk/ams-sdk/pkg/amsclient/operations"
-	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/factory"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/ams-sdk/pkg/amsclientmodels"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/tests/integration"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils/auth"
+	"github.com/stretchr/testify/assert"
 )
 
 var (
 	operationAmsService = &ams.OperationsService{
-		Client:          factory.NewAmsClient(configRepo),
+		Client:          ams.NewAmsClient(auth.DefaultConfigRepositoryImpl()),
 		TokenRepository: tokenRepository,
 	}
 	imagesService = &ams.ImagesService{
-		Client:          factory.NewAmsClient(configRepo),
+		Client:          ams.NewAmsClient(auth.DefaultConfigRepositoryImpl()),
 		TokenRepository: tokenRepository,
 	}
 	fleetService = &ams.FleetsService{
-		Client:          factory.NewAmsClient(configRepo),
+		Client:          ams.NewAmsClient(configRepo),
 		TokenRepository: tokenRepository,
 	}
 	fleetName       = "GoSDKFleet"
