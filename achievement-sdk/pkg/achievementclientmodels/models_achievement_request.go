@@ -24,6 +24,9 @@ type ModelsAchievementRequest struct {
 	// Required: true
 	AchievementCode *string `json:"achievementCode"`
 
+	// customattributes
+	CustomAttributes interface{} `json:"customAttributes,omitempty"`
+
 	// defaultlanguage
 	// Required: true
 	DefaultLanguage *string `json:"defaultLanguage"`

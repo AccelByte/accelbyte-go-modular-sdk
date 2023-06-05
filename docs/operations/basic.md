@@ -36,6 +36,7 @@
 | `/basic/v1/admin/namespaces/{namespace}/configs/{configKey}` | GET | GetConfig1Short | [GetConfig1Short](../../basic-sdk/pkg/basicclient/config/config_client.go) | [GetConfig1Short](../../basic-sdk/pkg/wrapper_config.go) | [GetConfig1Short](../../samples/cli/cmd/basic/config/getConfig1.go) |
 | `/basic/v1/admin/namespaces/{namespace}/configs/{configKey}` | DELETE | DeleteConfig1Short | [DeleteConfig1Short](../../basic-sdk/pkg/basicclient/config/config_client.go) | [DeleteConfig1Short](../../basic-sdk/pkg/wrapper_config.go) | [DeleteConfig1Short](../../samples/cli/cmd/basic/config/deleteConfig1.go) |
 | `/basic/v1/admin/namespaces/{namespace}/configs/{configKey}` | PATCH | UpdateConfig1Short | [UpdateConfig1Short](../../basic-sdk/pkg/basicclient/config/config_client.go) | [UpdateConfig1Short](../../basic-sdk/pkg/wrapper_config.go) | [UpdateConfig1Short](../../samples/cli/cmd/basic/config/updateConfig1.go) |
+| `/basic/v1/admin/namespaces/{namespace}/publisher/configs/{configKey}` | GET | GetPublisherConfigShort | [GetPublisherConfigShort](../../basic-sdk/pkg/basicclient/config/config_client.go) | [GetPublisherConfigShort](../../basic-sdk/pkg/wrapper_config.go) | [GetPublisherConfigShort](../../samples/cli/cmd/basic/config/getPublisherConfig.go) |
 
 ### EQU8Config Wrapper:  [EQU8Config](../../basic-sdk/pkg/wrapper_equ8Config.go)
 | Endpoint | Method | ID | Class | Wrapper | Example |
@@ -140,7 +141,6 @@
 | `UserProfileInfo` | [UserProfileInfo ](../../basic-sdk/pkg/basicclientmodels/user_profile_info.go) |
 | `UserProfilePrivateCreate` | [UserProfilePrivateCreate ](../../basic-sdk/pkg/basicclientmodels/user_profile_private_create.go) |
 | `UserProfilePrivateInfo` | [UserProfilePrivateInfo ](../../basic-sdk/pkg/basicclientmodels/user_profile_private_info.go) |
-| `UserProfilePrivateUpdate` | [UserProfilePrivateUpdate ](../../basic-sdk/pkg/basicclientmodels/user_profile_private_update.go) |
 | `UserProfilePublicInfo` | [UserProfilePublicInfo ](../../basic-sdk/pkg/basicclientmodels/user_profile_public_info.go) |
 | `UserProfileStatusUpdate` | [UserProfileStatusUpdate ](../../basic-sdk/pkg/basicclientmodels/user_profile_status_update.go) |
 | `UserProfileUpdate` | [UserProfileUpdate ](../../basic-sdk/pkg/basicclientmodels/user_profile_update.go) |

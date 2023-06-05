@@ -21,8 +21,7 @@ import (
 type ApimodelsPartySessionResponse struct {
 
 	// attributes
-	// Required: true
-	Attributes interface{} `json:"attributes"`
+	Attributes interface{} `json:"attributes,omitempty"`
 
 	// code
 	Code string `json:"code,omitempty"`
@@ -66,10 +65,6 @@ type ApimodelsPartySessionResponse struct {
 	// Required: true
 	Namespace *string `json:"namespace"`
 
-	// persistent
-	// Required: true
-	Persistent *bool `json:"persistent"`
-
 	// updatedat
 	// Required: true
 	UpdatedAt *string `json:"updatedAt"`
@@ -109,9 +104,6 @@ func (m *ApimodelsPartySessionResponse) Validate(formats strfmt.Registry) error 
 		res = append(res, err)
 	}
 	if err := m.validateNamespace(formats); err != nil {
-		res = append(res, err)
-	}
-	if err := m.validatePersistent(formats); err != nil {
 		res = append(res, err)
 	}
 	if err := m.validateUpdatedAt(formats); err != nil {
@@ -227,15 +219,6 @@ func (m *ApimodelsPartySessionResponse) validateMembers(formats strfmt.Registry)
 func (m *ApimodelsPartySessionResponse) validateNamespace(formats strfmt.Registry) error {
 
 	if err := validate.Required("namespace", "body", m.Namespace); err != nil {
-		return err
-	}
-
-	return nil
-}
-
-func (m *ApimodelsPartySessionResponse) validatePersistent(formats strfmt.Registry) error {
-
-	if err := validate.Required("persistent", "body", m.Persistent); err != nil {
 		return err
 	}
 

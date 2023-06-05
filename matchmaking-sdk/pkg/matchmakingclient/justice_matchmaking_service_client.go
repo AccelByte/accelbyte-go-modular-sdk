@@ -17,6 +17,7 @@ import (
 
 	"github.com/AccelByte/accelbyte-go-modular-sdk/matchmaking-sdk/pkg/matchmakingclient/matchmaking"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/matchmaking-sdk/pkg/matchmakingclient/matchmaking_operations"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/matchmaking-sdk/pkg/matchmakingclient/mock_matchmaking"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/matchmaking-sdk/pkg/matchmakingclient/social_matchmaking"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils"
 )
@@ -84,6 +85,7 @@ func New(transport runtime.ClientTransport, runtime *httptransport.Runtime, form
 	cli.Runtime = runtime
 	cli.Matchmaking = matchmaking.New(transport, formats)
 	cli.MatchmakingOperations = matchmaking_operations.New(transport, formats)
+	cli.MockMatchmaking = mock_matchmaking.New(transport, formats)
 	cli.SocialMatchmaking = social_matchmaking.New(transport, formats)
 
 	return cli
@@ -150,6 +152,8 @@ type JusticeMatchmakingService struct {
 
 	MatchmakingOperations matchmaking_operations.ClientService
 
+	MockMatchmaking mock_matchmaking.ClientService
+
 	SocialMatchmaking social_matchmaking.ClientService
 
 	Runtime   *httptransport.Runtime
@@ -161,5 +165,6 @@ func (c *JusticeMatchmakingService) SetTransport(transport runtime.ClientTranspo
 	c.Transport = transport
 	c.Matchmaking.SetTransport(transport)
 	c.MatchmakingOperations.SetTransport(transport)
+	c.MockMatchmaking.SetTransport(transport)
 	c.SocialMatchmaking.SetTransport(transport)
 }

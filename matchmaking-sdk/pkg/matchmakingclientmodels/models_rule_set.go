@@ -25,8 +25,10 @@ type ModelsRuleSet struct {
 	Alliance *ModelsAllianceRule `json:"alliance"`
 
 	// alliance_flexing_rule
-	// Required: true
-	AllianceFlexingRule []*ModelsAllianceFlexingRule `json:"alliance_flexing_rule"`
+	AllianceFlexingRule []*ModelsAllianceFlexingRule `json:"alliance_flexing_rule,omitempty"`
+
+	// bucket_mmr_rule
+	BucketMmrRule *ModelsBucketMMRRule `json:"bucket_mmr_rule,omitempty"`
 
 	// flexing_rule
 	// Required: true
@@ -45,8 +47,10 @@ type ModelsRuleSet struct {
 	RebalanceEnable *bool `json:"rebalance_enable"`
 
 	// sub_game_modes
-	// Required: true
-	SubGameModes map[string]ModelsSubGameMode `json:"sub_game_modes"`
+	SubGameModes map[string]ModelsSubGameMode `json:"sub_game_modes,omitempty"`
+
+	// use_newest_ticket_for_flexing
+	UseNewestTicketForFlexing bool `json:"use_newest_ticket_for_flexing"`
 }
 
 // Validate validates this Models rule set
@@ -54,9 +58,6 @@ func (m *ModelsRuleSet) Validate(formats strfmt.Registry) error {
 	var res []error
 
 	if err := m.validateAlliance(formats); err != nil {
-		res = append(res, err)
-	}
-	if err := m.validateAllianceFlexingRule(formats); err != nil {
 		res = append(res, err)
 	}
 	if err := m.validateFlexingRule(formats); err != nil {
@@ -91,31 +92,6 @@ func (m *ModelsRuleSet) validateAlliance(formats strfmt.Registry) error {
 			}
 			return err
 		}
-	}
-
-	return nil
-}
-
-func (m *ModelsRuleSet) validateAllianceFlexingRule(formats strfmt.Registry) error {
-
-	if err := validate.Required("alliance_flexing_rule", "body", m.AllianceFlexingRule); err != nil {
-		return err
-	}
-
-	for i := 0; i < len(m.AllianceFlexingRule); i++ {
-		if swag.IsZero(m.AllianceFlexingRule[i]) { // not required
-			continue
-		}
-
-		if m.AllianceFlexingRule[i] != nil {
-			if err := m.AllianceFlexingRule[i].Validate(formats); err != nil {
-				if ve, ok := err.(*errors.Validation); ok {
-					return ve.ValidateName("alliance_flexing_rule" + "." + strconv.Itoa(i))
-				}
-				return err
-			}
-		}
-
 	}
 
 	return nil
@@ -193,28 +169,6 @@ func (m *ModelsRuleSet) validateRebalanceEnable(formats strfmt.Registry) error {
 
 	if err := validate.Required("rebalance_enable", "body", m.RebalanceEnable); err != nil {
 		return err
-	}
-
-	return nil
-}
-
-func (m *ModelsRuleSet) validateSubGameModes(formats strfmt.Registry) error {
-
-	if err := validate.Required("sub_game_modes", "body", m.SubGameModes); err != nil {
-		return err
-	}
-
-	for k := range m.SubGameModes {
-
-		if err := validate.Required("sub_game_modes"+"."+k, "body", m.SubGameModes[k]); err != nil {
-			return err
-		}
-		if val, ok := m.SubGameModes[k]; ok {
-			if err := val.Validate(formats); err != nil {
-				return err
-			}
-		}
-
 	}
 
 	return nil

@@ -145,6 +145,32 @@ func (aaa *ConfigService) UpdateConfig1(input *config.UpdateConfig1Params) (*bas
 	return created.GetPayload(), nil
 }
 
+// Deprecated: 2022-01-10 - Please use GetPublisherConfigShort instead.
+func (aaa *ConfigService) GetPublisherConfig(input *config.GetPublisherConfigParams) (*basicclientmodels.ConfigInfo, error) {
+	token, err := aaa.TokenRepository.GetToken()
+	if err != nil {
+		return nil, err
+	}
+	ok, badRequest, unauthorized, forbidden, notFound, err := aaa.Client.Config.GetPublisherConfig(input, client.BearerToken(*token.AccessToken))
+	if badRequest != nil {
+		return nil, badRequest
+	}
+	if unauthorized != nil {
+		return nil, unauthorized
+	}
+	if forbidden != nil {
+		return nil, forbidden
+	}
+	if notFound != nil {
+		return nil, notFound
+	}
+	if err != nil {
+		return nil, err
+	}
+
+	return ok.GetPayload(), nil
+}
+
 func (aaa *ConfigService) CreateConfigShort(input *config.CreateConfigParams) (*basicclientmodels.ConfigInfo, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
@@ -243,4 +269,29 @@ func (aaa *ConfigService) UpdateConfig1Short(input *config.UpdateConfig1Params) 
 	}
 
 	return created.GetPayload(), nil
+}
+
+func (aaa *ConfigService) GetPublisherConfigShort(input *config.GetPublisherConfigParams) (*basicclientmodels.ConfigInfo, error) {
+	authInfoWriter := input.AuthInfoWriter
+	if authInfoWriter == nil {
+		security := [][]string{
+			{"bearer"},
+		}
+		authInfoWriter = auth.AuthInfoWriter(aaa.GetAuthSession(), security, "")
+	}
+	if input.RetryPolicy == nil {
+		input.RetryPolicy = &utils.Retry{
+			MaxTries:   utils.MaxTries,
+			Backoff:    utils.NewConstantBackoff(0),
+			Transport:  aaa.Client.Runtime.Transport,
+			RetryCodes: utils.RetryCodes,
+		}
+	}
+
+	ok, err := aaa.Client.Config.GetPublisherConfigShort(input, authInfoWriter)
+	if err != nil {
+		return nil, err
+	}
+
+	return ok.GetPayload(), nil
 }

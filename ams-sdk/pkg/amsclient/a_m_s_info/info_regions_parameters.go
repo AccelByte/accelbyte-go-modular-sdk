@@ -57,8 +57,7 @@ func NewInfoRegionsParamsWithHTTPClient(client *http.Client) *InfoRegionsParams 
 	}
 }
 
-/*
-InfoRegionsParams contains all the parameters to send to the API endpoint
+/*InfoRegionsParams contains all the parameters to send to the API endpoint
 for the info regions operation typically these are written to a http.Request
 */
 type InfoRegionsParams struct {

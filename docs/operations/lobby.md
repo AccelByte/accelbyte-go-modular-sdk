@@ -12,6 +12,7 @@
 | `/friends/namespaces/{namespace}/me/incoming-time` | GET | GetUserIncomingFriendsWithTimeShort | [GetUserIncomingFriendsWithTimeShort](../../lobby-sdk/pkg/lobbyclient/friends/friends_client.go) | [GetUserIncomingFriendsWithTimeShort](../../lobby-sdk/pkg/wrapper_friends.go) | [GetUserIncomingFriendsWithTimeShort](../../samples/cli/cmd/lobby/friends/getUserIncomingFriendsWithTime.go) |
 | `/friends/namespaces/{namespace}/me/outgoing` | GET | GetUserOutgoingFriendsShort | [GetUserOutgoingFriendsShort](../../lobby-sdk/pkg/lobbyclient/friends/friends_client.go) | [GetUserOutgoingFriendsShort](../../lobby-sdk/pkg/wrapper_friends.go) | [GetUserOutgoingFriendsShort](../../samples/cli/cmd/lobby/friends/getUserOutgoingFriends.go) |
 | `/friends/namespaces/{namespace}/me/outgoing-time` | GET | GetUserOutgoingFriendsWithTimeShort | [GetUserOutgoingFriendsWithTimeShort](../../lobby-sdk/pkg/lobbyclient/friends/friends_client.go) | [GetUserOutgoingFriendsWithTimeShort](../../lobby-sdk/pkg/wrapper_friends.go) | [GetUserOutgoingFriendsWithTimeShort](../../samples/cli/cmd/lobby/friends/getUserOutgoingFriendsWithTime.go) |
+| `/friends/namespaces/{namespace}/me/platforms` | GET | GetUserFriendsWithPlatformShort | [GetUserFriendsWithPlatformShort](../../lobby-sdk/pkg/lobbyclient/friends/friends_client.go) | [GetUserFriendsWithPlatformShort](../../lobby-sdk/pkg/wrapper_friends.go) | [GetUserFriendsWithPlatformShort](../../samples/cli/cmd/lobby/friends/getUserFriendsWithPlatform.go) |
 | `/friends/namespaces/{namespace}/me/request` | POST | UserRequestFriendShort | [UserRequestFriendShort](../../lobby-sdk/pkg/lobbyclient/friends/friends_client.go) | [UserRequestFriendShort](../../lobby-sdk/pkg/wrapper_friends.go) | [UserRequestFriendShort](../../samples/cli/cmd/lobby/friends/userRequestFriend.go) |
 | `/friends/namespaces/{namespace}/me/request/accept` | POST | UserAcceptFriendRequestShort | [UserAcceptFriendRequestShort](../../lobby-sdk/pkg/lobbyclient/friends/friends_client.go) | [UserAcceptFriendRequestShort](../../lobby-sdk/pkg/wrapper_friends.go) | [UserAcceptFriendRequestShort](../../samples/cli/cmd/lobby/friends/userAcceptFriendRequest.go) |
 | `/friends/namespaces/{namespace}/me/request/cancel` | POST | UserCancelFriendRequestShort | [UserCancelFriendRequestShort](../../lobby-sdk/pkg/lobbyclient/friends/friends_client.go) | [UserCancelFriendRequestShort](../../lobby-sdk/pkg/wrapper_friends.go) | [UserCancelFriendRequestShort](../../samples/cli/cmd/lobby/friends/userCancelFriendRequest.go) |
@@ -20,13 +21,8 @@
 | `/friends/namespaces/{namespace}/me/unfriend` | POST | UserUnfriendRequestShort | [UserUnfriendRequestShort](../../lobby-sdk/pkg/lobbyclient/friends/friends_client.go) | [UserUnfriendRequestShort](../../lobby-sdk/pkg/wrapper_friends.go) | [UserUnfriendRequestShort](../../samples/cli/cmd/lobby/friends/userUnfriendRequest.go) |
 | `/friends/namespaces/{namespace}/users/{userId}/add/bulk` | POST | AddFriendsWithoutConfirmationShort | [AddFriendsWithoutConfirmationShort](../../lobby-sdk/pkg/lobbyclient/friends/friends_client.go) | [AddFriendsWithoutConfirmationShort](../../lobby-sdk/pkg/wrapper_friends.go) | [AddFriendsWithoutConfirmationShort](../../samples/cli/cmd/lobby/friends/addFriendsWithoutConfirmation.go) |
 | `/lobby/v1/admin/friend/namespaces/{namespace}/users/{userId}` | GET | GetListOfFriendsShort | [GetListOfFriendsShort](../../lobby-sdk/pkg/lobbyclient/friends/friends_client.go) | [GetListOfFriendsShort](../../lobby-sdk/pkg/wrapper_friends.go) | [GetListOfFriendsShort](../../samples/cli/cmd/lobby/friends/getListOfFriends.go) |
-
-### chat Wrapper:  [Chat](../../lobby-sdk/pkg/wrapper_chat.go)
-| Endpoint | Method | ID | Class | Wrapper | Example |
-|---|---|---|---|---|---|
-| `/lobby/chat/namespaces/{namespace}/users/{userId}/friend/{friendId}` | GET | PersonalChatHistoryShort | [PersonalChatHistoryShort](../../lobby-sdk/pkg/lobbyclient/chat/chat_client.go) | [PersonalChatHistoryShort](../../lobby-sdk/pkg/wrapper_chat.go) | [PersonalChatHistoryShort](../../samples/cli/cmd/lobby/chat/personalChatHistory.go) |
-| `/lobby/v1/admin/chat/namespaces/{namespace}/users/{userId}/friends/{friendId}` | GET | AdminChatHistoryShort | [AdminChatHistoryShort](../../lobby-sdk/pkg/lobbyclient/chat/chat_client.go) | [AdminChatHistoryShort](../../lobby-sdk/pkg/wrapper_chat.go) | [AdminChatHistoryShort](../../samples/cli/cmd/lobby/chat/adminChatHistory.go) |
-| `/lobby/v1/public/chat/namespaces/{namespace}/users/me/friends/{friendId}` | GET | GetPersonalChatHistoryV1PublicShort | [GetPersonalChatHistoryV1PublicShort](../../lobby-sdk/pkg/lobbyclient/chat/chat_client.go) | [GetPersonalChatHistoryV1PublicShort](../../lobby-sdk/pkg/wrapper_chat.go) | [GetPersonalChatHistoryV1PublicShort](../../samples/cli/cmd/lobby/chat/getPersonalChatHistoryV1Public.go) |
+| `/lobby/v1/admin/friend/namespaces/{namespace}/users/{userId}/incoming` | GET | GetIncomingFriendRequestsShort | [GetIncomingFriendRequestsShort](../../lobby-sdk/pkg/lobbyclient/friends/friends_client.go) | [GetIncomingFriendRequestsShort](../../lobby-sdk/pkg/wrapper_friends.go) | [GetIncomingFriendRequestsShort](../../samples/cli/cmd/lobby/friends/getIncomingFriendRequests.go) |
+| `/lobby/v1/admin/friend/namespaces/{namespace}/users/{userId}/outgoing` | GET | GetOutgoingFriendRequestsShort | [GetOutgoingFriendRequestsShort](../../lobby-sdk/pkg/lobbyclient/friends/friends_client.go) | [GetOutgoingFriendRequestsShort](../../lobby-sdk/pkg/wrapper_friends.go) | [GetOutgoingFriendRequestsShort](../../samples/cli/cmd/lobby/friends/getOutgoingFriendRequests.go) |
 
 ### config Wrapper:  [Config](../../lobby-sdk/pkg/wrapper_config.go)
 | Endpoint | Method | ID | Class | Wrapper | Example |
@@ -88,6 +84,7 @@
 | Endpoint | Method | ID | Class | Wrapper | Example |
 |---|---|---|---|---|---|
 | `/lobby/v1/admin/player/namespaces/{namespace}/ccu` | GET | AdminGetLobbyCCUShort | [AdminGetLobbyCCUShort](../../lobby-sdk/pkg/lobbyclient/player/player_client.go) | [AdminGetLobbyCCUShort](../../lobby-sdk/pkg/wrapper_player.go) | [AdminGetLobbyCCUShort](../../samples/cli/cmd/lobby/player/adminGetLobbyCCU.go) |
+| `/lobby/v1/admin/player/namespaces/{namespace}/users/bulk/blocked` | POST | AdminGetBulkPlayerBlockedPlayersV1Short | [AdminGetBulkPlayerBlockedPlayersV1Short](../../lobby-sdk/pkg/lobbyclient/player/player_client.go) | [AdminGetBulkPlayerBlockedPlayersV1Short](../../lobby-sdk/pkg/wrapper_player.go) | [AdminGetBulkPlayerBlockedPlayersV1Short](../../samples/cli/cmd/lobby/player/adminGetBulkPlayerBlockedPlayersV1.go) |
 | `/lobby/v1/admin/player/namespaces/{namespace}/users/{userId}/attributes` | GET | AdminGetAllPlayerSessionAttributeShort | [AdminGetAllPlayerSessionAttributeShort](../../lobby-sdk/pkg/lobbyclient/player/player_client.go) | [AdminGetAllPlayerSessionAttributeShort](../../lobby-sdk/pkg/wrapper_player.go) | [AdminGetAllPlayerSessionAttributeShort](../../samples/cli/cmd/lobby/player/adminGetAllPlayerSessionAttribute.go) |
 | `/lobby/v1/admin/player/namespaces/{namespace}/users/{userId}/attributes` | PUT | AdminSetPlayerSessionAttributeShort | [AdminSetPlayerSessionAttributeShort](../../lobby-sdk/pkg/lobbyclient/player/player_client.go) | [AdminSetPlayerSessionAttributeShort](../../lobby-sdk/pkg/wrapper_player.go) | [AdminSetPlayerSessionAttributeShort](../../samples/cli/cmd/lobby/player/adminSetPlayerSessionAttribute.go) |
 | `/lobby/v1/admin/player/namespaces/{namespace}/users/{userId}/attributes/{attribute}` | GET | AdminGetPlayerSessionAttributeShort | [AdminGetPlayerSessionAttributeShort](../../lobby-sdk/pkg/lobbyclient/player/player_client.go) | [AdminGetPlayerSessionAttributeShort](../../lobby-sdk/pkg/wrapper_player.go) | [AdminGetPlayerSessionAttributeShort](../../samples/cli/cmd/lobby/player/adminGetPlayerSessionAttribute.go) |
@@ -153,7 +150,6 @@
 | `log.AppMessageDeclaration` | [LogAppMessageDeclaration ](../../lobby-sdk/pkg/lobbyclientmodels/log_app_message_declaration.go) |
 | `model.BulkAddFriendsRequest` | [ModelBulkAddFriendsRequest ](../../lobby-sdk/pkg/lobbyclientmodels/model_bulk_add_friends_request.go) |
 | `model.BulkUsersFreeFormNotificationRequestV1` | [ModelBulkUsersFreeFormNotificationRequestV1 ](../../lobby-sdk/pkg/lobbyclientmodels/model_bulk_users_free_form_notification_request_v1.go) |
-| `model.ChatMessageResponse` | [ModelChatMessageResponse ](../../lobby-sdk/pkg/lobbyclientmodels/model_chat_message_response.go) |
 | `model.CreateTemplateRequest` | [ModelCreateTemplateRequest ](../../lobby-sdk/pkg/lobbyclientmodels/model_create_template_request.go) |
 | `model.CreateTopicRequest` | [ModelCreateTopicRequest ](../../lobby-sdk/pkg/lobbyclientmodels/model_create_topic_request.go) |
 | `model.CreateTopicRequestV1` | [ModelCreateTopicRequestV1 ](../../lobby-sdk/pkg/lobbyclientmodels/model_create_topic_request_v1.go) |
@@ -166,6 +162,7 @@
 | `model.GetUserIncomingFriendsResponse` | [ModelGetUserIncomingFriendsResponse ](../../lobby-sdk/pkg/lobbyclientmodels/model_get_user_incoming_friends_response.go) |
 | `model.GetUserOutgoingFriendsResponse` | [ModelGetUserOutgoingFriendsResponse ](../../lobby-sdk/pkg/lobbyclientmodels/model_get_user_outgoing_friends_response.go) |
 | `model.IncomingFriendsWithTimeData` | [ModelIncomingFriendsWithTimeData ](../../lobby-sdk/pkg/lobbyclientmodels/model_incoming_friends_with_time_data.go) |
+| `model.ListBulkUserPlatformsResponse` | [ModelListBulkUserPlatformsResponse ](../../lobby-sdk/pkg/lobbyclientmodels/model_list_bulk_user_platforms_response.go) |
 | `model.LoadIncomingFriendsWithTimeResponse` | [ModelLoadIncomingFriendsWithTimeResponse ](../../lobby-sdk/pkg/lobbyclientmodels/model_load_incoming_friends_with_time_response.go) |
 | `model.LoadOutgoingFriendsWithTimeResponse` | [ModelLoadOutgoingFriendsWithTimeResponse ](../../lobby-sdk/pkg/lobbyclientmodels/model_load_outgoing_friends_with_time_response.go) |
 | `model.Localization` | [ModelLocalization ](../../lobby-sdk/pkg/lobbyclientmodels/model_localization.go) |
@@ -186,9 +183,11 @@
 | `model.UserAcceptFriendRequest` | [ModelUserAcceptFriendRequest ](../../lobby-sdk/pkg/lobbyclientmodels/model_user_accept_friend_request.go) |
 | `model.UserCancelFriendRequest` | [ModelUserCancelFriendRequest ](../../lobby-sdk/pkg/lobbyclientmodels/model_user_cancel_friend_request.go) |
 | `model.UserGetFriendshipStatusResponse` | [ModelUserGetFriendshipStatusResponse ](../../lobby-sdk/pkg/lobbyclientmodels/model_user_get_friendship_status_response.go) |
+| `model.UserPlatformInfo` | [ModelUserPlatformInfo ](../../lobby-sdk/pkg/lobbyclientmodels/model_user_platform_info.go) |
 | `model.UserRejectFriendRequest` | [ModelUserRejectFriendRequest ](../../lobby-sdk/pkg/lobbyclientmodels/model_user_reject_friend_request.go) |
 | `model.UserRequestFriendRequest` | [ModelUserRequestFriendRequest ](../../lobby-sdk/pkg/lobbyclientmodels/model_user_request_friend_request.go) |
 | `model.UserUnfriendRequest` | [ModelUserUnfriendRequest ](../../lobby-sdk/pkg/lobbyclientmodels/model_user_unfriend_request.go) |
+| `model.UserWithPlatformInfo` | [ModelUserWithPlatformInfo ](../../lobby-sdk/pkg/lobbyclientmodels/model_user_with_platform_info.go) |
 | `models.AdminAddProfanityFilterIntoListRequest` | [ModelsAdminAddProfanityFilterIntoListRequest ](../../lobby-sdk/pkg/lobbyclientmodels/models_admin_add_profanity_filter_into_list_request.go) |
 | `models.AdminAddProfanityFiltersFilterRequest` | [ModelsAdminAddProfanityFiltersFilterRequest ](../../lobby-sdk/pkg/lobbyclientmodels/models_admin_add_profanity_filters_filter_request.go) |
 | `models.AdminAddProfanityFiltersRequest` | [ModelsAdminAddProfanityFiltersRequest ](../../lobby-sdk/pkg/lobbyclientmodels/models_admin_add_profanity_filters_request.go) |
@@ -211,6 +210,8 @@
 | `models.GetAllPlayerBlockedByUsersResponse` | [ModelsGetAllPlayerBlockedByUsersResponse ](../../lobby-sdk/pkg/lobbyclientmodels/models_get_all_player_blocked_by_users_response.go) |
 | `models.GetAllPlayerBlockedUsersResponse` | [ModelsGetAllPlayerBlockedUsersResponse ](../../lobby-sdk/pkg/lobbyclientmodels/models_get_all_player_blocked_users_response.go) |
 | `models.GetAllPlayerSessionAttributeResponse` | [ModelsGetAllPlayerSessionAttributeResponse ](../../lobby-sdk/pkg/lobbyclientmodels/models_get_all_player_session_attribute_response.go) |
+| `models.GetBulkAllPlayerBlockedUsersRequest` | [ModelsGetBulkAllPlayerBlockedUsersRequest ](../../lobby-sdk/pkg/lobbyclientmodels/models_get_bulk_all_player_blocked_users_request.go) |
+| `models.GetBulkAllPlayerBlockedUsersResponse` | [ModelsGetBulkAllPlayerBlockedUsersResponse ](../../lobby-sdk/pkg/lobbyclientmodels/models_get_bulk_all_player_blocked_users_response.go) |
 | `models.GetConfigResponse` | [ModelsGetConfigResponse ](../../lobby-sdk/pkg/lobbyclientmodels/models_get_config_response.go) |
 | `models.GetLobbyCcuResponse` | [ModelsGetLobbyCcuResponse ](../../lobby-sdk/pkg/lobbyclientmodels/models_get_lobby_ccu_response.go) |
 | `models.GetPlayerSessionAttributeResponse` | [ModelsGetPlayerSessionAttributeResponse ](../../lobby-sdk/pkg/lobbyclientmodels/models_get_player_session_attribute_response.go) |

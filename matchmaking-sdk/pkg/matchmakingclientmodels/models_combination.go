@@ -7,8 +7,6 @@
 package matchmakingclientmodels
 
 import (
-	"strconv"
-
 	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
@@ -22,7 +20,7 @@ type ModelsCombination struct {
 
 	// alliances
 	// Required: true
-	Alliances []*ModelsCombinationAlliances `json:"alliances"`
+	Alliances [][]*ModelsRole `json:"alliances"`
 
 	// has_combination
 	// Required: true
@@ -73,22 +71,6 @@ func (m *ModelsCombination) validateAlliances(formats strfmt.Registry) error {
 
 	if err := validate.Required("alliances", "body", m.Alliances); err != nil {
 		return err
-	}
-
-	for i := 0; i < len(m.Alliances); i++ {
-		if swag.IsZero(m.Alliances[i]) { // not required
-			continue
-		}
-
-		if m.Alliances[i] != nil {
-			if err := m.Alliances[i].Validate(formats); err != nil {
-				if ve, ok := err.(*errors.Validation); ok {
-					return ve.ValidateName("alliances" + "." + strconv.Itoa(i))
-				}
-				return err
-			}
-		}
-
 	}
 
 	return nil

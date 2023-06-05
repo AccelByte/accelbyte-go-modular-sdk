@@ -59,8 +59,7 @@ func NewFleetCreateParamsWithHTTPClient(client *http.Client) *FleetCreateParams 
 	}
 }
 
-/*
-FleetCreateParams contains all the parameters to send to the API endpoint
+/*FleetCreateParams contains all the parameters to send to the API endpoint
 for the fleet create operation typically these are written to a http.Request
 */
 type FleetCreateParams struct {

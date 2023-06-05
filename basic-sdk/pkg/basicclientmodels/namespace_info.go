@@ -27,11 +27,13 @@ type NamespaceInfo struct {
 	// Format: date-time
 	CreatedAt *strfmt.DateTime `json:"createdAt,omitempty"`
 
-	// displayname
-	DisplayName string `json:"displayName,omitempty"`
+	// namespace display name
+	// Required: true
+	DisplayName *string `json:"displayName"`
 
 	// namespace
-	Namespace string `json:"namespace,omitempty"`
+	// Required: true
+	Namespace *string `json:"namespace"`
 
 	// parentNamespace is only present in multi tenant mode
 	ParentNamespace string `json:"parentNamespace,omitempty"`
@@ -49,9 +51,34 @@ type NamespaceInfo struct {
 func (m *NamespaceInfo) Validate(formats strfmt.Registry) error {
 	var res []error
 
+	if err := m.validateDisplayName(formats); err != nil {
+		res = append(res, err)
+	}
+	if err := m.validateNamespace(formats); err != nil {
+		res = append(res, err)
+	}
+
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
+	return nil
+}
+
+func (m *NamespaceInfo) validateDisplayName(formats strfmt.Registry) error {
+
+	if err := validate.Required("displayName", "body", m.DisplayName); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *NamespaceInfo) validateNamespace(formats strfmt.Registry) error {
+
+	if err := validate.Required("namespace", "body", m.Namespace); err != nil {
+		return err
+	}
+
 	return nil
 }
 

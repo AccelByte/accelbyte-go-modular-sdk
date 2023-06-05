@@ -17,6 +17,7 @@
 |---|---|---|---|---|---|
 | `/matchmaking/namespaces/{namespace}/channels` | GET | GetAllChannelsHandlerShort | [GetAllChannelsHandlerShort](../../matchmaking-sdk/pkg/matchmakingclient/matchmaking/matchmaking_client.go) | [GetAllChannelsHandlerShort](../../matchmaking-sdk/pkg/wrapper_matchmaking.go) | [GetAllChannelsHandlerShort](../../samples/cli/cmd/matchmaking/matchmaking/getAllChannelsHandler.go) |
 | `/matchmaking/namespaces/{namespace}/channels` | POST | CreateChannelHandlerShort | [CreateChannelHandlerShort](../../matchmaking-sdk/pkg/matchmakingclient/matchmaking/matchmaking_client.go) | [CreateChannelHandlerShort](../../matchmaking-sdk/pkg/wrapper_matchmaking.go) | [CreateChannelHandlerShort](../../samples/cli/cmd/matchmaking/matchmaking/createChannelHandler.go) |
+| `/matchmaking/namespaces/{namespace}/channels/{channelName}/metrics` | GET | GetMatchPoolMetricShort | [GetMatchPoolMetricShort](../../matchmaking-sdk/pkg/matchmakingclient/matchmaking/matchmaking_client.go) | [GetMatchPoolMetricShort](../../matchmaking-sdk/pkg/wrapper_matchmaking.go) | [GetMatchPoolMetricShort](../../samples/cli/cmd/matchmaking/matchmaking/getMatchPoolMetric.go) |
 | `/matchmaking/namespaces/{namespace}/channels/{channel}` | DELETE | DeleteChannelHandlerShort | [DeleteChannelHandlerShort](../../matchmaking-sdk/pkg/matchmakingclient/matchmaking/matchmaking_client.go) | [DeleteChannelHandlerShort](../../matchmaking-sdk/pkg/wrapper_matchmaking.go) | [DeleteChannelHandlerShort](../../samples/cli/cmd/matchmaking/matchmaking/deleteChannelHandler.go) |
 | `/matchmaking/namespaces/{namespace}/matchresult` | POST | StoreMatchResultsShort | [StoreMatchResultsShort](../../matchmaking-sdk/pkg/matchmakingclient/matchmaking/matchmaking_client.go) | [StoreMatchResultsShort](../../matchmaking-sdk/pkg/wrapper_matchmaking.go) | [StoreMatchResultsShort](../../samples/cli/cmd/matchmaking/matchmaking/storeMatchResults.go) |
 | `/matchmaking/namespaces/{namespace}/rebalance` | POST | RebalanceShort | [RebalanceShort](../../matchmaking-sdk/pkg/matchmakingclient/matchmaking/matchmaking_client.go) | [RebalanceShort](../../matchmaking-sdk/pkg/wrapper_matchmaking.go) | [RebalanceShort](../../samples/cli/cmd/matchmaking/matchmaking/rebalance.go) |
@@ -34,6 +35,7 @@
 | `/matchmaking/v1/admin/namespaces/{namespace}/channels/{channelName}/sessions/{matchID}` | POST | AddUserIntoSessionInChannelShort | [AddUserIntoSessionInChannelShort](../../matchmaking-sdk/pkg/matchmakingclient/matchmaking/matchmaking_client.go) | [AddUserIntoSessionInChannelShort](../../matchmaking-sdk/pkg/wrapper_matchmaking.go) | [AddUserIntoSessionInChannelShort](../../samples/cli/cmd/matchmaking/matchmaking/addUserIntoSessionInChannel.go) |
 | `/matchmaking/v1/admin/namespaces/{namespace}/channels/{channelName}/sessions/{matchID}` | DELETE | DeleteSessionInChannelShort | [DeleteSessionInChannelShort](../../matchmaking-sdk/pkg/matchmakingclient/matchmaking/matchmaking_client.go) | [DeleteSessionInChannelShort](../../matchmaking-sdk/pkg/wrapper_matchmaking.go) | [DeleteSessionInChannelShort](../../samples/cli/cmd/matchmaking/matchmaking/deleteSessionInChannel.go) |
 | `/matchmaking/v1/admin/namespaces/{namespace}/channels/{channelName}/sessions/{matchID}/users/{userID}` | DELETE | DeleteUserFromSessionInChannelShort | [DeleteUserFromSessionInChannelShort](../../matchmaking-sdk/pkg/matchmakingclient/matchmaking/matchmaking_client.go) | [DeleteUserFromSessionInChannelShort](../../matchmaking-sdk/pkg/wrapper_matchmaking.go) | [DeleteUserFromSessionInChannelShort](../../samples/cli/cmd/matchmaking/matchmaking/deleteUserFromSessionInChannel.go) |
+| `/matchmaking/v1/admin/namespaces/{namespace}/channels/{channelName}/stats` | GET | GetStatDataShort | [GetStatDataShort](../../matchmaking-sdk/pkg/matchmakingclient/matchmaking/matchmaking_client.go) | [GetStatDataShort](../../matchmaking-sdk/pkg/wrapper_matchmaking.go) | [GetStatDataShort](../../samples/cli/cmd/matchmaking/matchmaking/getStatData.go) |
 | [DEPRECATED] `/matchmaking/v1/admin/namespaces/{namespace}/sessions/history/search` | GET | SearchSessionsShort | [SearchSessionsShort](../../matchmaking-sdk/pkg/matchmakingclient/matchmaking/matchmaking_client.go) | [SearchSessionsShort](../../matchmaking-sdk/pkg/wrapper_matchmaking.go) | [SearchSessionsShort](../../samples/cli/cmd/matchmaking/matchmaking/searchSessions.go) |
 | [DEPRECATED] `/matchmaking/v1/admin/namespaces/{namespace}/sessions/{matchID}/history/detailed` | GET | GetSessionHistoryDetailedShort | [GetSessionHistoryDetailedShort](../../matchmaking-sdk/pkg/matchmakingclient/matchmaking/matchmaking_client.go) | [GetSessionHistoryDetailedShort](../../matchmaking-sdk/pkg/wrapper_matchmaking.go) | [GetSessionHistoryDetailedShort](../../samples/cli/cmd/matchmaking/matchmaking/getSessionHistoryDetailed.go) |
 | `/matchmaking/v1/public/namespaces/{namespace}/channels` | GET | PublicGetAllMatchmakingChannelShort | [PublicGetAllMatchmakingChannelShort](../../matchmaking-sdk/pkg/matchmakingclient/matchmaking/matchmaking_client.go) | [PublicGetAllMatchmakingChannelShort](../../matchmaking-sdk/pkg/wrapper_matchmaking.go) | [PublicGetAllMatchmakingChannelShort](../../samples/cli/cmd/matchmaking/matchmaking/publicGetAllMatchmakingChannel.go) |
@@ -44,6 +46,17 @@
 | Endpoint | Method | ID | Class | Wrapper | Example |
 |---|---|---|---|---|---|
 | `/matchmaking/social/playtime/namespaces/{namespace}/weight` | PATCH | UpdatePlayTimeWeightShort | [UpdatePlayTimeWeightShort](../../matchmaking-sdk/pkg/matchmakingclient/social_matchmaking/social_matchmaking_client.go) | [UpdatePlayTimeWeightShort](../../matchmaking-sdk/pkg/wrapper_socialMatchmaking.go) | [UpdatePlayTimeWeightShort](../../samples/cli/cmd/matchmaking/socialMatchmaking/updatePlayTimeWeight.go) |
+
+### Mock Matchmaking Wrapper:  [MockMatchmaking](../../matchmaking-sdk/pkg/wrapper_mockMatchmaking.go)
+| Endpoint | Method | ID | Class | Wrapper | Example |
+|---|---|---|---|---|---|
+| `/matchmaking/v1/admin/namespaces/{namespace}/channels/{channelName}/mocks` | DELETE | CleanAllMocksShort | [CleanAllMocksShort](../../matchmaking-sdk/pkg/matchmakingclient/mock_matchmaking/mock_matchmaking_client.go) | [CleanAllMocksShort](../../matchmaking-sdk/pkg/wrapper_mockMatchmaking.go) | [CleanAllMocksShort](../../samples/cli/cmd/matchmaking/mockMatchmaking/cleanAllMocks.go) |
+| `/matchmaking/v1/admin/namespaces/{namespace}/channels/{channelName}/mocks/matches` | GET | GetAllMockMatchesShort | [GetAllMockMatchesShort](../../matchmaking-sdk/pkg/matchmakingclient/mock_matchmaking/mock_matchmaking_client.go) | [GetAllMockMatchesShort](../../matchmaking-sdk/pkg/wrapper_mockMatchmaking.go) | [GetAllMockMatchesShort](../../samples/cli/cmd/matchmaking/mockMatchmaking/getAllMockMatches.go) |
+| `/matchmaking/v1/admin/namespaces/{namespace}/channels/{channelName}/mocks/matches` | POST | GetMockMatchesByTimestampShort | [GetMockMatchesByTimestampShort](../../matchmaking-sdk/pkg/matchmakingclient/mock_matchmaking/mock_matchmaking_client.go) | [GetMockMatchesByTimestampShort](../../matchmaking-sdk/pkg/wrapper_mockMatchmaking.go) | [GetMockMatchesByTimestampShort](../../samples/cli/cmd/matchmaking/mockMatchmaking/getMockMatchesByTimestamp.go) |
+| `/matchmaking/v1/admin/namespaces/{namespace}/channels/{channelName}/mocks/tickets` | GET | GetAllMockTicketsShort | [GetAllMockTicketsShort](../../matchmaking-sdk/pkg/matchmakingclient/mock_matchmaking/mock_matchmaking_client.go) | [GetAllMockTicketsShort](../../matchmaking-sdk/pkg/wrapper_mockMatchmaking.go) | [GetAllMockTicketsShort](../../samples/cli/cmd/matchmaking/mockMatchmaking/getAllMockTickets.go) |
+| `/matchmaking/v1/admin/namespaces/{namespace}/channels/{channelName}/mocks/tickets` | POST | CreateMockTicketsShort | [CreateMockTicketsShort](../../matchmaking-sdk/pkg/matchmakingclient/mock_matchmaking/mock_matchmaking_client.go) | [CreateMockTicketsShort](../../matchmaking-sdk/pkg/wrapper_mockMatchmaking.go) | [CreateMockTicketsShort](../../samples/cli/cmd/matchmaking/mockMatchmaking/createMockTickets.go) |
+| `/matchmaking/v1/admin/namespaces/{namespace}/channels/{channelName}/mocks/tickets/bulk` | POST | BulkCreateMockTicketsShort | [BulkCreateMockTicketsShort](../../matchmaking-sdk/pkg/matchmakingclient/mock_matchmaking/mock_matchmaking_client.go) | [BulkCreateMockTicketsShort](../../matchmaking-sdk/pkg/wrapper_mockMatchmaking.go) | [BulkCreateMockTicketsShort](../../samples/cli/cmd/matchmaking/mockMatchmaking/bulkCreateMockTickets.go) |
+| `/matchmaking/v1/admin/namespaces/{namespace}/channels/{channelName}/mocks/tickets/query` | POST | GetMockTicketsByTimestampShort | [GetMockTicketsByTimestampShort](../../matchmaking-sdk/pkg/matchmakingclient/mock_matchmaking/mock_matchmaking_client.go) | [GetMockTicketsByTimestampShort](../../matchmaking-sdk/pkg/wrapper_mockMatchmaking.go) | [GetMockTicketsByTimestampShort](../../samples/cli/cmd/matchmaking/mockMatchmaking/getMockTicketsByTimestamp.go) |
 
 
 &nbsp;  
@@ -56,15 +69,18 @@
 | `models.AllianceFlexingRule` | [ModelsAllianceFlexingRule ](../../matchmaking-sdk/pkg/matchmakingclientmodels/models_alliance_flexing_rule.go) |
 | `models.AllianceRule` | [ModelsAllianceRule ](../../matchmaking-sdk/pkg/matchmakingclientmodels/models_alliance_rule.go) |
 | `models.AllianceRuleV1` | [ModelsAllianceRuleV1 ](../../matchmaking-sdk/pkg/matchmakingclientmodels/models_alliance_rule_v1.go) |
+| `models.BucketMMRRule` | [ModelsBucketMMRRule ](../../matchmaking-sdk/pkg/matchmakingclientmodels/models_bucket_m_m_r_rule.go) |
 | `models.Channel` | [ModelsChannel ](../../matchmaking-sdk/pkg/matchmakingclientmodels/models_channel.go) |
 | `models.ChannelRequest` | [ModelsChannelRequest ](../../matchmaking-sdk/pkg/matchmakingclientmodels/models_channel_request.go) |
 | `models.ChannelV1` | [ModelsChannelV1 ](../../matchmaking-sdk/pkg/matchmakingclientmodels/models_channel_v1.go) |
 | `models.Combination` | [ModelsCombination ](../../matchmaking-sdk/pkg/matchmakingclientmodels/models_combination.go) |
-| `models.Combination.alliances` | [ModelsCombinationAlliances ](../../matchmaking-sdk/pkg/matchmakingclientmodels/models_combination_alliances.go) |
 | `models.CreateChannelResponse` | [ModelsCreateChannelResponse ](../../matchmaking-sdk/pkg/matchmakingclientmodels/models_create_channel_response.go) |
+| `models.CreateMockTicket` | [ModelsCreateMockTicket ](../../matchmaking-sdk/pkg/matchmakingclientmodels/models_create_mock_ticket.go) |
 | `models.DequeueRequest` | [ModelsDequeueRequest ](../../matchmaking-sdk/pkg/matchmakingclientmodels/models_dequeue_request.go) |
 | `models.FlexingRule` | [ModelsFlexingRule ](../../matchmaking-sdk/pkg/matchmakingclientmodels/models_flexing_rule.go) |
 | `models.GetChannelsResponse` | [ModelsGetChannelsResponse ](../../matchmaking-sdk/pkg/matchmakingclientmodels/models_get_channels_response.go) |
+| `models.GetMockMatchesResponse` | [ModelsGetMockMatchesResponse ](../../matchmaking-sdk/pkg/matchmakingclientmodels/models_get_mock_matches_response.go) |
+| `models.GetMockTicketsResponse` | [ModelsGetMockTicketsResponse ](../../matchmaking-sdk/pkg/matchmakingclientmodels/models_get_mock_tickets_response.go) |
 | `models.ImportConfigResponse` | [ModelsImportConfigResponse ](../../matchmaking-sdk/pkg/matchmakingclientmodels/models_import_config_response.go) |
 | `models.MatchAddUserIntoSessionRequest` | [ModelsMatchAddUserIntoSessionRequest ](../../matchmaking-sdk/pkg/matchmakingclientmodels/models_match_add_user_into_session_request.go) |
 | `models.MatchOption` | [ModelsMatchOption ](../../matchmaking-sdk/pkg/matchmakingclientmodels/models_match_option.go) |
@@ -75,17 +91,24 @@
 | `models.MatchingParty` | [ModelsMatchingParty ](../../matchmaking-sdk/pkg/matchmakingclientmodels/models_matching_party.go) |
 | `models.MatchingRule` | [ModelsMatchingRule ](../../matchmaking-sdk/pkg/matchmakingclientmodels/models_matching_rule.go) |
 | `models.MatchmakingResult` | [ModelsMatchmakingResult ](../../matchmaking-sdk/pkg/matchmakingclientmodels/models_matchmaking_result.go) |
+| `models.MockMatch` | [ModelsMockMatch ](../../matchmaking-sdk/pkg/matchmakingclientmodels/models_mock_match.go) |
+| `models.MockTicket` | [ModelsMockTicket ](../../matchmaking-sdk/pkg/matchmakingclientmodels/models_mock_ticket.go) |
 | `models.Pagination` | [ModelsPagination ](../../matchmaking-sdk/pkg/matchmakingclientmodels/models_pagination.go) |
 | `models.PartyMember` | [ModelsPartyMember ](../../matchmaking-sdk/pkg/matchmakingclientmodels/models_party_member.go) |
 | `models.PlayerResultRequest` | [ModelsPlayerResultRequest ](../../matchmaking-sdk/pkg/matchmakingclientmodels/models_player_result_request.go) |
 | `models.PlayerResultResponse` | [ModelsPlayerResultResponse ](../../matchmaking-sdk/pkg/matchmakingclientmodels/models_player_result_response.go) |
+| `models.QueryMockBy` | [ModelsQueryMockBy ](../../matchmaking-sdk/pkg/matchmakingclientmodels/models_query_mock_by.go) |
 | `models.RebalanceRequest` | [ModelsRebalanceRequest ](../../matchmaking-sdk/pkg/matchmakingclientmodels/models_rebalance_request.go) |
 | `models.RebalanceResponse` | [ModelsRebalanceResponse ](../../matchmaking-sdk/pkg/matchmakingclientmodels/models_rebalance_response.go) |
+| `models.Region` | [ModelsRegion ](../../matchmaking-sdk/pkg/matchmakingclientmodels/models_region.go) |
 | `models.ResultAttributeRequest` | [ModelsResultAttributeRequest ](../../matchmaking-sdk/pkg/matchmakingclientmodels/models_result_attribute_request.go) |
 | `models.ResultAttributeResponse` | [ModelsResultAttributeResponse ](../../matchmaking-sdk/pkg/matchmakingclientmodels/models_result_attribute_response.go) |
+| `models.Role` | [ModelsRole ](../../matchmaking-sdk/pkg/matchmakingclientmodels/models_role.go) |
 | `models.RuleSet` | [ModelsRuleSet ](../../matchmaking-sdk/pkg/matchmakingclientmodels/models_rule_set.go) |
 | `models.RuleSetV1` | [ModelsRuleSetV1 ](../../matchmaking-sdk/pkg/matchmakingclientmodels/models_rule_set_v1.go) |
+| `models.StatResumeResponse` | [ModelsStatResumeResponse ](../../matchmaking-sdk/pkg/matchmakingclientmodels/models_stat_resume_response.go) |
 | `models.SubGameMode` | [ModelsSubGameMode ](../../matchmaking-sdk/pkg/matchmakingclientmodels/models_sub_game_mode.go) |
+| `models.TicketMetricResultRecord` | [ModelsTicketMetricResultRecord ](../../matchmaking-sdk/pkg/matchmakingclientmodels/models_ticket_metric_result_record.go) |
 | `models.UpdateAllianceRule` | [ModelsUpdateAllianceRule ](../../matchmaking-sdk/pkg/matchmakingclientmodels/models_update_alliance_rule.go) |
 | `models.UpdateChannelRequest` | [ModelsUpdateChannelRequest ](../../matchmaking-sdk/pkg/matchmakingclientmodels/models_update_channel_request.go) |
 | `models.UpdatePlayTimeWeightRequest` | [ModelsUpdatePlayTimeWeightRequest ](../../matchmaking-sdk/pkg/matchmakingclientmodels/models_update_play_time_weight_request.go) |

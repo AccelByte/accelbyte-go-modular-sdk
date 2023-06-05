@@ -73,10 +73,9 @@ func NewFleetGetOK() *FleetGetOK {
 	return &FleetGetOK{}
 }
 
-/*
-FleetGetOK handles this case with default header values.
+/*FleetGetOK handles this case with default header values.
 
-	success
+  success
 */
 type FleetGetOK struct {
 	Payload *amsclientmodels.APIFleetGetResponse
@@ -127,10 +126,9 @@ func NewFleetGetUnauthorized() *FleetGetUnauthorized {
 	return &FleetGetUnauthorized{}
 }
 
-/*
-FleetGetUnauthorized handles this case with default header values.
+/*FleetGetUnauthorized handles this case with default header values.
 
-	no authorization provided
+  no authorization provided
 */
 type FleetGetUnauthorized struct {
 	Payload *amsclientmodels.ResponseErrorResponse
@@ -181,10 +179,9 @@ func NewFleetGetForbidden() *FleetGetForbidden {
 	return &FleetGetForbidden{}
 }
 
-/*
-FleetGetForbidden handles this case with default header values.
+/*FleetGetForbidden handles this case with default header values.
 
-	insufficient permissions
+  insufficient permissions
 */
 type FleetGetForbidden struct {
 	Payload *amsclientmodels.ResponseErrorResponse
@@ -235,10 +232,9 @@ func NewFleetGetNotFound() *FleetGetNotFound {
 	return &FleetGetNotFound{}
 }
 
-/*
-FleetGetNotFound handles this case with default header values.
+/*FleetGetNotFound handles this case with default header values.
 
-	fleet not found
+  fleet not found
 */
 type FleetGetNotFound struct {
 	Payload *amsclientmodels.ResponseErrorResponse
@@ -289,10 +285,9 @@ func NewFleetGetInternalServerError() *FleetGetInternalServerError {
 	return &FleetGetInternalServerError{}
 }
 
-/*
-FleetGetInternalServerError handles this case with default header values.
+/*FleetGetInternalServerError handles this case with default header values.
 
-	internal server error
+  internal server error
 */
 type FleetGetInternalServerError struct {
 	Payload *amsclientmodels.ResponseErrorResponse

@@ -73,10 +73,9 @@ func NewFleetServerInfoOK() *FleetServerInfoOK {
 	return &FleetServerInfoOK{}
 }
 
-/*
-FleetServerInfoOK handles this case with default header values.
+/*FleetServerInfoOK handles this case with default header values.
 
-	success
+  success
 */
 type FleetServerInfoOK struct {
 	Payload *amsclientmodels.APIFleetServerInfoResponse
@@ -127,10 +126,9 @@ func NewFleetServerInfoUnauthorized() *FleetServerInfoUnauthorized {
 	return &FleetServerInfoUnauthorized{}
 }
 
-/*
-FleetServerInfoUnauthorized handles this case with default header values.
+/*FleetServerInfoUnauthorized handles this case with default header values.
 
-	no authorization provided
+  no authorization provided
 */
 type FleetServerInfoUnauthorized struct {
 	Payload *amsclientmodels.ResponseErrorResponse
@@ -181,10 +179,9 @@ func NewFleetServerInfoForbidden() *FleetServerInfoForbidden {
 	return &FleetServerInfoForbidden{}
 }
 
-/*
-FleetServerInfoForbidden handles this case with default header values.
+/*FleetServerInfoForbidden handles this case with default header values.
 
-	insufficient permissions
+  insufficient permissions
 */
 type FleetServerInfoForbidden struct {
 	Payload *amsclientmodels.ResponseErrorResponse
@@ -235,10 +232,9 @@ func NewFleetServerInfoNotFound() *FleetServerInfoNotFound {
 	return &FleetServerInfoNotFound{}
 }
 
-/*
-FleetServerInfoNotFound handles this case with default header values.
+/*FleetServerInfoNotFound handles this case with default header values.
 
-	dedicated server not found
+  dedicated server not found
 */
 type FleetServerInfoNotFound struct {
 	Payload *amsclientmodels.ResponseErrorResponse
@@ -289,10 +285,9 @@ func NewFleetServerInfoInternalServerError() *FleetServerInfoInternalServerError
 	return &FleetServerInfoInternalServerError{}
 }
 
-/*
-FleetServerInfoInternalServerError handles this case with default header values.
+/*FleetServerInfoInternalServerError handles this case with default header values.
 
-	internal server error
+  internal server error
 */
 type FleetServerInfoInternalServerError struct {
 	Payload *amsclientmodels.ResponseErrorResponse

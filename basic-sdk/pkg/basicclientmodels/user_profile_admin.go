@@ -45,6 +45,9 @@ type UserProfileAdmin struct {
 	// lastname
 	LastName string `json:"lastName,omitempty"`
 
+	// privatecustomattributes
+	PrivateCustomAttributes interface{} `json:"privateCustomAttributes,omitempty"`
+
 	// status
 	// Enum: ['ACTIVE', 'INACTIVE']
 	Status string `json:"status,omitempty"`

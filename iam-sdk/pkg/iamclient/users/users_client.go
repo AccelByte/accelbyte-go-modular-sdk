@@ -18060,7 +18060,9 @@ func (a *Client) PublicGetUserByPlatformUserIDV3Short(params *PublicGetUserByPla
 Deprecated: 2022-08-10 - Use PublicGetAsyncStatusShort instead.
 
 PublicGetAsyncStatus get linking progress status
+
 This endpoint is used to get linking status.
+This API need logged user and user can only request its own linking status.'
 */
 func (a *Client) PublicGetAsyncStatus(params *PublicGetAsyncStatusParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGetAsyncStatusOK, *PublicGetAsyncStatusUnauthorized, *PublicGetAsyncStatusForbidden, *PublicGetAsyncStatusInternalServerError, error) {
 	// TODO: Validate the params before sending
@@ -18114,7 +18116,9 @@ func (a *Client) PublicGetAsyncStatus(params *PublicGetAsyncStatusParams, authIn
 
 /*
 PublicGetAsyncStatusShort get linking progress status
+
 This endpoint is used to get linking status.
+This API need logged user and user can only request its own linking status.'
 */
 func (a *Client) PublicGetAsyncStatusShort(params *PublicGetAsyncStatusParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGetAsyncStatusOK, error) {
 	// TODO: Validate the params before sending
@@ -20250,6 +20254,16 @@ PublicVerifyHeadlessAccountV3 upgrade user account to full account (with email)
 
 Require valid user authorization
 action code : 10124
+
+
+
+
+if set NeedVerificationCode = true, IAM will send verification code into email
+
+
+
+
+user can use that verification code to verify user through /iam/v3/public/namespaces/{namespace}/users/me/code/verify
 */
 func (a *Client) PublicVerifyHeadlessAccountV3(params *PublicVerifyHeadlessAccountV3Params, authInfo runtime.ClientAuthInfoWriter) (*PublicVerifyHeadlessAccountV3OK, *PublicVerifyHeadlessAccountV3BadRequest, *PublicVerifyHeadlessAccountV3Unauthorized, *PublicVerifyHeadlessAccountV3NotFound, *PublicVerifyHeadlessAccountV3Conflict, *PublicVerifyHeadlessAccountV3InternalServerError, error) {
 	// TODO: Validate the params before sending
@@ -20313,6 +20327,16 @@ PublicVerifyHeadlessAccountV3Short upgrade user account to full account (with em
 
 Require valid user authorization
 action code : 10124
+
+
+
+
+if set NeedVerificationCode = true, IAM will send verification code into email
+
+
+
+
+user can use that verification code to verify user through /iam/v3/public/namespaces/{namespace}/users/me/code/verify
 */
 func (a *Client) PublicVerifyHeadlessAccountV3Short(params *PublicVerifyHeadlessAccountV3Params, authInfo runtime.ClientAuthInfoWriter) (*PublicVerifyHeadlessAccountV3OK, error) {
 	// TODO: Validate the params before sending

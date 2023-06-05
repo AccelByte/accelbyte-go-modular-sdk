@@ -30,6 +30,14 @@ type Client struct {
 
 // ClientService is the interface for Client methods
 type ClientService interface {
+	AdminGetConfigurationAlertV1(params *AdminGetConfigurationAlertV1Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetConfigurationAlertV1OK, *AdminGetConfigurationAlertV1BadRequest, *AdminGetConfigurationAlertV1Unauthorized, *AdminGetConfigurationAlertV1Forbidden, *AdminGetConfigurationAlertV1NotFound, *AdminGetConfigurationAlertV1InternalServerError, error)
+	AdminGetConfigurationAlertV1Short(params *AdminGetConfigurationAlertV1Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetConfigurationAlertV1OK, error)
+	AdminUpdateConfigurationAlertV1(params *AdminUpdateConfigurationAlertV1Params, authInfo runtime.ClientAuthInfoWriter) (*AdminUpdateConfigurationAlertV1OK, *AdminUpdateConfigurationAlertV1BadRequest, *AdminUpdateConfigurationAlertV1Unauthorized, *AdminUpdateConfigurationAlertV1Forbidden, *AdminUpdateConfigurationAlertV1NotFound, *AdminUpdateConfigurationAlertV1InternalServerError, error)
+	AdminUpdateConfigurationAlertV1Short(params *AdminUpdateConfigurationAlertV1Params, authInfo runtime.ClientAuthInfoWriter) (*AdminUpdateConfigurationAlertV1OK, error)
+	AdminCreateConfigurationAlertV1(params *AdminCreateConfigurationAlertV1Params, authInfo runtime.ClientAuthInfoWriter) (*AdminCreateConfigurationAlertV1Created, *AdminCreateConfigurationAlertV1BadRequest, *AdminCreateConfigurationAlertV1Unauthorized, *AdminCreateConfigurationAlertV1Forbidden, *AdminCreateConfigurationAlertV1NotFound, *AdminCreateConfigurationAlertV1Conflict, *AdminCreateConfigurationAlertV1InternalServerError, error)
+	AdminCreateConfigurationAlertV1Short(params *AdminCreateConfigurationAlertV1Params, authInfo runtime.ClientAuthInfoWriter) (*AdminCreateConfigurationAlertV1Created, error)
+	AdminDeleteConfigurationAlertV1(params *AdminDeleteConfigurationAlertV1Params, authInfo runtime.ClientAuthInfoWriter) (*AdminDeleteConfigurationAlertV1NoContent, *AdminDeleteConfigurationAlertV1BadRequest, *AdminDeleteConfigurationAlertV1Unauthorized, *AdminDeleteConfigurationAlertV1Forbidden, *AdminDeleteConfigurationAlertV1InternalServerError, error)
+	AdminDeleteConfigurationAlertV1Short(params *AdminDeleteConfigurationAlertV1Params, authInfo runtime.ClientAuthInfoWriter) (*AdminDeleteConfigurationAlertV1NoContent, error)
 	AdminCreateConfigurationTemplateV1(params *AdminCreateConfigurationTemplateV1Params, authInfo runtime.ClientAuthInfoWriter) (*AdminCreateConfigurationTemplateV1Created, *AdminCreateConfigurationTemplateV1BadRequest, *AdminCreateConfigurationTemplateV1Unauthorized, *AdminCreateConfigurationTemplateV1Forbidden, *AdminCreateConfigurationTemplateV1Conflict, *AdminCreateConfigurationTemplateV1InternalServerError, error)
 	AdminCreateConfigurationTemplateV1Short(params *AdminCreateConfigurationTemplateV1Params, authInfo runtime.ClientAuthInfoWriter) (*AdminCreateConfigurationTemplateV1Created, error)
 	AdminGetAllConfigurationTemplatesV1(params *AdminGetAllConfigurationTemplatesV1Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetAllConfigurationTemplatesV1OK, *AdminGetAllConfigurationTemplatesV1BadRequest, *AdminGetAllConfigurationTemplatesV1Unauthorized, *AdminGetAllConfigurationTemplatesV1Forbidden, *AdminGetAllConfigurationTemplatesV1InternalServerError, error)
@@ -40,8 +48,492 @@ type ClientService interface {
 	AdminUpdateConfigurationTemplateV1Short(params *AdminUpdateConfigurationTemplateV1Params, authInfo runtime.ClientAuthInfoWriter) (*AdminUpdateConfigurationTemplateV1OK, error)
 	AdminDeleteConfigurationTemplateV1(params *AdminDeleteConfigurationTemplateV1Params, authInfo runtime.ClientAuthInfoWriter) (*AdminDeleteConfigurationTemplateV1NoContent, *AdminDeleteConfigurationTemplateV1BadRequest, *AdminDeleteConfigurationTemplateV1Unauthorized, *AdminDeleteConfigurationTemplateV1Forbidden, *AdminDeleteConfigurationTemplateV1InternalServerError, error)
 	AdminDeleteConfigurationTemplateV1Short(params *AdminDeleteConfigurationTemplateV1Params, authInfo runtime.ClientAuthInfoWriter) (*AdminDeleteConfigurationTemplateV1NoContent, error)
+	AdminGetDSMCConfiguration(params *AdminGetDSMCConfigurationParams, authInfo runtime.ClientAuthInfoWriter) (*AdminGetDSMCConfigurationOK, *AdminGetDSMCConfigurationBadRequest, *AdminGetDSMCConfigurationUnauthorized, *AdminGetDSMCConfigurationForbidden, *AdminGetDSMCConfigurationNotFound, *AdminGetDSMCConfigurationInternalServerError, error)
+	AdminGetDSMCConfigurationShort(params *AdminGetDSMCConfigurationParams, authInfo runtime.ClientAuthInfoWriter) (*AdminGetDSMCConfigurationOK, error)
+	AdminSyncDSMCConfiguration(params *AdminSyncDSMCConfigurationParams, authInfo runtime.ClientAuthInfoWriter) (*AdminSyncDSMCConfigurationOK, *AdminSyncDSMCConfigurationBadRequest, *AdminSyncDSMCConfigurationUnauthorized, *AdminSyncDSMCConfigurationForbidden, *AdminSyncDSMCConfigurationNotFound, *AdminSyncDSMCConfigurationInternalServerError, error)
+	AdminSyncDSMCConfigurationShort(params *AdminSyncDSMCConfigurationParams, authInfo runtime.ClientAuthInfoWriter) (*AdminSyncDSMCConfigurationOK, error)
 
 	SetTransport(transport runtime.ClientTransport)
+}
+
+/*
+Deprecated: 2022-08-10 - Use AdminGetConfigurationAlertV1Short instead.
+
+AdminGetConfigurationAlertV1 get configuration alert. requires admin:namespace:{namespace}:session:configuration [read]
+Get a configuration alert.
+*/
+func (a *Client) AdminGetConfigurationAlertV1(params *AdminGetConfigurationAlertV1Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetConfigurationAlertV1OK, *AdminGetConfigurationAlertV1BadRequest, *AdminGetConfigurationAlertV1Unauthorized, *AdminGetConfigurationAlertV1Forbidden, *AdminGetConfigurationAlertV1NotFound, *AdminGetConfigurationAlertV1InternalServerError, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewAdminGetConfigurationAlertV1Params()
+	}
+
+	if params.Context == nil {
+		params.Context = context.Background()
+	}
+
+	if params.RetryPolicy != nil {
+		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "adminGetConfigurationAlertV1",
+		Method:             "GET",
+		PathPattern:        "/session/v1/admin/namespaces/{namespace}/alerts-configuration",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &AdminGetConfigurationAlertV1Reader{formats: a.formats},
+		AuthInfo:           authInfo,
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, nil, nil, nil, nil, nil, err
+	}
+
+	switch v := result.(type) {
+
+	case *AdminGetConfigurationAlertV1OK:
+		return v, nil, nil, nil, nil, nil, nil
+
+	case *AdminGetConfigurationAlertV1BadRequest:
+		return nil, v, nil, nil, nil, nil, nil
+
+	case *AdminGetConfigurationAlertV1Unauthorized:
+		return nil, nil, v, nil, nil, nil, nil
+
+	case *AdminGetConfigurationAlertV1Forbidden:
+		return nil, nil, nil, v, nil, nil, nil
+
+	case *AdminGetConfigurationAlertV1NotFound:
+		return nil, nil, nil, nil, v, nil, nil
+
+	case *AdminGetConfigurationAlertV1InternalServerError:
+		return nil, nil, nil, nil, nil, v, nil
+
+	default:
+		return nil, nil, nil, nil, nil, nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
+	}
+}
+
+/*
+AdminGetConfigurationAlertV1Short get configuration alert. requires admin:namespace:{namespace}:session:configuration [read]
+Get a configuration alert.
+*/
+func (a *Client) AdminGetConfigurationAlertV1Short(params *AdminGetConfigurationAlertV1Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetConfigurationAlertV1OK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewAdminGetConfigurationAlertV1Params()
+	}
+
+	if params.Context == nil {
+		params.Context = context.Background()
+	}
+
+	if params.RetryPolicy != nil {
+		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "adminGetConfigurationAlertV1",
+		Method:             "GET",
+		PathPattern:        "/session/v1/admin/namespaces/{namespace}/alerts-configuration",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &AdminGetConfigurationAlertV1Reader{formats: a.formats},
+		AuthInfo:           authInfo,
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+
+	switch v := result.(type) {
+
+	case *AdminGetConfigurationAlertV1OK:
+		return v, nil
+	case *AdminGetConfigurationAlertV1BadRequest:
+		return nil, v
+	case *AdminGetConfigurationAlertV1Unauthorized:
+		return nil, v
+	case *AdminGetConfigurationAlertV1Forbidden:
+		return nil, v
+	case *AdminGetConfigurationAlertV1NotFound:
+		return nil, v
+	case *AdminGetConfigurationAlertV1InternalServerError:
+		return nil, v
+
+	default:
+		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
+	}
+}
+
+/*
+Deprecated: 2022-08-10 - Use AdminUpdateConfigurationAlertV1Short instead.
+
+AdminUpdateConfigurationAlertV1 update configuration alert. requires admin:namespace:{namespace}:session:configuration [update]
+Update configuration alert
+configuration alert mandatory :
+- namespace
+- durationDays must be greater than 0
+*/
+func (a *Client) AdminUpdateConfigurationAlertV1(params *AdminUpdateConfigurationAlertV1Params, authInfo runtime.ClientAuthInfoWriter) (*AdminUpdateConfigurationAlertV1OK, *AdminUpdateConfigurationAlertV1BadRequest, *AdminUpdateConfigurationAlertV1Unauthorized, *AdminUpdateConfigurationAlertV1Forbidden, *AdminUpdateConfigurationAlertV1NotFound, *AdminUpdateConfigurationAlertV1InternalServerError, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewAdminUpdateConfigurationAlertV1Params()
+	}
+
+	if params.Context == nil {
+		params.Context = context.Background()
+	}
+
+	if params.RetryPolicy != nil {
+		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "adminUpdateConfigurationAlertV1",
+		Method:             "PUT",
+		PathPattern:        "/session/v1/admin/namespaces/{namespace}/alerts-configuration",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &AdminUpdateConfigurationAlertV1Reader{formats: a.formats},
+		AuthInfo:           authInfo,
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, nil, nil, nil, nil, nil, err
+	}
+
+	switch v := result.(type) {
+
+	case *AdminUpdateConfigurationAlertV1OK:
+		return v, nil, nil, nil, nil, nil, nil
+
+	case *AdminUpdateConfigurationAlertV1BadRequest:
+		return nil, v, nil, nil, nil, nil, nil
+
+	case *AdminUpdateConfigurationAlertV1Unauthorized:
+		return nil, nil, v, nil, nil, nil, nil
+
+	case *AdminUpdateConfigurationAlertV1Forbidden:
+		return nil, nil, nil, v, nil, nil, nil
+
+	case *AdminUpdateConfigurationAlertV1NotFound:
+		return nil, nil, nil, nil, v, nil, nil
+
+	case *AdminUpdateConfigurationAlertV1InternalServerError:
+		return nil, nil, nil, nil, nil, v, nil
+
+	default:
+		return nil, nil, nil, nil, nil, nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
+	}
+}
+
+/*
+AdminUpdateConfigurationAlertV1Short update configuration alert. requires admin:namespace:{namespace}:session:configuration [update]
+Update configuration alert
+configuration alert mandatory :
+- namespace
+- durationDays must be greater than 0
+*/
+func (a *Client) AdminUpdateConfigurationAlertV1Short(params *AdminUpdateConfigurationAlertV1Params, authInfo runtime.ClientAuthInfoWriter) (*AdminUpdateConfigurationAlertV1OK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewAdminUpdateConfigurationAlertV1Params()
+	}
+
+	if params.Context == nil {
+		params.Context = context.Background()
+	}
+
+	if params.RetryPolicy != nil {
+		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "adminUpdateConfigurationAlertV1",
+		Method:             "PUT",
+		PathPattern:        "/session/v1/admin/namespaces/{namespace}/alerts-configuration",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &AdminUpdateConfigurationAlertV1Reader{formats: a.formats},
+		AuthInfo:           authInfo,
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+
+	switch v := result.(type) {
+
+	case *AdminUpdateConfigurationAlertV1OK:
+		return v, nil
+	case *AdminUpdateConfigurationAlertV1BadRequest:
+		return nil, v
+	case *AdminUpdateConfigurationAlertV1Unauthorized:
+		return nil, v
+	case *AdminUpdateConfigurationAlertV1Forbidden:
+		return nil, v
+	case *AdminUpdateConfigurationAlertV1NotFound:
+		return nil, v
+	case *AdminUpdateConfigurationAlertV1InternalServerError:
+		return nil, v
+
+	default:
+		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
+	}
+}
+
+/*
+Deprecated: 2022-08-10 - Use AdminCreateConfigurationAlertV1Short instead.
+
+AdminCreateConfigurationAlertV1 create configuration alert. requires admin:namespace:{namespace}:session:configuration [update]
+Create configuration alert
+configuration alert mandatory :
+- namespace
+- durationDays must be greater than 0
+*/
+func (a *Client) AdminCreateConfigurationAlertV1(params *AdminCreateConfigurationAlertV1Params, authInfo runtime.ClientAuthInfoWriter) (*AdminCreateConfigurationAlertV1Created, *AdminCreateConfigurationAlertV1BadRequest, *AdminCreateConfigurationAlertV1Unauthorized, *AdminCreateConfigurationAlertV1Forbidden, *AdminCreateConfigurationAlertV1NotFound, *AdminCreateConfigurationAlertV1Conflict, *AdminCreateConfigurationAlertV1InternalServerError, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewAdminCreateConfigurationAlertV1Params()
+	}
+
+	if params.Context == nil {
+		params.Context = context.Background()
+	}
+
+	if params.RetryPolicy != nil {
+		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "adminCreateConfigurationAlertV1",
+		Method:             "POST",
+		PathPattern:        "/session/v1/admin/namespaces/{namespace}/alerts-configuration",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &AdminCreateConfigurationAlertV1Reader{formats: a.formats},
+		AuthInfo:           authInfo,
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, nil, nil, nil, nil, nil, nil, err
+	}
+
+	switch v := result.(type) {
+
+	case *AdminCreateConfigurationAlertV1Created:
+		return v, nil, nil, nil, nil, nil, nil, nil
+
+	case *AdminCreateConfigurationAlertV1BadRequest:
+		return nil, v, nil, nil, nil, nil, nil, nil
+
+	case *AdminCreateConfigurationAlertV1Unauthorized:
+		return nil, nil, v, nil, nil, nil, nil, nil
+
+	case *AdminCreateConfigurationAlertV1Forbidden:
+		return nil, nil, nil, v, nil, nil, nil, nil
+
+	case *AdminCreateConfigurationAlertV1NotFound:
+		return nil, nil, nil, nil, v, nil, nil, nil
+
+	case *AdminCreateConfigurationAlertV1Conflict:
+		return nil, nil, nil, nil, nil, v, nil, nil
+
+	case *AdminCreateConfigurationAlertV1InternalServerError:
+		return nil, nil, nil, nil, nil, nil, v, nil
+
+	default:
+		return nil, nil, nil, nil, nil, nil, nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
+	}
+}
+
+/*
+AdminCreateConfigurationAlertV1Short create configuration alert. requires admin:namespace:{namespace}:session:configuration [update]
+Create configuration alert
+configuration alert mandatory :
+- namespace
+- durationDays must be greater than 0
+*/
+func (a *Client) AdminCreateConfigurationAlertV1Short(params *AdminCreateConfigurationAlertV1Params, authInfo runtime.ClientAuthInfoWriter) (*AdminCreateConfigurationAlertV1Created, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewAdminCreateConfigurationAlertV1Params()
+	}
+
+	if params.Context == nil {
+		params.Context = context.Background()
+	}
+
+	if params.RetryPolicy != nil {
+		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "adminCreateConfigurationAlertV1",
+		Method:             "POST",
+		PathPattern:        "/session/v1/admin/namespaces/{namespace}/alerts-configuration",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &AdminCreateConfigurationAlertV1Reader{formats: a.formats},
+		AuthInfo:           authInfo,
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+
+	switch v := result.(type) {
+
+	case *AdminCreateConfigurationAlertV1Created:
+		return v, nil
+	case *AdminCreateConfigurationAlertV1BadRequest:
+		return nil, v
+	case *AdminCreateConfigurationAlertV1Unauthorized:
+		return nil, v
+	case *AdminCreateConfigurationAlertV1Forbidden:
+		return nil, v
+	case *AdminCreateConfigurationAlertV1NotFound:
+		return nil, v
+	case *AdminCreateConfigurationAlertV1Conflict:
+		return nil, v
+	case *AdminCreateConfigurationAlertV1InternalServerError:
+		return nil, v
+
+	default:
+		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
+	}
+}
+
+/*
+Deprecated: 2022-08-10 - Use AdminDeleteConfigurationAlertV1Short instead.
+
+AdminDeleteConfigurationAlertV1 delete configuration alert requires admin:namespace:{namespace}:session:configuration [delete]
+Delete configuration alert.
+*/
+func (a *Client) AdminDeleteConfigurationAlertV1(params *AdminDeleteConfigurationAlertV1Params, authInfo runtime.ClientAuthInfoWriter) (*AdminDeleteConfigurationAlertV1NoContent, *AdminDeleteConfigurationAlertV1BadRequest, *AdminDeleteConfigurationAlertV1Unauthorized, *AdminDeleteConfigurationAlertV1Forbidden, *AdminDeleteConfigurationAlertV1InternalServerError, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewAdminDeleteConfigurationAlertV1Params()
+	}
+
+	if params.Context == nil {
+		params.Context = context.Background()
+	}
+
+	if params.RetryPolicy != nil {
+		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "adminDeleteConfigurationAlertV1",
+		Method:             "DELETE",
+		PathPattern:        "/session/v1/admin/namespaces/{namespace}/alerts-configuration",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &AdminDeleteConfigurationAlertV1Reader{formats: a.formats},
+		AuthInfo:           authInfo,
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, nil, nil, nil, nil, err
+	}
+
+	switch v := result.(type) {
+
+	case *AdminDeleteConfigurationAlertV1NoContent:
+		return v, nil, nil, nil, nil, nil
+
+	case *AdminDeleteConfigurationAlertV1BadRequest:
+		return nil, v, nil, nil, nil, nil
+
+	case *AdminDeleteConfigurationAlertV1Unauthorized:
+		return nil, nil, v, nil, nil, nil
+
+	case *AdminDeleteConfigurationAlertV1Forbidden:
+		return nil, nil, nil, v, nil, nil
+
+	case *AdminDeleteConfigurationAlertV1InternalServerError:
+		return nil, nil, nil, nil, v, nil
+
+	default:
+		return nil, nil, nil, nil, nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
+	}
+}
+
+/*
+AdminDeleteConfigurationAlertV1Short delete configuration alert requires admin:namespace:{namespace}:session:configuration [delete]
+Delete configuration alert.
+*/
+func (a *Client) AdminDeleteConfigurationAlertV1Short(params *AdminDeleteConfigurationAlertV1Params, authInfo runtime.ClientAuthInfoWriter) (*AdminDeleteConfigurationAlertV1NoContent, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewAdminDeleteConfigurationAlertV1Params()
+	}
+
+	if params.Context == nil {
+		params.Context = context.Background()
+	}
+
+	if params.RetryPolicy != nil {
+		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "adminDeleteConfigurationAlertV1",
+		Method:             "DELETE",
+		PathPattern:        "/session/v1/admin/namespaces/{namespace}/alerts-configuration",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &AdminDeleteConfigurationAlertV1Reader{formats: a.formats},
+		AuthInfo:           authInfo,
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+
+	switch v := result.(type) {
+
+	case *AdminDeleteConfigurationAlertV1NoContent:
+		return v, nil
+	case *AdminDeleteConfigurationAlertV1BadRequest:
+		return nil, v
+	case *AdminDeleteConfigurationAlertV1Unauthorized:
+		return nil, v
+	case *AdminDeleteConfigurationAlertV1Forbidden:
+		return nil, v
+	case *AdminDeleteConfigurationAlertV1InternalServerError:
+		return nil, v
+
+	default:
+		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
+	}
 }
 
 /*
@@ -58,6 +550,16 @@ Session configuration mandatory :
 - InviteTimeout (must greather or equal 0) if InviteTimeout equal 0 will be use default DefaultTimeoutSecond (60s)
 - InactiveTimeout (must greather or equal 0) if InactiveTimeout equal 0 will be use default DefaultTimeoutSecond (60s)
 - Persistent Flag only can use with type DS (example value true or false)
+- If Persistent True the session always active even DS removing or terminate and Session will be request DS again until DS Ready or Busy.
+- To Stop Session Not request again to DS or want Delete Session can Delete Session using endpoint DELETE /session/v1/public/namespaces/{namespace}/gamesessions/{sessionId}
+- If Persistent False the session will be inactive if all member left and DS terminate or removing
+- nativeSessionSetting:
+- XboxSessionTemplateName: the XBox session template name that correspondent to the AB session template, and is needed to define XBox session's joinRestriction and maxMembersCount when doing the session sync.
+- XboxServiceConfigID: the XBox service configuration ID.
+- PSNServiceLabel: the PSN service label.
+- SessionTitle: the session title. In PSN, this will be used to define name of the session thats displayed on PlayStation system UI.
+- ShouldSync: to define whether the service needs to do session sync with native platform(s). Default: false (disabled).
+- PSNSupportedPlatforms: the PSN supported platforms. In PSN, if ShouldSync true and PSNSupportedPlatforms is empty, then PS5 will be set as default value.
 */
 func (a *Client) AdminCreateConfigurationTemplateV1(params *AdminCreateConfigurationTemplateV1Params, authInfo runtime.ClientAuthInfoWriter) (*AdminCreateConfigurationTemplateV1Created, *AdminCreateConfigurationTemplateV1BadRequest, *AdminCreateConfigurationTemplateV1Unauthorized, *AdminCreateConfigurationTemplateV1Forbidden, *AdminCreateConfigurationTemplateV1Conflict, *AdminCreateConfigurationTemplateV1InternalServerError, error) {
 	// TODO: Validate the params before sending
@@ -127,6 +629,16 @@ Session configuration mandatory :
 - InviteTimeout (must greather or equal 0) if InviteTimeout equal 0 will be use default DefaultTimeoutSecond (60s)
 - InactiveTimeout (must greather or equal 0) if InactiveTimeout equal 0 will be use default DefaultTimeoutSecond (60s)
 - Persistent Flag only can use with type DS (example value true or false)
+- If Persistent True the session always active even DS removing or terminate and Session will be request DS again until DS Ready or Busy.
+- To Stop Session Not request again to DS or want Delete Session can Delete Session using endpoint DELETE /session/v1/public/namespaces/{namespace}/gamesessions/{sessionId}
+- If Persistent False the session will be inactive if all member left and DS terminate or removing
+- nativeSessionSetting:
+- XboxSessionTemplateName: the XBox session template name that correspondent to the AB session template, and is needed to define XBox session's joinRestriction and maxMembersCount when doing the session sync.
+- XboxServiceConfigID: the XBox service configuration ID.
+- PSNServiceLabel: the PSN service label.
+- SessionTitle: the session title. In PSN, this will be used to define name of the session thats displayed on PlayStation system UI.
+- ShouldSync: to define whether the service needs to do session sync with native platform(s). Default: false (disabled).
+- PSNSupportedPlatforms: the PSN supported platforms. In PSN, if ShouldSync true and PSNSupportedPlatforms is empty, then PS5 will be set as default value.
 */
 func (a *Client) AdminCreateConfigurationTemplateV1Short(params *AdminCreateConfigurationTemplateV1Params, authInfo runtime.ClientAuthInfoWriter) (*AdminCreateConfigurationTemplateV1Created, error) {
 	// TODO: Validate the params before sending
@@ -421,6 +933,17 @@ Session configuration mandatory :
 - MaxPlayers (must greather than 0)
 - InviteTimeout (must greather or equal 0) if InviteTimeout equal 0 will be use default DefaultTimeoutSecond (60s)
 - InactiveTimeout (must greather or equal 0) if InactiveTimeout equal 0 will be use default DefaultTimeoutSecond (60s)
+- Persistent Flag only can use with type DS (example value true or false)
+- If Persistent True the session always active even DS removing or terminate and Session will be request DS again until DS Ready or Busy.
+- To Stop Session Not request again to DS or want Delete Session can Delete Session using endpoint DELETE /session/v1/public/namespaces/{namespace}/gamesessions/{sessionId}
+- If Persistent False the session will be inactive if all member left and DS terminate or removing
+- nativeSessionSetting:
+- XboxSessionTemplateName: the XBox session template name that correspondent to the AB session template, and is needed to define XBox session's joinRestriction and maxMembersCount when doing the session sync.
+- XboxServiceConfigID: the XBox service configuration ID.
+- PSNServiceLabel: the PSN service label.
+- SessionTitle: the session title. In PSN, this will be used to define name of the session thats displayed on PlayStation system UI.
+- ShouldSync: to define whether the service needs to do session sync with native platform(s). Default: false (disabled).
+- PSNSupportedPlatforms: the PSN supported platforms. In PSN, if ShouldSync true and PSNSupportedPlatforms is empty, then PS5 will be set as default value.
 */
 func (a *Client) AdminUpdateConfigurationTemplateV1(params *AdminUpdateConfigurationTemplateV1Params, authInfo runtime.ClientAuthInfoWriter) (*AdminUpdateConfigurationTemplateV1OK, *AdminUpdateConfigurationTemplateV1BadRequest, *AdminUpdateConfigurationTemplateV1Unauthorized, *AdminUpdateConfigurationTemplateV1Forbidden, *AdminUpdateConfigurationTemplateV1NotFound, *AdminUpdateConfigurationTemplateV1InternalServerError, error) {
 	// TODO: Validate the params before sending
@@ -489,6 +1012,17 @@ Session configuration mandatory :
 - MaxPlayers (must greather than 0)
 - InviteTimeout (must greather or equal 0) if InviteTimeout equal 0 will be use default DefaultTimeoutSecond (60s)
 - InactiveTimeout (must greather or equal 0) if InactiveTimeout equal 0 will be use default DefaultTimeoutSecond (60s)
+- Persistent Flag only can use with type DS (example value true or false)
+- If Persistent True the session always active even DS removing or terminate and Session will be request DS again until DS Ready or Busy.
+- To Stop Session Not request again to DS or want Delete Session can Delete Session using endpoint DELETE /session/v1/public/namespaces/{namespace}/gamesessions/{sessionId}
+- If Persistent False the session will be inactive if all member left and DS terminate or removing
+- nativeSessionSetting:
+- XboxSessionTemplateName: the XBox session template name that correspondent to the AB session template, and is needed to define XBox session's joinRestriction and maxMembersCount when doing the session sync.
+- XboxServiceConfigID: the XBox service configuration ID.
+- PSNServiceLabel: the PSN service label.
+- SessionTitle: the session title. In PSN, this will be used to define name of the session thats displayed on PlayStation system UI.
+- ShouldSync: to define whether the service needs to do session sync with native platform(s). Default: false (disabled).
+- PSNSupportedPlatforms: the PSN supported platforms. In PSN, if ShouldSync true and PSNSupportedPlatforms is empty, then PS5 will be set as default value.
 */
 func (a *Client) AdminUpdateConfigurationTemplateV1Short(params *AdminUpdateConfigurationTemplateV1Params, authInfo runtime.ClientAuthInfoWriter) (*AdminUpdateConfigurationTemplateV1OK, error) {
 	// TODO: Validate the params before sending
@@ -646,6 +1180,240 @@ func (a *Client) AdminDeleteConfigurationTemplateV1Short(params *AdminDeleteConf
 	case *AdminDeleteConfigurationTemplateV1Forbidden:
 		return nil, v
 	case *AdminDeleteConfigurationTemplateV1InternalServerError:
+		return nil, v
+
+	default:
+		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
+	}
+}
+
+/*
+Deprecated: 2022-08-10 - Use AdminGetDSMCConfigurationShort instead.
+
+AdminGetDSMCConfiguration get dsmc configuration . requires admin:namespace:{namespace}:session:configuration [read]
+Get a dsmc configuration.
+*/
+func (a *Client) AdminGetDSMCConfiguration(params *AdminGetDSMCConfigurationParams, authInfo runtime.ClientAuthInfoWriter) (*AdminGetDSMCConfigurationOK, *AdminGetDSMCConfigurationBadRequest, *AdminGetDSMCConfigurationUnauthorized, *AdminGetDSMCConfigurationForbidden, *AdminGetDSMCConfigurationNotFound, *AdminGetDSMCConfigurationInternalServerError, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewAdminGetDSMCConfigurationParams()
+	}
+
+	if params.Context == nil {
+		params.Context = context.Background()
+	}
+
+	if params.RetryPolicy != nil {
+		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "adminGetDSMCConfiguration",
+		Method:             "GET",
+		PathPattern:        "/session/v1/admin/namespaces/{namespace}/dsconfigs",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &AdminGetDSMCConfigurationReader{formats: a.formats},
+		AuthInfo:           authInfo,
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, nil, nil, nil, nil, nil, err
+	}
+
+	switch v := result.(type) {
+
+	case *AdminGetDSMCConfigurationOK:
+		return v, nil, nil, nil, nil, nil, nil
+
+	case *AdminGetDSMCConfigurationBadRequest:
+		return nil, v, nil, nil, nil, nil, nil
+
+	case *AdminGetDSMCConfigurationUnauthorized:
+		return nil, nil, v, nil, nil, nil, nil
+
+	case *AdminGetDSMCConfigurationForbidden:
+		return nil, nil, nil, v, nil, nil, nil
+
+	case *AdminGetDSMCConfigurationNotFound:
+		return nil, nil, nil, nil, v, nil, nil
+
+	case *AdminGetDSMCConfigurationInternalServerError:
+		return nil, nil, nil, nil, nil, v, nil
+
+	default:
+		return nil, nil, nil, nil, nil, nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
+	}
+}
+
+/*
+AdminGetDSMCConfigurationShort get dsmc configuration . requires admin:namespace:{namespace}:session:configuration [read]
+Get a dsmc configuration.
+*/
+func (a *Client) AdminGetDSMCConfigurationShort(params *AdminGetDSMCConfigurationParams, authInfo runtime.ClientAuthInfoWriter) (*AdminGetDSMCConfigurationOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewAdminGetDSMCConfigurationParams()
+	}
+
+	if params.Context == nil {
+		params.Context = context.Background()
+	}
+
+	if params.RetryPolicy != nil {
+		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "adminGetDSMCConfiguration",
+		Method:             "GET",
+		PathPattern:        "/session/v1/admin/namespaces/{namespace}/dsconfigs",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &AdminGetDSMCConfigurationReader{formats: a.formats},
+		AuthInfo:           authInfo,
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+
+	switch v := result.(type) {
+
+	case *AdminGetDSMCConfigurationOK:
+		return v, nil
+	case *AdminGetDSMCConfigurationBadRequest:
+		return nil, v
+	case *AdminGetDSMCConfigurationUnauthorized:
+		return nil, v
+	case *AdminGetDSMCConfigurationForbidden:
+		return nil, v
+	case *AdminGetDSMCConfigurationNotFound:
+		return nil, v
+	case *AdminGetDSMCConfigurationInternalServerError:
+		return nil, v
+
+	default:
+		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
+	}
+}
+
+/*
+Deprecated: 2022-08-10 - Use AdminSyncDSMCConfigurationShort instead.
+
+AdminSyncDSMCConfiguration sync dsmc configuration . requires admin:namespace:{namespace}:session:configuration [read]
+sync dsmc configuration.
+*/
+func (a *Client) AdminSyncDSMCConfiguration(params *AdminSyncDSMCConfigurationParams, authInfo runtime.ClientAuthInfoWriter) (*AdminSyncDSMCConfigurationOK, *AdminSyncDSMCConfigurationBadRequest, *AdminSyncDSMCConfigurationUnauthorized, *AdminSyncDSMCConfigurationForbidden, *AdminSyncDSMCConfigurationNotFound, *AdminSyncDSMCConfigurationInternalServerError, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewAdminSyncDSMCConfigurationParams()
+	}
+
+	if params.Context == nil {
+		params.Context = context.Background()
+	}
+
+	if params.RetryPolicy != nil {
+		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "adminSyncDSMCConfiguration",
+		Method:             "GET",
+		PathPattern:        "/session/v1/admin/namespaces/{namespace}/dsconfigs/sync",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &AdminSyncDSMCConfigurationReader{formats: a.formats},
+		AuthInfo:           authInfo,
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, nil, nil, nil, nil, nil, err
+	}
+
+	switch v := result.(type) {
+
+	case *AdminSyncDSMCConfigurationOK:
+		return v, nil, nil, nil, nil, nil, nil
+
+	case *AdminSyncDSMCConfigurationBadRequest:
+		return nil, v, nil, nil, nil, nil, nil
+
+	case *AdminSyncDSMCConfigurationUnauthorized:
+		return nil, nil, v, nil, nil, nil, nil
+
+	case *AdminSyncDSMCConfigurationForbidden:
+		return nil, nil, nil, v, nil, nil, nil
+
+	case *AdminSyncDSMCConfigurationNotFound:
+		return nil, nil, nil, nil, v, nil, nil
+
+	case *AdminSyncDSMCConfigurationInternalServerError:
+		return nil, nil, nil, nil, nil, v, nil
+
+	default:
+		return nil, nil, nil, nil, nil, nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
+	}
+}
+
+/*
+AdminSyncDSMCConfigurationShort sync dsmc configuration . requires admin:namespace:{namespace}:session:configuration [read]
+sync dsmc configuration.
+*/
+func (a *Client) AdminSyncDSMCConfigurationShort(params *AdminSyncDSMCConfigurationParams, authInfo runtime.ClientAuthInfoWriter) (*AdminSyncDSMCConfigurationOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewAdminSyncDSMCConfigurationParams()
+	}
+
+	if params.Context == nil {
+		params.Context = context.Background()
+	}
+
+	if params.RetryPolicy != nil {
+		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "adminSyncDSMCConfiguration",
+		Method:             "GET",
+		PathPattern:        "/session/v1/admin/namespaces/{namespace}/dsconfigs/sync",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &AdminSyncDSMCConfigurationReader{formats: a.formats},
+		AuthInfo:           authInfo,
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+
+	switch v := result.(type) {
+
+	case *AdminSyncDSMCConfigurationOK:
+		return v, nil
+	case *AdminSyncDSMCConfigurationBadRequest:
+		return nil, v
+	case *AdminSyncDSMCConfigurationUnauthorized:
+		return nil, v
+	case *AdminSyncDSMCConfigurationForbidden:
+		return nil, v
+	case *AdminSyncDSMCConfigurationNotFound:
+		return nil, v
+	case *AdminSyncDSMCConfigurationInternalServerError:
 		return nil, v
 
 	default:

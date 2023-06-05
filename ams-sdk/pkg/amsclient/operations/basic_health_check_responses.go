@@ -45,10 +45,9 @@ func NewBasicHealthCheckOK() *BasicHealthCheckOK {
 	return &BasicHealthCheckOK{}
 }
 
-/*
-BasicHealthCheckOK handles this case with default header values.
+/*BasicHealthCheckOK handles this case with default header values.
 
-	OK
+  OK
 */
 type BasicHealthCheckOK struct {
 }

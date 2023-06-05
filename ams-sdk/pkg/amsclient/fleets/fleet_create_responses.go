@@ -73,10 +73,9 @@ func NewFleetCreateCreated() *FleetCreateCreated {
 	return &FleetCreateCreated{}
 }
 
-/*
-FleetCreateCreated handles this case with default header values.
+/*FleetCreateCreated handles this case with default header values.
 
-	success
+  success
 */
 type FleetCreateCreated struct {
 	Payload *amsclientmodels.APIFleetCreateResponse
@@ -127,10 +126,9 @@ func NewFleetCreateBadRequest() *FleetCreateBadRequest {
 	return &FleetCreateBadRequest{}
 }
 
-/*
-FleetCreateBadRequest handles this case with default header values.
+/*FleetCreateBadRequest handles this case with default header values.
 
-	bad request
+  bad request
 */
 type FleetCreateBadRequest struct {
 	Payload *amsclientmodels.ResponseErrorResponse
@@ -181,10 +179,9 @@ func NewFleetCreateUnauthorized() *FleetCreateUnauthorized {
 	return &FleetCreateUnauthorized{}
 }
 
-/*
-FleetCreateUnauthorized handles this case with default header values.
+/*FleetCreateUnauthorized handles this case with default header values.
 
-	no authorization provided
+  no authorization provided
 */
 type FleetCreateUnauthorized struct {
 	Payload *amsclientmodels.ResponseErrorResponse
@@ -235,10 +232,9 @@ func NewFleetCreateForbidden() *FleetCreateForbidden {
 	return &FleetCreateForbidden{}
 }
 
-/*
-FleetCreateForbidden handles this case with default header values.
+/*FleetCreateForbidden handles this case with default header values.
 
-	insufficient permissions
+  insufficient permissions
 */
 type FleetCreateForbidden struct {
 	Payload *amsclientmodels.ResponseErrorResponse
@@ -289,10 +285,9 @@ func NewFleetCreateInternalServerError() *FleetCreateInternalServerError {
 	return &FleetCreateInternalServerError{}
 }
 
-/*
-FleetCreateInternalServerError handles this case with default header values.
+/*FleetCreateInternalServerError handles this case with default header values.
 
-	internal server error
+  internal server error
 */
 type FleetCreateInternalServerError struct {
 	Payload *amsclientmodels.ResponseErrorResponse

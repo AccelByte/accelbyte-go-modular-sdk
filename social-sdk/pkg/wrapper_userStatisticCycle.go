@@ -47,9 +47,32 @@ func (aaa *UserStatisticCycleService) GetUserStatCycleItems(input *user_statisti
 	if err != nil {
 		return nil, err
 	}
-	ok, notFound, err := aaa.Client.UserStatisticCycle.GetUserStatCycleItems(input, client.BearerToken(*token.AccessToken))
+	ok, notFound, unprocessableEntity, err := aaa.Client.UserStatisticCycle.GetUserStatCycleItems(input, client.BearerToken(*token.AccessToken))
 	if notFound != nil {
 		return nil, notFound
+	}
+	if unprocessableEntity != nil {
+		return nil, unprocessableEntity
+	}
+	if err != nil {
+		return nil, err
+	}
+
+	return ok.GetPayload(), nil
+}
+
+// Deprecated: 2022-01-10 - Please use PublicListMyStatCycleItemsShort instead.
+func (aaa *UserStatisticCycleService) PublicListMyStatCycleItems(input *user_statistic_cycle.PublicListMyStatCycleItemsParams) (*socialclientmodels.UserStatCycleItemPagingSlicedResult, error) {
+	token, err := aaa.TokenRepository.GetToken()
+	if err != nil {
+		return nil, err
+	}
+	ok, notFound, unprocessableEntity, err := aaa.Client.UserStatisticCycle.PublicListMyStatCycleItems(input, client.BearerToken(*token.AccessToken))
+	if notFound != nil {
+		return nil, notFound
+	}
+	if unprocessableEntity != nil {
+		return nil, unprocessableEntity
 	}
 	if err != nil {
 		return nil, err
@@ -64,9 +87,12 @@ func (aaa *UserStatisticCycleService) GetUserStatCycleItems1(input *user_statist
 	if err != nil {
 		return nil, err
 	}
-	ok, notFound, err := aaa.Client.UserStatisticCycle.GetUserStatCycleItems1(input, client.BearerToken(*token.AccessToken))
+	ok, notFound, unprocessableEntity, err := aaa.Client.UserStatisticCycle.GetUserStatCycleItems1(input, client.BearerToken(*token.AccessToken))
 	if notFound != nil {
 		return nil, notFound
+	}
+	if unprocessableEntity != nil {
+		return nil, unprocessableEntity
 	}
 	if err != nil {
 		return nil, err
@@ -93,6 +119,31 @@ func (aaa *UserStatisticCycleService) GetUserStatCycleItemsShort(input *user_sta
 	}
 
 	ok, err := aaa.Client.UserStatisticCycle.GetUserStatCycleItemsShort(input, authInfoWriter)
+	if err != nil {
+		return nil, err
+	}
+
+	return ok.GetPayload(), nil
+}
+
+func (aaa *UserStatisticCycleService) PublicListMyStatCycleItemsShort(input *user_statistic_cycle.PublicListMyStatCycleItemsParams) (*socialclientmodels.UserStatCycleItemPagingSlicedResult, error) {
+	authInfoWriter := input.AuthInfoWriter
+	if authInfoWriter == nil {
+		security := [][]string{
+			{"bearer"},
+		}
+		authInfoWriter = auth.AuthInfoWriter(aaa.GetAuthSession(), security, "")
+	}
+	if input.RetryPolicy == nil {
+		input.RetryPolicy = &utils.Retry{
+			MaxTries:   utils.MaxTries,
+			Backoff:    utils.NewConstantBackoff(0),
+			Transport:  aaa.Client.Runtime.Transport,
+			RetryCodes: utils.RetryCodes,
+		}
+	}
+
+	ok, err := aaa.Client.UserStatisticCycle.PublicListMyStatCycleItemsShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
 	}

@@ -141,7 +141,7 @@
 | Endpoint | Method | ID | Class | Wrapper | Example |
 |---|---|---|---|---|---|
 | `/ugc/v1/public/namespaces/{namespace}/users/{userId}/channels` | GET | GetChannelsShort | [GetChannelsShort](../../ugc-sdk/pkg/ugcclient/public_channel/public_channel_client.go) | [GetChannelsShort](../../ugc-sdk/pkg/wrapper_publicChannel.go) | [GetChannelsShort](../../samples/cli/cmd/ugc/publicChannel/getChannels.go) |
-| `/ugc/v1/public/namespaces/{namespace}/users/{userId}/channels` | POST | CreateChannelShort | [CreateChannelShort](../../ugc-sdk/pkg/ugcclient/public_channel/public_channel_client.go) | [CreateChannelShort](../../ugc-sdk/pkg/wrapper_publicChannel.go) | [CreateChannelShort](../../samples/cli/cmd/ugc/publicChannel/createChannel.go) |
+| `/ugc/v1/public/namespaces/{namespace}/users/{userId}/channels` | POST | PublicCreateChannelShort | [PublicCreateChannelShort](../../ugc-sdk/pkg/ugcclient/public_channel/public_channel_client.go) | [PublicCreateChannelShort](../../ugc-sdk/pkg/wrapper_publicChannel.go) | [PublicCreateChannelShort](../../samples/cli/cmd/ugc/publicChannel/publicCreateChannel.go) |
 | `/ugc/v1/public/namespaces/{namespace}/users/{userId}/channels/{channelId}` | PUT | UpdateChannelShort | [UpdateChannelShort](../../ugc-sdk/pkg/ugcclient/public_channel/public_channel_client.go) | [UpdateChannelShort](../../ugc-sdk/pkg/wrapper_publicChannel.go) | [UpdateChannelShort](../../samples/cli/cmd/ugc/publicChannel/updateChannel.go) |
 | `/ugc/v1/public/namespaces/{namespace}/users/{userId}/channels/{channelId}` | DELETE | DeleteChannelShort | [DeleteChannelShort](../../ugc-sdk/pkg/ugcclient/public_channel/public_channel_client.go) | [DeleteChannelShort](../../ugc-sdk/pkg/wrapper_publicChannel.go) | [DeleteChannelShort](../../samples/cli/cmd/ugc/publicChannel/deleteChannel.go) |
 
@@ -164,12 +164,12 @@
 |---|---|
 | `models.AddDownloadCountResponse` | [ModelsAddDownloadCountResponse ](../../ugc-sdk/pkg/ugcclientmodels/models_add_download_count_response.go) |
 | `models.AdminGetContentBulkRequest` | [ModelsAdminGetContentBulkRequest ](../../ugc-sdk/pkg/ugcclientmodels/models_admin_get_content_bulk_request.go) |
+| `models.AdminUpdateContentRequest` | [ModelsAdminUpdateContentRequest ](../../ugc-sdk/pkg/ugcclientmodels/models_admin_update_content_request.go) |
 | `models.ChannelRequest` | [ModelsChannelRequest ](../../ugc-sdk/pkg/ugcclientmodels/models_channel_request.go) |
 | `models.ChannelResponse` | [ModelsChannelResponse ](../../ugc-sdk/pkg/ugcclientmodels/models_channel_response.go) |
 | `models.ContentDownloadResponse` | [ModelsContentDownloadResponse ](../../ugc-sdk/pkg/ugcclientmodels/models_content_download_response.go) |
 | `models.ContentLikeRequest` | [ModelsContentLikeRequest ](../../ugc-sdk/pkg/ugcclientmodels/models_content_like_request.go) |
 | `models.ContentLikeResponse` | [ModelsContentLikeResponse ](../../ugc-sdk/pkg/ugcclientmodels/models_content_like_response.go) |
-| `models.ContentRequest` | [ModelsContentRequest ](../../ugc-sdk/pkg/ugcclientmodels/models_content_request.go) |
 | `models.CreateContentRequest` | [ModelsCreateContentRequest ](../../ugc-sdk/pkg/ugcclientmodels/models_create_content_request.go) |
 | `models.CreateContentRequestS3` | [ModelsCreateContentRequestS3 ](../../ugc-sdk/pkg/ugcclientmodels/models_create_content_request_s3.go) |
 | `models.CreateContentResponse` | [ModelsCreateContentResponse ](../../ugc-sdk/pkg/ugcclientmodels/models_create_content_response.go) |
@@ -196,8 +196,12 @@
 | `models.PagingCursor` | [ModelsPagingCursor ](../../ugc-sdk/pkg/ugcclientmodels/models_paging_cursor.go) |
 | `models.PayloadURL` | [ModelsPayloadURL ](../../ugc-sdk/pkg/ugcclientmodels/models_payload_url.go) |
 | `models.PreviewURL` | [ModelsPreviewURL ](../../ugc-sdk/pkg/ugcclientmodels/models_preview_url.go) |
+| `models.PublicChannelRequest` | [ModelsPublicChannelRequest ](../../ugc-sdk/pkg/ugcclientmodels/models_public_channel_request.go) |
+| `models.PublicCreateContentRequestS3` | [ModelsPublicCreateContentRequestS3 ](../../ugc-sdk/pkg/ugcclientmodels/models_public_create_content_request_s3.go) |
 | `models.PublicGetContentBulkRequest` | [ModelsPublicGetContentBulkRequest ](../../ugc-sdk/pkg/ugcclientmodels/models_public_get_content_bulk_request.go) |
 | `models.ScreenshotResponse` | [ModelsScreenshotResponse ](../../ugc-sdk/pkg/ugcclientmodels/models_screenshot_response.go) |
+| `models.UpdateChannelRequest` | [ModelsUpdateChannelRequest ](../../ugc-sdk/pkg/ugcclientmodels/models_update_channel_request.go) |
+| `models.UpdateContentRequest` | [ModelsUpdateContentRequest ](../../ugc-sdk/pkg/ugcclientmodels/models_update_content_request.go) |
 | `models.UpdateScreenshotRequest` | [ModelsUpdateScreenshotRequest ](../../ugc-sdk/pkg/ugcclientmodels/models_update_screenshot_request.go) |
 | `models.UpdateScreenshotResponse` | [ModelsUpdateScreenshotResponse ](../../ugc-sdk/pkg/ugcclientmodels/models_update_screenshot_response.go) |
 | `models.UserFollowRequest` | [ModelsUserFollowRequest ](../../ugc-sdk/pkg/ugcclientmodels/models_user_follow_request.go) |

@@ -18,6 +18,10 @@ import (
 // swagger:model Apimodels session invite request.
 type ApimodelsSessionInviteRequest struct {
 
+	// platformid
+	// Required: true
+	PlatformID *string `json:"platformID"`
+
 	// userid
 	// Required: true
 	UserID *string `json:"userID"`
@@ -27,6 +31,9 @@ type ApimodelsSessionInviteRequest struct {
 func (m *ApimodelsSessionInviteRequest) Validate(formats strfmt.Registry) error {
 	var res []error
 
+	if err := m.validatePlatformID(formats); err != nil {
+		res = append(res, err)
+	}
 	if err := m.validateUserID(formats); err != nil {
 		res = append(res, err)
 	}
@@ -34,6 +41,15 @@ func (m *ApimodelsSessionInviteRequest) Validate(formats strfmt.Registry) error 
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
+	return nil
+}
+
+func (m *ApimodelsSessionInviteRequest) validatePlatformID(formats strfmt.Registry) error {
+
+	if err := validate.Required("platformID", "body", m.PlatformID); err != nil {
+		return err
+	}
+
 	return nil
 }
 

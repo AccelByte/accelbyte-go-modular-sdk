@@ -28,7 +28,7 @@ var SingleAdminUpdateContentS3Cmd = &cobra.Command{
 			TokenRepository: &repository.TokenRepositoryImpl{},
 		}
 		bodyString := cmd.Flag("body").Value.String()
-		var body *ugcclientmodels.ModelsContentRequest
+		var body *ugcclientmodels.ModelsAdminUpdateContentRequest
 		errBody := json.Unmarshal([]byte(bodyString), &body)
 		if errBody != nil {
 			return errBody

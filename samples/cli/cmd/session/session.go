@@ -8,6 +8,7 @@ package session
 
 import (
 	"github.com/AccelByte/sample-apps/cmd/session/configurationTemplate"
+	"github.com/AccelByte/sample-apps/cmd/session/dsmcDefaultConfiguration"
 	"github.com/AccelByte/sample-apps/cmd/session/gameSession"
 	"github.com/AccelByte/sample-apps/cmd/session/operations"
 	"github.com/AccelByte/sample-apps/cmd/session/party"
@@ -24,28 +25,40 @@ var SessionCmd = &cobra.Command{
 func init() {
 	SessionCmd.AddCommand(operations.GetHealthcheckInfoCmd)
 	SessionCmd.AddCommand(operations.GetHealthcheckInfoV1Cmd)
+	SessionCmd.AddCommand(dsmcDefaultConfiguration.AdminGetDSMCConfigurationDefaultCmd)
+	SessionCmd.AddCommand(configurationTemplate.AdminGetConfigurationAlertV1Cmd)
+	SessionCmd.AddCommand(configurationTemplate.AdminUpdateConfigurationAlertV1Cmd)
+	SessionCmd.AddCommand(configurationTemplate.AdminCreateConfigurationAlertV1Cmd)
+	SessionCmd.AddCommand(configurationTemplate.AdminDeleteConfigurationAlertV1Cmd)
 	SessionCmd.AddCommand(configurationTemplate.AdminCreateConfigurationTemplateV1Cmd)
 	SessionCmd.AddCommand(configurationTemplate.AdminGetAllConfigurationTemplatesV1Cmd)
 	SessionCmd.AddCommand(configurationTemplate.AdminGetConfigurationTemplateV1Cmd)
 	SessionCmd.AddCommand(configurationTemplate.AdminUpdateConfigurationTemplateV1Cmd)
 	SessionCmd.AddCommand(configurationTemplate.AdminDeleteConfigurationTemplateV1Cmd)
+	SessionCmd.AddCommand(configurationTemplate.AdminGetDSMCConfigurationCmd)
+	SessionCmd.AddCommand(configurationTemplate.AdminSyncDSMCConfigurationCmd)
 	SessionCmd.AddCommand(gameSession.AdminQueryGameSessionsCmd)
+	SessionCmd.AddCommand(gameSession.AdminDeleteBulkGameSessionsCmd)
 	SessionCmd.AddCommand(gameSession.AdminUpdateGameSessionMemberCmd)
 	SessionCmd.AddCommand(party.AdminQueryPartiesCmd)
 	SessionCmd.AddCommand(player.AdminQueryPlayerAttributesCmd)
 	SessionCmd.AddCommand(player.AdminGetPlayerAttributesCmd)
 	SessionCmd.AddCommand(gameSession.CreateGameSessionCmd)
 	SessionCmd.AddCommand(gameSession.PublicQueryGameSessionsCmd)
+	SessionCmd.AddCommand(gameSession.PublicSessionJoinCodeCmd)
 	SessionCmd.AddCommand(gameSession.GetGameSessionByPodNameCmd)
 	SessionCmd.AddCommand(gameSession.GetGameSessionCmd)
 	SessionCmd.AddCommand(gameSession.UpdateGameSessionCmd)
 	SessionCmd.AddCommand(gameSession.DeleteGameSessionCmd)
 	SessionCmd.AddCommand(gameSession.PatchUpdateGameSessionCmd)
 	SessionCmd.AddCommand(gameSession.UpdateGameSessionBackfillTicketIDCmd)
+	SessionCmd.AddCommand(gameSession.GameSessionGenerateCodeCmd)
+	SessionCmd.AddCommand(gameSession.PublicRevokeGameSessionCodeCmd)
 	SessionCmd.AddCommand(gameSession.PublicGameSessionInviteCmd)
 	SessionCmd.AddCommand(gameSession.JoinGameSessionCmd)
 	SessionCmd.AddCommand(gameSession.LeaveGameSessionCmd)
 	SessionCmd.AddCommand(gameSession.PublicGameSessionRejectCmd)
+	SessionCmd.AddCommand(gameSession.AppendTeamGameSessionCmd)
 	SessionCmd.AddCommand(party.PublicPartyJoinCodeCmd)
 	SessionCmd.AddCommand(party.PublicGetPartyCmd)
 	SessionCmd.AddCommand(party.PublicUpdatePartyCmd)
@@ -59,6 +72,7 @@ func init() {
 	SessionCmd.AddCommand(party.PublicPartyRejectCmd)
 	SessionCmd.AddCommand(party.PublicPartyKickCmd)
 	SessionCmd.AddCommand(party.PublicCreatePartyCmd)
+	SessionCmd.AddCommand(player.PublicGetBulkPlayerCurrentPlatformCmd)
 	SessionCmd.AddCommand(player.PublicGetPlayerAttributesCmd)
 	SessionCmd.AddCommand(player.PublicStorePlayerAttributesCmd)
 	SessionCmd.AddCommand(player.PublicDeletePlayerAttributesCmd)

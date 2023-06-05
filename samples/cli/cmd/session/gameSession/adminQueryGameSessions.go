@@ -29,6 +29,7 @@ var AdminQueryGameSessionsCmd = &cobra.Command{
 		dsPodName, _ := cmd.Flags().GetString("dsPodName")
 		fromTime, _ := cmd.Flags().GetString("fromTime")
 		gameMode, _ := cmd.Flags().GetString("gameMode")
+		isPersistent, _ := cmd.Flags().GetString("isPersistent")
 		isSoftDeleted, _ := cmd.Flags().GetString("isSoftDeleted")
 		joinability, _ := cmd.Flags().GetString("joinability")
 		limit, _ := cmd.Flags().GetInt64("limit")
@@ -47,6 +48,7 @@ var AdminQueryGameSessionsCmd = &cobra.Command{
 			DsPodName:         &dsPodName,
 			FromTime:          &fromTime,
 			GameMode:          &gameMode,
+			IsPersistent:      &isPersistent,
 			IsSoftDeleted:     &isSoftDeleted,
 			Joinability:       &joinability,
 			Limit:             &limit,
@@ -80,6 +82,7 @@ func init() {
 	AdminQueryGameSessionsCmd.Flags().String("dsPodName", "", "Ds pod name")
 	AdminQueryGameSessionsCmd.Flags().String("fromTime", "", "From time")
 	AdminQueryGameSessionsCmd.Flags().String("gameMode", "", "Game mode")
+	AdminQueryGameSessionsCmd.Flags().String("isPersistent", "", "Is persistent")
 	AdminQueryGameSessionsCmd.Flags().String("isSoftDeleted", "", "Is soft deleted")
 	AdminQueryGameSessionsCmd.Flags().String("joinability", "", "Joinability")
 	AdminQueryGameSessionsCmd.Flags().Int64("limit", 20, "Limit")

@@ -87,6 +87,11 @@ type ModelsConfig struct {
 	// readyconsenttimeout
 	// Format: integer
 	ReadyConsentTimeout int64 `json:"readyConsentTimeout,omitempty"`
+
+	// unregisterdelay
+	// Required: true
+	// Format: integer
+	UnregisterDelay *int64 `json:"unregisterDelay"`
 }
 
 // Validate validates this Models config
@@ -94,6 +99,9 @@ func (m *ModelsConfig) Validate(formats strfmt.Registry) error {
 	var res []error
 
 	if err := m.validateMaxDSWaitTime(formats); err != nil {
+		res = append(res, err)
+	}
+	if err := m.validateUnregisterDelay(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -106,6 +114,15 @@ func (m *ModelsConfig) Validate(formats strfmt.Registry) error {
 func (m *ModelsConfig) validateMaxDSWaitTime(formats strfmt.Registry) error {
 
 	if err := validate.Required("maxDSWaitTime", "body", m.MaxDSWaitTime); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *ModelsConfig) validateUnregisterDelay(formats strfmt.Registry) error {
+
+	if err := validate.Required("unregisterDelay", "body", m.UnregisterDelay); err != nil {
 		return err
 	}
 

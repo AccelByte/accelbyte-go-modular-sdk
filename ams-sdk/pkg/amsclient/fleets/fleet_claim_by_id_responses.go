@@ -79,10 +79,9 @@ func NewFleetClaimByIDOK() *FleetClaimByIDOK {
 	return &FleetClaimByIDOK{}
 }
 
-/*
-FleetClaimByIDOK handles this case with default header values.
+/*FleetClaimByIDOK handles this case with default header values.
 
-	success
+  success
 */
 type FleetClaimByIDOK struct {
 	Payload *amsclientmodels.APIFleetClaimResponse
@@ -133,10 +132,9 @@ func NewFleetClaimByIDBadRequest() *FleetClaimByIDBadRequest {
 	return &FleetClaimByIDBadRequest{}
 }
 
-/*
-FleetClaimByIDBadRequest handles this case with default header values.
+/*FleetClaimByIDBadRequest handles this case with default header values.
 
-	bad request
+  bad request
 */
 type FleetClaimByIDBadRequest struct {
 	Payload *amsclientmodels.ResponseErrorResponse
@@ -187,10 +185,9 @@ func NewFleetClaimByIDUnauthorized() *FleetClaimByIDUnauthorized {
 	return &FleetClaimByIDUnauthorized{}
 }
 
-/*
-FleetClaimByIDUnauthorized handles this case with default header values.
+/*FleetClaimByIDUnauthorized handles this case with default header values.
 
-	no authorization provided
+  no authorization provided
 */
 type FleetClaimByIDUnauthorized struct {
 	Payload *amsclientmodels.ResponseErrorResponse
@@ -241,10 +238,9 @@ func NewFleetClaimByIDForbidden() *FleetClaimByIDForbidden {
 	return &FleetClaimByIDForbidden{}
 }
 
-/*
-FleetClaimByIDForbidden handles this case with default header values.
+/*FleetClaimByIDForbidden handles this case with default header values.
 
-	insufficient permissions
+  insufficient permissions
 */
 type FleetClaimByIDForbidden struct {
 	Payload *amsclientmodels.ResponseErrorResponse
@@ -295,10 +291,9 @@ func NewFleetClaimByIDNotFound() *FleetClaimByIDNotFound {
 	return &FleetClaimByIDNotFound{}
 }
 
-/*
-FleetClaimByIDNotFound handles this case with default header values.
+/*FleetClaimByIDNotFound handles this case with default header values.
 
-	fleet not found
+  fleet not found
 */
 type FleetClaimByIDNotFound struct {
 	Payload *amsclientmodels.ResponseErrorResponse
@@ -349,10 +344,9 @@ func NewFleetClaimByIDInternalServerError() *FleetClaimByIDInternalServerError {
 	return &FleetClaimByIDInternalServerError{}
 }
 
-/*
-FleetClaimByIDInternalServerError handles this case with default header values.
+/*FleetClaimByIDInternalServerError handles this case with default header values.
 
-	internal server error
+  internal server error
 */
 type FleetClaimByIDInternalServerError struct {
 	Payload *amsclientmodels.ResponseErrorResponse

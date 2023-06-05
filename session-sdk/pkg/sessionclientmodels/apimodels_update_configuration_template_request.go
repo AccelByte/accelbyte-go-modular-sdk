@@ -18,6 +18,9 @@ import (
 // swagger:model Apimodels update configuration template request.
 type ApimodelsUpdateConfigurationTemplateRequest struct {
 
+	// nativesessionsetting
+	NativeSessionSetting *ModelsNativeSessionSetting `json:"NativeSessionSetting,omitempty"`
+
 	// clientversion
 	// Required: true
 	ClientVersion *string `json:"clientVersion"`
@@ -25,6 +28,12 @@ type ApimodelsUpdateConfigurationTemplateRequest struct {
 	// deployment
 	// Required: true
 	Deployment *string `json:"deployment"`
+
+	// dssource
+	DsSource string `json:"dsSource,omitempty"`
+
+	// fallbackclaimkeys
+	FallbackClaimKeys []string `json:"fallbackClaimKeys,omitempty"`
 
 	// inactivetimeout
 	// Required: true
@@ -40,6 +49,10 @@ type ApimodelsUpdateConfigurationTemplateRequest struct {
 	// Required: true
 	Joinability *string `json:"joinability"`
 
+	// maxactivesessions
+	// Format: int32
+	MaxActiveSessions int32 `json:"maxActiveSessions,omitempty"`
+
 	// maxplayers
 	// Required: true
 	// Format: int32
@@ -53,6 +66,13 @@ type ApimodelsUpdateConfigurationTemplateRequest struct {
 	// name
 	// Required: true
 	Name *string `json:"name"`
+
+	// persistent
+	// Required: true
+	Persistent *bool `json:"persistent"`
+
+	// preferredclaimkeys
+	PreferredClaimKeys []string `json:"preferredClaimKeys,omitempty"`
 
 	// requestedregions
 	// Required: true
@@ -93,6 +113,9 @@ func (m *ApimodelsUpdateConfigurationTemplateRequest) Validate(formats strfmt.Re
 		res = append(res, err)
 	}
 	if err := m.validateName(formats); err != nil {
+		res = append(res, err)
+	}
+	if err := m.validatePersistent(formats); err != nil {
 		res = append(res, err)
 	}
 	if err := m.validateRequestedRegions(formats); err != nil {
@@ -177,6 +200,15 @@ func (m *ApimodelsUpdateConfigurationTemplateRequest) validateMinPlayers(formats
 func (m *ApimodelsUpdateConfigurationTemplateRequest) validateName(formats strfmt.Registry) error {
 
 	if err := validate.Required("name", "body", m.Name); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *ApimodelsUpdateConfigurationTemplateRequest) validatePersistent(formats strfmt.Registry) error {
+
+	if err := validate.Required("persistent", "body", m.Persistent); err != nil {
 		return err
 	}
 

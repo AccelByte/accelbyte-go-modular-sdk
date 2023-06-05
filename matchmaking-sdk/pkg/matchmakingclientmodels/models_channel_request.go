@@ -43,6 +43,22 @@ type ModelsChannelRequest struct {
 	// Format: int32
 	MaxDelayMs int32 `json:"max_delay_ms"`
 
+	// region_expansion_range_ms
+	// Format: int32
+	RegionExpansionRangeMs int32 `json:"region_expansion_range_ms,omitempty"`
+
+	// region_expansion_rate_ms
+	// Format: int32
+	RegionExpansionRateMs int32 `json:"region_expansion_rate_ms,omitempty"`
+
+	// region_latency_initial_range_ms
+	// Format: int32
+	RegionLatencyInitialRangeMs int32 `json:"region_latency_initial_range_ms,omitempty"`
+
+	// region_latency_max_ms
+	// Format: int32
+	RegionLatencyMaxMs int32 `json:"region_latency_max_ms,omitempty"`
+
 	// rule_set
 	// Required: true
 	RuleSet *ModelsRuleSet `json:"rule_set"`
@@ -54,6 +70,9 @@ type ModelsChannelRequest struct {
 
 	// social_matchmaking
 	SocialMatchmaking *bool `json:"social_matchmaking"`
+
+	// ticket_observability_enable
+	TicketObservabilityEnable bool `json:"ticket_observability_enable"`
 
 	// use_sub_gamemode
 	UseSubGamemode *bool `json:"use_sub_gamemode"`

@@ -20,6 +20,9 @@ import (
 // swagger:model Models achievement update request.
 type ModelsAchievementUpdateRequest struct {
 
+	// customattributes
+	CustomAttributes interface{} `json:"customAttributes,omitempty"`
+
 	// defaultlanguage
 	// Required: true
 	DefaultLanguage *string `json:"defaultLanguage"`

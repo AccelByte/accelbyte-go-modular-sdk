@@ -209,6 +209,35 @@ func (aaa *LeaderboardConfigurationService) DeleteLeaderboardConfigurationAdminV
 	return nil
 }
 
+// Deprecated: 2022-01-10 - Please use HardDeleteLeaderboardAdminV1Short instead.
+func (aaa *LeaderboardConfigurationService) HardDeleteLeaderboardAdminV1(input *leaderboard_configuration.HardDeleteLeaderboardAdminV1Params) error {
+	token, err := aaa.TokenRepository.GetToken()
+	if err != nil {
+		return err
+	}
+	_, badRequest, unauthorized, forbidden, notFound, internalServerError, err := aaa.Client.LeaderboardConfiguration.HardDeleteLeaderboardAdminV1(input, client.BearerToken(*token.AccessToken))
+	if badRequest != nil {
+		return badRequest
+	}
+	if unauthorized != nil {
+		return unauthorized
+	}
+	if forbidden != nil {
+		return forbidden
+	}
+	if notFound != nil {
+		return notFound
+	}
+	if internalServerError != nil {
+		return internalServerError
+	}
+	if err != nil {
+		return err
+	}
+
+	return nil
+}
+
 // Deprecated: 2022-01-10 - Please use GetLeaderboardConfigurationsPublicV1Short instead.
 func (aaa *LeaderboardConfigurationService) GetLeaderboardConfigurationsPublicV1(input *leaderboard_configuration.GetLeaderboardConfigurationsPublicV1Params) (*leaderboardclientmodels.ModelsGetAllLeaderboardConfigsPublicResp, error) {
 	token, err := aaa.TokenRepository.GetToken()
@@ -433,6 +462,31 @@ func (aaa *LeaderboardConfigurationService) DeleteLeaderboardConfigurationAdminV
 	}
 
 	_, err := aaa.Client.LeaderboardConfiguration.DeleteLeaderboardConfigurationAdminV1Short(input, authInfoWriter)
+	if err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (aaa *LeaderboardConfigurationService) HardDeleteLeaderboardAdminV1Short(input *leaderboard_configuration.HardDeleteLeaderboardAdminV1Params) error {
+	authInfoWriter := input.AuthInfoWriter
+	if authInfoWriter == nil {
+		security := [][]string{
+			{"bearer"},
+		}
+		authInfoWriter = auth.AuthInfoWriter(aaa.GetAuthSession(), security, "")
+	}
+	if input.RetryPolicy == nil {
+		input.RetryPolicy = &utils.Retry{
+			MaxTries:   utils.MaxTries,
+			Backoff:    utils.NewConstantBackoff(0),
+			Transport:  aaa.Client.Runtime.Transport,
+			RetryCodes: utils.RetryCodes,
+		}
+	}
+
+	_, err := aaa.Client.LeaderboardConfiguration.HardDeleteLeaderboardAdminV1Short(input, authInfoWriter)
 	if err != nil {
 		return err
 	}

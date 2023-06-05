@@ -101,6 +101,32 @@ func (aaa *MatchmakingService) CreateChannelHandler(input *matchmaking.CreateCha
 	return created.GetPayload(), nil
 }
 
+// Deprecated: 2022-01-10 - Please use GetMatchPoolMetricShort instead.
+func (aaa *MatchmakingService) GetMatchPoolMetric(input *matchmaking.GetMatchPoolMetricParams) (*matchmakingclientmodels.ModelsTicketMetricResultRecord, error) {
+	token, err := aaa.TokenRepository.GetToken()
+	if err != nil {
+		return nil, err
+	}
+	ok, unauthorized, forbidden, notFound, internalServerError, err := aaa.Client.Matchmaking.GetMatchPoolMetric(input, client.BearerToken(*token.AccessToken))
+	if unauthorized != nil {
+		return nil, unauthorized
+	}
+	if forbidden != nil {
+		return nil, forbidden
+	}
+	if notFound != nil {
+		return nil, notFound
+	}
+	if internalServerError != nil {
+		return nil, internalServerError
+	}
+	if err != nil {
+		return nil, err
+	}
+
+	return ok.GetPayload(), nil
+}
+
 // Deprecated: 2022-01-10 - Please use DeleteChannelHandlerShort instead.
 func (aaa *MatchmakingService) DeleteChannelHandler(input *matchmaking.DeleteChannelHandlerParams) error {
 	token, err := aaa.TokenRepository.GetToken()
@@ -576,6 +602,35 @@ func (aaa *MatchmakingService) DeleteUserFromSessionInChannel(input *matchmaking
 	return nil
 }
 
+// Deprecated: 2022-01-10 - Please use GetStatDataShort instead.
+func (aaa *MatchmakingService) GetStatData(input *matchmaking.GetStatDataParams) (*matchmakingclientmodels.ModelsStatResumeResponse, error) {
+	token, err := aaa.TokenRepository.GetToken()
+	if err != nil {
+		return nil, err
+	}
+	ok, badRequest, unauthorized, forbidden, notFound, internalServerError, err := aaa.Client.Matchmaking.GetStatData(input, client.BearerToken(*token.AccessToken))
+	if badRequest != nil {
+		return nil, badRequest
+	}
+	if unauthorized != nil {
+		return nil, unauthorized
+	}
+	if forbidden != nil {
+		return nil, forbidden
+	}
+	if notFound != nil {
+		return nil, notFound
+	}
+	if internalServerError != nil {
+		return nil, internalServerError
+	}
+	if err != nil {
+		return nil, err
+	}
+
+	return ok.GetPayload(), nil
+}
+
 // Deprecated: 2022-01-10 - Please use SearchSessionsShort instead.
 func (aaa *MatchmakingService) SearchSessions(input *matchmaking.SearchSessionsParams) (*matchmakingclientmodels.ServiceGetSessionHistorySearchResponse, error) {
 	token, err := aaa.TokenRepository.GetToken()
@@ -769,6 +824,31 @@ func (aaa *MatchmakingService) CreateChannelHandlerShort(input *matchmaking.Crea
 	}
 
 	return created.GetPayload(), nil
+}
+
+func (aaa *MatchmakingService) GetMatchPoolMetricShort(input *matchmaking.GetMatchPoolMetricParams) (*matchmakingclientmodels.ModelsTicketMetricResultRecord, error) {
+	authInfoWriter := input.AuthInfoWriter
+	if authInfoWriter == nil {
+		security := [][]string{
+			{"bearer"},
+		}
+		authInfoWriter = auth.AuthInfoWriter(aaa.GetAuthSession(), security, "")
+	}
+	if input.RetryPolicy == nil {
+		input.RetryPolicy = &utils.Retry{
+			MaxTries:   utils.MaxTries,
+			Backoff:    utils.NewConstantBackoff(0),
+			Transport:  aaa.Client.Runtime.Transport,
+			RetryCodes: utils.RetryCodes,
+		}
+	}
+
+	ok, err := aaa.Client.Matchmaking.GetMatchPoolMetricShort(input, authInfoWriter)
+	if err != nil {
+		return nil, err
+	}
+
+	return ok.GetPayload(), nil
 }
 
 func (aaa *MatchmakingService) DeleteChannelHandlerShort(input *matchmaking.DeleteChannelHandlerParams) error {
@@ -1194,6 +1274,31 @@ func (aaa *MatchmakingService) DeleteUserFromSessionInChannelShort(input *matchm
 	}
 
 	return nil
+}
+
+func (aaa *MatchmakingService) GetStatDataShort(input *matchmaking.GetStatDataParams) (*matchmakingclientmodels.ModelsStatResumeResponse, error) {
+	authInfoWriter := input.AuthInfoWriter
+	if authInfoWriter == nil {
+		security := [][]string{
+			{"bearer"},
+		}
+		authInfoWriter = auth.AuthInfoWriter(aaa.GetAuthSession(), security, "")
+	}
+	if input.RetryPolicy == nil {
+		input.RetryPolicy = &utils.Retry{
+			MaxTries:   utils.MaxTries,
+			Backoff:    utils.NewConstantBackoff(0),
+			Transport:  aaa.Client.Runtime.Transport,
+			RetryCodes: utils.RetryCodes,
+		}
+	}
+
+	ok, err := aaa.Client.Matchmaking.GetStatDataShort(input, authInfoWriter)
+	if err != nil {
+		return nil, err
+	}
+
+	return ok.GetPayload(), nil
 }
 
 func (aaa *MatchmakingService) SearchSessionsShort(input *matchmaking.SearchSessionsParams) (*matchmakingclientmodels.ServiceGetSessionHistorySearchResponse, error) {

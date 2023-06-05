@@ -56,6 +56,8 @@ type ClientService interface {
 	KickGroupMemberPublicV1Short(params *KickGroupMemberPublicV1Params, authInfo runtime.ClientAuthInfoWriter) (*KickGroupMemberPublicV1OK, error)
 	GetUserJoinedGroupInformationPublicV2(params *GetUserJoinedGroupInformationPublicV2Params, authInfo runtime.ClientAuthInfoWriter) (*GetUserJoinedGroupInformationPublicV2OK, *GetUserJoinedGroupInformationPublicV2BadRequest, *GetUserJoinedGroupInformationPublicV2Unauthorized, *GetUserJoinedGroupInformationPublicV2Forbidden, *GetUserJoinedGroupInformationPublicV2NotFound, *GetUserJoinedGroupInformationPublicV2InternalServerError, error)
 	GetUserJoinedGroupInformationPublicV2Short(params *GetUserJoinedGroupInformationPublicV2Params, authInfo runtime.ClientAuthInfoWriter) (*GetUserJoinedGroupInformationPublicV2OK, error)
+	AdminGetUserGroupStatusInformationV2(params *AdminGetUserGroupStatusInformationV2Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetUserGroupStatusInformationV2OK, *AdminGetUserGroupStatusInformationV2Unauthorized, *AdminGetUserGroupStatusInformationV2Forbidden, *AdminGetUserGroupStatusInformationV2NotFound, *AdminGetUserGroupStatusInformationV2InternalServerError, error)
+	AdminGetUserGroupStatusInformationV2Short(params *AdminGetUserGroupStatusInformationV2Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetUserGroupStatusInformationV2OK, error)
 	AcceptGroupInvitationPublicV2(params *AcceptGroupInvitationPublicV2Params, authInfo runtime.ClientAuthInfoWriter) (*AcceptGroupInvitationPublicV2OK, *AcceptGroupInvitationPublicV2BadRequest, *AcceptGroupInvitationPublicV2Unauthorized, *AcceptGroupInvitationPublicV2Forbidden, *AcceptGroupInvitationPublicV2NotFound, *AcceptGroupInvitationPublicV2Conflict, *AcceptGroupInvitationPublicV2InternalServerError, error)
 	AcceptGroupInvitationPublicV2Short(params *AcceptGroupInvitationPublicV2Params, authInfo runtime.ClientAuthInfoWriter) (*AcceptGroupInvitationPublicV2OK, error)
 	RejectGroupInvitationPublicV2(params *RejectGroupInvitationPublicV2Params, authInfo runtime.ClientAuthInfoWriter) (*RejectGroupInvitationPublicV2OK, *RejectGroupInvitationPublicV2BadRequest, *RejectGroupInvitationPublicV2Unauthorized, *RejectGroupInvitationPublicV2Forbidden, *RejectGroupInvitationPublicV2NotFound, *RejectGroupInvitationPublicV2Conflict, *RejectGroupInvitationPublicV2InternalServerError, error)
@@ -2277,6 +2279,132 @@ func (a *Client) GetUserJoinedGroupInformationPublicV2Short(params *GetUserJoine
 	case *GetUserJoinedGroupInformationPublicV2NotFound:
 		return nil, v
 	case *GetUserJoinedGroupInformationPublicV2InternalServerError:
+		return nil, v
+
+	default:
+		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
+	}
+}
+
+/*
+Deprecated: 2022-08-10 - Use AdminGetUserGroupStatusInformationV2Short instead.
+
+AdminGetUserGroupStatusInformationV2 user group status information
+
+
+Required Permission: "ADMIN:NAMESPACE:{namespace}:GROUP:MEMBER [READ]"
+
+
+
+
+This endpoint is used to get user group status information.
+*/
+func (a *Client) AdminGetUserGroupStatusInformationV2(params *AdminGetUserGroupStatusInformationV2Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetUserGroupStatusInformationV2OK, *AdminGetUserGroupStatusInformationV2Unauthorized, *AdminGetUserGroupStatusInformationV2Forbidden, *AdminGetUserGroupStatusInformationV2NotFound, *AdminGetUserGroupStatusInformationV2InternalServerError, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewAdminGetUserGroupStatusInformationV2Params()
+	}
+
+	if params.Context == nil {
+		params.Context = context.Background()
+	}
+
+	if params.RetryPolicy != nil {
+		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "AdminGetUserGroupStatusInformationV2",
+		Method:             "GET",
+		PathPattern:        "/group/v2/admin/namespaces/{namespace}/users/{userId}/groups/{groupId}/status",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &AdminGetUserGroupStatusInformationV2Reader{formats: a.formats},
+		AuthInfo:           authInfo,
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, nil, nil, nil, nil, err
+	}
+
+	switch v := result.(type) {
+
+	case *AdminGetUserGroupStatusInformationV2OK:
+		return v, nil, nil, nil, nil, nil
+
+	case *AdminGetUserGroupStatusInformationV2Unauthorized:
+		return nil, v, nil, nil, nil, nil
+
+	case *AdminGetUserGroupStatusInformationV2Forbidden:
+		return nil, nil, v, nil, nil, nil
+
+	case *AdminGetUserGroupStatusInformationV2NotFound:
+		return nil, nil, nil, v, nil, nil
+
+	case *AdminGetUserGroupStatusInformationV2InternalServerError:
+		return nil, nil, nil, nil, v, nil
+
+	default:
+		return nil, nil, nil, nil, nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
+	}
+}
+
+/*
+AdminGetUserGroupStatusInformationV2Short user group status information
+
+
+Required Permission: "ADMIN:NAMESPACE:{namespace}:GROUP:MEMBER [READ]"
+
+
+
+
+This endpoint is used to get user group status information.
+*/
+func (a *Client) AdminGetUserGroupStatusInformationV2Short(params *AdminGetUserGroupStatusInformationV2Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetUserGroupStatusInformationV2OK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewAdminGetUserGroupStatusInformationV2Params()
+	}
+
+	if params.Context == nil {
+		params.Context = context.Background()
+	}
+
+	if params.RetryPolicy != nil {
+		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "AdminGetUserGroupStatusInformationV2",
+		Method:             "GET",
+		PathPattern:        "/group/v2/admin/namespaces/{namespace}/users/{userId}/groups/{groupId}/status",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &AdminGetUserGroupStatusInformationV2Reader{formats: a.formats},
+		AuthInfo:           authInfo,
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+
+	switch v := result.(type) {
+
+	case *AdminGetUserGroupStatusInformationV2OK:
+		return v, nil
+	case *AdminGetUserGroupStatusInformationV2Unauthorized:
+		return nil, v
+	case *AdminGetUserGroupStatusInformationV2Forbidden:
+		return nil, v
+	case *AdminGetUserGroupStatusInformationV2NotFound:
+		return nil, v
+	case *AdminGetUserGroupStatusInformationV2InternalServerError:
 		return nil, v
 
 	default:

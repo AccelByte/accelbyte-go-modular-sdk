@@ -73,10 +73,9 @@ func NewServerHistoryOK() *ServerHistoryOK {
 	return &ServerHistoryOK{}
 }
 
-/*
-ServerHistoryOK handles this case with default header values.
+/*ServerHistoryOK handles this case with default header values.
 
-	success
+  success
 */
 type ServerHistoryOK struct {
 	Payload *amsclientmodels.APIFleetServerHistoryResponse
@@ -127,10 +126,9 @@ func NewServerHistoryBadRequest() *ServerHistoryBadRequest {
 	return &ServerHistoryBadRequest{}
 }
 
-/*
-ServerHistoryBadRequest handles this case with default header values.
+/*ServerHistoryBadRequest handles this case with default header values.
 
-	bad request
+  bad request
 */
 type ServerHistoryBadRequest struct {
 	Payload *amsclientmodels.ResponseErrorResponse
@@ -181,10 +179,9 @@ func NewServerHistoryUnauthorized() *ServerHistoryUnauthorized {
 	return &ServerHistoryUnauthorized{}
 }
 
-/*
-ServerHistoryUnauthorized handles this case with default header values.
+/*ServerHistoryUnauthorized handles this case with default header values.
 
-	no authorization provided
+  no authorization provided
 */
 type ServerHistoryUnauthorized struct {
 	Payload *amsclientmodels.ResponseErrorResponse
@@ -235,10 +232,9 @@ func NewServerHistoryForbidden() *ServerHistoryForbidden {
 	return &ServerHistoryForbidden{}
 }
 
-/*
-ServerHistoryForbidden handles this case with default header values.
+/*ServerHistoryForbidden handles this case with default header values.
 
-	insufficient permissions
+  insufficient permissions
 */
 type ServerHistoryForbidden struct {
 	Payload *amsclientmodels.ResponseErrorResponse
@@ -289,10 +285,9 @@ func NewServerHistoryInternalServerError() *ServerHistoryInternalServerError {
 	return &ServerHistoryInternalServerError{}
 }
 
-/*
-ServerHistoryInternalServerError handles this case with default header values.
+/*ServerHistoryInternalServerError handles this case with default header values.
 
-	internal server error
+  internal server error
 */
 type ServerHistoryInternalServerError struct {
 	Payload *amsclientmodels.ResponseErrorResponse

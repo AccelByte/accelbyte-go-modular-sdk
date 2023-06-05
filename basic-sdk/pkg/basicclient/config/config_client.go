@@ -38,6 +38,8 @@ type ClientService interface {
 	DeleteConfig1Short(params *DeleteConfig1Params, authInfo runtime.ClientAuthInfoWriter) (*DeleteConfig1NoContent, error)
 	UpdateConfig1(params *UpdateConfig1Params, authInfo runtime.ClientAuthInfoWriter) (*UpdateConfig1Created, *UpdateConfig1BadRequest, *UpdateConfig1Unauthorized, *UpdateConfig1Forbidden, *UpdateConfig1NotFound, error)
 	UpdateConfig1Short(params *UpdateConfig1Params, authInfo runtime.ClientAuthInfoWriter) (*UpdateConfig1Created, error)
+	GetPublisherConfig(params *GetPublisherConfigParams, authInfo runtime.ClientAuthInfoWriter) (*GetPublisherConfigOK, *GetPublisherConfigBadRequest, *GetPublisherConfigUnauthorized, *GetPublisherConfigForbidden, *GetPublisherConfigNotFound, error)
+	GetPublisherConfigShort(params *GetPublisherConfigParams, authInfo runtime.ClientAuthInfoWriter) (*GetPublisherConfigOK, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -49,7 +51,7 @@ CreateConfig create a config
 Create a config.
 Other detail info:
 
-  * Required permission : resource= "ADMIN:NAMESPACE:{namespace}:CONFIG" , action=1 (CREATE)
+  * Required permission : resource= "ADMIN:NAMESPACE:{namespace}:BASIC:CONFIG" , action=1 (CREATE)
   *  Returns : created config
 */
 func (a *Client) CreateConfig(params *CreateConfigParams, authInfo runtime.ClientAuthInfoWriter) (*CreateConfigCreated, *CreateConfigBadRequest, *CreateConfigUnauthorized, *CreateConfigForbidden, *CreateConfigConflict, error) {
@@ -110,7 +112,7 @@ CreateConfigShort create a config
 Create a config.
 Other detail info:
 
-  * Required permission : resource= "ADMIN:NAMESPACE:{namespace}:CONFIG" , action=1 (CREATE)
+  * Required permission : resource= "ADMIN:NAMESPACE:{namespace}:BASIC:CONFIG" , action=1 (CREATE)
   *  Returns : created config
 */
 func (a *Client) CreateConfigShort(params *CreateConfigParams, authInfo runtime.ClientAuthInfoWriter) (*CreateConfigCreated, error) {
@@ -169,7 +171,7 @@ GetConfig1 get a config
 Get a config.
 Other detail info:
 
-  * Required permission : resource= "ADMIN:NAMESPACE:{namespace}:CONFIG" , action=2 (READ)
+  * Required permission : resource= "ADMIN:NAMESPACE:{namespace}:BASIC:CONFIG" , action=2 (READ)
   *  Returns : config
 */
 func (a *Client) GetConfig1(params *GetConfig1Params, authInfo runtime.ClientAuthInfoWriter) (*GetConfig1OK, *GetConfig1BadRequest, *GetConfig1Unauthorized, *GetConfig1Forbidden, *GetConfig1NotFound, error) {
@@ -230,7 +232,7 @@ GetConfig1Short get a config
 Get a config.
 Other detail info:
 
-  * Required permission : resource= "ADMIN:NAMESPACE:{namespace}:CONFIG" , action=2 (READ)
+  * Required permission : resource= "ADMIN:NAMESPACE:{namespace}:BASIC:CONFIG" , action=2 (READ)
   *  Returns : config
 */
 func (a *Client) GetConfig1Short(params *GetConfig1Params, authInfo runtime.ClientAuthInfoWriter) (*GetConfig1OK, error) {
@@ -289,7 +291,7 @@ DeleteConfig1 delete a config
 Delete a config.
 Other detail info:
 
-  * Required permission : resource= "ADMIN:NAMESPACE:{namespace}:CONFIG" , action=8 (DELETE)
+  * Required permission : resource= "ADMIN:NAMESPACE:{namespace}:BASIC:CONFIG" , action=8 (DELETE)
   *  Returns : created config
 */
 func (a *Client) DeleteConfig1(params *DeleteConfig1Params, authInfo runtime.ClientAuthInfoWriter) (*DeleteConfig1NoContent, *DeleteConfig1BadRequest, *DeleteConfig1Unauthorized, *DeleteConfig1Forbidden, *DeleteConfig1NotFound, error) {
@@ -350,7 +352,7 @@ DeleteConfig1Short delete a config
 Delete a config.
 Other detail info:
 
-  * Required permission : resource= "ADMIN:NAMESPACE:{namespace}:CONFIG" , action=8 (DELETE)
+  * Required permission : resource= "ADMIN:NAMESPACE:{namespace}:BASIC:CONFIG" , action=8 (DELETE)
   *  Returns : created config
 */
 func (a *Client) DeleteConfig1Short(params *DeleteConfig1Params, authInfo runtime.ClientAuthInfoWriter) (*DeleteConfig1NoContent, error) {
@@ -409,7 +411,7 @@ UpdateConfig1 update a config
 Update a config.
 Other detail info:
 
-  * Required permission : resource= "ADMIN:NAMESPACE:{namespace}:CONFIG" , action=4 (UPDATE)
+  * Required permission : resource= "ADMIN:NAMESPACE:{namespace}:BASIC:CONFIG" , action=4 (UPDATE)
   *  Returns : created config
 */
 func (a *Client) UpdateConfig1(params *UpdateConfig1Params, authInfo runtime.ClientAuthInfoWriter) (*UpdateConfig1Created, *UpdateConfig1BadRequest, *UpdateConfig1Unauthorized, *UpdateConfig1Forbidden, *UpdateConfig1NotFound, error) {
@@ -470,7 +472,7 @@ UpdateConfig1Short update a config
 Update a config.
 Other detail info:
 
-  * Required permission : resource= "ADMIN:NAMESPACE:{namespace}:CONFIG" , action=4 (UPDATE)
+  * Required permission : resource= "ADMIN:NAMESPACE:{namespace}:BASIC:CONFIG" , action=4 (UPDATE)
   *  Returns : created config
 */
 func (a *Client) UpdateConfig1Short(params *UpdateConfig1Params, authInfo runtime.ClientAuthInfoWriter) (*UpdateConfig1Created, error) {
@@ -515,6 +517,128 @@ func (a *Client) UpdateConfig1Short(params *UpdateConfig1Params, authInfo runtim
 	case *UpdateConfig1Forbidden:
 		return nil, v
 	case *UpdateConfig1NotFound:
+		return nil, v
+
+	default:
+		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
+	}
+}
+
+/*
+Deprecated: 2022-08-10 - Use GetPublisherConfigShort instead.
+
+GetPublisherConfig get a publisher config
+Get a publisher config.
+It will return a publisher namespace config of the given namespace and key.
+Other detail info:
+
+  * Required permission : resource= "ADMIN:NAMESPACE:{namespace}:BASIC:CONFIG" , action=2 (READ)
+  *  Returns : config
+*/
+func (a *Client) GetPublisherConfig(params *GetPublisherConfigParams, authInfo runtime.ClientAuthInfoWriter) (*GetPublisherConfigOK, *GetPublisherConfigBadRequest, *GetPublisherConfigUnauthorized, *GetPublisherConfigForbidden, *GetPublisherConfigNotFound, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewGetPublisherConfigParams()
+	}
+
+	if params.Context == nil {
+		params.Context = context.Background()
+	}
+
+	if params.RetryPolicy != nil {
+		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "getPublisherConfig",
+		Method:             "GET",
+		PathPattern:        "/basic/v1/admin/namespaces/{namespace}/publisher/configs/{configKey}",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetPublisherConfigReader{formats: a.formats},
+		AuthInfo:           authInfo,
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, nil, nil, nil, nil, err
+	}
+
+	switch v := result.(type) {
+
+	case *GetPublisherConfigOK:
+		return v, nil, nil, nil, nil, nil
+
+	case *GetPublisherConfigBadRequest:
+		return nil, v, nil, nil, nil, nil
+
+	case *GetPublisherConfigUnauthorized:
+		return nil, nil, v, nil, nil, nil
+
+	case *GetPublisherConfigForbidden:
+		return nil, nil, nil, v, nil, nil
+
+	case *GetPublisherConfigNotFound:
+		return nil, nil, nil, nil, v, nil
+
+	default:
+		return nil, nil, nil, nil, nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
+	}
+}
+
+/*
+GetPublisherConfigShort get a publisher config
+Get a publisher config.
+It will return a publisher namespace config of the given namespace and key.
+Other detail info:
+
+  * Required permission : resource= "ADMIN:NAMESPACE:{namespace}:BASIC:CONFIG" , action=2 (READ)
+  *  Returns : config
+*/
+func (a *Client) GetPublisherConfigShort(params *GetPublisherConfigParams, authInfo runtime.ClientAuthInfoWriter) (*GetPublisherConfigOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewGetPublisherConfigParams()
+	}
+
+	if params.Context == nil {
+		params.Context = context.Background()
+	}
+
+	if params.RetryPolicy != nil {
+		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "getPublisherConfig",
+		Method:             "GET",
+		PathPattern:        "/basic/v1/admin/namespaces/{namespace}/publisher/configs/{configKey}",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetPublisherConfigReader{formats: a.formats},
+		AuthInfo:           authInfo,
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+
+	switch v := result.(type) {
+
+	case *GetPublisherConfigOK:
+		return v, nil
+	case *GetPublisherConfigBadRequest:
+		return nil, v
+	case *GetPublisherConfigUnauthorized:
+		return nil, v
+	case *GetPublisherConfigForbidden:
+		return nil, v
+	case *GetPublisherConfigNotFound:
 		return nil, v
 
 	default:

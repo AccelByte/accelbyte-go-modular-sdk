@@ -23,8 +23,7 @@ type ApimodelsDSInformationResponse struct {
 	RequestedAt *string `json:"RequestedAt"`
 
 	// server
-	// Required: true
-	Server *ModelsGameServer `json:"Server"`
+	Server *ModelsGameServer `json:"Server,omitempty"`
 
 	// status
 	// Required: true
@@ -40,9 +39,6 @@ func (m *ApimodelsDSInformationResponse) Validate(formats strfmt.Registry) error
 	var res []error
 
 	if err := m.validateRequestedAt(formats); err != nil {
-		res = append(res, err)
-	}
-	if err := m.validateServer(formats); err != nil {
 		res = append(res, err)
 	}
 	if err := m.validateStatus(formats); err != nil {
@@ -62,24 +58,6 @@ func (m *ApimodelsDSInformationResponse) validateRequestedAt(formats strfmt.Regi
 
 	if err := validate.Required("RequestedAt", "body", m.RequestedAt); err != nil {
 		return err
-	}
-
-	return nil
-}
-
-func (m *ApimodelsDSInformationResponse) validateServer(formats strfmt.Registry) error {
-
-	if err := validate.Required("Server", "body", m.Server); err != nil {
-		return err
-	}
-
-	if m.Server != nil {
-		if err := m.Server.Validate(formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
-				return ve.ValidateName("Server")
-			}
-			return err
-		}
 	}
 
 	return nil

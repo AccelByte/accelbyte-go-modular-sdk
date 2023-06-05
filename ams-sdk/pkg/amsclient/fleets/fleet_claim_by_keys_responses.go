@@ -79,10 +79,9 @@ func NewFleetClaimByKeysOK() *FleetClaimByKeysOK {
 	return &FleetClaimByKeysOK{}
 }
 
-/*
-FleetClaimByKeysOK handles this case with default header values.
+/*FleetClaimByKeysOK handles this case with default header values.
 
-	success
+  success
 */
 type FleetClaimByKeysOK struct {
 	Payload *amsclientmodels.APIFleetClaimResponse
@@ -133,10 +132,9 @@ func NewFleetClaimByKeysBadRequest() *FleetClaimByKeysBadRequest {
 	return &FleetClaimByKeysBadRequest{}
 }
 
-/*
-FleetClaimByKeysBadRequest handles this case with default header values.
+/*FleetClaimByKeysBadRequest handles this case with default header values.
 
-	bad request
+  bad request
 */
 type FleetClaimByKeysBadRequest struct {
 	Payload *amsclientmodels.ResponseErrorResponse
@@ -187,10 +185,9 @@ func NewFleetClaimByKeysUnauthorized() *FleetClaimByKeysUnauthorized {
 	return &FleetClaimByKeysUnauthorized{}
 }
 
-/*
-FleetClaimByKeysUnauthorized handles this case with default header values.
+/*FleetClaimByKeysUnauthorized handles this case with default header values.
 
-	no authorization provided
+  no authorization provided
 */
 type FleetClaimByKeysUnauthorized struct {
 	Payload *amsclientmodels.ResponseErrorResponse
@@ -241,10 +238,9 @@ func NewFleetClaimByKeysForbidden() *FleetClaimByKeysForbidden {
 	return &FleetClaimByKeysForbidden{}
 }
 
-/*
-FleetClaimByKeysForbidden handles this case with default header values.
+/*FleetClaimByKeysForbidden handles this case with default header values.
 
-	insufficient permissions
+  insufficient permissions
 */
 type FleetClaimByKeysForbidden struct {
 	Payload *amsclientmodels.ResponseErrorResponse
@@ -295,10 +291,9 @@ func NewFleetClaimByKeysNotFound() *FleetClaimByKeysNotFound {
 	return &FleetClaimByKeysNotFound{}
 }
 
-/*
-FleetClaimByKeysNotFound handles this case with default header values.
+/*FleetClaimByKeysNotFound handles this case with default header values.
 
-	fleet not found
+  fleet not found
 */
 type FleetClaimByKeysNotFound struct {
 	Payload *amsclientmodels.ResponseErrorResponse
@@ -349,10 +344,9 @@ func NewFleetClaimByKeysInternalServerError() *FleetClaimByKeysInternalServerErr
 	return &FleetClaimByKeysInternalServerError{}
 }
 
-/*
-FleetClaimByKeysInternalServerError handles this case with default header values.
+/*FleetClaimByKeysInternalServerError handles this case with default header values.
 
-	internal server error
+  internal server error
 */
 type FleetClaimByKeysInternalServerError struct {
 	Payload *amsclientmodels.ResponseErrorResponse

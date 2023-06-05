@@ -49,6 +49,8 @@ type ClientService interface {
 	AdminAddUserRoleV4Short(params *AdminAddUserRoleV4Params, authInfo runtime.ClientAuthInfoWriter) (*AdminAddUserRoleV4OK, error)
 	AdminRemoveUserRoleV4(params *AdminRemoveUserRoleV4Params, authInfo runtime.ClientAuthInfoWriter) (*AdminRemoveUserRoleV4NoContent, *AdminRemoveUserRoleV4BadRequest, *AdminRemoveUserRoleV4Unauthorized, *AdminRemoveUserRoleV4Forbidden, *AdminRemoveUserRoleV4NotFound, *AdminRemoveUserRoleV4UnprocessableEntity, *AdminRemoveUserRoleV4InternalServerError, error)
 	AdminRemoveUserRoleV4Short(params *AdminRemoveUserRoleV4Params, authInfo runtime.ClientAuthInfoWriter) (*AdminRemoveUserRoleV4NoContent, error)
+	AdminInviteUserNewV4(params *AdminInviteUserNewV4Params, authInfo runtime.ClientAuthInfoWriter) (*AdminInviteUserNewV4Created, *AdminInviteUserNewV4BadRequest, *AdminInviteUserNewV4Unauthorized, *AdminInviteUserNewV4Forbidden, *AdminInviteUserNewV4NotFound, *AdminInviteUserNewV4Conflict, *AdminInviteUserNewV4UnprocessableEntity, *AdminInviteUserNewV4InternalServerError, error)
+	AdminInviteUserNewV4Short(params *AdminInviteUserNewV4Params, authInfo runtime.ClientAuthInfoWriter) (*AdminInviteUserNewV4Created, error)
 	AdminUpdateMyUserV4(params *AdminUpdateMyUserV4Params, authInfo runtime.ClientAuthInfoWriter) (*AdminUpdateMyUserV4OK, *AdminUpdateMyUserV4BadRequest, *AdminUpdateMyUserV4Unauthorized, *AdminUpdateMyUserV4Conflict, *AdminUpdateMyUserV4InternalServerError, error)
 	AdminUpdateMyUserV4Short(params *AdminUpdateMyUserV4Params, authInfo runtime.ClientAuthInfoWriter) (*AdminUpdateMyUserV4OK, error)
 	AdminDisableMyAuthenticatorV4(params *AdminDisableMyAuthenticatorV4Params, authInfo runtime.ClientAuthInfoWriter) (*AdminDisableMyAuthenticatorV4NoContent, *AdminDisableMyAuthenticatorV4BadRequest, *AdminDisableMyAuthenticatorV4Unauthorized, *AdminDisableMyAuthenticatorV4Forbidden, *AdminDisableMyAuthenticatorV4NotFound, *AdminDisableMyAuthenticatorV4InternalServerError, error)
@@ -1305,6 +1307,161 @@ func (a *Client) AdminRemoveUserRoleV4Short(params *AdminRemoveUserRoleV4Params,
 	case *AdminRemoveUserRoleV4UnprocessableEntity:
 		return nil, v
 	case *AdminRemoveUserRoleV4InternalServerError:
+		return nil, v
+
+	default:
+		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
+	}
+}
+
+/*
+Deprecated: 2022-08-10 - Use AdminInviteUserNewV4Short instead.
+
+AdminInviteUserNewV4 admin invite user v4
+Required permission 'ADMIN:USER:INVITE [CREATE]
+
+Use this endpoint to invite admin or non-admin user and assign role to them. The role must be scoped to namespace. An admin user can only
+assign role with namespaces that the admin user has required permission which is same as the required permission of endpoint: [AdminAddUserRoleV4].
+
+Detail request body :
+- Email Address is required, List of email addresses that will be invited
+- isAdmin is required, true if user is admin, false if user is not admin
+- Namespace is optional. Only works on multi tenant mode,
+if not specified then it will be assigned Publisher namespace,
+if specified, it will become that studio/publisher where user is invited to.
+- Role is optional, if not specified then it will only assign User role.
+- Assigned Namespaces is optional, List of namespaces which the Role will be assigned to the user, only works when Role is not empty.
+
+The invited admin will also assigned with "User" role by default.
+*/
+func (a *Client) AdminInviteUserNewV4(params *AdminInviteUserNewV4Params, authInfo runtime.ClientAuthInfoWriter) (*AdminInviteUserNewV4Created, *AdminInviteUserNewV4BadRequest, *AdminInviteUserNewV4Unauthorized, *AdminInviteUserNewV4Forbidden, *AdminInviteUserNewV4NotFound, *AdminInviteUserNewV4Conflict, *AdminInviteUserNewV4UnprocessableEntity, *AdminInviteUserNewV4InternalServerError, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewAdminInviteUserNewV4Params()
+	}
+
+	if params.Context == nil {
+		params.Context = context.Background()
+	}
+
+	if params.RetryPolicy != nil {
+		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "AdminInviteUserNewV4",
+		Method:             "POST",
+		PathPattern:        "/iam/v4/admin/users/invite",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &AdminInviteUserNewV4Reader{formats: a.formats},
+		AuthInfo:           authInfo,
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, nil, nil, nil, nil, nil, nil, nil, err
+	}
+
+	switch v := result.(type) {
+
+	case *AdminInviteUserNewV4Created:
+		return v, nil, nil, nil, nil, nil, nil, nil, nil
+
+	case *AdminInviteUserNewV4BadRequest:
+		return nil, v, nil, nil, nil, nil, nil, nil, nil
+
+	case *AdminInviteUserNewV4Unauthorized:
+		return nil, nil, v, nil, nil, nil, nil, nil, nil
+
+	case *AdminInviteUserNewV4Forbidden:
+		return nil, nil, nil, v, nil, nil, nil, nil, nil
+
+	case *AdminInviteUserNewV4NotFound:
+		return nil, nil, nil, nil, v, nil, nil, nil, nil
+
+	case *AdminInviteUserNewV4Conflict:
+		return nil, nil, nil, nil, nil, v, nil, nil, nil
+
+	case *AdminInviteUserNewV4UnprocessableEntity:
+		return nil, nil, nil, nil, nil, nil, v, nil, nil
+
+	case *AdminInviteUserNewV4InternalServerError:
+		return nil, nil, nil, nil, nil, nil, nil, v, nil
+
+	default:
+		return nil, nil, nil, nil, nil, nil, nil, nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
+	}
+}
+
+/*
+AdminInviteUserNewV4Short admin invite user v4
+Required permission 'ADMIN:USER:INVITE [CREATE]
+
+Use this endpoint to invite admin or non-admin user and assign role to them. The role must be scoped to namespace. An admin user can only
+assign role with namespaces that the admin user has required permission which is same as the required permission of endpoint: [AdminAddUserRoleV4].
+
+Detail request body :
+- Email Address is required, List of email addresses that will be invited
+- isAdmin is required, true if user is admin, false if user is not admin
+- Namespace is optional. Only works on multi tenant mode,
+if not specified then it will be assigned Publisher namespace,
+if specified, it will become that studio/publisher where user is invited to.
+- Role is optional, if not specified then it will only assign User role.
+- Assigned Namespaces is optional, List of namespaces which the Role will be assigned to the user, only works when Role is not empty.
+
+The invited admin will also assigned with "User" role by default.
+*/
+func (a *Client) AdminInviteUserNewV4Short(params *AdminInviteUserNewV4Params, authInfo runtime.ClientAuthInfoWriter) (*AdminInviteUserNewV4Created, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewAdminInviteUserNewV4Params()
+	}
+
+	if params.Context == nil {
+		params.Context = context.Background()
+	}
+
+	if params.RetryPolicy != nil {
+		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "AdminInviteUserNewV4",
+		Method:             "POST",
+		PathPattern:        "/iam/v4/admin/users/invite",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &AdminInviteUserNewV4Reader{formats: a.formats},
+		AuthInfo:           authInfo,
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+
+	switch v := result.(type) {
+
+	case *AdminInviteUserNewV4Created:
+		return v, nil
+	case *AdminInviteUserNewV4BadRequest:
+		return nil, v
+	case *AdminInviteUserNewV4Unauthorized:
+		return nil, v
+	case *AdminInviteUserNewV4Forbidden:
+		return nil, v
+	case *AdminInviteUserNewV4NotFound:
+		return nil, v
+	case *AdminInviteUserNewV4Conflict:
+		return nil, v
+	case *AdminInviteUserNewV4UnprocessableEntity:
+		return nil, v
+	case *AdminInviteUserNewV4InternalServerError:
 		return nil, v
 
 	default:
@@ -3219,15 +3376,17 @@ Use this endpoint to invite admin or non-admin user and assign role to them. The
 assign role with namespaces that the admin user has required permission which is same as the required permission of endpoint: [AdminAddUserRoleV4].
 
 Detail request body :
-- Assigned Namespaces is required, List of namespaces that will be assigned to the user.
 - Email Address is required, List of email addresses that will be invited
 - isAdmin is required, true if user is admin, false if user is not admin
 - Namespace is optional. Only works on multi tenant mode,
 if not specified then it will be assigned Publisher namespace,
 if specified, it will become that studio/publisher where user is invited to.
 - Role is optional, if not specified then it will only assign User role.
+- Assigned Namespaces is optional, List of namespaces which the Role will be assigned to the user, only works when Role is not empty.
 
 The invited admin will also assigned with "User" role by default.
+
+Substitute endpoint: /iam/v4/admin/users/invite
 */
 func (a *Client) AdminInviteUserV4(params *AdminInviteUserV4Params, authInfo runtime.ClientAuthInfoWriter) (*AdminInviteUserV4Created, *AdminInviteUserV4BadRequest, *AdminInviteUserV4Unauthorized, *AdminInviteUserV4Forbidden, *AdminInviteUserV4NotFound, *AdminInviteUserV4Conflict, *AdminInviteUserV4UnprocessableEntity, *AdminInviteUserV4InternalServerError, error) {
 	// TODO: Validate the params before sending
@@ -3299,15 +3458,17 @@ Use this endpoint to invite admin or non-admin user and assign role to them. The
 assign role with namespaces that the admin user has required permission which is same as the required permission of endpoint: [AdminAddUserRoleV4].
 
 Detail request body :
-- Assigned Namespaces is required, List of namespaces that will be assigned to the user.
 - Email Address is required, List of email addresses that will be invited
 - isAdmin is required, true if user is admin, false if user is not admin
 - Namespace is optional. Only works on multi tenant mode,
 if not specified then it will be assigned Publisher namespace,
 if specified, it will become that studio/publisher where user is invited to.
 - Role is optional, if not specified then it will only assign User role.
+- Assigned Namespaces is optional, List of namespaces which the Role will be assigned to the user, only works when Role is not empty.
 
 The invited admin will also assigned with "User" role by default.
+
+Substitute endpoint: /iam/v4/admin/users/invite
 */
 func (a *Client) AdminInviteUserV4Short(params *AdminInviteUserV4Params, authInfo runtime.ClientAuthInfoWriter) (*AdminInviteUserV4Created, error) {
 	// TODO: Validate the params before sending

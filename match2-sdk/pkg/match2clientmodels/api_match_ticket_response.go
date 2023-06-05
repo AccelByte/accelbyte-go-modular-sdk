@@ -21,6 +21,11 @@ type APIMatchTicketResponse struct {
 	// matchticketid
 	// Required: true
 	MatchTicketID *string `json:"matchTicketID"`
+
+	// queuetime
+	// Required: true
+	// Format: int32
+	QueueTime *int32 `json:"queueTime"`
 }
 
 // Validate validates this Api match ticket response
@@ -28,6 +33,9 @@ func (m *APIMatchTicketResponse) Validate(formats strfmt.Registry) error {
 	var res []error
 
 	if err := m.validateMatchTicketID(formats); err != nil {
+		res = append(res, err)
+	}
+	if err := m.validateQueueTime(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -40,6 +48,15 @@ func (m *APIMatchTicketResponse) Validate(formats strfmt.Registry) error {
 func (m *APIMatchTicketResponse) validateMatchTicketID(formats strfmt.Registry) error {
 
 	if err := validate.Required("matchTicketID", "body", m.MatchTicketID); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *APIMatchTicketResponse) validateQueueTime(formats strfmt.Registry) error {
+
+	if err := validate.Required("queueTime", "body", m.QueueTime); err != nil {
 		return err
 	}
 

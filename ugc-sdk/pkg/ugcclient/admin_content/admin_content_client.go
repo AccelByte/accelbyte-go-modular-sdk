@@ -30,11 +30,11 @@ type Client struct {
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	AdminUploadContentDirect(params *AdminUploadContentDirectParams, authInfo runtime.ClientAuthInfoWriter) (*AdminUploadContentDirectCreated, *AdminUploadContentDirectBadRequest, *AdminUploadContentDirectUnauthorized, *AdminUploadContentDirectInternalServerError, error)
+	AdminUploadContentDirect(params *AdminUploadContentDirectParams, authInfo runtime.ClientAuthInfoWriter) (*AdminUploadContentDirectCreated, *AdminUploadContentDirectBadRequest, *AdminUploadContentDirectUnauthorized, *AdminUploadContentDirectConflict, *AdminUploadContentDirectInternalServerError, error)
 	AdminUploadContentDirectShort(params *AdminUploadContentDirectParams, authInfo runtime.ClientAuthInfoWriter) (*AdminUploadContentDirectCreated, error)
-	AdminUploadContentS3(params *AdminUploadContentS3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminUploadContentS3Created, *AdminUploadContentS3BadRequest, *AdminUploadContentS3Unauthorized, *AdminUploadContentS3InternalServerError, error)
+	AdminUploadContentS3(params *AdminUploadContentS3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminUploadContentS3Created, *AdminUploadContentS3BadRequest, *AdminUploadContentS3Unauthorized, *AdminUploadContentS3Conflict, *AdminUploadContentS3InternalServerError, error)
 	AdminUploadContentS3Short(params *AdminUploadContentS3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminUploadContentS3Created, error)
-	SingleAdminUpdateContentS3(params *SingleAdminUpdateContentS3Params, authInfo runtime.ClientAuthInfoWriter) (*SingleAdminUpdateContentS3OK, *SingleAdminUpdateContentS3BadRequest, *SingleAdminUpdateContentS3Unauthorized, *SingleAdminUpdateContentS3NotFound, *SingleAdminUpdateContentS3InternalServerError, error)
+	SingleAdminUpdateContentS3(params *SingleAdminUpdateContentS3Params, authInfo runtime.ClientAuthInfoWriter) (*SingleAdminUpdateContentS3OK, *SingleAdminUpdateContentS3BadRequest, *SingleAdminUpdateContentS3Unauthorized, *SingleAdminUpdateContentS3NotFound, *SingleAdminUpdateContentS3Conflict, *SingleAdminUpdateContentS3InternalServerError, error)
 	SingleAdminUpdateContentS3Short(params *SingleAdminUpdateContentS3Params, authInfo runtime.ClientAuthInfoWriter) (*SingleAdminUpdateContentS3OK, error)
 	AdminSearchChannelSpecificContent(params *AdminSearchChannelSpecificContentParams, authInfo runtime.ClientAuthInfoWriter) (*AdminSearchChannelSpecificContentOK, *AdminSearchChannelSpecificContentUnauthorized, *AdminSearchChannelSpecificContentNotFound, *AdminSearchChannelSpecificContentInternalServerError, error)
 	AdminSearchChannelSpecificContentShort(params *AdminSearchChannelSpecificContentParams, authInfo runtime.ClientAuthInfoWriter) (*AdminSearchChannelSpecificContentOK, error)
@@ -60,7 +60,7 @@ type ClientService interface {
 	AdminUploadContentScreenshotShort(params *AdminUploadContentScreenshotParams, authInfo runtime.ClientAuthInfoWriter) (*AdminUploadContentScreenshotCreated, error)
 	AdminDeleteContentScreenshot(params *AdminDeleteContentScreenshotParams, authInfo runtime.ClientAuthInfoWriter) (*AdminDeleteContentScreenshotNoContent, *AdminDeleteContentScreenshotBadRequest, *AdminDeleteContentScreenshotUnauthorized, *AdminDeleteContentScreenshotNotFound, *AdminDeleteContentScreenshotInternalServerError, error)
 	AdminDeleteContentScreenshotShort(params *AdminDeleteContentScreenshotParams, authInfo runtime.ClientAuthInfoWriter) (*AdminDeleteContentScreenshotNoContent, error)
-	AdminUpdateContentS3(params *AdminUpdateContentS3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminUpdateContentS3OK, *AdminUpdateContentS3BadRequest, *AdminUpdateContentS3Unauthorized, *AdminUpdateContentS3NotFound, *AdminUpdateContentS3InternalServerError, error)
+	AdminUpdateContentS3(params *AdminUpdateContentS3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminUpdateContentS3OK, *AdminUpdateContentS3BadRequest, *AdminUpdateContentS3Unauthorized, *AdminUpdateContentS3NotFound, *AdminUpdateContentS3Conflict, *AdminUpdateContentS3InternalServerError, error)
 	AdminUpdateContentS3Short(params *AdminUpdateContentS3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminUpdateContentS3OK, error)
 	AdminUpdateContentDirect(params *AdminUpdateContentDirectParams, authInfo runtime.ClientAuthInfoWriter) (*AdminUpdateContentDirectOK, *AdminUpdateContentDirectBadRequest, *AdminUpdateContentDirectUnauthorized, *AdminUpdateContentDirectNotFound, *AdminUpdateContentDirectInternalServerError, error)
 	AdminUpdateContentDirectShort(params *AdminUpdateContentDirectParams, authInfo runtime.ClientAuthInfoWriter) (*AdminUpdateContentDirectOK, error)
@@ -82,7 +82,7 @@ Required permission ADMIN:NAMESPACE:{namespace}:USER:{userId}:CONTENT [CREATE].
 
 All request body are required except preview, tags and customAttributes.
 */
-func (a *Client) AdminUploadContentDirect(params *AdminUploadContentDirectParams, authInfo runtime.ClientAuthInfoWriter) (*AdminUploadContentDirectCreated, *AdminUploadContentDirectBadRequest, *AdminUploadContentDirectUnauthorized, *AdminUploadContentDirectInternalServerError, error) {
+func (a *Client) AdminUploadContentDirect(params *AdminUploadContentDirectParams, authInfo runtime.ClientAuthInfoWriter) (*AdminUploadContentDirectCreated, *AdminUploadContentDirectBadRequest, *AdminUploadContentDirectUnauthorized, *AdminUploadContentDirectConflict, *AdminUploadContentDirectInternalServerError, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminUploadContentDirectParams()
@@ -110,25 +110,28 @@ func (a *Client) AdminUploadContentDirect(params *AdminUploadContentDirectParams
 		Client:             params.HTTPClient,
 	})
 	if err != nil {
-		return nil, nil, nil, nil, err
+		return nil, nil, nil, nil, nil, err
 	}
 
 	switch v := result.(type) {
 
 	case *AdminUploadContentDirectCreated:
-		return v, nil, nil, nil, nil
+		return v, nil, nil, nil, nil, nil
 
 	case *AdminUploadContentDirectBadRequest:
-		return nil, v, nil, nil, nil
+		return nil, v, nil, nil, nil, nil
 
 	case *AdminUploadContentDirectUnauthorized:
-		return nil, nil, v, nil, nil
+		return nil, nil, v, nil, nil, nil
+
+	case *AdminUploadContentDirectConflict:
+		return nil, nil, nil, v, nil, nil
 
 	case *AdminUploadContentDirectInternalServerError:
-		return nil, nil, nil, v, nil
+		return nil, nil, nil, nil, v, nil
 
 	default:
-		return nil, nil, nil, nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
+		return nil, nil, nil, nil, nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
 	}
 }
 
@@ -177,6 +180,8 @@ func (a *Client) AdminUploadContentDirectShort(params *AdminUploadContentDirectP
 		return nil, v
 	case *AdminUploadContentDirectUnauthorized:
 		return nil, v
+	case *AdminUploadContentDirectConflict:
+		return nil, v
 	case *AdminUploadContentDirectInternalServerError:
 		return nil, v
 
@@ -191,15 +196,21 @@ Deprecated: 2022-08-10 - Use AdminUploadContentS3Short instead.
 AdminUploadContentS3 upload content to s3 bucket
 Required permission ADMIN:NAMESPACE:{namespace}:USER:{userId}:CONTENT [CREATE].
 
-All request body are required except preview, tags, contentType and customAttributes.
-contentType values is used to enforce the Content-Type header needed by the client when uploading the content using the S3 presigned URL.
-If not specified, it will use fileExtension value.
+All request body are required except `preview`, `tags`, `contentType`, `customAttributes` and `shareCode`.
+
+`contentType` values is used to enforce the Content-Type header needed by the client when uploading the content using the S3 presigned URL. If not specified, it will use fileExtension value.
+
+`shareCode` format should follows:
+
+Length: 7
+Available characters: abcdefhkpqrstuxyz
 
 
 
-NOTE: Preview is Legacy Code, please use Screenshot for better solution to display preview of a content
+
+ NOTE: Preview is Legacy Code, please use Screenshot for better solution to display preview of a content
 */
-func (a *Client) AdminUploadContentS3(params *AdminUploadContentS3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminUploadContentS3Created, *AdminUploadContentS3BadRequest, *AdminUploadContentS3Unauthorized, *AdminUploadContentS3InternalServerError, error) {
+func (a *Client) AdminUploadContentS3(params *AdminUploadContentS3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminUploadContentS3Created, *AdminUploadContentS3BadRequest, *AdminUploadContentS3Unauthorized, *AdminUploadContentS3Conflict, *AdminUploadContentS3InternalServerError, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminUploadContentS3Params()
@@ -227,25 +238,28 @@ func (a *Client) AdminUploadContentS3(params *AdminUploadContentS3Params, authIn
 		Client:             params.HTTPClient,
 	})
 	if err != nil {
-		return nil, nil, nil, nil, err
+		return nil, nil, nil, nil, nil, err
 	}
 
 	switch v := result.(type) {
 
 	case *AdminUploadContentS3Created:
-		return v, nil, nil, nil, nil
+		return v, nil, nil, nil, nil, nil
 
 	case *AdminUploadContentS3BadRequest:
-		return nil, v, nil, nil, nil
+		return nil, v, nil, nil, nil, nil
 
 	case *AdminUploadContentS3Unauthorized:
-		return nil, nil, v, nil, nil
+		return nil, nil, v, nil, nil, nil
+
+	case *AdminUploadContentS3Conflict:
+		return nil, nil, nil, v, nil, nil
 
 	case *AdminUploadContentS3InternalServerError:
-		return nil, nil, nil, v, nil
+		return nil, nil, nil, nil, v, nil
 
 	default:
-		return nil, nil, nil, nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
+		return nil, nil, nil, nil, nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
 	}
 }
 
@@ -253,13 +267,19 @@ func (a *Client) AdminUploadContentS3(params *AdminUploadContentS3Params, authIn
 AdminUploadContentS3Short upload content to s3 bucket
 Required permission ADMIN:NAMESPACE:{namespace}:USER:{userId}:CONTENT [CREATE].
 
-All request body are required except preview, tags, contentType and customAttributes.
-contentType values is used to enforce the Content-Type header needed by the client when uploading the content using the S3 presigned URL.
-If not specified, it will use fileExtension value.
+All request body are required except `preview`, `tags`, `contentType`, `customAttributes` and `shareCode`.
+
+`contentType` values is used to enforce the Content-Type header needed by the client when uploading the content using the S3 presigned URL. If not specified, it will use fileExtension value.
+
+`shareCode` format should follows:
+
+Length: 7
+Available characters: abcdefhkpqrstuxyz
 
 
 
-NOTE: Preview is Legacy Code, please use Screenshot for better solution to display preview of a content
+
+ NOTE: Preview is Legacy Code, please use Screenshot for better solution to display preview of a content
 */
 func (a *Client) AdminUploadContentS3Short(params *AdminUploadContentS3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminUploadContentS3Created, error) {
 	// TODO: Validate the params before sending
@@ -300,6 +320,8 @@ func (a *Client) AdminUploadContentS3Short(params *AdminUploadContentS3Params, a
 		return nil, v
 	case *AdminUploadContentS3Unauthorized:
 		return nil, v
+	case *AdminUploadContentS3Conflict:
+		return nil, v
 	case *AdminUploadContentS3InternalServerError:
 		return nil, v
 
@@ -313,16 +335,26 @@ Deprecated: 2022-08-10 - Use SingleAdminUpdateContentS3Short instead.
 
 SingleAdminUpdateContentS3 update content to s3 bucket
 Required permission ADMIN:NAMESPACE:{namespace}:USER:{userId}:CONTENT [UPDATE].
-All request body are required except payload, preview, tags, contentType, updateContentFile and customAttributes.
-contentType values is used to enforce the Content-Type header needed by the client to upload the content using the S3 presigned URL.
-If not specified, it will use fileExtension value.
-To update content's file, set `updateContentFile` to `true` and upload the file using URL in `payloadURL.url` in response body.
+
+All request body are required except `payload`, `preview`, `tags`,`contentType`, `updateContentFile`, `customAttributes` and `shareCode`.
+
+`contentType` values is used to enforce the Content-Type header needed by the client to upload the content using the S3 presigned URL.
+
+If not specified, it will use `fileExtension` value.
+
+To update content file, set `updateContentFile` to `true` and upload the file using URL in `payloadURL.url` in response body.
+
+`shareCode` format should follows:
+
+Max length: 7
+Available characters: abcdefhkpqrstuxyz
 
 
 
-NOTE: Preview is Legacy Code, please use Screenshot for better solution to display preview of a content
+
+ NOTE: Preview is Legacy Code, please use Screenshot for better solution to display preview of a content
 */
-func (a *Client) SingleAdminUpdateContentS3(params *SingleAdminUpdateContentS3Params, authInfo runtime.ClientAuthInfoWriter) (*SingleAdminUpdateContentS3OK, *SingleAdminUpdateContentS3BadRequest, *SingleAdminUpdateContentS3Unauthorized, *SingleAdminUpdateContentS3NotFound, *SingleAdminUpdateContentS3InternalServerError, error) {
+func (a *Client) SingleAdminUpdateContentS3(params *SingleAdminUpdateContentS3Params, authInfo runtime.ClientAuthInfoWriter) (*SingleAdminUpdateContentS3OK, *SingleAdminUpdateContentS3BadRequest, *SingleAdminUpdateContentS3Unauthorized, *SingleAdminUpdateContentS3NotFound, *SingleAdminUpdateContentS3Conflict, *SingleAdminUpdateContentS3InternalServerError, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewSingleAdminUpdateContentS3Params()
@@ -350,42 +382,55 @@ func (a *Client) SingleAdminUpdateContentS3(params *SingleAdminUpdateContentS3Pa
 		Client:             params.HTTPClient,
 	})
 	if err != nil {
-		return nil, nil, nil, nil, nil, err
+		return nil, nil, nil, nil, nil, nil, err
 	}
 
 	switch v := result.(type) {
 
 	case *SingleAdminUpdateContentS3OK:
-		return v, nil, nil, nil, nil, nil
+		return v, nil, nil, nil, nil, nil, nil
 
 	case *SingleAdminUpdateContentS3BadRequest:
-		return nil, v, nil, nil, nil, nil
+		return nil, v, nil, nil, nil, nil, nil
 
 	case *SingleAdminUpdateContentS3Unauthorized:
-		return nil, nil, v, nil, nil, nil
+		return nil, nil, v, nil, nil, nil, nil
 
 	case *SingleAdminUpdateContentS3NotFound:
-		return nil, nil, nil, v, nil, nil
+		return nil, nil, nil, v, nil, nil, nil
+
+	case *SingleAdminUpdateContentS3Conflict:
+		return nil, nil, nil, nil, v, nil, nil
 
 	case *SingleAdminUpdateContentS3InternalServerError:
-		return nil, nil, nil, nil, v, nil
+		return nil, nil, nil, nil, nil, v, nil
 
 	default:
-		return nil, nil, nil, nil, nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
+		return nil, nil, nil, nil, nil, nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
 	}
 }
 
 /*
 SingleAdminUpdateContentS3Short update content to s3 bucket
 Required permission ADMIN:NAMESPACE:{namespace}:USER:{userId}:CONTENT [UPDATE].
-All request body are required except payload, preview, tags, contentType, updateContentFile and customAttributes.
-contentType values is used to enforce the Content-Type header needed by the client to upload the content using the S3 presigned URL.
-If not specified, it will use fileExtension value.
-To update content's file, set `updateContentFile` to `true` and upload the file using URL in `payloadURL.url` in response body.
+
+All request body are required except `payload`, `preview`, `tags`,`contentType`, `updateContentFile`, `customAttributes` and `shareCode`.
+
+`contentType` values is used to enforce the Content-Type header needed by the client to upload the content using the S3 presigned URL.
+
+If not specified, it will use `fileExtension` value.
+
+To update content file, set `updateContentFile` to `true` and upload the file using URL in `payloadURL.url` in response body.
+
+`shareCode` format should follows:
+
+Max length: 7
+Available characters: abcdefhkpqrstuxyz
 
 
 
-NOTE: Preview is Legacy Code, please use Screenshot for better solution to display preview of a content
+
+ NOTE: Preview is Legacy Code, please use Screenshot for better solution to display preview of a content
 */
 func (a *Client) SingleAdminUpdateContentS3Short(params *SingleAdminUpdateContentS3Params, authInfo runtime.ClientAuthInfoWriter) (*SingleAdminUpdateContentS3OK, error) {
 	// TODO: Validate the params before sending
@@ -427,6 +472,8 @@ func (a *Client) SingleAdminUpdateContentS3Short(params *SingleAdminUpdateConten
 	case *SingleAdminUpdateContentS3Unauthorized:
 		return nil, v
 	case *SingleAdminUpdateContentS3NotFound:
+		return nil, v
+	case *SingleAdminUpdateContentS3Conflict:
 		return nil, v
 	case *SingleAdminUpdateContentS3InternalServerError:
 		return nil, v
@@ -1853,16 +1900,26 @@ Deprecated: 2022-08-10 - Use AdminUpdateContentS3Short instead.
 
 AdminUpdateContentS3 update content to s3 bucket
 Required permission ADMIN:NAMESPACE:{namespace}:USER:{userId}:CONTENT [UPDATE].
-All request body are required except payload, preview, tags, contentType, updateContentFile and customAttributes.
-contentType values is used to enforce the Content-Type header needed by the client to upload the content using the S3 presigned URL.
-If not specified, it will use fileExtension value.
-To update content's file, set `updateContentFile` to `true` and upload the file using URL in `payloadURL.url` in response body.
+
+All request body are required except `payload`, `preview`, `tags`,`contentType`, `updateContentFile`, `customAttributes` and `shareCode`.
+
+`contentType` values is used to enforce the Content-Type header needed by the client to upload the content using the S3 presigned URL.
+
+If not specified, it will use `fileExtension` value.
+
+To update content file, set `updateContentFile` to `true` and upload the file using URL in `payloadURL.url` in response body.
+
+`shareCode` format should follows:
+
+Max length: 7
+Available characters: abcdefhkpqrstuxyz
 
 
 
-NOTE: Preview is Legacy Code, please use Screenshot for better solution to display preview of a content
+
+ NOTE: Preview is Legacy Code, please use Screenshot for better solution to display preview of a content
 */
-func (a *Client) AdminUpdateContentS3(params *AdminUpdateContentS3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminUpdateContentS3OK, *AdminUpdateContentS3BadRequest, *AdminUpdateContentS3Unauthorized, *AdminUpdateContentS3NotFound, *AdminUpdateContentS3InternalServerError, error) {
+func (a *Client) AdminUpdateContentS3(params *AdminUpdateContentS3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminUpdateContentS3OK, *AdminUpdateContentS3BadRequest, *AdminUpdateContentS3Unauthorized, *AdminUpdateContentS3NotFound, *AdminUpdateContentS3Conflict, *AdminUpdateContentS3InternalServerError, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminUpdateContentS3Params()
@@ -1890,42 +1947,55 @@ func (a *Client) AdminUpdateContentS3(params *AdminUpdateContentS3Params, authIn
 		Client:             params.HTTPClient,
 	})
 	if err != nil {
-		return nil, nil, nil, nil, nil, err
+		return nil, nil, nil, nil, nil, nil, err
 	}
 
 	switch v := result.(type) {
 
 	case *AdminUpdateContentS3OK:
-		return v, nil, nil, nil, nil, nil
+		return v, nil, nil, nil, nil, nil, nil
 
 	case *AdminUpdateContentS3BadRequest:
-		return nil, v, nil, nil, nil, nil
+		return nil, v, nil, nil, nil, nil, nil
 
 	case *AdminUpdateContentS3Unauthorized:
-		return nil, nil, v, nil, nil, nil
+		return nil, nil, v, nil, nil, nil, nil
 
 	case *AdminUpdateContentS3NotFound:
-		return nil, nil, nil, v, nil, nil
+		return nil, nil, nil, v, nil, nil, nil
+
+	case *AdminUpdateContentS3Conflict:
+		return nil, nil, nil, nil, v, nil, nil
 
 	case *AdminUpdateContentS3InternalServerError:
-		return nil, nil, nil, nil, v, nil
+		return nil, nil, nil, nil, nil, v, nil
 
 	default:
-		return nil, nil, nil, nil, nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
+		return nil, nil, nil, nil, nil, nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
 	}
 }
 
 /*
 AdminUpdateContentS3Short update content to s3 bucket
 Required permission ADMIN:NAMESPACE:{namespace}:USER:{userId}:CONTENT [UPDATE].
-All request body are required except payload, preview, tags, contentType, updateContentFile and customAttributes.
-contentType values is used to enforce the Content-Type header needed by the client to upload the content using the S3 presigned URL.
-If not specified, it will use fileExtension value.
-To update content's file, set `updateContentFile` to `true` and upload the file using URL in `payloadURL.url` in response body.
+
+All request body are required except `payload`, `preview`, `tags`,`contentType`, `updateContentFile`, `customAttributes` and `shareCode`.
+
+`contentType` values is used to enforce the Content-Type header needed by the client to upload the content using the S3 presigned URL.
+
+If not specified, it will use `fileExtension` value.
+
+To update content file, set `updateContentFile` to `true` and upload the file using URL in `payloadURL.url` in response body.
+
+`shareCode` format should follows:
+
+Max length: 7
+Available characters: abcdefhkpqrstuxyz
 
 
 
-NOTE: Preview is Legacy Code, please use Screenshot for better solution to display preview of a content
+
+ NOTE: Preview is Legacy Code, please use Screenshot for better solution to display preview of a content
 */
 func (a *Client) AdminUpdateContentS3Short(params *AdminUpdateContentS3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminUpdateContentS3OK, error) {
 	// TODO: Validate the params before sending
@@ -1967,6 +2037,8 @@ func (a *Client) AdminUpdateContentS3Short(params *AdminUpdateContentS3Params, a
 	case *AdminUpdateContentS3Unauthorized:
 		return nil, v
 	case *AdminUpdateContentS3NotFound:
+		return nil, v
+	case *AdminUpdateContentS3Conflict:
 		return nil, v
 	case *AdminUpdateContentS3InternalServerError:
 		return nil, v

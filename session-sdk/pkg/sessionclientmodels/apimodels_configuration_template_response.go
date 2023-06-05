@@ -30,6 +30,12 @@ type ApimodelsConfigurationTemplateResponse struct {
 	// Required: true
 	Deployment *string `json:"deployment"`
 
+	// dssource
+	DsSource string `json:"dsSource,omitempty"`
+
+	// fallbackclaimkeys
+	FallbackClaimKeys []string `json:"fallbackClaimKeys,omitempty"`
+
 	// inactivetimeout
 	// Required: true
 	// Format: int32
@@ -47,6 +53,10 @@ type ApimodelsConfigurationTemplateResponse struct {
 	// last
 	// Required: true
 	Last *string `json:"last"`
+
+	// maxactivesessions
+	// Format: int32
+	MaxActiveSessions int32 `json:"maxActiveSessions,omitempty"`
 
 	// maxplayers
 	// Required: true
@@ -66,13 +76,18 @@ type ApimodelsConfigurationTemplateResponse struct {
 	// Required: true
 	Namespace *string `json:"namespace"`
 
+	// nativesessionsetting
+	NativeSessionSetting *ModelsNativeSessionSetting `json:"nativeSessionSetting,omitempty"`
+
 	// persistent
 	// Required: true
 	Persistent *bool `json:"persistent"`
 
+	// preferredclaimkeys
+	PreferredClaimKeys []string `json:"preferredClaimKeys,omitempty"`
+
 	// requestedregions
-	// Required: true
-	RequestedRegions []string `json:"requestedRegions"`
+	RequestedRegions []string `json:"requestedRegions,omitempty"`
 
 	// textchat
 	// Required: true
@@ -125,9 +140,6 @@ func (m *ApimodelsConfigurationTemplateResponse) Validate(formats strfmt.Registr
 		res = append(res, err)
 	}
 	if err := m.validatePersistent(formats); err != nil {
-		res = append(res, err)
-	}
-	if err := m.validateRequestedRegions(formats); err != nil {
 		res = append(res, err)
 	}
 	if err := m.validateTextChat(formats); err != nil {
@@ -248,15 +260,6 @@ func (m *ApimodelsConfigurationTemplateResponse) validateNamespace(formats strfm
 func (m *ApimodelsConfigurationTemplateResponse) validatePersistent(formats strfmt.Registry) error {
 
 	if err := validate.Required("persistent", "body", m.Persistent); err != nil {
-		return err
-	}
-
-	return nil
-}
-
-func (m *ApimodelsConfigurationTemplateResponse) validateRequestedRegions(formats strfmt.Registry) error {
-
-	if err := validate.Required("requestedRegions", "body", m.RequestedRegions); err != nil {
 		return err
 	}
 

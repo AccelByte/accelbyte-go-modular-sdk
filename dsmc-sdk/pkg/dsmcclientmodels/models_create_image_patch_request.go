@@ -7,6 +7,8 @@
 package dsmcclientmodels
 
 import (
+	"strconv"
+
 	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
@@ -32,8 +34,8 @@ type ModelsCreateImagePatchRequest struct {
 
 	// imagesize
 	// Required: true
-	// Format: int32
-	ImageSize *int32 `json:"imageSize"`
+	// Format: int64
+	ImageSize *int64 `json:"imageSize"`
 
 	// namespace
 	// Required: true
@@ -46,6 +48,10 @@ type ModelsCreateImagePatchRequest struct {
 	// persistent
 	// Required: true
 	Persistent *bool `json:"persistent"`
+
+	// uploaderflags
+	// Required: true
+	UploaderFlags []*ModelsUploaderFlag `json:"uploaderFlags"`
 
 	// version
 	// Required: true
@@ -75,6 +81,9 @@ func (m *ModelsCreateImagePatchRequest) Validate(formats strfmt.Registry) error 
 		res = append(res, err)
 	}
 	if err := m.validatePersistent(formats); err != nil {
+		res = append(res, err)
+	}
+	if err := m.validateUploaderFlags(formats); err != nil {
 		res = append(res, err)
 	}
 	if err := m.validateVersion(formats); err != nil {
@@ -145,6 +154,31 @@ func (m *ModelsCreateImagePatchRequest) validatePersistent(formats strfmt.Regist
 
 	if err := validate.Required("persistent", "body", m.Persistent); err != nil {
 		return err
+	}
+
+	return nil
+}
+
+func (m *ModelsCreateImagePatchRequest) validateUploaderFlags(formats strfmt.Registry) error {
+
+	if err := validate.Required("uploaderFlags", "body", m.UploaderFlags); err != nil {
+		return err
+	}
+
+	for i := 0; i < len(m.UploaderFlags); i++ {
+		if swag.IsZero(m.UploaderFlags[i]) { // not required
+			continue
+		}
+
+		if m.UploaderFlags[i] != nil {
+			if err := m.UploaderFlags[i].Validate(formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("uploaderFlags" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
 	}
 
 	return nil

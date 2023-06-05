@@ -25,12 +25,14 @@ type ApimodelsGameSessionResponse struct {
 	DSInformation *ApimodelsDSInformationResponse `json:"DSInformation"`
 
 	// attributes
-	// Required: true
-	Attributes interface{} `json:"attributes"`
+	Attributes interface{} `json:"attributes,omitempty"`
 
 	// backfillticketid
 	// Required: true
 	BackfillTicketID *string `json:"backfillTicketID"`
+
+	// code
+	Code string `json:"code,omitempty"`
 
 	// configuration
 	// Required: true
@@ -75,17 +77,11 @@ type ApimodelsGameSessionResponse struct {
 	// Required: true
 	Namespace *string `json:"namespace"`
 
-	// persistent
-	// Required: true
-	Persistent *bool `json:"persistent"`
-
 	// teams
-	// Required: true
-	Teams []*ModelsTeam `json:"teams"`
+	Teams []*ModelsTeam `json:"teams,omitempty"`
 
 	// ticketids
-	// Required: true
-	TicketIDs []string `json:"ticketIDs"`
+	TicketIDs []string `json:"ticketIDs,omitempty"`
 
 	// updatedat
 	// Required: true
@@ -135,15 +131,6 @@ func (m *ApimodelsGameSessionResponse) Validate(formats strfmt.Registry) error {
 		res = append(res, err)
 	}
 	if err := m.validateNamespace(formats); err != nil {
-		res = append(res, err)
-	}
-	if err := m.validatePersistent(formats); err != nil {
-		res = append(res, err)
-	}
-	if err := m.validateTeams(formats); err != nil {
-		res = append(res, err)
-	}
-	if err := m.validateTicketIDs(formats); err != nil {
 		res = append(res, err)
 	}
 	if err := m.validateUpdatedAt(formats); err != nil {
@@ -295,49 +282,6 @@ func (m *ApimodelsGameSessionResponse) validateMembers(formats strfmt.Registry) 
 func (m *ApimodelsGameSessionResponse) validateNamespace(formats strfmt.Registry) error {
 
 	if err := validate.Required("namespace", "body", m.Namespace); err != nil {
-		return err
-	}
-
-	return nil
-}
-
-func (m *ApimodelsGameSessionResponse) validatePersistent(formats strfmt.Registry) error {
-
-	if err := validate.Required("persistent", "body", m.Persistent); err != nil {
-		return err
-	}
-
-	return nil
-}
-
-func (m *ApimodelsGameSessionResponse) validateTeams(formats strfmt.Registry) error {
-
-	if err := validate.Required("teams", "body", m.Teams); err != nil {
-		return err
-	}
-
-	for i := 0; i < len(m.Teams); i++ {
-		if swag.IsZero(m.Teams[i]) { // not required
-			continue
-		}
-
-		if m.Teams[i] != nil {
-			if err := m.Teams[i].Validate(formats); err != nil {
-				if ve, ok := err.(*errors.Validation); ok {
-					return ve.ValidateName("teams" + "." + strconv.Itoa(i))
-				}
-				return err
-			}
-		}
-
-	}
-
-	return nil
-}
-
-func (m *ApimodelsGameSessionResponse) validateTicketIDs(formats strfmt.Registry) error {
-
-	if err := validate.Required("ticketIDs", "body", m.TicketIDs); err != nil {
 		return err
 	}
 

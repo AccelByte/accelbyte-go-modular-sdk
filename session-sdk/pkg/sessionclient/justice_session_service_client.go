@@ -17,6 +17,7 @@ import (
 
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/session-sdk/pkg/sessionclient/configuration_template"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/session-sdk/pkg/sessionclient/d_s_m_c_default_configuration"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/session-sdk/pkg/sessionclient/game_session"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/session-sdk/pkg/sessionclient/operations"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/session-sdk/pkg/sessionclient/party"
@@ -85,6 +86,7 @@ func New(transport runtime.ClientTransport, runtime *httptransport.Runtime, form
 	cli.Transport = transport
 	cli.Runtime = runtime
 	cli.ConfigurationTemplate = configuration_template.New(transport, formats)
+	cli.DsmcDefaultConfiguration = d_s_m_c_default_configuration.New(transport, formats)
 	cli.GameSession = game_session.New(transport, formats)
 	cli.Party = party.New(transport, formats)
 	cli.Player = player.New(transport, formats)
@@ -152,6 +154,8 @@ func (cfg *TransportConfig) WithSchemes(schemes []string) *TransportConfig {
 type JusticeSessionService struct {
 	ConfigurationTemplate configuration_template.ClientService
 
+	DsmcDefaultConfiguration d_s_m_c_default_configuration.ClientService
+
 	GameSession game_session.ClientService
 
 	Party party.ClientService
@@ -168,6 +172,7 @@ type JusticeSessionService struct {
 func (c *JusticeSessionService) SetTransport(transport runtime.ClientTransport) {
 	c.Transport = transport
 	c.ConfigurationTemplate.SetTransport(transport)
+	c.DsmcDefaultConfiguration.SetTransport(transport)
 	c.GameSession.SetTransport(transport)
 	c.Party.SetTransport(transport)
 	c.Player.SetTransport(transport)

@@ -20,8 +20,8 @@ type APIMatchFunctionOverride struct {
 	// backfill_matches
 	BackfillMatches string `json:"backfill_matches,omitempty"`
 
-	// hydration
-	Hydration []string `json:"hydration,omitempty"`
+	// enrichment
+	Enrichment []string `json:"enrichment,omitempty"`
 
 	// make_matches
 	MakeMatches string `json:"make_matches,omitempty"`

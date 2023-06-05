@@ -70,12 +70,15 @@ func (aaa *AdminChannelService) AdminCreateChannel(input *admin_channel.AdminCre
 	if err != nil {
 		return nil, err
 	}
-	created, badRequest, unauthorized, internalServerError, err := aaa.Client.AdminChannel.AdminCreateChannel(input, client.BearerToken(*token.AccessToken))
+	created, badRequest, unauthorized, conflict, internalServerError, err := aaa.Client.AdminChannel.AdminCreateChannel(input, client.BearerToken(*token.AccessToken))
 	if badRequest != nil {
 		return nil, badRequest
 	}
 	if unauthorized != nil {
 		return nil, unauthorized
+	}
+	if conflict != nil {
+		return nil, conflict
 	}
 	if internalServerError != nil {
 		return nil, internalServerError

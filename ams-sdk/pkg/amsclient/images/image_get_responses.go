@@ -73,10 +73,9 @@ func NewImageGetOK() *ImageGetOK {
 	return &ImageGetOK{}
 }
 
-/*
-ImageGetOK handles this case with default header values.
+/*ImageGetOK handles this case with default header values.
 
-	success
+  success
 */
 type ImageGetOK struct {
 	Payload *amsclientmodels.APIImageDetails
@@ -127,10 +126,9 @@ func NewImageGetUnauthorized() *ImageGetUnauthorized {
 	return &ImageGetUnauthorized{}
 }
 
-/*
-ImageGetUnauthorized handles this case with default header values.
+/*ImageGetUnauthorized handles this case with default header values.
 
-	no authorization provided
+  no authorization provided
 */
 type ImageGetUnauthorized struct {
 	Payload *amsclientmodels.ResponseErrorResponse
@@ -181,10 +179,9 @@ func NewImageGetForbidden() *ImageGetForbidden {
 	return &ImageGetForbidden{}
 }
 
-/*
-ImageGetForbidden handles this case with default header values.
+/*ImageGetForbidden handles this case with default header values.
 
-	insufficient permissions
+  insufficient permissions
 */
 type ImageGetForbidden struct {
 	Payload *amsclientmodels.ResponseErrorResponse
@@ -235,10 +232,9 @@ func NewImageGetNotFound() *ImageGetNotFound {
 	return &ImageGetNotFound{}
 }
 
-/*
-ImageGetNotFound handles this case with default header values.
+/*ImageGetNotFound handles this case with default header values.
 
-	account not linked
+  account not linked
 */
 type ImageGetNotFound struct {
 	Payload *amsclientmodels.ResponseErrorResponse
@@ -289,10 +285,9 @@ func NewImageGetInternalServerError() *ImageGetInternalServerError {
 	return &ImageGetInternalServerError{}
 }
 
-/*
-ImageGetInternalServerError handles this case with default header values.
+/*ImageGetInternalServerError handles this case with default header values.
 
-	internal server error
+  internal server error
 */
 type ImageGetInternalServerError struct {
 	Payload *amsclientmodels.ResponseErrorResponse

@@ -17,7 +17,7 @@ import (
 // swagger:model User profile bulk request.
 type UserProfileBulkRequest struct {
 
-	// User IDs, list of User ID with limit max to 20 User ID
+	// User IDs, list of User ID with limit max to 100 User ID
 	UserIds []string `json:"userIds,omitempty"`
 }
 

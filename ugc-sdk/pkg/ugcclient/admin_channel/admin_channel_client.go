@@ -32,7 +32,7 @@ type Client struct {
 type ClientService interface {
 	SingleAdminGetChannel(params *SingleAdminGetChannelParams, authInfo runtime.ClientAuthInfoWriter) (*SingleAdminGetChannelOK, *SingleAdminGetChannelUnauthorized, *SingleAdminGetChannelNotFound, *SingleAdminGetChannelInternalServerError, error)
 	SingleAdminGetChannelShort(params *SingleAdminGetChannelParams, authInfo runtime.ClientAuthInfoWriter) (*SingleAdminGetChannelOK, error)
-	AdminCreateChannel(params *AdminCreateChannelParams, authInfo runtime.ClientAuthInfoWriter) (*AdminCreateChannelCreated, *AdminCreateChannelBadRequest, *AdminCreateChannelUnauthorized, *AdminCreateChannelInternalServerError, error)
+	AdminCreateChannel(params *AdminCreateChannelParams, authInfo runtime.ClientAuthInfoWriter) (*AdminCreateChannelCreated, *AdminCreateChannelBadRequest, *AdminCreateChannelUnauthorized, *AdminCreateChannelConflict, *AdminCreateChannelInternalServerError, error)
 	AdminCreateChannelShort(params *AdminCreateChannelParams, authInfo runtime.ClientAuthInfoWriter) (*AdminCreateChannelCreated, error)
 	SingleAdminUpdateChannel(params *SingleAdminUpdateChannelParams, authInfo runtime.ClientAuthInfoWriter) (*SingleAdminUpdateChannelOK, *SingleAdminUpdateChannelBadRequest, *SingleAdminUpdateChannelUnauthorized, *SingleAdminUpdateChannelNotFound, *SingleAdminUpdateChannelInternalServerError, error)
 	SingleAdminUpdateChannelShort(params *SingleAdminUpdateChannelParams, authInfo runtime.ClientAuthInfoWriter) (*SingleAdminUpdateChannelOK, error)
@@ -161,7 +161,7 @@ Deprecated: 2022-08-10 - Use AdminCreateChannelShort instead.
 AdminCreateChannel create channel
 Required permission ADMIN:NAMESPACE:{namespace}:USER:{userId}:CHANNEL [CREATE]
 */
-func (a *Client) AdminCreateChannel(params *AdminCreateChannelParams, authInfo runtime.ClientAuthInfoWriter) (*AdminCreateChannelCreated, *AdminCreateChannelBadRequest, *AdminCreateChannelUnauthorized, *AdminCreateChannelInternalServerError, error) {
+func (a *Client) AdminCreateChannel(params *AdminCreateChannelParams, authInfo runtime.ClientAuthInfoWriter) (*AdminCreateChannelCreated, *AdminCreateChannelBadRequest, *AdminCreateChannelUnauthorized, *AdminCreateChannelConflict, *AdminCreateChannelInternalServerError, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminCreateChannelParams()
@@ -189,25 +189,28 @@ func (a *Client) AdminCreateChannel(params *AdminCreateChannelParams, authInfo r
 		Client:             params.HTTPClient,
 	})
 	if err != nil {
-		return nil, nil, nil, nil, err
+		return nil, nil, nil, nil, nil, err
 	}
 
 	switch v := result.(type) {
 
 	case *AdminCreateChannelCreated:
-		return v, nil, nil, nil, nil
+		return v, nil, nil, nil, nil, nil
 
 	case *AdminCreateChannelBadRequest:
-		return nil, v, nil, nil, nil
+		return nil, v, nil, nil, nil, nil
 
 	case *AdminCreateChannelUnauthorized:
-		return nil, nil, v, nil, nil
+		return nil, nil, v, nil, nil, nil
+
+	case *AdminCreateChannelConflict:
+		return nil, nil, nil, v, nil, nil
 
 	case *AdminCreateChannelInternalServerError:
-		return nil, nil, nil, v, nil
+		return nil, nil, nil, nil, v, nil
 
 	default:
-		return nil, nil, nil, nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
+		return nil, nil, nil, nil, nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
 	}
 }
 
@@ -253,6 +256,8 @@ func (a *Client) AdminCreateChannelShort(params *AdminCreateChannelParams, authI
 	case *AdminCreateChannelBadRequest:
 		return nil, v
 	case *AdminCreateChannelUnauthorized:
+		return nil, v
+	case *AdminCreateChannelConflict:
 		return nil, v
 	case *AdminCreateChannelInternalServerError:
 		return nil, v

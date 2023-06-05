@@ -73,10 +73,9 @@ func NewAccountLinkTokenGetOK() *AccountLinkTokenGetOK {
 	return &AccountLinkTokenGetOK{}
 }
 
-/*
-AccountLinkTokenGetOK handles this case with default header values.
+/*AccountLinkTokenGetOK handles this case with default header values.
 
-	success
+  success
 */
 type AccountLinkTokenGetOK struct {
 	Payload *amsclientmodels.APIAccountLinkTokenResponse
@@ -127,10 +126,9 @@ func NewAccountLinkTokenGetUnauthorized() *AccountLinkTokenGetUnauthorized {
 	return &AccountLinkTokenGetUnauthorized{}
 }
 
-/*
-AccountLinkTokenGetUnauthorized handles this case with default header values.
+/*AccountLinkTokenGetUnauthorized handles this case with default header values.
 
-	no authorization provided
+  no authorization provided
 */
 type AccountLinkTokenGetUnauthorized struct {
 	Payload *amsclientmodels.ResponseErrorResponse
@@ -181,10 +179,9 @@ func NewAccountLinkTokenGetForbidden() *AccountLinkTokenGetForbidden {
 	return &AccountLinkTokenGetForbidden{}
 }
 
-/*
-AccountLinkTokenGetForbidden handles this case with default header values.
+/*AccountLinkTokenGetForbidden handles this case with default header values.
 
-	insufficient permissions
+  insufficient permissions
 */
 type AccountLinkTokenGetForbidden struct {
 	Payload *amsclientmodels.ResponseErrorResponse
@@ -235,10 +232,9 @@ func NewAccountLinkTokenGetNotFound() *AccountLinkTokenGetNotFound {
 	return &AccountLinkTokenGetNotFound{}
 }
 
-/*
-AccountLinkTokenGetNotFound handles this case with default header values.
+/*AccountLinkTokenGetNotFound handles this case with default header values.
 
-	account not linked
+  account not linked
 */
 type AccountLinkTokenGetNotFound struct {
 	Payload *amsclientmodels.ResponseErrorResponse
@@ -289,10 +285,9 @@ func NewAccountLinkTokenGetInternalServerError() *AccountLinkTokenGetInternalSer
 	return &AccountLinkTokenGetInternalServerError{}
 }
 
-/*
-AccountLinkTokenGetInternalServerError handles this case with default header values.
+/*AccountLinkTokenGetInternalServerError handles this case with default header values.
 
-	internal server error
+  internal server error
 */
 type AccountLinkTokenGetInternalServerError struct {
 	Payload *amsclientmodels.ResponseErrorResponse

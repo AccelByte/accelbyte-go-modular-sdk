@@ -59,8 +59,7 @@ func NewAccountLinkParamsWithHTTPClient(client *http.Client) *AccountLinkParams 
 	}
 }
 
-/*
-AccountLinkParams contains all the parameters to send to the API endpoint
+/*AccountLinkParams contains all the parameters to send to the API endpoint
 for the account link operation typically these are written to a http.Request
 */
 type AccountLinkParams struct {

@@ -67,10 +67,9 @@ func NewAccountCreateCreated() *AccountCreateCreated {
 	return &AccountCreateCreated{}
 }
 
-/*
-AccountCreateCreated handles this case with default header values.
+/*AccountCreateCreated handles this case with default header values.
 
-	account Created
+  account Created
 */
 type AccountCreateCreated struct {
 	Payload *amsclientmodels.APIAccountCreateResponse
@@ -121,10 +120,9 @@ func NewAccountCreateUnauthorized() *AccountCreateUnauthorized {
 	return &AccountCreateUnauthorized{}
 }
 
-/*
-AccountCreateUnauthorized handles this case with default header values.
+/*AccountCreateUnauthorized handles this case with default header values.
 
-	no authorization provided
+  no authorization provided
 */
 type AccountCreateUnauthorized struct {
 	Payload *amsclientmodels.ResponseErrorResponse
@@ -175,10 +173,9 @@ func NewAccountCreateForbidden() *AccountCreateForbidden {
 	return &AccountCreateForbidden{}
 }
 
-/*
-AccountCreateForbidden handles this case with default header values.
+/*AccountCreateForbidden handles this case with default header values.
 
-	insufficient permissions
+  insufficient permissions
 */
 type AccountCreateForbidden struct {
 	Payload *amsclientmodels.ResponseErrorResponse
@@ -229,10 +226,9 @@ func NewAccountCreateInternalServerError() *AccountCreateInternalServerError {
 	return &AccountCreateInternalServerError{}
 }
 
-/*
-AccountCreateInternalServerError handles this case with default header values.
+/*AccountCreateInternalServerError handles this case with default header values.
 
-	internal server error
+  internal server error
 */
 type AccountCreateInternalServerError struct {
 	Payload *amsclientmodels.ResponseErrorResponse

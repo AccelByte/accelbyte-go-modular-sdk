@@ -34,6 +34,8 @@ type ClientService interface {
 	GetStatCyclesShort(params *GetStatCyclesParams, authInfo runtime.ClientAuthInfoWriter) (*GetStatCyclesOK, error)
 	CreateStatCycle(params *CreateStatCycleParams, authInfo runtime.ClientAuthInfoWriter) (*CreateStatCycleCreated, *CreateStatCycleBadRequest, error)
 	CreateStatCycleShort(params *CreateStatCycleParams, authInfo runtime.ClientAuthInfoWriter) (*CreateStatCycleCreated, error)
+	BulkGetStatCycle(params *BulkGetStatCycleParams, authInfo runtime.ClientAuthInfoWriter) (*BulkGetStatCycleOK, error)
+	BulkGetStatCycleShort(params *BulkGetStatCycleParams, authInfo runtime.ClientAuthInfoWriter) (*BulkGetStatCycleOK, error)
 	GetStatCycle(params *GetStatCycleParams, authInfo runtime.ClientAuthInfoWriter) (*GetStatCycleOK, *GetStatCycleNotFound, error)
 	GetStatCycleShort(params *GetStatCycleParams, authInfo runtime.ClientAuthInfoWriter) (*GetStatCycleOK, error)
 	UpdateStatCycle(params *UpdateStatCycleParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateStatCycleOK, *UpdateStatCycleBadRequest, *UpdateStatCycleNotFound, *UpdateStatCycleConflict, error)
@@ -42,8 +44,12 @@ type ClientService interface {
 	DeleteStatCycleShort(params *DeleteStatCycleParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteStatCycleNoContent, error)
 	BulkAddStats(params *BulkAddStatsParams, authInfo runtime.ClientAuthInfoWriter) (*BulkAddStatsOK, *BulkAddStatsNotFound, error)
 	BulkAddStatsShort(params *BulkAddStatsParams, authInfo runtime.ClientAuthInfoWriter) (*BulkAddStatsOK, error)
+	StopStatCycle(params *StopStatCycleParams, authInfo runtime.ClientAuthInfoWriter) (*StopStatCycleOK, *StopStatCycleNotFound, *StopStatCycleConflict, error)
+	StopStatCycleShort(params *StopStatCycleParams, authInfo runtime.ClientAuthInfoWriter) (*StopStatCycleOK, error)
 	GetStatCycles1(params *GetStatCycles1Params, authInfo runtime.ClientAuthInfoWriter) (*GetStatCycles1OK, error)
 	GetStatCycles1Short(params *GetStatCycles1Params, authInfo runtime.ClientAuthInfoWriter) (*GetStatCycles1OK, error)
+	BulkGetStatCycle1(params *BulkGetStatCycle1Params, authInfo runtime.ClientAuthInfoWriter) (*BulkGetStatCycle1OK, error)
+	BulkGetStatCycle1Short(params *BulkGetStatCycle1Params, authInfo runtime.ClientAuthInfoWriter) (*BulkGetStatCycle1OK, error)
 	GetStatCycle1(params *GetStatCycle1Params, authInfo runtime.ClientAuthInfoWriter) (*GetStatCycle1OK, *GetStatCycle1NotFound, error)
 	GetStatCycle1Short(params *GetStatCycle1Params, authInfo runtime.ClientAuthInfoWriter) (*GetStatCycle1OK, error)
 
@@ -263,6 +269,104 @@ func (a *Client) CreateStatCycleShort(params *CreateStatCycleParams, authInfo ru
 		return v, nil
 	case *CreateStatCycleBadRequest:
 		return nil, v
+
+	default:
+		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
+	}
+}
+
+/*
+Deprecated: 2022-08-10 - Use BulkGetStatCycleShort instead.
+
+BulkGetStatCycle bulk get stat cycle
+Bulk get stat cycle.
+Other detail info:
+              *  Required permission : resource="ADMIN:NAMESPACE:{namespace}:STAT", action=2 (READ)
+              *  Returns : list of stat cycles
+*/
+func (a *Client) BulkGetStatCycle(params *BulkGetStatCycleParams, authInfo runtime.ClientAuthInfoWriter) (*BulkGetStatCycleOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewBulkGetStatCycleParams()
+	}
+
+	if params.Context == nil {
+		params.Context = context.Background()
+	}
+
+	if params.RetryPolicy != nil {
+		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "bulkGetStatCycle",
+		Method:             "POST",
+		PathPattern:        "/social/v1/admin/namespaces/{namespace}/statCycles/bulk",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &BulkGetStatCycleReader{formats: a.formats},
+		AuthInfo:           authInfo,
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+
+	switch v := result.(type) {
+
+	case *BulkGetStatCycleOK:
+		return v, nil
+
+	default:
+		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
+	}
+}
+
+/*
+BulkGetStatCycleShort bulk get stat cycle
+Bulk get stat cycle.
+Other detail info:
+              *  Required permission : resource="ADMIN:NAMESPACE:{namespace}:STAT", action=2 (READ)
+              *  Returns : list of stat cycles
+*/
+func (a *Client) BulkGetStatCycleShort(params *BulkGetStatCycleParams, authInfo runtime.ClientAuthInfoWriter) (*BulkGetStatCycleOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewBulkGetStatCycleParams()
+	}
+
+	if params.Context == nil {
+		params.Context = context.Background()
+	}
+
+	if params.RetryPolicy != nil {
+		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "bulkGetStatCycle",
+		Method:             "POST",
+		PathPattern:        "/social/v1/admin/namespaces/{namespace}/statCycles/bulk",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &BulkGetStatCycleReader{formats: a.formats},
+		AuthInfo:           authInfo,
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+
+	switch v := result.(type) {
+
+	case *BulkGetStatCycleOK:
+		return v, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -688,6 +792,114 @@ func (a *Client) BulkAddStatsShort(params *BulkAddStatsParams, authInfo runtime.
 }
 
 /*
+Deprecated: 2022-08-10 - Use StopStatCycleShort instead.
+
+StopStatCycle stop stat cycle
+Stop stat cycle.
+Other detail info:
+              *  Required permission : resource="ADMIN:NAMESPACE:{namespace}:STAT", action=4 (UPDATE)
+              *  Returns : updated stat cycle
+*/
+func (a *Client) StopStatCycle(params *StopStatCycleParams, authInfo runtime.ClientAuthInfoWriter) (*StopStatCycleOK, *StopStatCycleNotFound, *StopStatCycleConflict, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewStopStatCycleParams()
+	}
+
+	if params.Context == nil {
+		params.Context = context.Background()
+	}
+
+	if params.RetryPolicy != nil {
+		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "stopStatCycle",
+		Method:             "PUT",
+		PathPattern:        "/social/v1/admin/namespaces/{namespace}/statCycles/{cycleId}/stop",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &StopStatCycleReader{formats: a.formats},
+		AuthInfo:           authInfo,
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, nil, nil, err
+	}
+
+	switch v := result.(type) {
+
+	case *StopStatCycleOK:
+		return v, nil, nil, nil
+
+	case *StopStatCycleNotFound:
+		return nil, v, nil, nil
+
+	case *StopStatCycleConflict:
+		return nil, nil, v, nil
+
+	default:
+		return nil, nil, nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
+	}
+}
+
+/*
+StopStatCycleShort stop stat cycle
+Stop stat cycle.
+Other detail info:
+              *  Required permission : resource="ADMIN:NAMESPACE:{namespace}:STAT", action=4 (UPDATE)
+              *  Returns : updated stat cycle
+*/
+func (a *Client) StopStatCycleShort(params *StopStatCycleParams, authInfo runtime.ClientAuthInfoWriter) (*StopStatCycleOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewStopStatCycleParams()
+	}
+
+	if params.Context == nil {
+		params.Context = context.Background()
+	}
+
+	if params.RetryPolicy != nil {
+		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "stopStatCycle",
+		Method:             "PUT",
+		PathPattern:        "/social/v1/admin/namespaces/{namespace}/statCycles/{cycleId}/stop",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &StopStatCycleReader{formats: a.formats},
+		AuthInfo:           authInfo,
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+
+	switch v := result.(type) {
+
+	case *StopStatCycleOK:
+		return v, nil
+	case *StopStatCycleNotFound:
+		return nil, v
+	case *StopStatCycleConflict:
+		return nil, v
+
+	default:
+		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
+	}
+}
+
+/*
 Deprecated: 2022-08-10 - Use GetStatCycles1Short instead.
 
 GetStatCycles1 list stat cycles
@@ -778,6 +990,104 @@ func (a *Client) GetStatCycles1Short(params *GetStatCycles1Params, authInfo runt
 	switch v := result.(type) {
 
 	case *GetStatCycles1OK:
+		return v, nil
+
+	default:
+		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
+	}
+}
+
+/*
+Deprecated: 2022-08-10 - Use BulkGetStatCycle1Short instead.
+
+BulkGetStatCycle1 bulk get stat cycle
+Bulk get stat cycle.
+Other detail info:
+              *  Required permission : resource="NAMESPACE:{namespace}:STAT", action=2 (READ)
+              *  Returns : list of stat cycles
+*/
+func (a *Client) BulkGetStatCycle1(params *BulkGetStatCycle1Params, authInfo runtime.ClientAuthInfoWriter) (*BulkGetStatCycle1OK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewBulkGetStatCycle1Params()
+	}
+
+	if params.Context == nil {
+		params.Context = context.Background()
+	}
+
+	if params.RetryPolicy != nil {
+		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "bulkGetStatCycle_1",
+		Method:             "POST",
+		PathPattern:        "/social/v1/public/namespaces/{namespace}/statCycles/bulk",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &BulkGetStatCycle1Reader{formats: a.formats},
+		AuthInfo:           authInfo,
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+
+	switch v := result.(type) {
+
+	case *BulkGetStatCycle1OK:
+		return v, nil
+
+	default:
+		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
+	}
+}
+
+/*
+BulkGetStatCycle1Short bulk get stat cycle
+Bulk get stat cycle.
+Other detail info:
+              *  Required permission : resource="NAMESPACE:{namespace}:STAT", action=2 (READ)
+              *  Returns : list of stat cycles
+*/
+func (a *Client) BulkGetStatCycle1Short(params *BulkGetStatCycle1Params, authInfo runtime.ClientAuthInfoWriter) (*BulkGetStatCycle1OK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewBulkGetStatCycle1Params()
+	}
+
+	if params.Context == nil {
+		params.Context = context.Background()
+	}
+
+	if params.RetryPolicy != nil {
+		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "bulkGetStatCycle_1",
+		Method:             "POST",
+		PathPattern:        "/social/v1/public/namespaces/{namespace}/statCycles/bulk",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &BulkGetStatCycle1Reader{formats: a.formats},
+		AuthInfo:           authInfo,
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+
+	switch v := result.(type) {
+
+	case *BulkGetStatCycle1OK:
 		return v, nil
 
 	default:

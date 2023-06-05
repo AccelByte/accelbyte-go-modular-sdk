@@ -48,6 +48,26 @@ type ModelsChannelV1 struct {
 	// Required: true
 	Namespace *string `json:"namespace"`
 
+	// region_expansion_range_ms
+	// Required: true
+	// Format: int32
+	RegionExpansionRangeMs *int32 `json:"region_expansion_range_ms"`
+
+	// region_expansion_rate_ms
+	// Required: true
+	// Format: int32
+	RegionExpansionRateMs *int32 `json:"region_expansion_rate_ms"`
+
+	// region_latency_initial_range_ms
+	// Required: true
+	// Format: int32
+	RegionLatencyInitialRangeMs *int32 `json:"region_latency_initial_range_ms"`
+
+	// region_latency_max_ms
+	// Required: true
+	// Format: int32
+	RegionLatencyMaxMs *int32 `json:"region_latency_max_ms"`
+
 	// ruleset
 	// Required: true
 	RuleSet *ModelsRuleSetV1 `json:"ruleSet"`
@@ -64,6 +84,9 @@ type ModelsChannelV1 struct {
 	// socialmatchmaking
 	// Required: true
 	SocialMatchmaking *bool `json:"socialMatchmaking"`
+
+	// ticket_observability_enable
+	TicketObservabilityEnable bool `json:"ticket_observability_enable"`
 
 	// updatedat
 	// Required: true
@@ -97,6 +120,18 @@ func (m *ModelsChannelV1) Validate(formats strfmt.Registry) error {
 		res = append(res, err)
 	}
 	if err := m.validateNamespace(formats); err != nil {
+		res = append(res, err)
+	}
+	if err := m.validateRegionExpansionRangeMs(formats); err != nil {
+		res = append(res, err)
+	}
+	if err := m.validateRegionExpansionRateMs(formats); err != nil {
+		res = append(res, err)
+	}
+	if err := m.validateRegionLatencyInitialRangeMs(formats); err != nil {
+		res = append(res, err)
+	}
+	if err := m.validateRegionLatencyMaxMs(formats); err != nil {
 		res = append(res, err)
 	}
 	if err := m.validateRuleSet(formats); err != nil {
@@ -181,6 +216,42 @@ func (m *ModelsChannelV1) validateMaxDelayMs(formats strfmt.Registry) error {
 func (m *ModelsChannelV1) validateNamespace(formats strfmt.Registry) error {
 
 	if err := validate.Required("namespace", "body", m.Namespace); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *ModelsChannelV1) validateRegionExpansionRangeMs(formats strfmt.Registry) error {
+
+	if err := validate.Required("region_expansion_range_ms", "body", m.RegionExpansionRangeMs); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *ModelsChannelV1) validateRegionExpansionRateMs(formats strfmt.Registry) error {
+
+	if err := validate.Required("region_expansion_rate_ms", "body", m.RegionExpansionRateMs); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *ModelsChannelV1) validateRegionLatencyInitialRangeMs(formats strfmt.Registry) error {
+
+	if err := validate.Required("region_latency_initial_range_ms", "body", m.RegionLatencyInitialRangeMs); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *ModelsChannelV1) validateRegionLatencyMaxMs(formats strfmt.Registry) error {
+
+	if err := validate.Required("region_latency_max_ms", "body", m.RegionLatencyMaxMs); err != nil {
 		return err
 	}
 

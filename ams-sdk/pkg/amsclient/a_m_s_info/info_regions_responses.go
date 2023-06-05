@@ -67,10 +67,9 @@ func NewInfoRegionsOK() *InfoRegionsOK {
 	return &InfoRegionsOK{}
 }
 
-/*
-InfoRegionsOK handles this case with default header values.
+/*InfoRegionsOK handles this case with default header values.
 
-	success
+  success
 */
 type InfoRegionsOK struct {
 	Payload *amsclientmodels.APIRegionsResponse
@@ -121,10 +120,9 @@ func NewInfoRegionsUnauthorized() *InfoRegionsUnauthorized {
 	return &InfoRegionsUnauthorized{}
 }
 
-/*
-InfoRegionsUnauthorized handles this case with default header values.
+/*InfoRegionsUnauthorized handles this case with default header values.
 
-	no authorization provided
+  no authorization provided
 */
 type InfoRegionsUnauthorized struct {
 	Payload *amsclientmodels.ResponseErrorResponse
@@ -175,10 +173,9 @@ func NewInfoRegionsForbidden() *InfoRegionsForbidden {
 	return &InfoRegionsForbidden{}
 }
 
-/*
-InfoRegionsForbidden handles this case with default header values.
+/*InfoRegionsForbidden handles this case with default header values.
 
-	insufficient permissions
+  insufficient permissions
 */
 type InfoRegionsForbidden struct {
 	Payload *amsclientmodels.ResponseErrorResponse
@@ -229,10 +226,9 @@ func NewInfoRegionsInternalServerError() *InfoRegionsInternalServerError {
 	return &InfoRegionsInternalServerError{}
 }
 
-/*
-InfoRegionsInternalServerError handles this case with default header values.
+/*InfoRegionsInternalServerError handles this case with default header values.
 
-	internal server error
+  internal server error
 */
 type InfoRegionsInternalServerError struct {
 	Payload *amsclientmodels.ResponseErrorResponse

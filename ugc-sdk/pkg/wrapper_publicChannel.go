@@ -64,13 +64,13 @@ func (aaa *PublicChannelService) GetChannels(input *public_channel.GetChannelsPa
 	return ok.GetPayload(), nil
 }
 
-// Deprecated: 2022-01-10 - Please use CreateChannelShort instead.
-func (aaa *PublicChannelService) CreateChannel(input *public_channel.CreateChannelParams) (*ugcclientmodels.ModelsChannelResponse, error) {
+// Deprecated: 2022-01-10 - Please use PublicCreateChannelShort instead.
+func (aaa *PublicChannelService) PublicCreateChannel(input *public_channel.PublicCreateChannelParams) (*ugcclientmodels.ModelsChannelResponse, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
 		return nil, err
 	}
-	created, badRequest, unauthorized, internalServerError, err := aaa.Client.PublicChannel.CreateChannel(input, client.BearerToken(*token.AccessToken))
+	created, badRequest, unauthorized, internalServerError, err := aaa.Client.PublicChannel.PublicCreateChannel(input, client.BearerToken(*token.AccessToken))
 	if badRequest != nil {
 		return nil, badRequest
 	}
@@ -161,7 +161,7 @@ func (aaa *PublicChannelService) GetChannelsShort(input *public_channel.GetChann
 	return ok.GetPayload(), nil
 }
 
-func (aaa *PublicChannelService) CreateChannelShort(input *public_channel.CreateChannelParams) (*ugcclientmodels.ModelsChannelResponse, error) {
+func (aaa *PublicChannelService) PublicCreateChannelShort(input *public_channel.PublicCreateChannelParams) (*ugcclientmodels.ModelsChannelResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -178,7 +178,7 @@ func (aaa *PublicChannelService) CreateChannelShort(input *public_channel.Create
 		}
 	}
 
-	created, err := aaa.Client.PublicChannel.CreateChannelShort(input, authInfoWriter)
+	created, err := aaa.Client.PublicChannel.PublicCreateChannelShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
 	}

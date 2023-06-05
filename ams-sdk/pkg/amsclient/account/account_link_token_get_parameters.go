@@ -57,8 +57,7 @@ func NewAccountLinkTokenGetParamsWithHTTPClient(client *http.Client) *AccountLin
 	}
 }
 
-/*
-AccountLinkTokenGetParams contains all the parameters to send to the API endpoint
+/*AccountLinkTokenGetParams contains all the parameters to send to the API endpoint
 for the account link token get operation typically these are written to a http.Request
 */
 type AccountLinkTokenGetParams struct {

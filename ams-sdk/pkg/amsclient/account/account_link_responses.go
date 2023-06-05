@@ -67,10 +67,9 @@ func NewAccountLinkCreated() *AccountLinkCreated {
 	return &AccountLinkCreated{}
 }
 
-/*
-AccountLinkCreated handles this case with default header values.
+/*AccountLinkCreated handles this case with default header values.
 
-	success
+  success
 */
 type AccountLinkCreated struct {
 	Payload *amsclientmodels.APIAccountLinkResponse
@@ -121,10 +120,9 @@ func NewAccountLinkUnauthorized() *AccountLinkUnauthorized {
 	return &AccountLinkUnauthorized{}
 }
 
-/*
-AccountLinkUnauthorized handles this case with default header values.
+/*AccountLinkUnauthorized handles this case with default header values.
 
-	no authorization provided
+  no authorization provided
 */
 type AccountLinkUnauthorized struct {
 	Payload *amsclientmodels.ResponseErrorResponse
@@ -175,10 +173,9 @@ func NewAccountLinkForbidden() *AccountLinkForbidden {
 	return &AccountLinkForbidden{}
 }
 
-/*
-AccountLinkForbidden handles this case with default header values.
+/*AccountLinkForbidden handles this case with default header values.
 
-	insufficient permissions
+  insufficient permissions
 */
 type AccountLinkForbidden struct {
 	Payload *amsclientmodels.ResponseErrorResponse
@@ -229,10 +226,9 @@ func NewAccountLinkInternalServerError() *AccountLinkInternalServerError {
 	return &AccountLinkInternalServerError{}
 }
 
-/*
-AccountLinkInternalServerError handles this case with default header values.
+/*AccountLinkInternalServerError handles this case with default header values.
 
-	internal server error
+  internal server error
 */
 type AccountLinkInternalServerError struct {
 	Payload *amsclientmodels.ResponseErrorResponse

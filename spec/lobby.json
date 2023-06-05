@@ -8,6 +8,10 @@
   "schemes": [
     "https"
   ],
+  "externalDocs": {
+    "description": "API Docs",
+    "url": "https://stage.accelbyte.io/lobby/apidocs"
+  },
   "securityDefinitions": {
     "HasPermission": {
       "authorizationUrl": "https://dummy.oauth.net/auth",
@@ -44,7 +48,6 @@
         "NAMESPACE:{namespace}:TOPIC [DELETE]": "NAMESPACE:{namespace}:TOPIC [DELETE]",
         "NAMESPACE:{namespace}:TOPIC [READ]": "NAMESPACE:{namespace}:TOPIC [READ]",
         "NAMESPACE:{namespace}:TOPIC [UPDATE]": "NAMESPACE:{namespace}:TOPIC [UPDATE]",
-        "NAMESPACE:{namespace}:USER:{userId}:CHAT [READ]": "NAMESPACE:{namespace}:USER:{userId}:CHAT [READ]",
         "NAMESPACE:{namespace}:USER:{userId}:FRIENDS [CREATE]": "NAMESPACE:{namespace}:USER:{userId}:FRIENDS [CREATE]",
         "NAMESPACE:{namespace}:USER:{userId}:FRIENDS [READ]": "NAMESPACE:{namespace}:USER:{userId}:FRIENDS [READ]",
         "NAMESPACE:{namespace}:USER:{userId}:NOTIFICATION [CREATE]": "NAMESPACE:{namespace}:USER:{userId}:NOTIFICATION [CREATE]"
@@ -415,6 +418,71 @@
           }
         ],
         "summary": "get list of outgoing friends with requested time info",
+        "tags": [
+          "friends",
+          "public"
+        ]
+      }
+    },
+    "/friends/namespaces/{namespace}/me/platforms": {
+      "get": {
+        "operationId": "getUserFriendsWithPlatform",
+        "parameters": [
+          {
+            "description": "namespace",
+            "in": "path",
+            "name": "namespace",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/model.ListBulkUserPlatformsResponse"
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "schema": {
+              "$ref": "#/definitions/restapi.ErrorResponseV1"
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "schema": {
+              "$ref": "#/definitions/restapi.ErrorResponseV1"
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "schema": {
+              "$ref": "#/definitions/restapi.ErrorResponseV1"
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "schema": {
+              "$ref": "#/definitions/restapi.ErrorResponseV1"
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "schema": {
+              "$ref": "#/definitions/restapi.ErrorResponseV1"
+            }
+          }
+        },
+        "security": [
+          {
+            "authorization": []
+          }
+        ],
+        "summary": "get list of friends with platform data",
         "tags": [
           "friends",
           "public"
@@ -946,189 +1014,6 @@
         ]
       }
     },
-    "/lobby/chat/namespaces/{namespace}/users/{userId}/friend/{friendId}": {
-      "get": {
-        "consumes": [
-          "application/json"
-        ],
-        "description": "Required permission : \u0026lt;code\u0026gt;NAMESPACE:{namespace}:USER:{userId}:CHAT [READ]\u0026lt;/code\u0026gt; with scope \u0026lt;code\u0026gt;social\u0026lt;/code\u0026gt;\n\t\t\t\u0026lt;br\u0026gt;load personal chat history in a namespace.",
-        "operationId": "personalChatHistory",
-        "parameters": [
-          {
-            "description": "user ID that receive the chat",
-            "in": "path",
-            "name": "friendId",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "description": "namespace",
-            "in": "path",
-            "name": "namespace",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "description": "user ID",
-            "in": "path",
-            "name": "userId",
-            "required": true,
-            "type": "string"
-          }
-        ],
-        "produces": [
-          "application/json"
-        ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "schema": {
-              "items": {
-                "$ref": "#/definitions/model.ChatMessageResponse"
-              },
-              "type": "array"
-            }
-          },
-          "400": {
-            "description": "Bad Request",
-            "schema": {
-              "$ref": "#/definitions/restapi.ErrorResponseBody"
-            }
-          },
-          "401": {
-            "description": "Unauthorized",
-            "schema": {
-              "$ref": "#/definitions/restapi.ErrorResponseBody"
-            }
-          },
-          "403": {
-            "description": "Forbidden",
-            "schema": {
-              "$ref": "#/definitions/restapi.ErrorResponseBody"
-            }
-          },
-          "404": {
-            "description": "Not Found",
-            "schema": {
-              "$ref": "#/definitions/restapi.ErrorResponseBody"
-            }
-          },
-          "500": {
-            "description": "Internal Server Error",
-            "schema": {
-              "$ref": "#/definitions/restapi.ErrorResponseBody"
-            }
-          }
-        },
-        "security": [
-          {
-            "HasPermission": [
-              "NAMESPACE:{namespace}:USER:{userId}:CHAT [READ]"
-            ],
-            "HasScope": [
-              "social"
-            ],
-            "authorization": []
-          }
-        ],
-        "summary": "load personal chat history",
-        "tags": [
-          "chat",
-          "public"
-        ]
-      }
-    },
-    "/lobby/v1/admin/chat/namespaces/{namespace}/users/{userId}/friends/{friendId}": {
-      "get": {
-        "consumes": [
-          "application/json"
-        ],
-        "description": "Required permission : \u0026lt;code\u0026gt;NAMESPACE:{namespace}:USER:{userId}:CHAT [READ]\u0026lt;/code\u0026gt; with scope \u0026lt;code\u0026gt;social\u0026lt;/code\u0026gt;\n\t\t\t\u0026lt;br\u0026gt;get chat history in a namespace.",
-        "operationId": "adminChatHistory",
-        "parameters": [
-          {
-            "description": "user ID that receive the chat",
-            "in": "path",
-            "name": "friendId",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "description": "namespace",
-            "in": "path",
-            "name": "namespace",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "description": "user ID",
-            "in": "path",
-            "name": "userId",
-            "required": true,
-            "type": "string"
-          }
-        ],
-        "produces": [
-          "application/json"
-        ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "schema": {
-              "items": {
-                "$ref": "#/definitions/model.ChatMessageResponse"
-              },
-              "type": "array"
-            }
-          },
-          "400": {
-            "description": "Bad Request",
-            "schema": {
-              "$ref": "#/definitions/restapi.ErrorResponseBody"
-            }
-          },
-          "401": {
-            "description": "Unauthorized",
-            "schema": {
-              "$ref": "#/definitions/restapi.ErrorResponseBody"
-            }
-          },
-          "403": {
-            "description": "Forbidden",
-            "schema": {
-              "$ref": "#/definitions/restapi.ErrorResponseBody"
-            }
-          },
-          "404": {
-            "description": "Not Found",
-            "schema": {
-              "$ref": "#/definitions/restapi.ErrorResponseBody"
-            }
-          },
-          "500": {
-            "description": "Internal Server Error",
-            "schema": {
-              "$ref": "#/definitions/restapi.ErrorResponseBody"
-            }
-          }
-        },
-        "security": [
-          {
-            "HasPermission": [
-              "NAMESPACE:{namespace}:USER:{userId}:CHAT [READ]"
-            ],
-            "HasScope": [
-              "social"
-            ],
-            "authorization": []
-          }
-        ],
-        "summary": "admin get chat history",
-        "tags": [
-          "chat"
-        ]
-      }
-    },
     "/lobby/v1/admin/config": {
       "get": {
         "consumes": [
@@ -1357,7 +1242,7 @@
     },
     "/lobby/v1/admin/config/namespaces/{namespace}/export": {
       "get": {
-        "description": "\n\t\t\t\tRequired permission ADMIN:NAMESPACE:{namespace}:LOBBY:CONFIG [READ]\n\n\t\t\t\tRequired Scope: social\n\n\t\t\t\tExport lobby configuration to a json file. The file can then be imported from the /import endpoint. \n\t\t\t\nJSON Schema of the exported file:\n{\u0026#34;required\u0026#34;:[\u0026#34;namespace\u0026#34;,\u0026#34;entitlementItemID\u0026#34;,\u0026#34;chatRateLimitDuration\u0026#34;,\u0026#34;generalRateLimitDuration\u0026#34;,\u0026#34;autoKickOnDisconnectDelay\u0026#34;,\u0026#34;chatRateLimitBurst\u0026#34;,\u0026#34;generalRateLimitBurst\u0026#34;,\u0026#34;maxPartyMember\u0026#34;,\u0026#34;autoKickOnDisconnect\u0026#34;,\u0026#34;profanityFilter\u0026#34;,\u0026#34;enableChat\u0026#34;,\u0026#34;entitlementCheck\u0026#34;,\u0026#34;cancelTicketOnDisconnect\u0026#34;,\u0026#34;concurrentUsersLimit\u0026#34;,\u0026#34;readyConsentTimeout\u0026#34;,\u0026#34;disableInvitationOnJoinParty\u0026#34;,\u0026#34;allowJoinPartyDuringMatchmaking\u0026#34;,\u0026#34;allowInviteNonConnectedUser\u0026#34;,\u0026#34;keepPresenceActivityOnDisconnect\u0026#34;,\u0026#34;maxDSWaitTime\u0026#34;],\u0026#34;properties\u0026#34;:{\u0026#34;allowInviteNonConnectedUser\u0026#34;:{\u0026#34;type\u0026#34;:\u0026#34;boolean\u0026#34;},\u0026#34;allowJoinPartyDuringMatchmaking\u0026#34;:{\u0026#34;type\u0026#34;:\u0026#34;boolean\u0026#34;},\u0026#34;autoKickOnDisconnect\u0026#34;:{\u0026#34;type\u0026#34;:\u0026#34;boolean\u0026#34;},\u0026#34;autoKickOnDisconnectDelay\u0026#34;:{\u0026#34;type\u0026#34;:\u0026#34;integer\u0026#34;,\u0026#34;format\u0026#34;:\u0026#34;integer\u0026#34;},\u0026#34;cancelTicketOnDisconnect\u0026#34;:{\u0026#34;type\u0026#34;:\u0026#34;boolean\u0026#34;},\u0026#34;chatRateLimitBurst\u0026#34;:{\u0026#34;type\u0026#34;:\u0026#34;integer\u0026#34;,\u0026#34;format\u0026#34;:\u0026#34;int32\u0026#34;},\u0026#34;chatRateLimitDuration\u0026#34;:{\u0026#34;type\u0026#34;:\u0026#34;integer\u0026#34;,\u0026#34;format\u0026#34;:\u0026#34;integer\u0026#34;},\u0026#34;concurrentUsersLimit\u0026#34;:{\u0026#34;type\u0026#34;:\u0026#34;integer\u0026#34;,\u0026#34;format\u0026#34;:\u0026#34;int32\u0026#34;},\u0026#34;disableInvitationOnJoinParty\u0026#34;:{\u0026#34;type\u0026#34;:\u0026#34;boolean\u0026#34;},\u0026#34;enableChat\u0026#34;:{\u0026#34;type\u0026#34;:\u0026#34;boolean\u0026#34;},\u0026#34;entitlementCheck\u0026#34;:{\u0026#34;type\u0026#34;:\u0026#34;boolean\u0026#34;},\u0026#34;entitlementItemID\u0026#34;:{\u0026#34;type\u0026#34;:\u0026#34;string\u0026#34;},\u0026#34;generalRateLimitBurst\u0026#34;:{\u0026#34;type\u0026#34;:\u0026#34;integer\u0026#34;,\u0026#34;format\u0026#34;:\u0026#34;int32\u0026#34;},\u0026#34;generalRateLimitDuration\u0026#34;:{\u0026#34;type\u0026#34;:\u0026#34;integer\u0026#34;,\u0026#34;format\u0026#34;:\u0026#34;integer\u0026#34;},\u0026#34;keepPresenceActivityOnDisconnect\u0026#34;:{\u0026#34;type\u0026#34;:\u0026#34;boolean\u0026#34;},\u0026#34;maxDSWaitTime\u0026#34;:{\u0026#34;type\u0026#34;:\u0026#34;integer\u0026#34;,\u0026#34;format\u0026#34;:\u0026#34;integer\u0026#34;},\u0026#34;maxPartyMember\u0026#34;:{\u0026#34;type\u0026#34;:\u0026#34;integer\u0026#34;,\u0026#34;format\u0026#34;:\u0026#34;int32\u0026#34;},\u0026#34;namespace\u0026#34;:{\u0026#34;type\u0026#34;:\u0026#34;string\u0026#34;},\u0026#34;profanityFilter\u0026#34;:{\u0026#34;type\u0026#34;:\u0026#34;boolean\u0026#34;},\u0026#34;readyConsentTimeout\u0026#34;:{\u0026#34;type\u0026#34;:\u0026#34;integer\u0026#34;,\u0026#34;format\u0026#34;:\u0026#34;integer\u0026#34;}}}",
+        "description": "\n\t\t\t\tRequired permission ADMIN:NAMESPACE:{namespace}:LOBBY:CONFIG [READ]\n\n\t\t\t\tRequired Scope: social\n\n\t\t\t\tExport lobby configuration to a json file. The file can then be imported from the /import endpoint. \n\t\t\t\nJSON Schema of the exported file:\n{\u0026#34;required\u0026#34;:[\u0026#34;namespace\u0026#34;,\u0026#34;entitlementItemID\u0026#34;,\u0026#34;chatRateLimitDuration\u0026#34;,\u0026#34;unregisterDelay\u0026#34;,\u0026#34;generalRateLimitDuration\u0026#34;,\u0026#34;autoKickOnDisconnectDelay\u0026#34;,\u0026#34;chatRateLimitBurst\u0026#34;,\u0026#34;generalRateLimitBurst\u0026#34;,\u0026#34;maxPartyMember\u0026#34;,\u0026#34;autoKickOnDisconnect\u0026#34;,\u0026#34;profanityFilter\u0026#34;,\u0026#34;enableChat\u0026#34;,\u0026#34;entitlementCheck\u0026#34;,\u0026#34;cancelTicketOnDisconnect\u0026#34;,\u0026#34;concurrentUsersLimit\u0026#34;,\u0026#34;readyConsentTimeout\u0026#34;,\u0026#34;disableInvitationOnJoinParty\u0026#34;,\u0026#34;allowJoinPartyDuringMatchmaking\u0026#34;,\u0026#34;allowInviteNonConnectedUser\u0026#34;,\u0026#34;keepPresenceActivityOnDisconnect\u0026#34;,\u0026#34;maxDSWaitTime\u0026#34;],\u0026#34;properties\u0026#34;:{\u0026#34;allowInviteNonConnectedUser\u0026#34;:{\u0026#34;type\u0026#34;:\u0026#34;boolean\u0026#34;},\u0026#34;allowJoinPartyDuringMatchmaking\u0026#34;:{\u0026#34;type\u0026#34;:\u0026#34;boolean\u0026#34;},\u0026#34;autoKickOnDisconnect\u0026#34;:{\u0026#34;type\u0026#34;:\u0026#34;boolean\u0026#34;},\u0026#34;autoKickOnDisconnectDelay\u0026#34;:{\u0026#34;type\u0026#34;:\u0026#34;integer\u0026#34;,\u0026#34;format\u0026#34;:\u0026#34;integer\u0026#34;},\u0026#34;cancelTicketOnDisconnect\u0026#34;:{\u0026#34;type\u0026#34;:\u0026#34;boolean\u0026#34;},\u0026#34;chatRateLimitBurst\u0026#34;:{\u0026#34;type\u0026#34;:\u0026#34;integer\u0026#34;,\u0026#34;format\u0026#34;:\u0026#34;int32\u0026#34;},\u0026#34;chatRateLimitDuration\u0026#34;:{\u0026#34;type\u0026#34;:\u0026#34;integer\u0026#34;,\u0026#34;format\u0026#34;:\u0026#34;integer\u0026#34;},\u0026#34;concurrentUsersLimit\u0026#34;:{\u0026#34;type\u0026#34;:\u0026#34;integer\u0026#34;,\u0026#34;format\u0026#34;:\u0026#34;int32\u0026#34;},\u0026#34;disableInvitationOnJoinParty\u0026#34;:{\u0026#34;type\u0026#34;:\u0026#34;boolean\u0026#34;},\u0026#34;enableChat\u0026#34;:{\u0026#34;type\u0026#34;:\u0026#34;boolean\u0026#34;},\u0026#34;entitlementCheck\u0026#34;:{\u0026#34;type\u0026#34;:\u0026#34;boolean\u0026#34;},\u0026#34;entitlementItemID\u0026#34;:{\u0026#34;type\u0026#34;:\u0026#34;string\u0026#34;},\u0026#34;generalRateLimitBurst\u0026#34;:{\u0026#34;type\u0026#34;:\u0026#34;integer\u0026#34;,\u0026#34;format\u0026#34;:\u0026#34;int32\u0026#34;},\u0026#34;generalRateLimitDuration\u0026#34;:{\u0026#34;type\u0026#34;:\u0026#34;integer\u0026#34;,\u0026#34;format\u0026#34;:\u0026#34;integer\u0026#34;},\u0026#34;keepPresenceActivityOnDisconnect\u0026#34;:{\u0026#34;type\u0026#34;:\u0026#34;boolean\u0026#34;},\u0026#34;maxDSWaitTime\u0026#34;:{\u0026#34;type\u0026#34;:\u0026#34;integer\u0026#34;,\u0026#34;format\u0026#34;:\u0026#34;integer\u0026#34;},\u0026#34;maxPartyMember\u0026#34;:{\u0026#34;type\u0026#34;:\u0026#34;integer\u0026#34;,\u0026#34;format\u0026#34;:\u0026#34;int32\u0026#34;},\u0026#34;namespace\u0026#34;:{\u0026#34;type\u0026#34;:\u0026#34;string\u0026#34;},\u0026#34;profanityFilter\u0026#34;:{\u0026#34;type\u0026#34;:\u0026#34;boolean\u0026#34;},\u0026#34;readyConsentTimeout\u0026#34;:{\u0026#34;type\u0026#34;:\u0026#34;integer\u0026#34;,\u0026#34;format\u0026#34;:\u0026#34;integer\u0026#34;},\u0026#34;unregisterDelay\u0026#34;:{\u0026#34;type\u0026#34;:\u0026#34;integer\u0026#34;,\u0026#34;format\u0026#34;:\u0026#34;integer\u0026#34;}}}",
         "operationId": "adminExportConfigV1",
         "parameters": [
           {
@@ -1373,7 +1258,7 @@
         ],
         "responses": {
           "200": {
-            "description": "OK\nJSON Schema of the exported file:\n{\"required\":[\"namespace\",\"entitlementItemID\",\"chatRateLimitDuration\",\"generalRateLimitDuration\",\"autoKickOnDisconnectDelay\",\"chatRateLimitBurst\",\"generalRateLimitBurst\",\"maxPartyMember\",\"autoKickOnDisconnect\",\"profanityFilter\",\"enableChat\",\"entitlementCheck\",\"cancelTicketOnDisconnect\",\"concurrentUsersLimit\",\"readyConsentTimeout\",\"disableInvitationOnJoinParty\",\"allowJoinPartyDuringMatchmaking\",\"allowInviteNonConnectedUser\",\"keepPresenceActivityOnDisconnect\",\"maxDSWaitTime\"],\"properties\":{\"allowInviteNonConnectedUser\":{\"type\":\"boolean\"},\"allowJoinPartyDuringMatchmaking\":{\"type\":\"boolean\"},\"autoKickOnDisconnect\":{\"type\":\"boolean\"},\"autoKickOnDisconnectDelay\":{\"type\":\"integer\",\"format\":\"integer\"},\"cancelTicketOnDisconnect\":{\"type\":\"boolean\"},\"chatRateLimitBurst\":{\"type\":\"integer\",\"format\":\"int32\"},\"chatRateLimitDuration\":{\"type\":\"integer\",\"format\":\"integer\"},\"concurrentUsersLimit\":{\"type\":\"integer\",\"format\":\"int32\"},\"disableInvitationOnJoinParty\":{\"type\":\"boolean\"},\"enableChat\":{\"type\":\"boolean\"},\"entitlementCheck\":{\"type\":\"boolean\"},\"entitlementItemID\":{\"type\":\"string\"},\"generalRateLimitBurst\":{\"type\":\"integer\",\"format\":\"int32\"},\"generalRateLimitDuration\":{\"type\":\"integer\",\"format\":\"integer\"},\"keepPresenceActivityOnDisconnect\":{\"type\":\"boolean\"},\"maxDSWaitTime\":{\"type\":\"integer\",\"format\":\"integer\"},\"maxPartyMember\":{\"type\":\"integer\",\"format\":\"int32\"},\"namespace\":{\"type\":\"string\"},\"profanityFilter\":{\"type\":\"boolean\"},\"readyConsentTimeout\":{\"type\":\"integer\",\"format\":\"integer\"}}}",
+            "description": "OK\nJSON Schema of the exported file:\n{\"required\":[\"namespace\",\"entitlementItemID\",\"chatRateLimitDuration\",\"unregisterDelay\",\"generalRateLimitDuration\",\"autoKickOnDisconnectDelay\",\"chatRateLimitBurst\",\"generalRateLimitBurst\",\"maxPartyMember\",\"autoKickOnDisconnect\",\"profanityFilter\",\"enableChat\",\"entitlementCheck\",\"cancelTicketOnDisconnect\",\"concurrentUsersLimit\",\"readyConsentTimeout\",\"disableInvitationOnJoinParty\",\"allowJoinPartyDuringMatchmaking\",\"allowInviteNonConnectedUser\",\"keepPresenceActivityOnDisconnect\",\"maxDSWaitTime\"],\"properties\":{\"allowInviteNonConnectedUser\":{\"type\":\"boolean\"},\"allowJoinPartyDuringMatchmaking\":{\"type\":\"boolean\"},\"autoKickOnDisconnect\":{\"type\":\"boolean\"},\"autoKickOnDisconnectDelay\":{\"type\":\"integer\",\"format\":\"integer\"},\"cancelTicketOnDisconnect\":{\"type\":\"boolean\"},\"chatRateLimitBurst\":{\"type\":\"integer\",\"format\":\"int32\"},\"chatRateLimitDuration\":{\"type\":\"integer\",\"format\":\"integer\"},\"concurrentUsersLimit\":{\"type\":\"integer\",\"format\":\"int32\"},\"disableInvitationOnJoinParty\":{\"type\":\"boolean\"},\"enableChat\":{\"type\":\"boolean\"},\"entitlementCheck\":{\"type\":\"boolean\"},\"entitlementItemID\":{\"type\":\"string\"},\"generalRateLimitBurst\":{\"type\":\"integer\",\"format\":\"int32\"},\"generalRateLimitDuration\":{\"type\":\"integer\",\"format\":\"integer\"},\"keepPresenceActivityOnDisconnect\":{\"type\":\"boolean\"},\"maxDSWaitTime\":{\"type\":\"integer\",\"format\":\"integer\"},\"maxPartyMember\":{\"type\":\"integer\",\"format\":\"int32\"},\"namespace\":{\"type\":\"string\"},\"profanityFilter\":{\"type\":\"boolean\"},\"readyConsentTimeout\":{\"type\":\"integer\",\"format\":\"integer\"},\"unregisterDelay\":{\"type\":\"integer\",\"format\":\"integer\"}}}",
             "schema": {
               "type": "file"
             }
@@ -1564,6 +1449,180 @@
           }
         ],
         "summary": "get list of friends",
+        "tags": [
+          "friends"
+        ]
+      }
+    },
+    "/lobby/v1/admin/friend/namespaces/{namespace}/users/{userId}/incoming": {
+      "get": {
+        "consumes": [
+          "application/json"
+        ],
+        "description": "Required permission : \u0026lt;code\u0026gt;NAMESPACE:{namespace}:USER:{userId}:FRIENDS [READ]\u0026lt;/code\u0026gt; with scope \u0026lt;code\u0026gt;social\u0026lt;/code\u0026gt;\n\u0026lt;br\u0026gt;get list of incoming friend requests.",
+        "operationId": "get incoming friend requests",
+        "parameters": [
+          {
+            "description": "namespace",
+            "in": "path",
+            "name": "namespace",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "user ID",
+            "in": "path",
+            "name": "userId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "maximum number of data",
+            "in": "query",
+            "name": "limit",
+            "type": "integer"
+          },
+          {
+            "description": "numbers of row to skip within the result",
+            "in": "query",
+            "name": "offset",
+            "type": "integer"
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/model.LoadIncomingFriendsWithTimeResponse"
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "schema": {
+              "$ref": "#/definitions/restapi.ErrorResponseBody"
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "schema": {
+              "$ref": "#/definitions/restapi.ErrorResponseBody"
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "schema": {
+              "$ref": "#/definitions/restapi.ErrorResponseBody"
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "schema": {
+              "$ref": "#/definitions/restapi.ErrorResponseBody"
+            }
+          }
+        },
+        "security": [
+          {
+            "HasPermission": [
+              "NAMESPACE:{namespace}:USER:{userId}:FRIENDS [READ]"
+            ],
+            "HasScope": [
+              "social"
+            ],
+            "authorization": []
+          }
+        ],
+        "summary": "get incoming friend requests",
+        "tags": [
+          "friends"
+        ]
+      }
+    },
+    "/lobby/v1/admin/friend/namespaces/{namespace}/users/{userId}/outgoing": {
+      "get": {
+        "consumes": [
+          "application/json"
+        ],
+        "description": "Required permission : \u0026lt;code\u0026gt;NAMESPACE:{namespace}:USER:{userId}:FRIENDS [READ]\u0026lt;/code\u0026gt; with scope \u0026lt;code\u0026gt;social\u0026lt;/code\u0026gt;\n\u0026lt;br\u0026gt;get list of outgoing friend requests in a namespace.",
+        "operationId": "get outgoing friend requests",
+        "parameters": [
+          {
+            "description": "namespace",
+            "in": "path",
+            "name": "namespace",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "user ID",
+            "in": "path",
+            "name": "userId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "maximum number of data",
+            "in": "query",
+            "name": "limit",
+            "type": "integer"
+          },
+          {
+            "description": "numbers of row to skip within the result",
+            "in": "query",
+            "name": "offset",
+            "type": "integer"
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/model.LoadOutgoingFriendsWithTimeResponse"
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "schema": {
+              "$ref": "#/definitions/restapi.ErrorResponseBody"
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "schema": {
+              "$ref": "#/definitions/restapi.ErrorResponseBody"
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "schema": {
+              "$ref": "#/definitions/restapi.ErrorResponseBody"
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "schema": {
+              "$ref": "#/definitions/restapi.ErrorResponseBody"
+            }
+          }
+        },
+        "security": [
+          {
+            "HasPermission": [
+              "NAMESPACE:{namespace}:USER:{userId}:FRIENDS [READ]"
+            ],
+            "HasScope": [
+              "social"
+            ],
+            "authorization": []
+          }
+        ],
+        "summary": "get list of outgoing friend requests",
         "tags": [
           "friends"
         ]
@@ -3561,6 +3620,89 @@
         ]
       }
     },
+    "/lobby/v1/admin/player/namespaces/{namespace}/users/bulk/blocked": {
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "description": "Required permission : \u0026lt;code\u0026gt;ADMIN:NAMESPACE:{namespace}:USER:{userId}:PLAYER:BLOCK [READ]\u0026lt;/code\u0026gt; with scope \u0026lt;code\u0026gt;social\u0026lt;/code\u0026gt;\n\t\t\t\u0026lt;br\u0026gt;get blocked players data by bulk user ids in a namespace.",
+        "operationId": "adminGetBulkPlayerBlockedPlayersV1",
+        "parameters": [
+          {
+            "description": "list of blocked player request",
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/models.GetBulkAllPlayerBlockedUsersRequest"
+            }
+          },
+          {
+            "description": "namespace",
+            "in": "path",
+            "name": "namespace",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/models.GetBulkAllPlayerBlockedUsersResponse"
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "schema": {
+              "$ref": "#/definitions/restapi.ErrorResponseBody"
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "schema": {
+              "$ref": "#/definitions/restapi.ErrorResponseBody"
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "schema": {
+              "$ref": "#/definitions/restapi.ErrorResponseBody"
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "schema": {
+              "$ref": "#/definitions/restapi.ErrorResponseBody"
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "schema": {
+              "$ref": "#/definitions/restapi.ErrorResponseBody"
+            }
+          }
+        },
+        "security": [
+          {
+            "HasPermission": [
+              "ADMIN:NAMESPACE:{namespace}:USER:{userId}:PLAYER:BLOCK [READ]"
+            ],
+            "HasScope": [
+              "social"
+            ],
+            "authorization": []
+          }
+        ],
+        "summary": "admin get blocked players by bulk user ids",
+        "tags": [
+          "player"
+        ]
+      }
+    },
     "/lobby/v1/admin/player/namespaces/{namespace}/users/{userId}/attributes": {
       "get": {
         "consumes": [
@@ -5443,84 +5585,6 @@
         ]
       }
     },
-    "/lobby/v1/public/chat/namespaces/{namespace}/users/me/friends/{friendId}": {
-      "get": {
-        "consumes": [
-          "application/json"
-        ],
-        "description": "Required valid user authorization \u0026lt;br/\u0026gt;\n\t\t\t\u0026lt;br\u0026gt;load personal chat history in a namespace based on Friend User ID \u0026lt;br/\u0026gt;\n\t\t\tAction Code: 50101",
-        "operationId": "getPersonalChatHistoryV1Public",
-        "parameters": [
-          {
-            "description": "Friend User ID, should follow UUID version 4 without hyphen",
-            "in": "path",
-            "name": "friendId",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "description": "namespace",
-            "in": "path",
-            "name": "namespace",
-            "required": true,
-            "type": "string"
-          }
-        ],
-        "produces": [
-          "application/json"
-        ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "schema": {
-              "items": {
-                "$ref": "#/definitions/model.ChatMessageResponse"
-              },
-              "type": "array"
-            }
-          },
-          "400": {
-            "description": "Bad Request",
-            "schema": {
-              "$ref": "#/definitions/restapi.ErrorResponseBody"
-            }
-          },
-          "401": {
-            "description": "Unauthorized",
-            "schema": {
-              "$ref": "#/definitions/restapi.ErrorResponseBody"
-            }
-          },
-          "403": {
-            "description": "Forbidden",
-            "schema": {
-              "$ref": "#/definitions/restapi.ErrorResponseBody"
-            }
-          },
-          "404": {
-            "description": "Not Found",
-            "schema": {
-              "$ref": "#/definitions/restapi.ErrorResponseBody"
-            }
-          },
-          "500": {
-            "description": "Internal Server Error",
-            "schema": {
-              "$ref": "#/definitions/restapi.ErrorResponseBody"
-            }
-          }
-        },
-        "security": [
-          {
-            "authorization": []
-          }
-        ],
-        "summary": "load personal chat history",
-        "tags": [
-          "chat"
-        ]
-      }
-    },
     "/lobby/v1/public/party/namespaces/{namespace}/parties/{partyId}": {
       "get": {
         "consumes": [
@@ -7365,6 +7429,9 @@
         "namespace": {
           "type": "string"
         },
+        "platform": {
+          "type": "string"
+        },
         "userID": {
           "type": "string"
         }
@@ -7374,6 +7441,7 @@
         "availability",
         "lastSeenAt",
         "namespace",
+        "platform",
         "userID"
       ]
     },
@@ -7443,33 +7511,6 @@
         "message",
         "topicName",
         "userIds"
-      ]
-    },
-    "model.ChatMessageResponse": {
-      "properties": {
-        "from": {
-          "type": "string"
-        },
-        "id": {
-          "type": "string"
-        },
-        "payload": {
-          "type": "string"
-        },
-        "receivedAt": {
-          "format": "int64",
-          "type": "integer"
-        },
-        "to": {
-          "type": "string"
-        }
-      },
-      "required": [
-        "from",
-        "id",
-        "payload",
-        "receivedAt",
-        "to"
       ]
     },
     "model.CreateTemplateRequest": {
@@ -7597,12 +7638,19 @@
           },
           "type": "array"
         },
+        "friendsSinceTimes": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
         "paging": {
           "$ref": "#/definitions/model.Pagination"
         }
       },
       "required": [
         "friendIDs",
+        "friendsSinceTimes",
         "paging"
       ]
     },
@@ -7671,6 +7719,19 @@
       "required": [
         "friendId",
         "requestedAt"
+      ]
+    },
+    "model.ListBulkUserPlatformsResponse": {
+      "properties": {
+        "data": {
+          "items": {
+            "$ref": "#/definitions/model.UserWithPlatformInfo"
+          },
+          "type": "array"
+        }
+      },
+      "required": [
+        "data"
       ]
     },
     "model.LoadIncomingFriendsWithTimeResponse": {
@@ -8061,6 +8122,24 @@
         "name"
       ]
     },
+    "model.UserPlatformInfo": {
+      "properties": {
+        "platformDisplayName": {
+          "type": "string"
+        },
+        "platformName": {
+          "type": "string"
+        },
+        "platformUserId": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "platformDisplayName",
+        "platformName",
+        "platformUserId"
+      ]
+    },
     "model.UserRejectFriendRequest": {
       "properties": {
         "friendId": {
@@ -8093,6 +8172,34 @@
       },
       "required": [
         "friendId"
+      ]
+    },
+    "model.UserWithPlatformInfo": {
+      "properties": {
+        "avatarUrl": {
+          "type": "string"
+        },
+        "displayName": {
+          "type": "string"
+        },
+        "platformInfos": {
+          "items": {
+            "$ref": "#/definitions/model.UserPlatformInfo"
+          },
+          "type": "array"
+        },
+        "userId": {
+          "type": "string"
+        },
+        "username": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "avatarUrl",
+        "displayName",
+        "platformInfos",
+        "userId"
       ]
     },
     "models.AdminAddProfanityFilterIntoListRequest": {
@@ -8369,10 +8476,15 @@
         "readyConsentTimeout": {
           "format": "integer",
           "type": "integer"
+        },
+        "unregisterDelay": {
+          "format": "integer",
+          "type": "integer"
         }
       },
       "required": [
-        "maxDSWaitTime"
+        "maxDSWaitTime",
+        "unregisterDelay"
       ]
     },
     "models.ConfigList": {
@@ -8464,8 +8576,15 @@
         "readyConsentTimeout": {
           "format": "integer",
           "type": "integer"
+        },
+        "unregisterDelay": {
+          "format": "integer",
+          "type": "integer"
         }
-      }
+      },
+      "required": [
+        "unregisterDelay"
+      ]
     },
     "models.CreateConfigRequest": {
       "properties": {
@@ -8538,6 +8657,35 @@
       },
       "required": [
         "attributes"
+      ]
+    },
+    "models.GetBulkAllPlayerBlockedUsersRequest": {
+      "properties": {
+        "listBlockedUserId": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        }
+      },
+      "required": [
+        "listBlockedUserId"
+      ]
+    },
+    "models.GetBulkAllPlayerBlockedUsersResponse": {
+      "properties": {
+        "data": {
+          "additionalProperties": {
+            "items": {
+              "$ref": "#/definitions/models.BlockedPlayerData"
+            },
+            "type": "array"
+          },
+          "type": "object"
+        }
+      },
+      "required": [
+        "data"
       ]
     },
     "models.GetConfigResponse": {
@@ -8811,5 +8959,19 @@
         "errorMessage"
       ]
     }
+  },
+  "x-docs": {
+    "alias": "lobby",
+    "host": "https://stage.accelbyte.io",
+    "path": "/lobby/apidocs/api.json"
+  },
+  "x-version": {
+    "buildDate": "2023-05-31T06:02:04+00:00",
+    "gitHash": "d84bca5dfaccfc88fec1b44c2233dfbf76c0c908",
+    "name": "justice-lobby-server",
+    "revisionID": "3.21.0",
+    "version": "3.21.0",
+    "version-justice": "3.45.0",
+    "version-roles-seeding": "0.0.29"
   }
 }

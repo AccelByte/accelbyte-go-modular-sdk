@@ -38,6 +38,8 @@ type ClientService interface {
 	GetAllTimeLeaderboardRankingAdminV1Short(params *GetAllTimeLeaderboardRankingAdminV1Params, authInfo runtime.ClientAuthInfoWriter) (*GetAllTimeLeaderboardRankingAdminV1OK, error)
 	GetCurrentMonthLeaderboardRankingAdminV1(params *GetCurrentMonthLeaderboardRankingAdminV1Params, authInfo runtime.ClientAuthInfoWriter) (*GetCurrentMonthLeaderboardRankingAdminV1OK, *GetCurrentMonthLeaderboardRankingAdminV1BadRequest, *GetCurrentMonthLeaderboardRankingAdminV1Unauthorized, *GetCurrentMonthLeaderboardRankingAdminV1Forbidden, *GetCurrentMonthLeaderboardRankingAdminV1NotFound, *GetCurrentMonthLeaderboardRankingAdminV1InternalServerError, error)
 	GetCurrentMonthLeaderboardRankingAdminV1Short(params *GetCurrentMonthLeaderboardRankingAdminV1Params, authInfo runtime.ClientAuthInfoWriter) (*GetCurrentMonthLeaderboardRankingAdminV1OK, error)
+	DeleteUserRankingByLeaderboardCodeAdminV1(params *DeleteUserRankingByLeaderboardCodeAdminV1Params, authInfo runtime.ClientAuthInfoWriter) (*DeleteUserRankingByLeaderboardCodeAdminV1NoContent, *DeleteUserRankingByLeaderboardCodeAdminV1Unauthorized, *DeleteUserRankingByLeaderboardCodeAdminV1Forbidden, *DeleteUserRankingByLeaderboardCodeAdminV1NotFound, *DeleteUserRankingByLeaderboardCodeAdminV1InternalServerError, error)
+	DeleteUserRankingByLeaderboardCodeAdminV1Short(params *DeleteUserRankingByLeaderboardCodeAdminV1Params, authInfo runtime.ClientAuthInfoWriter) (*DeleteUserRankingByLeaderboardCodeAdminV1NoContent, error)
 	GetCurrentSeasonLeaderboardRankingAdminV1(params *GetCurrentSeasonLeaderboardRankingAdminV1Params, authInfo runtime.ClientAuthInfoWriter) (*GetCurrentSeasonLeaderboardRankingAdminV1OK, *GetCurrentSeasonLeaderboardRankingAdminV1BadRequest, *GetCurrentSeasonLeaderboardRankingAdminV1Unauthorized, *GetCurrentSeasonLeaderboardRankingAdminV1Forbidden, *GetCurrentSeasonLeaderboardRankingAdminV1NotFound, *GetCurrentSeasonLeaderboardRankingAdminV1InternalServerError, error)
 	GetCurrentSeasonLeaderboardRankingAdminV1Short(params *GetCurrentSeasonLeaderboardRankingAdminV1Params, authInfo runtime.ClientAuthInfoWriter) (*GetCurrentSeasonLeaderboardRankingAdminV1OK, error)
 	GetTodayLeaderboardRankingAdminV1(params *GetTodayLeaderboardRankingAdminV1Params, authInfo runtime.ClientAuthInfoWriter) (*GetTodayLeaderboardRankingAdminV1OK, *GetTodayLeaderboardRankingAdminV1BadRequest, *GetTodayLeaderboardRankingAdminV1Unauthorized, *GetTodayLeaderboardRankingAdminV1Forbidden, *GetTodayLeaderboardRankingAdminV1NotFound, *GetTodayLeaderboardRankingAdminV1InternalServerError, error)
@@ -583,6 +585,152 @@ func (a *Client) GetCurrentMonthLeaderboardRankingAdminV1Short(params *GetCurren
 	case *GetCurrentMonthLeaderboardRankingAdminV1NotFound:
 		return nil, v
 	case *GetCurrentMonthLeaderboardRankingAdminV1InternalServerError:
+		return nil, v
+
+	default:
+		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
+	}
+}
+
+/*
+Deprecated: 2022-08-10 - Use DeleteUserRankingByLeaderboardCodeAdminV1Short instead.
+
+DeleteUserRankingByLeaderboardCodeAdminV1 delete all user ranking by leaderboard code
+
+
+[Test Facility Only]
+
+
+
+
+Required permission 'ADMIN:NAMESPACE:{namespace}:LEADERBOARD [DELETE]'
+
+
+
+
+This endpoint will delete user ranking by leaderboard code
+
+
+
+
+Note: this endpoint only works on development environment.
+*/
+func (a *Client) DeleteUserRankingByLeaderboardCodeAdminV1(params *DeleteUserRankingByLeaderboardCodeAdminV1Params, authInfo runtime.ClientAuthInfoWriter) (*DeleteUserRankingByLeaderboardCodeAdminV1NoContent, *DeleteUserRankingByLeaderboardCodeAdminV1Unauthorized, *DeleteUserRankingByLeaderboardCodeAdminV1Forbidden, *DeleteUserRankingByLeaderboardCodeAdminV1NotFound, *DeleteUserRankingByLeaderboardCodeAdminV1InternalServerError, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewDeleteUserRankingByLeaderboardCodeAdminV1Params()
+	}
+
+	if params.Context == nil {
+		params.Context = context.Background()
+	}
+
+	if params.RetryPolicy != nil {
+		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "deleteUserRankingByLeaderboardCodeAdminV1",
+		Method:             "DELETE",
+		PathPattern:        "/leaderboard/v1/admin/namespaces/{namespace}/leaderboards/{leaderboardCode}/reset",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &DeleteUserRankingByLeaderboardCodeAdminV1Reader{formats: a.formats},
+		AuthInfo:           authInfo,
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, nil, nil, nil, nil, err
+	}
+
+	switch v := result.(type) {
+
+	case *DeleteUserRankingByLeaderboardCodeAdminV1NoContent:
+		return v, nil, nil, nil, nil, nil
+
+	case *DeleteUserRankingByLeaderboardCodeAdminV1Unauthorized:
+		return nil, v, nil, nil, nil, nil
+
+	case *DeleteUserRankingByLeaderboardCodeAdminV1Forbidden:
+		return nil, nil, v, nil, nil, nil
+
+	case *DeleteUserRankingByLeaderboardCodeAdminV1NotFound:
+		return nil, nil, nil, v, nil, nil
+
+	case *DeleteUserRankingByLeaderboardCodeAdminV1InternalServerError:
+		return nil, nil, nil, nil, v, nil
+
+	default:
+		return nil, nil, nil, nil, nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
+	}
+}
+
+/*
+DeleteUserRankingByLeaderboardCodeAdminV1Short delete all user ranking by leaderboard code
+
+
+ [Test Facility Only]
+
+
+
+
+Required permission 'ADMIN:NAMESPACE:{namespace}:LEADERBOARD [DELETE]'
+
+
+
+
+This endpoint will delete user ranking by leaderboard code
+
+
+
+
+Note: this endpoint only works on development environment.
+*/
+func (a *Client) DeleteUserRankingByLeaderboardCodeAdminV1Short(params *DeleteUserRankingByLeaderboardCodeAdminV1Params, authInfo runtime.ClientAuthInfoWriter) (*DeleteUserRankingByLeaderboardCodeAdminV1NoContent, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewDeleteUserRankingByLeaderboardCodeAdminV1Params()
+	}
+
+	if params.Context == nil {
+		params.Context = context.Background()
+	}
+
+	if params.RetryPolicy != nil {
+		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "deleteUserRankingByLeaderboardCodeAdminV1",
+		Method:             "DELETE",
+		PathPattern:        "/leaderboard/v1/admin/namespaces/{namespace}/leaderboards/{leaderboardCode}/reset",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &DeleteUserRankingByLeaderboardCodeAdminV1Reader{formats: a.formats},
+		AuthInfo:           authInfo,
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+
+	switch v := result.(type) {
+
+	case *DeleteUserRankingByLeaderboardCodeAdminV1NoContent:
+		return v, nil
+	case *DeleteUserRankingByLeaderboardCodeAdminV1Unauthorized:
+		return nil, v
+	case *DeleteUserRankingByLeaderboardCodeAdminV1Forbidden:
+		return nil, v
+	case *DeleteUserRankingByLeaderboardCodeAdminV1NotFound:
+		return nil, v
+	case *DeleteUserRankingByLeaderboardCodeAdminV1InternalServerError:
 		return nil, v
 
 	default:
@@ -1390,8 +1538,6 @@ Delete user ranking across leaderboard
 Required permission: ADMIN:NAMESPACE:{namespace}:LEADERBOARD:USER [DELETE]
 
 Remove entry with provided userId from leaderboard.
-If leaderboard with given leaderboard code not found, it will return http status not found (404).
-If the leaderboard is found and no entry found in it, it will still return success (204)
 */
 func (a *Client) DeleteUserRankingsAdminV1(params *DeleteUserRankingsAdminV1Params, authInfo runtime.ClientAuthInfoWriter) (*DeleteUserRankingsAdminV1NoContent, *DeleteUserRankingsAdminV1Unauthorized, *DeleteUserRankingsAdminV1Forbidden, *DeleteUserRankingsAdminV1NotFound, *DeleteUserRankingsAdminV1InternalServerError, error) {
 	// TODO: Validate the params before sending
@@ -1452,8 +1598,6 @@ Delete user ranking across leaderboard
 Required permission: ADMIN:NAMESPACE:{namespace}:LEADERBOARD:USER [DELETE]
 
 Remove entry with provided userId from leaderboard.
-If leaderboard with given leaderboard code not found, it will return http status not found (404).
-If the leaderboard is found and no entry found in it, it will still return success (204)
 */
 func (a *Client) DeleteUserRankingsAdminV1Short(params *DeleteUserRankingsAdminV1Params, authInfo runtime.ClientAuthInfoWriter) (*DeleteUserRankingsAdminV1NoContent, error) {
 	// TODO: Validate the params before sending

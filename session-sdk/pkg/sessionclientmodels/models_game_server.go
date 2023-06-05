@@ -19,8 +19,7 @@ import (
 type ModelsGameServer struct {
 
 	// alternate_ips
-	// Required: true
-	AlternateIps []string `json:"alternate_ips"`
+	AlternateIps []string `json:"alternate_ips,omitempty"`
 
 	// custom_attribute
 	// Required: true
@@ -84,6 +83,10 @@ type ModelsGameServer struct {
 	// Required: true
 	SessionID *string `json:"session_id"`
 
+	// source
+	// Required: true
+	Source *string `json:"source"`
+
 	// status
 	// Required: true
 	Status *string `json:"status"`
@@ -93,9 +96,6 @@ type ModelsGameServer struct {
 func (m *ModelsGameServer) Validate(formats strfmt.Registry) error {
 	var res []error
 
-	if err := m.validateAlternateIps(formats); err != nil {
-		res = append(res, err)
-	}
 	if err := m.validateCustomAttribute(formats); err != nil {
 		res = append(res, err)
 	}
@@ -138,6 +138,9 @@ func (m *ModelsGameServer) Validate(formats strfmt.Registry) error {
 	if err := m.validateSessionID(formats); err != nil {
 		res = append(res, err)
 	}
+	if err := m.validateSource(formats); err != nil {
+		res = append(res, err)
+	}
 	if err := m.validateStatus(formats); err != nil {
 		res = append(res, err)
 	}
@@ -145,15 +148,6 @@ func (m *ModelsGameServer) Validate(formats strfmt.Registry) error {
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
-	return nil
-}
-
-func (m *ModelsGameServer) validateAlternateIps(formats strfmt.Registry) error {
-
-	if err := validate.Required("alternate_ips", "body", m.AlternateIps); err != nil {
-		return err
-	}
-
 	return nil
 }
 
@@ -281,6 +275,15 @@ func (m *ModelsGameServer) validateRegion(formats strfmt.Registry) error {
 func (m *ModelsGameServer) validateSessionID(formats strfmt.Registry) error {
 
 	if err := validate.Required("session_id", "body", m.SessionID); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *ModelsGameServer) validateSource(formats strfmt.Registry) error {
+
+	if err := validate.Required("source", "body", m.Source); err != nil {
 		return err
 	}
 

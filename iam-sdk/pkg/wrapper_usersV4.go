@@ -304,6 +304,41 @@ func (aaa *UsersV4Service) AdminRemoveUserRoleV4(input *users_v4.AdminRemoveUser
 	return nil
 }
 
+// Deprecated: 2022-01-10 - Please use AdminInviteUserNewV4Short instead.
+func (aaa *UsersV4Service) AdminInviteUserNewV4(input *users_v4.AdminInviteUserNewV4Params) (*iamclientmodels.ModelInviteUserResponseV3, error) {
+	token, err := aaa.TokenRepository.GetToken()
+	if err != nil {
+		return nil, err
+	}
+	created, badRequest, unauthorized, forbidden, notFound, conflict, unprocessableEntity, internalServerError, err := aaa.Client.UsersV4.AdminInviteUserNewV4(input, client.BearerToken(*token.AccessToken))
+	if badRequest != nil {
+		return nil, badRequest
+	}
+	if unauthorized != nil {
+		return nil, unauthorized
+	}
+	if forbidden != nil {
+		return nil, forbidden
+	}
+	if notFound != nil {
+		return nil, notFound
+	}
+	if conflict != nil {
+		return nil, conflict
+	}
+	if unprocessableEntity != nil {
+		return nil, unprocessableEntity
+	}
+	if internalServerError != nil {
+		return nil, internalServerError
+	}
+	if err != nil {
+		return nil, err
+	}
+
+	return created.GetPayload(), nil
+}
+
 // Deprecated: 2022-01-10 - Please use AdminUpdateMyUserV4Short instead.
 func (aaa *UsersV4Service) AdminUpdateMyUserV4(input *users_v4.AdminUpdateMyUserV4Params) (*iamclientmodels.ModelUserResponseV3, error) {
 	token, err := aaa.TokenRepository.GetToken()
@@ -1612,6 +1647,31 @@ func (aaa *UsersV4Service) AdminRemoveUserRoleV4Short(input *users_v4.AdminRemov
 	}
 
 	return nil
+}
+
+func (aaa *UsersV4Service) AdminInviteUserNewV4Short(input *users_v4.AdminInviteUserNewV4Params) (*iamclientmodels.ModelInviteUserResponseV3, error) {
+	authInfoWriter := input.AuthInfoWriter
+	if authInfoWriter == nil {
+		security := [][]string{
+			{"bearer"},
+		}
+		authInfoWriter = auth.AuthInfoWriter(aaa.GetAuthSession(), security, "")
+	}
+	if input.RetryPolicy == nil {
+		input.RetryPolicy = &utils.Retry{
+			MaxTries:   utils.MaxTries,
+			Backoff:    utils.NewConstantBackoff(0),
+			Transport:  aaa.Client.Runtime.Transport,
+			RetryCodes: utils.RetryCodes,
+		}
+	}
+
+	created, err := aaa.Client.UsersV4.AdminInviteUserNewV4Short(input, authInfoWriter)
+	if err != nil {
+		return nil, err
+	}
+
+	return created.GetPayload(), nil
 }
 
 func (aaa *UsersV4Service) AdminUpdateMyUserV4Short(input *users_v4.AdminUpdateMyUserV4Params) (*iamclientmodels.ModelUserResponseV3, error) {

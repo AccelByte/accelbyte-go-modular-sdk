@@ -24,6 +24,10 @@ type ApimodelsPlayerAttributesRequestBody struct {
 	// Required: true
 	CrossplayEnabled *bool `json:"crossplayEnabled"`
 
+	// currentplatform
+	// Required: true
+	CurrentPlatform *string `json:"currentPlatform"`
+
 	// data
 	// Required: true
 	Data interface{} `json:"data"`
@@ -31,6 +35,9 @@ type ApimodelsPlayerAttributesRequestBody struct {
 	// platforms
 	// Required: true
 	Platforms []*ModelsUserPlatformInfo `json:"platforms"`
+
+	// roles
+	Roles []string `json:"roles,omitempty"`
 }
 
 // Validate validates this Apimodels player attributes request body
@@ -38,6 +45,9 @@ func (m *ApimodelsPlayerAttributesRequestBody) Validate(formats strfmt.Registry)
 	var res []error
 
 	if err := m.validateCrossplayEnabled(formats); err != nil {
+		res = append(res, err)
+	}
+	if err := m.validateCurrentPlatform(formats); err != nil {
 		res = append(res, err)
 	}
 	if err := m.validatePlatforms(formats); err != nil {
@@ -53,6 +63,15 @@ func (m *ApimodelsPlayerAttributesRequestBody) Validate(formats strfmt.Registry)
 func (m *ApimodelsPlayerAttributesRequestBody) validateCrossplayEnabled(formats strfmt.Registry) error {
 
 	if err := validate.Required("crossplayEnabled", "body", m.CrossplayEnabled); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *ApimodelsPlayerAttributesRequestBody) validateCurrentPlatform(formats strfmt.Registry) error {
+
+	if err := validate.Required("currentPlatform", "body", m.CurrentPlatform); err != nil {
 		return err
 	}
 

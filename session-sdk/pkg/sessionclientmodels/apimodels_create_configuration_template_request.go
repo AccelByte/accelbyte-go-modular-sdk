@@ -18,6 +18,9 @@ import (
 // swagger:model Apimodels create configuration template request.
 type ApimodelsCreateConfigurationTemplateRequest struct {
 
+	// nativesessionsetting
+	NativeSessionSetting *ModelsNativeSessionSetting `json:"NativeSessionSetting,omitempty"`
+
 	// clientversion
 	// Required: true
 	ClientVersion *string `json:"clientVersion"`
@@ -25,6 +28,12 @@ type ApimodelsCreateConfigurationTemplateRequest struct {
 	// deployment
 	// Required: true
 	Deployment *string `json:"deployment"`
+
+	// dssource
+	DsSource string `json:"dsSource,omitempty"`
+
+	// fallbackclaimkeys
+	FallbackClaimKeys []string `json:"fallbackClaimKeys,omitempty"`
 
 	// inactivetimeout
 	// Required: true
@@ -39,6 +48,10 @@ type ApimodelsCreateConfigurationTemplateRequest struct {
 	// joinability
 	// Required: true
 	Joinability *string `json:"joinability"`
+
+	// maxactivesessions
+	// Format: int32
+	MaxActiveSessions int32 `json:"maxActiveSessions,omitempty"`
 
 	// maxplayers
 	// Required: true
@@ -55,11 +68,11 @@ type ApimodelsCreateConfigurationTemplateRequest struct {
 	Name *string `json:"name"`
 
 	// persistent
-	Persistent bool `json:"persistent"`
+	// Required: true
+	Persistent *bool `json:"persistent"`
 
-	// persistentttl
-	// Format: int32
-	PersistentTTL int32 `json:"persistentTTL,omitempty"`
+	// preferredclaimkeys
+	PreferredClaimKeys []string `json:"preferredClaimKeys,omitempty"`
 
 	// requestedregions
 	// Required: true
@@ -100,6 +113,9 @@ func (m *ApimodelsCreateConfigurationTemplateRequest) Validate(formats strfmt.Re
 		res = append(res, err)
 	}
 	if err := m.validateName(formats); err != nil {
+		res = append(res, err)
+	}
+	if err := m.validatePersistent(formats); err != nil {
 		res = append(res, err)
 	}
 	if err := m.validateRequestedRegions(formats); err != nil {
@@ -184,6 +200,15 @@ func (m *ApimodelsCreateConfigurationTemplateRequest) validateMinPlayers(formats
 func (m *ApimodelsCreateConfigurationTemplateRequest) validateName(formats strfmt.Registry) error {
 
 	if err := validate.Required("name", "body", m.Name); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *ApimodelsCreateConfigurationTemplateRequest) validatePersistent(formats strfmt.Registry) error {
+
+	if err := validate.Required("persistent", "body", m.Persistent); err != nil {
 		return err
 	}
 

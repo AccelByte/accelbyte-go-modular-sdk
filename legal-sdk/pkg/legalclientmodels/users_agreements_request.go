@@ -18,6 +18,9 @@ import (
 // swagger:model Users agreements request.
 type UsersAgreementsRequest struct {
 
+	// if true, the result will only include the status of current published policies, default: false
+	CurrentPublishedOnly bool `json:"currentPublishedOnly"`
+
 	// user ids, min size: 1, max size: 100
 	// Unique: true
 	// Required: true

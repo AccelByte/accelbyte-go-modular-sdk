@@ -7,10 +7,15 @@
 package leaderboard
 
 import (
+	"github.com/AccelByte/sample-apps/cmd/leaderboard/anonymization"
 	"github.com/AccelByte/sample-apps/cmd/leaderboard/leaderboardConfiguration"
+	"github.com/AccelByte/sample-apps/cmd/leaderboard/leaderboardConfigurationV3"
 	"github.com/AccelByte/sample-apps/cmd/leaderboard/leaderboardData"
+	"github.com/AccelByte/sample-apps/cmd/leaderboard/leaderboardDataV3"
 	"github.com/AccelByte/sample-apps/cmd/leaderboard/userData"
+	"github.com/AccelByte/sample-apps/cmd/leaderboard/userDataV3"
 	"github.com/AccelByte/sample-apps/cmd/leaderboard/userVisibility"
+	"github.com/AccelByte/sample-apps/cmd/leaderboard/userVisibilityV3"
 	"github.com/spf13/cobra"
 )
 
@@ -30,7 +35,9 @@ func init() {
 	LeaderboardCmd.AddCommand(leaderboardConfiguration.UpdateLeaderboardConfigurationAdminV1Cmd)
 	LeaderboardCmd.AddCommand(leaderboardConfiguration.DeleteLeaderboardConfigurationAdminV1Cmd)
 	LeaderboardCmd.AddCommand(leaderboardData.GetAllTimeLeaderboardRankingAdminV1Cmd)
+	LeaderboardCmd.AddCommand(leaderboardConfiguration.HardDeleteLeaderboardAdminV1Cmd)
 	LeaderboardCmd.AddCommand(leaderboardData.GetCurrentMonthLeaderboardRankingAdminV1Cmd)
+	LeaderboardCmd.AddCommand(leaderboardData.DeleteUserRankingByLeaderboardCodeAdminV1Cmd)
 	LeaderboardCmd.AddCommand(leaderboardData.GetCurrentSeasonLeaderboardRankingAdminV1Cmd)
 	LeaderboardCmd.AddCommand(leaderboardData.GetTodayLeaderboardRankingAdminV1Cmd)
 	LeaderboardCmd.AddCommand(leaderboardData.GetUserRankingAdminV1Cmd)
@@ -38,6 +45,7 @@ func init() {
 	LeaderboardCmd.AddCommand(leaderboardData.DeleteUserRankingAdminV1Cmd)
 	LeaderboardCmd.AddCommand(leaderboardData.GetCurrentWeekLeaderboardRankingAdminV1Cmd)
 	LeaderboardCmd.AddCommand(leaderboardData.DeleteUserRankingsAdminV1Cmd)
+	LeaderboardCmd.AddCommand(anonymization.AdminAnonymizeUserLeaderboardAdminV1Cmd)
 	LeaderboardCmd.AddCommand(userData.GetUserLeaderboardRankingsAdminV1Cmd)
 	LeaderboardCmd.AddCommand(leaderboardConfiguration.GetLeaderboardConfigurationsPublicV1Cmd)
 	LeaderboardCmd.AddCommand(leaderboardConfiguration.CreateLeaderboardConfigurationPublicV1Cmd)
@@ -55,4 +63,27 @@ func init() {
 	LeaderboardCmd.AddCommand(userVisibility.SetUserVisibilityStatusV2Cmd)
 	LeaderboardCmd.AddCommand(leaderboardConfiguration.GetLeaderboardConfigurationsPublicV2Cmd)
 	LeaderboardCmd.AddCommand(leaderboardData.GetAllTimeLeaderboardRankingPublicV2Cmd)
+	LeaderboardCmd.AddCommand(leaderboardConfigurationV3.GetLeaderboardConfigurationsAdminV3Cmd)
+	LeaderboardCmd.AddCommand(leaderboardConfigurationV3.CreateLeaderboardConfigurationAdminV3Cmd)
+	LeaderboardCmd.AddCommand(leaderboardConfigurationV3.DeleteBulkLeaderboardConfigurationAdminV3Cmd)
+	LeaderboardCmd.AddCommand(leaderboardConfigurationV3.GetLeaderboardConfigurationAdminV3Cmd)
+	LeaderboardCmd.AddCommand(leaderboardConfigurationV3.UpdateLeaderboardConfigurationAdminV3Cmd)
+	LeaderboardCmd.AddCommand(leaderboardConfigurationV3.DeleteLeaderboardConfigurationAdminV3Cmd)
+	LeaderboardCmd.AddCommand(leaderboardDataV3.GetAllTimeLeaderboardRankingAdminV3Cmd)
+	LeaderboardCmd.AddCommand(leaderboardDataV3.GetCurrentCycleLeaderboardRankingAdminV3Cmd)
+	LeaderboardCmd.AddCommand(leaderboardConfigurationV3.HardDeleteLeaderboardAdminV3Cmd)
+	LeaderboardCmd.AddCommand(leaderboardDataV3.DeleteUserRankingByLeaderboardCodeAdminV3Cmd)
+	LeaderboardCmd.AddCommand(userVisibilityV3.GetHiddenUsersV3Cmd)
+	LeaderboardCmd.AddCommand(leaderboardDataV3.GetUserRankingAdminV3Cmd)
+	LeaderboardCmd.AddCommand(leaderboardDataV3.DeleteUserRankingAdminV3Cmd)
+	LeaderboardCmd.AddCommand(userVisibilityV3.GetUserVisibilityStatusV3Cmd)
+	LeaderboardCmd.AddCommand(userVisibilityV3.SetUserLeaderboardVisibilityV3Cmd)
+	LeaderboardCmd.AddCommand(leaderboardDataV3.DeleteUserRankingsAdminV3Cmd)
+	LeaderboardCmd.AddCommand(userDataV3.GetUserLeaderboardRankingsAdminV3Cmd)
+	LeaderboardCmd.AddCommand(userVisibilityV3.SetUserVisibilityV3Cmd)
+	LeaderboardCmd.AddCommand(leaderboardConfigurationV3.GetLeaderboardConfigurationsPublicV3Cmd)
+	LeaderboardCmd.AddCommand(leaderboardConfigurationV3.GetLeaderboardConfigurationPublicV3Cmd)
+	LeaderboardCmd.AddCommand(leaderboardDataV3.GetAllTimeLeaderboardRankingPublicV3Cmd)
+	LeaderboardCmd.AddCommand(leaderboardDataV3.GetCurrentCycleLeaderboardRankingPublicV3Cmd)
+	LeaderboardCmd.AddCommand(leaderboardDataV3.GetUserRankingPublicV3Cmd)
 }

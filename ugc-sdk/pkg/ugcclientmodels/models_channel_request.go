@@ -18,6 +18,9 @@ import (
 // swagger:model Models channel request.
 type ModelsChannelRequest struct {
 
+	// id
+	ID string `json:"id,omitempty"`
+
 	// name
 	// Required: true
 	Name *string `json:"name"`

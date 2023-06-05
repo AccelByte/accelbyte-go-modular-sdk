@@ -73,10 +73,9 @@ func NewFleetDeleteNoContent() *FleetDeleteNoContent {
 	return &FleetDeleteNoContent{}
 }
 
-/*
-FleetDeleteNoContent handles this case with default header values.
+/*FleetDeleteNoContent handles this case with default header values.
 
-	no content
+  no content
 */
 type FleetDeleteNoContent struct {
 }
@@ -100,10 +99,9 @@ func NewFleetDeleteUnauthorized() *FleetDeleteUnauthorized {
 	return &FleetDeleteUnauthorized{}
 }
 
-/*
-FleetDeleteUnauthorized handles this case with default header values.
+/*FleetDeleteUnauthorized handles this case with default header values.
 
-	no authorization provided
+  no authorization provided
 */
 type FleetDeleteUnauthorized struct {
 	Payload *amsclientmodels.ResponseErrorResponse
@@ -154,10 +152,9 @@ func NewFleetDeleteForbidden() *FleetDeleteForbidden {
 	return &FleetDeleteForbidden{}
 }
 
-/*
-FleetDeleteForbidden handles this case with default header values.
+/*FleetDeleteForbidden handles this case with default header values.
 
-	insufficient permissions
+  insufficient permissions
 */
 type FleetDeleteForbidden struct {
 	Payload *amsclientmodels.ResponseErrorResponse
@@ -208,10 +205,9 @@ func NewFleetDeleteNotFound() *FleetDeleteNotFound {
 	return &FleetDeleteNotFound{}
 }
 
-/*
-FleetDeleteNotFound handles this case with default header values.
+/*FleetDeleteNotFound handles this case with default header values.
 
-	fleet not found
+  fleet not found
 */
 type FleetDeleteNotFound struct {
 	Payload *amsclientmodels.ResponseErrorResponse
@@ -262,10 +258,9 @@ func NewFleetDeleteInternalServerError() *FleetDeleteInternalServerError {
 	return &FleetDeleteInternalServerError{}
 }
 
-/*
-FleetDeleteInternalServerError handles this case with default header values.
+/*FleetDeleteInternalServerError handles this case with default header values.
 
-	internal server error
+  internal server error
 */
 type FleetDeleteInternalServerError struct {
 	Payload *amsclientmodels.ResponseErrorResponse

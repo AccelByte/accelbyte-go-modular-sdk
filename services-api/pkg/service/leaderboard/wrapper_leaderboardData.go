@@ -157,6 +157,32 @@ func (aaa *LeaderboardDataService) GetCurrentMonthLeaderboardRankingAdminV1(inpu
 	return ok.GetPayload(), nil
 }
 
+// Deprecated: 2022-01-10 - Please use DeleteUserRankingByLeaderboardCodeAdminV1Short instead.
+func (aaa *LeaderboardDataService) DeleteUserRankingByLeaderboardCodeAdminV1(input *leaderboard_data.DeleteUserRankingByLeaderboardCodeAdminV1Params) error {
+	token, err := aaa.TokenRepository.GetToken()
+	if err != nil {
+		return err
+	}
+	_, unauthorized, forbidden, notFound, internalServerError, err := aaa.Client.LeaderboardData.DeleteUserRankingByLeaderboardCodeAdminV1(input, client.BearerToken(*token.AccessToken))
+	if unauthorized != nil {
+		return unauthorized
+	}
+	if forbidden != nil {
+		return forbidden
+	}
+	if notFound != nil {
+		return notFound
+	}
+	if internalServerError != nil {
+		return internalServerError
+	}
+	if err != nil {
+		return err
+	}
+
+	return nil
+}
+
 // Deprecated: 2022-01-10 - Please use GetCurrentSeasonLeaderboardRankingAdminV1Short instead.
 func (aaa *LeaderboardDataService) GetCurrentSeasonLeaderboardRankingAdminV1(input *leaderboard_data.GetCurrentSeasonLeaderboardRankingAdminV1Params) (*leaderboardclientmodels.ModelsGetLeaderboardRankingResp, error) {
 	token, err := aaa.TokenRepository.GetToken()
@@ -674,6 +700,31 @@ func (aaa *LeaderboardDataService) GetCurrentMonthLeaderboardRankingAdminV1Short
 	}
 
 	return ok.GetPayload(), nil
+}
+
+func (aaa *LeaderboardDataService) DeleteUserRankingByLeaderboardCodeAdminV1Short(input *leaderboard_data.DeleteUserRankingByLeaderboardCodeAdminV1Params) error {
+	authInfoWriter := input.AuthInfoWriter
+	if authInfoWriter == nil {
+		security := [][]string{
+			{"bearer"},
+		}
+		authInfoWriter = auth.AuthInfoWriter(aaa.GetAuthSession(), security, "")
+	}
+	if input.RetryPolicy == nil {
+		input.RetryPolicy = &utils.Retry{
+			MaxTries:   utils.MaxTries,
+			Backoff:    utils.NewConstantBackoff(0),
+			Transport:  aaa.Client.Runtime.Transport,
+			RetryCodes: utils.RetryCodes,
+		}
+	}
+
+	_, err := aaa.Client.LeaderboardData.DeleteUserRankingByLeaderboardCodeAdminV1Short(input, authInfoWriter)
+	if err != nil {
+		return err
+	}
+
+	return nil
 }
 
 func (aaa *LeaderboardDataService) GetCurrentSeasonLeaderboardRankingAdminV1Short(input *leaderboard_data.GetCurrentSeasonLeaderboardRankingAdminV1Params) (*leaderboardclientmodels.ModelsGetLeaderboardRankingResp, error) {

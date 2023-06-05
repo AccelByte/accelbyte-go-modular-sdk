@@ -7,8 +7,6 @@
 package sessionclientmodels
 
 import (
-	"strconv"
-
 	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
@@ -25,8 +23,7 @@ type ModelsTeam struct {
 	UserIDs []string `json:"UserIDs"`
 
 	// parties
-	// Required: true
-	Parties []*ModelsPartyMembers `json:"parties"`
+	Parties []*ModelsPartyMembers `json:"parties,omitempty"`
 }
 
 // Validate validates this Models team
@@ -34,9 +31,6 @@ func (m *ModelsTeam) Validate(formats strfmt.Registry) error {
 	var res []error
 
 	if err := m.validateUserIDs(formats); err != nil {
-		res = append(res, err)
-	}
-	if err := m.validateParties(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -50,31 +44,6 @@ func (m *ModelsTeam) validateUserIDs(formats strfmt.Registry) error {
 
 	if err := validate.Required("UserIDs", "body", m.UserIDs); err != nil {
 		return err
-	}
-
-	return nil
-}
-
-func (m *ModelsTeam) validateParties(formats strfmt.Registry) error {
-
-	if err := validate.Required("parties", "body", m.Parties); err != nil {
-		return err
-	}
-
-	for i := 0; i < len(m.Parties); i++ {
-		if swag.IsZero(m.Parties[i]) { // not required
-			continue
-		}
-
-		if m.Parties[i] != nil {
-			if err := m.Parties[i].Validate(formats); err != nil {
-				if ve, ok := err.(*errors.Validation); ok {
-					return ve.ValidateName("parties" + "." + strconv.Itoa(i))
-				}
-				return err
-			}
-		}
-
 	}
 
 	return nil

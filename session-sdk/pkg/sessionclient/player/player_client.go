@@ -34,6 +34,8 @@ type ClientService interface {
 	AdminQueryPlayerAttributesShort(params *AdminQueryPlayerAttributesParams, authInfo runtime.ClientAuthInfoWriter) (*AdminQueryPlayerAttributesOK, error)
 	AdminGetPlayerAttributes(params *AdminGetPlayerAttributesParams, authInfo runtime.ClientAuthInfoWriter) (*AdminGetPlayerAttributesOK, *AdminGetPlayerAttributesBadRequest, *AdminGetPlayerAttributesUnauthorized, *AdminGetPlayerAttributesNotFound, *AdminGetPlayerAttributesInternalServerError, error)
 	AdminGetPlayerAttributesShort(params *AdminGetPlayerAttributesParams, authInfo runtime.ClientAuthInfoWriter) (*AdminGetPlayerAttributesOK, error)
+	PublicGetBulkPlayerCurrentPlatform(params *PublicGetBulkPlayerCurrentPlatformParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGetBulkPlayerCurrentPlatformOK, *PublicGetBulkPlayerCurrentPlatformBadRequest, *PublicGetBulkPlayerCurrentPlatformUnauthorized, *PublicGetBulkPlayerCurrentPlatformNotFound, *PublicGetBulkPlayerCurrentPlatformInternalServerError, error)
+	PublicGetBulkPlayerCurrentPlatformShort(params *PublicGetBulkPlayerCurrentPlatformParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGetBulkPlayerCurrentPlatformOK, error)
 	PublicGetPlayerAttributes(params *PublicGetPlayerAttributesParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGetPlayerAttributesOK, *PublicGetPlayerAttributesBadRequest, *PublicGetPlayerAttributesUnauthorized, *PublicGetPlayerAttributesNotFound, *PublicGetPlayerAttributesInternalServerError, error)
 	PublicGetPlayerAttributesShort(params *PublicGetPlayerAttributesParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGetPlayerAttributesOK, error)
 	PublicStorePlayerAttributes(params *PublicStorePlayerAttributesParams, authInfo runtime.ClientAuthInfoWriter) (*PublicStorePlayerAttributesOK, *PublicStorePlayerAttributesBadRequest, *PublicStorePlayerAttributesUnauthorized, *PublicStorePlayerAttributesInternalServerError, error)
@@ -54,9 +56,11 @@ Field descriptions:
 - userID : user who owns the attributes.
 - crossplayEnabled : set to true if the player wants to enable crossplay to their session (default: false).
 - platforms : list of the player's 3rd party platform account information.
-- name : platform name. supported platforms: STEAM
+- name : platform name. supported platforms: STEAM, XBOX, PSN
 - userID : platform userID
 - data : other data that the player wants to store.
+- currentPlatform : latest user game platform.
+- roles : user role for matchmaking role base support.
 */
 func (a *Client) AdminQueryPlayerAttributes(params *AdminQueryPlayerAttributesParams, authInfo runtime.ClientAuthInfoWriter) (*AdminQueryPlayerAttributesOK, *AdminQueryPlayerAttributesBadRequest, *AdminQueryPlayerAttributesUnauthorized, *AdminQueryPlayerAttributesNotFound, *AdminQueryPlayerAttributesInternalServerError, error) {
 	// TODO: Validate the params before sending
@@ -119,9 +123,11 @@ Field descriptions:
 - userID : user who owns the attributes.
 - crossplayEnabled : set to true if the player wants to enable crossplay to their session (default: false).
 - platforms : list of the player's 3rd party platform account information.
-- name : platform name. supported platforms: STEAM
+- name : platform name. supported platforms: STEAM, XBOX, PSN
 - userID : platform userID
 - data : other data that the player wants to store.
+- currentPlatform : latest user game platform.
+- roles : user role for matchmaking role base support.
 */
 func (a *Client) AdminQueryPlayerAttributesShort(params *AdminQueryPlayerAttributesParams, authInfo runtime.ClientAuthInfoWriter) (*AdminQueryPlayerAttributesOK, error) {
 	// TODO: Validate the params before sending
@@ -182,9 +188,11 @@ Field descriptions:
 - userID : user who owns the attributes.
 - crossplayEnabled : set to true if the player wants to enable crossplay to their session (default: false).
 - platforms : list of the player's 3rd party platform account information.
-- name : platform name. supported platforms: STEAM
+- name : platform name. supported platforms: STEAM, XBOX, PSN
 - userID : platform userID
 - data : other data that the player wants to store.
+- currentPlatform : latest user game platform.
+- roles : user role for matchmaking role base support.
 */
 func (a *Client) AdminGetPlayerAttributes(params *AdminGetPlayerAttributesParams, authInfo runtime.ClientAuthInfoWriter) (*AdminGetPlayerAttributesOK, *AdminGetPlayerAttributesBadRequest, *AdminGetPlayerAttributesUnauthorized, *AdminGetPlayerAttributesNotFound, *AdminGetPlayerAttributesInternalServerError, error) {
 	// TODO: Validate the params before sending
@@ -247,9 +255,11 @@ Field descriptions:
 - userID : user who owns the attributes.
 - crossplayEnabled : set to true if the player wants to enable crossplay to their session (default: false).
 - platforms : list of the player's 3rd party platform account information.
-- name : platform name. supported platforms: STEAM
+- name : platform name. supported platforms: STEAM, XBOX, PSN
 - userID : platform userID
 - data : other data that the player wants to store.
+- currentPlatform : latest user game platform.
+- roles : user role for matchmaking role base support.
 */
 func (a *Client) AdminGetPlayerAttributesShort(params *AdminGetPlayerAttributesParams, authInfo runtime.ClientAuthInfoWriter) (*AdminGetPlayerAttributesOK, error) {
 	// TODO: Validate the params before sending
@@ -301,6 +311,118 @@ func (a *Client) AdminGetPlayerAttributesShort(params *AdminGetPlayerAttributesP
 }
 
 /*
+Deprecated: 2022-08-10 - Use PublicGetBulkPlayerCurrentPlatformShort instead.
+
+PublicGetBulkPlayerCurrentPlatform get player current platform in bulk. requires namespace:{namespace}:session:player [read]
+Get bulk players current platform.
+*/
+func (a *Client) PublicGetBulkPlayerCurrentPlatform(params *PublicGetBulkPlayerCurrentPlatformParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGetBulkPlayerCurrentPlatformOK, *PublicGetBulkPlayerCurrentPlatformBadRequest, *PublicGetBulkPlayerCurrentPlatformUnauthorized, *PublicGetBulkPlayerCurrentPlatformNotFound, *PublicGetBulkPlayerCurrentPlatformInternalServerError, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewPublicGetBulkPlayerCurrentPlatformParams()
+	}
+
+	if params.Context == nil {
+		params.Context = context.Background()
+	}
+
+	if params.RetryPolicy != nil {
+		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "publicGetBulkPlayerCurrentPlatform",
+		Method:             "POST",
+		PathPattern:        "/session/v1/public/namespaces/{namespace}/users/bulk/platform",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &PublicGetBulkPlayerCurrentPlatformReader{formats: a.formats},
+		AuthInfo:           authInfo,
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, nil, nil, nil, nil, err
+	}
+
+	switch v := result.(type) {
+
+	case *PublicGetBulkPlayerCurrentPlatformOK:
+		return v, nil, nil, nil, nil, nil
+
+	case *PublicGetBulkPlayerCurrentPlatformBadRequest:
+		return nil, v, nil, nil, nil, nil
+
+	case *PublicGetBulkPlayerCurrentPlatformUnauthorized:
+		return nil, nil, v, nil, nil, nil
+
+	case *PublicGetBulkPlayerCurrentPlatformNotFound:
+		return nil, nil, nil, v, nil, nil
+
+	case *PublicGetBulkPlayerCurrentPlatformInternalServerError:
+		return nil, nil, nil, nil, v, nil
+
+	default:
+		return nil, nil, nil, nil, nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
+	}
+}
+
+/*
+PublicGetBulkPlayerCurrentPlatformShort get player current platform in bulk. requires namespace:{namespace}:session:player [read]
+Get bulk players current platform.
+*/
+func (a *Client) PublicGetBulkPlayerCurrentPlatformShort(params *PublicGetBulkPlayerCurrentPlatformParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGetBulkPlayerCurrentPlatformOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewPublicGetBulkPlayerCurrentPlatformParams()
+	}
+
+	if params.Context == nil {
+		params.Context = context.Background()
+	}
+
+	if params.RetryPolicy != nil {
+		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "publicGetBulkPlayerCurrentPlatform",
+		Method:             "POST",
+		PathPattern:        "/session/v1/public/namespaces/{namespace}/users/bulk/platform",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &PublicGetBulkPlayerCurrentPlatformReader{formats: a.formats},
+		AuthInfo:           authInfo,
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+
+	switch v := result.(type) {
+
+	case *PublicGetBulkPlayerCurrentPlatformOK:
+		return v, nil
+	case *PublicGetBulkPlayerCurrentPlatformBadRequest:
+		return nil, v
+	case *PublicGetBulkPlayerCurrentPlatformUnauthorized:
+		return nil, v
+	case *PublicGetBulkPlayerCurrentPlatformNotFound:
+		return nil, v
+	case *PublicGetBulkPlayerCurrentPlatformInternalServerError:
+		return nil, v
+
+	default:
+		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
+	}
+}
+
+/*
 Deprecated: 2022-08-10 - Use PublicGetPlayerAttributesShort instead.
 
 PublicGetPlayerAttributes get player attributes. requires namespace:{namespace}:session:player [read]
@@ -310,9 +432,11 @@ Field descriptions:
 - userID : user who owns the attributes.
 - crossplayEnabled : set to true if the player wants to enable crossplay to their session (default: false).
 - platforms : list of the player's 3rd party platform account information.
-- name : platform name. supported platforms: STEAM
+- name : platform name. supported platforms: STEAM, XBOX, PSN
 - userID : platform userID
 - data : other data that the player wants to store.
+- currentPlatform : latest user game platform.
+- roles : user role for matchmaking role base support.
 */
 func (a *Client) PublicGetPlayerAttributes(params *PublicGetPlayerAttributesParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGetPlayerAttributesOK, *PublicGetPlayerAttributesBadRequest, *PublicGetPlayerAttributesUnauthorized, *PublicGetPlayerAttributesNotFound, *PublicGetPlayerAttributesInternalServerError, error) {
 	// TODO: Validate the params before sending
@@ -375,9 +499,11 @@ Field descriptions:
 - userID : user who owns the attributes.
 - crossplayEnabled : set to true if the player wants to enable crossplay to their session (default: false).
 - platforms : list of the player's 3rd party platform account information.
-- name : platform name. supported platforms: STEAM
+- name : platform name. supported platforms: STEAM, XBOX, PSN
 - userID : platform userID
 - data : other data that the player wants to store.
+- currentPlatform : latest user game platform.
+- roles : user role for matchmaking role base support.
 */
 func (a *Client) PublicGetPlayerAttributesShort(params *PublicGetPlayerAttributesParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGetPlayerAttributesOK, error) {
 	// TODO: Validate the params before sending
@@ -438,9 +564,11 @@ Field descriptions:
 - userID : user who owns the attributes.
 - crossplayEnabled : set to true if the player wants to enable crossplay to their session (default: false).
 - platforms : list of the player's 3rd party platform account information.
-- name : platform name. supported platforms: STEAM
+- name : platform name. supported platforms: STEAM, XBOX, PSN
 - userID : platform userID
 - data : other data that the player wants to store.
+- currentPlatform : latest user game platform.
+- roles : user role for matchmaking role base support.
 */
 func (a *Client) PublicStorePlayerAttributes(params *PublicStorePlayerAttributesParams, authInfo runtime.ClientAuthInfoWriter) (*PublicStorePlayerAttributesOK, *PublicStorePlayerAttributesBadRequest, *PublicStorePlayerAttributesUnauthorized, *PublicStorePlayerAttributesInternalServerError, error) {
 	// TODO: Validate the params before sending
@@ -500,9 +628,11 @@ Field descriptions:
 - userID : user who owns the attributes.
 - crossplayEnabled : set to true if the player wants to enable crossplay to their session (default: false).
 - platforms : list of the player's 3rd party platform account information.
-- name : platform name. supported platforms: STEAM
+- name : platform name. supported platforms: STEAM, XBOX, PSN
 - userID : platform userID
 - data : other data that the player wants to store.
+- currentPlatform : latest user game platform.
+- roles : user role for matchmaking role base support.
 */
 func (a *Client) PublicStorePlayerAttributesShort(params *PublicStorePlayerAttributesParams, authInfo runtime.ClientAuthInfoWriter) (*PublicStorePlayerAttributesOK, error) {
 	// TODO: Validate the params before sending

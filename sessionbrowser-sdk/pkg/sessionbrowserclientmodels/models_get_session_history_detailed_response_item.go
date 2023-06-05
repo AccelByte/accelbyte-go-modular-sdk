@@ -53,6 +53,10 @@ type ModelsGetSessionHistoryDetailedResponseItem struct {
 	// Required: true
 	Joinable bool `json:"joinable"`
 
+	// joining
+	// Required: true
+	Joining []*ModelsSessionPlayerJoining `json:"joining"`
+
 	// match_id
 	// Required: true
 	MatchID string `json:"match_id"`
@@ -68,17 +72,33 @@ type ModelsGetSessionHistoryDetailedResponseItem struct {
 	// party_id
 	PartyID string `json:"party_id,omitempty"`
 
+	// players
+	// Required: true
+	Players []*ModelsSessionPlayerHistory `json:"players"`
+
 	// region
 	// Required: true
 	Region string `json:"region"`
+
+	// removed_reason
+	// Required: true
+	RemovedReason *string `json:"removed_reason"`
 
 	// server_name
 	// Required: true
 	ServerName string `json:"server_name"`
 
+	// session_type
+	// Required: true
+	SessionType *string `json:"session_type"`
+
 	// status
 	// Required: true
 	Status string `json:"status"`
+
+	// user_id
+	// Required: true
+	UserID *string `json:"user_id"`
 }
 
 // Validate validates this Models get session history detailed response item
@@ -109,6 +129,9 @@ func (m *ModelsGetSessionHistoryDetailedResponseItem) Validate(formats strfmt.Re
 	if err := m.validateJoinable(formats); err != nil {
 		res = append(res, err)
 	}
+	if err := m.validateJoining(formats); err != nil {
+		res = append(res, err)
+	}
 	if err := m.validateMatchID(formats); err != nil {
 		res = append(res, err)
 	}
@@ -118,13 +141,25 @@ func (m *ModelsGetSessionHistoryDetailedResponseItem) Validate(formats strfmt.Re
 	if err := m.validateNamespace(formats); err != nil {
 		res = append(res, err)
 	}
+	if err := m.validatePlayers(formats); err != nil {
+		res = append(res, err)
+	}
 	if err := m.validateRegion(formats); err != nil {
+		res = append(res, err)
+	}
+	if err := m.validateRemovedReason(formats); err != nil {
 		res = append(res, err)
 	}
 	if err := m.validateServerName(formats); err != nil {
 		res = append(res, err)
 	}
+	if err := m.validateSessionType(formats); err != nil {
+		res = append(res, err)
+	}
 	if err := m.validateStatus(formats); err != nil {
+		res = append(res, err)
+	}
+	if err := m.validateUserID(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -210,6 +245,31 @@ func (m *ModelsGetSessionHistoryDetailedResponseItem) validateJoinable(formats s
 	return nil
 }
 
+func (m *ModelsGetSessionHistoryDetailedResponseItem) validateJoining(formats strfmt.Registry) error {
+
+	if err := validate.Required("joining", "body", m.Joining); err != nil {
+		return err
+	}
+
+	for i := 0; i < len(m.Joining); i++ {
+		if swag.IsZero(m.Joining[i]) { // not required
+			continue
+		}
+
+		if m.Joining[i] != nil {
+			if err := m.Joining[i].Validate(formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("joining" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
 func (m *ModelsGetSessionHistoryDetailedResponseItem) validateMatchID(formats strfmt.Registry) error {
 
 	if err := validate.Required("match_id", "body", m.MatchID); err != nil {
@@ -253,9 +313,43 @@ func (m *ModelsGetSessionHistoryDetailedResponseItem) validateNamespace(formats 
 	return nil
 }
 
+func (m *ModelsGetSessionHistoryDetailedResponseItem) validatePlayers(formats strfmt.Registry) error {
+
+	if err := validate.Required("players", "body", m.Players); err != nil {
+		return err
+	}
+
+	for i := 0; i < len(m.Players); i++ {
+		if swag.IsZero(m.Players[i]) { // not required
+			continue
+		}
+
+		if m.Players[i] != nil {
+			if err := m.Players[i].Validate(formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("players" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
 func (m *ModelsGetSessionHistoryDetailedResponseItem) validateRegion(formats strfmt.Registry) error {
 
 	if err := validate.Required("region", "body", m.Region); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *ModelsGetSessionHistoryDetailedResponseItem) validateRemovedReason(formats strfmt.Registry) error {
+
+	if err := validate.Required("removed_reason", "body", m.RemovedReason); err != nil {
 		return err
 	}
 
@@ -271,9 +365,27 @@ func (m *ModelsGetSessionHistoryDetailedResponseItem) validateServerName(formats
 	return nil
 }
 
+func (m *ModelsGetSessionHistoryDetailedResponseItem) validateSessionType(formats strfmt.Registry) error {
+
+	if err := validate.Required("session_type", "body", m.SessionType); err != nil {
+		return err
+	}
+
+	return nil
+}
+
 func (m *ModelsGetSessionHistoryDetailedResponseItem) validateStatus(formats strfmt.Registry) error {
 
 	if err := validate.Required("status", "body", m.Status); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *ModelsGetSessionHistoryDetailedResponseItem) validateUserID(formats strfmt.Registry) error {
+
+	if err := validate.Required("user_id", "body", m.UserID); err != nil {
 		return err
 	}
 

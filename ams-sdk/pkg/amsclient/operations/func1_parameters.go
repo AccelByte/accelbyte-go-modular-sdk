@@ -57,8 +57,7 @@ func NewFunc1ParamsWithHTTPClient(client *http.Client) *Func1Params {
 	}
 }
 
-/*
-Func1Params contains all the parameters to send to the API endpoint
+/*Func1Params contains all the parameters to send to the API endpoint
 for the func1 operation typically these are written to a http.Request
 */
 type Func1Params struct {

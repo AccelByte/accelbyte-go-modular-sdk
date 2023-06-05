@@ -29,6 +29,9 @@ type ModelsPublicAchievementResponse struct {
 	// Format: date-time
 	CreatedAt strfmt.DateTime `json:"createdAt"`
 
+	// customattributes
+	CustomAttributes interface{} `json:"customAttributes,omitempty"`
+
 	// description
 	// Required: true
 	Description *string `json:"description"`

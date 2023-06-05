@@ -26,6 +26,7 @@
 |---|---|---|---|---|---|
 | `/match2/v1/namespaces/{namespace}/match-functions` | GET | MatchFunctionListShort | [MatchFunctionListShort](../../match2-sdk/pkg/match2client/match_functions/match_functions_client.go) | [MatchFunctionListShort](../../match2-sdk/pkg/wrapper_matchFunctions.go) | [MatchFunctionListShort](../../samples/cli/cmd/match2/matchFunctions/matchFunctionList.go) |
 | `/match2/v1/namespaces/{namespace}/match-functions` | POST | CreateMatchFunctionShort | [CreateMatchFunctionShort](../../match2-sdk/pkg/match2client/match_functions/match_functions_client.go) | [CreateMatchFunctionShort](../../match2-sdk/pkg/wrapper_matchFunctions.go) | [CreateMatchFunctionShort](../../samples/cli/cmd/match2/matchFunctions/createMatchFunction.go) |
+| `/match2/v1/namespaces/{namespace}/match-functions/{name}` | PUT | UpdateMatchFunctionShort | [UpdateMatchFunctionShort](../../match2-sdk/pkg/match2client/match_functions/match_functions_client.go) | [UpdateMatchFunctionShort](../../match2-sdk/pkg/wrapper_matchFunctions.go) | [UpdateMatchFunctionShort](../../samples/cli/cmd/match2/matchFunctions/updateMatchFunction.go) |
 | `/match2/v1/namespaces/{namespace}/match-functions/{name}` | DELETE | DeleteMatchFunctionShort | [DeleteMatchFunctionShort](../../match2-sdk/pkg/match2client/match_functions/match_functions_client.go) | [DeleteMatchFunctionShort](../../match2-sdk/pkg/wrapper_matchFunctions.go) | [DeleteMatchFunctionShort](../../samples/cli/cmd/match2/matchFunctions/deleteMatchFunction.go) |
 
 ### Match-Pools Wrapper:  [MatchPools](../../match2-sdk/pkg/wrapper_matchPools.go)
@@ -37,6 +38,7 @@
 | `/match2/v1/namespaces/{namespace}/match-pools/{pool}` | PUT | UpdateMatchPoolShort | [UpdateMatchPoolShort](../../match2-sdk/pkg/match2client/match_pools/match_pools_client.go) | [UpdateMatchPoolShort](../../match2-sdk/pkg/wrapper_matchPools.go) | [UpdateMatchPoolShort](../../samples/cli/cmd/match2/matchPools/updateMatchPool.go) |
 | `/match2/v1/namespaces/{namespace}/match-pools/{pool}` | DELETE | DeleteMatchPoolShort | [DeleteMatchPoolShort](../../match2-sdk/pkg/match2client/match_pools/match_pools_client.go) | [DeleteMatchPoolShort](../../match2-sdk/pkg/wrapper_matchPools.go) | [DeleteMatchPoolShort](../../samples/cli/cmd/match2/matchPools/deleteMatchPool.go) |
 | `/match2/v1/namespaces/{namespace}/match-pools/{pool}/metrics` | GET | MatchPoolMetricShort | [MatchPoolMetricShort](../../match2-sdk/pkg/match2client/match_pools/match_pools_client.go) | [MatchPoolMetricShort](../../match2-sdk/pkg/wrapper_matchPools.go) | [MatchPoolMetricShort](../../samples/cli/cmd/match2/matchPools/matchPoolMetric.go) |
+| `/match2/v1/namespaces/{namespace}/match-pools/{pool}/metrics/player` | GET | GetPlayerMetricShort | [GetPlayerMetricShort](../../match2-sdk/pkg/match2client/match_pools/match_pools_client.go) | [GetPlayerMetricShort](../../match2-sdk/pkg/wrapper_matchPools.go) | [GetPlayerMetricShort](../../samples/cli/cmd/match2/matchPools/getPlayerMetric.go) |
 
 ### Match-Tickets Wrapper:  [MatchTickets](../../match2-sdk/pkg/wrapper_matchTickets.go)
 | Endpoint | Method | ID | Class | Wrapper | Example |
@@ -81,6 +83,7 @@
 | `api.MatchTicketStatus` | [ApiMatchTicketStatus ](../../match2-sdk/pkg/match2clientmodels/api_match_ticket_status.go) |
 | `api.Party` | [ApiParty ](../../match2-sdk/pkg/match2clientmodels/api_party.go) |
 | `api.PlayerData` | [ApiPlayerData ](../../match2-sdk/pkg/match2clientmodels/api_player_data.go) |
+| `api.PlayerMetricRecord` | [ApiPlayerMetricRecord ](../../match2-sdk/pkg/match2clientmodels/api_player_metric_record.go) |
 | `api.ProposedProposal` | [ApiProposedProposal ](../../match2-sdk/pkg/match2clientmodels/api_proposed_proposal.go) |
 | `api.RuleSetPayload` | [ApiRuleSetPayload ](../../match2-sdk/pkg/match2clientmodels/api_rule_set_payload.go) |
 | `api.Team` | [ApiTeam ](../../match2-sdk/pkg/match2clientmodels/api_team.go) |

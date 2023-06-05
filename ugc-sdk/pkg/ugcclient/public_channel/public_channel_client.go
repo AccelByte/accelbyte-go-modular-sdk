@@ -32,8 +32,8 @@ type Client struct {
 type ClientService interface {
 	GetChannels(params *GetChannelsParams, authInfo runtime.ClientAuthInfoWriter) (*GetChannelsOK, *GetChannelsUnauthorized, *GetChannelsNotFound, *GetChannelsInternalServerError, error)
 	GetChannelsShort(params *GetChannelsParams, authInfo runtime.ClientAuthInfoWriter) (*GetChannelsOK, error)
-	CreateChannel(params *CreateChannelParams, authInfo runtime.ClientAuthInfoWriter) (*CreateChannelCreated, *CreateChannelBadRequest, *CreateChannelUnauthorized, *CreateChannelInternalServerError, error)
-	CreateChannelShort(params *CreateChannelParams, authInfo runtime.ClientAuthInfoWriter) (*CreateChannelCreated, error)
+	PublicCreateChannel(params *PublicCreateChannelParams, authInfo runtime.ClientAuthInfoWriter) (*PublicCreateChannelCreated, *PublicCreateChannelBadRequest, *PublicCreateChannelUnauthorized, *PublicCreateChannelInternalServerError, error)
+	PublicCreateChannelShort(params *PublicCreateChannelParams, authInfo runtime.ClientAuthInfoWriter) (*PublicCreateChannelCreated, error)
 	UpdateChannel(params *UpdateChannelParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateChannelOK, *UpdateChannelBadRequest, *UpdateChannelUnauthorized, *UpdateChannelNotFound, *UpdateChannelInternalServerError, error)
 	UpdateChannelShort(params *UpdateChannelParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateChannelOK, error)
 	DeleteChannel(params *DeleteChannelParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteChannelNoContent, *DeleteChannelUnauthorized, *DeleteChannelNotFound, *DeleteChannelInternalServerError, error)
@@ -150,15 +150,15 @@ func (a *Client) GetChannelsShort(params *GetChannelsParams, authInfo runtime.Cl
 }
 
 /*
-Deprecated: 2022-08-10 - Use CreateChannelShort instead.
+Deprecated: 2022-08-10 - Use PublicCreateChannelShort instead.
 
-CreateChannel create channel
+PublicCreateChannel create channel
 Required permission NAMESPACE:{namespace}:USER:{userId}:CHANNEL [CREATE]
 */
-func (a *Client) CreateChannel(params *CreateChannelParams, authInfo runtime.ClientAuthInfoWriter) (*CreateChannelCreated, *CreateChannelBadRequest, *CreateChannelUnauthorized, *CreateChannelInternalServerError, error) {
+func (a *Client) PublicCreateChannel(params *PublicCreateChannelParams, authInfo runtime.ClientAuthInfoWriter) (*PublicCreateChannelCreated, *PublicCreateChannelBadRequest, *PublicCreateChannelUnauthorized, *PublicCreateChannelInternalServerError, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
-		params = NewCreateChannelParams()
+		params = NewPublicCreateChannelParams()
 	}
 
 	if params.Context == nil {
@@ -170,14 +170,14 @@ func (a *Client) CreateChannel(params *CreateChannelParams, authInfo runtime.Cli
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
-		ID:                 "CreateChannel",
+		ID:                 "PublicCreateChannel",
 		Method:             "POST",
 		PathPattern:        "/ugc/v1/public/namespaces/{namespace}/users/{userId}/channels",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json", "application/octet-stream"},
 		Schemes:            []string{"https"},
 		Params:             params,
-		Reader:             &CreateChannelReader{formats: a.formats},
+		Reader:             &PublicCreateChannelReader{formats: a.formats},
 		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
@@ -188,16 +188,16 @@ func (a *Client) CreateChannel(params *CreateChannelParams, authInfo runtime.Cli
 
 	switch v := result.(type) {
 
-	case *CreateChannelCreated:
+	case *PublicCreateChannelCreated:
 		return v, nil, nil, nil, nil
 
-	case *CreateChannelBadRequest:
+	case *PublicCreateChannelBadRequest:
 		return nil, v, nil, nil, nil
 
-	case *CreateChannelUnauthorized:
+	case *PublicCreateChannelUnauthorized:
 		return nil, nil, v, nil, nil
 
-	case *CreateChannelInternalServerError:
+	case *PublicCreateChannelInternalServerError:
 		return nil, nil, nil, v, nil
 
 	default:
@@ -206,13 +206,13 @@ func (a *Client) CreateChannel(params *CreateChannelParams, authInfo runtime.Cli
 }
 
 /*
-CreateChannelShort create channel
+PublicCreateChannelShort create channel
 Required permission NAMESPACE:{namespace}:USER:{userId}:CHANNEL [CREATE]
 */
-func (a *Client) CreateChannelShort(params *CreateChannelParams, authInfo runtime.ClientAuthInfoWriter) (*CreateChannelCreated, error) {
+func (a *Client) PublicCreateChannelShort(params *PublicCreateChannelParams, authInfo runtime.ClientAuthInfoWriter) (*PublicCreateChannelCreated, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
-		params = NewCreateChannelParams()
+		params = NewPublicCreateChannelParams()
 	}
 
 	if params.Context == nil {
@@ -224,14 +224,14 @@ func (a *Client) CreateChannelShort(params *CreateChannelParams, authInfo runtim
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
-		ID:                 "CreateChannel",
+		ID:                 "PublicCreateChannel",
 		Method:             "POST",
 		PathPattern:        "/ugc/v1/public/namespaces/{namespace}/users/{userId}/channels",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json", "application/octet-stream"},
 		Schemes:            []string{"https"},
 		Params:             params,
-		Reader:             &CreateChannelReader{formats: a.formats},
+		Reader:             &PublicCreateChannelReader{formats: a.formats},
 		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
@@ -242,13 +242,13 @@ func (a *Client) CreateChannelShort(params *CreateChannelParams, authInfo runtim
 
 	switch v := result.(type) {
 
-	case *CreateChannelCreated:
+	case *PublicCreateChannelCreated:
 		return v, nil
-	case *CreateChannelBadRequest:
+	case *PublicCreateChannelBadRequest:
 		return nil, v
-	case *CreateChannelUnauthorized:
+	case *PublicCreateChannelUnauthorized:
 		return nil, v
-	case *CreateChannelInternalServerError:
+	case *PublicCreateChannelInternalServerError:
 		return nil, v
 
 	default:

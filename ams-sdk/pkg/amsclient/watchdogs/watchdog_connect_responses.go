@@ -45,10 +45,9 @@ func NewWatchdogConnectOK() *WatchdogConnectOK {
 	return &WatchdogConnectOK{}
 }
 
-/*
-WatchdogConnectOK handles this case with default header values.
+/*WatchdogConnectOK handles this case with default header values.
 
-	OK
+  OK
 */
 type WatchdogConnectOK struct {
 }

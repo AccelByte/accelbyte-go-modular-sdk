@@ -32,8 +32,8 @@ type ModelsCreateImageRequest struct {
 
 	// imagesize
 	// Required: true
-	// Format: int32
-	ImageSize *int32 `json:"imageSize"`
+	// Format: int64
+	ImageSize *int64 `json:"imageSize"`
 
 	// namespace
 	// Required: true

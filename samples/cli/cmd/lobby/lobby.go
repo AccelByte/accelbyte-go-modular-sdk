@@ -8,7 +8,6 @@ package lobby
 
 import (
 	"github.com/AccelByte/sample-apps/cmd/lobby/admin"
-	"github.com/AccelByte/sample-apps/cmd/lobby/chat"
 	"github.com/AccelByte/sample-apps/cmd/lobby/config"
 	"github.com/AccelByte/sample-apps/cmd/lobby/friends"
 	"github.com/AccelByte/sample-apps/cmd/lobby/lobbyOperations"
@@ -33,6 +32,7 @@ func init() {
 	LobbyCmd.AddCommand(friends.GetUserIncomingFriendsWithTimeCmd)
 	LobbyCmd.AddCommand(friends.GetUserOutgoingFriendsCmd)
 	LobbyCmd.AddCommand(friends.GetUserOutgoingFriendsWithTimeCmd)
+	LobbyCmd.AddCommand(friends.GetUserFriendsWithPlatformCmd)
 	LobbyCmd.AddCommand(friends.UserRequestFriendCmd)
 	LobbyCmd.AddCommand(friends.UserAcceptFriendRequestCmd)
 	LobbyCmd.AddCommand(friends.UserCancelFriendRequestCmd)
@@ -40,14 +40,14 @@ func init() {
 	LobbyCmd.AddCommand(friends.UserGetFriendshipStatusCmd)
 	LobbyCmd.AddCommand(friends.UserUnfriendRequestCmd)
 	LobbyCmd.AddCommand(friends.AddFriendsWithoutConfirmationCmd)
-	LobbyCmd.AddCommand(chat.PersonalChatHistoryCmd)
-	LobbyCmd.AddCommand(chat.AdminChatHistoryCmd)
 	LobbyCmd.AddCommand(config.AdminGetAllConfigV1Cmd)
 	LobbyCmd.AddCommand(config.AdminGetConfigV1Cmd)
 	LobbyCmd.AddCommand(config.AdminUpdateConfigV1Cmd)
 	LobbyCmd.AddCommand(config.AdminExportConfigV1Cmd)
 	LobbyCmd.AddCommand(config.AdminImportConfigV1Cmd)
 	LobbyCmd.AddCommand(friends.GetListOfFriendsCmd)
+	LobbyCmd.AddCommand(friends.GetIncomingFriendRequestsCmd)
+	LobbyCmd.AddCommand(friends.GetOutgoingFriendRequestsCmd)
 	LobbyCmd.AddCommand(notification.SendMultipleUsersFreeformNotificationV1AdminCmd)
 	LobbyCmd.AddCommand(notification.SendUsersFreeformNotificationV1AdminCmd)
 	LobbyCmd.AddCommand(notification.SendPartyFreeformNotificationV1AdminCmd)
@@ -73,6 +73,7 @@ func init() {
 	LobbyCmd.AddCommand(lobbyOperations.AdminJoinPartyV1Cmd)
 	LobbyCmd.AddCommand(party.AdminGetUserPartyV1Cmd)
 	LobbyCmd.AddCommand(player.AdminGetLobbyCCUCmd)
+	LobbyCmd.AddCommand(player.AdminGetBulkPlayerBlockedPlayersV1Cmd)
 	LobbyCmd.AddCommand(player.AdminGetAllPlayerSessionAttributeCmd)
 	LobbyCmd.AddCommand(player.AdminSetPlayerSessionAttributeCmd)
 	LobbyCmd.AddCommand(player.AdminGetPlayerSessionAttributeCmd)
@@ -97,7 +98,6 @@ func init() {
 	LobbyCmd.AddCommand(thirdParty.AdminCreateThirdPartyConfigCmd)
 	LobbyCmd.AddCommand(thirdParty.AdminDeleteThirdPartyConfigCmd)
 	LobbyCmd.AddCommand(lobbyOperations.PublicGetMessagesCmd)
-	LobbyCmd.AddCommand(chat.GetPersonalChatHistoryV1PublicCmd)
 	LobbyCmd.AddCommand(party.PublicGetPartyDataV1Cmd)
 	LobbyCmd.AddCommand(party.PublicUpdatePartyAttributesV1Cmd)
 	LobbyCmd.AddCommand(party.PublicSetPartyLimitV1Cmd)

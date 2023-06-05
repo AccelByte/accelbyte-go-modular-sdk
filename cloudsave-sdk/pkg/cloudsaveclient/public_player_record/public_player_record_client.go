@@ -38,6 +38,10 @@ type ClientService interface {
 	GetPlayerRecordsBulkHandlerV1Short(params *GetPlayerRecordsBulkHandlerV1Params, authInfo runtime.ClientAuthInfoWriter) (*GetPlayerRecordsBulkHandlerV1OK, error)
 	PublicDeletePlayerPublicRecordHandlerV1(params *PublicDeletePlayerPublicRecordHandlerV1Params, authInfo runtime.ClientAuthInfoWriter) (*PublicDeletePlayerPublicRecordHandlerV1NoContent, *PublicDeletePlayerPublicRecordHandlerV1BadRequest, *PublicDeletePlayerPublicRecordHandlerV1Unauthorized, *PublicDeletePlayerPublicRecordHandlerV1NotFound, *PublicDeletePlayerPublicRecordHandlerV1InternalServerError, error)
 	PublicDeletePlayerPublicRecordHandlerV1Short(params *PublicDeletePlayerPublicRecordHandlerV1Params, authInfo runtime.ClientAuthInfoWriter) (*PublicDeletePlayerPublicRecordHandlerV1NoContent, error)
+	GetOtherPlayerPublicRecordKeyHandlerV1(params *GetOtherPlayerPublicRecordKeyHandlerV1Params, authInfo runtime.ClientAuthInfoWriter) (*GetOtherPlayerPublicRecordKeyHandlerV1OK, *GetOtherPlayerPublicRecordKeyHandlerV1BadRequest, *GetOtherPlayerPublicRecordKeyHandlerV1Unauthorized, *GetOtherPlayerPublicRecordKeyHandlerV1InternalServerError, error)
+	GetOtherPlayerPublicRecordKeyHandlerV1Short(params *GetOtherPlayerPublicRecordKeyHandlerV1Params, authInfo runtime.ClientAuthInfoWriter) (*GetOtherPlayerPublicRecordKeyHandlerV1OK, error)
+	GetOtherPlayerPublicRecordHandlerV1(params *GetOtherPlayerPublicRecordHandlerV1Params, authInfo runtime.ClientAuthInfoWriter) (*GetOtherPlayerPublicRecordHandlerV1OK, *GetOtherPlayerPublicRecordHandlerV1BadRequest, *GetOtherPlayerPublicRecordHandlerV1Unauthorized, *GetOtherPlayerPublicRecordHandlerV1Forbidden, *GetOtherPlayerPublicRecordHandlerV1InternalServerError, error)
+	GetOtherPlayerPublicRecordHandlerV1Short(params *GetOtherPlayerPublicRecordHandlerV1Params, authInfo runtime.ClientAuthInfoWriter) (*GetOtherPlayerPublicRecordHandlerV1OK, error)
 	GetPlayerRecordHandlerV1(params *GetPlayerRecordHandlerV1Params, authInfo runtime.ClientAuthInfoWriter) (*GetPlayerRecordHandlerV1OK, *GetPlayerRecordHandlerV1Unauthorized, *GetPlayerRecordHandlerV1Forbidden, *GetPlayerRecordHandlerV1NotFound, *GetPlayerRecordHandlerV1InternalServerError, error)
 	GetPlayerRecordHandlerV1Short(params *GetPlayerRecordHandlerV1Params, authInfo runtime.ClientAuthInfoWriter) (*GetPlayerRecordHandlerV1OK, error)
 	PutPlayerRecordHandlerV1(params *PutPlayerRecordHandlerV1Params, authInfo runtime.ClientAuthInfoWriter) (*PutPlayerRecordHandlerV1OK, *PutPlayerRecordHandlerV1BadRequest, *PutPlayerRecordHandlerV1Unauthorized, *PutPlayerRecordHandlerV1Forbidden, *PutPlayerRecordHandlerV1InternalServerError, error)
@@ -564,6 +568,245 @@ func (a *Client) PublicDeletePlayerPublicRecordHandlerV1Short(params *PublicDele
 	case *PublicDeletePlayerPublicRecordHandlerV1NotFound:
 		return nil, v
 	case *PublicDeletePlayerPublicRecordHandlerV1InternalServerError:
+		return nil, v
+
+	default:
+		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
+	}
+}
+
+/*
+Deprecated: 2022-08-10 - Use GetOtherPlayerPublicRecordKeyHandlerV1Short instead.
+
+GetOtherPlayerPublicRecordKeyHandlerV1 query other player public record key
+Required valid user token with permission: `NAMESPACE:{namespace}:USER:*:PUBLIC:CLOUDSAVE:RECORD [READ]`
+
+Required scope: `social`
+
+Retrieve list of other public player records key under given namespace.
+*/
+func (a *Client) GetOtherPlayerPublicRecordKeyHandlerV1(params *GetOtherPlayerPublicRecordKeyHandlerV1Params, authInfo runtime.ClientAuthInfoWriter) (*GetOtherPlayerPublicRecordKeyHandlerV1OK, *GetOtherPlayerPublicRecordKeyHandlerV1BadRequest, *GetOtherPlayerPublicRecordKeyHandlerV1Unauthorized, *GetOtherPlayerPublicRecordKeyHandlerV1InternalServerError, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewGetOtherPlayerPublicRecordKeyHandlerV1Params()
+	}
+
+	if params.Context == nil {
+		params.Context = context.Background()
+	}
+
+	if params.RetryPolicy != nil {
+		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "getOtherPlayerPublicRecordKeyHandlerV1",
+		Method:             "GET",
+		PathPattern:        "/cloudsave/v1/namespaces/{namespace}/users/{userId}/records/public",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetOtherPlayerPublicRecordKeyHandlerV1Reader{formats: a.formats},
+		AuthInfo:           authInfo,
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, nil, nil, nil, err
+	}
+
+	switch v := result.(type) {
+
+	case *GetOtherPlayerPublicRecordKeyHandlerV1OK:
+		return v, nil, nil, nil, nil
+
+	case *GetOtherPlayerPublicRecordKeyHandlerV1BadRequest:
+		return nil, v, nil, nil, nil
+
+	case *GetOtherPlayerPublicRecordKeyHandlerV1Unauthorized:
+		return nil, nil, v, nil, nil
+
+	case *GetOtherPlayerPublicRecordKeyHandlerV1InternalServerError:
+		return nil, nil, nil, v, nil
+
+	default:
+		return nil, nil, nil, nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
+	}
+}
+
+/*
+GetOtherPlayerPublicRecordKeyHandlerV1Short query other player public record key
+Required valid user token with permission: `NAMESPACE:{namespace}:USER:*:PUBLIC:CLOUDSAVE:RECORD [READ]`
+
+Required scope: `social`
+
+Retrieve list of other public player records key under given namespace.
+*/
+func (a *Client) GetOtherPlayerPublicRecordKeyHandlerV1Short(params *GetOtherPlayerPublicRecordKeyHandlerV1Params, authInfo runtime.ClientAuthInfoWriter) (*GetOtherPlayerPublicRecordKeyHandlerV1OK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewGetOtherPlayerPublicRecordKeyHandlerV1Params()
+	}
+
+	if params.Context == nil {
+		params.Context = context.Background()
+	}
+
+	if params.RetryPolicy != nil {
+		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "getOtherPlayerPublicRecordKeyHandlerV1",
+		Method:             "GET",
+		PathPattern:        "/cloudsave/v1/namespaces/{namespace}/users/{userId}/records/public",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetOtherPlayerPublicRecordKeyHandlerV1Reader{formats: a.formats},
+		AuthInfo:           authInfo,
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+
+	switch v := result.(type) {
+
+	case *GetOtherPlayerPublicRecordKeyHandlerV1OK:
+		return v, nil
+	case *GetOtherPlayerPublicRecordKeyHandlerV1BadRequest:
+		return nil, v
+	case *GetOtherPlayerPublicRecordKeyHandlerV1Unauthorized:
+		return nil, v
+	case *GetOtherPlayerPublicRecordKeyHandlerV1InternalServerError:
+		return nil, v
+
+	default:
+		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
+	}
+}
+
+/*
+Deprecated: 2022-08-10 - Use GetOtherPlayerPublicRecordHandlerV1Short instead.
+
+GetOtherPlayerPublicRecordHandlerV1 get other player public record bulk
+Required valid user token with permission: `NAMESPACE:{namespace}:USER:*:PUBLIC:CLOUDSAVE:RECORD [READ]`
+
+Required scope: `social`
+
+Retrieve other player public record key and payload in bulk under given namespace.
+
+Maximum bulk key limit per request 20
+*/
+func (a *Client) GetOtherPlayerPublicRecordHandlerV1(params *GetOtherPlayerPublicRecordHandlerV1Params, authInfo runtime.ClientAuthInfoWriter) (*GetOtherPlayerPublicRecordHandlerV1OK, *GetOtherPlayerPublicRecordHandlerV1BadRequest, *GetOtherPlayerPublicRecordHandlerV1Unauthorized, *GetOtherPlayerPublicRecordHandlerV1Forbidden, *GetOtherPlayerPublicRecordHandlerV1InternalServerError, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewGetOtherPlayerPublicRecordHandlerV1Params()
+	}
+
+	if params.Context == nil {
+		params.Context = context.Background()
+	}
+
+	if params.RetryPolicy != nil {
+		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "getOtherPlayerPublicRecordHandlerV1",
+		Method:             "POST",
+		PathPattern:        "/cloudsave/v1/namespaces/{namespace}/users/{userId}/records/public/bulk",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetOtherPlayerPublicRecordHandlerV1Reader{formats: a.formats},
+		AuthInfo:           authInfo,
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, nil, nil, nil, nil, err
+	}
+
+	switch v := result.(type) {
+
+	case *GetOtherPlayerPublicRecordHandlerV1OK:
+		return v, nil, nil, nil, nil, nil
+
+	case *GetOtherPlayerPublicRecordHandlerV1BadRequest:
+		return nil, v, nil, nil, nil, nil
+
+	case *GetOtherPlayerPublicRecordHandlerV1Unauthorized:
+		return nil, nil, v, nil, nil, nil
+
+	case *GetOtherPlayerPublicRecordHandlerV1Forbidden:
+		return nil, nil, nil, v, nil, nil
+
+	case *GetOtherPlayerPublicRecordHandlerV1InternalServerError:
+		return nil, nil, nil, nil, v, nil
+
+	default:
+		return nil, nil, nil, nil, nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
+	}
+}
+
+/*
+GetOtherPlayerPublicRecordHandlerV1Short get other player public record bulk
+Required valid user token with permission: `NAMESPACE:{namespace}:USER:*:PUBLIC:CLOUDSAVE:RECORD [READ]`
+
+Required scope: `social`
+
+Retrieve other player public record key and payload in bulk under given namespace.
+
+Maximum bulk key limit per request 20
+*/
+func (a *Client) GetOtherPlayerPublicRecordHandlerV1Short(params *GetOtherPlayerPublicRecordHandlerV1Params, authInfo runtime.ClientAuthInfoWriter) (*GetOtherPlayerPublicRecordHandlerV1OK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewGetOtherPlayerPublicRecordHandlerV1Params()
+	}
+
+	if params.Context == nil {
+		params.Context = context.Background()
+	}
+
+	if params.RetryPolicy != nil {
+		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "getOtherPlayerPublicRecordHandlerV1",
+		Method:             "POST",
+		PathPattern:        "/cloudsave/v1/namespaces/{namespace}/users/{userId}/records/public/bulk",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetOtherPlayerPublicRecordHandlerV1Reader{formats: a.formats},
+		AuthInfo:           authInfo,
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+
+	switch v := result.(type) {
+
+	case *GetOtherPlayerPublicRecordHandlerV1OK:
+		return v, nil
+	case *GetOtherPlayerPublicRecordHandlerV1BadRequest:
+		return nil, v
+	case *GetOtherPlayerPublicRecordHandlerV1Unauthorized:
+		return nil, v
+	case *GetOtherPlayerPublicRecordHandlerV1Forbidden:
+		return nil, v
+	case *GetOtherPlayerPublicRecordHandlerV1InternalServerError:
 		return nil, v
 
 	default:
