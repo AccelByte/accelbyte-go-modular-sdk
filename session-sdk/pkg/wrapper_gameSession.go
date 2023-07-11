@@ -19,25 +19,16 @@ import (
 // GameSessionService this is use for compatibility with latest modular sdk only
 // Deprecated: 2023-03-30 - please use GameSessionService imported from "github.com/AccelByte/accelbyte-go-modular-sdk/session-sdk/pkg"
 type GameSessionService struct {
-	Client                 *sessionclient.JusticeSessionService
-	ConfigRepository       repository.ConfigRepository
-	TokenRepository        repository.TokenRepository
-	RefreshTokenRepository repository.RefreshTokenRepository
+	Client           *sessionclient.JusticeSessionService
+	ConfigRepository repository.ConfigRepository
+	TokenRepository  repository.TokenRepository
 }
 
 func (aaa *GameSessionService) GetAuthSession() auth.Session {
-	if aaa.RefreshTokenRepository != nil {
-		return auth.Session{
-			aaa.TokenRepository,
-			aaa.ConfigRepository,
-			aaa.RefreshTokenRepository,
-		}
-	}
-
 	return auth.Session{
 		aaa.TokenRepository,
 		aaa.ConfigRepository,
-		auth.DefaultRefreshTokenImpl(),
+		nil,
 	}
 }
 

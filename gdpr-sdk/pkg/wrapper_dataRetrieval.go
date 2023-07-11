@@ -19,25 +19,16 @@ import (
 // DataRetrievalService this is use for compatibility with latest modular sdk only
 // Deprecated: 2023-03-30 - please use DataRetrievalService imported from "github.com/AccelByte/accelbyte-go-modular-sdk/gdpr-sdk/pkg"
 type DataRetrievalService struct {
-	Client                 *gdprclient.JusticeGdprService
-	ConfigRepository       repository.ConfigRepository
-	TokenRepository        repository.TokenRepository
-	RefreshTokenRepository repository.RefreshTokenRepository
+	Client           *gdprclient.JusticeGdprService
+	ConfigRepository repository.ConfigRepository
+	TokenRepository  repository.TokenRepository
 }
 
 func (aaa *DataRetrievalService) GetAuthSession() auth.Session {
-	if aaa.RefreshTokenRepository != nil {
-		return auth.Session{
-			aaa.TokenRepository,
-			aaa.ConfigRepository,
-			aaa.RefreshTokenRepository,
-		}
-	}
-
 	return auth.Session{
 		aaa.TokenRepository,
 		aaa.ConfigRepository,
-		auth.DefaultRefreshTokenImpl(),
+		nil,
 	}
 }
 

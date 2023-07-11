@@ -21,25 +21,16 @@ import (
 // RewardService this is use for compatibility with latest modular sdk only
 // Deprecated: 2023-03-30 - please use RewardService imported from "github.com/AccelByte/accelbyte-go-modular-sdk/platform-sdk/pkg"
 type RewardService struct {
-	Client                 *platformclient.JusticePlatformService
-	ConfigRepository       repository.ConfigRepository
-	TokenRepository        repository.TokenRepository
-	RefreshTokenRepository repository.RefreshTokenRepository
+	Client           *platformclient.JusticePlatformService
+	ConfigRepository repository.ConfigRepository
+	TokenRepository  repository.TokenRepository
 }
 
 func (aaa *RewardService) GetAuthSession() auth.Session {
-	if aaa.RefreshTokenRepository != nil {
-		return auth.Session{
-			aaa.TokenRepository,
-			aaa.ConfigRepository,
-			aaa.RefreshTokenRepository,
-		}
-	}
-
 	return auth.Session{
 		aaa.TokenRepository,
 		aaa.ConfigRepository,
-		auth.DefaultRefreshTokenImpl(),
+		nil,
 	}
 }
 

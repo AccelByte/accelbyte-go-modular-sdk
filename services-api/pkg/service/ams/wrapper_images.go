@@ -19,25 +19,16 @@ import (
 // ImagesService this is use for compatibility with latest modular sdk only
 // Deprecated: 2023-03-30 - please use ImagesService imported from "github.com/AccelByte/accelbyte-go-modular-sdk/ams-sdk/pkg"
 type ImagesService struct {
-	Client                 *amsclient.JusticeAmsService
-	ConfigRepository       repository.ConfigRepository
-	TokenRepository        repository.TokenRepository
-	RefreshTokenRepository repository.RefreshTokenRepository
+	Client           *amsclient.JusticeAmsService
+	ConfigRepository repository.ConfigRepository
+	TokenRepository  repository.TokenRepository
 }
 
 func (aaa *ImagesService) GetAuthSession() auth.Session {
-	if aaa.RefreshTokenRepository != nil {
-		return auth.Session{
-			aaa.TokenRepository,
-			aaa.ConfigRepository,
-			aaa.RefreshTokenRepository,
-		}
-	}
-
 	return auth.Session{
 		aaa.TokenRepository,
 		aaa.ConfigRepository,
-		auth.DefaultRefreshTokenImpl(),
+		nil,
 	}
 }
 

@@ -19,25 +19,16 @@ import (
 // SessionService this is use for compatibility with latest modular sdk only
 // Deprecated: 2023-03-30 - please use SessionService imported from "github.com/AccelByte/accelbyte-go-modular-sdk/dsmc-sdk/pkg"
 type SessionService struct {
-	Client                 *dsmcclient.JusticeDsmcService
-	ConfigRepository       repository.ConfigRepository
-	TokenRepository        repository.TokenRepository
-	RefreshTokenRepository repository.RefreshTokenRepository
+	Client           *dsmcclient.JusticeDsmcService
+	ConfigRepository repository.ConfigRepository
+	TokenRepository  repository.TokenRepository
 }
 
 func (aaa *SessionService) GetAuthSession() auth.Session {
-	if aaa.RefreshTokenRepository != nil {
-		return auth.Session{
-			aaa.TokenRepository,
-			aaa.ConfigRepository,
-			aaa.RefreshTokenRepository,
-		}
-	}
-
 	return auth.Session{
 		aaa.TokenRepository,
 		aaa.ConfigRepository,
-		auth.DefaultRefreshTokenImpl(),
+		nil,
 	}
 }
 

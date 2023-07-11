@@ -19,25 +19,16 @@ import (
 // UserStatisticCycleService this is use for compatibility with latest modular sdk only
 // Deprecated: 2023-03-30 - please use UserStatisticCycleService imported from "github.com/AccelByte/accelbyte-go-modular-sdk/social-sdk/pkg"
 type UserStatisticCycleService struct {
-	Client                 *socialclient.JusticeSocialService
-	ConfigRepository       repository.ConfigRepository
-	TokenRepository        repository.TokenRepository
-	RefreshTokenRepository repository.RefreshTokenRepository
+	Client           *socialclient.JusticeSocialService
+	ConfigRepository repository.ConfigRepository
+	TokenRepository  repository.TokenRepository
 }
 
 func (aaa *UserStatisticCycleService) GetAuthSession() auth.Session {
-	if aaa.RefreshTokenRepository != nil {
-		return auth.Session{
-			aaa.TokenRepository,
-			aaa.ConfigRepository,
-			aaa.RefreshTokenRepository,
-		}
-	}
-
 	return auth.Session{
 		aaa.TokenRepository,
 		aaa.ConfigRepository,
-		auth.DefaultRefreshTokenImpl(),
+		nil,
 	}
 }
 

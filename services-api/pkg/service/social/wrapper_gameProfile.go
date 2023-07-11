@@ -19,25 +19,16 @@ import (
 // GameProfileService this is use for compatibility with latest modular sdk only
 // Deprecated: 2023-03-30 - please use GameProfileService imported from "github.com/AccelByte/accelbyte-go-modular-sdk/social-sdk/pkg"
 type GameProfileService struct {
-	Client                 *socialclient.JusticeSocialService
-	ConfigRepository       repository.ConfigRepository
-	TokenRepository        repository.TokenRepository
-	RefreshTokenRepository repository.RefreshTokenRepository
+	Client           *socialclient.JusticeSocialService
+	ConfigRepository repository.ConfigRepository
+	TokenRepository  repository.TokenRepository
 }
 
 func (aaa *GameProfileService) GetAuthSession() auth.Session {
-	if aaa.RefreshTokenRepository != nil {
-		return auth.Session{
-			aaa.TokenRepository,
-			aaa.ConfigRepository,
-			aaa.RefreshTokenRepository,
-		}
-	}
-
 	return auth.Session{
 		aaa.TokenRepository,
 		aaa.ConfigRepository,
-		auth.DefaultRefreshTokenImpl(),
+		nil,
 	}
 }
 

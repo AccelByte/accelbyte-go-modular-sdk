@@ -19,25 +19,16 @@ import (
 // AdminConfigurationsService this is use for compatibility with latest modular sdk only
 // Deprecated: 2023-03-30 - please use AdminConfigurationsService imported from "github.com/AccelByte/accelbyte-go-modular-sdk/reporting-sdk/pkg"
 type AdminConfigurationsService struct {
-	Client                 *reportingclient.JusticeReportingService
-	ConfigRepository       repository.ConfigRepository
-	TokenRepository        repository.TokenRepository
-	RefreshTokenRepository repository.RefreshTokenRepository
+	Client           *reportingclient.JusticeReportingService
+	ConfigRepository repository.ConfigRepository
+	TokenRepository  repository.TokenRepository
 }
 
 func (aaa *AdminConfigurationsService) GetAuthSession() auth.Session {
-	if aaa.RefreshTokenRepository != nil {
-		return auth.Session{
-			aaa.TokenRepository,
-			aaa.ConfigRepository,
-			aaa.RefreshTokenRepository,
-		}
-	}
-
 	return auth.Session{
 		aaa.TokenRepository,
 		aaa.ConfigRepository,
-		auth.DefaultRefreshTokenImpl(),
+		nil,
 	}
 }
 
