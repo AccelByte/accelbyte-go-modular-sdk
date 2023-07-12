@@ -19,25 +19,16 @@ import (
 // UtilityService this is use for compatibility with latest modular sdk only
 // Deprecated: 2023-03-30 - please use UtilityService imported from "github.com/AccelByte/accelbyte-go-modular-sdk/legal-sdk/pkg"
 type UtilityService struct {
-	Client                 *legalclient.JusticeLegalService
-	ConfigRepository       repository.ConfigRepository
-	TokenRepository        repository.TokenRepository
-	RefreshTokenRepository repository.RefreshTokenRepository
+	Client           *legalclient.JusticeLegalService
+	ConfigRepository repository.ConfigRepository
+	TokenRepository  repository.TokenRepository
 }
 
 func (aaa *UtilityService) GetAuthSession() auth.Session {
-	if aaa.RefreshTokenRepository != nil {
-		return auth.Session{
-			aaa.TokenRepository,
-			aaa.ConfigRepository,
-			aaa.RefreshTokenRepository,
-		}
-	}
-
 	return auth.Session{
 		aaa.TokenRepository,
 		aaa.ConfigRepository,
-		auth.DefaultRefreshTokenImpl(),
+		nil,
 	}
 }
 

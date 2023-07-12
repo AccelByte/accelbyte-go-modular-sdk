@@ -19,25 +19,16 @@ import (
 // PublicService this is use for compatibility with latest modular sdk only
 // Deprecated: 2023-03-30 - please use PublicService imported from "github.com/AccelByte/accelbyte-go-modular-sdk/dsmc-sdk/pkg"
 type PublicService struct {
-	Client                 *dsmcclient.JusticeDsmcService
-	ConfigRepository       repository.ConfigRepository
-	TokenRepository        repository.TokenRepository
-	RefreshTokenRepository repository.RefreshTokenRepository
+	Client           *dsmcclient.JusticeDsmcService
+	ConfigRepository repository.ConfigRepository
+	TokenRepository  repository.TokenRepository
 }
 
 func (aaa *PublicService) GetAuthSession() auth.Session {
-	if aaa.RefreshTokenRepository != nil {
-		return auth.Session{
-			aaa.TokenRepository,
-			aaa.ConfigRepository,
-			aaa.RefreshTokenRepository,
-		}
-	}
-
 	return auth.Session{
 		aaa.TokenRepository,
 		aaa.ConfigRepository,
-		auth.DefaultRefreshTokenImpl(),
+		nil,
 	}
 }
 

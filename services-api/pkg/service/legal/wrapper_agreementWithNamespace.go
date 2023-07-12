@@ -19,25 +19,16 @@ import (
 // AgreementWithNamespaceService this is use for compatibility with latest modular sdk only
 // Deprecated: 2023-03-30 - please use AgreementWithNamespaceService imported from "github.com/AccelByte/accelbyte-go-modular-sdk/legal-sdk/pkg"
 type AgreementWithNamespaceService struct {
-	Client                 *legalclient.JusticeLegalService
-	ConfigRepository       repository.ConfigRepository
-	TokenRepository        repository.TokenRepository
-	RefreshTokenRepository repository.RefreshTokenRepository
+	Client           *legalclient.JusticeLegalService
+	ConfigRepository repository.ConfigRepository
+	TokenRepository  repository.TokenRepository
 }
 
 func (aaa *AgreementWithNamespaceService) GetAuthSession() auth.Session {
-	if aaa.RefreshTokenRepository != nil {
-		return auth.Session{
-			aaa.TokenRepository,
-			aaa.ConfigRepository,
-			aaa.RefreshTokenRepository,
-		}
-	}
-
 	return auth.Session{
 		aaa.TokenRepository,
 		aaa.ConfigRepository,
-		auth.DefaultRefreshTokenImpl(),
+		nil,
 	}
 }
 

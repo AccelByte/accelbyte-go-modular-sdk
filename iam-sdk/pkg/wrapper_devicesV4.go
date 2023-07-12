@@ -19,25 +19,16 @@ import (
 // DevicesV4Service this is use for compatibility with latest modular sdk only
 // Deprecated: 2023-03-30 - please use DevicesV4Service imported from "github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg"
 type DevicesV4Service struct {
-	Client                 *iamclient.JusticeIamService
-	ConfigRepository       repository.ConfigRepository
-	TokenRepository        repository.TokenRepository
-	RefreshTokenRepository repository.RefreshTokenRepository
+	Client           *iamclient.JusticeIamService
+	ConfigRepository repository.ConfigRepository
+	TokenRepository  repository.TokenRepository
 }
 
 func (aaa *DevicesV4Service) GetAuthSession() auth.Session {
-	if aaa.RefreshTokenRepository != nil {
-		return auth.Session{
-			aaa.TokenRepository,
-			aaa.ConfigRepository,
-			aaa.RefreshTokenRepository,
-		}
-	}
-
 	return auth.Session{
 		aaa.TokenRepository,
 		aaa.ConfigRepository,
-		auth.DefaultRefreshTokenImpl(),
+		nil,
 	}
 }
 

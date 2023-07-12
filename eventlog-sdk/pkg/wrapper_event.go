@@ -19,25 +19,16 @@ import (
 // EventService this is use for compatibility with latest modular sdk only
 // Deprecated: 2023-03-30 - please use EventService imported from "github.com/AccelByte/accelbyte-go-modular-sdk/eventlog-sdk/pkg"
 type EventService struct {
-	Client                 *eventlogclient.JusticeEventlogService
-	ConfigRepository       repository.ConfigRepository
-	TokenRepository        repository.TokenRepository
-	RefreshTokenRepository repository.RefreshTokenRepository
+	Client           *eventlogclient.JusticeEventlogService
+	ConfigRepository repository.ConfigRepository
+	TokenRepository  repository.TokenRepository
 }
 
 func (aaa *EventService) GetAuthSession() auth.Session {
-	if aaa.RefreshTokenRepository != nil {
-		return auth.Session{
-			aaa.TokenRepository,
-			aaa.ConfigRepository,
-			aaa.RefreshTokenRepository,
-		}
-	}
-
 	return auth.Session{
 		aaa.TokenRepository,
 		aaa.ConfigRepository,
-		auth.DefaultRefreshTokenImpl(),
+		nil,
 	}
 }
 

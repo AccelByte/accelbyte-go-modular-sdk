@@ -19,25 +19,16 @@ import (
 // SSOCredentialService this is use for compatibility with latest modular sdk only
 // Deprecated: 2023-03-30 - please use SSOCredentialService imported from "github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg"
 type SSOCredentialService struct {
-	Client                 *iamclient.JusticeIamService
-	ConfigRepository       repository.ConfigRepository
-	TokenRepository        repository.TokenRepository
-	RefreshTokenRepository repository.RefreshTokenRepository
+	Client           *iamclient.JusticeIamService
+	ConfigRepository repository.ConfigRepository
+	TokenRepository  repository.TokenRepository
 }
 
 func (aaa *SSOCredentialService) GetAuthSession() auth.Session {
-	if aaa.RefreshTokenRepository != nil {
-		return auth.Session{
-			aaa.TokenRepository,
-			aaa.ConfigRepository,
-			aaa.RefreshTokenRepository,
-		}
-	}
-
 	return auth.Session{
 		aaa.TokenRepository,
 		aaa.ConfigRepository,
-		auth.DefaultRefreshTokenImpl(),
+		nil,
 	}
 }
 
