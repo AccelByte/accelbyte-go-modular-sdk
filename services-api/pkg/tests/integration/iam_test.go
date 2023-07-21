@@ -11,9 +11,12 @@ import (
 	"net/http"
 	"os"
 	"testing"
+	"time"
 
 	"github.com/sirupsen/logrus"
 	"github.com/stretchr/testify/assert"
+
+	iam "github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg"
 
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/tests/integration"
 
@@ -22,7 +25,6 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclientmodels"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils/auth"
 
-	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/o_auth2_0"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/o_auth2_0_extension"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils"
@@ -340,4 +342,111 @@ func TestIntegrationLoginClient(t *testing.T) {
 	assert.NoError(t, err)
 	assert.NotNil(t, country)
 	t.Logf("Country name: %s", *country.CountryName)
+}
+
+func TestIntegration_LoginOrRefreshClient_shouldReuseValidToken(t *testing.T) {
+	oauthSvc := &iam.OAuth20Service{
+		Client:                 iam.NewIamClient(auth.DefaultConfigRepositoryImpl()),
+		ConfigRepository:       auth.DefaultConfigRepositoryImpl(),
+		TokenRepository:        auth.DefaultTokenRepositoryImpl(),
+		RefreshTokenRepository: &auth.RefreshTokenImpl{AutoRefresh: false, RefreshRate: 1},
+	}
+	clientId := oauthSvc.ConfigRepository.GetClientId()
+	clientSecret := oauthSvc.ConfigRepository.GetClientSecret()
+
+	for i := 0; i < 5; i++ {
+		// first time auth
+		err := oauthSvc.LoginOrRefreshClient(&clientId, &clientSecret)
+		if err != nil {
+			t.Fatal(err)
+		}
+		firstToken, err := oauthSvc.TokenRepository.GetToken()
+		if err != nil {
+			t.Fatal(err)
+		}
+		assert.NotEmpty(t, *firstToken)
+
+		time.Sleep(time.Second * 5)
+		// second time auth
+		err = oauthSvc.LoginOrRefreshClient(&clientId, &clientSecret)
+		if err != nil {
+			t.Fatal(err)
+		}
+		secondToken, err := oauthSvc.TokenRepository.GetToken()
+		if err != nil {
+			t.Fatal(err)
+		}
+		assert.NotEmpty(t, *secondToken)
+		assert.Equal(t, *secondToken, *firstToken)
+	}
+}
+
+func TestIntegration_LoginOrRefreshClient_shouldReAuthenticate(t *testing.T) {
+	oauthSvc := &iam.OAuth20Service{
+		Client:                 iam.NewIamClient(auth.DefaultConfigRepositoryImpl()),
+		ConfigRepository:       auth.DefaultConfigRepositoryImpl(),
+		TokenRepository:        auth.DefaultTokenRepositoryImpl(),
+		RefreshTokenRepository: &auth.RefreshTokenImpl{AutoRefresh: false, RefreshRate: 0.001}, // very small numbers to make token expire sooner
+	}
+	clientId := oauthSvc.ConfigRepository.GetClientId()
+	clientSecret := oauthSvc.ConfigRepository.GetClientSecret()
+
+	// first time auth
+	err := oauthSvc.LoginOrRefreshClient(&clientId, &clientSecret)
+	if err != nil {
+		t.Fatal(err)
+	}
+	firstToken, err := oauthSvc.TokenRepository.GetToken()
+	if err != nil {
+		t.Fatal(err)
+	}
+	assert.NotEmpty(t, *firstToken)
+
+	time.Sleep(time.Second * 10) // just to be sure it expires
+	// second time auth
+	err = oauthSvc.LoginOrRefreshClient(&clientId, &clientSecret)
+	if err != nil {
+		t.Fatal(err)
+	}
+	secondToken, err := oauthSvc.TokenRepository.GetToken()
+	if err != nil {
+		t.Fatal(err)
+	}
+	assert.NotEmpty(t, *secondToken)
+	assert.NotEqual(t, *secondToken, *firstToken)
+}
+
+func TestIntegration_LoginOrRefresh_shouldReAuthenticate(t *testing.T) {
+	username := os.Getenv("AB_USERNAME")
+	password := os.Getenv("AB_PASSWORD")
+	oauthSvc := &iam.OAuth20Service{
+		Client:                 iam.NewIamClient(auth.DefaultConfigRepositoryImpl()),
+		ConfigRepository:       auth.DefaultConfigRepositoryImpl(),
+		TokenRepository:        auth.DefaultTokenRepositoryImpl(),
+		RefreshTokenRepository: &auth.RefreshTokenImpl{AutoRefresh: false, RefreshRate: 0.001}, // very small numbers to make token expire sooner
+	}
+
+	// first time auth
+	err := oauthSvc.LoginOrRefresh(username, password)
+	if err != nil {
+		t.Fatal(err)
+	}
+	firstToken, err := oauthSvc.TokenRepository.GetToken()
+	if err != nil {
+		t.Fatal(err)
+	}
+	assert.NotEmpty(t, *firstToken)
+
+	time.Sleep(time.Second * 10) // just to be sure it expires
+	// second time auth
+	err = oauthSvc.LoginOrRefresh(username, password)
+	if err != nil {
+		t.Fatal(err)
+	}
+	secondToken, err := oauthSvc.TokenRepository.GetToken()
+	if err != nil {
+		t.Fatal(err)
+	}
+	assert.NotEmpty(t, *secondToken)
+	assert.NotEqual(t, *secondToken, *firstToken)
 }

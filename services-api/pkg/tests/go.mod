@@ -36,6 +36,7 @@ replace (
 	github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/service/ams => ../../../services-api/pkg/service/ams
 	github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/service/platform => ../../../services-api/pkg/service/platform
 	github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/service/seasonpass => ../../../services-api/pkg/service/seasonpass
+	github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/service/iam => ../../../services-api/pkg/service/iam
 )
 
 require (
