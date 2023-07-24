@@ -7,6 +7,7 @@ package integration_test
 import (
 	"testing"
 
+	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/service/sessionbrowser"
 	"github.com/stretchr/testify/assert"
 
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils/auth"
@@ -15,7 +16,6 @@ import (
 
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/tests/integration"
 
-	"github.com/AccelByte/accelbyte-go-modular-sdk/sessionbrowser-sdk/pkg"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/sessionbrowser-sdk/pkg/sessionbrowserclientmodels"
 )
 
@@ -25,7 +25,7 @@ var (
 		TokenRepository: tokenRepository,
 	}
 	namespaceSession   = integration.NamespaceTest
-	sessionType        = "p2p" // "dedicated server can not be updated"
+	sessionType        = "dedicated" // "p2p needs to connect to lobby"
 	mode               = "mode"
 	mapName            = "mapName"
 	emptyInt32         = int32(0)
@@ -109,14 +109,15 @@ func TestIntegrationSessionBrowser(t *testing.T) {
 	// Assert
 	assert.Nil(t, errUpdate, "err should be nil")
 	assert.NotNil(t, updated, "response should not be nil")
+	assert.Equal(t, *updated.GameSessionSetting.MaxPlayer, defaultInt32)
 
 	// CASE Delete a session
-	inputDelete := &session.DeleteSessionParams{
+	inputDelete := &session.AdminDeleteSessionParams{
 		Namespace: integration.NamespaceTest,
 		SessionID: sessionBrowserID,
 	}
 
-	deleted, errDelete := sessionService.DeleteSessionShort(inputDelete)
+	deleted, errDelete := sessionService.AdminDeleteSessionShort(inputDelete)
 	if errDelete != nil {
 		assert.FailNow(t, errDelete.Error())
 	}
