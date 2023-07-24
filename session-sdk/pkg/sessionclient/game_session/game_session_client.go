@@ -62,6 +62,8 @@ type ClientService interface {
 	PublicGameSessionInviteShort(params *PublicGameSessionInviteParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGameSessionInviteCreated, error)
 	JoinGameSession(params *JoinGameSessionParams, authInfo runtime.ClientAuthInfoWriter) (*JoinGameSessionOK, *JoinGameSessionBadRequest, *JoinGameSessionUnauthorized, *JoinGameSessionForbidden, *JoinGameSessionNotFound, *JoinGameSessionInternalServerError, error)
 	JoinGameSessionShort(params *JoinGameSessionParams, authInfo runtime.ClientAuthInfoWriter) (*JoinGameSessionOK, error)
+	PublicPromoteGameSessionLeader(params *PublicPromoteGameSessionLeaderParams, authInfo runtime.ClientAuthInfoWriter) (*PublicPromoteGameSessionLeaderOK, *PublicPromoteGameSessionLeaderBadRequest, *PublicPromoteGameSessionLeaderUnauthorized, *PublicPromoteGameSessionLeaderForbidden, *PublicPromoteGameSessionLeaderNotFound, *PublicPromoteGameSessionLeaderInternalServerError, error)
+	PublicPromoteGameSessionLeaderShort(params *PublicPromoteGameSessionLeaderParams, authInfo runtime.ClientAuthInfoWriter) (*PublicPromoteGameSessionLeaderOK, error)
 	LeaveGameSession(params *LeaveGameSessionParams, authInfo runtime.ClientAuthInfoWriter) (*LeaveGameSessionNoContent, *LeaveGameSessionBadRequest, *LeaveGameSessionUnauthorized, *LeaveGameSessionForbidden, *LeaveGameSessionNotFound, *LeaveGameSessionInternalServerError, error)
 	LeaveGameSessionShort(params *LeaveGameSessionParams, authInfo runtime.ClientAuthInfoWriter) (*LeaveGameSessionNoContent, error)
 	PublicGameSessionReject(params *PublicGameSessionRejectParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGameSessionRejectNoContent, *PublicGameSessionRejectBadRequest, *PublicGameSessionRejectUnauthorized, *PublicGameSessionRejectForbidden, *PublicGameSessionRejectNotFound, *PublicGameSessionRejectInternalServerError, error)
@@ -423,11 +425,16 @@ Create a game session.
 Session configuration name is mandatory, this API will refer following values from the session template if they're not provided in the request:
 - type
 - joinability
+- autoJoin. If enabled (set to true), players provided in the request will automatically joined the initial game session creation. Game session will not send any invite and players dont need to act upon it.
 - minPlayers
 - maxPlayers
 - inviteTimeout
 - inactiveTimeout
 - dsSource
+- tieTeamsSessionLifetime
+
+When the tieTeamsSessionLifetime is true, the lifetime of any partyId inside teams attribute will be tied to the game session.
+Only applies when the teams partyId is a game session.
 
 When the session type is a DS, a DS creation request will be sent if number of active players reaches session's minPlayers.
 
@@ -504,11 +511,16 @@ Create a game session.
 Session configuration name is mandatory, this API will refer following values from the session template if they're not provided in the request:
 - type
 - joinability
+- autoJoin. If enabled (set to true), players provided in the request will automatically joined the initial game session creation. Game session will not send any invite and players dont need to act upon it.
 - minPlayers
 - maxPlayers
 - inviteTimeout
 - inactiveTimeout
 - dsSource
+- tieTeamsSessionLifetime
+
+When the tieTeamsSessionLifetime is true, the lifetime of any partyId inside teams attribute will be tied to the game session.
+Only applies when the teams partyId is a game session.
 
 When the session type is a DS, a DS creation request will be sent if number of active players reaches session's minPlayers.
 
@@ -587,6 +599,11 @@ Session service has several DSInformation status to track DS request to DSMC:
 - REQUESTED: DS is being requested to DSMC.
 - AVAILABLE: DS is ready to use. The DSMC status for this DS is either READY/BUSY.
 - FAILED_TO_REQUEST: DSMC fails to create the DS.
+
+query parameter "availability" to filter sessions' availability:
+all: return all sessions regardless it's full
+full: only return active sessions
+default behavior (unset or else): return only available sessions (not full)
 */
 func (a *Client) PublicQueryGameSessions(params *PublicQueryGameSessionsParams, authInfo runtime.ClientAuthInfoWriter) (*PublicQueryGameSessionsOK, *PublicQueryGameSessionsBadRequest, *PublicQueryGameSessionsUnauthorized, *PublicQueryGameSessionsForbidden, *PublicQueryGameSessionsInternalServerError, error) {
 	// TODO: Validate the params before sending
@@ -651,6 +668,11 @@ Session service has several DSInformation status to track DS request to DSMC:
 - REQUESTED: DS is being requested to DSMC.
 - AVAILABLE: DS is ready to use. The DSMC status for this DS is either READY/BUSY.
 - FAILED_TO_REQUEST: DSMC fails to create the DS.
+
+query parameter "availability" to filter sessions' availability:
+all: return all sessions regardless it's full
+full: only return active sessions
+default behavior (unset or else): return only available sessions (not full)
 */
 func (a *Client) PublicQueryGameSessionsShort(params *PublicQueryGameSessionsParams, authInfo runtime.ClientAuthInfoWriter) (*PublicQueryGameSessionsOK, error) {
 	// TODO: Validate the params before sending
@@ -2006,6 +2028,147 @@ func (a *Client) JoinGameSessionShort(params *JoinGameSessionParams, authInfo ru
 	case *JoinGameSessionNotFound:
 		return nil, v
 	case *JoinGameSessionInternalServerError:
+		return nil, v
+
+	default:
+		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
+	}
+}
+
+/*
+Deprecated: 2022-08-10 - Use PublicPromoteGameSessionLeaderShort instead.
+
+PublicPromoteGameSessionLeader promote new game session leader. requires namespace:{namespace}:session:game [update]
+Promote game session member to become the new game session leader.
+
+This API requires the NAMESPACE:{namespace}:SESSION:GAME [UPDATE] permission.
+
+This API can be operated by:
+- User (game session member) who is the current leader of the game session
+- Game Client
+- Dedicated Server (DS)
+
+This API will promote game session leader candidate with the following criteria:
+- Leader candidate is a member of the game session
+- Leader candidate has a "CONNECTED" or "JOINED" status
+- If the leader candidate is the current leader, then no promotion process is carried out
+*/
+func (a *Client) PublicPromoteGameSessionLeader(params *PublicPromoteGameSessionLeaderParams, authInfo runtime.ClientAuthInfoWriter) (*PublicPromoteGameSessionLeaderOK, *PublicPromoteGameSessionLeaderBadRequest, *PublicPromoteGameSessionLeaderUnauthorized, *PublicPromoteGameSessionLeaderForbidden, *PublicPromoteGameSessionLeaderNotFound, *PublicPromoteGameSessionLeaderInternalServerError, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewPublicPromoteGameSessionLeaderParams()
+	}
+
+	if params.Context == nil {
+		params.Context = context.Background()
+	}
+
+	if params.RetryPolicy != nil {
+		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "publicPromoteGameSessionLeader",
+		Method:             "POST",
+		PathPattern:        "/session/v1/public/namespaces/{namespace}/gamesessions/{sessionId}/leader",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &PublicPromoteGameSessionLeaderReader{formats: a.formats},
+		AuthInfo:           authInfo,
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, nil, nil, nil, nil, nil, err
+	}
+
+	switch v := result.(type) {
+
+	case *PublicPromoteGameSessionLeaderOK:
+		return v, nil, nil, nil, nil, nil, nil
+
+	case *PublicPromoteGameSessionLeaderBadRequest:
+		return nil, v, nil, nil, nil, nil, nil
+
+	case *PublicPromoteGameSessionLeaderUnauthorized:
+		return nil, nil, v, nil, nil, nil, nil
+
+	case *PublicPromoteGameSessionLeaderForbidden:
+		return nil, nil, nil, v, nil, nil, nil
+
+	case *PublicPromoteGameSessionLeaderNotFound:
+		return nil, nil, nil, nil, v, nil, nil
+
+	case *PublicPromoteGameSessionLeaderInternalServerError:
+		return nil, nil, nil, nil, nil, v, nil
+
+	default:
+		return nil, nil, nil, nil, nil, nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
+	}
+}
+
+/*
+PublicPromoteGameSessionLeaderShort promote new game session leader. requires namespace:{namespace}:session:game [update]
+Promote game session member to become the new game session leader.
+
+This API requires the NAMESPACE:{namespace}:SESSION:GAME [UPDATE] permission.
+
+This API can be operated by:
+- User (game session member) who is the current leader of the game session
+- Game Client
+- Dedicated Server (DS)
+
+This API will promote game session leader candidate with the following criteria:
+- Leader candidate is a member of the game session
+- Leader candidate has a "CONNECTED" or "JOINED" status
+- If the leader candidate is the current leader, then no promotion process is carried out
+*/
+func (a *Client) PublicPromoteGameSessionLeaderShort(params *PublicPromoteGameSessionLeaderParams, authInfo runtime.ClientAuthInfoWriter) (*PublicPromoteGameSessionLeaderOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewPublicPromoteGameSessionLeaderParams()
+	}
+
+	if params.Context == nil {
+		params.Context = context.Background()
+	}
+
+	if params.RetryPolicy != nil {
+		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "publicPromoteGameSessionLeader",
+		Method:             "POST",
+		PathPattern:        "/session/v1/public/namespaces/{namespace}/gamesessions/{sessionId}/leader",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &PublicPromoteGameSessionLeaderReader{formats: a.formats},
+		AuthInfo:           authInfo,
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+
+	switch v := result.(type) {
+
+	case *PublicPromoteGameSessionLeaderOK:
+		return v, nil
+	case *PublicPromoteGameSessionLeaderBadRequest:
+		return nil, v
+	case *PublicPromoteGameSessionLeaderUnauthorized:
+		return nil, v
+	case *PublicPromoteGameSessionLeaderForbidden:
+		return nil, v
+	case *PublicPromoteGameSessionLeaderNotFound:
+		return nil, v
+	case *PublicPromoteGameSessionLeaderInternalServerError:
 		return nil, v
 
 	default:

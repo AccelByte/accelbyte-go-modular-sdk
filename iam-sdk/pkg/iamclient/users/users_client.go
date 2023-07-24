@@ -174,6 +174,8 @@ type ClientService interface {
 	GetAdminUsersByRoleIDV3Short(params *GetAdminUsersByRoleIDV3Params, authInfo runtime.ClientAuthInfoWriter) (*GetAdminUsersByRoleIDV3OK, error)
 	AdminGetUserByEmailAddressV3(params *AdminGetUserByEmailAddressV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetUserByEmailAddressV3OK, *AdminGetUserByEmailAddressV3BadRequest, *AdminGetUserByEmailAddressV3Unauthorized, *AdminGetUserByEmailAddressV3Forbidden, *AdminGetUserByEmailAddressV3NotFound, *AdminGetUserByEmailAddressV3InternalServerError, error)
 	AdminGetUserByEmailAddressV3Short(params *AdminGetUserByEmailAddressV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetUserByEmailAddressV3OK, error)
+	AdminGetBulkUserBanV3(params *AdminGetBulkUserBanV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetBulkUserBanV3OK, *AdminGetBulkUserBanV3BadRequest, *AdminGetBulkUserBanV3Unauthorized, *AdminGetBulkUserBanV3Forbidden, *AdminGetBulkUserBanV3NotFound, *AdminGetBulkUserBanV3InternalServerError, error)
+	AdminGetBulkUserBanV3Short(params *AdminGetBulkUserBanV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetBulkUserBanV3OK, error)
 	AdminListUserIDByUserIDsV3(params *AdminListUserIDByUserIDsV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminListUserIDByUserIDsV3OK, *AdminListUserIDByUserIDsV3BadRequest, *AdminListUserIDByUserIDsV3Unauthorized, *AdminListUserIDByUserIDsV3Forbidden, *AdminListUserIDByUserIDsV3InternalServerError, error)
 	AdminListUserIDByUserIDsV3Short(params *AdminListUserIDByUserIDsV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminListUserIDByUserIDsV3OK, error)
 	AdminInviteUserV3(params *AdminInviteUserV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminInviteUserV3Created, *AdminInviteUserV3BadRequest, *AdminInviteUserV3Unauthorized, *AdminInviteUserV3Forbidden, *AdminInviteUserV3NotFound, *AdminInviteUserV3Conflict, *AdminInviteUserV3UnprocessableEntity, *AdminInviteUserV3InternalServerError, error)
@@ -238,6 +240,8 @@ type ClientService interface {
 	AdminPlatformLinkV3Short(params *AdminPlatformLinkV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminPlatformLinkV3NoContent, error)
 	AdminGetThirdPartyPlatformTokenLinkStatusV3(params *AdminGetThirdPartyPlatformTokenLinkStatusV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetThirdPartyPlatformTokenLinkStatusV3OK, *AdminGetThirdPartyPlatformTokenLinkStatusV3BadRequest, *AdminGetThirdPartyPlatformTokenLinkStatusV3Unauthorized, *AdminGetThirdPartyPlatformTokenLinkStatusV3Forbidden, *AdminGetThirdPartyPlatformTokenLinkStatusV3NotFound, *AdminGetThirdPartyPlatformTokenLinkStatusV3InternalServerError, error)
 	AdminGetThirdPartyPlatformTokenLinkStatusV3Short(params *AdminGetThirdPartyPlatformTokenLinkStatusV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetThirdPartyPlatformTokenLinkStatusV3OK, error)
+	AdminGetUserSinglePlatformAccount(params *AdminGetUserSinglePlatformAccountParams, authInfo runtime.ClientAuthInfoWriter) (*AdminGetUserSinglePlatformAccountOK, *AdminGetUserSinglePlatformAccountBadRequest, *AdminGetUserSinglePlatformAccountUnauthorized, *AdminGetUserSinglePlatformAccountForbidden, *AdminGetUserSinglePlatformAccountNotFound, *AdminGetUserSinglePlatformAccountInternalServerError, error)
+	AdminGetUserSinglePlatformAccountShort(params *AdminGetUserSinglePlatformAccountParams, authInfo runtime.ClientAuthInfoWriter) (*AdminGetUserSinglePlatformAccountOK, error)
 	AdminDeleteUserRolesV3(params *AdminDeleteUserRolesV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminDeleteUserRolesV3NoContent, *AdminDeleteUserRolesV3BadRequest, *AdminDeleteUserRolesV3Unauthorized, *AdminDeleteUserRolesV3Forbidden, *AdminDeleteUserRolesV3NotFound, error)
 	AdminDeleteUserRolesV3Short(params *AdminDeleteUserRolesV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminDeleteUserRolesV3NoContent, error)
 	AdminSaveUserRoleV3(params *AdminSaveUserRoleV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminSaveUserRoleV3NoContent, *AdminSaveUserRoleV3BadRequest, *AdminSaveUserRoleV3Unauthorized, *AdminSaveUserRoleV3Forbidden, *AdminSaveUserRoleV3NotFound, *AdminSaveUserRoleV3UnprocessableEntity, *AdminSaveUserRoleV3InternalServerError, error)
@@ -11715,6 +11719,147 @@ func (a *Client) AdminGetUserByEmailAddressV3Short(params *AdminGetUserByEmailAd
 }
 
 /*
+Deprecated: 2022-08-10 - Use AdminGetBulkUserBanV3Short instead.
+
+AdminGetBulkUserBanV3 get bulk user bans
+
+
+Required permission 'ADMIN:NAMESPACE:{namespace}:BAN:USER [READ]'
+
+
+
+
+This endpoint returns user bans of userIDs specified in the payload
+
+
+
+
+action code : 10127
+*/
+func (a *Client) AdminGetBulkUserBanV3(params *AdminGetBulkUserBanV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetBulkUserBanV3OK, *AdminGetBulkUserBanV3BadRequest, *AdminGetBulkUserBanV3Unauthorized, *AdminGetBulkUserBanV3Forbidden, *AdminGetBulkUserBanV3NotFound, *AdminGetBulkUserBanV3InternalServerError, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewAdminGetBulkUserBanV3Params()
+	}
+
+	if params.Context == nil {
+		params.Context = context.Background()
+	}
+
+	if params.RetryPolicy != nil {
+		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "AdminGetBulkUserBanV3",
+		Method:             "POST",
+		PathPattern:        "/iam/v3/admin/namespaces/{namespace}/users/bans",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &AdminGetBulkUserBanV3Reader{formats: a.formats},
+		AuthInfo:           authInfo,
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, nil, nil, nil, nil, nil, err
+	}
+
+	switch v := result.(type) {
+
+	case *AdminGetBulkUserBanV3OK:
+		return v, nil, nil, nil, nil, nil, nil
+
+	case *AdminGetBulkUserBanV3BadRequest:
+		return nil, v, nil, nil, nil, nil, nil
+
+	case *AdminGetBulkUserBanV3Unauthorized:
+		return nil, nil, v, nil, nil, nil, nil
+
+	case *AdminGetBulkUserBanV3Forbidden:
+		return nil, nil, nil, v, nil, nil, nil
+
+	case *AdminGetBulkUserBanV3NotFound:
+		return nil, nil, nil, nil, v, nil, nil
+
+	case *AdminGetBulkUserBanV3InternalServerError:
+		return nil, nil, nil, nil, nil, v, nil
+
+	default:
+		return nil, nil, nil, nil, nil, nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
+	}
+}
+
+/*
+AdminGetBulkUserBanV3Short get bulk user bans
+
+
+Required permission 'ADMIN:NAMESPACE:{namespace}:BAN:USER [READ]'
+
+
+
+
+This endpoint returns user bans of userIDs specified in the payload
+
+
+
+
+action code : 10127
+*/
+func (a *Client) AdminGetBulkUserBanV3Short(params *AdminGetBulkUserBanV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetBulkUserBanV3OK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewAdminGetBulkUserBanV3Params()
+	}
+
+	if params.Context == nil {
+		params.Context = context.Background()
+	}
+
+	if params.RetryPolicy != nil {
+		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "AdminGetBulkUserBanV3",
+		Method:             "POST",
+		PathPattern:        "/iam/v3/admin/namespaces/{namespace}/users/bans",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &AdminGetBulkUserBanV3Reader{formats: a.formats},
+		AuthInfo:           authInfo,
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+
+	switch v := result.(type) {
+
+	case *AdminGetBulkUserBanV3OK:
+		return v, nil
+	case *AdminGetBulkUserBanV3BadRequest:
+		return nil, v
+	case *AdminGetBulkUserBanV3Unauthorized:
+		return nil, v
+	case *AdminGetBulkUserBanV3Forbidden:
+		return nil, v
+	case *AdminGetBulkUserBanV3NotFound:
+		return nil, v
+	case *AdminGetBulkUserBanV3InternalServerError:
+		return nil, v
+
+	default:
+		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
+	}
+}
+
+/*
 Deprecated: 2022-08-10 - Use AdminListUserIDByUserIDsV3Short instead.
 
 AdminListUserIDByUserIDsV3 list user by user id
@@ -15517,6 +15662,8 @@ Deprecated: 2022-08-10 - Use AdminGetListJusticePlatformAccountsShort instead.
 
 AdminGetListJusticePlatformAccounts get user justice platform accounts
 This endpoint gets list justice platform account by providing publisher namespace and publisher userID.
+
+Required permission: ADMIN:NAMESPACE:{namespace}:USER:{userId} [READ]
 */
 func (a *Client) AdminGetListJusticePlatformAccounts(params *AdminGetListJusticePlatformAccountsParams, authInfo runtime.ClientAuthInfoWriter) (*AdminGetListJusticePlatformAccountsOK, *AdminGetListJusticePlatformAccountsBadRequest, *AdminGetListJusticePlatformAccountsUnauthorized, *AdminGetListJusticePlatformAccountsForbidden, *AdminGetListJusticePlatformAccountsNotFound, *AdminGetListJusticePlatformAccountsInternalServerError, error) {
 	// TODO: Validate the params before sending
@@ -15577,6 +15724,8 @@ func (a *Client) AdminGetListJusticePlatformAccounts(params *AdminGetListJustice
 /*
 AdminGetListJusticePlatformAccountsShort get user justice platform accounts
 This endpoint gets list justice platform account by providing publisher namespace and publisher userID.
+
+Required permission: ADMIN:NAMESPACE:{namespace}:USER:{userId} [READ]
 */
 func (a *Client) AdminGetListJusticePlatformAccountsShort(params *AdminGetListJusticePlatformAccountsParams, authInfo runtime.ClientAuthInfoWriter) (*AdminGetListJusticePlatformAccountsOK, error) {
 	// TODO: Validate the params before sending
@@ -16793,6 +16942,131 @@ func (a *Client) AdminGetThirdPartyPlatformTokenLinkStatusV3Short(params *AdminG
 	case *AdminGetThirdPartyPlatformTokenLinkStatusV3NotFound:
 		return nil, v
 	case *AdminGetThirdPartyPlatformTokenLinkStatusV3InternalServerError:
+		return nil, v
+
+	default:
+		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
+	}
+}
+
+/*
+Deprecated: 2022-08-10 - Use AdminGetUserSinglePlatformAccountShort instead.
+
+AdminGetUserSinglePlatformAccount admin get user single platform account metadata
+This endpoint gets user single platform account metadata.
+
+Supported platforms are same with the supported login platforms.
+
+Required permission: ADMIN:NAMESPACE:{namespace}:USER:{userId} [READ]
+*/
+func (a *Client) AdminGetUserSinglePlatformAccount(params *AdminGetUserSinglePlatformAccountParams, authInfo runtime.ClientAuthInfoWriter) (*AdminGetUserSinglePlatformAccountOK, *AdminGetUserSinglePlatformAccountBadRequest, *AdminGetUserSinglePlatformAccountUnauthorized, *AdminGetUserSinglePlatformAccountForbidden, *AdminGetUserSinglePlatformAccountNotFound, *AdminGetUserSinglePlatformAccountInternalServerError, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewAdminGetUserSinglePlatformAccountParams()
+	}
+
+	if params.Context == nil {
+		params.Context = context.Background()
+	}
+
+	if params.RetryPolicy != nil {
+		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "AdminGetUserSinglePlatformAccount",
+		Method:             "GET",
+		PathPattern:        "/iam/v3/admin/namespaces/{namespace}/users/{userId}/platforms/{platformId}/metadata",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &AdminGetUserSinglePlatformAccountReader{formats: a.formats},
+		AuthInfo:           authInfo,
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, nil, nil, nil, nil, nil, err
+	}
+
+	switch v := result.(type) {
+
+	case *AdminGetUserSinglePlatformAccountOK:
+		return v, nil, nil, nil, nil, nil, nil
+
+	case *AdminGetUserSinglePlatformAccountBadRequest:
+		return nil, v, nil, nil, nil, nil, nil
+
+	case *AdminGetUserSinglePlatformAccountUnauthorized:
+		return nil, nil, v, nil, nil, nil, nil
+
+	case *AdminGetUserSinglePlatformAccountForbidden:
+		return nil, nil, nil, v, nil, nil, nil
+
+	case *AdminGetUserSinglePlatformAccountNotFound:
+		return nil, nil, nil, nil, v, nil, nil
+
+	case *AdminGetUserSinglePlatformAccountInternalServerError:
+		return nil, nil, nil, nil, nil, v, nil
+
+	default:
+		return nil, nil, nil, nil, nil, nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
+	}
+}
+
+/*
+AdminGetUserSinglePlatformAccountShort admin get user single platform account metadata
+This endpoint gets user single platform account metadata.
+
+Supported platforms are same with the supported login platforms.
+
+Required permission: ADMIN:NAMESPACE:{namespace}:USER:{userId} [READ]
+*/
+func (a *Client) AdminGetUserSinglePlatformAccountShort(params *AdminGetUserSinglePlatformAccountParams, authInfo runtime.ClientAuthInfoWriter) (*AdminGetUserSinglePlatformAccountOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewAdminGetUserSinglePlatformAccountParams()
+	}
+
+	if params.Context == nil {
+		params.Context = context.Background()
+	}
+
+	if params.RetryPolicy != nil {
+		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "AdminGetUserSinglePlatformAccount",
+		Method:             "GET",
+		PathPattern:        "/iam/v3/admin/namespaces/{namespace}/users/{userId}/platforms/{platformId}/metadata",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &AdminGetUserSinglePlatformAccountReader{formats: a.formats},
+		AuthInfo:           authInfo,
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+
+	switch v := result.(type) {
+
+	case *AdminGetUserSinglePlatformAccountOK:
+		return v, nil
+	case *AdminGetUserSinglePlatformAccountBadRequest:
+		return nil, v
+	case *AdminGetUserSinglePlatformAccountUnauthorized:
+		return nil, v
+	case *AdminGetUserSinglePlatformAccountForbidden:
+		return nil, v
+	case *AdminGetUserSinglePlatformAccountNotFound:
+		return nil, v
+	case *AdminGetUserSinglePlatformAccountInternalServerError:
 		return nil, v
 
 	default:

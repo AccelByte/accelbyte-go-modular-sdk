@@ -1,3 +1,21 @@
+<a name="v0.41.0"></a>
+## [v0.41.0]
+### fix
+- **:** expose authTokenValidator values
+- **test:** change session type to dedicated
+### chore
+- **samples:** remove outdated aws-lambda-example
+- **samples:** rename aws-lambda-example-update
+- **samples:** apply on-demand refresh token for aws-lambda-example
+- **:** remove refresh implementation but in iam auth20
+- **:** add integration test for ondemand refresh token
+### docs
+- **readme:** add on demand refresh token
+### feat
+- **sdk:** on demand refresh token
+- **mock-server:** update jenkins based on new mock-server path
+
+
 <a name="v0.40.0"></a>
 ## [v0.40.0] - 2023-03-14
 

@@ -22,6 +22,9 @@ type APIMatchFunctionRequest struct {
 	// Required: true
 	MatchFunction *string `json:"match_function"`
 
+	// serviceappname
+	ServiceAppName string `json:"serviceAppName,omitempty"`
+
 	// url
 	// Required: true
 	URL *string `json:"url"`

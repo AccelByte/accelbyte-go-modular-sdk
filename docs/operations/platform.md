@@ -82,6 +82,26 @@
 | `/platform/admin/namespaces/{namespace}/codes/{code}/enable` | PUT | EnableCodeShort | [EnableCodeShort](../../platform-sdk/pkg/platformclient/campaign/campaign_client.go) | [EnableCodeShort](../../platform-sdk/pkg/wrapper_campaign.go) | [EnableCodeShort](../../samples/cli/cmd/platform/campaign/enableCode.go) |
 | `/platform/admin/namespaces/{namespace}/users/{userId}/redemption` | POST | ApplyUserRedemptionShort | [ApplyUserRedemptionShort](../../platform-sdk/pkg/platformclient/campaign/campaign_client.go) | [ApplyUserRedemptionShort](../../platform-sdk/pkg/wrapper_campaign.go) | [ApplyUserRedemptionShort](../../samples/cli/cmd/platform/campaign/applyUserRedemption.go) |
 
+### ServicePluginConfig Wrapper:  [ServicePluginConfig](../../platform-sdk/pkg/wrapper_servicePluginConfig.go)
+| Endpoint | Method | ID | Class | Wrapper | Example |
+|---|---|---|---|---|---|
+| `/platform/admin/namespaces/{namespace}/catalog/plugins/lootbox` | GET | GetLootBoxPluginConfigShort | [GetLootBoxPluginConfigShort](../../platform-sdk/pkg/platformclient/service_plugin_config/service_plugin_config_client.go) | [GetLootBoxPluginConfigShort](../../platform-sdk/pkg/wrapper_servicePluginConfig.go) | [GetLootBoxPluginConfigShort](../../samples/cli/cmd/platform/servicePluginConfig/getLootBoxPluginConfig.go) |
+| `/platform/admin/namespaces/{namespace}/catalog/plugins/lootbox` | PUT | UpdateLootBoxPluginConfigShort | [UpdateLootBoxPluginConfigShort](../../platform-sdk/pkg/platformclient/service_plugin_config/service_plugin_config_client.go) | [UpdateLootBoxPluginConfigShort](../../platform-sdk/pkg/wrapper_servicePluginConfig.go) | [UpdateLootBoxPluginConfigShort](../../samples/cli/cmd/platform/servicePluginConfig/updateLootBoxPluginConfig.go) |
+| `/platform/admin/namespaces/{namespace}/catalog/plugins/lootbox` | DELETE | DeleteLootBoxPluginConfigShort | [DeleteLootBoxPluginConfigShort](../../platform-sdk/pkg/platformclient/service_plugin_config/service_plugin_config_client.go) | [DeleteLootBoxPluginConfigShort](../../platform-sdk/pkg/wrapper_servicePluginConfig.go) | [DeleteLootBoxPluginConfigShort](../../samples/cli/cmd/platform/servicePluginConfig/deleteLootBoxPluginConfig.go) |
+| `/platform/admin/namespaces/{namespace}/catalog/plugins/lootbox/customConfig/cert` | PUT | UplodLootBoxPluginConfigCertShort | [UplodLootBoxPluginConfigCertShort](../../platform-sdk/pkg/platformclient/service_plugin_config/service_plugin_config_client.go) | [UplodLootBoxPluginConfigCertShort](../../platform-sdk/pkg/wrapper_servicePluginConfig.go) | [UplodLootBoxPluginConfigCertShort](../../samples/cli/cmd/platform/servicePluginConfig/uplodLootBoxPluginConfigCert.go) |
+| `/platform/admin/namespaces/{namespace}/catalog/plugins/lootbox/grpcInfo` | GET | GetLootBoxGrpcInfoShort | [GetLootBoxGrpcInfoShort](../../platform-sdk/pkg/platformclient/service_plugin_config/service_plugin_config_client.go) | [GetLootBoxGrpcInfoShort](../../platform-sdk/pkg/wrapper_servicePluginConfig.go) | [GetLootBoxGrpcInfoShort](../../samples/cli/cmd/platform/servicePluginConfig/getLootBoxGrpcInfo.go) |
+| `/platform/admin/namespaces/{namespace}/catalog/plugins/section` | GET | GetSectionPluginConfigShort | [GetSectionPluginConfigShort](../../platform-sdk/pkg/platformclient/service_plugin_config/service_plugin_config_client.go) | [GetSectionPluginConfigShort](../../platform-sdk/pkg/wrapper_servicePluginConfig.go) | [GetSectionPluginConfigShort](../../samples/cli/cmd/platform/servicePluginConfig/getSectionPluginConfig.go) |
+| `/platform/admin/namespaces/{namespace}/catalog/plugins/section` | PUT | UpdateSectionPluginConfigShort | [UpdateSectionPluginConfigShort](../../platform-sdk/pkg/platformclient/service_plugin_config/service_plugin_config_client.go) | [UpdateSectionPluginConfigShort](../../platform-sdk/pkg/wrapper_servicePluginConfig.go) | [UpdateSectionPluginConfigShort](../../samples/cli/cmd/platform/servicePluginConfig/updateSectionPluginConfig.go) |
+| `/platform/admin/namespaces/{namespace}/catalog/plugins/section` | DELETE | DeleteSectionPluginConfigShort | [DeleteSectionPluginConfigShort](../../platform-sdk/pkg/platformclient/service_plugin_config/service_plugin_config_client.go) | [DeleteSectionPluginConfigShort](../../platform-sdk/pkg/wrapper_servicePluginConfig.go) | [DeleteSectionPluginConfigShort](../../samples/cli/cmd/platform/servicePluginConfig/deleteSectionPluginConfig.go) |
+| `/platform/admin/namespaces/{namespace}/catalog/plugins/section/customConfig/cert` | PUT | UploadSectionPluginConfigCertShort | [UploadSectionPluginConfigCertShort](../../platform-sdk/pkg/platformclient/service_plugin_config/service_plugin_config_client.go) | [UploadSectionPluginConfigCertShort](../../platform-sdk/pkg/wrapper_servicePluginConfig.go) | [UploadSectionPluginConfigCertShort](../../samples/cli/cmd/platform/servicePluginConfig/uploadSectionPluginConfigCert.go) |
+| [DEPRECATED] `/platform/admin/namespaces/{namespace}/configs/servicePlugin` | GET | GetServicePluginConfigShort | [GetServicePluginConfigShort](../../platform-sdk/pkg/platformclient/service_plugin_config/service_plugin_config_client.go) | [GetServicePluginConfigShort](../../platform-sdk/pkg/wrapper_servicePluginConfig.go) | [GetServicePluginConfigShort](../../samples/cli/cmd/platform/servicePluginConfig/getServicePluginConfig.go) |
+| [DEPRECATED] `/platform/admin/namespaces/{namespace}/configs/servicePlugin` | PUT | UpdateServicePluginConfigShort | [UpdateServicePluginConfigShort](../../platform-sdk/pkg/platformclient/service_plugin_config/service_plugin_config_client.go) | [UpdateServicePluginConfigShort](../../platform-sdk/pkg/wrapper_servicePluginConfig.go) | [UpdateServicePluginConfigShort](../../samples/cli/cmd/platform/servicePluginConfig/updateServicePluginConfig.go) |
+| [DEPRECATED] `/platform/admin/namespaces/{namespace}/configs/servicePlugin` | DELETE | DeleteServicePluginConfigShort | [DeleteServicePluginConfigShort](../../platform-sdk/pkg/platformclient/service_plugin_config/service_plugin_config_client.go) | [DeleteServicePluginConfigShort](../../platform-sdk/pkg/wrapper_servicePluginConfig.go) | [DeleteServicePluginConfigShort](../../samples/cli/cmd/platform/servicePluginConfig/deleteServicePluginConfig.go) |
+| `/platform/admin/namespaces/{namespace}/revocation/plugins/revocation` | GET | GetLootBoxPluginConfig1Short | [GetLootBoxPluginConfig1Short](../../platform-sdk/pkg/platformclient/service_plugin_config/service_plugin_config_client.go) | [GetLootBoxPluginConfig1Short](../../platform-sdk/pkg/wrapper_servicePluginConfig.go) | [GetLootBoxPluginConfig1Short](../../samples/cli/cmd/platform/servicePluginConfig/getLootBoxPluginConfig1.go) |
+| `/platform/admin/namespaces/{namespace}/revocation/plugins/revocation` | PUT | UpdateRevocationPluginConfigShort | [UpdateRevocationPluginConfigShort](../../platform-sdk/pkg/platformclient/service_plugin_config/service_plugin_config_client.go) | [UpdateRevocationPluginConfigShort](../../platform-sdk/pkg/wrapper_servicePluginConfig.go) | [UpdateRevocationPluginConfigShort](../../samples/cli/cmd/platform/servicePluginConfig/updateRevocationPluginConfig.go) |
+| `/platform/admin/namespaces/{namespace}/revocation/plugins/revocation` | DELETE | DeleteLootBoxPluginConfig1Short | [DeleteLootBoxPluginConfig1Short](../../platform-sdk/pkg/platformclient/service_plugin_config/service_plugin_config_client.go) | [DeleteLootBoxPluginConfig1Short](../../platform-sdk/pkg/wrapper_servicePluginConfig.go) | [DeleteLootBoxPluginConfig1Short](../../samples/cli/cmd/platform/servicePluginConfig/deleteLootBoxPluginConfig1.go) |
+| `/platform/admin/namespaces/{namespace}/revocation/plugins/revocation/revocation/customConfig/cert` | PUT | UploadRevocationPluginConfigCertShort | [UploadRevocationPluginConfigCertShort](../../platform-sdk/pkg/platformclient/service_plugin_config/service_plugin_config_client.go) | [UploadRevocationPluginConfigCertShort](../../platform-sdk/pkg/wrapper_servicePluginConfig.go) | [UploadRevocationPluginConfigCertShort](../../samples/cli/cmd/platform/servicePluginConfig/uploadRevocationPluginConfigCert.go) |
+
 ### Category Wrapper:  [Category](../../platform-sdk/pkg/wrapper_category.go)
 | Endpoint | Method | ID | Class | Wrapper | Example |
 |---|---|---|---|---|---|
@@ -98,13 +118,6 @@
 | `/platform/public/namespaces/{namespace}/categories/{categoryPath}` | GET | PublicGetCategoryShort | [PublicGetCategoryShort](../../platform-sdk/pkg/platformclient/category/category_client.go) | [PublicGetCategoryShort](../../platform-sdk/pkg/wrapper_category.go) | [PublicGetCategoryShort](../../samples/cli/cmd/platform/category/publicGetCategory.go) |
 | `/platform/public/namespaces/{namespace}/categories/{categoryPath}/children` | GET | PublicGetChildCategoriesShort | [PublicGetChildCategoriesShort](../../platform-sdk/pkg/platformclient/category/category_client.go) | [PublicGetChildCategoriesShort](../../platform-sdk/pkg/wrapper_category.go) | [PublicGetChildCategoriesShort](../../samples/cli/cmd/platform/category/publicGetChildCategories.go) |
 | `/platform/public/namespaces/{namespace}/categories/{categoryPath}/descendants` | GET | PublicGetDescendantCategoriesShort | [PublicGetDescendantCategoriesShort](../../platform-sdk/pkg/platformclient/category/category_client.go) | [PublicGetDescendantCategoriesShort](../../platform-sdk/pkg/wrapper_category.go) | [PublicGetDescendantCategoriesShort](../../samples/cli/cmd/platform/category/publicGetDescendantCategories.go) |
-
-### ServicePluginConfig Wrapper:  [ServicePluginConfig](../../platform-sdk/pkg/wrapper_servicePluginConfig.go)
-| Endpoint | Method | ID | Class | Wrapper | Example |
-|---|---|---|---|---|---|
-| `/platform/admin/namespaces/{namespace}/configs/servicePlugin` | GET | GetServicePluginConfigShort | [GetServicePluginConfigShort](../../platform-sdk/pkg/platformclient/service_plugin_config/service_plugin_config_client.go) | [GetServicePluginConfigShort](../../platform-sdk/pkg/wrapper_servicePluginConfig.go) | [GetServicePluginConfigShort](../../samples/cli/cmd/platform/servicePluginConfig/getServicePluginConfig.go) |
-| `/platform/admin/namespaces/{namespace}/configs/servicePlugin` | PUT | UpdateServicePluginConfigShort | [UpdateServicePluginConfigShort](../../platform-sdk/pkg/platformclient/service_plugin_config/service_plugin_config_client.go) | [UpdateServicePluginConfigShort](../../platform-sdk/pkg/wrapper_servicePluginConfig.go) | [UpdateServicePluginConfigShort](../../samples/cli/cmd/platform/servicePluginConfig/updateServicePluginConfig.go) |
-| `/platform/admin/namespaces/{namespace}/configs/servicePlugin` | DELETE | DeleteServicePluginConfigShort | [DeleteServicePluginConfigShort](../../platform-sdk/pkg/platformclient/service_plugin_config/service_plugin_config_client.go) | [DeleteServicePluginConfigShort](../../platform-sdk/pkg/wrapper_servicePluginConfig.go) | [DeleteServicePluginConfigShort](../../samples/cli/cmd/platform/servicePluginConfig/deleteServicePluginConfig.go) |
 
 ### Currency Wrapper:  [Currency](../../platform-sdk/pkg/wrapper_currency.go)
 | Endpoint | Method | ID | Class | Wrapper | Example |
@@ -129,6 +142,7 @@
 | `/platform/admin/namespaces/{namespace}/users/{userId}/dlc` | GET | GetUserDLCByPlatformShort | [GetUserDLCByPlatformShort](../../platform-sdk/pkg/platformclient/dlc/dlc_client.go) | [GetUserDLCByPlatformShort](../../platform-sdk/pkg/wrapper_dlc.go) | [GetUserDLCByPlatformShort](../../samples/cli/cmd/platform/dlc/getUserDLCByPlatform.go) |
 | `/platform/admin/namespaces/{namespace}/users/{userId}/dlc/records` | GET | GetUserDLCShort | [GetUserDLCShort](../../platform-sdk/pkg/platformclient/dlc/dlc_client.go) | [GetUserDLCShort](../../platform-sdk/pkg/wrapper_dlc.go) | [GetUserDLCShort](../../samples/cli/cmd/platform/dlc/getUserDLC.go) |
 | `/platform/public/namespaces/{namespace}/users/{userId}/dlc/epicgames/sync` | PUT | SyncEpicGameDLCShort | [SyncEpicGameDLCShort](../../platform-sdk/pkg/platformclient/dlc/dlc_client.go) | [SyncEpicGameDLCShort](../../platform-sdk/pkg/wrapper_dlc.go) | [SyncEpicGameDLCShort](../../samples/cli/cmd/platform/dlc/syncEpicGameDLC.go) |
+| `/platform/public/namespaces/{namespace}/users/{userId}/dlc/oculus/sync` | PUT | SyncOculusDLCShort | [SyncOculusDLCShort](../../platform-sdk/pkg/platformclient/dlc/dlc_client.go) | [SyncOculusDLCShort](../../platform-sdk/pkg/wrapper_dlc.go) | [SyncOculusDLCShort](../../samples/cli/cmd/platform/dlc/syncOculusDLC.go) |
 | `/platform/public/namespaces/{namespace}/users/{userId}/dlc/psn/sync` | PUT | PublicSyncPsnDlcInventoryShort | [PublicSyncPsnDlcInventoryShort](../../platform-sdk/pkg/platformclient/dlc/dlc_client.go) | [PublicSyncPsnDlcInventoryShort](../../platform-sdk/pkg/wrapper_dlc.go) | [PublicSyncPsnDlcInventoryShort](../../samples/cli/cmd/platform/dlc/publicSyncPsnDlcInventory.go) |
 | `/platform/public/namespaces/{namespace}/users/{userId}/dlc/psn/sync/multiServiceLabels` | PUT | PublicSyncPsnDlcInventoryWithMultipleServiceLabelsShort | [PublicSyncPsnDlcInventoryWithMultipleServiceLabelsShort](../../platform-sdk/pkg/platformclient/dlc/dlc_client.go) | [PublicSyncPsnDlcInventoryWithMultipleServiceLabelsShort](../../platform-sdk/pkg/wrapper_dlc.go) | [PublicSyncPsnDlcInventoryWithMultipleServiceLabelsShort](../../samples/cli/cmd/platform/dlc/publicSyncPsnDlcInventoryWithMultipleServiceLabels.go) |
 | `/platform/public/namespaces/{namespace}/users/{userId}/dlc/steam/sync` | PUT | SyncSteamDLCShort | [SyncSteamDLCShort](../../platform-sdk/pkg/platformclient/dlc/dlc_client.go) | [SyncSteamDLCShort](../../platform-sdk/pkg/wrapper_dlc.go) | [SyncSteamDLCShort](../../samples/cli/cmd/platform/dlc/syncSteamDLC.go) |
@@ -210,6 +224,9 @@
 | `/platform/admin/namespaces/{namespace}/iap/config/item` | GET | GetIAPItemConfigShort | [GetIAPItemConfigShort](../../platform-sdk/pkg/platformclient/iap/iap_client.go) | [GetIAPItemConfigShort](../../platform-sdk/pkg/wrapper_iap.go) | [GetIAPItemConfigShort](../../samples/cli/cmd/platform/iap/getIAPItemConfig.go) |
 | `/platform/admin/namespaces/{namespace}/iap/config/item` | PUT | UpdateIAPItemConfigShort | [UpdateIAPItemConfigShort](../../platform-sdk/pkg/platformclient/iap/iap_client.go) | [UpdateIAPItemConfigShort](../../platform-sdk/pkg/wrapper_iap.go) | [UpdateIAPItemConfigShort](../../samples/cli/cmd/platform/iap/updateIAPItemConfig.go) |
 | `/platform/admin/namespaces/{namespace}/iap/config/item` | DELETE | DeleteIAPItemConfigShort | [DeleteIAPItemConfigShort](../../platform-sdk/pkg/platformclient/iap/iap_client.go) | [DeleteIAPItemConfigShort](../../platform-sdk/pkg/wrapper_iap.go) | [DeleteIAPItemConfigShort](../../samples/cli/cmd/platform/iap/deleteIAPItemConfig.go) |
+| `/platform/admin/namespaces/{namespace}/iap/config/oculus` | GET | GetOculusIAPConfigShort | [GetOculusIAPConfigShort](../../platform-sdk/pkg/platformclient/iap/iap_client.go) | [GetOculusIAPConfigShort](../../platform-sdk/pkg/wrapper_iap.go) | [GetOculusIAPConfigShort](../../samples/cli/cmd/platform/iap/getOculusIAPConfig.go) |
+| `/platform/admin/namespaces/{namespace}/iap/config/oculus` | PUT | UpdateOculusIAPConfigShort | [UpdateOculusIAPConfigShort](../../platform-sdk/pkg/platformclient/iap/iap_client.go) | [UpdateOculusIAPConfigShort](../../platform-sdk/pkg/wrapper_iap.go) | [UpdateOculusIAPConfigShort](../../samples/cli/cmd/platform/iap/updateOculusIAPConfig.go) |
+| `/platform/admin/namespaces/{namespace}/iap/config/oculus` | DELETE | DeleteOculusIAPConfigShort | [DeleteOculusIAPConfigShort](../../platform-sdk/pkg/platformclient/iap/iap_client.go) | [DeleteOculusIAPConfigShort](../../platform-sdk/pkg/wrapper_iap.go) | [DeleteOculusIAPConfigShort](../../samples/cli/cmd/platform/iap/deleteOculusIAPConfig.go) |
 | `/platform/admin/namespaces/{namespace}/iap/config/playstation` | GET | GetPlayStationIAPConfigShort | [GetPlayStationIAPConfigShort](../../platform-sdk/pkg/platformclient/iap/iap_client.go) | [GetPlayStationIAPConfigShort](../../platform-sdk/pkg/wrapper_iap.go) | [GetPlayStationIAPConfigShort](../../samples/cli/cmd/platform/iap/getPlayStationIAPConfig.go) |
 | `/platform/admin/namespaces/{namespace}/iap/config/playstation` | PUT | UpdatePlaystationIAPConfigShort | [UpdatePlaystationIAPConfigShort](../../platform-sdk/pkg/platformclient/iap/iap_client.go) | [UpdatePlaystationIAPConfigShort](../../platform-sdk/pkg/wrapper_iap.go) | [UpdatePlaystationIAPConfigShort](../../samples/cli/cmd/platform/iap/updatePlaystationIAPConfig.go) |
 | `/platform/admin/namespaces/{namespace}/iap/config/playstation` | DELETE | DeletePlaystationIAPConfigShort | [DeletePlaystationIAPConfigShort](../../platform-sdk/pkg/platformclient/iap/iap_client.go) | [DeletePlaystationIAPConfigShort](../../platform-sdk/pkg/wrapper_iap.go) | [DeletePlaystationIAPConfigShort](../../samples/cli/cmd/platform/iap/deletePlaystationIAPConfig.go) |
@@ -232,6 +249,7 @@
 | `/platform/public/namespaces/{namespace}/users/{userId}/iap/apple/receipt` | PUT | PublicFulfillAppleIAPItemShort | [PublicFulfillAppleIAPItemShort](../../platform-sdk/pkg/platformclient/iap/iap_client.go) | [PublicFulfillAppleIAPItemShort](../../platform-sdk/pkg/wrapper_iap.go) | [PublicFulfillAppleIAPItemShort](../../samples/cli/cmd/platform/iap/publicFulfillAppleIAPItem.go) |
 | `/platform/public/namespaces/{namespace}/users/{userId}/iap/epicgames/sync` | PUT | SyncEpicGamesInventoryShort | [SyncEpicGamesInventoryShort](../../platform-sdk/pkg/platformclient/iap/iap_client.go) | [SyncEpicGamesInventoryShort](../../platform-sdk/pkg/wrapper_iap.go) | [SyncEpicGamesInventoryShort](../../samples/cli/cmd/platform/iap/syncEpicGamesInventory.go) |
 | `/platform/public/namespaces/{namespace}/users/{userId}/iap/google/receipt` | PUT | PublicFulfillGoogleIAPItemShort | [PublicFulfillGoogleIAPItemShort](../../platform-sdk/pkg/platformclient/iap/iap_client.go) | [PublicFulfillGoogleIAPItemShort](../../platform-sdk/pkg/wrapper_iap.go) | [PublicFulfillGoogleIAPItemShort](../../samples/cli/cmd/platform/iap/publicFulfillGoogleIAPItem.go) |
+| `/platform/public/namespaces/{namespace}/users/{userId}/iap/oculus/sync` | PUT | SyncOculusConsumableEntitlementsShort | [SyncOculusConsumableEntitlementsShort](../../platform-sdk/pkg/platformclient/iap/iap_client.go) | [SyncOculusConsumableEntitlementsShort](../../platform-sdk/pkg/wrapper_iap.go) | [SyncOculusConsumableEntitlementsShort](../../samples/cli/cmd/platform/iap/syncOculusConsumableEntitlements.go) |
 | `/platform/public/namespaces/{namespace}/users/{userId}/iap/psn/sync` | PUT | PublicReconcilePlayStationStoreShort | [PublicReconcilePlayStationStoreShort](../../platform-sdk/pkg/platformclient/iap/iap_client.go) | [PublicReconcilePlayStationStoreShort](../../platform-sdk/pkg/wrapper_iap.go) | [PublicReconcilePlayStationStoreShort](../../samples/cli/cmd/platform/iap/publicReconcilePlayStationStore.go) |
 | `/platform/public/namespaces/{namespace}/users/{userId}/iap/psn/sync/multiServiceLabels` | PUT | PublicReconcilePlayStationStoreWithMultipleServiceLabelsShort | [PublicReconcilePlayStationStoreWithMultipleServiceLabelsShort](../../platform-sdk/pkg/platformclient/iap/iap_client.go) | [PublicReconcilePlayStationStoreWithMultipleServiceLabelsShort](../../platform-sdk/pkg/wrapper_iap.go) | [PublicReconcilePlayStationStoreWithMultipleServiceLabelsShort](../../samples/cli/cmd/platform/iap/publicReconcilePlayStationStoreWithMultipleServiceLabels.go) |
 | `/platform/public/namespaces/{namespace}/users/{userId}/iap/steam/sync` | PUT | SyncSteamInventoryShort | [SyncSteamInventoryShort](../../platform-sdk/pkg/platformclient/iap/iap_client.go) | [SyncSteamInventoryShort](../../platform-sdk/pkg/wrapper_iap.go) | [SyncSteamInventoryShort](../../samples/cli/cmd/platform/iap/syncSteamInventory.go) |
@@ -535,12 +553,12 @@
 
 | Model Struct | Class |
 |---|---|
-| `Achievement` | [Achievement ](../../platform-sdk/pkg/platformclientmodels/achievement.go) |
 | `AchievementInfo` | [AchievementInfo ](../../platform-sdk/pkg/platformclientmodels/achievement_info.go) |
 | `AdditionalData` | [AdditionalData ](../../platform-sdk/pkg/platformclientmodels/additional_data.go) |
 | `AdminOrderCreate` | [AdminOrderCreate ](../../platform-sdk/pkg/platformclientmodels/admin_order_create.go) |
 | `AdyenConfig` | [AdyenConfig ](../../platform-sdk/pkg/platformclientmodels/adyen_config.go) |
 | `AliPayConfig` | [AliPayConfig ](../../platform-sdk/pkg/platformclientmodels/ali_pay_config.go) |
+| `AppConfig` | [AppConfig ](../../platform-sdk/pkg/platformclientmodels/app_config.go) |
 | `AppEntitlementInfo` | [AppEntitlementInfo ](../../platform-sdk/pkg/platformclientmodels/app_entitlement_info.go) |
 | `AppEntitlementPagingSlicedResult` | [AppEntitlementPagingSlicedResult ](../../platform-sdk/pkg/platformclientmodels/app_entitlement_paging_sliced_result.go) |
 | `AppInfo` | [AppInfo ](../../platform-sdk/pkg/platformclientmodels/app_info.go) |
@@ -551,6 +569,8 @@
 | `AppleIAPReceipt` | [AppleIAPReceipt ](../../platform-sdk/pkg/platformclientmodels/apple_iap_receipt.go) |
 | `AvailableComparison` | [AvailableComparison ](../../platform-sdk/pkg/platformclientmodels/available_comparison.go) |
 | `AvailablePredicate` | [AvailablePredicate ](../../platform-sdk/pkg/platformclientmodels/available_predicate.go) |
+| `BaseCustomConfig` | [BaseCustomConfig ](../../platform-sdk/pkg/platformclientmodels/base_custom_config.go) |
+| `BaseTLSConfig` | [BaseTLSConfig ](../../platform-sdk/pkg/platformclientmodels/base_tls_config.go) |
 | `BasicCategoryInfo` | [BasicCategoryInfo ](../../platform-sdk/pkg/platformclientmodels/basic_category_info.go) |
 | `BasicItem` | [BasicItem ](../../platform-sdk/pkg/platformclientmodels/basic_item.go) |
 | `BillingAccount` | [BillingAccount ](../../platform-sdk/pkg/platformclientmodels/billing_account.go) |
@@ -664,6 +684,7 @@
 | `GoogleIAPReceipt` | [GoogleIAPReceipt ](../../platform-sdk/pkg/platformclientmodels/google_iap_receipt.go) |
 | `GoogleReceiptResolveResult` | [GoogleReceiptResolveResult ](../../platform-sdk/pkg/platformclientmodels/google_receipt_resolve_result.go) |
 | `GrantSubscriptionDaysRequest` | [GrantSubscriptionDaysRequest ](../../platform-sdk/pkg/platformclientmodels/grant_subscription_days_request.go) |
+| `GrpcServerInfo` | [GrpcServerInfo ](../../platform-sdk/pkg/platformclientmodels/grpc_server_info.go) |
 | `HierarchicalCategoryInfo` | [HierarchicalCategoryInfo ](../../platform-sdk/pkg/platformclientmodels/hierarchical_category_info.go) |
 | `IAPConsumeHistoryInfo` | [IAPConsumeHistoryInfo ](../../platform-sdk/pkg/platformclientmodels/iap_consume_history_info.go) |
 | `IAPConsumeHistoryPagingSlicedResult` | [IAPConsumeHistoryPagingSlicedResult ](../../platform-sdk/pkg/platformclientmodels/iap_consume_history_paging_sliced_result.go) |
@@ -709,9 +730,14 @@
 | `ListViewInfo` | [ListViewInfo ](../../platform-sdk/pkg/platformclientmodels/list_view_info.go) |
 | `Localization` | [Localization ](../../platform-sdk/pkg/platformclientmodels/localization.go) |
 | `LootBoxConfig` | [LootBoxConfig ](../../platform-sdk/pkg/platformclientmodels/loot_box_config.go) |
+| `LootBoxPluginConfigInfo` | [LootBoxPluginConfigInfo ](../../platform-sdk/pkg/platformclientmodels/loot_box_plugin_config_info.go) |
+| `LootBoxPluginConfigUpdate` | [LootBoxPluginConfigUpdate ](../../platform-sdk/pkg/platformclientmodels/loot_box_plugin_config_update.go) |
 | `LootBoxReward` | [LootBoxReward ](../../platform-sdk/pkg/platformclientmodels/loot_box_reward.go) |
 | `MockIAPReceipt` | [MockIAPReceipt ](../../platform-sdk/pkg/platformclientmodels/mock_iap_receipt.go) |
 | `NotificationProcessResult` | [NotificationProcessResult ](../../platform-sdk/pkg/platformclientmodels/notification_process_result.go) |
+| `OculusIAPConfigInfo` | [OculusIAPConfigInfo ](../../platform-sdk/pkg/platformclientmodels/oculus_iap_config_info.go) |
+| `OculusIAPConfigRequest` | [OculusIAPConfigRequest ](../../platform-sdk/pkg/platformclientmodels/oculus_iap_config_request.go) |
+| `OculusReconcileResult` | [OculusReconcileResult ](../../platform-sdk/pkg/platformclientmodels/oculus_reconcile_result.go) |
 | `OptionBoxConfig` | [OptionBoxConfig ](../../platform-sdk/pkg/platformclientmodels/option_box_config.go) |
 | `Order` | [Order ](../../platform-sdk/pkg/platformclientmodels/order.go) |
 | `OrderCreate` | [OrderCreate ](../../platform-sdk/pkg/platformclientmodels/order_create.go) |
@@ -780,6 +806,7 @@
 | `PopulatedItemInfo` | [PopulatedItemInfo ](../../platform-sdk/pkg/platformclientmodels/populated_item_info.go) |
 | `Predicate` | [Predicate ](../../platform-sdk/pkg/platformclientmodels/predicate.go) |
 | `PredicateValidateResult` | [PredicateValidateResult ](../../platform-sdk/pkg/platformclientmodels/predicate_validate_result.go) |
+| `PublicCustomConfigInfo` | [PublicCustomConfigInfo ](../../platform-sdk/pkg/platformclientmodels/public_custom_config_info.go) |
 | `PurchaseCondition` | [PurchaseCondition ](../../platform-sdk/pkg/platformclientmodels/purchase_condition.go) |
 | `PurchaseConditionUpdate` | [PurchaseConditionUpdate ](../../platform-sdk/pkg/platformclientmodels/purchase_condition_update.go) |
 | `PurchasedItemCount` | [PurchasedItemCount ](../../platform-sdk/pkg/platformclientmodels/purchased_item_count.go) |
@@ -800,6 +827,8 @@
 | `RevocationError` | [RevocationError ](../../platform-sdk/pkg/platformclientmodels/revocation_error.go) |
 | `RevocationHistoryInfo` | [RevocationHistoryInfo ](../../platform-sdk/pkg/platformclientmodels/revocation_history_info.go) |
 | `RevocationHistoryPagingSlicedResult` | [RevocationHistoryPagingSlicedResult ](../../platform-sdk/pkg/platformclientmodels/revocation_history_paging_sliced_result.go) |
+| `RevocationPluginConfigInfo` | [RevocationPluginConfigInfo ](../../platform-sdk/pkg/platformclientmodels/revocation_plugin_config_info.go) |
+| `RevocationPluginConfigUpdate` | [RevocationPluginConfigUpdate ](../../platform-sdk/pkg/platformclientmodels/revocation_plugin_config_update.go) |
 | `RevocationRequest` | [RevocationRequest ](../../platform-sdk/pkg/platformclientmodels/revocation_request.go) |
 | `RevocationResult` | [RevocationResult ](../../platform-sdk/pkg/platformclientmodels/revocation_result.go) |
 | `RevokeCurrency` | [RevokeCurrency ](../../platform-sdk/pkg/platformclientmodels/revoke_currency.go) |
@@ -821,6 +850,8 @@
 | `SectionInfo` | [SectionInfo ](../../platform-sdk/pkg/platformclientmodels/section_info.go) |
 | `SectionItem` | [SectionItem ](../../platform-sdk/pkg/platformclientmodels/section_item.go) |
 | `SectionPagingSlicedResult` | [SectionPagingSlicedResult ](../../platform-sdk/pkg/platformclientmodels/section_paging_sliced_result.go) |
+| `SectionPluginConfigInfo` | [SectionPluginConfigInfo ](../../platform-sdk/pkg/platformclientmodels/section_plugin_config_info.go) |
+| `SectionPluginConfigUpdate` | [SectionPluginConfigUpdate ](../../platform-sdk/pkg/platformclientmodels/section_plugin_config_update.go) |
 | `SectionUpdate` | [SectionUpdate ](../../platform-sdk/pkg/platformclientmodels/section_update.go) |
 | `ServicePluginConfigInfo` | [ServicePluginConfigInfo ](../../platform-sdk/pkg/platformclientmodels/service_plugin_config_info.go) |
 | `ServicePluginConfigUpdate` | [ServicePluginConfigUpdate ](../../platform-sdk/pkg/platformclientmodels/service_plugin_config_update.go) |
@@ -844,6 +875,7 @@
 | `SubscriptionInfo` | [SubscriptionInfo ](../../platform-sdk/pkg/platformclientmodels/subscription_info.go) |
 | `SubscriptionPagingSlicedResult` | [SubscriptionPagingSlicedResult ](../../platform-sdk/pkg/platformclientmodels/subscription_paging_sliced_result.go) |
 | `SubscriptionSummary` | [SubscriptionSummary ](../../platform-sdk/pkg/platformclientmodels/subscription_summary.go) |
+| `TLSConfig` | [TLSConfig ](../../platform-sdk/pkg/platformclientmodels/tls_config.go) |
 | `TaxResult` | [TaxResult ](../../platform-sdk/pkg/platformclientmodels/tax_result.go) |
 | `TestResult` | [TestResult ](../../platform-sdk/pkg/platformclientmodels/test_result.go) |
 | `TicketAcquireRequest` | [TicketAcquireRequest ](../../platform-sdk/pkg/platformclientmodels/ticket_acquire_request.go) |
@@ -886,3 +918,5 @@
 | `XsollaConfig` | [XsollaConfig ](../../platform-sdk/pkg/platformclientmodels/xsolla_config.go) |
 | `XsollaPaywallConfig` | [XsollaPaywallConfig ](../../platform-sdk/pkg/platformclientmodels/xsolla_paywall_config.go) |
 | `XsollaPaywallConfigRequest` | [XsollaPaywallConfigRequest ](../../platform-sdk/pkg/platformclientmodels/xsolla_paywall_config_request.go) |
+| `steam achievement` | [SteamAchievement ](../../platform-sdk/pkg/platformclientmodels/steam_achievement.go) |
+| `xbox achievement` | [XboxAchievement ](../../platform-sdk/pkg/platformclientmodels/xbox_achievement.go) |

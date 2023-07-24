@@ -243,6 +243,54 @@ func (o *OAuth20Service) Login(username, password string) error {
 	return nil
 }
 
+func (o *OAuth20Service) LoginOrRefresh(username, password string) error {
+	session := o.GetAuthSession()
+	getToken, err := session.Token.GetToken()
+	refreshRate := session.Refresh.GetRefreshRate()
+	if err != nil {
+		return err
+	}
+
+	if getToken.AccessToken == nil {
+		return o.Login(username, password)
+	} else {
+		if repository.HasTokenExpired(session.Token, refreshRate) {
+			if atomic.CompareAndSwapUint32(&locker, 0, 1) {
+				defer atomic.StoreUint32(&locker, 0)
+				if !repository.HasRefreshTokenExpired(session.Token, refreshRate) {
+					UserTokenRefresher(session)
+				} else {
+					return o.Login(username, password)
+				}
+			}
+		}
+	}
+
+	return nil
+}
+
+func (o *OAuth20Service) LoginOrRefreshClient(clientId, clientSecret *string) error {
+	session := o.GetAuthSession()
+	getToken, err := session.Token.GetToken()
+	refreshRate := session.Refresh.GetRefreshRate()
+	if err != nil {
+		return err
+	}
+
+	if getToken.AccessToken == nil {
+		return o.LoginClient(clientId, clientSecret)
+	} else {
+		if atomic.CompareAndSwapUint32(&locker, 0, 1) {
+			defer atomic.StoreUint32(&locker, 0)
+			if repository.HasTokenExpired(session.Token, refreshRate) {
+				return o.LoginClient(clientId, clientSecret)
+			}
+		}
+	}
+
+	return nil
+}
+
 // LoginClient is a custom wrapper used to log in with clientId and clientSecret
 func (o *OAuth20Service) LoginClient(clientId, clientSecret *string) error {
 	if clientId == nil {
@@ -293,54 +341,6 @@ func (o *OAuth20Service) LoginClient(clientId, clientSecret *string) error {
 
 	if !o.RefreshTokenRepository.DisableAutoRefresh() {
 		NewRefreshTokenSchedulerImpl().Start(o.GetAuthSession(), "client")
-	}
-
-	return nil
-}
-
-func (o *OAuth20Service) LoginOrRefresh(username, password string) error {
-	session := o.GetAuthSession()
-	getToken, err := session.Token.GetToken()
-	refreshRate := session.Refresh.GetRefreshRate()
-	if err != nil {
-		return err
-	}
-
-	if getToken.AccessToken == nil {
-		return o.Login(username, password)
-	} else {
-		if repository.HasTokenExpired(session.Token, refreshRate) {
-			if atomic.CompareAndSwapUint32(&locker, 0, 1) {
-				defer atomic.StoreUint32(&locker, 0)
-				if !repository.HasRefreshTokenExpired(session.Token, refreshRate) {
-					UserTokenRefresher(session)
-				} else {
-					return o.Login(username, password)
-				}
-			}
-		}
-	}
-
-	return nil
-}
-
-func (o *OAuth20Service) LoginOrRefreshClient(clientId, clientSecret *string) error {
-	session := o.GetAuthSession()
-	getToken, err := session.Token.GetToken()
-	refreshRate := session.Refresh.GetRefreshRate()
-	if err != nil {
-		return err
-	}
-
-	if getToken.AccessToken == nil {
-		return o.LoginClient(clientId, clientSecret)
-	} else {
-		if atomic.CompareAndSwapUint32(&locker, 0, 1) {
-			defer atomic.StoreUint32(&locker, 0)
-			if repository.HasTokenExpired(session.Token, refreshRate) {
-				return o.LoginClient(clientId, clientSecret)
-			}
-		}
 	}
 
 	return nil

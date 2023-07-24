@@ -73,10 +73,9 @@ func NewAdminDeleteThirdPartyConfigNoContent() *AdminDeleteThirdPartyConfigNoCon
 	return &AdminDeleteThirdPartyConfigNoContent{}
 }
 
-/*
-AdminDeleteThirdPartyConfigNoContent handles this case with default header values.
+/*AdminDeleteThirdPartyConfigNoContent handles this case with default header values.
 
-	No Content
+  No Content
 */
 type AdminDeleteThirdPartyConfigNoContent struct {
 	Payload string
@@ -125,10 +124,9 @@ func NewAdminDeleteThirdPartyConfigBadRequest() *AdminDeleteThirdPartyConfigBadR
 	return &AdminDeleteThirdPartyConfigBadRequest{}
 }
 
-/*
-AdminDeleteThirdPartyConfigBadRequest handles this case with default header values.
+/*AdminDeleteThirdPartyConfigBadRequest handles this case with default header values.
 
-	Bad Request
+  Bad Request
 */
 type AdminDeleteThirdPartyConfigBadRequest struct {
 	Payload *lobbyclientmodels.RestapiErrorResponseV1
@@ -179,10 +177,9 @@ func NewAdminDeleteThirdPartyConfigUnauthorized() *AdminDeleteThirdPartyConfigUn
 	return &AdminDeleteThirdPartyConfigUnauthorized{}
 }
 
-/*
-AdminDeleteThirdPartyConfigUnauthorized handles this case with default header values.
+/*AdminDeleteThirdPartyConfigUnauthorized handles this case with default header values.
 
-	Unauthorized
+  Unauthorized
 */
 type AdminDeleteThirdPartyConfigUnauthorized struct {
 	Payload *lobbyclientmodels.RestapiErrorResponseV1
@@ -233,10 +230,9 @@ func NewAdminDeleteThirdPartyConfigForbidden() *AdminDeleteThirdPartyConfigForbi
 	return &AdminDeleteThirdPartyConfigForbidden{}
 }
 
-/*
-AdminDeleteThirdPartyConfigForbidden handles this case with default header values.
+/*AdminDeleteThirdPartyConfigForbidden handles this case with default header values.
 
-	Forbidden
+  Forbidden
 */
 type AdminDeleteThirdPartyConfigForbidden struct {
 	Payload *lobbyclientmodels.RestapiErrorResponseV1
@@ -287,10 +283,9 @@ func NewAdminDeleteThirdPartyConfigInternalServerError() *AdminDeleteThirdPartyC
 	return &AdminDeleteThirdPartyConfigInternalServerError{}
 }
 
-/*
-AdminDeleteThirdPartyConfigInternalServerError handles this case with default header values.
+/*AdminDeleteThirdPartyConfigInternalServerError handles this case with default header values.
 
-	Internal Server Error
+  Internal Server Error
 */
 type AdminDeleteThirdPartyConfigInternalServerError struct {
 	Payload *lobbyclientmodels.RestapiErrorResponseV1

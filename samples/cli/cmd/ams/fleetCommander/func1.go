@@ -4,11 +4,11 @@
 
 // Code generated. DO NOT EDIT.
 
-package operations
+package fleetCommander
 
 import (
 	ams "github.com/AccelByte/accelbyte-go-modular-sdk/ams-sdk/pkg"
-	"github.com/AccelByte/accelbyte-go-modular-sdk/ams-sdk/pkg/amsclient/operations"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/ams-sdk/pkg/amsclient/fleet_commander"
 	"github.com/AccelByte/sample-apps/pkg/repository"
 	"github.com/sirupsen/logrus"
 	"github.com/spf13/cobra"
@@ -20,12 +20,12 @@ var Func1Cmd = &cobra.Command{
 	Short: "Func1",
 	Long:  `Func1`,
 	RunE: func(cmd *cobra.Command, args []string) error {
-		operationsService := &ams.OperationsService{
+		fleetCommanderService := &ams.FleetCommanderService{
 			Client:          ams.NewAmsClient(&repository.ConfigRepositoryImpl{}),
 			TokenRepository: &repository.TokenRepositoryImpl{},
 		}
-		input := &operations.Func1Params{}
-		errOK := operationsService.Func1Short(input)
+		input := &fleet_commander.Func1Params{}
+		errOK := fleetCommanderService.Func1Short(input)
 		if errOK != nil {
 			logrus.Error(errOK)
 

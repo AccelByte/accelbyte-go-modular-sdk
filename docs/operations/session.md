@@ -49,6 +49,7 @@
 | `/session/v1/public/namespaces/{namespace}/gamesessions/{sessionId}/code` | DELETE | PublicRevokeGameSessionCodeShort | [PublicRevokeGameSessionCodeShort](../../session-sdk/pkg/sessionclient/game_session/game_session_client.go) | [PublicRevokeGameSessionCodeShort](../../session-sdk/pkg/wrapper_gameSession.go) | [PublicRevokeGameSessionCodeShort](../../samples/cli/cmd/session/gameSession/publicRevokeGameSessionCode.go) |
 | `/session/v1/public/namespaces/{namespace}/gamesessions/{sessionId}/invite` | POST | PublicGameSessionInviteShort | [PublicGameSessionInviteShort](../../session-sdk/pkg/sessionclient/game_session/game_session_client.go) | [PublicGameSessionInviteShort](../../session-sdk/pkg/wrapper_gameSession.go) | [PublicGameSessionInviteShort](../../samples/cli/cmd/session/gameSession/publicGameSessionInvite.go) |
 | `/session/v1/public/namespaces/{namespace}/gamesessions/{sessionId}/join` | POST | JoinGameSessionShort | [JoinGameSessionShort](../../session-sdk/pkg/sessionclient/game_session/game_session_client.go) | [JoinGameSessionShort](../../session-sdk/pkg/wrapper_gameSession.go) | [JoinGameSessionShort](../../samples/cli/cmd/session/gameSession/joinGameSession.go) |
+| `/session/v1/public/namespaces/{namespace}/gamesessions/{sessionId}/leader` | POST | PublicPromoteGameSessionLeaderShort | [PublicPromoteGameSessionLeaderShort](../../session-sdk/pkg/sessionclient/game_session/game_session_client.go) | [PublicPromoteGameSessionLeaderShort](../../session-sdk/pkg/wrapper_gameSession.go) | [PublicPromoteGameSessionLeaderShort](../../samples/cli/cmd/session/gameSession/publicPromoteGameSessionLeader.go) |
 | `/session/v1/public/namespaces/{namespace}/gamesessions/{sessionId}/leave` | DELETE | LeaveGameSessionShort | [LeaveGameSessionShort](../../session-sdk/pkg/sessionclient/game_session/game_session_client.go) | [LeaveGameSessionShort](../../session-sdk/pkg/wrapper_gameSession.go) | [LeaveGameSessionShort](../../samples/cli/cmd/session/gameSession/leaveGameSession.go) |
 | `/session/v1/public/namespaces/{namespace}/gamesessions/{sessionId}/reject` | DELETE | PublicGameSessionRejectShort | [PublicGameSessionRejectShort](../../session-sdk/pkg/sessionclient/game_session/game_session_client.go) | [PublicGameSessionRejectShort](../../session-sdk/pkg/wrapper_gameSession.go) | [PublicGameSessionRejectShort](../../samples/cli/cmd/session/gameSession/publicGameSessionReject.go) |
 | `/session/v1/public/namespaces/{namespace}/gamesessions/{sessionId}/teams` | POST | AppendTeamGameSessionShort | [AppendTeamGameSessionShort](../../session-sdk/pkg/sessionclient/game_session/game_session_client.go) | [AppendTeamGameSessionShort](../../session-sdk/pkg/wrapper_gameSession.go) | [AppendTeamGameSessionShort](../../samples/cli/cmd/session/gameSession/appendTeamGameSession.go) |
@@ -72,6 +73,13 @@
 | `/session/v1/public/namespaces/{namespace}/parties/{partyId}/users/{userId}/kick` | DELETE | PublicPartyKickShort | [PublicPartyKickShort](../../session-sdk/pkg/sessionclient/party/party_client.go) | [PublicPartyKickShort](../../session-sdk/pkg/wrapper_party.go) | [PublicPartyKickShort](../../samples/cli/cmd/session/party/publicPartyKick.go) |
 | `/session/v1/public/namespaces/{namespace}/party` | POST | PublicCreatePartyShort | [PublicCreatePartyShort](../../session-sdk/pkg/sessionclient/party/party_client.go) | [PublicCreatePartyShort](../../session-sdk/pkg/wrapper_party.go) | [PublicCreatePartyShort](../../samples/cli/cmd/session/party/publicCreateParty.go) |
 | `/session/v1/public/namespaces/{namespace}/users/me/parties` | GET | PublicQueryMyPartiesShort | [PublicQueryMyPartiesShort](../../session-sdk/pkg/sessionclient/party/party_client.go) | [PublicQueryMyPartiesShort](../../session-sdk/pkg/wrapper_party.go) | [PublicQueryMyPartiesShort](../../samples/cli/cmd/session/party/publicQueryMyParties.go) |
+
+### Platform Credential Wrapper:  [PlatformCredential](../../session-sdk/pkg/wrapper_platformCredential.go)
+| Endpoint | Method | ID | Class | Wrapper | Example |
+|---|---|---|---|---|---|
+| `/session/v1/admin/namespaces/{namespace}/platform-credentials` | GET | AdminGetPlatformCredentialsShort | [AdminGetPlatformCredentialsShort](../../session-sdk/pkg/sessionclient/platform_credential/platform_credential_client.go) | [AdminGetPlatformCredentialsShort](../../session-sdk/pkg/wrapper_platformCredential.go) | [AdminGetPlatformCredentialsShort](../../samples/cli/cmd/session/platformCredential/adminGetPlatformCredentials.go) |
+| `/session/v1/admin/namespaces/{namespace}/platform-credentials` | PUT | AdminUpdatePlatformCredentialsShort | [AdminUpdatePlatformCredentialsShort](../../session-sdk/pkg/sessionclient/platform_credential/platform_credential_client.go) | [AdminUpdatePlatformCredentialsShort](../../session-sdk/pkg/wrapper_platformCredential.go) | [AdminUpdatePlatformCredentialsShort](../../samples/cli/cmd/session/platformCredential/adminUpdatePlatformCredentials.go) |
+| `/session/v1/admin/namespaces/{namespace}/platform-credentials` | DELETE | AdminDeletePlatformCredentialsShort | [AdminDeletePlatformCredentialsShort](../../session-sdk/pkg/sessionclient/platform_credential/platform_credential_client.go) | [AdminDeletePlatformCredentialsShort](../../session-sdk/pkg/wrapper_platformCredential.go) | [AdminDeletePlatformCredentialsShort](../../samples/cli/cmd/session/platformCredential/adminDeletePlatformCredentials.go) |
 
 ### Player Wrapper:  [Player](../../session-sdk/pkg/wrapper_player.go)
 | Endpoint | Method | ID | Class | Wrapper | Example |
@@ -115,6 +123,7 @@
 | `apimodels.PlayersCurrentPlatformResponse` | [ApimodelsPlayersCurrentPlatformResponse ](../../session-sdk/pkg/sessionclientmodels/apimodels_players_current_platform_response.go) |
 | `apimodels.PromoteLeaderRequest` | [ApimodelsPromoteLeaderRequest ](../../session-sdk/pkg/sessionclientmodels/apimodels_promote_leader_request.go) |
 | `apimodels.PublicConfiguration` | [ApimodelsPublicConfiguration ](../../session-sdk/pkg/sessionclientmodels/apimodels_public_configuration.go) |
+| `apimodels.PutPlatformCredentialsRequest` | [ApimodelsPutPlatformCredentialsRequest ](../../session-sdk/pkg/sessionclientmodels/apimodels_put_platform_credentials_request.go) |
 | `apimodels.RequestMember` | [ApimodelsRequestMember ](../../session-sdk/pkg/sessionclientmodels/apimodels_request_member.go) |
 | `apimodels.ResponseDeleteBulkGameSessions` | [ApimodelsResponseDeleteBulkGameSessions ](../../session-sdk/pkg/sessionclientmodels/apimodels_response_delete_bulk_game_sessions.go) |
 | `apimodels.SessionInviteRequest` | [ApimodelsSessionInviteRequest ](../../session-sdk/pkg/sessionclientmodels/apimodels_session_invite_request.go) |
@@ -128,7 +137,9 @@
 | `models.DefaultDSMCConfig` | [ModelsDefaultDSMCConfig ](../../session-sdk/pkg/sessionclientmodels/models_default_d_s_m_c_config.go) |
 | `models.GameServer` | [ModelsGameServer ](../../session-sdk/pkg/sessionclientmodels/models_game_server.go) |
 | `models.NativeSessionSetting` | [ModelsNativeSessionSetting ](../../session-sdk/pkg/sessionclientmodels/models_native_session_setting.go) |
+| `models.PSNAppServerCredentials` | [ModelsPSNAppServerCredentials ](../../session-sdk/pkg/sessionclientmodels/models_p_s_n_app_server_credentials.go) |
 | `models.PartyMembers` | [ModelsPartyMembers ](../../session-sdk/pkg/sessionclientmodels/models_party_members.go) |
+| `models.PlatformCredentials` | [ModelsPlatformCredentials ](../../session-sdk/pkg/sessionclientmodels/models_platform_credentials.go) |
 | `models.Team` | [ModelsTeam ](../../session-sdk/pkg/sessionclientmodels/models_team.go) |
 | `models.UserPlatformInfo` | [ModelsUserPlatformInfo ](../../session-sdk/pkg/sessionclientmodels/models_user_platform_info.go) |
 | `response.Error` | [ResponseError ](../../session-sdk/pkg/sessionclientmodels/response_error.go) |

@@ -25,10 +25,12 @@ var GenerateTokenByNewHeadlessAccountV3Cmd = &cobra.Command{
 			TokenRepository: &repository.TokenRepositoryImpl{},
 		}
 		linkingToken, _ := cmd.Flags().GetString("linkingToken")
+		additionalData, _ := cmd.Flags().GetString("additionalData")
 		extendExp, _ := cmd.Flags().GetBool("extendExp")
 		input := &o_auth2_0_extension.GenerateTokenByNewHeadlessAccountV3Params{
-			ExtendExp:    &extendExp,
-			LinkingToken: linkingToken,
+			AdditionalData: &additionalData,
+			ExtendExp:      &extendExp,
+			LinkingToken:   linkingToken,
 		}
 		ok, errOK := oAuth20ExtensionService.GenerateTokenByNewHeadlessAccountV3Short(input)
 		if errOK != nil {
@@ -44,6 +46,7 @@ var GenerateTokenByNewHeadlessAccountV3Cmd = &cobra.Command{
 }
 
 func init() {
+	GenerateTokenByNewHeadlessAccountV3Cmd.Flags().String("additionalData", "", "Additional data")
 	GenerateTokenByNewHeadlessAccountV3Cmd.Flags().Bool("extendExp", false, "Extend exp")
 	GenerateTokenByNewHeadlessAccountV3Cmd.Flags().String("linkingToken", "", "Linking token")
 	_ = GenerateTokenByNewHeadlessAccountV3Cmd.MarkFlagRequired("linkingToken")

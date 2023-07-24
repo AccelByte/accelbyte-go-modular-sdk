@@ -21,6 +21,12 @@ type ApimodelsUpdateConfigurationTemplateRequest struct {
 	// nativesessionsetting
 	NativeSessionSetting *ModelsNativeSessionSetting `json:"NativeSessionSetting,omitempty"`
 
+	// psnbaseurl
+	PSNBaseURL string `json:"PSNBaseUrl,omitempty"`
+
+	// autojoin
+	AutoJoin bool `json:"autoJoin"`
+
 	// clientversion
 	// Required: true
 	ClientVersion *string `json:"clientVersion"`
@@ -81,6 +87,9 @@ type ApimodelsUpdateConfigurationTemplateRequest struct {
 	// textchat
 	// Required: true
 	TextChat *bool `json:"textChat"`
+
+	// tieteamssessionlifetime
+	TieTeamsSessionLifetime bool `json:"tieTeamsSessionLifetime"`
 
 	// type
 	// Required: true

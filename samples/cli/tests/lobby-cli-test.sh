@@ -51,8 +51,8 @@ touch "tmp.dat"
 #- 2 GetUserFriendsUpdated
 samples/cli/sample-apps Lobby getUserFriendsUpdated \
     --namespace $AB_NAMESPACE \
-    --limit '66' \
-    --offset '25' \
+    --limit '92' \
+    --offset '37' \
     > test.out 2>&1
 eval_tap $? 2 'GetUserFriendsUpdated' test.out
 
@@ -89,34 +89,34 @@ eval_tap $? 7 'GetUserFriendsWithPlatform' test.out
 #- 8 UserRequestFriend
 samples/cli/sample-apps Lobby userRequestFriend \
     --namespace $AB_NAMESPACE \
-    --body '{"friendId": "8kPvSyGiCz30eVdN", "friendPublicId": "6K5KlPmhNLqbAhP6"}' \
+    --body '{"friendId": "K42Ffe0cfnvYT120", "friendPublicId": "B5u32Q3IkAOwMd3H"}' \
     > test.out 2>&1
 eval_tap $? 8 'UserRequestFriend' test.out
 
 #- 9 UserAcceptFriendRequest
 samples/cli/sample-apps Lobby userAcceptFriendRequest \
     --namespace $AB_NAMESPACE \
-    --body '{"friendId": "LNNxhwk4SzKKoTZV"}' \
+    --body '{"friendId": "hii48TmZ5LfL0rfz"}' \
     > test.out 2>&1
 eval_tap $? 9 'UserAcceptFriendRequest' test.out
 
 #- 10 UserCancelFriendRequest
 samples/cli/sample-apps Lobby userCancelFriendRequest \
     --namespace $AB_NAMESPACE \
-    --body '{"friendId": "HqsmCP3Jyui2ob25"}' \
+    --body '{"friendId": "1m8sj9ZN78Bcuh1N"}' \
     > test.out 2>&1
 eval_tap $? 10 'UserCancelFriendRequest' test.out
 
 #- 11 UserRejectFriendRequest
 samples/cli/sample-apps Lobby userRejectFriendRequest \
     --namespace $AB_NAMESPACE \
-    --body '{"friendId": "FzhpGfp4XCZa4SMV"}' \
+    --body '{"friendId": "sF4VI68kCUZhweot"}' \
     > test.out 2>&1
 eval_tap $? 11 'UserRejectFriendRequest' test.out
 
 #- 12 UserGetFriendshipStatus
 samples/cli/sample-apps Lobby userGetFriendshipStatus \
-    --friendId 'leY954VJF2RjLrRs' \
+    --friendId '8aCZP8PDrDpBLJ1n' \
     --namespace $AB_NAMESPACE \
     > test.out 2>&1
 eval_tap $? 12 'UserGetFriendshipStatus' test.out
@@ -124,15 +124,15 @@ eval_tap $? 12 'UserGetFriendshipStatus' test.out
 #- 13 UserUnfriendRequest
 samples/cli/sample-apps Lobby userUnfriendRequest \
     --namespace $AB_NAMESPACE \
-    --body '{"friendId": "7epcn0UVZKSACH2X"}' \
+    --body '{"friendId": "YaE1OuU41k1ZZSkg"}' \
     > test.out 2>&1
 eval_tap $? 13 'UserUnfriendRequest' test.out
 
 #- 14 AddFriendsWithoutConfirmation
 samples/cli/sample-apps Lobby addFriendsWithoutConfirmation \
     --namespace $AB_NAMESPACE \
-    --userId 'NRQduF7Puc0MIkl5' \
-    --body '{"friendIds": ["ymdJHXaCTOaNOsnZ", "RDcSKdKA5hwiTGxt", "nvXxmI6TIRNRgPrL"]}' \
+    --userId 'ZuPEhkrNmwPLjmvt' \
+    --body '{"friendIds": ["0IuukTmKZEYjlIT0", "E5lP7T3aP7c2By4z", "nkhuW8875UPfnr7I"]}' \
     > test.out 2>&1
 eval_tap $? 14 'AddFriendsWithoutConfirmation' test.out
 
@@ -150,7 +150,7 @@ eval_tap $? 16 'AdminGetConfigV1' test.out
 #- 17 AdminUpdateConfigV1
 samples/cli/sample-apps Lobby adminUpdateConfigV1 \
     --namespace $AB_NAMESPACE \
-    --body '{"allowInviteNonConnectedUser": true, "allowJoinPartyDuringMatchmaking": false, "autoKickOnDisconnect": true, "autoKickOnDisconnectDelay": 44, "cancelTicketOnDisconnect": false, "chatRateLimitBurst": 88, "chatRateLimitDuration": 27, "concurrentUsersLimit": 36, "disableInvitationOnJoinParty": false, "enableChat": false, "entitlementCheck": false, "entitlementItemID": "EwClPocLASjWITbh", "generalRateLimitBurst": 2, "generalRateLimitDuration": 7, "keepPresenceActivityOnDisconnect": false, "maxDSWaitTime": 77, "maxPartyMember": 0, "profanityFilter": true, "readyConsentTimeout": 30, "unregisterDelay": 2}' \
+    --body '{"allowInviteNonConnectedUser": true, "allowJoinPartyDuringMatchmaking": true, "autoKickOnDisconnect": false, "autoKickOnDisconnectDelay": 79, "cancelTicketOnDisconnect": false, "chatRateLimitBurst": 71, "chatRateLimitDuration": 58, "concurrentUsersLimit": 54, "disableInvitationOnJoinParty": false, "enableChat": true, "entitlementCheck": true, "entitlementItemID": "P1tUMMCFXC5c1Ejf", "generalRateLimitBurst": 61, "generalRateLimitDuration": 56, "keepPresenceActivityOnDisconnect": false, "maxDSWaitTime": 29, "maxFriendsLimit": 10, "maxPartyMember": 45, "profanityFilter": true, "readyConsentTimeout": 16, "unregisterDelay": 84}' \
     > test.out 2>&1
 eval_tap $? 17 'AdminUpdateConfigV1' test.out
 
@@ -170,57 +170,57 @@ eval_tap $? 19 'AdminImportConfigV1' test.out
 #- 20 GetListOfFriends
 samples/cli/sample-apps Lobby getListOfFriends \
     --namespace $AB_NAMESPACE \
-    --userId 'xwtJO0D0IrU9N8ic' \
-    --limit '70' \
-    --offset '86' \
+    --userId '4pKcN344RQSELkWT' \
+    --limit '26' \
+    --offset '48' \
     > test.out 2>&1
 eval_tap $? 20 'GetListOfFriends' test.out
 
 #- 21 GetIncomingFriendRequests
 samples/cli/sample-apps Lobby getIncomingFriendRequests \
     --namespace $AB_NAMESPACE \
-    --userId 'ZTaPIL5U4Eg8ura4' \
-    --limit '65' \
-    --offset '54' \
+    --userId 'k5toMPAYxnTIODhV' \
+    --limit '70' \
+    --offset '34' \
     > test.out 2>&1
 eval_tap $? 21 'GetIncomingFriendRequests' test.out
 
 #- 22 GetOutgoingFriendRequests
 samples/cli/sample-apps Lobby getOutgoingFriendRequests \
     --namespace $AB_NAMESPACE \
-    --userId 'XdjSBkamaWqyOvtT' \
-    --limit '73' \
-    --offset '19' \
+    --userId '60J1pEkKK1pCCdwG' \
+    --limit '85' \
+    --offset '42' \
     > test.out 2>&1
 eval_tap $? 22 'GetOutgoingFriendRequests' test.out
 
 #- 23 SendMultipleUsersFreeformNotificationV1Admin
 samples/cli/sample-apps Lobby sendMultipleUsersFreeformNotificationV1Admin \
     --namespace $AB_NAMESPACE \
-    --body '{"message": "yfBdi9F28MFQ88DZ", "topicName": "C57ev6jlCWjgjnuz", "userIds": ["SxksECyMnD48HryT", "kaRVOdKYRXMANeUM", "WZqQcej4aydCX22p"]}' \
+    --body '{"message": "yKNiXs0OQ2prCzno", "topicName": "KME8AGuVQITptcNO", "userIds": ["XWqe40W89RhG17zG", "0gsH8jBp1w5vjZJo", "MwfyFwFgrP13tbdo"]}' \
     > test.out 2>&1
 eval_tap $? 23 'SendMultipleUsersFreeformNotificationV1Admin' test.out
 
 #- 24 SendUsersFreeformNotificationV1Admin
 samples/cli/sample-apps Lobby sendUsersFreeformNotificationV1Admin \
     --namespace $AB_NAMESPACE \
-    --body '{"message": "ZQyJ2KYgchEJOoav", "topicName": "B5QuatvXPaSMAbqC"}' \
+    --body '{"message": "MZEehCGMzlS8bRM5", "topicName": "Co4zm9Jo3vFrvEWF"}' \
     > test.out 2>&1
 eval_tap $? 24 'SendUsersFreeformNotificationV1Admin' test.out
 
 #- 25 SendPartyFreeformNotificationV1Admin
 samples/cli/sample-apps Lobby sendPartyFreeformNotificationV1Admin \
     --namespace $AB_NAMESPACE \
-    --partyId 'rpdaA6SA4VCWostc' \
-    --body '{"message": "q6lSkRTak2Mpt3EP", "topicName": "wZLRGGxbKlw4pnXU"}' \
+    --partyId 'hJETsndwRc8Avots' \
+    --body '{"message": "EstKDfAwxnGBMd1S", "topicName": "AjmrU2w2wCqJrnLf"}' \
     > test.out 2>&1
 eval_tap $? 25 'SendPartyFreeformNotificationV1Admin' test.out
 
 #- 26 SendPartyTemplatedNotificationV1Admin
 samples/cli/sample-apps Lobby sendPartyTemplatedNotificationV1Admin \
     --namespace $AB_NAMESPACE \
-    --partyId 'qvc5yaaiEWe0PNn2' \
-    --body '{"templateContext": {"HxPFTkQVfMOpRM1A": "BhUv7TLpiTv8upWT", "tWkDAVI3an1UQQk9": "joXOHJIewCIODIQU", "kPZhWUdLw7wo0XLw": "h4YjmOvka94WxkgU"}, "templateLanguage": "Ab3eseYhAq9D07Ey", "templateSlug": "G8mXRRNZ8illTxIN", "topicName": "wI5Cm30W47530AOD"}' \
+    --partyId 'WU2CHGrvYVKc1jV0' \
+    --body '{"templateContext": {"06gGyrwCzHSf35uI": "RJj6AwTusiy5X3RF", "JxGPPmjshk7Dbt5a": "Rs4yJobmRSHZNWNs", "l0tsH3pppY8w7kwu": "AwvcSmaeIpCXMrBe"}, "templateLanguage": "kS2xSTcV2iG200KS", "templateSlug": "6zy148Y1LYKkEgsa", "topicName": "yR9OCyL9sRE17AR2"}' \
     > test.out 2>&1
 eval_tap $? 26 'SendPartyTemplatedNotificationV1Admin' test.out
 
@@ -233,148 +233,148 @@ eval_tap $? 27 'GetAllNotificationTemplatesV1Admin' test.out
 #- 28 CreateNotificationTemplateV1Admin
 samples/cli/sample-apps Lobby createNotificationTemplateV1Admin \
     --namespace $AB_NAMESPACE \
-    --body '{"templateContent": "mUZOKh10ftH8wr7n", "templateLanguage": "C0WQkf62o2EzMojI", "templateSlug": "b2wONbrwMap22Y5t"}' \
+    --body '{"templateContent": "4YTdxsCJbbIoSntb", "templateLanguage": "CnxwHkEmucLRHiTZ", "templateSlug": "YtvTMZLvCL2GLuBI"}' \
     > test.out 2>&1
 eval_tap $? 28 'CreateNotificationTemplateV1Admin' test.out
 
 #- 29 SendUsersTemplatedNotificationV1Admin
 samples/cli/sample-apps Lobby sendUsersTemplatedNotificationV1Admin \
     --namespace $AB_NAMESPACE \
-    --body '{"templateContext": {"kgr0uGWuG2vD8lXv": "yiqppC4TCtFk1XWw", "LBc6OYj8hCn9Nxrs": "Ya2TW1u3wTM4bILN", "uiXJip7xFh7lTCgn": "hqHksxJ32Z9lJTZ5"}, "templateLanguage": "6xQo2lUesWorUmQM", "templateSlug": "GKuBocWYaAdV1949", "topicName": "2DDw4fGAaFdmiRG8"}' \
+    --body '{"templateContext": {"UDiaEhB4o5vS1w5h": "vhFhRlKLPLe4pocg", "HbAOGSbFmsSycHDm": "ICVSnYatlYP0xclS", "KPjpftszPdnXrUx4": "RWatQszBfyGPf8ll"}, "templateLanguage": "CxugZIpSdv2owlAg", "templateSlug": "Ats7NME2gR7GSVmg", "topicName": "etDhiIPIXQnO0p3W"}' \
     > test.out 2>&1
 eval_tap $? 29 'SendUsersTemplatedNotificationV1Admin' test.out
 
 #- 30 GetTemplateSlugLocalizationsTemplateV1Admin
 samples/cli/sample-apps Lobby getTemplateSlugLocalizationsTemplateV1Admin \
     --namespace $AB_NAMESPACE \
-    --templateSlug 'xKZb36lTbFzJVEUK' \
-    --after 'i7zJZWJwps3TeQqJ' \
-    --before 'R54oZYocJQpVGuA8' \
-    --limit '67' \
+    --templateSlug 'HodShgF5MxToXeA4' \
+    --after 'P1aTHTBqd6AnMo8c' \
+    --before 'i349WofoZwDEn8vd' \
+    --limit '80' \
     > test.out 2>&1
 eval_tap $? 30 'GetTemplateSlugLocalizationsTemplateV1Admin' test.out
 
 #- 31 DeleteNotificationTemplateSlugV1Admin
 samples/cli/sample-apps Lobby deleteNotificationTemplateSlugV1Admin \
     --namespace $AB_NAMESPACE \
-    --templateSlug 'F3Nj3q6c4AlsajXS' \
+    --templateSlug 'HTUtlckfHSatKq7b' \
     > test.out 2>&1
 eval_tap $? 31 'DeleteNotificationTemplateSlugV1Admin' test.out
 
 #- 32 GetSingleTemplateLocalizationV1Admin
 samples/cli/sample-apps Lobby getSingleTemplateLocalizationV1Admin \
     --namespace $AB_NAMESPACE \
-    --templateLanguage 'yFvbegrM8ylQNA58' \
-    --templateSlug 'pbp3tBogZkQgu6nG' \
+    --templateLanguage 'xmyRymHvXjZN1f8x' \
+    --templateSlug 'qS7TSInvkjo0HQx3' \
     > test.out 2>&1
 eval_tap $? 32 'GetSingleTemplateLocalizationV1Admin' test.out
 
 #- 33 UpdateTemplateLocalizationV1Admin
 samples/cli/sample-apps Lobby updateTemplateLocalizationV1Admin \
     --namespace $AB_NAMESPACE \
-    --templateLanguage 'p3k8Plw1aMU24lep' \
-    --templateSlug 'zWwLrl9U8qWNUgIG' \
-    --body '{"templateContent": "QJreU63DY8q6lsA5"}' \
+    --templateLanguage 'YrkPVC4h1vOnQu0q' \
+    --templateSlug 'RKwTqrK7fKtB2QEy' \
+    --body '{"templateContent": "HgBVDGqRo47v5tkW"}' \
     > test.out 2>&1
 eval_tap $? 33 'UpdateTemplateLocalizationV1Admin' test.out
 
 #- 34 DeleteTemplateLocalizationV1Admin
 samples/cli/sample-apps Lobby deleteTemplateLocalizationV1Admin \
     --namespace $AB_NAMESPACE \
-    --templateLanguage 'iGak8K96xLFX3k1L' \
-    --templateSlug '5jjJCVj0jtpd5sBv' \
+    --templateLanguage 'XNigtAq6h1LplhRW' \
+    --templateSlug 'BzXV0zPGt8BCnuqn' \
     > test.out 2>&1
 eval_tap $? 34 'DeleteTemplateLocalizationV1Admin' test.out
 
 #- 35 PublishTemplateLocalizationV1Admin
 samples/cli/sample-apps Lobby publishTemplateLocalizationV1Admin \
     --namespace $AB_NAMESPACE \
-    --templateLanguage 'pa9qo9Fj6wK9wyVP' \
-    --templateSlug 'R8fBUlxkrqsefSuJ' \
+    --templateLanguage 'fnMXDifGIRSX4iOl' \
+    --templateSlug 'wWhOm4s1HsfgH2qu' \
     > test.out 2>&1
 eval_tap $? 35 'PublishTemplateLocalizationV1Admin' test.out
 
 #- 36 GetAllNotificationTopicsV1Admin
 samples/cli/sample-apps Lobby getAllNotificationTopicsV1Admin \
     --namespace $AB_NAMESPACE \
-    --after 'n34xoOzuXRYRVwWb' \
-    --before '3UZRBHQhssytPp9J' \
-    --limit '49' \
+    --after 'aiwxLU3MdT615OCM' \
+    --before 'cY6il8ycwtbsMf2Z' \
+    --limit '47' \
     > test.out 2>&1
 eval_tap $? 36 'GetAllNotificationTopicsV1Admin' test.out
 
 #- 37 CreateNotificationTopicV1Admin
 samples/cli/sample-apps Lobby createNotificationTopicV1Admin \
     --namespace $AB_NAMESPACE \
-    --body '{"description": "AHEwQa3bR9ERFRsX", "topicName": "qkNIT3qXQufH13YF"}' \
+    --body '{"description": "N3PX1NDNOJxCLMel", "topicName": "WfG0E28tRRu0VkoS"}' \
     > test.out 2>&1
 eval_tap $? 37 'CreateNotificationTopicV1Admin' test.out
 
 #- 38 GetNotificationTopicV1Admin
 samples/cli/sample-apps Lobby getNotificationTopicV1Admin \
     --namespace $AB_NAMESPACE \
-    --topicName 'IRtenK87Rrj2PiyL' \
+    --topicName 'f2ONkCHvIwevReUP' \
     > test.out 2>&1
 eval_tap $? 38 'GetNotificationTopicV1Admin' test.out
 
 #- 39 UpdateNotificationTopicV1Admin
 samples/cli/sample-apps Lobby updateNotificationTopicV1Admin \
     --namespace $AB_NAMESPACE \
-    --topicName 'Yp4OQsviY2ZjDHaj' \
-    --body '{"description": "ZAsppic39XjJDWki"}' \
+    --topicName 'u4Q3dbWih4FIIOQg' \
+    --body '{"description": "3HIvqdIUbx5nCJpr"}' \
     > test.out 2>&1
 eval_tap $? 39 'UpdateNotificationTopicV1Admin' test.out
 
 #- 40 DeleteNotificationTopicV1Admin
 samples/cli/sample-apps Lobby deleteNotificationTopicV1Admin \
     --namespace $AB_NAMESPACE \
-    --topicName 'rEMtsvMwP2ondkLR' \
+    --topicName 'clVOZ4A0u9zmqizx' \
     > test.out 2>&1
 eval_tap $? 40 'DeleteNotificationTopicV1Admin' test.out
 
 #- 41 SendSpecificUserFreeformNotificationV1Admin
 samples/cli/sample-apps Lobby sendSpecificUserFreeformNotificationV1Admin \
     --namespace $AB_NAMESPACE \
-    --userId 'tcLEJExyE85CwX36' \
-    --body '{"message": "KPrjr63Q8aUWA9GH", "topicName": "HeZcMACzoLtcqcex"}' \
+    --userId 'pUeNCLBJpk43s5bU' \
+    --body '{"message": "Ss7wt15scVZXM35A", "topicName": "yEY0YzLgdhfAFf8T"}' \
     > test.out 2>&1
 eval_tap $? 41 'SendSpecificUserFreeformNotificationV1Admin' test.out
 
 #- 42 SendSpecificUserTemplatedNotificationV1Admin
 samples/cli/sample-apps Lobby sendSpecificUserTemplatedNotificationV1Admin \
     --namespace $AB_NAMESPACE \
-    --userId 'wtC3UueHVVZZt9EQ' \
-    --body '{"templateContext": {"4fo9smXVSsq6h2cC": "rrxmEFUmsItgG0Tz", "HnLhTzstyJyOGSZw": "wckzuiQVmrX8do64", "3LyffCoaFDuunQMA": "IG2PJ0HmsqtG8pwM"}, "templateLanguage": "lJOZT00HdUsJPbkg", "templateSlug": "TiWiMpjwjph3xLR1", "topicName": "sp7NofLFi9e8YUna"}' \
+    --userId 'xYJwJLNOGAYTkWlC' \
+    --body '{"templateContext": {"vbCI9mk4nbjL57BU": "t23HwI0PgZxQrjXt", "242YrBlkyRkTVbYY": "t2Nwbj73EstLGuwP", "RBFrALtlGnWtQrgW": "nLREfTztdOS2XWIt"}, "templateLanguage": "SxeXrkLMkEnyjQuH", "templateSlug": "aOHr9nHobTS4Ef9T", "topicName": "CN37jwVLXLcys4Kx"}' \
     > test.out 2>&1
 eval_tap $? 42 'SendSpecificUserTemplatedNotificationV1Admin' test.out
 
 #- 43 AdminGetPartyDataV1
 samples/cli/sample-apps Lobby adminGetPartyDataV1 \
     --namespace $AB_NAMESPACE \
-    --partyId '5xhSPsVISflZ4eWU' \
+    --partyId 'jwLiMPkayUI7apgP' \
     > test.out 2>&1
 eval_tap $? 43 'AdminGetPartyDataV1' test.out
 
 #- 44 AdminUpdatePartyAttributesV1
 samples/cli/sample-apps Lobby adminUpdatePartyAttributesV1 \
     --namespace $AB_NAMESPACE \
-    --partyId 'TUuCy2SdMSz2A01v' \
-    --body '{"custom_attribute": {"3ErJ0mUMlt7qroGb": {}, "4BgD63a2ArqE7hpi": {}, "Z4nUT9CMvNDgmFPF": {}}, "updatedAt": 30}' \
+    --partyId 'fYYcycmV5FPymeJL' \
+    --body '{"custom_attribute": {"JgbWk9fse9pcfANm": {}, "ljPaI631AKKLVTD9": {}, "FLLuwbxmwhWLbBbP": {}}, "updatedAt": 84}' \
     > test.out 2>&1
 eval_tap $? 44 'AdminUpdatePartyAttributesV1' test.out
 
 #- 45 AdminJoinPartyV1
 samples/cli/sample-apps Lobby adminJoinPartyV1 \
     --namespace $AB_NAMESPACE \
-    --partyId '9vzwOWehkpS2ZWhJ' \
-    --userId 'zIQA0zezMqshoUuR' \
+    --partyId '7caGxzrRfxzAndlc' \
+    --userId 'Z0lpcRImQ7VNGvLo' \
     > test.out 2>&1
 eval_tap $? 45 'AdminJoinPartyV1' test.out
 
 #- 46 AdminGetUserPartyV1
 samples/cli/sample-apps Lobby adminGetUserPartyV1 \
     --namespace $AB_NAMESPACE \
-    --userId 'DfZI5KKonGs26TbP' \
+    --userId '6VetVwmY0vUxyRFd' \
     > test.out 2>&1
 eval_tap $? 46 'AdminGetUserPartyV1' test.out
 
@@ -387,98 +387,98 @@ eval_tap $? 47 'AdminGetLobbyCCU' test.out
 #- 48 AdminGetBulkPlayerBlockedPlayersV1
 samples/cli/sample-apps Lobby adminGetBulkPlayerBlockedPlayersV1 \
     --namespace $AB_NAMESPACE \
-    --body '{"listBlockedUserId": ["SpuwAJ0JaqnFSh5q", "eJXj5S74RRRVDz2X", "5Jt62Lyh8alIoz72"]}' \
+    --body '{"listBlockedUserId": ["axd152EV418Bf27b", "O2Nx6uEq0qvxQJXx", "8ug1poMXFW3IXRll"]}' \
     > test.out 2>&1
 eval_tap $? 48 'AdminGetBulkPlayerBlockedPlayersV1' test.out
 
 #- 49 AdminGetAllPlayerSessionAttribute
 samples/cli/sample-apps Lobby adminGetAllPlayerSessionAttribute \
     --namespace $AB_NAMESPACE \
-    --userId 'PAfOD6uz5n9E1j5f' \
+    --userId 'dEFgz1RojS1RCy0G' \
     > test.out 2>&1
 eval_tap $? 49 'AdminGetAllPlayerSessionAttribute' test.out
 
 #- 50 AdminSetPlayerSessionAttribute
 samples/cli/sample-apps Lobby adminSetPlayerSessionAttribute \
     --namespace $AB_NAMESPACE \
-    --userId 'J3XZbonb5FAiVgKg' \
-    --body '{"attributes": {"h06DmRPayVNcr1iv": "cU7qsmNltkk7ImIP", "JKqFObOkedmiPn0w": "wDGvmz95AwyLIjti", "fRSRN2eVUbeft7Cf": "JL4O4CdOokj23WEq"}}' \
+    --userId 'sO1Bit3GBBZpdT3x' \
+    --body '{"attributes": {"aOZhrAhWKlmA3yqj": "YBxzjug67aJPxtpj", "2cNKgCcp3tNdoLMA": "XQXlZQYKZTCEr42K", "yzcNBvEnsFW56sqc": "1JKIFZ5pXZY6lblD"}}' \
     > test.out 2>&1
 eval_tap $? 50 'AdminSetPlayerSessionAttribute' test.out
 
 #- 51 AdminGetPlayerSessionAttribute
 samples/cli/sample-apps Lobby adminGetPlayerSessionAttribute \
-    --attribute 'CJDd51Tld5mvnyzM' \
+    --attribute 'NaQkpuXSKbq9eDtt' \
     --namespace $AB_NAMESPACE \
-    --userId 'mqz5cvvUTHKIsgbL' \
+    --userId 'NmQyZr5YDhYKLJm5' \
     > test.out 2>&1
 eval_tap $? 51 'AdminGetPlayerSessionAttribute' test.out
 
 #- 52 AdminGetPlayerBlockedPlayersV1
 samples/cli/sample-apps Lobby adminGetPlayerBlockedPlayersV1 \
     --namespace $AB_NAMESPACE \
-    --userId 'h7C6OGfmKvqoSG8K' \
+    --userId 'YhKoQuOWXZUzvleX' \
     > test.out 2>&1
 eval_tap $? 52 'AdminGetPlayerBlockedPlayersV1' test.out
 
 #- 53 AdminGetPlayerBlockedByPlayersV1
 samples/cli/sample-apps Lobby adminGetPlayerBlockedByPlayersV1 \
     --namespace $AB_NAMESPACE \
-    --userId 'ASxYEz4v7jXidcIy' \
+    --userId 'LcpPPAiy9YhcC9jh' \
     > test.out 2>&1
 eval_tap $? 53 'AdminGetPlayerBlockedByPlayersV1' test.out
 
 #- 54 AdminBulkBlockPlayersV1
 samples/cli/sample-apps Lobby adminBulkBlockPlayersV1 \
     --namespace $AB_NAMESPACE \
-    --userId 'frgIQtwO3LjD36ID' \
-    --body '{"listBlockedUserId": ["6v8rkwuhNMJloTNo", "FqiIVOEj6bfe2q4u", "KRessMgcBVVbNwTH"]}' \
+    --userId 'zQPthRIrlWEShPOr' \
+    --body '{"listBlockedUserId": ["8lY8rtznZDOStXId", "6y6sxPf8ahMWaGKO", "H0TcLEreP4xrJEIT"]}' \
     > test.out 2>&1
 eval_tap $? 54 'AdminBulkBlockPlayersV1' test.out
 
 #- 55 AdminDebugProfanityFilters
 samples/cli/sample-apps Lobby adminDebugProfanityFilters \
     --namespace $AB_NAMESPACE \
-    --body '{"text": "x67WnDBXp3CUkL5v"}' \
+    --body '{"text": "icbkpZop27wvHqnQ"}' \
     > test.out 2>&1
 eval_tap $? 55 'AdminDebugProfanityFilters' test.out
 
 #- 56 AdminGetProfanityListFiltersV1
 samples/cli/sample-apps Lobby adminGetProfanityListFiltersV1 \
-    --list 'eMRRNqoDShtQUKTy' \
+    --list 'lt7XfY8hkPMqiydy' \
     --namespace $AB_NAMESPACE \
     > test.out 2>&1
 eval_tap $? 56 'AdminGetProfanityListFiltersV1' test.out
 
 #- 57 AdminAddProfanityFilterIntoList
 samples/cli/sample-apps Lobby adminAddProfanityFilterIntoList \
-    --list 'AVBUcVeOfGWO3u6X' \
+    --list 'sTmrKH3dNN7A00Um' \
     --namespace $AB_NAMESPACE \
-    --body '{"filter": "DppQyzlsqtjJPeUM", "note": "z1NV07lFwIxqm3px"}' \
+    --body '{"filter": "ZuyqkRxFwFRqNrUT", "note": "7AQFgPJ2HnfIxcnn"}' \
     > test.out 2>&1
 eval_tap $? 57 'AdminAddProfanityFilterIntoList' test.out
 
 #- 58 AdminAddProfanityFilters
 samples/cli/sample-apps Lobby adminAddProfanityFilters \
-    --list 'WbMrFmhjIjS2YUbD' \
+    --list '3cVv8f0yIqo3zRe5' \
     --namespace $AB_NAMESPACE \
-    --body '{"filters": [{"filter": "WrT4G5970xwAKTvv", "note": "dY4zkb3y56c95Ory"}, {"filter": "Wn37v2PErtQpkAqC", "note": "9R4W4QNbRcqcT0qA"}, {"filter": "h4WtSRi6kUuQkP0x", "note": "GEjcKWnh6Pb1GGBl"}]}' \
+    --body '{"filters": [{"filter": "FDZacMp6X0sqZoao", "note": "sKRcHhuOnbxDW76u"}, {"filter": "SQGBUR1Kq9dg6Xgg", "note": "eK3HgDCqKzFEPRQN"}, {"filter": "HdAkCEFAZs3YYEYk", "note": "5VBnLNoyILlGlbz1"}]}' \
     > test.out 2>&1
 eval_tap $? 58 'AdminAddProfanityFilters' test.out
 
 #- 59 AdminImportProfanityFiltersFromFile
 samples/cli/sample-apps Lobby adminImportProfanityFiltersFromFile \
-    --list 'iFJEddUPSWDaipq7' \
+    --list 'ySSLDDLGuoBnynTD' \
     --namespace $AB_NAMESPACE \
-    --body '[7, 47, 98]' \
+    --body '[78, 84, 52]' \
     > test.out 2>&1
 eval_tap $? 59 'AdminImportProfanityFiltersFromFile' test.out
 
 #- 60 AdminDeleteProfanityFilter
 samples/cli/sample-apps Lobby adminDeleteProfanityFilter \
-    --list 'tmYhc9rDuc90xinY' \
+    --list 'BuSoYEDUug9IvpJs' \
     --namespace $AB_NAMESPACE \
-    --body '{"filter": "oqgcKATkoAQxtBOC"}' \
+    --body '{"filter": "CeiAxkepeKvkmMPK"}' \
     > test.out 2>&1
 eval_tap $? 60 'AdminDeleteProfanityFilter' test.out
 
@@ -491,21 +491,21 @@ eval_tap $? 61 'AdminGetProfanityLists' test.out
 #- 62 AdminCreateProfanityList
 samples/cli/sample-apps Lobby adminCreateProfanityList \
     --namespace $AB_NAMESPACE \
-    --body '{"isEnabled": false, "isMandatory": true, "name": "MOIK6oPOR3NIfFZT"}' \
+    --body '{"isEnabled": true, "isMandatory": true, "name": "oETtTDCDnzPwPWV3"}' \
     > test.out 2>&1
 eval_tap $? 62 'AdminCreateProfanityList' test.out
 
 #- 63 AdminUpdateProfanityList
 samples/cli/sample-apps Lobby adminUpdateProfanityList \
-    --list '6EFj7bv3fJpYSWP0' \
+    --list 'z2WBRM5kZjgee3mx' \
     --namespace $AB_NAMESPACE \
-    --body '{"isEnabled": true, "isMandatory": true, "newName": "PamvoWu7961AJnFu"}' \
+    --body '{"isEnabled": true, "isMandatory": false, "newName": "ugJ1XT906cxKirC2"}' \
     > test.out 2>&1
 eval_tap $? 63 'AdminUpdateProfanityList' test.out
 
 #- 64 AdminDeleteProfanityList
 samples/cli/sample-apps Lobby adminDeleteProfanityList \
-    --list 'U10lN56RpIdhSgpn' \
+    --list 'kluSmQKaIzf1imOL' \
     --namespace $AB_NAMESPACE \
     > test.out 2>&1
 eval_tap $? 64 'AdminDeleteProfanityList' test.out
@@ -519,14 +519,14 @@ eval_tap $? 65 'AdminGetProfanityRule' test.out
 #- 66 AdminSetProfanityRuleForNamespace
 samples/cli/sample-apps Lobby adminSetProfanityRuleForNamespace \
     --namespace $AB_NAMESPACE \
-    --body '{"rule": "qrK8YyMxB5yS0R5V"}' \
+    --body '{"rule": "rU5uBi6r7InQlXgd"}' \
     > test.out 2>&1
 eval_tap $? 66 'AdminSetProfanityRuleForNamespace' test.out
 
 #- 67 AdminVerifyMessageProfanityResponse
 samples/cli/sample-apps Lobby adminVerifyMessageProfanityResponse \
     --namespace $AB_NAMESPACE \
-    --body '{"message": "9EeJYQpNj4mkpfib", "profanityLevel": "4nAicsb8erN1do3M"}' \
+    --body '{"message": "ZEiELfAGw5oENDx9", "profanityLevel": "Z3KRvz8ibSElMDWg"}' \
     > test.out 2>&1
 eval_tap $? 67 'AdminVerifyMessageProfanityResponse' test.out
 
@@ -539,14 +539,14 @@ eval_tap $? 68 'AdminGetThirdPartyConfig' test.out
 #- 69 AdminUpdateThirdPartyConfig
 samples/cli/sample-apps Lobby adminUpdateThirdPartyConfig \
     --namespace $AB_NAMESPACE \
-    --body '{"apiKey": "9Egw5nNiwvOCb6nf"}' \
+    --body '{"apiKey": "sWyDFwfvzlGCrZDQ"}' \
     > test.out 2>&1
 eval_tap $? 69 'AdminUpdateThirdPartyConfig' test.out
 
 #- 70 AdminCreateThirdPartyConfig
 samples/cli/sample-apps Lobby adminCreateThirdPartyConfig \
     --namespace $AB_NAMESPACE \
-    --body '{"apiKey": "4RX39YNjYiEYLmNp"}' \
+    --body '{"apiKey": "Q7JGEOdyo06dSz5X"}' \
     > test.out 2>&1
 eval_tap $? 70 'AdminCreateThirdPartyConfig' test.out
 
@@ -564,22 +564,22 @@ eval_tap $? 72 'PublicGetMessages' test.out
 #- 73 PublicGetPartyDataV1
 samples/cli/sample-apps Lobby publicGetPartyDataV1 \
     --namespace $AB_NAMESPACE \
-    --partyId '079ZXg4ARa3Em7FW' \
+    --partyId 'YTXthH7egIkWPXxT' \
     > test.out 2>&1
 eval_tap $? 73 'PublicGetPartyDataV1' test.out
 
 #- 74 PublicUpdatePartyAttributesV1
 samples/cli/sample-apps Lobby publicUpdatePartyAttributesV1 \
     --namespace $AB_NAMESPACE \
-    --partyId 'aCyp6sag47DBTYes' \
-    --body '{"custom_attribute": {"UEteOIPemuGcZ9AL": {}, "Aarm6q5vbzM65lR3": {}, "7pDQz9KtSW7LE8ef": {}}, "updatedAt": 33}' \
+    --partyId '0jMguY2Y3qQ8Tgop' \
+    --body '{"custom_attribute": {"ruUnYH9l1nXyCTSv": {}, "Ja2gAFI45SMrfL7b": {}, "BZnKT8RQ0SZnQ3ir": {}}, "updatedAt": 11}' \
     > test.out 2>&1
 eval_tap $? 74 'PublicUpdatePartyAttributesV1' test.out
 
 #- 75 PublicSetPartyLimitV1
 samples/cli/sample-apps Lobby publicSetPartyLimitV1 \
     --namespace $AB_NAMESPACE \
-    --partyId 'pM6C6R3FpbzoKZNG' \
+    --partyId 'tc07GrTA5PCd5aQb' \
     --body '{"limit": 21}' \
     > test.out 2>&1
 eval_tap $? 75 'PublicSetPartyLimitV1' test.out
@@ -600,21 +600,21 @@ eval_tap $? 77 'PublicGetPlayerBlockedByPlayersV1' test.out
 samples/cli/sample-apps Lobby usersPresenceHandlerV1 \
     --namespace $AB_NAMESPACE \
     --countOnly 'false' \
-    --userIds 'ybkMBTyA9YaKjkSD' \
+    --userIds 's4DpIFxpQ3T8awRx' \
     > test.out 2>&1
 eval_tap $? 78 'UsersPresenceHandlerV1' test.out
 
 #- 79 FreeFormNotification
 samples/cli/sample-apps Lobby freeFormNotification \
     --namespace $AB_NAMESPACE \
-    --body '{"message": "jQ9pfROYsIYg1HwX", "topic": "J0Ku6KnBQwE8rdJn"}' \
+    --body '{"message": "0UN7797ljtGV957l", "topic": "E8rkGhjZ1KzuU69p"}' \
     > test.out 2>&1
 eval_tap $? 79 'FreeFormNotification' test.out
 
 #- 80 NotificationWithTemplate
 samples/cli/sample-apps Lobby notificationWithTemplate \
     --namespace $AB_NAMESPACE \
-    --body '{"templateContext": {"pVVwQJJdc2n4L5Au": "JTuVbrrvXAAysiKF", "Y6fO9EhlryJMrDpY": "kJsoj6J3gwKcbX0V", "XpVmVXinSoikp99d": "nbi7UslRVTqls1Dd"}, "templateLanguage": "O800xYWW1KTZgnDe", "templateSlug": "bwxZsSyJ1fgDLFFm", "topic": "jzGs4Cr1fO3fxCRG"}' \
+    --body '{"templateContext": {"mVwKTwIAzRwbeYdp": "31EI2qs1EIuqAyCs", "QjomroKbaIhOfrwp": "GKcwjPUAd84ifDOl", "isG1J1P4pkpCR56n": "ELLYXPbrAYQJHs5N"}, "templateLanguage": "sOVPGrk0kO9fR6xS", "templateSlug": "M62QP0HUAbaJ8vMV", "topic": "UzGL5FmQwsuRNIrW"}' \
     > test.out 2>&1
 eval_tap $? 80 'NotificationWithTemplate' test.out
 
@@ -627,111 +627,111 @@ eval_tap $? 81 'GetGameTemplate' test.out
 #- 82 CreateTemplate
 samples/cli/sample-apps Lobby createTemplate \
     --namespace $AB_NAMESPACE \
-    --body '{"templateContent": "F5jiRjo60K91x3bi", "templateLanguage": "9DAlNPfPEdMs1hzI", "templateSlug": "4jaec5szFuibNhfp"}' \
+    --body '{"templateContent": "g9BX8u2AplRvhjOi", "templateLanguage": "DsSTFqh3VAyOBYJS", "templateSlug": "LkDacX2shvoCGIVE"}' \
     > test.out 2>&1
 eval_tap $? 82 'CreateTemplate' test.out
 
 #- 83 GetSlugTemplate
 samples/cli/sample-apps Lobby getSlugTemplate \
     --namespace $AB_NAMESPACE \
-    --templateSlug 'aTtEjS4UD36iduMy' \
-    --after 'rpjhX8nbqn7Gl1oB' \
-    --before 'kmOLkPdFSYeMwSKF' \
-    --limit '47' \
+    --templateSlug 'vSWsrkvQcls5tq8i' \
+    --after 'shcCrGvc2fnryhBy' \
+    --before 'kpfZkyhSFTh84mRH' \
+    --limit '22' \
     > test.out 2>&1
 eval_tap $? 83 'GetSlugTemplate' test.out
 
 #- 84 DeleteTemplateSlug
 samples/cli/sample-apps Lobby deleteTemplateSlug \
     --namespace $AB_NAMESPACE \
-    --templateSlug 'EXw3VEyQFJ7pzcBc' \
+    --templateSlug 'bkBJuZt25qPZLw4I' \
     > test.out 2>&1
 eval_tap $? 84 'DeleteTemplateSlug' test.out
 
 #- 85 GetLocalizationTemplate
 samples/cli/sample-apps Lobby getLocalizationTemplate \
     --namespace $AB_NAMESPACE \
-    --templateLanguage 'ydydgSLpnUHoG48W' \
-    --templateSlug 'Lubrz8TNm4WRf8ZI' \
+    --templateLanguage 'JbMdKsycWqip6NjL' \
+    --templateSlug 'JLxDJp4NfkhC3AwZ' \
     > test.out 2>&1
 eval_tap $? 85 'GetLocalizationTemplate' test.out
 
 #- 86 UpdateLocalizationTemplate
 samples/cli/sample-apps Lobby updateLocalizationTemplate \
     --namespace $AB_NAMESPACE \
-    --templateLanguage 'HY5zzEQ4RMBzinDm' \
-    --templateSlug 'Uw3ZvfChwwmGNKDF' \
-    --body '{"templateContent": "V8jZrY2ijIxxsxor"}' \
+    --templateLanguage 'dbB7Jhn7enoMqEUR' \
+    --templateSlug 'blHnOAVnKwW5NBq5' \
+    --body '{"templateContent": "IyMrHv7e9yc9fxL7"}' \
     > test.out 2>&1
 eval_tap $? 86 'UpdateLocalizationTemplate' test.out
 
 #- 87 DeleteTemplateLocalization
 samples/cli/sample-apps Lobby deleteTemplateLocalization \
     --namespace $AB_NAMESPACE \
-    --templateLanguage 'E3hKgUaXUaMBwtHS' \
-    --templateSlug 'pNTnPSCuM0WZNpl0' \
+    --templateLanguage 'ROO0Pjlwo1X2dZuj' \
+    --templateSlug 'HiFWNSPHSjazZyv1' \
     > test.out 2>&1
 eval_tap $? 87 'DeleteTemplateLocalization' test.out
 
 #- 88 PublishTemplate
 samples/cli/sample-apps Lobby publishTemplate \
     --namespace $AB_NAMESPACE \
-    --templateLanguage 'Pdy2if5NuTuvmiQA' \
-    --templateSlug 'ZDBNomgLsq5FsiQu' \
+    --templateLanguage '6nFwStlh0NO9gxqB' \
+    --templateSlug 'G58rsVOt5zCKcMFm' \
     > test.out 2>&1
 eval_tap $? 88 'PublishTemplate' test.out
 
 #- 89 GetTopicByNamespace
 samples/cli/sample-apps Lobby getTopicByNamespace \
     --namespace $AB_NAMESPACE \
-    --after '8yDGqa7eJXYrFNX2' \
-    --before '6Wd5VWV5QmrLXh2N' \
-    --limit '77' \
+    --after 'tZkUt8mIxWlDZT27' \
+    --before 'McQoJwnkS4Cpa7Vt' \
+    --limit '61' \
     > test.out 2>&1
 eval_tap $? 89 'GetTopicByNamespace' test.out
 
 #- 90 CreateTopic
 samples/cli/sample-apps Lobby createTopic \
     --namespace $AB_NAMESPACE \
-    --body '{"description": "dqlKt363etl6daMJ", "topic": "XJKdrUhZ7WvTu6dM"}' \
+    --body '{"description": "8NTRclUeHr3hy8dh", "topic": "kebfTdeRWX35xCcV"}' \
     > test.out 2>&1
 eval_tap $? 90 'CreateTopic' test.out
 
 #- 91 GetTopicByTopicName
 samples/cli/sample-apps Lobby getTopicByTopicName \
     --namespace $AB_NAMESPACE \
-    --topic 'sGaJ7GkHyXQRvv8X' \
+    --topic 'Ymfa5G2ERMOb2qX3' \
     > test.out 2>&1
 eval_tap $? 91 'GetTopicByTopicName' test.out
 
 #- 92 UpdateTopicByTopicName
 samples/cli/sample-apps Lobby updateTopicByTopicName \
     --namespace $AB_NAMESPACE \
-    --topic '48QKOGNTa04yaVKj' \
-    --body '{"description": "ce5HzZO6UO6s7Nzl"}' \
+    --topic '6O7bd3ZVaZxJG1vv' \
+    --body '{"description": "tLyyOe5K7O6DCK9f"}' \
     > test.out 2>&1
 eval_tap $? 92 'UpdateTopicByTopicName' test.out
 
 #- 93 DeleteTopicByTopicName
 samples/cli/sample-apps Lobby deleteTopicByTopicName \
     --namespace $AB_NAMESPACE \
-    --topic 'lKdAITmVTlF6xklM' \
+    --topic 'AHgaSZmgsTMzRIXj' \
     > test.out 2>&1
 eval_tap $? 93 'DeleteTopicByTopicName' test.out
 
 #- 94 FreeFormNotificationByUserID
 samples/cli/sample-apps Lobby freeFormNotificationByUserID \
     --namespace $AB_NAMESPACE \
-    --userId 'FHgAUA54K1IHj0Qo' \
-    --body '{"message": "UhoqWjf2lnFHcBxp", "topic": "QgQd5lstV73mC31I"}' \
+    --userId '7bbF51SP6a46TPC4' \
+    --body '{"message": "RNDqElbxU2MDpQi6", "topic": "kisHoLUSpLHnGm99"}' \
     > test.out 2>&1
 eval_tap $? 94 'FreeFormNotificationByUserID' test.out
 
 #- 95 NotificationWithTemplateByUserID
 samples/cli/sample-apps Lobby notificationWithTemplateByUserID \
     --namespace $AB_NAMESPACE \
-    --userId 'J7wW7tl8AhG1FBhi' \
-    --body '{"templateContext": {"LgsZAllodrwABZQD": "WpP5A3jKvw8BcmgC", "a7rIuLvpR1b9lzlr": "WEq97AQJOPwRmMzp", "pqUESDiG0yJ2TcCQ": "6i45YEBDBe4CDw1j"}, "templateLanguage": "NudHDDENAo0QjVyN", "templateSlug": "uOkHV1xjROxZUJ4s", "topic": "NOe9pjprgsBYCFUi"}' \
+    --userId 'tVi1yBEtUKqFoxLK' \
+    --body '{"templateContext": {"7oLC8Ux0JxWT2lbd": "VK6KrEicJmf4acNd", "Er6W4Hv7iOlFaHTm": "ssh6VC7Z0i2j8SCD", "n2uVNBLnSk6fpBwj": "qjxE9OGqaWuKnSbW"}, "templateLanguage": "m8c9udJV2BjBD4bu", "templateSlug": "myJ2AQLfJWVlr8C4", "topic": "35WwJYUy1xUMPsr2"}' \
     > test.out 2>&1
 eval_tap $? 95 'NotificationWithTemplateByUserID' test.out
 

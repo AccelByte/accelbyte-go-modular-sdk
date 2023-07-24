@@ -544,12 +544,13 @@ Create template configuration to be applied across party and session.
 Session configuration mandatory :
 - name
 - joinability (example value : OPEN, CLOSED, INVITE_ONLY)
+- autoJoin: when enabled, players will automatically join the initial game session creation. Game session will not send any invite and players dont need to act upon it. default: false (disabled)
 - Type (example value : P2P, DS, NONE) if type empty, type will be assign to NONE
-- MinPlayers (must greather or equal 0)
-- MaxPlayers (must greather than 0)
-- InviteTimeout (must greather or equal 0) if InviteTimeout equal 0 will be use default DefaultTimeoutSecond (60s)
-- InactiveTimeout (must greather or equal 0) if InactiveTimeout equal 0 will be use default DefaultTimeoutSecond (60s)
-- Persistent Flag only can use with type DS (example value true or false)
+- MinPlayers (must greater or equal 0)
+- MaxPlayers (must greater than 0)
+- InviteTimeout (must greater or equal 0) if InviteTimeout equal 0 will be use default DefaultTimeoutSecond (60s)
+- InactiveTimeout (must greater or equal 0) if InactiveTimeout equal 0 will be use default DefaultTimeoutSecond (60s)
+- Persistent will only applies to session with type DS (example value true or false, default: false)
 - If Persistent True the session always active even DS removing or terminate and Session will be request DS again until DS Ready or Busy.
 - To Stop Session Not request again to DS or want Delete Session can Delete Session using endpoint DELETE /session/v1/public/namespaces/{namespace}/gamesessions/{sessionId}
 - If Persistent False the session will be inactive if all member left and DS terminate or removing
@@ -560,6 +561,19 @@ Session configuration mandatory :
 - SessionTitle: the session title. In PSN, this will be used to define name of the session thats displayed on PlayStation system UI.
 - ShouldSync: to define whether the service needs to do session sync with native platform(s). Default: false (disabled).
 - PSNSupportedPlatforms: the PSN supported platforms. In PSN, if ShouldSync true and PSNSupportedPlatforms is empty, then PS5 will be set as default value.
+- PSNBaseUrl this is for base URL PSN if not set will be default value https://s2s.sp-int.playstation.net. In a single namespace only 1 PSN Env that can be used. Multiple session template should refers to the same PSN Env as we have in IAM Service.
+- https://s2s.sp-int.playstation.net (DEV, need IP Whitelist)
+- https://s2s.prod-qa.playstation.net (QA Environment/PSN Certification)
+- https://s2s.np.playstation.net (Production)
+- localizedSessionName : for localized name and default language
+example payload :
+"localizedSessionName":{
+"defaultLanguage" : "en-US"
+"localizedText" :{
+"en-US" : "title"
+}
+}
+- TieTeamsSessionLifetime (optional, default: false): If it is set to true, the lifetime of any partyId session inside teams attribute will be tied to the game session. Only applies when the teams partyId is game session.
 */
 func (a *Client) AdminCreateConfigurationTemplateV1(params *AdminCreateConfigurationTemplateV1Params, authInfo runtime.ClientAuthInfoWriter) (*AdminCreateConfigurationTemplateV1Created, *AdminCreateConfigurationTemplateV1BadRequest, *AdminCreateConfigurationTemplateV1Unauthorized, *AdminCreateConfigurationTemplateV1Forbidden, *AdminCreateConfigurationTemplateV1Conflict, *AdminCreateConfigurationTemplateV1InternalServerError, error) {
 	// TODO: Validate the params before sending
@@ -623,12 +637,13 @@ Create template configuration to be applied across party and session.
 Session configuration mandatory :
 - name
 - joinability (example value : OPEN, CLOSED, INVITE_ONLY)
+- autoJoin: when enabled, players will automatically join the initial game session creation. Game session will not send any invite and players dont need to act upon it. default: false (disabled)
 - Type (example value : P2P, DS, NONE) if type empty, type will be assign to NONE
-- MinPlayers (must greather or equal 0)
-- MaxPlayers (must greather than 0)
-- InviteTimeout (must greather or equal 0) if InviteTimeout equal 0 will be use default DefaultTimeoutSecond (60s)
-- InactiveTimeout (must greather or equal 0) if InactiveTimeout equal 0 will be use default DefaultTimeoutSecond (60s)
-- Persistent Flag only can use with type DS (example value true or false)
+- MinPlayers (must greater or equal 0)
+- MaxPlayers (must greater than 0)
+- InviteTimeout (must greater or equal 0) if InviteTimeout equal 0 will be use default DefaultTimeoutSecond (60s)
+- InactiveTimeout (must greater or equal 0) if InactiveTimeout equal 0 will be use default DefaultTimeoutSecond (60s)
+- Persistent will only applies to session with type DS (example value true or false, default: false)
 - If Persistent True the session always active even DS removing or terminate and Session will be request DS again until DS Ready or Busy.
 - To Stop Session Not request again to DS or want Delete Session can Delete Session using endpoint DELETE /session/v1/public/namespaces/{namespace}/gamesessions/{sessionId}
 - If Persistent False the session will be inactive if all member left and DS terminate or removing
@@ -639,6 +654,19 @@ Session configuration mandatory :
 - SessionTitle: the session title. In PSN, this will be used to define name of the session thats displayed on PlayStation system UI.
 - ShouldSync: to define whether the service needs to do session sync with native platform(s). Default: false (disabled).
 - PSNSupportedPlatforms: the PSN supported platforms. In PSN, if ShouldSync true and PSNSupportedPlatforms is empty, then PS5 will be set as default value.
+- PSNBaseUrl this is for base URL PSN if not set will be default value https://s2s.sp-int.playstation.net. In a single namespace only 1 PSN Env that can be used. Multiple session template should refers to the same PSN Env as we have in IAM Service.
+- https://s2s.sp-int.playstation.net (DEV, need IP Whitelist)
+- https://s2s.prod-qa.playstation.net (QA Environment/PSN Certification)
+- https://s2s.np.playstation.net (Production)
+- localizedSessionName : for localized name and default language
+example payload :
+"localizedSessionName":{
+"defaultLanguage" : "en-US"
+"localizedText" :{
+"en-US" : "title"
+}
+}
+- TieTeamsSessionLifetime (optional, default: false): If it is set to true, the lifetime of any partyId session inside teams attribute will be tied to the game session. Only applies when the teams partyId is game session.
 */
 func (a *Client) AdminCreateConfigurationTemplateV1Short(params *AdminCreateConfigurationTemplateV1Params, authInfo runtime.ClientAuthInfoWriter) (*AdminCreateConfigurationTemplateV1Created, error) {
 	// TODO: Validate the params before sending
@@ -924,15 +952,16 @@ func (a *Client) AdminGetConfigurationTemplateV1Short(params *AdminGetConfigurat
 Deprecated: 2022-08-10 - Use AdminUpdateConfigurationTemplateV1Short instead.
 
 AdminUpdateConfigurationTemplateV1 update configuration template. requires admin:namespace:{namespace}:session:configuration [update]
-Update template configuration
+Modify template configuration
 Session configuration mandatory :
 - name
 - joinability (example value : OPEN, CLOSED, INVITE_ONLY)
+- autoJoin: when enabled, players will automatically join the initial game session creation. Game session will not send any invite and players dont need to act upon it. default: false (disabled)
 - Type (example value : P2P, DS, NONE) if type empty, type will be assign to NONE
-- MinPlayers (must greather or equal 0)
-- MaxPlayers (must greather than 0)
-- InviteTimeout (must greather or equal 0) if InviteTimeout equal 0 will be use default DefaultTimeoutSecond (60s)
-- InactiveTimeout (must greather or equal 0) if InactiveTimeout equal 0 will be use default DefaultTimeoutSecond (60s)
+- MinPlayers (must greater or equal 0)
+- MaxPlayers (must greater than 0)
+- InviteTimeout (must greater or equal 0) if InviteTimeout equal 0 will be use default DefaultTimeoutSecond (60s)
+- InactiveTimeout (must greater or equal 0) if InactiveTimeout equal 0 will be use default DefaultTimeoutSecond (60s)
 - Persistent Flag only can use with type DS (example value true or false)
 - If Persistent True the session always active even DS removing or terminate and Session will be request DS again until DS Ready or Busy.
 - To Stop Session Not request again to DS or want Delete Session can Delete Session using endpoint DELETE /session/v1/public/namespaces/{namespace}/gamesessions/{sessionId}
@@ -944,6 +973,19 @@ Session configuration mandatory :
 - SessionTitle: the session title. In PSN, this will be used to define name of the session thats displayed on PlayStation system UI.
 - ShouldSync: to define whether the service needs to do session sync with native platform(s). Default: false (disabled).
 - PSNSupportedPlatforms: the PSN supported platforms. In PSN, if ShouldSync true and PSNSupportedPlatforms is empty, then PS5 will be set as default value.
+- PSNBaseUrl this is for base URL PSN if not set will be default value https://s2s.sp-int.playstation.net. In a single namespace only 1 PSN Env that can be used. Multiple session template should refers to the same PSN Env as we have in IAM Service.
+- https://s2s.sp-int.playstation.net (DEV, need IP Whitelist)
+- https://s2s.prod-qa.playstation.net (QA Environment/PSN Certification)
+- https://s2s.np.playstation.net (Production)
+- localizedSessionName : for localized name and default language
+example payload :
+"localizedSessionName":{
+"defaultLanguage" : "en-US"
+"localizedText" :{
+"en-US" : "title"
+}
+}
+- TieTeamsSessionLifetime: If it is set to true, the lifetime of any partyId session inside teams attribute will be tied to the game session. Only applies when the teams partyId is game session.
 */
 func (a *Client) AdminUpdateConfigurationTemplateV1(params *AdminUpdateConfigurationTemplateV1Params, authInfo runtime.ClientAuthInfoWriter) (*AdminUpdateConfigurationTemplateV1OK, *AdminUpdateConfigurationTemplateV1BadRequest, *AdminUpdateConfigurationTemplateV1Unauthorized, *AdminUpdateConfigurationTemplateV1Forbidden, *AdminUpdateConfigurationTemplateV1NotFound, *AdminUpdateConfigurationTemplateV1InternalServerError, error) {
 	// TODO: Validate the params before sending
@@ -1003,15 +1045,16 @@ func (a *Client) AdminUpdateConfigurationTemplateV1(params *AdminUpdateConfigura
 
 /*
 AdminUpdateConfigurationTemplateV1Short update configuration template. requires admin:namespace:{namespace}:session:configuration [update]
-Update template configuration
+Modify template configuration
 Session configuration mandatory :
 - name
 - joinability (example value : OPEN, CLOSED, INVITE_ONLY)
+- autoJoin: when enabled, players will automatically join the initial game session creation. Game session will not send any invite and players dont need to act upon it. default: false (disabled)
 - Type (example value : P2P, DS, NONE) if type empty, type will be assign to NONE
-- MinPlayers (must greather or equal 0)
-- MaxPlayers (must greather than 0)
-- InviteTimeout (must greather or equal 0) if InviteTimeout equal 0 will be use default DefaultTimeoutSecond (60s)
-- InactiveTimeout (must greather or equal 0) if InactiveTimeout equal 0 will be use default DefaultTimeoutSecond (60s)
+- MinPlayers (must greater or equal 0)
+- MaxPlayers (must greater than 0)
+- InviteTimeout (must greater or equal 0) if InviteTimeout equal 0 will be use default DefaultTimeoutSecond (60s)
+- InactiveTimeout (must greater or equal 0) if InactiveTimeout equal 0 will be use default DefaultTimeoutSecond (60s)
 - Persistent Flag only can use with type DS (example value true or false)
 - If Persistent True the session always active even DS removing or terminate and Session will be request DS again until DS Ready or Busy.
 - To Stop Session Not request again to DS or want Delete Session can Delete Session using endpoint DELETE /session/v1/public/namespaces/{namespace}/gamesessions/{sessionId}
@@ -1023,6 +1066,19 @@ Session configuration mandatory :
 - SessionTitle: the session title. In PSN, this will be used to define name of the session thats displayed on PlayStation system UI.
 - ShouldSync: to define whether the service needs to do session sync with native platform(s). Default: false (disabled).
 - PSNSupportedPlatforms: the PSN supported platforms. In PSN, if ShouldSync true and PSNSupportedPlatforms is empty, then PS5 will be set as default value.
+- PSNBaseUrl this is for base URL PSN if not set will be default value https://s2s.sp-int.playstation.net. In a single namespace only 1 PSN Env that can be used. Multiple session template should refers to the same PSN Env as we have in IAM Service.
+- https://s2s.sp-int.playstation.net (DEV, need IP Whitelist)
+- https://s2s.prod-qa.playstation.net (QA Environment/PSN Certification)
+- https://s2s.np.playstation.net (Production)
+- localizedSessionName : for localized name and default language
+example payload :
+"localizedSessionName":{
+"defaultLanguage" : "en-US"
+"localizedText" :{
+"en-US" : "title"
+}
+}
+- TieTeamsSessionLifetime: If it is set to true, the lifetime of any partyId session inside teams attribute will be tied to the game session. Only applies when the teams partyId is game session.
 */
 func (a *Client) AdminUpdateConfigurationTemplateV1Short(params *AdminUpdateConfigurationTemplateV1Params, authInfo runtime.ClientAuthInfoWriter) (*AdminUpdateConfigurationTemplateV1OK, error) {
 	// TODO: Validate the params before sending
