@@ -7,7 +7,6 @@ package integration_test
 import (
 	"testing"
 
-	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/service/sessionbrowser"
 	"github.com/stretchr/testify/assert"
 
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils/auth"
@@ -15,6 +14,8 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/sessionbrowser-sdk/pkg/sessionbrowserclient/session"
 
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/tests/integration"
+
+	"github.com/AccelByte/accelbyte-go-modular-sdk/sessionbrowser-sdk/pkg"
 
 	"github.com/AccelByte/accelbyte-go-modular-sdk/sessionbrowser-sdk/pkg/sessionbrowserclientmodels"
 )
