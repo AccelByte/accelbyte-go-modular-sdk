@@ -4,7 +4,6 @@ go 1.18
 
 // for development only (not propagated)
 replace (
-	github.com/AccelByte/accelbyte-go-modular-sdk/services-api => ../../../services-api
 	github.com/AccelByte/accelbyte-go-modular-sdk/achievement-sdk => ../../../achievement-sdk
 	github.com/AccelByte/accelbyte-go-modular-sdk/ams-sdk => ../../../ams-sdk
 	github.com/AccelByte/accelbyte-go-modular-sdk/basic-sdk => ../../../basic-sdk
@@ -25,6 +24,7 @@ replace (
 	github.com/AccelByte/accelbyte-go-modular-sdk/qosm-sdk => ../../../qosm-sdk
 	github.com/AccelByte/accelbyte-go-modular-sdk/reporting-sdk => ../../../reporting-sdk
 	github.com/AccelByte/accelbyte-go-modular-sdk/seasonpass-sdk => ../../../seasonpass-sdk
+	github.com/AccelByte/accelbyte-go-modular-sdk/services-api => ../../../services-api
 	github.com/AccelByte/accelbyte-go-modular-sdk/session-sdk => ../../../session-sdk
 	github.com/AccelByte/accelbyte-go-modular-sdk/sessionbrowser-sdk => ../../../sessionbrowser-sdk
 	github.com/AccelByte/accelbyte-go-modular-sdk/social-sdk => ../../../social-sdk
@@ -32,7 +32,6 @@ replace (
 )
 
 require (
-	github.com/AccelByte/accelbyte-go-modular-sdk/services-api v0.1.0
 	github.com/AccelByte/accelbyte-go-modular-sdk/achievement-sdk v0.1.0
 	github.com/AccelByte/accelbyte-go-modular-sdk/ams-sdk v0.1.0
 	github.com/AccelByte/accelbyte-go-modular-sdk/basic-sdk v0.1.0
@@ -53,6 +52,7 @@ require (
 	github.com/AccelByte/accelbyte-go-modular-sdk/qosm-sdk v0.1.0
 	github.com/AccelByte/accelbyte-go-modular-sdk/reporting-sdk v0.1.0
 	github.com/AccelByte/accelbyte-go-modular-sdk/seasonpass-sdk v0.1.0
+	github.com/AccelByte/accelbyte-go-modular-sdk/services-api v0.1.0
 	github.com/AccelByte/accelbyte-go-modular-sdk/session-sdk v0.1.0
 	github.com/AccelByte/accelbyte-go-modular-sdk/sessionbrowser-sdk v0.1.0
 	github.com/AccelByte/accelbyte-go-modular-sdk/social-sdk v0.1.0

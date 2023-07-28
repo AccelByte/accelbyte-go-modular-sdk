@@ -6,6 +6,7 @@ go 1.18
 replace (
 	github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk => ../iam-sdk // required: included by services-api
 	github.com/AccelByte/accelbyte-go-modular-sdk/services-api => ../services-api
+	github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/service/iam => ../services-api/pkg/service/iam
 )
 
 replace github.com/willf/bitset v1.1.11 => github.com/bits-and-blooms/bitset v1.4.0
