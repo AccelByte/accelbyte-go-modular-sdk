@@ -28,7 +28,7 @@ $ go mod init golang-application
 
 Add the required configuration in `go.mod`. 
 
-Replace `{VERSION}` with a specific release version tag from [releases](https://github.com/AccelByte/accelbyte-go-sdk/releases) and run `go mod tidy`.
+Replace `{VERSION}` with a specific release version tag from [releases](https://github.com/AccelByte/accelbyte-go-modular-sdk/releases) and run `go mod tidy`.
 
 It is recommended to use the matching Golang Extend SDK version for the given AccelByte Gaming Services version.
 
@@ -38,7 +38,7 @@ module golang-application
 go 1.18
 
 require (
-    github.com/AccelByte/accelbyte-go-sdk {VERSION}
+    github.com/AccelByte/accelbyte-go-modular-sdk {VERSION}
 )
 ```
 
@@ -54,12 +54,12 @@ The `ConfigRepositoryImpl` gets its values from `AB_BASE_URL`, `AB_CLIENT_ID`, a
 package main
 
 import (
-	"github.com/AccelByte/accelbyte-go-sdk/iam-sdk/pkg/iamclient/o_auth2_0_extension"
-	"github.com/AccelByte/accelbyte-go-sdk/services-api/pkg/utils/auth"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/o_auth2_0_extension"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils/auth"
 	"github.com/sirupsen/logrus"
 
-	"github.com/AccelByte/accelbyte-go-sdk/services-api/pkg/factory"
-	"github.com/AccelByte/accelbyte-go-sdk/services-api/pkg/service/iam"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/factory"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/service/iam"
 )
 
 var (
@@ -120,9 +120,9 @@ $ go run main.go
 
 ## Follow Up Resources
 
-* Golang Extend SDK [README.md](https://github.com/AccelByte/accelbyte-go-sdk/blob/main/README.md)
-* Reference documentation on AccelByte Gaming Services endpoints, their corresponding Golang Extend SDK API, and short examples on how to use them is available in [docs](https://github.com/AccelByte/accelbyte-go-sdk/blob/main/docs)
-* Sample apps which show some practical usage of Golang Extend SDK are available in [samples](https://github.com/AccelByte/accelbyte-go-sdk/blob/main/samples)
+* Golang Extend SDK [README.md](https://github.com/AccelByte/accelbyte-go-modular-sdk/blob/main/README.md)
+* Reference documentation on AccelByte Gaming Services endpoints, their corresponding Golang Extend SDK API, and short examples on how to use them is available in [docs](https://github.com/AccelByte/accelbyte-go-modular-sdk/blob/main/docs)
+* Sample apps which show some practical usage of Golang Extend SDK are available in [samples](https://github.com/AccelByte/accelbyte-go-modular-sdk/blob/main/samples)
 
 ## FAQ
 
@@ -132,4 +132,4 @@ Yes. You just need to implement the interface accordingly.
 
 ### 2. How can I use more advanced features of Golang Extend SDK e.g. HTTP retry and automatic token refresh? 
 
-See [README.md](https://github.com/AccelByte/accelbyte-go-sdk/blob/main/README.md)
+See [README.md](https://github.com/AccelByte/accelbyte-go-modular-sdk/blob/main/README.md)

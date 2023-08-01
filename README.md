@@ -1,4 +1,4 @@
-# AccelByte Go SDK
+# AccelByte Go Modular SDK
 
 A software development kit (SDK) for interacting with AccelByte services written in Golang.
 
@@ -14,7 +14,7 @@ Add the following to your project's `go.mod`:
 
 ```go
 require (
-    github.com/AccelByte/accelbyte-go-sdk {VERSION}
+    github.com/AccelByte/accelbyte-go-modular-sdk {VERSION}
 )
 ```
 
@@ -112,7 +112,7 @@ To enable it, import the package
 ```go
 import (
     ...
-    "github.com/AccelByte/accelbyte-go-sdk/services-api/pkg/utils/auth/validator"
+    "github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils/auth/validator"
     ...
 )
 ```
@@ -171,7 +171,7 @@ The function exist alongside the Login functionality in `OAuth20Service`. To use
 ```go
 import (
     ...
-    "github.com/AccelByte/accelbyte-go-sdk/services-api/pkg/service/iam"
+    "github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/service/iam"
     ...
 )
 ```

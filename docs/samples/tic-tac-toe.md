@@ -8,7 +8,7 @@ This tutorial will explain on how to use AccelByte Go Extend SDK to create simpl
 - [Create and OAuth Client](https://docs.accelbyte.io/esg/uam/iam-client.html#managing-clients-in-the-admin-portal) with a **confidential** client type. Keep the **Client ID** and the **Client Secret** somewhere safe as you will be using them in this tutorial. Make sure you add these permissions for the oauth client.
 	- `NAMESPACE:<namespace>:USER:*:NOTIFICATION` CREATE, UPDATE
 	- `NAMESPACE:<namespace>:USER` READ
-- Download the latest [Go SDK](https://github.com/AccelByte/accelbyte-go-sdk)
+- Download the latest [Go SDK](https://github.com/AccelByte/accelbyte-go-modular-sdk)
 - Read [Go SDK Getting Started Guide](https://docs.accelbyte.io/guides/customization/golang-sdk-guide.html) on how to integrate SDK into your project.
 - AWS account with enough permission to deploy Lambda function (optional).
 - At least two username registered in AccelByte Gaming Services for testing purpose.
@@ -272,7 +272,7 @@ username := getInput()
 fmt.Println("Password: ")
 password := getInput()
 
-// request to IAM to login using AccelByte Go SDK
+// request to IAM to login using AccelByte Go Modular SDK
 err := oauthService.Login(username, password)
 if err != nil {
     logrus.Error("Login Failed")
@@ -281,7 +281,7 @@ if err != nil {
 }
 logrus.Info("Login Successful")
 
-// listening message from lobby using AccelByte Go SDK
+// listening message from lobby using AccelByte Go Modular SDK
 logrus.Info("Enter websocket mode")
 connMgr = &utils.ConnectionManagerImpl{}
 connection, err := connectionutils.NewWebsocketConnection(

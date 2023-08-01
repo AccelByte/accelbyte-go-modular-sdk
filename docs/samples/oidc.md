@@ -6,9 +6,9 @@ AccelByte Gaming Services provides [integration with OpenID Connect providers](h
 
 ## Sample App
 
-1. Clone [AccelByte Go Extend SDK](https://github.com/AccelByte/accelbyte-go-sdk)
-2. Go to [samples/oidc-web](https://github.com/AccelByte/accelbyte-go-sdk/tree/main/samples/oidc-web) folder
-3. Follow the [README.md](https://github.com/AccelByte/accelbyte-go-sdk/blob/main/samples/oidc-web#readme) to setup and use the sample application
+1. Clone [AccelByte Go Extend SDK](https://github.com/AccelByte/accelbyte-go-modular-sdk)
+2. Go to [samples/oidc-web](https://github.com/AccelByte/accelbyte-go-modular-sdk/tree/main/samples/oidc-web) folder
+3. Follow the [README.md](https://github.com/AccelByte/accelbyte-go-modular-sdk/blob/main/samples/oidc-web#readme) to setup and use the sample application
 
 ## How It Works
 

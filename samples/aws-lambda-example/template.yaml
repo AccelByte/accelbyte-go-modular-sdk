@@ -3,7 +3,7 @@ Transform: AWS::Serverless-2016-10-31
 Description: >
   aws-lambda-example
 
-  AccelByte Go SDK Lambda Example
+  AccelByte Go Modular SDK Lambda Example
 
 Globals:
   Function:

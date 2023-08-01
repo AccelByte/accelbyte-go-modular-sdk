@@ -1,8 +1,8 @@
 # AccelByte Golang SDK CLI
 
 ## Usage
-1. clone the whole [accelbyte-go-sdk](https://github.com/AccelByte/accelbyte-go-sdk)
-2. go to [samples/cli](https://github.com/AccelByte/accelbyte-go-sdk/tree/main/samples/cli). Make sure you already in this `cli` directory
+1. clone the whole [accelbyte-go-modular-sdk](https://github.com/AccelByte/accelbyte-go-modular-sdk)
+2. go to [samples/cli](https://github.com/AccelByte/accelbyte-go-modular-sdk/tree/main/samples/cli). Make sure you already in this `cli` directory
 
 ### commands
 You could also interact with the SDK using this package's command-line interface.
