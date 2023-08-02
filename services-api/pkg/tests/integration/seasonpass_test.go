@@ -10,6 +10,8 @@ import (
 	"testing"
 	"time"
 
+	platform "github.com/AccelByte/accelbyte-go-modular-sdk/platform-sdk/pkg"
+	seasonpass "github.com/AccelByte/accelbyte-go-modular-sdk/seasonpass-sdk/pkg"
 	"github.com/google/uuid"
 
 	"github.com/AccelByte/accelbyte-go-modular-sdk/platform-sdk/pkg/platformclient/category"
@@ -20,16 +22,12 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/platform-sdk/pkg/platformclient/store"
 
 	"github.com/AccelByte/accelbyte-go-modular-sdk/platform-sdk/pkg/platformclientmodels"
-	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/service/platform"
-
 	"github.com/stretchr/testify/assert"
 
 	"github.com/go-openapi/strfmt"
 
 	"github.com/AccelByte/accelbyte-go-modular-sdk/seasonpass-sdk/pkg/seasonpassclient/season"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/seasonpass-sdk/pkg/seasonpassclientmodels"
-	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/factory"
-	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/service/seasonpass"
 )
 
 var (
@@ -37,8 +35,8 @@ var (
 	accelbyteCurrencyCode    = "USD"
 	namespace                = os.Getenv("AB_NAMESPACE")
 	configRepo               = auth.DefaultConfigRepositoryImpl()
-	seasonpassClient         = factory.NewSeasonpassClient(configRepo)
-	seasonpassPlatformClient = factory.NewPlatformClient(configRepo)
+	seasonpassClient         = seasonpass.NewSeasonpassClient(configRepo)
+	seasonpassPlatformClient = platform.NewPlatformClient(configRepo)
 	seasonService            = &seasonpass.SeasonService{
 		Client:          seasonpassClient,
 		TokenRepository: tokenRepository,
