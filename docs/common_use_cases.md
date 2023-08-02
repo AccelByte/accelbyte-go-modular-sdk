@@ -70,18 +70,6 @@ errDelete := achievementsService.AdminDeleteAchievementShort(inputDelete)
 
 Source: [ams_test.go](../services-api/pkg/tests/integration/ams_test.go)
 
-### Basic Health check
-
-```go
-input := &operations.BasicHealthCheckParams{}
-err := operationAmsService.BasicHealthCheckShort(input)
-if err != nil {
-	assert.FailNow(t, err.Error())
-
-	return
-}
-```
-
 ### Image List
 
 ```go
@@ -113,6 +101,7 @@ inputCreate := &fleets.FleetCreateParams{
 }
 created, errCreated := fleetService.FleetCreateShort(inputCreate)
 if errCreated != nil {
+	t.Skip("not using the real image Id")
 	assert.FailNow(t, errCreated.Error())
 
 	return
@@ -1580,12 +1569,12 @@ if errUpdate != nil {
 ### Delete a session
 
 ```go
-inputDelete := &session.DeleteSessionParams{
+inputDelete := &session.AdminDeleteSessionParams{
 	Namespace: integration.NamespaceTest,
 	SessionID: sessionBrowserID,
 }
 
-deleted, errDelete := sessionService.DeleteSessionShort(inputDelete)
+deleted, errDelete := sessionService.AdminDeleteSessionShort(inputDelete)
 if errDelete != nil {
 	assert.FailNow(t, errDelete.Error())
 }

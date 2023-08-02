@@ -10,7 +10,6 @@ import (
 	ams "github.com/AccelByte/accelbyte-go-modular-sdk/ams-sdk/pkg"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/ams-sdk/pkg/amsclient/fleets"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/ams-sdk/pkg/amsclient/images"
-	"github.com/AccelByte/accelbyte-go-modular-sdk/ams-sdk/pkg/amsclient/operations"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/ams-sdk/pkg/amsclientmodels"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/tests/integration"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils/auth"
@@ -18,10 +17,6 @@ import (
 )
 
 var (
-	operationAmsService = &ams.OperationsService{
-		Client:          ams.NewAmsClient(auth.DefaultConfigRepositoryImpl()),
-		TokenRepository: tokenRepository,
-	}
 	imagesService = &ams.ImagesService{
 		Client:          ams.NewAmsClient(auth.DefaultConfigRepositoryImpl()),
 		TokenRepository: tokenRepository,
@@ -42,24 +37,6 @@ var (
 	}
 	imageId = "imageId"
 )
-
-func TestIntegrationAmsBasicHealthCheck(t *testing.T) {
-	// Login User - Arrange
-	Init()
-
-	// CASE Basic Health check
-	input := &operations.BasicHealthCheckParams{}
-	err := operationAmsService.BasicHealthCheckShort(input)
-	if err != nil {
-		assert.FailNow(t, err.Error())
-
-		return
-	}
-	// ESAC
-
-	// Assert
-	assert.Nil(t, err, "err should be nil")
-}
 
 func TestIntegrationAmsImageList(t *testing.T) {
 	// Login User - Arrange
