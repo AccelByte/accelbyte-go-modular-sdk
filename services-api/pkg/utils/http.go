@@ -784,6 +784,10 @@ func (r ABResponse) GetHeader(name string) string {
 	return r.response.Header.Get(name)
 }
 
+func (r ABResponse) GetHeaders(name string) []string {
+	return r.response.Header.Values(name)
+}
+
 func (r ABResponse) Message() string {
 	return r.response.Status
 }

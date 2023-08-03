@@ -1,4 +1,4 @@
-//go:build all || ugc
+//go:build compat || compat_ugc
 
 // Copyright (c) 2021 AccelByte Inc. All Rights Reserved.
 // This is licensed software from AccelByte Inc, for limitations

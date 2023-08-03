@@ -1,4 +1,4 @@
-//go:build all || seasonpass
+//go:build compat || compat_seasonpass
 
 // Copyright (c) 2021 AccelByte Inc. All Rights Reserved.
 // This is licensed software from AccelByte Inc, for limitations

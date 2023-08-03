@@ -1,4 +1,4 @@
-//go:build all || reporting
+//go:build compat || compat_reporting
 
 // Copyright (c) 2021 AccelByte Inc. All Rights Reserved.
 // This is licensed software from AccelByte Inc, for limitations

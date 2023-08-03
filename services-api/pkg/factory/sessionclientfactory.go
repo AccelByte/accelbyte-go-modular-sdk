@@ -1,4 +1,4 @@
-//go:build all || session
+//go:build compat || compat_session
 
 // Copyright (c) 2021 AccelByte Inc. All Rights Reserved.
 // This is licensed software from AccelByte Inc, for limitations

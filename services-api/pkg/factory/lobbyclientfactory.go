@@ -1,4 +1,4 @@
-//go:build all || lobby
+//go:build compat || compat_lobby
 
 // Copyright (c) 2021 AccelByte Inc. All Rights Reserved.
 // This is licensed software from AccelByte Inc, for limitations

@@ -1,4 +1,4 @@
-//go:build all || group
+//go:build compat || compat_group
 
 // Copyright (c) 2021 AccelByte Inc. All Rights Reserved.
 // This is licensed software from AccelByte Inc, for limitations
