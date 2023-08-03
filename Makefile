@@ -42,7 +42,7 @@ samples:
 	find ./samples -type f -name main.go -exec dirname {} \; | while read DIRECTORY; do \
 		echo "# $$DIRECTORY"; \
 		docker run -t --rm -u $$(id -u):$$(id -g) -v $$(pwd):/data/ -w /data/ -e GOCACHE=/data/.cache/go-build $(GOLANG_DOCKER_IMAGE) \
-				sh -c "cd '$$DIRECTORY' && go build -tags all" || touch samples.err; \
+				sh -c "cd '$$DIRECTORY' && go build -tags compat" || touch samples.err; \
 	done
 	[ ! -f samples.err ]
 
@@ -69,7 +69,7 @@ test_core:
 test_integration:
 	@test -n "$(ENV_FILE_PATH)" || (echo "ENV_FILE_PATH is not set" ; exit 1)
 	docker run -t --rm -u $$(id -u):$$(id -g) --env-file $(ENV_FILE_PATH) -v $$(pwd):/data/ -w /data/ -e GOCACHE=/data/.cache/go-build $(GOLANG_DOCKER_IMAGE) \
-			sh -c "cd services-api/pkg/tests && go test -tags all -v github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/tests/integration"
+			sh -c "cd services-api/pkg/tests && go test -tags compat -v github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/tests/integration"
 
 test_cli:
 	@test -n "$(SDK_MOCK_SERVER_PATH)" || (echo "SDK_MOCK_SERVER_PATH is not set" ; exit 1)
