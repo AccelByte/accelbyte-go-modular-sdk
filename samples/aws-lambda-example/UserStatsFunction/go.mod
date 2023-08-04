@@ -25,6 +25,7 @@ replace (
 	github.com/AccelByte/accelbyte-go-modular-sdk/reporting-sdk => ../../../reporting-sdk
 	github.com/AccelByte/accelbyte-go-modular-sdk/seasonpass-sdk => ../../../seasonpass-sdk
 	github.com/AccelByte/accelbyte-go-modular-sdk/services-api => ../../../services-api
+	github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils/auth/validator => ../../../services-api/pkg/utils/auth/validator
 	github.com/AccelByte/accelbyte-go-modular-sdk/session-sdk => ../../../session-sdk
 	github.com/AccelByte/accelbyte-go-modular-sdk/sessionbrowser-sdk => ../../../sessionbrowser-sdk
 	github.com/AccelByte/accelbyte-go-modular-sdk/social-sdk => ../../../social-sdk
@@ -43,6 +44,7 @@ require (
 	github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/factory v0.0.0-00010101000000-000000000000
 	github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/service/iam v0.0.0-00010101000000-000000000000
 	github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/service/social v0.0.0-00010101000000-000000000000
+	github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils/auth/validator v0.0.0-00010101000000-000000000000
 	github.com/AccelByte/accelbyte-go-modular-sdk/social-sdk v0.1.0
 	github.com/aws/aws-lambda-go v1.37.0
 	github.com/sirupsen/logrus v1.9.0

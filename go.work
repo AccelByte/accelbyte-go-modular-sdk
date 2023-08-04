@@ -27,8 +27,10 @@ use (
 	social-sdk
 	ugc-sdk
 
-	// compatibility layer modulues
+	// common module
 	services-api
+
+	// compatibility layer modulues
 	services-api/pkg/factory
 	services-api/pkg/service
 	services-api/pkg/service/achievement
@@ -55,6 +57,7 @@ use (
 	services-api/pkg/service/sessionbrowser
 	services-api/pkg/service/social
 	services-api/pkg/service/ugc
+	services-api/pkg/utils/auth/validator
 
 	// samples
 	samples/aws-lambda-example/UserStatsFunction
