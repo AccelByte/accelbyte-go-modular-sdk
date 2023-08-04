@@ -16,8 +16,6 @@ import (
 	"github.com/go-openapi/runtime/client"
 )
 
-// EventRegistryService this is use for compatibility with latest modular sdk only
-// Deprecated: 2023-03-30 - please use EventRegistryService imported from "github.com/AccelByte/accelbyte-go-modular-sdk/eventlog-sdk/pkg"
 type EventRegistryService struct {
 	Client           *eventlogclient.JusticeEventlogService
 	ConfigRepository repository.ConfigRepository

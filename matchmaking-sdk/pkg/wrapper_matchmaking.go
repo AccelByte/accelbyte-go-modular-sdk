@@ -18,8 +18,6 @@ import (
 	"github.com/go-openapi/runtime/client"
 )
 
-// MatchmakingService this is use for compatibility with latest modular sdk only
-// Deprecated: 2023-03-30 - please use MatchmakingService imported from "github.com/AccelByte/accelbyte-go-modular-sdk/matchmaking-sdk/pkg"
 type MatchmakingService struct {
 	Client           *matchmakingclient.JusticeMatchmakingService
 	ConfigRepository repository.ConfigRepository

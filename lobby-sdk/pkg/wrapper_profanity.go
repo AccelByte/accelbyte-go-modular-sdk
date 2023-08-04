@@ -16,8 +16,6 @@ import (
 	"github.com/go-openapi/runtime/client"
 )
 
-// ProfanityService this is use for compatibility with latest modular sdk only
-// Deprecated: 2023-03-30 - please use ProfanityService imported from "github.com/AccelByte/accelbyte-go-modular-sdk/lobby-sdk/pkg"
 type ProfanityService struct {
 	Client           *lobbyclient.JusticeLobbyService
 	ConfigRepository repository.ConfigRepository

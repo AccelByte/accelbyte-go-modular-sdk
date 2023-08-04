@@ -16,8 +16,6 @@ import (
 	"github.com/go-openapi/runtime/client"
 )
 
-// GroupMemberService this is use for compatibility with latest modular sdk only
-// Deprecated: 2023-03-30 - please use GroupMemberService imported from "github.com/AccelByte/accelbyte-go-modular-sdk/group-sdk/pkg"
 type GroupMemberService struct {
 	Client           *groupclient.JusticeGroupService
 	ConfigRepository repository.ConfigRepository

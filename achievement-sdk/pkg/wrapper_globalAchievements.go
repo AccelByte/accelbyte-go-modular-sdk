@@ -16,8 +16,6 @@ import (
 	"github.com/go-openapi/runtime/client"
 )
 
-// GlobalAchievementsService this is use for compatibility with latest modular sdk only
-// Deprecated: 2023-03-30 - please use GlobalAchievementsService imported from "github.com/AccelByte/accelbyte-go-modular-sdk/achievement-sdk/pkg"
 type GlobalAchievementsService struct {
 	Client           *achievementclient.JusticeAchievementService
 	ConfigRepository repository.ConfigRepository

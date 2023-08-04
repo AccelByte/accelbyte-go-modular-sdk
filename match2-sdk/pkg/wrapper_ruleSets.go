@@ -16,8 +16,6 @@ import (
 	"github.com/go-openapi/runtime/client"
 )
 
-// RuleSetsService this is use for compatibility with latest modular sdk only
-// Deprecated: 2023-03-30 - please use RuleSetsService imported from "github.com/AccelByte/accelbyte-go-modular-sdk/match2-sdk/pkg"
 type RuleSetsService struct {
 	Client           *match2client.JusticeMatch2Service
 	ConfigRepository repository.ConfigRepository

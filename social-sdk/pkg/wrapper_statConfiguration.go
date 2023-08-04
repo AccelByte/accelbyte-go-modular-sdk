@@ -18,8 +18,6 @@ import (
 	"github.com/go-openapi/runtime/client"
 )
 
-// StatConfigurationService this is use for compatibility with latest modular sdk only
-// Deprecated: 2023-03-30 - please use StatConfigurationService imported from "github.com/AccelByte/accelbyte-go-modular-sdk/social-sdk/pkg"
 type StatConfigurationService struct {
 	Client           *socialclient.JusticeSocialService
 	ConfigRepository repository.ConfigRepository

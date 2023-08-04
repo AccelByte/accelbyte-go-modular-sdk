@@ -16,8 +16,6 @@ import (
 	"github.com/go-openapi/runtime/client"
 )
 
-// UserVisibilityV3Service this is use for compatibility with latest modular sdk only
-// Deprecated: 2023-03-30 - please use UserVisibilityV3Service imported from "github.com/AccelByte/accelbyte-go-modular-sdk/leaderboard-sdk/pkg"
 type UserVisibilityV3Service struct {
 	Client           *leaderboardclient.JusticeLeaderboardService
 	ConfigRepository repository.ConfigRepository

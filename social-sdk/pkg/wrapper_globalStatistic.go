@@ -16,8 +16,6 @@ import (
 	"github.com/go-openapi/runtime/client"
 )
 
-// GlobalStatisticService this is use for compatibility with latest modular sdk only
-// Deprecated: 2023-03-30 - please use GlobalStatisticService imported from "github.com/AccelByte/accelbyte-go-modular-sdk/social-sdk/pkg"
 type GlobalStatisticService struct {
 	Client           *socialclient.JusticeSocialService
 	ConfigRepository repository.ConfigRepository

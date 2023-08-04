@@ -16,8 +16,6 @@ import (
 	"github.com/go-openapi/runtime/client"
 )
 
-// LocalizedPolicyVersionsService this is use for compatibility with latest modular sdk only
-// Deprecated: 2023-03-30 - please use LocalizedPolicyVersionsService imported from "github.com/AccelByte/accelbyte-go-modular-sdk/legal-sdk/pkg"
 type LocalizedPolicyVersionsService struct {
 	Client           *legalclient.JusticeLegalService
 	ConfigRepository repository.ConfigRepository

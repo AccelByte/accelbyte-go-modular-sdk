@@ -15,8 +15,6 @@ import (
 	"github.com/go-openapi/runtime/client"
 )
 
-// ConcurrentRecordService this is use for compatibility with latest modular sdk only
-// Deprecated: 2023-03-30 - please use ConcurrentRecordService imported from "github.com/AccelByte/accelbyte-go-modular-sdk/cloudsave-sdk/pkg"
 type ConcurrentRecordService struct {
 	Client           *cloudsaveclient.JusticeCloudsaveService
 	ConfigRepository repository.ConfigRepository

@@ -16,8 +16,6 @@ import (
 	"github.com/go-openapi/runtime/client"
 )
 
-// ThirdPartyCredentialService this is use for compatibility with latest modular sdk only
-// Deprecated: 2023-03-30 - please use ThirdPartyCredentialService imported from "github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg"
 type ThirdPartyCredentialService struct {
 	Client           *iamclient.JusticeIamService
 	ConfigRepository repository.ConfigRepository

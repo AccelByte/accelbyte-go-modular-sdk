@@ -16,8 +16,6 @@ import (
 	"github.com/go-openapi/runtime/client"
 )
 
-// LeaderboardDataV3Service this is use for compatibility with latest modular sdk only
-// Deprecated: 2023-03-30 - please use LeaderboardDataV3Service imported from "github.com/AccelByte/accelbyte-go-modular-sdk/leaderboard-sdk/pkg"
 type LeaderboardDataV3Service struct {
 	Client           *leaderboardclient.JusticeLeaderboardService
 	ConfigRepository repository.ConfigRepository

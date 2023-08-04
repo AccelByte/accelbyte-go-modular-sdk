@@ -16,8 +16,6 @@ import (
 	"github.com/go-openapi/runtime/client"
 )
 
-// LobbyOperationsService this is use for compatibility with latest modular sdk only
-// Deprecated: 2023-03-30 - please use LobbyOperationsService imported from "github.com/AccelByte/accelbyte-go-modular-sdk/lobby-sdk/pkg"
 type LobbyOperationsService struct {
 	Client           *lobbyclient.JusticeLobbyService
 	ConfigRepository repository.ConfigRepository

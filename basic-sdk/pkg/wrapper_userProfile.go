@@ -16,8 +16,6 @@ import (
 	"github.com/go-openapi/runtime/client"
 )
 
-// UserProfileService this is use for compatibility with latest modular sdk only
-// Deprecated: 2023-03-30 - please use UserProfileService imported from "github.com/AccelByte/accelbyte-go-modular-sdk/basic-sdk/pkg"
 type UserProfileService struct {
 	Client           *basicclient.JusticeBasicService
 	ConfigRepository repository.ConfigRepository

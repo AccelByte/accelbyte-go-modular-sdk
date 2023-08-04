@@ -15,8 +15,6 @@ import (
 	"github.com/go-openapi/runtime/client"
 )
 
-// ServerService this is use for compatibility with latest modular sdk only
-// Deprecated: 2023-03-30 - please use ServerService imported from "github.com/AccelByte/accelbyte-go-modular-sdk/qosm-sdk/pkg"
 type ServerService struct {
 	Client           *qosmclient.JusticeQosmService
 	ConfigRepository repository.ConfigRepository

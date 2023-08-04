@@ -16,8 +16,6 @@ import (
 	"github.com/go-openapi/runtime/client"
 )
 
-// PlayerService this is use for compatibility with latest modular sdk only
-// Deprecated: 2023-03-30 - please use PlayerService imported from "github.com/AccelByte/accelbyte-go-modular-sdk/session-sdk/pkg"
 type PlayerService struct {
 	Client           *sessionclient.JusticeSessionService
 	ConfigRepository repository.ConfigRepository

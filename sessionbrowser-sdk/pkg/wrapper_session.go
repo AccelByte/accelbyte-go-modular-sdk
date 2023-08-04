@@ -16,8 +16,6 @@ import (
 	"github.com/go-openapi/runtime/client"
 )
 
-// SessionService this is use for compatibility with latest modular sdk only
-// Deprecated: 2023-03-30 - please use SessionService imported from "github.com/AccelByte/accelbyte-go-modular-sdk/sessionbrowser-sdk/pkg"
 type SessionService struct {
 	Client           *sessionbrowserclient.JusticeSessionbrowserService
 	ConfigRepository repository.ConfigRepository

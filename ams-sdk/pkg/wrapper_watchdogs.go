@@ -15,8 +15,6 @@ import (
 	"github.com/go-openapi/runtime/client"
 )
 
-// WatchdogsService this is use for compatibility with latest modular sdk only
-// Deprecated: 2023-03-30 - please use WatchdogsService imported from "github.com/AccelByte/accelbyte-go-modular-sdk/ams-sdk/pkg"
 type WatchdogsService struct {
 	Client           *amsclient.JusticeAmsService
 	ConfigRepository repository.ConfigRepository

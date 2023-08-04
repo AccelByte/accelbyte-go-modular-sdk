@@ -16,8 +16,6 @@ import (
 	"github.com/go-openapi/runtime/client"
 )
 
-// PaymentCallbackConfigService this is use for compatibility with latest modular sdk only
-// Deprecated: 2023-03-30 - please use PaymentCallbackConfigService imported from "github.com/AccelByte/accelbyte-go-modular-sdk/platform-sdk/pkg"
 type PaymentCallbackConfigService struct {
 	Client           *platformclient.JusticePlatformService
 	ConfigRepository repository.ConfigRepository

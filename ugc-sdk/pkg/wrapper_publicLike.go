@@ -16,8 +16,6 @@ import (
 	"github.com/go-openapi/runtime/client"
 )
 
-// PublicLikeService this is use for compatibility with latest modular sdk only
-// Deprecated: 2023-03-30 - please use PublicLikeService imported from "github.com/AccelByte/accelbyte-go-modular-sdk/ugc-sdk/pkg"
 type PublicLikeService struct {
 	Client           *ugcclient.JusticeUgcService
 	ConfigRepository repository.ConfigRepository

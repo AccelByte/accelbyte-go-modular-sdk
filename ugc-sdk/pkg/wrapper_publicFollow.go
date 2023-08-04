@@ -16,8 +16,6 @@ import (
 	"github.com/go-openapi/runtime/client"
 )
 
-// PublicFollowService this is use for compatibility with latest modular sdk only
-// Deprecated: 2023-03-30 - please use PublicFollowService imported from "github.com/AccelByte/accelbyte-go-modular-sdk/ugc-sdk/pkg"
 type PublicFollowService struct {
 	Client           *ugcclient.JusticeUgcService
 	ConfigRepository repository.ConfigRepository

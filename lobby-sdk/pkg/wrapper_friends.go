@@ -16,8 +16,6 @@ import (
 	"github.com/go-openapi/runtime/client"
 )
 
-// FriendsService this is use for compatibility with latest modular sdk only
-// Deprecated: 2023-03-30 - please use FriendsService imported from "github.com/AccelByte/accelbyte-go-modular-sdk/lobby-sdk/pkg"
 type FriendsService struct {
 	Client           *lobbyclient.JusticeLobbyService
 	ConfigRepository repository.ConfigRepository

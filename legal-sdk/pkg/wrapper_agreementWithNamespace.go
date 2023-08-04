@@ -16,8 +16,6 @@ import (
 	"github.com/go-openapi/runtime/client"
 )
 
-// AgreementWithNamespaceService this is use for compatibility with latest modular sdk only
-// Deprecated: 2023-03-30 - please use AgreementWithNamespaceService imported from "github.com/AccelByte/accelbyte-go-modular-sdk/legal-sdk/pkg"
 type AgreementWithNamespaceService struct {
 	Client           *legalclient.JusticeLegalService
 	ConfigRepository repository.ConfigRepository

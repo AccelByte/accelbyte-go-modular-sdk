@@ -16,8 +16,6 @@ import (
 	"github.com/go-openapi/runtime/client"
 )
 
-// DLCService this is use for compatibility with latest modular sdk only
-// Deprecated: 2023-03-30 - please use DLCService imported from "github.com/AccelByte/accelbyte-go-modular-sdk/platform-sdk/pkg"
 type DLCService struct {
 	Client           *platformclient.JusticePlatformService
 	ConfigRepository repository.ConfigRepository

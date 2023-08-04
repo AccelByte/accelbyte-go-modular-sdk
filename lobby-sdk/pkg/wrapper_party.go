@@ -16,8 +16,6 @@ import (
 	"github.com/go-openapi/runtime/client"
 )
 
-// PartyService this is use for compatibility with latest modular sdk only
-// Deprecated: 2023-03-30 - please use PartyService imported from "github.com/AccelByte/accelbyte-go-modular-sdk/lobby-sdk/pkg"
 type PartyService struct {
 	Client           *lobbyclient.JusticeLobbyService
 	ConfigRepository repository.ConfigRepository

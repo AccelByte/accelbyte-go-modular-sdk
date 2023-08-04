@@ -18,8 +18,6 @@ import (
 	"github.com/go-openapi/runtime/client"
 )
 
-// CampaignService this is use for compatibility with latest modular sdk only
-// Deprecated: 2023-03-30 - please use CampaignService imported from "github.com/AccelByte/accelbyte-go-modular-sdk/platform-sdk/pkg"
 type CampaignService struct {
 	Client           *platformclient.JusticePlatformService
 	ConfigRepository repository.ConfigRepository

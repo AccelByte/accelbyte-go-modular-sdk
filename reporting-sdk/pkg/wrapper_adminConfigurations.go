@@ -16,8 +16,6 @@ import (
 	"github.com/go-openapi/runtime/client"
 )
 
-// AdminConfigurationsService this is use for compatibility with latest modular sdk only
-// Deprecated: 2023-03-30 - please use AdminConfigurationsService imported from "github.com/AccelByte/accelbyte-go-modular-sdk/reporting-sdk/pkg"
 type AdminConfigurationsService struct {
 	Client           *reportingclient.JusticeReportingService
 	ConfigRepository repository.ConfigRepository

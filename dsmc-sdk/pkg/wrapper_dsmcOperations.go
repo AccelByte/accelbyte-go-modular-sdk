@@ -16,8 +16,6 @@ import (
 	"github.com/go-openapi/runtime/client"
 )
 
-// DsmcOperationsService this is use for compatibility with latest modular sdk only
-// Deprecated: 2023-03-30 - please use DsmcOperationsService imported from "github.com/AccelByte/accelbyte-go-modular-sdk/dsmc-sdk/pkg"
 type DsmcOperationsService struct {
 	Client           *dsmcclient.JusticeDsmcService
 	ConfigRepository repository.ConfigRepository

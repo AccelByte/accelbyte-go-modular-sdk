@@ -16,8 +16,6 @@ import (
 	"github.com/go-openapi/runtime/client"
 )
 
-// ConfigService this is use for compatibility with latest modular sdk only
-// Deprecated: 2023-03-30 - please use ConfigService imported from "github.com/AccelByte/accelbyte-go-modular-sdk/basic-sdk/pkg"
 type ConfigService struct {
 	Client           *basicclient.JusticeBasicService
 	ConfigRepository repository.ConfigRepository

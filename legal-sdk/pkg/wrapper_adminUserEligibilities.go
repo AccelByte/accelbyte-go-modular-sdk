@@ -16,8 +16,6 @@ import (
 	"github.com/go-openapi/runtime/client"
 )
 
-// AdminUserEligibilitiesService this is use for compatibility with latest modular sdk only
-// Deprecated: 2023-03-30 - please use AdminUserEligibilitiesService imported from "github.com/AccelByte/accelbyte-go-modular-sdk/legal-sdk/pkg"
 type AdminUserEligibilitiesService struct {
 	Client           *legalclient.JusticeLegalService
 	ConfigRepository repository.ConfigRepository

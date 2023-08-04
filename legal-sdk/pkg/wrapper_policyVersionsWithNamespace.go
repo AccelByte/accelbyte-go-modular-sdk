@@ -16,8 +16,6 @@ import (
 	"github.com/go-openapi/runtime/client"
 )
 
-// PolicyVersionsWithNamespaceService this is use for compatibility with latest modular sdk only
-// Deprecated: 2023-03-30 - please use PolicyVersionsWithNamespaceService imported from "github.com/AccelByte/accelbyte-go-modular-sdk/legal-sdk/pkg"
 type PolicyVersionsWithNamespaceService struct {
 	Client           *legalclient.JusticeLegalService
 	ConfigRepository repository.ConfigRepository

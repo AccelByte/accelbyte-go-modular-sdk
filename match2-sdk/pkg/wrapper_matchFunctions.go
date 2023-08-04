@@ -16,8 +16,6 @@ import (
 	"github.com/go-openapi/runtime/client"
 )
 
-// MatchFunctionsService this is use for compatibility with latest modular sdk only
-// Deprecated: 2023-03-30 - please use MatchFunctionsService imported from "github.com/AccelByte/accelbyte-go-modular-sdk/match2-sdk/pkg"
 type MatchFunctionsService struct {
 	Client           *match2client.JusticeMatch2Service
 	ConfigRepository repository.ConfigRepository

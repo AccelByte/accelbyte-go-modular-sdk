@@ -16,8 +16,6 @@ import (
 	"github.com/go-openapi/runtime/client"
 )
 
-// DataDeletionService this is use for compatibility with latest modular sdk only
-// Deprecated: 2023-03-30 - please use DataDeletionService imported from "github.com/AccelByte/accelbyte-go-modular-sdk/gdpr-sdk/pkg"
 type DataDeletionService struct {
 	Client           *gdprclient.JusticeGdprService
 	ConfigRepository repository.ConfigRepository

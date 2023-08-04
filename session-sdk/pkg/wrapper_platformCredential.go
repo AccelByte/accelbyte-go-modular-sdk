@@ -16,8 +16,6 @@ import (
 	"github.com/go-openapi/runtime/client"
 )
 
-// PlatformCredentialService this is use for compatibility with latest modular sdk only
-// Deprecated: 2023-03-30 - please use PlatformCredentialService imported from "github.com/AccelByte/accelbyte-go-modular-sdk/session-sdk/pkg"
 type PlatformCredentialService struct {
 	Client           *sessionclient.JusticeSessionService
 	ConfigRepository repository.ConfigRepository

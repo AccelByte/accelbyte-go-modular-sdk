@@ -16,8 +16,6 @@ import (
 	"github.com/go-openapi/runtime/client"
 )
 
-// UserStatisticCycleService this is use for compatibility with latest modular sdk only
-// Deprecated: 2023-03-30 - please use UserStatisticCycleService imported from "github.com/AccelByte/accelbyte-go-modular-sdk/social-sdk/pkg"
 type UserStatisticCycleService struct {
 	Client           *socialclient.JusticeSocialService
 	ConfigRepository repository.ConfigRepository

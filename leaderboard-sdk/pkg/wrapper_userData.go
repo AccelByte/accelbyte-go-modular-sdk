@@ -16,8 +16,6 @@ import (
 	"github.com/go-openapi/runtime/client"
 )
 
-// UserDataService this is use for compatibility with latest modular sdk only
-// Deprecated: 2023-03-30 - please use UserDataService imported from "github.com/AccelByte/accelbyte-go-modular-sdk/leaderboard-sdk/pkg"
 type UserDataService struct {
 	Client           *leaderboardclient.JusticeLeaderboardService
 	ConfigRepository repository.ConfigRepository

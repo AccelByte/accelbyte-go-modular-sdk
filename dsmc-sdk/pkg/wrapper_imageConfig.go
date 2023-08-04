@@ -16,8 +16,6 @@ import (
 	"github.com/go-openapi/runtime/client"
 )
 
-// ImageConfigService this is use for compatibility with latest modular sdk only
-// Deprecated: 2023-03-30 - please use ImageConfigService imported from "github.com/AccelByte/accelbyte-go-modular-sdk/dsmc-sdk/pkg"
 type ImageConfigService struct {
 	Client           *dsmcclient.JusticeDsmcService
 	ConfigRepository repository.ConfigRepository

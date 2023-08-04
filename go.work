@@ -1,0 +1,71 @@
+go 1.18
+
+use (
+	// service sdk modules
+	iam-sdk
+	achievement-sdk
+	ams-sdk
+	basic-sdk
+	cloudsave-sdk
+	dslogmanager-sdk
+	dsmc-sdk
+	eventlog-sdk
+	gametelemetry-sdk
+	gdpr-sdk
+	group-sdk
+	leaderboard-sdk
+	legal-sdk
+	lobby-sdk
+	match2-sdk
+	matchmaking-sdk
+	platform-sdk
+	qosm-sdk
+	reporting-sdk
+	seasonpass-sdk
+	session-sdk
+	sessionbrowser-sdk
+	social-sdk
+	ugc-sdk
+
+	// compatibility layer modulues
+	services-api
+	services-api/pkg/factory
+	services-api/pkg/service
+	services-api/pkg/service/achievement
+	services-api/pkg/service/ams
+	services-api/pkg/service/basic
+	services-api/pkg/service/cloudsave
+	services-api/pkg/service/dslogmanager
+	services-api/pkg/service/dsmc
+	services-api/pkg/service/eventlog
+	services-api/pkg/service/gametelemetry
+	services-api/pkg/service/gdpr
+	services-api/pkg/service/group
+	services-api/pkg/service/iam
+	services-api/pkg/service/leaderboard
+	services-api/pkg/service/legal
+	services-api/pkg/service/lobby
+	services-api/pkg/service/match2
+	services-api/pkg/service/matchmaking
+	services-api/pkg/service/platform
+	services-api/pkg/service/qosm
+	services-api/pkg/service/reporting
+	services-api/pkg/service/seasonpass
+	services-api/pkg/service/session
+	services-api/pkg/service/sessionbrowser
+	services-api/pkg/service/social
+	services-api/pkg/service/ugc
+
+	// samples
+	samples/aws-lambda-example/UserStatsFunction
+	samples/cli
+	samples/custom-operation
+	samples/getting-started
+	samples/oidc-web
+	samples/ondemand-refresh-token
+	samples/tic-tac-toe/aws-lambda
+	samples/tic-tac-toe/client
+
+	// tests
+    services-api/pkg/tests
+)

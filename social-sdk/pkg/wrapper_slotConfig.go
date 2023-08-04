@@ -16,8 +16,6 @@ import (
 	"github.com/go-openapi/runtime/client"
 )
 
-// SlotConfigService this is use for compatibility with latest modular sdk only
-// Deprecated: 2023-03-30 - please use SlotConfigService imported from "github.com/AccelByte/accelbyte-go-modular-sdk/social-sdk/pkg"
 type SlotConfigService struct {
 	Client           *socialclient.JusticeSocialService
 	ConfigRepository repository.ConfigRepository

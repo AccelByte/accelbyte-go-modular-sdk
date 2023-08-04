@@ -16,8 +16,6 @@ import (
 	"github.com/go-openapi/runtime/client"
 )
 
-// DSMCDefaultConfigurationService this is use for compatibility with latest modular sdk only
-// Deprecated: 2023-03-30 - please use DSMCDefaultConfigurationService imported from "github.com/AccelByte/accelbyte-go-modular-sdk/session-sdk/pkg"
 type DSMCDefaultConfigurationService struct {
 	Client           *sessionclient.JusticeSessionService
 	ConfigRepository repository.ConfigRepository

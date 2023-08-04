@@ -16,8 +16,6 @@ import (
 	"github.com/go-openapi/runtime/client"
 )
 
-// AgreementService this is use for compatibility with latest modular sdk only
-// Deprecated: 2023-03-30 - please use AgreementService imported from "github.com/AccelByte/accelbyte-go-modular-sdk/legal-sdk/pkg"
 type AgreementService struct {
 	Client           *legalclient.JusticeLegalService
 	ConfigRepository repository.ConfigRepository

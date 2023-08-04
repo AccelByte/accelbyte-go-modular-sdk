@@ -17,8 +17,6 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils/auth"
 )
 
-// PaymentStationService this is use for compatibility with latest modular sdk only
-// Deprecated: 2023-03-30 - please use PaymentStationService imported from "github.com/AccelByte/accelbyte-go-modular-sdk/platform-sdk/pkg"
 type PaymentStationService struct {
 	Client           *platformclient.JusticePlatformService
 	ConfigRepository repository.ConfigRepository

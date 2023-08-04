@@ -16,8 +16,6 @@ import (
 	"github.com/go-openapi/runtime/client"
 )
 
-// PresenceService this is use for compatibility with latest modular sdk only
-// Deprecated: 2023-03-30 - please use PresenceService imported from "github.com/AccelByte/accelbyte-go-modular-sdk/lobby-sdk/pkg"
 type PresenceService struct {
 	Client           *lobbyclient.JusticeLobbyService
 	ConfigRepository repository.ConfigRepository
