@@ -2,15 +2,9 @@ module tic-tac-toe
 
 go 1.18
 
-replace (
-	github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk => ../../../iam-sdk
-	github.com/AccelByte/accelbyte-go-modular-sdk/lobby-sdk => ../../../lobby-sdk
-	github.com/AccelByte/accelbyte-go-modular-sdk/services-api => ../../../services-api
-)
-
 require (
 	github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk v0.1.0-alpha.1
-	github.com/AccelByte/accelbyte-go-modular-sdk/lobby-sdk v0.1.0
+	github.com/AccelByte/accelbyte-go-modular-sdk/lobby-sdk v0.1.0-alpha.1
 	github.com/AccelByte/accelbyte-go-modular-sdk/services-api v0.1.0-alpha.1
 	github.com/aws/aws-lambda-go v1.37.0
 	github.com/go-redis/redis/v8 v8.11.3

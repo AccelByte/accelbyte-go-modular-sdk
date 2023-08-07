@@ -7,11 +7,9 @@ package main
 import (
 	"fmt"
 
+	iam "github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/o_auth2_0_extension"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils/auth"
-
-	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/factory"
-	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/service/iam"
 )
 
 var (
@@ -23,7 +21,7 @@ var (
 func main() {
 	// prepare the IAM Oauth service
 	oauth := &iam.OAuth20Service{
-		Client:           factory.NewIamClient(&configRepo),
+		Client:           iam.NewIamClient(&configRepo),
 		ConfigRepository: &configRepo,
 		TokenRepository:  &tokenRepo,
 	}
@@ -44,7 +42,7 @@ func main() {
 
 	// prepare the IAM's Oauth 2.0 Extension service
 	oAuth20ExtensionService := &iam.OAuth20ExtensionService{
-		Client:          factory.NewIamClient(&configRepo),
+		Client:          iam.NewIamClient(&configRepo),
 		TokenRepository: &tokenRepo,
 	}
 	input := &o_auth2_0_extension.GetCountryLocationV3Params{}

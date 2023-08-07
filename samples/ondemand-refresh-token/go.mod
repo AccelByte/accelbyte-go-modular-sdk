@@ -2,43 +2,6 @@ module ondemand-refresh-token
 
 go 1.18
 
-//require github.com/AccelByte/accelbyte-go-modular-sdk v0.39.0 // Use the latest version when starting a new project
-
-// for development only (not propagated)
-replace (
-	github.com/AccelByte/accelbyte-go-modular-sdk/achievement-sdk => ../../achievement-sdk
-	github.com/AccelByte/accelbyte-go-modular-sdk/ams-sdk => ../../ams-sdk
-	github.com/AccelByte/accelbyte-go-modular-sdk/basic-sdk => ../../basic-sdk
-	github.com/AccelByte/accelbyte-go-modular-sdk/cloudsave-sdk => ../../cloudsave-sdk
-	github.com/AccelByte/accelbyte-go-modular-sdk/dslogmanager-sdk => ../../dslogmanager-sdk
-	github.com/AccelByte/accelbyte-go-modular-sdk/dsmc-sdk => ../../dsmc-sdk
-	github.com/AccelByte/accelbyte-go-modular-sdk/eventlog-sdk => ../../eventlog-sdk
-	github.com/AccelByte/accelbyte-go-modular-sdk/gametelemetry-sdk => ../../gametelemetry-sdk
-	github.com/AccelByte/accelbyte-go-modular-sdk/gdpr-sdk => ../../gdpr-sdk
-	github.com/AccelByte/accelbyte-go-modular-sdk/group-sdk => ../../group-sdk
-	github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk => ../../iam-sdk
-	github.com/AccelByte/accelbyte-go-modular-sdk/leaderboard-sdk => ../../leaderboard-sdk
-	github.com/AccelByte/accelbyte-go-modular-sdk/legal-sdk => ../../legal-sdk
-	github.com/AccelByte/accelbyte-go-modular-sdk/lobby-sdk => ../../lobby-sdk
-	github.com/AccelByte/accelbyte-go-modular-sdk/match2-sdk => ../../match2-sdk
-	github.com/AccelByte/accelbyte-go-modular-sdk/matchmaking-sdk => ../../matchmaking-sdk
-	github.com/AccelByte/accelbyte-go-modular-sdk/platform-sdk => ../../platform-sdk
-	github.com/AccelByte/accelbyte-go-modular-sdk/qosm-sdk => ../../qosm-sdk
-	github.com/AccelByte/accelbyte-go-modular-sdk/reporting-sdk => ../../reporting-sdk
-	github.com/AccelByte/accelbyte-go-modular-sdk/seasonpass-sdk => ../../seasonpass-sdk
-	github.com/AccelByte/accelbyte-go-modular-sdk/services-api => ../../services-api
-	github.com/AccelByte/accelbyte-go-modular-sdk/session-sdk => ../../session-sdk
-	github.com/AccelByte/accelbyte-go-modular-sdk/sessionbrowser-sdk => ../../sessionbrowser-sdk
-	github.com/AccelByte/accelbyte-go-modular-sdk/social-sdk => ../../social-sdk
-	github.com/AccelByte/accelbyte-go-modular-sdk/ugc-sdk => ../../ugc-sdk
-)
-
-// for development only (not propagated)
-replace (
-	github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/factory => ../../services-api/pkg/factory
-	github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/service/iam => ../../services-api/pkg/service/iam
-)
-
 require (
 	github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk v0.1.0-alpha.1
 	github.com/AccelByte/accelbyte-go-modular-sdk/services-api v0.1.0-alpha.1
