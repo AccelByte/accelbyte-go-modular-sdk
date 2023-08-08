@@ -99,15 +99,17 @@ test_broken_link:
 	DOCKER_SKIP_BUILD=1 bash "$(SDK_MD_CRAWLER_PATH)/md-crawler.sh" -i "https://docs.accelbyte.io/guides/customization/golang-sdk-guide.html"
 	[ ! -f test.err ]
 
-version:
+version_module:
 	@test -n "$(SERVICE)" || (echo "SERVICE is not set" ; exit 1)
 	if [ -n "$$MAJOR" ]; then VERSION_PART=1; elif [ -n "$$PATCH" ]; then VERSION_PART=3; else VERSION_PART=2; fi && \
 		VERSION_OLD=$$(cat $(SERVICE)-sdk/pkg/version.txt | tr -d '\n') && \
-		VERSION_NEW=$$(awk -v part=$$VERSION_PART -F. "{OFS=\".\"; \$$part+=1; print \$$0}" $(SERVICE)-sdk/pkg/version.txt) && \
+		VERSION_NEW=$$(awk -v part=$$VERSION_PART -F. "{OFS=\".\"; \$$part+=1; print \$$0}" $(SERVICE)-sdk/pkg/version.txt | sed -n "s/\([0-9]\+\.[0-9]\+\.[0-9]\+\).*/\1/p") && \
+		VERSION_NEW="$${VERSION_NEW}$(SUFFIX)" && \
 		echo $${VERSION_NEW} > $(SERVICE)-sdk/pkg/version.txt && \
 		if [ $(SERVICE) = "iam" ]; then echo $${VERSION_NEW} > services-api/pkg/service/iam/version.txt; fi && \
-		sed -i "s/github.com\/AccelByte\/accelbyte-go-modular-sdk\/$(SERVICE)-sdk v[0-9]\+\.[0-9]\+\.[0-9]\+/github.com\/AccelByte\/accelbyte-go-modular-sdk\/$(SERVICE)-sdk v$$VERSION_NEW/" services-api/pkg/service/$(SERVICE)/go.mod && \
-		sed -i "s/github.com\/AccelByte\/accelbyte-go-modular-sdk\/services-api\/pkg\/service\/$(SERVICE) v[0-9]\+\.[0-9]\+\.[0-9]\+/github.com\/AccelByte\/accelbyte-go-modular-sdk\/services-api\/pkg\/service\/$(SERVICE) v$$VERSION_NEW/" $(SERVICE)-sdk/go.mod
+		sed -i "s/github.com\/AccelByte\/accelbyte-go-modular-sdk\/$(SERVICE)-sdk v[0-9]\+\.[0-9]\+\.[0-9]\+.*/github.com\/AccelByte\/accelbyte-go-modular-sdk\/$(SERVICE)-sdk v$$VERSION_NEW/" services-api/pkg/service/$(SERVICE)/go.mod && \
+		sed -i "s/github.com\/AccelByte\/accelbyte-go-modular-sdk\/services-api\/pkg\/service\/$(SERVICE) v[0-9]\+\.[0-9]\+\.[0-9]\+.*/github.com\/AccelByte\/accelbyte-go-modular-sdk\/services-api\/pkg\/service\/$(SERVICE) v$$VERSION_NEW/" $(SERVICE)-sdk/go.mod && \
+		sed -i "s/github.com\/AccelByte\/accelbyte-go-modular-sdk\/$(SERVICE)-sdk v[0-9]\+\.[0-9]\+\.[0-9]\+.*/github.com\/AccelByte\/accelbyte-go-modular-sdk\/$(SERVICE)-sdk v$$VERSION_NEW/" services-api/pkg/factory/go.mod
 
 outstanding_deprecation:
 	find * -type f -iname '*.go' \
