@@ -1,8 +1,6 @@
 go 1.18
 
 use (
-	// service sdk modules
-	iam-sdk
 	achievement-sdk
 	ams-sdk
 	basic-sdk
@@ -13,6 +11,8 @@ use (
 	gametelemetry-sdk
 	gdpr-sdk
 	group-sdk
+	// service sdk modules
+	iam-sdk
 	leaderboard-sdk
 	legal-sdk
 	lobby-sdk
@@ -21,11 +21,17 @@ use (
 	platform-sdk
 	qosm-sdk
 	reporting-sdk
+
+	// samples
+	samples/aws-lambda-example/UserStatsFunction
+	samples/cli
+	samples/custom-operation
+	samples/getting-started
+	samples/oidc-web
+	samples/ondemand-refresh-token
+	samples/tic-tac-toe/aws-lambda
+	samples/tic-tac-toe/client
 	seasonpass-sdk
-	session-sdk
-	sessionbrowser-sdk
-	social-sdk
-	ugc-sdk
 
 	// common module
 	services-api
@@ -57,18 +63,12 @@ use (
 	services-api/pkg/service/sessionbrowser
 	services-api/pkg/service/social
 	services-api/pkg/service/ugc
-	services-api/pkg/utils/auth/validator
-
-	// samples
-	samples/aws-lambda-example/UserStatsFunction
-	samples/cli
-	samples/custom-operation
-	samples/getting-started
-	samples/oidc-web
-	samples/ondemand-refresh-token
-	samples/tic-tac-toe/aws-lambda
-	samples/tic-tac-toe/client
 
 	// tests
-    services-api/pkg/tests
+	services-api/pkg/tests
+	services-api/pkg/utils/auth/validator
+	session-sdk
+	sessionbrowser-sdk
+	social-sdk
+	ugc-sdk
 )
