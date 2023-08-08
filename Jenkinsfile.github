@@ -9,9 +9,9 @@ library(
 )
 
 githubOwner = 'AccelByte'
-githubRepo = 'accelbyte-go-sdk'
-githubSsh = 'dhanarab-sdkbuild-ssh'
-githubPat = 'dhanarab-sdkbuild-pat-github'
+githubRepo = 'accelbyte-go-modular-sdk'
+githubSsh = 'accelbyte-sdk-sdkbuild-ssh'
+githubPat = 'accelbyte-sdk-sdkbuild-pat-github'
 bitbucketSsh = 'bitbucket-build-extend-ssh'
 
 githubUrl = "git@github.com:${githubOwner}/${githubRepo}.git"

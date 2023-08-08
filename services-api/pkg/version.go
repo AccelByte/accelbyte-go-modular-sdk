@@ -4,4 +4,7 @@
 
 package common
 
-const Version = "0.0.1"
+import _ "embed"
+
+//go:embed version.txt
+var Version string

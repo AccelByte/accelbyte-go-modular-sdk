@@ -40,40 +40,40 @@ replace (
 )
 
 require (
-	github.com/AccelByte/accelbyte-go-modular-sdk/services-api v0.1.0
-	github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/factory v0.0.0-00010101000000-000000000000
-	github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/service/iam v0.0.0-00010101000000-000000000000
-	github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/service/social v0.0.0-00010101000000-000000000000
-	github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils/auth/validator v0.0.0-00010101000000-000000000000
-	github.com/AccelByte/accelbyte-go-modular-sdk/social-sdk v0.1.0
+	github.com/AccelByte/accelbyte-go-modular-sdk/services-api v0.1.0-alpha.1
+	github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/factory v0.1.0-alpha.1
+	github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/service/iam v0.1.0-alpha.1
+	github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/service/social v0.1.0-alpha.1
+	github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils/auth/validator v0.1.0-alpha.1
+	github.com/AccelByte/accelbyte-go-modular-sdk/social-sdk v0.1.0-alpha.1
 	github.com/aws/aws-lambda-go v1.37.0
 	github.com/sirupsen/logrus v1.9.0
 )
 
 require (
-	github.com/AccelByte/accelbyte-go-modular-sdk/achievement-sdk v0.1.0 // indirect
-	github.com/AccelByte/accelbyte-go-modular-sdk/ams-sdk v0.1.0 // indirect
-	github.com/AccelByte/accelbyte-go-modular-sdk/basic-sdk v0.1.0 // indirect
-	github.com/AccelByte/accelbyte-go-modular-sdk/cloudsave-sdk v0.1.0 // indirect
-	github.com/AccelByte/accelbyte-go-modular-sdk/dslogmanager-sdk v0.1.0 // indirect
-	github.com/AccelByte/accelbyte-go-modular-sdk/dsmc-sdk v0.1.0 // indirect
-	github.com/AccelByte/accelbyte-go-modular-sdk/eventlog-sdk v0.1.0 // indirect
-	github.com/AccelByte/accelbyte-go-modular-sdk/gametelemetry-sdk v0.1.0 // indirect
-	github.com/AccelByte/accelbyte-go-modular-sdk/gdpr-sdk v0.1.0 // indirect
-	github.com/AccelByte/accelbyte-go-modular-sdk/group-sdk v0.1.0 // indirect
-	github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk v0.1.0 // indirect
-	github.com/AccelByte/accelbyte-go-modular-sdk/leaderboard-sdk v0.1.0 // indirect
-	github.com/AccelByte/accelbyte-go-modular-sdk/legal-sdk v0.1.0 // indirect
-	github.com/AccelByte/accelbyte-go-modular-sdk/lobby-sdk v0.1.0 // indirect
-	github.com/AccelByte/accelbyte-go-modular-sdk/match2-sdk v0.1.0 // indirect
-	github.com/AccelByte/accelbyte-go-modular-sdk/matchmaking-sdk v0.1.0 // indirect
-	github.com/AccelByte/accelbyte-go-modular-sdk/platform-sdk v0.1.0 // indirect
-	github.com/AccelByte/accelbyte-go-modular-sdk/qosm-sdk v0.1.0 // indirect
-	github.com/AccelByte/accelbyte-go-modular-sdk/reporting-sdk v0.1.0 // indirect
-	github.com/AccelByte/accelbyte-go-modular-sdk/seasonpass-sdk v0.1.0 // indirect
-	github.com/AccelByte/accelbyte-go-modular-sdk/session-sdk v0.1.0 // indirect
-	github.com/AccelByte/accelbyte-go-modular-sdk/sessionbrowser-sdk v0.1.0 // indirect
-	github.com/AccelByte/accelbyte-go-modular-sdk/ugc-sdk v0.1.0 // indirect
+	github.com/AccelByte/accelbyte-go-modular-sdk/achievement-sdk v0.1.0-alpha.1 // indirect
+	github.com/AccelByte/accelbyte-go-modular-sdk/ams-sdk v0.1.0-alpha.1 // indirect
+	github.com/AccelByte/accelbyte-go-modular-sdk/basic-sdk v0.1.0-alpha.1 // indirect
+	github.com/AccelByte/accelbyte-go-modular-sdk/cloudsave-sdk v0.1.0-alpha.1 // indirect
+	github.com/AccelByte/accelbyte-go-modular-sdk/dslogmanager-sdk v0.1.0-alpha.1 // indirect
+	github.com/AccelByte/accelbyte-go-modular-sdk/dsmc-sdk v0.1.0-alpha.1 // indirect
+	github.com/AccelByte/accelbyte-go-modular-sdk/eventlog-sdk v0.1.0-alpha.1 // indirect
+	github.com/AccelByte/accelbyte-go-modular-sdk/gametelemetry-sdk v0.1.0-alpha.1 // indirect
+	github.com/AccelByte/accelbyte-go-modular-sdk/gdpr-sdk v0.1.0-alpha.1 // indirect
+	github.com/AccelByte/accelbyte-go-modular-sdk/group-sdk v0.1.0-alpha.1 // indirect
+	github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk v0.1.0-alpha.1 // indirect
+	github.com/AccelByte/accelbyte-go-modular-sdk/leaderboard-sdk v0.1.0-alpha.1 // indirect
+	github.com/AccelByte/accelbyte-go-modular-sdk/legal-sdk v0.1.0-alpha.1 // indirect
+	github.com/AccelByte/accelbyte-go-modular-sdk/lobby-sdk v0.1.0-alpha.1 // indirect
+	github.com/AccelByte/accelbyte-go-modular-sdk/match2-sdk v0.1.0-alpha.1 // indirect
+	github.com/AccelByte/accelbyte-go-modular-sdk/matchmaking-sdk v0.1.0-alpha.1 // indirect
+	github.com/AccelByte/accelbyte-go-modular-sdk/platform-sdk v0.1.0-alpha.1 // indirect
+	github.com/AccelByte/accelbyte-go-modular-sdk/qosm-sdk v0.1.0-alpha.1 // indirect
+	github.com/AccelByte/accelbyte-go-modular-sdk/reporting-sdk v0.1.0-alpha.1 // indirect
+	github.com/AccelByte/accelbyte-go-modular-sdk/seasonpass-sdk v0.1.0-alpha.1 // indirect
+	github.com/AccelByte/accelbyte-go-modular-sdk/session-sdk v0.1.0-alpha.1 // indirect
+	github.com/AccelByte/accelbyte-go-modular-sdk/sessionbrowser-sdk v0.1.0-alpha.1 // indirect
+	github.com/AccelByte/accelbyte-go-modular-sdk/ugc-sdk v0.1.0-alpha.1 // indirect
 	github.com/AccelByte/bloom v0.0.0-20180915202807-98c052463922 // indirect
 	github.com/AccelByte/go-jose v2.1.4+incompatible // indirect
 	github.com/PuerkitoBio/purell v1.1.1 // indirect

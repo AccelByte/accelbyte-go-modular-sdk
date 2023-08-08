@@ -106,8 +106,8 @@ version:
 		VERSION_NEW=$$(awk -v part=$$VERSION_PART -F. "{OFS=\".\"; \$$part+=1; print \$$0}" $(SERVICE)-sdk/pkg/version.txt) && \
 		echo $${VERSION_NEW} > $(SERVICE)-sdk/pkg/version.txt && \
 		if [ $(SERVICE) = "iam" ]; then echo $${VERSION_NEW} > services-api/pkg/service/iam/version.txt; fi && \
-		sed -i "s/github.com\/abdularis\/accelbyte-go-modular-sdk\/$(SERVICE)-sdk v[0-9]\+\.[0-9]\+\.[0-9]\+/github.com\/abdularis\/accelbyte-go-modular-sdk\/$(SERVICE)-sdk v$$VERSION_NEW/" services-api/pkg/service/$(SERVICE)/go.mod && \
-		sed -i "s/github.com\/abdularis\/accelbyte-go-modular-sdk\/services-api\/pkg\/service\/$(SERVICE) v[0-9]\+\.[0-9]\+\.[0-9]\+/github.com\/abdularis\/accelbyte-go-modular-sdk\/services-api\/pkg\/service\/$(SERVICE) v$$VERSION_NEW/" $(SERVICE)-sdk/go.mod
+		sed -i "s/github.com\/AccelByte\/accelbyte-go-modular-sdk\/$(SERVICE)-sdk v[0-9]\+\.[0-9]\+\.[0-9]\+/github.com\/AccelByte\/accelbyte-go-modular-sdk\/$(SERVICE)-sdk v$$VERSION_NEW/" services-api/pkg/service/$(SERVICE)/go.mod && \
+		sed -i "s/github.com\/AccelByte\/accelbyte-go-modular-sdk\/services-api\/pkg\/service\/$(SERVICE) v[0-9]\+\.[0-9]\+\.[0-9]\+/github.com\/AccelByte\/accelbyte-go-modular-sdk\/services-api\/pkg\/service\/$(SERVICE) v$$VERSION_NEW/" $(SERVICE)-sdk/go.mod
 
 outstanding_deprecation:
 	find * -type f -iname '*.go' \
