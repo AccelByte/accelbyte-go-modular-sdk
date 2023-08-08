@@ -102,14 +102,20 @@ test_broken_link:
 version_module:
 	@test -n "$(SERVICE)" || (echo "SERVICE is not set" ; exit 1)
 	if [ -n "$$MAJOR" ]; then VERSION_PART=1; elif [ -n "$$PATCH" ]; then VERSION_PART=3; else VERSION_PART=2; fi && \
-		VERSION_OLD=$$(cat $(SERVICE)-sdk/pkg/version.txt | tr -d '\n') && \
-		VERSION_NEW=$$(awk -v part=$$VERSION_PART -F. "{OFS=\".\"; \$$part+=1; print \$$0}" $(SERVICE)-sdk/pkg/version.txt | sed -n "s/\([0-9]\+\.[0-9]\+\.[0-9]\+\).*/\1/p") && \
-		VERSION_NEW="$${VERSION_NEW}$(SUFFIX)" && \
-		echo $${VERSION_NEW} > $(SERVICE)-sdk/pkg/version.txt && \
-		if [ $(SERVICE) = "iam" ]; then echo $${VERSION_NEW} > services-api/pkg/service/iam/version.txt; fi && \
-		sed -i "s/github.com\/AccelByte\/accelbyte-go-modular-sdk\/$(SERVICE)-sdk v[0-9]\+\.[0-9]\+\.[0-9]\+.*/github.com\/AccelByte\/accelbyte-go-modular-sdk\/$(SERVICE)-sdk v$$VERSION_NEW/" services-api/pkg/service/$(SERVICE)/go.mod && \
-		sed -i "s/github.com\/AccelByte\/accelbyte-go-modular-sdk\/services-api\/pkg\/service\/$(SERVICE) v[0-9]\+\.[0-9]\+\.[0-9]\+.*/github.com\/AccelByte\/accelbyte-go-modular-sdk\/services-api\/pkg\/service\/$(SERVICE) v$$VERSION_NEW/" $(SERVICE)-sdk/go.mod && \
-		sed -i "s/github.com\/AccelByte\/accelbyte-go-modular-sdk\/$(SERVICE)-sdk v[0-9]\+\.[0-9]\+\.[0-9]\+.*/github.com\/AccelByte\/accelbyte-go-modular-sdk\/$(SERVICE)-sdk v$$VERSION_NEW/" services-api/pkg/factory/go.mod
+	if [ -n "$$CLEAR_SUFFIX" ]; then \
+		VERSION_NEW=$$(sed -n "s/\([0-9]\+\.[0-9]\+\.[0-9]\+\).*/\1/p" $(SERVICE)-sdk/pkg/version.txt); \
+	elif [ -n "$$SET_SUFFIX" ]; then \
+		VERSION_NEW=$$(sed -n "s/\([0-9]\+\.[0-9]\+\.[0-9]\+\).*/\1/p" $(SERVICE)-sdk/pkg/version.txt); \
+		VERSION_NEW=$${VERSION_NEW}$(SET_SUFFIX); \
+	else \
+		VERSION_NEW=$$(awk -v part=$$VERSION_PART -F. "{OFS=\".\"; \$$part+=1; print \$$0}" $(SERVICE)-sdk/pkg/version.txt); \
+	fi && \
+	VERSION_OLD=$$(cat $(SERVICE)-sdk/pkg/version.txt | tr -d '\n') && \
+	echo $${VERSION_NEW} > $(SERVICE)-sdk/pkg/version.txt && \
+	if [ $(SERVICE) = "iam" ]; then echo $${VERSION_NEW} > services-api/pkg/service/iam/version.txt; fi && \
+	sed -i "s/github.com\/AccelByte\/accelbyte-go-modular-sdk\/$(SERVICE)-sdk v[0-9]\+\.[0-9]\+\.[0-9]\+.*/github.com\/AccelByte\/accelbyte-go-modular-sdk\/$(SERVICE)-sdk v$$VERSION_NEW/" services-api/pkg/service/$(SERVICE)/go.mod && \
+	sed -i "s/github.com\/AccelByte\/accelbyte-go-modular-sdk\/services-api\/pkg\/service\/$(SERVICE) v[0-9]\+\.[0-9]\+\.[0-9]\+.*/github.com\/AccelByte\/accelbyte-go-modular-sdk\/services-api\/pkg\/service\/$(SERVICE) v$$VERSION_NEW/" $(SERVICE)-sdk/go.mod && \
+	sed -i "s/github.com\/AccelByte\/accelbyte-go-modular-sdk\/$(SERVICE)-sdk v[0-9]\+\.[0-9]\+\.[0-9]\+.*/github.com\/AccelByte\/accelbyte-go-modular-sdk\/$(SERVICE)-sdk v$$VERSION_NEW/" services-api/pkg/factory/go.mod
 
 tag_module:
 	@test -n "$(SERVICE)" || (echo "SERVICE is not set" ; exit 1)
@@ -118,13 +124,36 @@ tag_module:
 		echo "service $(SERVICE) not found cause $$VERSION_PATH does not exist"; \
 		exit 1; \
 	fi && \
-	VERSION=$$(cat $$VERSION_PATH) && \
+	VERSION=$$(cat $$VERSION_PATH | tr -d '\n') && \
 	GIT_TAG=$(SERVICE)-sdk/v$$VERSION && \
 	if [ $$(git tag -l $$GIT_TAG) ]; then \
 		echo "skip tagging cause tag: $$GIT_TAG already exist"; \
 	else \
 		echo "creating git tag: $$GIT_TAG"; \
 		git tag -a $$GIT_TAG -m "release $(SERVICE) version: $$VERSION"; \
+	fi
+
+version_services_api:
+	@test -n "$(UPDATE_SERVICE)" || (echo "UPDATE_SERVICE is not set" ; exit 1)
+	@if [ -n "$$MAJOR" ]; then VERSION_PART=1; elif [ -n "$$PATCH" ]; then VERSION_PART=3; else VERSION_PART=2; fi && \
+	if [ -n "$$CLEAR_SUFFIX" ]; then \
+		VERSION_NEW=$$(sed -n "s/\([0-9]\+\.[0-9]\+\.[0-9]\+\).*/\1/p" services-api/pkg/version.txt); \
+	elif [ -n "$$SET_SUFFIX" ]; then \
+		VERSION_NEW=$$(sed -n "s/\([0-9]\+\.[0-9]\+\.[0-9]\+\).*/\1/p" services-api/pkg/version.txt); \
+		VERSION_NEW=$${VERSION_NEW}$(SET_SUFFIX); \
+	else \
+		VERSION_NEW=$$(awk -v part=$$VERSION_PART -F. "{OFS=\".\"; \$$part+=1; print \$$0}" services-api/pkg/version.txt); \
+	fi && \
+	VERSION_OLD=$$(cat services-api/pkg/version.txt | tr -d '\n') && \
+	echo "updating services-api version from: $$VERSION_OLD -> $$VERSION_NEW" && \
+	echo $$VERSION_NEW > services-api/pkg/version.txt && \
+	if [ "$(UPDATE_SERVICE)" == "all" ]; then \
+		echo "update dependency for services-api version: $$VERSION_NEW on all services"; \
+		find ./spec -type f -iname '*.json' | grep -oP '(?<=/)\w+(?=.json)' | xargs -I{} \
+				sh -c 'sed -i "s/github.com\/AccelByte\/accelbyte-go-modular-sdk\/services-api v[0-9]\+\.[0-9]\+\.[0-9]\+.*/github.com\/AccelByte\/accelbyte-go-modular-sdk\/services-api v$$1/" {}-sdk/go.mod || exit 255' -- "$$VERSION_NEW"; \
+	else \
+		echo "update dependency for services-api version: $$VERSION_NEW on $(UPDATE_SERVICE) service"; \
+		sed -i "s/github.com\/AccelByte\/accelbyte-go-modular-sdk\/services-api v[0-9]\+\.[0-9]\+\.[0-9]\+.*/github.com\/AccelByte\/accelbyte-go-modular-sdk\/services-api v$$VERSION_NEW/" $(UPDATE_SERVICE)-sdk/go.mod; \
 	fi
 
 outstanding_deprecation:
