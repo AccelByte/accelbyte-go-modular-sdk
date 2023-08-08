@@ -111,6 +111,22 @@ version_module:
 		sed -i "s/github.com\/AccelByte\/accelbyte-go-modular-sdk\/services-api\/pkg\/service\/$(SERVICE) v[0-9]\+\.[0-9]\+\.[0-9]\+.*/github.com\/AccelByte\/accelbyte-go-modular-sdk\/services-api\/pkg\/service\/$(SERVICE) v$$VERSION_NEW/" $(SERVICE)-sdk/go.mod && \
 		sed -i "s/github.com\/AccelByte\/accelbyte-go-modular-sdk\/$(SERVICE)-sdk v[0-9]\+\.[0-9]\+\.[0-9]\+.*/github.com\/AccelByte\/accelbyte-go-modular-sdk\/$(SERVICE)-sdk v$$VERSION_NEW/" services-api/pkg/factory/go.mod
 
+tag_module:
+	@test -n "$(SERVICE)" || (echo "SERVICE is not set" ; exit 1)
+	@VERSION_PATH=$(SERVICE)-sdk/pkg/version.txt && \
+	if [ ! -f $$VERSION_PATH ]; then \
+		echo "service $(SERVICE) not found cause $$VERSION_PATH does not exist"; \
+		exit 1; \
+	fi && \
+	VERSION=$$(cat $$VERSION_PATH) && \
+	GIT_TAG=$(SERVICE)-sdk/v$$VERSION && \
+	if [ $$(git tag -l $$GIT_TAG) ]; then \
+		echo "skip tagging cause tag: $$GIT_TAG already exist"; \
+	else \
+		echo "creating git tag: $$GIT_TAG"; \
+		git tag -a $$GIT_TAG -m "release $(SERVICE) version: $$VERSION"; \
+	fi
+
 outstanding_deprecation:
 	find * -type f -iname '*.go' \
 		| xargs awk ' \
