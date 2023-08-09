@@ -10,7 +10,7 @@ replace (
 )
 
 require (
-	github.com/AccelByte/accelbyte-go-modular-sdk/gametelemetry-sdk v0.0.0
+	github.com/AccelByte/accelbyte-go-modular-sdk/gametelemetry-sdk v0.1.0-alpha.1
 	github.com/AccelByte/accelbyte-go-modular-sdk/services-api v0.1.0-alpha.1
 	github.com/go-openapi/runtime v0.19.29
 )
