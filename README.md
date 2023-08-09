@@ -1,3 +1,5 @@
+# [ON ACTIVE DEVELOPMENT - DO NOT USE YET]
+
 # AccelByte Go Modular SDK
 
 A software development kit (SDK) for interacting with AccelByte services written in Golang.
