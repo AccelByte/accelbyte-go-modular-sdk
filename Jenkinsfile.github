@@ -96,7 +96,7 @@ pipeline {
             serviceVersion = params.RELEASE_TAG.split("-sdk/v")[-1]
             serviceWrapperTag = "services-api/pkg/service/${serviceName}/v${serviceVersion}"
             
-            checkTagResult = sh(script: "if [ $(git tag -l ${serviceWrapperTag}) ]; then exit 0; else exit 1; fi", returnStatus: true)
+            checkTagResult = sh(script: "if [ \$(git tag -l ${serviceWrapperTag}) ]; then exit 0; else exit 1; fi", returnStatus: true)
             if (checkTagResult != 0) {
               // tag for service wrapper not exist
               error("Error: you're trying to release ${params.RELEASE_TAG} which is a service sdk but corresponding service wrapper ${serviceWrapperTag} not found")
@@ -106,7 +106,7 @@ pipeline {
             // createGithubRelease(serviceWrapperTag, params.IS_PRERELEASE, serviceWrapperTag, params.RELEASE_NOTE)
             if (params.RELEASE_TAG.contains("lobby-sdk")) {
               lobbyServicesWrapperTag = "services-api/pkg/service/v${serviceVersion}"
-              isLobbyServiceTagExist = sh(script: "if [ $(git tag -l ${lobbyServicesWrapperTag}) ]; then exit 0; else exit 1; fi", returnStatus: true)
+              isLobbyServiceTagExist = sh(script: "if [ \$(git tag -l ${lobbyServicesWrapperTag}) ]; then exit 0; else exit 1; fi", returnStatus: true)
               if (isLobbyServiceTagExist != 0) {
                 error("Error: you're trying to release ${params.RELEASE_TAG} which is a service sdk but corresponding service wrapper ${lobbyServicesWrapperTag} not found")
               }
