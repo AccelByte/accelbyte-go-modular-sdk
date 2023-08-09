@@ -39,7 +39,6 @@ func (o *CustomSearchParams) WriteToRequest(r runtime.ClientRequest, reg strfmt.
 	}
 
 	if o.Num != nil {
-
 		// query param limit
 		var qrNum int64
 		if o.Num != nil {
@@ -51,7 +50,6 @@ func (o *CustomSearchParams) WriteToRequest(r runtime.ClientRequest, reg strfmt.
 				return err
 			}
 		}
-
 	}
 
 	if len(res) > 0 {
