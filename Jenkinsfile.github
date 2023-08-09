@@ -16,6 +16,25 @@ bitbucketSsh = 'bitbucket-build-extend-ssh'
 
 githubUrl = "git@github.com:${githubOwner}/${githubRepo}.git"
 
+def createGithubRelease(tag_name, prerelease = false, name = null, body = null) {
+  def request = ['tag_name': tag_name]
+  if (name) {
+    request['name'] = name
+  }
+  if (body) {
+    request['body'] = body
+  }
+  request['prerelease'] = prerelease
+  httpRequest(
+    url : "https://api.github.com/repos/${githubOwner}/${githubRepo}/releases",
+    httpMode: 'POST',
+    requestBody: JsonOutput.toJson(request),
+    contentType: 'APPLICATION_JSON',
+    authentication: githubPat,
+    validResponseCodes: '200:201'
+  )
+}
+
 pipeline {
   agent {
     label "master"
@@ -69,9 +88,33 @@ pipeline {
               sh "git push ${githubUrl} HEAD:${params.RELEASE_BRANCH}"
             }
             sh "git push ${githubUrl} ${params.RELEASE_TAG}"
-            
           }
-          github.createRelease(githubPat, githubOwner, githubRepo, params.RELEASE_TAG, params.RELEASE_TAG, params.RELEASE_NOTE)
+          // if tag is service sdk module
+          if (params.RELEASE_TAG =~ /.*-sdk\/v[0-9]+.[0-9]+.[0-9]+.*/) {
+            // release tag for: service sdk module and it service wrapper (compat layer)
+            serviceName = params.RELEASE_TAG.split("-")[0]
+            serviceVersion = params.RELEASE_TAG.split("-sdk/v")[-1]
+            serviceWrapperTag = "services-api/pkg/service/${serviceName}/v${serviceVersion}"
+            
+            checkTagResult = sh(script: "if [ $(git tag -l ${serviceWrapperTag}) ]; then exit 0; else exit 1; fi", returnStatus: true)
+            if (checkTagResult != 0) {
+              // tag for service wrapper not exist
+              error("Error: you're trying to release ${params.RELEASE_TAG} which is a service sdk but corresponding service wrapper ${serviceWrapperTag} not found")
+            }
+            
+            // createGithubRelease(params.RELEASE_TAG, params.IS_PRERELEASE, params.RELEASE_TAG, params.RELEASE_NOTE)
+            // createGithubRelease(serviceWrapperTag, params.IS_PRERELEASE, serviceWrapperTag, params.RELEASE_NOTE)
+            if (params.RELEASE_TAG.contains("lobby-sdk")) {
+              lobbyServicesWrapperTag = "services-api/pkg/service/v${serviceVersion}"
+              isLobbyServiceTagExist = sh(script: "if [ $(git tag -l ${lobbyServicesWrapperTag}) ]; then exit 0; else exit 1; fi", returnStatus: true)
+              if (isLobbyServiceTagExist != 0) {
+                error("Error: you're trying to release ${params.RELEASE_TAG} which is a service sdk but corresponding service wrapper ${lobbyServicesWrapperTag} not found")
+              }
+              // createGithubRelease(lobbyServicesWrapperTag, params.IS_PRERELEASE, lobbyServicesWrapperTag, params.RELEASE_NOTE)
+            }
+          } else {
+            //createGithubRelease(params.RELEASE_TAG, params.IS_PRERELEASE, params.RELEASE_TAG, params.RELEASE_NOTE)
+          }
         }
       }
     }

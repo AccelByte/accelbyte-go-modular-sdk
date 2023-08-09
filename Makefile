@@ -135,6 +135,10 @@ tag_module:
 	else \
 		echo "creating git tag: $$GIT_TAG"; \
 		git tag -a $$GIT_TAG -m "release $(SERVICE) version: $$VERSION"; \
+		git tag -a services-api/pkg/service/$(SERVICE)/v$$VERSION -m "release $(SERVICE) version: $$VERSION"; \
+		if [ "$(SERVICE)" == "lobby" ]; then \
+			git tag -a services-api/pkg/service/v$$VERSION -m "release $(SERVICE) version: $$VERSION"; \
+		fi \
 	fi
 
 version_services_api:
@@ -155,9 +159,16 @@ version_services_api:
 		echo "update dependency for services-api version: $$VERSION_NEW on all services"; \
 		find ./spec -type f -iname '*.json' | grep -oP '(?<=/)\w+(?=.json)' | xargs -I{} \
 				sh -c 'sed -i "s/github.com\/AccelByte\/accelbyte-go-modular-sdk\/services-api v[0-9]\+\.[0-9]\+\.[0-9]\+.*/github.com\/AccelByte\/accelbyte-go-modular-sdk\/services-api v$$1/" {}-sdk/go.mod || exit 255' -- "$$VERSION_NEW"; \
+		find ./spec -type f -iname '*.json' | grep -oP '(?<=/)\w+(?=.json)' | xargs -I{} \
+				sh -c 'sed -i "s/github.com\/AccelByte\/accelbyte-go-modular-sdk\/services-api v[0-9]\+\.[0-9]\+\.[0-9]\+.*/github.com\/AccelByte\/accelbyte-go-modular-sdk\/services-api v$$1/" services-api/pkg/service/{}/go.mod || exit 255' -- "$$VERSION_NEW"; \
+		sed -i "s/github.com\/AccelByte\/accelbyte-go-modular-sdk\/services-api v[0-9]\+\.[0-9]\+\.[0-9]\+.*/github.com\/AccelByte\/accelbyte-go-modular-sdk\/services-api v$$VERSION_NEW/" services-api/pkg/service/go.mod; \
 	else \
 		echo "update dependency for services-api version: $$VERSION_NEW on $(UPDATE_SERVICE) service"; \
 		sed -i "s/github.com\/AccelByte\/accelbyte-go-modular-sdk\/services-api v[0-9]\+\.[0-9]\+\.[0-9]\+.*/github.com\/AccelByte\/accelbyte-go-modular-sdk\/services-api v$$VERSION_NEW/" $(UPDATE_SERVICE)-sdk/go.mod; \
+		sed -i "s/github.com\/AccelByte\/accelbyte-go-modular-sdk\/services-api v[0-9]\+\.[0-9]\+\.[0-9]\+.*/github.com\/AccelByte\/accelbyte-go-modular-sdk\/services-api v$$VERSION_NEW/" services-api/pkg/service/$(UPDATE_SERVICE)/go.mod; \
+		if [ "$(UPDATE_SERVICE)" == "lobby" ]; then \
+			sed -i "s/github.com\/AccelByte\/accelbyte-go-modular-sdk\/services-api v[0-9]\+\.[0-9]\+\.[0-9]\+.*/github.com\/AccelByte\/accelbyte-go-modular-sdk\/services-api v$$VERSION_NEW/" services-api/pkg/service/go.mod; \
+		fi \
 	fi
 
 tag_services_api:
