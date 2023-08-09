@@ -121,13 +121,13 @@ pipeline {
             }
           }
 
-          // createGithubRelease(params.RELEASE_TAG, params.IS_PRERELEASE, params.RELEASE_TAG, params.RELEASE_NOTE)
-          // if (serviceWrapperTag) {
-          //   createGithubRelease(serviceWrapperTag, params.IS_PRERELEASE, serviceWrapperTag, params.RELEASE_NOTE)
-          // }
-          // if (lobbyServiceWrapperTag) {
-          //   createGithubRelease(lobbyServiceWrapperTag, params.IS_PRERELEASE, lobbyServiceWrapperTag, params.RELEASE_NOTE)
-          // }
+          createGithubRelease(params.RELEASE_TAG, params.IS_PRERELEASE, params.RELEASE_TAG, params.RELEASE_NOTE)
+          if (serviceWrapperTag) {
+            createGithubRelease(serviceWrapperTag, params.IS_PRERELEASE, serviceWrapperTag, params.RELEASE_NOTE)
+          }
+          if (lobbyServiceWrapperTag) {
+            createGithubRelease(lobbyServiceWrapperTag, params.IS_PRERELEASE, lobbyServiceWrapperTag, params.RELEASE_NOTE)
+          }
         }
       }
     }
