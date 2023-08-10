@@ -32,9 +32,57 @@ def isTagExist(tag) {
   return codeStatus == 0
 }
 
+def pushGitTag(selectedTag, isPrerelease, releaseNote) {
+  serviceWrapperTag = ''
+  lobbyServiceWrapperTag = ''
+
+  // if it is service sdk module
+  if (selectedTag =~ /.*-sdk\/v[0-9]+.[0-9]+.[0-9]+.*/) {
+    serviceName = selectedTag.split('-')[0]
+    serviceVersion = selectedTag.split('-sdk/v')[-1]
+    serviceWrapperTag = "services-api/pkg/service/${serviceName}/v${serviceVersion}"
+
+    if (!isTagExist(serviceWrapperTag)) {
+      errMessage = "Error: you're trying to release ${selectedTag} " +
+        "which is a service sdk but corresponding service wrapper ${serviceWrapperTag} not found"
+      error(errMessage)
+    }
+
+    // special case for lobby-sdk because it has compat module inside services-api/pkg/service/go.mod
+    if (selectedTag.contains('lobby-sdk')) {
+      lobbyServiceWrapperTag = "services-api/pkg/service/v${serviceVersion}"
+      if (!isTagExist(lobbyServiceWrapperTag)) {
+        errMessage = "Error: you're trying to release ${selectedTag} " +
+          "which is a service sdk but corresponding service wrapper ${lobbyServiceWrapperTag} not found"
+        error(errMessage)
+      }
+    }
+  }
+
+  // push git tags
+  sshagent(credentials: [githubSsh]) {
+    sh "git push ${githubUrl} ${selectedTag}"
+    if (serviceWrapperTag) {
+      sh "git push ${githubUrl} ${serviceWrapperTag}"
+    }
+    if (lobbyServiceWrapperTag) {
+      sh "git push ${githubUrl} ${lobbyServiceWrapperTag}"
+    }
+  }
+
+  // create github release from git tags
+  // createGithubRelease(selectedTag, isPrerelease, selectedTag, releaseNote)
+  // if (serviceWrapperTag) {
+  //   createGithubRelease(serviceWrapperTag, isPrerelease, serviceWrapperTag, releaseNote)
+  // }
+  // if (lobbyServiceWrapperTag) {
+  //   createGithubRelease(lobbyServiceWrapperTag, isPrerelease, lobbyServiceWrapperTag, releaseNote)
+  // }
+}
+
 pipeline {
   agent {
-    label "master"
+    label 'master'
   }
   stages {
     stage('Prepare') {
@@ -48,15 +96,14 @@ pipeline {
     }
     stage('Push') {
       when {
-        expression { 
+        expression {
           return params.ACTION == 'PUSH'
         }
       }
       steps {
         script {
-          sh "git checkout master"
-          sshagent(credentials: [githubSsh])
-          {
+          sh 'git checkout master'
+          sshagent(credentials: [githubSsh]) {
             sh "git push ${githubUrl} HEAD:main"
           }
         }
@@ -64,81 +111,52 @@ pipeline {
     }
     stage('Release') {
       when {
-        expression { 
+        expression {
           return params.ACTION == 'PUSH+RELEASE'
         }
       }
       steps {
         script {
-          if (params.RELEASE_NOTE ==~ /(?s).*@[A-Za-z0-9_-]+@.*/)
-          {
+          if (params.RELEASE_NOTE ==~ /(?s).*@[A-Za-z0-9_-]+@.*/) {
             echo 'Release note still contains one or more template placeholders e.g. @VERSION@, etc. Please check.'
             sh 'false' // Fail this job
           }
 
-          serviceWrapperTag = ""
-          lobbyServiceWrapperTag = ""
-          // if it is service sdk module
-          if (params.RELEASE_TAG =~ /.*-sdk\/v[0-9]+.[0-9]+.[0-9]+.*/) {
-            serviceName = params.RELEASE_TAG.split("-")[0]
-            serviceVersion = params.RELEASE_TAG.split("-sdk/v")[-1]
-            serviceWrapperTag = "services-api/pkg/service/${serviceName}/v${serviceVersion}"
-            if (!isTagExist(serviceWrapperTag)) {
-                error("Error: you're trying to release ${params.RELEASE_TAG} which is a service sdk but corresponding service wrapper ${serviceWrapperTag} not found")
-            }
-
-            if (params.RELEASE_TAG.contains("lobby-sdk")) {
-              lobbyServiceWrapperTag = "services-api/pkg/service/v${serviceVersion}"
-              if (!isTagExist(lobbyServiceWrapperTag)) {
-                error("Error: you're trying to release ${params.RELEASE_TAG} which is a service sdk but corresponding service wrapper ${lobbyServiceWrapperTag} not found")
-              }
-            }
-          }
-
           sh "git checkout ${params.RELEASE_BRANCH}"
-          sshagent(credentials: [githubSsh])
-          {
-            if (params.RELEASE_BRANCH == "master") {
+          sshagent(credentials: [githubSsh]) {
+            if (params.RELEASE_BRANCH == 'master') {
               sh "git push ${githubUrl} HEAD:main"
-            }
-            else {
+            } else {
               sh "git push ${githubUrl} HEAD:${params.RELEASE_BRANCH}"
             }
-            sh "git push ${githubUrl} ${params.RELEASE_TAG}"
-            if (serviceWrapperTag) {
-              sh "git push ${githubUrl} ${serviceWrapperTag}"
-            }
-            if (lobbyServiceWrapperTag) {
-              sh "git push ${githubUrl} ${lobbyServiceWrapperTag}"
-            }
           }
 
-          createGithubRelease(params.RELEASE_TAG, params.IS_PRERELEASE, params.RELEASE_TAG, params.RELEASE_NOTE)
-          if (serviceWrapperTag) {
-            createGithubRelease(serviceWrapperTag, params.IS_PRERELEASE, serviceWrapperTag, params.RELEASE_NOTE)
-          }
-          if (lobbyServiceWrapperTag) {
-            createGithubRelease(lobbyServiceWrapperTag, params.IS_PRERELEASE, lobbyServiceWrapperTag, params.RELEASE_NOTE)
+          if (params.RELEASE_TAG instanceof String) {
+            pushGitTag(params.RELEASE_TAG, params.IS_PRERELEASE, params.RELEASE_NOTE)
+          } else {
+            params.RELEASE_TAG.each { tag ->
+              pushGitTag(tag, params.IS_PRERELEASE, params.RELEASE_NOTE)
+            }
           }
         }
       }
     }
     stage('Pull') {
       when {
-        expression { 
+        expression {
           return params.ACTION == 'PULL'
         }
       }
       steps {
         script {
-          sh "git checkout master"
+          sh 'git checkout master'
           sshagent(credentials: [githubSsh])
           {
             sh "git pull ${githubUrl} main"
           }
           sshagent(credentials: [bitbucketSsh])
           {
-            sh "git push"
+            sh 'git push'
           }
         }
       }
@@ -149,12 +167,12 @@ pipeline {
       script {
         message = """
             :no_entry: <${env.BUILD_URL}|${env.JOB_NAME}-${env.BUILD_NUMBER}> *failed*
-            
+
             |*Action*
             |${params.ACTION}
-            
+
             |""".stripMargin()
-        slackSend(channel: "#activity-justice-codegen-modular-sdk", color: '#FF0000', message: message)
+        slackSend(channel: '#activity-justice-codegen-modular-sdk', color: '#FF0000', message: message)
       }
     }
   }
