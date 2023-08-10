@@ -131,12 +131,8 @@ pipeline {
             }
           }
 
-          if (params.RELEASE_TAG instanceof String) {
-            pushGitTag(params.RELEASE_TAG, params.IS_PRERELEASE, params.RELEASE_NOTE)
-          } else {
-            params.RELEASE_TAG.each { tag ->
-              pushGitTag(tag, params.IS_PRERELEASE, params.RELEASE_NOTE)
-            }
+          params.RELEASE_TAG.split(",").each { tag ->
+            pushGitTag(tag.trim(), params.IS_PRERELEASE, params.RELEASE_NOTE)
           }
         }
       }
