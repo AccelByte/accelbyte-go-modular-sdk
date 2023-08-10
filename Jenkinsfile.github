@@ -71,13 +71,13 @@ def pushGitTag(selectedTag, isPrerelease, releaseNote) {
   }
 
   // create github release from git tags
-  // createGithubRelease(selectedTag, isPrerelease, selectedTag, releaseNote)
-  // if (serviceWrapperTag) {
-  //   createGithubRelease(serviceWrapperTag, isPrerelease, serviceWrapperTag, releaseNote)
-  // }
-  // if (lobbyServiceWrapperTag) {
-  //   createGithubRelease(lobbyServiceWrapperTag, isPrerelease, lobbyServiceWrapperTag, releaseNote)
-  // }
+  createGithubRelease(selectedTag, isPrerelease, selectedTag, releaseNote)
+  if (serviceWrapperTag) {
+    createGithubRelease(serviceWrapperTag, isPrerelease, serviceWrapperTag, releaseNote)
+  }
+  if (lobbyServiceWrapperTag) {
+    createGithubRelease(lobbyServiceWrapperTag, isPrerelease, lobbyServiceWrapperTag, releaseNote)
+  }
 }
 
 pipeline {
