@@ -11,12 +11,10 @@ import (
 	"strings"
 	"time"
 
-	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/factory"
+	iam "github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
-	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/service/iam"
-	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/service/social"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils/auth"
-	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils/auth/validator"
+	social "github.com/AccelByte/accelbyte-go-modular-sdk/social-sdk/pkg"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/social-sdk/pkg/socialclient/user_statistic"
 	"github.com/aws/aws-lambda-go/events"
 	"github.com/aws/aws-lambda-go/lambda"
@@ -30,13 +28,13 @@ var (
 	refreshRepo repository.RefreshTokenRepository = &auth.RefreshTokenImpl{AutoRefresh: false, RefreshRate: 0.01} // Force refresh with shorter time span
 
 	oAuth20Service = iam.OAuth20Service{
-		Client:                 factory.NewIamClient(&configRepo),
+		Client:                 iam.NewIamClient(&configRepo),
 		ConfigRepository:       &configRepo,
 		TokenRepository:        &tokenRepo,
 		RefreshTokenRepository: refreshRepo,
 	}
 	userStatisticService = &social.UserStatisticService{
-		Client:          factory.NewSocialClient(&configRepo),
+		Client:          social.NewSocialClient(&configRepo),
 		TokenRepository: &tokenRepo,
 	}
 )
@@ -179,7 +177,7 @@ func postRequest(evt events.LambdaFunctionURLRequest) (events.LambdaFunctionURLR
 
 func validateToken(accessToken string, namespace string, userId string, httpRequest string) error {
 	// initialize token validator
-	tokenValidator := validator.NewTokenValidator(oAuth20Service, time.Hour)
+	tokenValidator := iam.NewTokenValidator(oAuth20Service, time.Hour)
 	tokenValidator.Initialize()
 
 	// validate stat item
@@ -192,7 +190,7 @@ func validateToken(accessToken string, namespace string, userId string, httpRequ
 	case "DELETE":
 		action = 8
 	}
-	requiredPermissionStatItem := validator.Permission{
+	requiredPermissionStatItem := iam.Permission{
 		Action:   action,
 		Resource: fmt.Sprintf("ADMIN:NAMESPACE:%s:USER:%s:STATITEM", namespace, userId),
 	}

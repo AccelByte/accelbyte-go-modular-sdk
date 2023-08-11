@@ -10,18 +10,35 @@ This SDK was generated from OpenAPI specification documents included in the [spe
 
 This SDK requires `go 1.18` or newer version to be installed.
 
+## How to Migrate
+
+Migrate from [_*accelbyte-go-sdk*_](https://github.com/AccelByte/accelbyte-go-sdk) monolithic package into this [_*accelbyte-go-modular-sdk*_](https://github.com/AccelByte/accelbyte-go-modular-sdk) modular package by importing the AGS service of choice in the go.mod files.
+
+> **_NOTE:_** This modular package will be updated alongside the monolithic one.
+
 ### Import SDK Project
 
-Add the following to your project's `go.mod`:
+For example, add the following to your project's `go.mod`:
 
+Instead of
 ```go
 require (
-    github.com/AccelByte/accelbyte-go-modular-sdk {VERSION}
+    github.com/AccelByte/accelbyte-go-sdk {VERSION}
 )
 ```
+Migrate with
+```go
+require (
+    github.com/AccelByte/accelbyte-go-modular-sdk/{service}-sdk {VERSION}
+)
+```
+Instead of importing the whole package, select which AGS service we want to import in the project.
+Use more than one AGS service if necessary.
 
 Replace `{VERSION}` with a specific release version tag. When starting a new project, 
 using the latest release version is recommended.
+
+For more example, please refer to the [samples](samples) folder.
 
 ### Environment Variables
 

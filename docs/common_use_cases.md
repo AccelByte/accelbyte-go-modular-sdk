@@ -1432,11 +1432,12 @@ if errLeave != nil {
 ### Delete Game Session
 
 ```go
-inputDelete := &game_session.DeleteGameSessionParams{
+ids := []string{*created.ID}
+inputDelete := &game_session.AdminDeleteBulkGameSessionsParams{
+	Body:      &sessionclientmodels.ApimodelsDeleteBulkGameSessionRequest{Ids: ids},
 	Namespace: integration.NamespaceTest,
-	SessionID: *created.ID,
 }
-errDeleted := gameSessionService.DeleteGameSessionShort(inputDelete)
+deleted, errDeleted := gameSessionService.AdminDeleteBulkGameSessionsShort(inputDelete)
 if errDeleted != nil {
 	assert.FailNow(t, errDeleted.Error())
 
