@@ -181,6 +181,35 @@ tag_services_api:
 		git tag -a $$GIT_TAG -m "release $(SERVICE) version: $$VERSION"; \
 	fi
 
+version_compat_module:
+	@test -n "$(MOD_PATH)" || (echo "MOD_PATH is not set" ; exit 1)
+	@test -f "$(MOD_PATH)/version.txt" || (echo "$(MOD_PATH)/version.txt not found in MOD_PATH"; exit 1)
+	@if [ -n "$$MAJOR" ]; then VERSION_PART=1; elif [ -n "$$PATCH" ]; then VERSION_PART=3; else VERSION_PART=2; fi && \
+	if [ -n "$$CLEAR_SUFFIX" ]; then \
+		VERSION_NEW=$$(sed -n "s/\([0-9]\+\.[0-9]\+\.[0-9]\+\).*/\1/p" $(MOD_PATH)/version.txt); \
+	elif [ -n "$$SET_SUFFIX" ]; then \
+		VERSION_NEW=$$(sed -n "s/\([0-9]\+\.[0-9]\+\.[0-9]\+\).*/\1/p" $(MOD_PATH)/version.txt); \
+		VERSION_NEW=$${VERSION_NEW}$(SET_SUFFIX); \
+	else \
+		VERSION_NEW=$$(awk -v part=$$VERSION_PART -F. "{OFS=\".\"; \$$part+=1; print \$$0}" $(MOD_PATH)/version.txt); \
+	fi && \
+	VERSION_OLD=$$(cat $(MOD_PATH)/version.txt | tr -d '\n') && \
+	echo "updating $(MOD_PATH) version from: $$VERSION_OLD -> $$VERSION_NEW" && \
+	echo $$VERSION_NEW > $(MOD_PATH)/version.txt
+
+tag_compat_module:
+	@test -n "$(MOD_PATH)" || (echo "MOD_PATH is not set" ; exit 1)
+	@test -f "$(MOD_PATH)/version.txt" || (echo "$(MOD_PATH)/version.txt not found in MOD_PATH"; exit 1)
+	@VERSION=$$(cat $(MOD_PATH)/version.txt | tr -d '\n') && \
+	GO_MOD_PATH=$$(realpath --relative-to=$$(pwd) $(MOD_PATH)) && \
+	GIT_TAG=$$GO_MOD_PATH/v$$VERSION && \
+	if [ $$(git tag -l $$GIT_TAG) ]; then \
+		echo "skip tagging cause tag: $$GIT_TAG already exist"; \
+	else \
+		echo "creating git tag: $$GIT_TAG"; \
+		git tag -a $$GIT_TAG -m "release $$GO_MOD_PATH version: $$VERSION"; \
+	fi
+
 outstanding_deprecation:
 	find * -type f -iname '*.go' \
 		| xargs awk ' \
