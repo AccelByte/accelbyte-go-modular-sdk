@@ -35,9 +35,9 @@ These are available AccelByte Services SDK modules to use
 ## Compatibility Modules
 
 These are Compatibility Modules that is use to maintain backward compatibility 
-between previous non-modular SDK without migrating existing code right away.
+between previous non-modular SDK without migrating existing code immediately.
 
-Therefore these modules are marked as *DEPRECATED* and should be migrated eventually.
+Therefore these modules are marked as *DEPRECATED* and client code should be migrated eventually.
 
 ### Service Wrapper Modules
 
@@ -72,11 +72,11 @@ Therefore these modules are marked as *DEPRECATED* and should be migrated eventu
 
 | Package Name | Version |
 |---|---|
-| github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/factory | v0.1.0-alpha.1
+| github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/factory | v0.1.0-alpha.1 |
 
 ### Utils Auth Validator
 
 | Package Name | Version |
 |---|---|
-| github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils/auth/validator | v0.1.0-alpha.1
+| github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils/auth/validator | v0.1.0-alpha.1 |
 
