@@ -40,6 +40,8 @@ using the latest release version is recommended.
 
 For more example, please refer to the [samples](samples) folder.
 
+> NOTE: Here is the exhaustive list of go sdk modules available to be used - [Published Go Modules](./docs/published_go_modules.md)
+
 ### Environment Variables
 
 The following environment variables need to be set when using `ConfigRepository`.
