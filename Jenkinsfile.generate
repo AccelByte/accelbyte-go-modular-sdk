@@ -33,7 +33,7 @@ def getTimestampUtc() {
 
 pipeline {
   agent {
-    label "justice-codegen-modular-sdk"
+    label "justice-codegen-sdk"
   }
 
   stages {
