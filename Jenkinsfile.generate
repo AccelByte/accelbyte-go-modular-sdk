@@ -60,7 +60,7 @@ pipeline {
           }
 
           dir(sdkCodegenPath) {
-            sh script: "make dbuild DOCKER_FILE=Dockerfile.all", label: "Build Docker Image For Codegen"
+            sh script: "make setup install dbuild DOCKER_FILE=Dockerfile.all", label: "Build Docker Image For Codegen"
           }
         }
       }
