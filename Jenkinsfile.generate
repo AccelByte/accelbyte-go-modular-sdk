@@ -58,10 +58,6 @@ pipeline {
           dir(sdkSpecPath) {
             sdkSpecCommitHash = sh(returnStdout: true, script: "git rev-list -1 HEAD spec/stage_extend-sdk/TIMESTAMP").trim()
           }
-
-          dir(sdkCodegenPath) {
-            sh script: "make setup install dbuild DOCKER_FILE=Dockerfile.all", label: "Build Docker Image For Codegen"
-          }
         }
       }
     }
@@ -80,9 +76,9 @@ pipeline {
         sh "find ${sdkSpecPath}/spec/stage_extend-sdk/ -maxdepth 1 -type f -exec cp -v -t ${sdkPath}/spec/ {} \\;"
         sh "cp -v ${sdkSpecPath}/docs/openapi-2.0-vendor-extensions.md ${sdkPath}/spec/"
 
-        // Generate SDK only
+        // Generate SDK and the rest of the SDK
         dir(sdkCodegenPath) {
-          sh script: "cd templates/go-modular-extend-sdk && make sdk_all SDK_PATH=${sdkPath}", label: "Generate SDK only"
+          sh script: "cd templates/go-modular-extend-sdk && make all SDK_PATH=${sdkPath}", label: "Generate SDK and rest of SDK release"
         }
 
         // Check code-level breaking changes
@@ -90,11 +86,6 @@ pipeline {
           script {
             breakingChangeCheckExitCode = sh script: "make samples", returnStatus: true, label: "Check code-level breaking changes"
           }
-        }
-
-        // Generate the rest of the SDK
-        dir(sdkCodegenPath) {
-          sh script: "cd templates/go-modular-extend-sdk && make cli_cmd_all cli_test_all doc_index_all style beautify changelog SDK_PATH=${sdkPath}", label: "Generate the rest of SDK release"
         }
 
         // Bump SDK version and commit the generated code to generate branch (overwrite existing)
