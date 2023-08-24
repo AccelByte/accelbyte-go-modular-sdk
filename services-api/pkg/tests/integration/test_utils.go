@@ -9,7 +9,7 @@ import (
 	"os"
 	"testing"
 
-	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg"
+	iam "github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/o_auth2_0"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils/auth"
 )

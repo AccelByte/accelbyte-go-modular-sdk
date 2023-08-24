@@ -15,7 +15,7 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/model"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/tests/integration"
 
-	"github.com/AccelByte/accelbyte-go-modular-sdk/lobby-sdk/pkg"
+	lobby "github.com/AccelByte/accelbyte-go-modular-sdk/lobby-sdk/pkg"
 	service "github.com/AccelByte/accelbyte-go-modular-sdk/lobby-sdk/pkg"
 	lobbyAdminNotification "github.com/AccelByte/accelbyte-go-modular-sdk/lobby-sdk/pkg/lobbyclient/admin"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/lobby-sdk/pkg/lobbyclient/notification"

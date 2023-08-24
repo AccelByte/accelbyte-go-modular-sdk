@@ -12,7 +12,7 @@ import (
 
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils/auth"
 
-	"github.com/AccelByte/accelbyte-go-modular-sdk/basic-sdk/pkg"
+	basic "github.com/AccelByte/accelbyte-go-modular-sdk/basic-sdk/pkg"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/basic-sdk/pkg/basicclient/user_profile"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/basic-sdk/pkg/basicclientmodels"
 

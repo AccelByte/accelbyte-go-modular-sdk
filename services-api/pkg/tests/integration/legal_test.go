@@ -16,7 +16,7 @@ import (
 
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/tests/integration"
 
-	"github.com/AccelByte/accelbyte-go-modular-sdk/legal-sdk/pkg"
+	legal "github.com/AccelByte/accelbyte-go-modular-sdk/legal-sdk/pkg"
 )
 
 var (
