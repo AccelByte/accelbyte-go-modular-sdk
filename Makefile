@@ -8,9 +8,9 @@ GOLANG_DOCKER_IMAGE := golang:1.18
 
 .PHONY: samples
 
-setup-commit-hook:
-	@echo "Setting up pre-commit hook to enforce conventional commit standard for commit messsages"
-	@git config core.hooksPath .githooks && echo "OK"
+check-commits:
+	docker run -t --rm -v $$(pwd):/data -w /data randondigital/commitlint:3.0 \
+		sh -c "(npm list @commitlint/config-conventional || npm --loglevel=error install @commitlint/config-conventional@13.2.0) && commitlint --color false --verbose --from $$(git rev-parse origin/master)"
 
 lint:
 	rm -f lint.err

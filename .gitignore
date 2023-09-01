@@ -202,3 +202,4 @@ modules.xml
 .DS_Store?
 
 .aws-sam
+node_modules
