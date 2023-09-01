@@ -8,6 +8,10 @@ GOLANG_DOCKER_IMAGE := golang:1.18
 
 .PHONY: samples
 
+setup-commit-hook:
+	@echo "Setting up pre-commit hook to enforce conventional commit standard for commit messsages"
+	@git config core.hooksPath .githooks && echo "OK"
+
 lint:
 	rm -f lint.err
 	find -type f -iname go.mod -not -path "*/.justice-codegen-sdk/*" -not -path "*/.cache/*" -exec dirname {} \; | while read DIRECTORY; do \
@@ -98,6 +102,11 @@ test_broken_link:
 	done)
 	DOCKER_SKIP_BUILD=1 bash "$(SDK_MD_CRAWLER_PATH)/md-crawler.sh" -i "https://docs.accelbyte.io/guides/customization/golang-sdk-guide.html"
 	[ ! -f test.err ]
+
+update_version_on_readme:
+	@test -n "$(SERVICE)" || (echo "SERVICE is not set" ; exit 1)
+	@test -n "$(VERSION_NEW)" || (echo "VERSION_NEW is not set" ; exit 1)
+	sed -i "s/github.com\/AccelByte\/accelbyte-go-modular-sdk\/$(SERVICE)-sdk | v[0-9]\+\.[0-9]\+\.[0-9]\+.* |/github.com\/AccelByte\/accelbyte-go-modular-sdk\/$(SERVICE)-sdk | v$(VERSION_NEW) |/" README.md
 
 version_module:
 	@test -n "$(SERVICE)" || (echo "SERVICE is not set" ; exit 1)
