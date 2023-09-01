@@ -21,6 +21,7 @@ use (
 	platform-sdk
 	qosm-sdk
 	reporting-sdk
+	inventory-sdk
 
 	// samples
 	samples/aws-lambda-example/UserStatsFunction
@@ -50,6 +51,7 @@ use (
 	services-api/pkg/service/gdpr
 	services-api/pkg/service/group
 	services-api/pkg/service/iam
+	services-api/pkg/service/inventory
 	services-api/pkg/service/leaderboard
 	services-api/pkg/service/legal
 	services-api/pkg/service/lobby
