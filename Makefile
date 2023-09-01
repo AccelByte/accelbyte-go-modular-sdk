@@ -103,11 +103,6 @@ test_broken_link:
 	DOCKER_SKIP_BUILD=1 bash "$(SDK_MD_CRAWLER_PATH)/md-crawler.sh" -i "https://docs.accelbyte.io/guides/customization/golang-sdk-guide.html"
 	[ ! -f test.err ]
 
-update_version_on_readme:
-	@test -n "$(SERVICE)" || (echo "SERVICE is not set" ; exit 1)
-	@test -n "$(VERSION_NEW)" || (echo "VERSION_NEW is not set" ; exit 1)
-	sed -i "s/github.com\/AccelByte\/accelbyte-go-modular-sdk\/$(SERVICE)-sdk | v[0-9]\+\.[0-9]\+\.[0-9]\+.* |/github.com\/AccelByte\/accelbyte-go-modular-sdk\/$(SERVICE)-sdk | v$(VERSION_NEW) |/" README.md
-
 version_module:
 	@test -n "$(SERVICE)" || (echo "SERVICE is not set" ; exit 1)
 	@if [ -n "$$MAJOR" ]; then VERSION_PART=1; elif [ -n "$$PATCH" ]; then VERSION_PART=3; else VERSION_PART=2; fi && \
