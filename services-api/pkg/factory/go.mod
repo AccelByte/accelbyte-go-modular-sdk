@@ -15,6 +15,7 @@ replace (
 	github.com/AccelByte/accelbyte-go-modular-sdk/gdpr-sdk => ../../../gdpr-sdk
 	github.com/AccelByte/accelbyte-go-modular-sdk/group-sdk => ../../../group-sdk
 	github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk => ../../../iam-sdk
+	github.com/AccelByte/accelbyte-go-modular-sdk/inventory-sdk => ../../../inventory-sdk
 	github.com/AccelByte/accelbyte-go-modular-sdk/leaderboard-sdk => ../../../leaderboard-sdk
 	github.com/AccelByte/accelbyte-go-modular-sdk/legal-sdk => ../../../legal-sdk
 	github.com/AccelByte/accelbyte-go-modular-sdk/lobby-sdk => ../../../lobby-sdk
