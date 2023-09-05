@@ -15,6 +15,11 @@
 |---|---|---|---|---|---|
 | `/session/v1/admin/dsconfigs/default` | GET | AdminGetDSMCConfigurationDefaultShort | [AdminGetDSMCConfigurationDefaultShort](../../session-sdk/pkg/sessionclient/d_s_m_c_default_configuration/dsmc_default_configuration_client.go) | [AdminGetDSMCConfigurationDefaultShort](../../session-sdk/pkg/wrapper_dsmcDefaultConfiguration.go) | [AdminGetDSMCConfigurationDefaultShort](../../samples/cli/cmd/session/dsmcDefaultConfiguration/adminGetDSMCConfigurationDefault.go) |
 
+### Environment Variable Wrapper:  [EnvironmentVariable](../../session-sdk/pkg/wrapper_environmentVariable.go)
+| Endpoint | Method | ID | Class | Wrapper | Example |
+|---|---|---|---|---|---|
+| `/session/v1/admin/environment-variables` | GET | AdminListEnvironmentVariablesShort | [AdminListEnvironmentVariablesShort](../../session-sdk/pkg/sessionclient/environment_variable/environment_variable_client.go) | [AdminListEnvironmentVariablesShort](../../session-sdk/pkg/wrapper_environmentVariable.go) | [AdminListEnvironmentVariablesShort](../../samples/cli/cmd/session/environmentVariable/adminListEnvironmentVariables.go) |
+
 ### Configuration Template Wrapper:  [ConfigurationTemplate](../../session-sdk/pkg/wrapper_configurationTemplate.go)
 | Endpoint | Method | ID | Class | Wrapper | Example |
 |---|---|---|---|---|---|
@@ -81,6 +86,15 @@
 | `/session/v1/admin/namespaces/{namespace}/platform-credentials` | PUT | AdminUpdatePlatformCredentialsShort | [AdminUpdatePlatformCredentialsShort](../../session-sdk/pkg/sessionclient/platform_credential/platform_credential_client.go) | [AdminUpdatePlatformCredentialsShort](../../session-sdk/pkg/wrapper_platformCredential.go) | [AdminUpdatePlatformCredentialsShort](../../samples/cli/cmd/session/platformCredential/adminUpdatePlatformCredentials.go) |
 | `/session/v1/admin/namespaces/{namespace}/platform-credentials` | DELETE | AdminDeletePlatformCredentialsShort | [AdminDeletePlatformCredentialsShort](../../session-sdk/pkg/sessionclient/platform_credential/platform_credential_client.go) | [AdminDeletePlatformCredentialsShort](../../session-sdk/pkg/wrapper_platformCredential.go) | [AdminDeletePlatformCredentialsShort](../../samples/cli/cmd/session/platformCredential/adminDeletePlatformCredentials.go) |
 
+### Session Storage Wrapper:  [SessionStorage](../../session-sdk/pkg/wrapper_sessionStorage.go)
+| Endpoint | Method | ID | Class | Wrapper | Example |
+|---|---|---|---|---|---|
+| `/session/v1/admin/namespaces/{namespace}/sessions/{sessionId}/storage` | GET | AdminReadSessionStorageShort | [AdminReadSessionStorageShort](../../session-sdk/pkg/sessionclient/session_storage/session_storage_client.go) | [AdminReadSessionStorageShort](../../session-sdk/pkg/wrapper_sessionStorage.go) | [AdminReadSessionStorageShort](../../samples/cli/cmd/session/sessionStorage/adminReadSessionStorage.go) |
+| `/session/v1/admin/namespaces/{namespace}/sessions/{sessionId}/storage` | DELETE | AdminDeleteUserSessionStorageShort | [AdminDeleteUserSessionStorageShort](../../session-sdk/pkg/sessionclient/session_storage/session_storage_client.go) | [AdminDeleteUserSessionStorageShort](../../session-sdk/pkg/wrapper_sessionStorage.go) | [AdminDeleteUserSessionStorageShort](../../samples/cli/cmd/session/sessionStorage/adminDeleteUserSessionStorage.go) |
+| `/session/v1/admin/namespaces/{namespace}/sessions/{sessionId}/storage/users/{userId}` | GET | AdminReadUserSessionStorageShort | [AdminReadUserSessionStorageShort](../../session-sdk/pkg/sessionclient/session_storage/session_storage_client.go) | [AdminReadUserSessionStorageShort](../../session-sdk/pkg/wrapper_sessionStorage.go) | [AdminReadUserSessionStorageShort](../../samples/cli/cmd/session/sessionStorage/adminReadUserSessionStorage.go) |
+| `/session/v1/public/namespaces/{namespace}/sessions/{sessionId}/storage/leader` | PATCH | PublicUpdateInsertSessionStorageLeaderShort | [PublicUpdateInsertSessionStorageLeaderShort](../../session-sdk/pkg/sessionclient/session_storage/session_storage_client.go) | [PublicUpdateInsertSessionStorageLeaderShort](../../session-sdk/pkg/wrapper_sessionStorage.go) | [PublicUpdateInsertSessionStorageLeaderShort](../../samples/cli/cmd/session/sessionStorage/publicUpdateInsertSessionStorageLeader.go) |
+| `/session/v1/public/namespaces/{namespace}/sessions/{sessionId}/storage/users/{userId}` | PATCH | PublicUpdateInsertSessionStorageShort | [PublicUpdateInsertSessionStorageShort](../../session-sdk/pkg/sessionclient/session_storage/session_storage_client.go) | [PublicUpdateInsertSessionStorageShort](../../session-sdk/pkg/wrapper_sessionStorage.go) | [PublicUpdateInsertSessionStorageShort](../../samples/cli/cmd/session/sessionStorage/publicUpdateInsertSessionStorage.go) |
+
 ### Player Wrapper:  [Player](../../session-sdk/pkg/wrapper_player.go)
 | Endpoint | Method | ID | Class | Wrapper | Example |
 |---|---|---|---|---|---|
@@ -109,6 +123,8 @@
 | `apimodels.DSInformationResponse` | [ApimodelsDSInformationResponse ](../../session-sdk/pkg/sessionclientmodels/apimodels_d_s_information_response.go) |
 | `apimodels.DeleteBulkGameSessionRequest` | [ApimodelsDeleteBulkGameSessionRequest ](../../session-sdk/pkg/sessionclientmodels/apimodels_delete_bulk_game_session_request.go) |
 | `apimodels.DeleteBulkGameSessionsAPIResponse` | [ApimodelsDeleteBulkGameSessionsAPIResponse ](../../session-sdk/pkg/sessionclientmodels/apimodels_delete_bulk_game_sessions_api_response.go) |
+| `apimodels.EnvironmentVariableListResponse` | [ApimodelsEnvironmentVariableListResponse ](../../session-sdk/pkg/sessionclientmodels/apimodels_environment_variable_list_response.go) |
+| `apimodels.EnvironmentVariableResponse` | [ApimodelsEnvironmentVariableResponse ](../../session-sdk/pkg/sessionclientmodels/apimodels_environment_variable_response.go) |
 | `apimodels.GameSessionQueryResponse` | [ApimodelsGameSessionQueryResponse ](../../session-sdk/pkg/sessionclientmodels/apimodels_game_session_query_response.go) |
 | `apimodels.GameSessionResponse` | [ApimodelsGameSessionResponse ](../../session-sdk/pkg/sessionclientmodels/apimodels_game_session_response.go) |
 | `apimodels.JoinByCodeRequest` | [ApimodelsJoinByCodeRequest ](../../session-sdk/pkg/sessionclientmodels/apimodels_join_by_code_request.go) |

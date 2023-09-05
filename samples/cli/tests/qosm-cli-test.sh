@@ -8,7 +8,7 @@
 
 # Meta:
 # - random seed: 256
-# - template file: cli_test.j2
+# - template file: 
 
 # Instructions:
 # - Run the Justice SDK Mock Server first before running this script.
@@ -51,28 +51,28 @@ touch "tmp.dat"
 #- 2 UpdateServerConfig
 samples/cli/sample-apps Qosm updateServerConfig \
     --namespace $AB_NAMESPACE \
-    --region 'OjbJ9BADWStEmgTA' \
-    --body '{"status": "qW87g2cRLR3jQFYb"}' \
+    --region 'vtjHIhwA' \
+    --body '{"status": "0Z7Yjkw6"}' \
     > test.out 2>&1
 eval_tap $? 2 'UpdateServerConfig' test.out
 
 #- 3 DeleteServer
 samples/cli/sample-apps Qosm deleteServer \
-    --region 'yTLdQYuKdFoIIo6C' \
+    --region 'fbohuOw1' \
     > test.out 2>&1
 eval_tap $? 3 'DeleteServer' test.out
 
 #- 4 SetServerAlias
 samples/cli/sample-apps Qosm setServerAlias \
-    --region 'TiTm3rOCzLxyOdX8' \
-    --body '{"alias": "r8vZkh0zMa6OLcHo"}' \
+    --region 'fVHcwCcX' \
+    --body '{"alias": "h5AoDAQS"}' \
     > test.out 2>&1
 eval_tap $? 4 'SetServerAlias' test.out
 
 #- 5 ListServerPerNamespace
 samples/cli/sample-apps Qosm listServerPerNamespace \
     --namespace $AB_NAMESPACE \
-    --status 'Yv3VJAwz9NgSPHU4' \
+    --status 'F0ohWJZM' \
     > test.out 2>&1
 eval_tap $? 5 'ListServerPerNamespace' test.out
 
@@ -83,7 +83,7 @@ eval_tap $? 6 'ListServer' test.out
 
 #- 7 Heartbeat
 samples/cli/sample-apps Qosm heartbeat \
-    --body '{"ip": "EYs5n1KqaCJJJsp3", "port": 22, "region": "52AyeJaF9RiZ4wTc"}' \
+    --body '{"ip": "l2pFyaCj", "port": 31, "region": "yg9HFZBs"}' \
     > test.out 2>&1
 eval_tap $? 7 'Heartbeat' test.out
 

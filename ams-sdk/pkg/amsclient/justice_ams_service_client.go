@@ -17,10 +17,10 @@ import (
 
 	"github.com/AccelByte/accelbyte-go-modular-sdk/ams-sdk/pkg/amsclient/a_m_s_info"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/ams-sdk/pkg/amsclient/account"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/ams-sdk/pkg/amsclient/auth"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/ams-sdk/pkg/amsclient/fleet_commander"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/ams-sdk/pkg/amsclient/fleets"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/ams-sdk/pkg/amsclient/images"
-	"github.com/AccelByte/accelbyte-go-modular-sdk/ams-sdk/pkg/amsclient/operations"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/ams-sdk/pkg/amsclient/servers"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/ams-sdk/pkg/amsclient/watchdogs"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils"
@@ -89,12 +89,12 @@ func New(transport runtime.ClientTransport, runtime *httptransport.Runtime, form
 	cli.Runtime = runtime
 	cli.AmsInfo = a_m_s_info.New(transport, formats)
 	cli.Account = account.New(transport, formats)
+	cli.Auth = auth.New(transport, formats)
 	cli.FleetCommander = fleet_commander.New(transport, formats)
 	cli.Fleets = fleets.New(transport, formats)
 	cli.Images = images.New(transport, formats)
 	cli.Servers = servers.New(transport, formats)
 	cli.Watchdogs = watchdogs.New(transport, formats)
-	cli.Operations = operations.New(transport, formats)
 
 	return cli
 }
@@ -160,6 +160,8 @@ type JusticeAmsService struct {
 
 	Account account.ClientService
 
+	Auth auth.ClientService
+
 	FleetCommander fleet_commander.ClientService
 
 	Fleets fleets.ClientService
@@ -170,8 +172,6 @@ type JusticeAmsService struct {
 
 	Watchdogs watchdogs.ClientService
 
-	Operations operations.ClientService
-
 	Runtime   *httptransport.Runtime
 	Transport runtime.ClientTransport
 }
@@ -181,10 +181,10 @@ func (c *JusticeAmsService) SetTransport(transport runtime.ClientTransport) {
 	c.Transport = transport
 	c.AmsInfo.SetTransport(transport)
 	c.Account.SetTransport(transport)
+	c.Auth.SetTransport(transport)
 	c.FleetCommander.SetTransport(transport)
 	c.Fleets.SetTransport(transport)
 	c.Images.SetTransport(transport)
 	c.Servers.SetTransport(transport)
 	c.Watchdogs.SetTransport(transport)
-	c.Operations.SetTransport(transport)
 }

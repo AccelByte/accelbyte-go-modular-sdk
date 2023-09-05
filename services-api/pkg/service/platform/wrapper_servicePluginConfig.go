@@ -215,13 +215,13 @@ func (aaa *ServicePluginConfigService) DeleteServicePluginConfig(input *service_
 	return nil
 }
 
-// Deprecated: 2022-01-10 - Please use GetLootBoxPluginConfig1Short instead.
-func (aaa *ServicePluginConfigService) GetLootBoxPluginConfig1(input *service_plugin_config.GetLootBoxPluginConfig1Params) (*platformclientmodels.RevocationPluginConfigInfo, error) {
+// Deprecated: 2022-01-10 - Please use GetRevocationPluginConfigShort instead.
+func (aaa *ServicePluginConfigService) GetRevocationPluginConfig(input *service_plugin_config.GetRevocationPluginConfigParams) (*platformclientmodels.RevocationPluginConfigInfo, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
 		return nil, err
 	}
-	ok, err := aaa.Client.ServicePluginConfig.GetLootBoxPluginConfig1(input, client.BearerToken(*token.AccessToken))
+	ok, err := aaa.Client.ServicePluginConfig.GetRevocationPluginConfig(input, client.BearerToken(*token.AccessToken))
 	if err != nil {
 		return nil, err
 	}
@@ -246,13 +246,13 @@ func (aaa *ServicePluginConfigService) UpdateRevocationPluginConfig(input *servi
 	return ok.GetPayload(), nil
 }
 
-// Deprecated: 2022-01-10 - Please use DeleteLootBoxPluginConfig1Short instead.
-func (aaa *ServicePluginConfigService) DeleteLootBoxPluginConfig1(input *service_plugin_config.DeleteLootBoxPluginConfig1Params) error {
+// Deprecated: 2022-01-10 - Please use DeleteRevocationPluginConfigShort instead.
+func (aaa *ServicePluginConfigService) DeleteRevocationPluginConfig(input *service_plugin_config.DeleteRevocationPluginConfigParams) error {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
 		return err
 	}
-	_, err = aaa.Client.ServicePluginConfig.DeleteLootBoxPluginConfig1(input, client.BearerToken(*token.AccessToken))
+	_, err = aaa.Client.ServicePluginConfig.DeleteRevocationPluginConfig(input, client.BearerToken(*token.AccessToken))
 	if err != nil {
 		return err
 	}
@@ -577,7 +577,7 @@ func (aaa *ServicePluginConfigService) DeleteServicePluginConfigShort(input *ser
 	return nil
 }
 
-func (aaa *ServicePluginConfigService) GetLootBoxPluginConfig1Short(input *service_plugin_config.GetLootBoxPluginConfig1Params) (*platformclientmodels.RevocationPluginConfigInfo, error) {
+func (aaa *ServicePluginConfigService) GetRevocationPluginConfigShort(input *service_plugin_config.GetRevocationPluginConfigParams) (*platformclientmodels.RevocationPluginConfigInfo, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -594,7 +594,7 @@ func (aaa *ServicePluginConfigService) GetLootBoxPluginConfig1Short(input *servi
 		}
 	}
 
-	ok, err := aaa.Client.ServicePluginConfig.GetLootBoxPluginConfig1Short(input, authInfoWriter)
+	ok, err := aaa.Client.ServicePluginConfig.GetRevocationPluginConfigShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
 	}
@@ -627,7 +627,7 @@ func (aaa *ServicePluginConfigService) UpdateRevocationPluginConfigShort(input *
 	return ok.GetPayload(), nil
 }
 
-func (aaa *ServicePluginConfigService) DeleteLootBoxPluginConfig1Short(input *service_plugin_config.DeleteLootBoxPluginConfig1Params) error {
+func (aaa *ServicePluginConfigService) DeleteRevocationPluginConfigShort(input *service_plugin_config.DeleteRevocationPluginConfigParams) error {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -644,7 +644,7 @@ func (aaa *ServicePluginConfigService) DeleteLootBoxPluginConfig1Short(input *se
 		}
 	}
 
-	_, err := aaa.Client.ServicePluginConfig.DeleteLootBoxPluginConfig1Short(input, authInfoWriter)
+	_, err := aaa.Client.ServicePluginConfig.DeleteRevocationPluginConfigShort(input, authInfoWriter)
 	if err != nil {
 		return err
 	}

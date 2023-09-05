@@ -22,8 +22,13 @@ import (
 // NewGetListOfFriendsParams creates a new GetListOfFriendsParams object
 // with the default values initialized.
 func NewGetListOfFriendsParams() *GetListOfFriendsParams {
-	var ()
+	var (
+		limitDefault  = int64(25)
+		offsetDefault = int64(0)
+	)
 	return &GetListOfFriendsParams{
+		Limit:  &limitDefault,
+		Offset: &offsetDefault,
 
 		timeout: cr.DefaultTimeout,
 	}
@@ -32,8 +37,13 @@ func NewGetListOfFriendsParams() *GetListOfFriendsParams {
 // NewGetListOfFriendsParamsWithTimeout creates a new GetListOfFriendsParams object
 // with the default values initialized, and the ability to set a timeout on a request
 func NewGetListOfFriendsParamsWithTimeout(timeout time.Duration) *GetListOfFriendsParams {
-	var ()
+	var (
+		limitDefault  = int64(25)
+		offsetDefault = int64(0)
+	)
 	return &GetListOfFriendsParams{
+		Limit:  &limitDefault,
+		Offset: &offsetDefault,
 
 		timeout: timeout,
 	}
@@ -42,8 +52,13 @@ func NewGetListOfFriendsParamsWithTimeout(timeout time.Duration) *GetListOfFrien
 // NewGetListOfFriendsParamsWithContext creates a new GetListOfFriendsParams object
 // with the default values initialized, and the ability to set a context for a request
 func NewGetListOfFriendsParamsWithContext(ctx context.Context) *GetListOfFriendsParams {
-	var ()
+	var (
+		limitDefault  = int64(25)
+		offsetDefault = int64(0)
+	)
 	return &GetListOfFriendsParams{
+		Limit:  &limitDefault,
+		Offset: &offsetDefault,
 
 		Context: ctx,
 	}
@@ -52,8 +67,13 @@ func NewGetListOfFriendsParamsWithContext(ctx context.Context) *GetListOfFriends
 // NewGetListOfFriendsParamsWithHTTPClient creates a new GetListOfFriendsParams object
 // with the default values initialized, and the ability to set a custom HTTPClient for a request
 func NewGetListOfFriendsParamsWithHTTPClient(client *http.Client) *GetListOfFriendsParams {
-	var ()
+	var (
+		limitDefault  = int64(25)
+		offsetDefault = int64(0)
+	)
 	return &GetListOfFriendsParams{
+		Limit:      &limitDefault,
+		Offset:     &offsetDefault,
 		HTTPClient: client,
 	}
 }
@@ -75,6 +95,11 @@ type GetListOfFriendsParams struct {
 
 	*/
 	UserID string
+	/*FriendID
+	  friend userId
+
+	*/
+	FriendID *string
 	/*Limit
 	  maximum number of data
 
@@ -161,6 +186,17 @@ func (o *GetListOfFriendsParams) SetUserID(userID string) {
 	o.UserID = userID
 }
 
+// WithFriendID adds the friendID to the get list of friends params
+func (o *GetListOfFriendsParams) WithFriendID(friendID *string) *GetListOfFriendsParams {
+	o.SetFriendID(friendID)
+	return o
+}
+
+// SetFriendID adds the friendId to the get list of friends params
+func (o *GetListOfFriendsParams) SetFriendID(friendID *string) {
+	o.FriendID = friendID
+}
+
 // WithLimit adds the limit to the get list of friends params
 func (o *GetListOfFriendsParams) WithLimit(limit *int64) *GetListOfFriendsParams {
 	o.SetLimit(limit)
@@ -199,6 +235,22 @@ func (o *GetListOfFriendsParams) WriteToRequest(r runtime.ClientRequest, reg str
 	// path param userId
 	if err := r.SetPathParam("userId", o.UserID); err != nil {
 		return err
+	}
+
+	if o.FriendID != nil {
+
+		// query param friendId
+		var qrFriendID string
+		if o.FriendID != nil {
+			qrFriendID = *o.FriendID
+		}
+		qFriendID := qrFriendID
+		if qFriendID != "" {
+			if err := r.SetQueryParam("friendId", qFriendID); err != nil {
+				return err
+			}
+		}
+
 	}
 
 	if o.Limit != nil {

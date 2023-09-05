@@ -16,13 +16,19 @@ import (
 	"github.com/go-openapi/runtime"
 	cr "github.com/go-openapi/runtime/client"
 	"github.com/go-openapi/strfmt"
+	"github.com/go-openapi/swag"
 )
 
 // NewGetUserOutgoingFriendsWithTimeParams creates a new GetUserOutgoingFriendsWithTimeParams object
 // with the default values initialized.
 func NewGetUserOutgoingFriendsWithTimeParams() *GetUserOutgoingFriendsWithTimeParams {
-	var ()
+	var (
+		limitDefault  = int64(25)
+		offsetDefault = int64(0)
+	)
 	return &GetUserOutgoingFriendsWithTimeParams{
+		Limit:  &limitDefault,
+		Offset: &offsetDefault,
 
 		timeout: cr.DefaultTimeout,
 	}
@@ -31,8 +37,13 @@ func NewGetUserOutgoingFriendsWithTimeParams() *GetUserOutgoingFriendsWithTimePa
 // NewGetUserOutgoingFriendsWithTimeParamsWithTimeout creates a new GetUserOutgoingFriendsWithTimeParams object
 // with the default values initialized, and the ability to set a timeout on a request
 func NewGetUserOutgoingFriendsWithTimeParamsWithTimeout(timeout time.Duration) *GetUserOutgoingFriendsWithTimeParams {
-	var ()
+	var (
+		limitDefault  = int64(25)
+		offsetDefault = int64(0)
+	)
 	return &GetUserOutgoingFriendsWithTimeParams{
+		Limit:  &limitDefault,
+		Offset: &offsetDefault,
 
 		timeout: timeout,
 	}
@@ -41,8 +52,13 @@ func NewGetUserOutgoingFriendsWithTimeParamsWithTimeout(timeout time.Duration) *
 // NewGetUserOutgoingFriendsWithTimeParamsWithContext creates a new GetUserOutgoingFriendsWithTimeParams object
 // with the default values initialized, and the ability to set a context for a request
 func NewGetUserOutgoingFriendsWithTimeParamsWithContext(ctx context.Context) *GetUserOutgoingFriendsWithTimeParams {
-	var ()
+	var (
+		limitDefault  = int64(25)
+		offsetDefault = int64(0)
+	)
 	return &GetUserOutgoingFriendsWithTimeParams{
+		Limit:  &limitDefault,
+		Offset: &offsetDefault,
 
 		Context: ctx,
 	}
@@ -51,8 +67,13 @@ func NewGetUserOutgoingFriendsWithTimeParamsWithContext(ctx context.Context) *Ge
 // NewGetUserOutgoingFriendsWithTimeParamsWithHTTPClient creates a new GetUserOutgoingFriendsWithTimeParams object
 // with the default values initialized, and the ability to set a custom HTTPClient for a request
 func NewGetUserOutgoingFriendsWithTimeParamsWithHTTPClient(client *http.Client) *GetUserOutgoingFriendsWithTimeParams {
-	var ()
+	var (
+		limitDefault  = int64(25)
+		offsetDefault = int64(0)
+	)
 	return &GetUserOutgoingFriendsWithTimeParams{
+		Limit:      &limitDefault,
+		Offset:     &offsetDefault,
 		HTTPClient: client,
 	}
 }
@@ -69,6 +90,16 @@ type GetUserOutgoingFriendsWithTimeParams struct {
 
 	*/
 	Namespace string
+	/*Limit
+	  maximum number of data
+
+	*/
+	Limit *int64
+	/*Offset
+	  numbers of row to skip within the result
+
+	*/
+	Offset *int64
 
 	timeout        time.Duration
 	AuthInfoWriter runtime.ClientAuthInfoWriter
@@ -134,6 +165,28 @@ func (o *GetUserOutgoingFriendsWithTimeParams) SetNamespace(namespace string) {
 	o.Namespace = namespace
 }
 
+// WithLimit adds the limit to the get user outgoing friends with time params
+func (o *GetUserOutgoingFriendsWithTimeParams) WithLimit(limit *int64) *GetUserOutgoingFriendsWithTimeParams {
+	o.SetLimit(limit)
+	return o
+}
+
+// SetLimit adds the limit to the get user outgoing friends with time params
+func (o *GetUserOutgoingFriendsWithTimeParams) SetLimit(limit *int64) {
+	o.Limit = limit
+}
+
+// WithOffset adds the offset to the get user outgoing friends with time params
+func (o *GetUserOutgoingFriendsWithTimeParams) WithOffset(offset *int64) *GetUserOutgoingFriendsWithTimeParams {
+	o.SetOffset(offset)
+	return o
+}
+
+// SetOffset adds the offset to the get user outgoing friends with time params
+func (o *GetUserOutgoingFriendsWithTimeParams) SetOffset(offset *int64) {
+	o.Offset = offset
+}
+
 // WriteToRequest writes these params to a swagger request
 func (o *GetUserOutgoingFriendsWithTimeParams) WriteToRequest(r runtime.ClientRequest, reg strfmt.Registry) error {
 
@@ -145,6 +198,38 @@ func (o *GetUserOutgoingFriendsWithTimeParams) WriteToRequest(r runtime.ClientRe
 	// path param namespace
 	if err := r.SetPathParam("namespace", o.Namespace); err != nil {
 		return err
+	}
+
+	if o.Limit != nil {
+
+		// query param limit
+		var qrLimit int64
+		if o.Limit != nil {
+			qrLimit = *o.Limit
+		}
+		qLimit := swag.FormatInt64(qrLimit)
+		if qLimit != "" {
+			if err := r.SetQueryParam("limit", qLimit); err != nil {
+				return err
+			}
+		}
+
+	}
+
+	if o.Offset != nil {
+
+		// query param offset
+		var qrOffset int64
+		if o.Offset != nil {
+			qrOffset = *o.Offset
+		}
+		qOffset := swag.FormatInt64(qrOffset)
+		if qOffset != "" {
+			if err := r.SetQueryParam("offset", qOffset); err != nil {
+				return err
+			}
+		}
+
 	}
 
 	// setting the default header value

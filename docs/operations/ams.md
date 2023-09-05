@@ -4,6 +4,18 @@
 
 ## Operations
 
+### Auth Wrapper:  [Auth](../../ams-sdk/pkg/wrapper_auth.go)
+| Endpoint | Method | ID | Class | Wrapper | Example |
+|---|---|---|---|---|---|
+| `/ams/auth` | GET | AuthCheckShort | [AuthCheckShort](../../ams-sdk/pkg/amsclient/auth/auth_client.go) | [AuthCheckShort](../../ams-sdk/pkg/wrapper_auth.go) | [AuthCheckShort](../../samples/cli/cmd/ams/auth/authCheck.go) |
+
+### Fleet Commander Wrapper:  [FleetCommander](../../ams-sdk/pkg/wrapper_fleetCommander.go)
+| Endpoint | Method | ID | Class | Wrapper | Example |
+|---|---|---|---|---|---|
+| `/ams/healthz` | GET | PortalHealthCheckShort | [PortalHealthCheckShort](../../ams-sdk/pkg/amsclient/fleet_commander/fleet_commander_client.go) | [PortalHealthCheckShort](../../ams-sdk/pkg/wrapper_fleetCommander.go) | [PortalHealthCheckShort](../../samples/cli/cmd/ams/fleetCommander/portalHealthCheck.go) |
+| `/ams/version` | GET | Func1Short | [Func1Short](../../ams-sdk/pkg/amsclient/fleet_commander/fleet_commander_client.go) | [Func1Short](../../ams-sdk/pkg/wrapper_fleetCommander.go) | [Func1Short](../../samples/cli/cmd/ams/fleetCommander/func1.go) |
+| `/healthz` | GET | BasicHealthCheckShort | [BasicHealthCheckShort](../../ams-sdk/pkg/amsclient/fleet_commander/fleet_commander_client.go) | [BasicHealthCheckShort](../../ams-sdk/pkg/wrapper_fleetCommander.go) | [BasicHealthCheckShort](../../samples/cli/cmd/ams/fleetCommander/basicHealthCheck.go) |
+
 ### Account Wrapper:  [Account](../../ams-sdk/pkg/wrapper_account.go)
 | Endpoint | Method | ID | Class | Wrapper | Example |
 |---|---|---|---|---|---|
@@ -48,16 +60,6 @@
 | Endpoint | Method | ID | Class | Wrapper | Example |
 |---|---|---|---|---|---|
 | `/ams/v1/namespaces/{namespace}/watchdogs/{watchdogID}/connect` | GET | WatchdogConnectShort | [WatchdogConnectShort](../../ams-sdk/pkg/amsclient/watchdogs/watchdogs_client.go) | [WatchdogConnectShort](../../ams-sdk/pkg/wrapper_watchdogs.go) | [WatchdogConnectShort](../../samples/cli/cmd/ams/watchdogs/watchdogConnect.go) |
-
-### Fleet Commander Wrapper:  [FleetCommander](../../ams-sdk/pkg/wrapper_fleetCommander.go)
-| Endpoint | Method | ID | Class | Wrapper | Example |
-|---|---|---|---|---|---|
-| `/ams/version` | GET | Func1Short | [Func1Short](../../ams-sdk/pkg/amsclient/fleet_commander/fleet_commander_client.go) | [Func1Short](../../ams-sdk/pkg/wrapper_fleetCommander.go) | [Func1Short](../../samples/cli/cmd/ams/fleetCommander/func1.go) |
-
-### Operations Wrapper:  [Operations](../../ams-sdk/pkg/wrapper_operations.go)
-| Endpoint | Method | ID | Class | Wrapper | Example |
-|---|---|---|---|---|---|
-| `/healthz` | GET | BasicHealthCheckShort | [BasicHealthCheckShort](../../ams-sdk/pkg/amsclient/operations/operations_client.go) | [BasicHealthCheckShort](../../ams-sdk/pkg/wrapper_operations.go) | [BasicHealthCheckShort](../../samples/cli/cmd/ams/operations/basicHealthCheck.go) |
 
 
 &nbsp;  

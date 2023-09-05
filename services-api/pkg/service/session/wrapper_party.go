@@ -415,7 +415,7 @@ func (aaa *PartyService) PublicCreateParty(input *party.PublicCreatePartyParams)
 }
 
 // Deprecated: 2022-01-10 - Please use PublicQueryMyPartiesShort instead.
-func (aaa *PartyService) PublicQueryMyParties(input *party.PublicQueryMyPartiesParams) ([]*sessionclientmodels.ApimodelsPartySessionResponse, error) {
+func (aaa *PartyService) PublicQueryMyParties(input *party.PublicQueryMyPartiesParams) (*sessionclientmodels.ApimodelsPartyQueryResponse, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
 		return nil, err
@@ -787,7 +787,7 @@ func (aaa *PartyService) PublicCreatePartyShort(input *party.PublicCreatePartyPa
 	return ok.GetPayload(), nil
 }
 
-func (aaa *PartyService) PublicQueryMyPartiesShort(input *party.PublicQueryMyPartiesParams) ([]*sessionclientmodels.ApimodelsPartySessionResponse, error) {
+func (aaa *PartyService) PublicQueryMyPartiesShort(input *party.PublicQueryMyPartiesParams) (*sessionclientmodels.ApimodelsPartyQueryResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{

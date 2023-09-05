@@ -9,11 +9,13 @@ package session
 import (
 	"github.com/AccelByte/sample-apps/cmd/session/configurationTemplate"
 	"github.com/AccelByte/sample-apps/cmd/session/dsmcDefaultConfiguration"
+	"github.com/AccelByte/sample-apps/cmd/session/environmentVariable"
 	"github.com/AccelByte/sample-apps/cmd/session/gameSession"
 	"github.com/AccelByte/sample-apps/cmd/session/operations"
 	"github.com/AccelByte/sample-apps/cmd/session/party"
 	"github.com/AccelByte/sample-apps/cmd/session/platformCredential"
 	"github.com/AccelByte/sample-apps/cmd/session/player"
+	"github.com/AccelByte/sample-apps/cmd/session/sessionStorage"
 	"github.com/spf13/cobra"
 )
 
@@ -27,6 +29,7 @@ func init() {
 	SessionCmd.AddCommand(operations.GetHealthcheckInfoCmd)
 	SessionCmd.AddCommand(operations.GetHealthcheckInfoV1Cmd)
 	SessionCmd.AddCommand(dsmcDefaultConfiguration.AdminGetDSMCConfigurationDefaultCmd)
+	SessionCmd.AddCommand(environmentVariable.AdminListEnvironmentVariablesCmd)
 	SessionCmd.AddCommand(configurationTemplate.AdminGetConfigurationAlertV1Cmd)
 	SessionCmd.AddCommand(configurationTemplate.AdminUpdateConfigurationAlertV1Cmd)
 	SessionCmd.AddCommand(configurationTemplate.AdminCreateConfigurationAlertV1Cmd)
@@ -45,6 +48,9 @@ func init() {
 	SessionCmd.AddCommand(platformCredential.AdminGetPlatformCredentialsCmd)
 	SessionCmd.AddCommand(platformCredential.AdminUpdatePlatformCredentialsCmd)
 	SessionCmd.AddCommand(platformCredential.AdminDeletePlatformCredentialsCmd)
+	SessionCmd.AddCommand(sessionStorage.AdminReadSessionStorageCmd)
+	SessionCmd.AddCommand(sessionStorage.AdminDeleteUserSessionStorageCmd)
+	SessionCmd.AddCommand(sessionStorage.AdminReadUserSessionStorageCmd)
 	SessionCmd.AddCommand(player.AdminQueryPlayerAttributesCmd)
 	SessionCmd.AddCommand(player.AdminGetPlayerAttributesCmd)
 	SessionCmd.AddCommand(gameSession.CreateGameSessionCmd)
@@ -77,6 +83,8 @@ func init() {
 	SessionCmd.AddCommand(party.PublicPartyRejectCmd)
 	SessionCmd.AddCommand(party.PublicPartyKickCmd)
 	SessionCmd.AddCommand(party.PublicCreatePartyCmd)
+	SessionCmd.AddCommand(sessionStorage.PublicUpdateInsertSessionStorageLeaderCmd)
+	SessionCmd.AddCommand(sessionStorage.PublicUpdateInsertSessionStorageCmd)
 	SessionCmd.AddCommand(player.PublicGetBulkPlayerCurrentPlatformCmd)
 	SessionCmd.AddCommand(player.PublicGetPlayerAttributesCmd)
 	SessionCmd.AddCommand(player.PublicStorePlayerAttributesCmd)

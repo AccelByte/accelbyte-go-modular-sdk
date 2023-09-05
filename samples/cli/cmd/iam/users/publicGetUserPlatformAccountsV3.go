@@ -29,12 +29,14 @@ var PublicGetUserPlatformAccountsV3Cmd = &cobra.Command{
 		after, _ := cmd.Flags().GetString("after")
 		before, _ := cmd.Flags().GetString("before")
 		limit, _ := cmd.Flags().GetInt64("limit")
+		platformId, _ := cmd.Flags().GetString("platformId")
 		input := &users.PublicGetUserPlatformAccountsV3Params{
-			Namespace: namespace,
-			UserID:    userId,
-			After:     &after,
-			Before:    &before,
-			Limit:     &limit,
+			Namespace:  namespace,
+			UserID:     userId,
+			After:      &after,
+			Before:     &before,
+			Limit:      &limit,
+			PlatformID: &platformId,
 		}
 		ok, errOK := usersService.PublicGetUserPlatformAccountsV3Short(input)
 		if errOK != nil {
@@ -57,4 +59,5 @@ func init() {
 	PublicGetUserPlatformAccountsV3Cmd.Flags().String("after", "0", "After")
 	PublicGetUserPlatformAccountsV3Cmd.Flags().String("before", "0", "Before")
 	PublicGetUserPlatformAccountsV3Cmd.Flags().Int64("limit", 20, "Limit")
+	PublicGetUserPlatformAccountsV3Cmd.Flags().String("platformId", "", "Platform id")
 }

@@ -22,8 +22,13 @@ import (
 // NewGetIncomingFriendRequestsParams creates a new GetIncomingFriendRequestsParams object
 // with the default values initialized.
 func NewGetIncomingFriendRequestsParams() *GetIncomingFriendRequestsParams {
-	var ()
+	var (
+		limitDefault  = int64(25)
+		offsetDefault = int64(0)
+	)
 	return &GetIncomingFriendRequestsParams{
+		Limit:  &limitDefault,
+		Offset: &offsetDefault,
 
 		timeout: cr.DefaultTimeout,
 	}
@@ -32,8 +37,13 @@ func NewGetIncomingFriendRequestsParams() *GetIncomingFriendRequestsParams {
 // NewGetIncomingFriendRequestsParamsWithTimeout creates a new GetIncomingFriendRequestsParams object
 // with the default values initialized, and the ability to set a timeout on a request
 func NewGetIncomingFriendRequestsParamsWithTimeout(timeout time.Duration) *GetIncomingFriendRequestsParams {
-	var ()
+	var (
+		limitDefault  = int64(25)
+		offsetDefault = int64(0)
+	)
 	return &GetIncomingFriendRequestsParams{
+		Limit:  &limitDefault,
+		Offset: &offsetDefault,
 
 		timeout: timeout,
 	}
@@ -42,8 +52,13 @@ func NewGetIncomingFriendRequestsParamsWithTimeout(timeout time.Duration) *GetIn
 // NewGetIncomingFriendRequestsParamsWithContext creates a new GetIncomingFriendRequestsParams object
 // with the default values initialized, and the ability to set a context for a request
 func NewGetIncomingFriendRequestsParamsWithContext(ctx context.Context) *GetIncomingFriendRequestsParams {
-	var ()
+	var (
+		limitDefault  = int64(25)
+		offsetDefault = int64(0)
+	)
 	return &GetIncomingFriendRequestsParams{
+		Limit:  &limitDefault,
+		Offset: &offsetDefault,
 
 		Context: ctx,
 	}
@@ -52,8 +67,13 @@ func NewGetIncomingFriendRequestsParamsWithContext(ctx context.Context) *GetInco
 // NewGetIncomingFriendRequestsParamsWithHTTPClient creates a new GetIncomingFriendRequestsParams object
 // with the default values initialized, and the ability to set a custom HTTPClient for a request
 func NewGetIncomingFriendRequestsParamsWithHTTPClient(client *http.Client) *GetIncomingFriendRequestsParams {
-	var ()
+	var (
+		limitDefault  = int64(25)
+		offsetDefault = int64(0)
+	)
 	return &GetIncomingFriendRequestsParams{
+		Limit:      &limitDefault,
+		Offset:     &offsetDefault,
 		HTTPClient: client,
 	}
 }
@@ -75,6 +95,11 @@ type GetIncomingFriendRequestsParams struct {
 
 	*/
 	UserID string
+	/*FriendID
+	  friend userId
+
+	*/
+	FriendID *string
 	/*Limit
 	  maximum number of data
 
@@ -161,6 +186,17 @@ func (o *GetIncomingFriendRequestsParams) SetUserID(userID string) {
 	o.UserID = userID
 }
 
+// WithFriendID adds the friendID to the get incoming friend requests params
+func (o *GetIncomingFriendRequestsParams) WithFriendID(friendID *string) *GetIncomingFriendRequestsParams {
+	o.SetFriendID(friendID)
+	return o
+}
+
+// SetFriendID adds the friendId to the get incoming friend requests params
+func (o *GetIncomingFriendRequestsParams) SetFriendID(friendID *string) {
+	o.FriendID = friendID
+}
+
 // WithLimit adds the limit to the get incoming friend requests params
 func (o *GetIncomingFriendRequestsParams) WithLimit(limit *int64) *GetIncomingFriendRequestsParams {
 	o.SetLimit(limit)
@@ -199,6 +235,22 @@ func (o *GetIncomingFriendRequestsParams) WriteToRequest(r runtime.ClientRequest
 	// path param userId
 	if err := r.SetPathParam("userId", o.UserID); err != nil {
 		return err
+	}
+
+	if o.FriendID != nil {
+
+		// query param friendId
+		var qrFriendID string
+		if o.FriendID != nil {
+			qrFriendID = *o.FriendID
+		}
+		qFriendID := qrFriendID
+		if qFriendID != "" {
+			if err := r.SetQueryParam("friendId", qFriendID); err != nil {
+				return err
+			}
+		}
+
 	}
 
 	if o.Limit != nil {

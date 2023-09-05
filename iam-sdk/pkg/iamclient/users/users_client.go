@@ -168,6 +168,8 @@ type ClientService interface {
 	AdminGetListCountryAgeRestrictionV3Short(params *AdminGetListCountryAgeRestrictionV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetListCountryAgeRestrictionV3OK, error)
 	AdminUpdateCountryAgeRestrictionV3(params *AdminUpdateCountryAgeRestrictionV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminUpdateCountryAgeRestrictionV3OK, *AdminUpdateCountryAgeRestrictionV3BadRequest, *AdminUpdateCountryAgeRestrictionV3Unauthorized, *AdminUpdateCountryAgeRestrictionV3Forbidden, *AdminUpdateCountryAgeRestrictionV3NotFound, *AdminUpdateCountryAgeRestrictionV3InternalServerError, error)
 	AdminUpdateCountryAgeRestrictionV3Short(params *AdminUpdateCountryAgeRestrictionV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminUpdateCountryAgeRestrictionV3OK, error)
+	AdminListUserIDByPlatformUserIDsV3(params *AdminListUserIDByPlatformUserIDsV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminListUserIDByPlatformUserIDsV3OK, *AdminListUserIDByPlatformUserIDsV3BadRequest, *AdminListUserIDByPlatformUserIDsV3Unauthorized, *AdminListUserIDByPlatformUserIDsV3Forbidden, *AdminListUserIDByPlatformUserIDsV3InternalServerError, error)
+	AdminListUserIDByPlatformUserIDsV3Short(params *AdminListUserIDByPlatformUserIDsV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminListUserIDByPlatformUserIDsV3OK, error)
 	AdminGetUserByPlatformUserIDV3(params *AdminGetUserByPlatformUserIDV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetUserByPlatformUserIDV3OK, *AdminGetUserByPlatformUserIDV3Unauthorized, *AdminGetUserByPlatformUserIDV3Forbidden, *AdminGetUserByPlatformUserIDV3NotFound, *AdminGetUserByPlatformUserIDV3InternalServerError, error)
 	AdminGetUserByPlatformUserIDV3Short(params *AdminGetUserByPlatformUserIDV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetUserByPlatformUserIDV3OK, error)
 	GetAdminUsersByRoleIDV3(params *GetAdminUsersByRoleIDV3Params, authInfo runtime.ClientAuthInfoWriter) (*GetAdminUsersByRoleIDV3OK, *GetAdminUsersByRoleIDV3BadRequest, *GetAdminUsersByRoleIDV3Unauthorized, *GetAdminUsersByRoleIDV3Forbidden, *GetAdminUsersByRoleIDV3NotFound, *GetAdminUsersByRoleIDV3InternalServerError, error)
@@ -178,6 +180,8 @@ type ClientService interface {
 	AdminGetBulkUserBanV3Short(params *AdminGetBulkUserBanV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetBulkUserBanV3OK, error)
 	AdminListUserIDByUserIDsV3(params *AdminListUserIDByUserIDsV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminListUserIDByUserIDsV3OK, *AdminListUserIDByUserIDsV3BadRequest, *AdminListUserIDByUserIDsV3Unauthorized, *AdminListUserIDByUserIDsV3Forbidden, *AdminListUserIDByUserIDsV3InternalServerError, error)
 	AdminListUserIDByUserIDsV3Short(params *AdminListUserIDByUserIDsV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminListUserIDByUserIDsV3OK, error)
+	AdminBulkGetUsersPlatform(params *AdminBulkGetUsersPlatformParams, authInfo runtime.ClientAuthInfoWriter) (*AdminBulkGetUsersPlatformOK, *AdminBulkGetUsersPlatformBadRequest, *AdminBulkGetUsersPlatformInternalServerError, error)
+	AdminBulkGetUsersPlatformShort(params *AdminBulkGetUsersPlatformParams, authInfo runtime.ClientAuthInfoWriter) (*AdminBulkGetUsersPlatformOK, error)
 	AdminInviteUserV3(params *AdminInviteUserV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminInviteUserV3Created, *AdminInviteUserV3BadRequest, *AdminInviteUserV3Unauthorized, *AdminInviteUserV3Forbidden, *AdminInviteUserV3NotFound, *AdminInviteUserV3Conflict, *AdminInviteUserV3UnprocessableEntity, *AdminInviteUserV3InternalServerError, error)
 	AdminInviteUserV3Short(params *AdminInviteUserV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminInviteUserV3Created, error)
 	AdminQueryThirdPlatformLinkHistoryV3(params *AdminQueryThirdPlatformLinkHistoryV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminQueryThirdPlatformLinkHistoryV3OK, *AdminQueryThirdPlatformLinkHistoryV3BadRequest, *AdminQueryThirdPlatformLinkHistoryV3Unauthorized, *AdminQueryThirdPlatformLinkHistoryV3Forbidden, *AdminQueryThirdPlatformLinkHistoryV3InternalServerError, error)
@@ -232,7 +236,7 @@ type ClientService interface {
 	AdminGetUserMappingShort(params *AdminGetUserMappingParams, authInfo runtime.ClientAuthInfoWriter) (*AdminGetUserMappingOK, error)
 	AdminCreateJusticeUser(params *AdminCreateJusticeUserParams, authInfo runtime.ClientAuthInfoWriter) (*AdminCreateJusticeUserCreated, *AdminCreateJusticeUserBadRequest, *AdminCreateJusticeUserUnauthorized, *AdminCreateJusticeUserForbidden, *AdminCreateJusticeUserNotFound, *AdminCreateJusticeUserInternalServerError, error)
 	AdminCreateJusticeUserShort(params *AdminCreateJusticeUserParams, authInfo runtime.ClientAuthInfoWriter) (*AdminCreateJusticeUserCreated, error)
-	AdminLinkPlatformAccount(params *AdminLinkPlatformAccountParams, authInfo runtime.ClientAuthInfoWriter) (*AdminLinkPlatformAccountNoContent, *AdminLinkPlatformAccountBadRequest, *AdminLinkPlatformAccountUnauthorized, *AdminLinkPlatformAccountForbidden, *AdminLinkPlatformAccountInternalServerError, error)
+	AdminLinkPlatformAccount(params *AdminLinkPlatformAccountParams, authInfo runtime.ClientAuthInfoWriter) (*AdminLinkPlatformAccountNoContent, *AdminLinkPlatformAccountBadRequest, *AdminLinkPlatformAccountUnauthorized, *AdminLinkPlatformAccountForbidden, *AdminLinkPlatformAccountConflict, *AdminLinkPlatformAccountInternalServerError, error)
 	AdminLinkPlatformAccountShort(params *AdminLinkPlatformAccountParams, authInfo runtime.ClientAuthInfoWriter) (*AdminLinkPlatformAccountNoContent, error)
 	AdminPlatformUnlinkV3(params *AdminPlatformUnlinkV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminPlatformUnlinkV3NoContent, *AdminPlatformUnlinkV3BadRequest, *AdminPlatformUnlinkV3Unauthorized, *AdminPlatformUnlinkV3Forbidden, *AdminPlatformUnlinkV3NotFound, *AdminPlatformUnlinkV3InternalServerError, error)
 	AdminPlatformUnlinkV3Short(params *AdminPlatformUnlinkV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminPlatformUnlinkV3NoContent, error)
@@ -310,6 +314,8 @@ type ClientService interface {
 	PublicWebLinkPlatformShort(params *PublicWebLinkPlatformParams, authInfo runtime.ClientAuthInfoWriter) (*PublicWebLinkPlatformOK, error)
 	PublicWebLinkPlatformEstablish(params *PublicWebLinkPlatformEstablishParams, authInfo runtime.ClientAuthInfoWriter) (*PublicWebLinkPlatformEstablishFound, error)
 	PublicWebLinkPlatformEstablishShort(params *PublicWebLinkPlatformEstablishParams, authInfo runtime.ClientAuthInfoWriter) (*PublicWebLinkPlatformEstablishFound, error)
+	PublicProcessWebLinkPlatformV3(params *PublicProcessWebLinkPlatformV3Params, authInfo runtime.ClientAuthInfoWriter) (*PublicProcessWebLinkPlatformV3OK, *PublicProcessWebLinkPlatformV3BadRequest, error)
+	PublicProcessWebLinkPlatformV3Short(params *PublicProcessWebLinkPlatformV3Params, authInfo runtime.ClientAuthInfoWriter) (*PublicProcessWebLinkPlatformV3OK, error)
 	ResetPasswordV3(params *ResetPasswordV3Params, authInfo runtime.ClientAuthInfoWriter) (*ResetPasswordV3NoContent, *ResetPasswordV3BadRequest, *ResetPasswordV3Forbidden, *ResetPasswordV3NotFound, error)
 	ResetPasswordV3Short(params *ResetPasswordV3Params, authInfo runtime.ClientAuthInfoWriter) (*ResetPasswordV3NoContent, error)
 	PublicGetUserByUserIDV3(params *PublicGetUserByUserIDV3Params, authInfo runtime.ClientAuthInfoWriter) (*PublicGetUserByUserIDV3OK, *PublicGetUserByUserIDV3BadRequest, *PublicGetUserByUserIDV3NotFound, *PublicGetUserByUserIDV3InternalServerError, error)
@@ -11309,6 +11315,128 @@ func (a *Client) AdminUpdateCountryAgeRestrictionV3Short(params *AdminUpdateCoun
 }
 
 /*
+Deprecated: 2022-08-10 - Use AdminListUserIDByPlatformUserIDsV3Short instead.
+
+AdminListUserIDByPlatformUserIDsV3 admin list user id by platform user id
+Admin List User ID By Platform User ID
+Required permission 'ADMIN:NAMESPACE:{namespace}:USER [READ]'
+This endpoint intended to list game user ID from the given namespace
+This endpoint return list of user ID by given platform ID and list of platform user ID
+
+nintendo platform user ID : NSA ID need to be appended with Environment ID using colon as separator. e.g kmzwa8awaa:dd1
+*/
+func (a *Client) AdminListUserIDByPlatformUserIDsV3(params *AdminListUserIDByPlatformUserIDsV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminListUserIDByPlatformUserIDsV3OK, *AdminListUserIDByPlatformUserIDsV3BadRequest, *AdminListUserIDByPlatformUserIDsV3Unauthorized, *AdminListUserIDByPlatformUserIDsV3Forbidden, *AdminListUserIDByPlatformUserIDsV3InternalServerError, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewAdminListUserIDByPlatformUserIDsV3Params()
+	}
+
+	if params.Context == nil {
+		params.Context = context.Background()
+	}
+
+	if params.RetryPolicy != nil {
+		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "AdminListUserIDByPlatformUserIDsV3",
+		Method:             "POST",
+		PathPattern:        "/iam/v3/admin/namespaces/{namespace}/platforms/{platformId}/users",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &AdminListUserIDByPlatformUserIDsV3Reader{formats: a.formats},
+		AuthInfo:           authInfo,
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, nil, nil, nil, nil, err
+	}
+
+	switch v := result.(type) {
+
+	case *AdminListUserIDByPlatformUserIDsV3OK:
+		return v, nil, nil, nil, nil, nil
+
+	case *AdminListUserIDByPlatformUserIDsV3BadRequest:
+		return nil, v, nil, nil, nil, nil
+
+	case *AdminListUserIDByPlatformUserIDsV3Unauthorized:
+		return nil, nil, v, nil, nil, nil
+
+	case *AdminListUserIDByPlatformUserIDsV3Forbidden:
+		return nil, nil, nil, v, nil, nil
+
+	case *AdminListUserIDByPlatformUserIDsV3InternalServerError:
+		return nil, nil, nil, nil, v, nil
+
+	default:
+		return nil, nil, nil, nil, nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
+	}
+}
+
+/*
+AdminListUserIDByPlatformUserIDsV3Short admin list user id by platform user id
+Admin List User ID By Platform User ID
+Required permission 'ADMIN:NAMESPACE:{namespace}:USER [READ]'
+This endpoint intended to list game user ID from the given namespace
+This endpoint return list of user ID by given platform ID and list of platform user ID
+
+nintendo platform user ID : NSA ID need to be appended with Environment ID using colon as separator. e.g kmzwa8awaa:dd1
+*/
+func (a *Client) AdminListUserIDByPlatformUserIDsV3Short(params *AdminListUserIDByPlatformUserIDsV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminListUserIDByPlatformUserIDsV3OK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewAdminListUserIDByPlatformUserIDsV3Params()
+	}
+
+	if params.Context == nil {
+		params.Context = context.Background()
+	}
+
+	if params.RetryPolicy != nil {
+		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "AdminListUserIDByPlatformUserIDsV3",
+		Method:             "POST",
+		PathPattern:        "/iam/v3/admin/namespaces/{namespace}/platforms/{platformId}/users",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &AdminListUserIDByPlatformUserIDsV3Reader{formats: a.formats},
+		AuthInfo:           authInfo,
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+
+	switch v := result.(type) {
+
+	case *AdminListUserIDByPlatformUserIDsV3OK:
+		return v, nil
+	case *AdminListUserIDByPlatformUserIDsV3BadRequest:
+		return nil, v
+	case *AdminListUserIDByPlatformUserIDsV3Unauthorized:
+		return nil, v
+	case *AdminListUserIDByPlatformUserIDsV3Forbidden:
+		return nil, v
+	case *AdminListUserIDByPlatformUserIDsV3InternalServerError:
+		return nil, v
+
+	default:
+		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
+	}
+}
+
+/*
 Deprecated: 2022-08-10 - Use AdminGetUserByPlatformUserIDV3Short instead.
 
 AdminGetUserByPlatformUserIDV3 admin get user by platform user id
@@ -11968,6 +12096,134 @@ func (a *Client) AdminListUserIDByUserIDsV3Short(params *AdminListUserIDByUserID
 	case *AdminListUserIDByUserIDsV3Forbidden:
 		return nil, v
 	case *AdminListUserIDByUserIDsV3InternalServerError:
+		return nil, v
+
+	default:
+		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
+	}
+}
+
+/*
+Deprecated: 2022-08-10 - Use AdminBulkGetUsersPlatformShort instead.
+
+AdminBulkGetUsersPlatform admin bulk get users' platform info by user ids
+
+
+Notes:
+
+
+
+
+                      * Required permission 'ADMIN:NAMESPACE:{namespace}:USER [READ]'
+
+
+                      * This endpoint bulk get users' basic info by userId, max allowed 100 at a time
+
+
+                      * If namespace is game, will search by game user Id, other wise will search by publisher namespace
+*/
+func (a *Client) AdminBulkGetUsersPlatform(params *AdminBulkGetUsersPlatformParams, authInfo runtime.ClientAuthInfoWriter) (*AdminBulkGetUsersPlatformOK, *AdminBulkGetUsersPlatformBadRequest, *AdminBulkGetUsersPlatformInternalServerError, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewAdminBulkGetUsersPlatformParams()
+	}
+
+	if params.Context == nil {
+		params.Context = context.Background()
+	}
+
+	if params.RetryPolicy != nil {
+		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "AdminBulkGetUsersPlatform",
+		Method:             "POST",
+		PathPattern:        "/iam/v3/admin/namespaces/{namespace}/users/bulk/platforms",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &AdminBulkGetUsersPlatformReader{formats: a.formats},
+		AuthInfo:           authInfo,
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, nil, nil, err
+	}
+
+	switch v := result.(type) {
+
+	case *AdminBulkGetUsersPlatformOK:
+		return v, nil, nil, nil
+
+	case *AdminBulkGetUsersPlatformBadRequest:
+		return nil, v, nil, nil
+
+	case *AdminBulkGetUsersPlatformInternalServerError:
+		return nil, nil, v, nil
+
+	default:
+		return nil, nil, nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
+	}
+}
+
+/*
+AdminBulkGetUsersPlatformShort admin bulk get users' platform info by user ids
+
+
+Notes:
+
+
+
+
+                      * Required permission 'ADMIN:NAMESPACE:{namespace}:USER [READ]'
+
+
+                      * This endpoint bulk get users' basic info by userId, max allowed 100 at a time
+
+
+                      * If namespace is game, will search by game user Id, other wise will search by publisher namespace
+*/
+func (a *Client) AdminBulkGetUsersPlatformShort(params *AdminBulkGetUsersPlatformParams, authInfo runtime.ClientAuthInfoWriter) (*AdminBulkGetUsersPlatformOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewAdminBulkGetUsersPlatformParams()
+	}
+
+	if params.Context == nil {
+		params.Context = context.Background()
+	}
+
+	if params.RetryPolicy != nil {
+		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "AdminBulkGetUsersPlatform",
+		Method:             "POST",
+		PathPattern:        "/iam/v3/admin/namespaces/{namespace}/users/bulk/platforms",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &AdminBulkGetUsersPlatformReader{formats: a.formats},
+		AuthInfo:           authInfo,
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+
+	switch v := result.(type) {
+
+	case *AdminBulkGetUsersPlatformOK:
+		return v, nil
+	case *AdminBulkGetUsersPlatformBadRequest:
+		return nil, v
+	case *AdminBulkGetUsersPlatformInternalServerError:
 		return nil, v
 
 	default:
@@ -16055,8 +16311,15 @@ Required permission 'ADMIN:NAMESPACE:{namespace}:USER:{userId} [UPDATE]'
 
 
 Force linking platform account to user User Account. This endpoint intended for admin to forcefully link account to user.
+By default, these cases are not allowed
+
+
+                              * The platform account current is linked by another account
+
+
+                              * The target account ever linked this platform's another account
 */
-func (a *Client) AdminLinkPlatformAccount(params *AdminLinkPlatformAccountParams, authInfo runtime.ClientAuthInfoWriter) (*AdminLinkPlatformAccountNoContent, *AdminLinkPlatformAccountBadRequest, *AdminLinkPlatformAccountUnauthorized, *AdminLinkPlatformAccountForbidden, *AdminLinkPlatformAccountInternalServerError, error) {
+func (a *Client) AdminLinkPlatformAccount(params *AdminLinkPlatformAccountParams, authInfo runtime.ClientAuthInfoWriter) (*AdminLinkPlatformAccountNoContent, *AdminLinkPlatformAccountBadRequest, *AdminLinkPlatformAccountUnauthorized, *AdminLinkPlatformAccountForbidden, *AdminLinkPlatformAccountConflict, *AdminLinkPlatformAccountInternalServerError, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminLinkPlatformAccountParams()
@@ -16084,28 +16347,31 @@ func (a *Client) AdminLinkPlatformAccount(params *AdminLinkPlatformAccountParams
 		Client:             params.HTTPClient,
 	})
 	if err != nil {
-		return nil, nil, nil, nil, nil, err
+		return nil, nil, nil, nil, nil, nil, err
 	}
 
 	switch v := result.(type) {
 
 	case *AdminLinkPlatformAccountNoContent:
-		return v, nil, nil, nil, nil, nil
+		return v, nil, nil, nil, nil, nil, nil
 
 	case *AdminLinkPlatformAccountBadRequest:
-		return nil, v, nil, nil, nil, nil
+		return nil, v, nil, nil, nil, nil, nil
 
 	case *AdminLinkPlatformAccountUnauthorized:
-		return nil, nil, v, nil, nil, nil
+		return nil, nil, v, nil, nil, nil, nil
 
 	case *AdminLinkPlatformAccountForbidden:
-		return nil, nil, nil, v, nil, nil
+		return nil, nil, nil, v, nil, nil, nil
+
+	case *AdminLinkPlatformAccountConflict:
+		return nil, nil, nil, nil, v, nil, nil
 
 	case *AdminLinkPlatformAccountInternalServerError:
-		return nil, nil, nil, nil, v, nil
+		return nil, nil, nil, nil, nil, v, nil
 
 	default:
-		return nil, nil, nil, nil, nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
+		return nil, nil, nil, nil, nil, nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
 	}
 }
 
@@ -16117,6 +16383,13 @@ Required permission 'ADMIN:NAMESPACE:{namespace}:USER:{userId} [UPDATE]'
 
 
 Force linking platform account to user User Account. This endpoint intended for admin to forcefully link account to user.
+By default, these cases are not allowed
+
+
+                              * The platform account current is linked by another account
+
+
+                              * The target account ever linked this platform's another account
 */
 func (a *Client) AdminLinkPlatformAccountShort(params *AdminLinkPlatformAccountParams, authInfo runtime.ClientAuthInfoWriter) (*AdminLinkPlatformAccountNoContent, error) {
 	// TODO: Validate the params before sending
@@ -16158,6 +16431,8 @@ func (a *Client) AdminLinkPlatformAccountShort(params *AdminLinkPlatformAccountP
 	case *AdminLinkPlatformAccountUnauthorized:
 		return nil, v
 	case *AdminLinkPlatformAccountForbidden:
+		return nil, v
+	case *AdminLinkPlatformAccountConflict:
 		return nil, v
 	case *AdminLinkPlatformAccountInternalServerError:
 		return nil, v
@@ -21995,6 +22270,107 @@ func (a *Client) PublicWebLinkPlatformEstablishShort(params *PublicWebLinkPlatfo
 }
 
 /*
+Deprecated: 2022-08-10 - Use PublicProcessWebLinkPlatformV3Short instead.
+
+PublicProcessWebLinkPlatformV3 process link progress
+This endpoint is used to process third party account link, this endpoint will return the link status directly instead of redirecting to the original page.
+
+The param state comes from the response of /users/me/platforms/{platformId}/web/link
+*/
+func (a *Client) PublicProcessWebLinkPlatformV3(params *PublicProcessWebLinkPlatformV3Params, authInfo runtime.ClientAuthInfoWriter) (*PublicProcessWebLinkPlatformV3OK, *PublicProcessWebLinkPlatformV3BadRequest, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewPublicProcessWebLinkPlatformV3Params()
+	}
+
+	if params.Context == nil {
+		params.Context = context.Background()
+	}
+
+	if params.RetryPolicy != nil {
+		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "PublicProcessWebLinkPlatformV3",
+		Method:             "POST",
+		PathPattern:        "/iam/v3/public/namespaces/{namespace}/users/me/platforms/{platformId}/web/link/process",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/x-www-form-urlencoded"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &PublicProcessWebLinkPlatformV3Reader{formats: a.formats},
+		AuthInfo:           authInfo,
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, nil, err
+	}
+
+	switch v := result.(type) {
+
+	case *PublicProcessWebLinkPlatformV3OK:
+		return v, nil, nil
+
+	case *PublicProcessWebLinkPlatformV3BadRequest:
+		return nil, v, nil
+
+	default:
+		return nil, nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
+	}
+}
+
+/*
+PublicProcessWebLinkPlatformV3Short process link progress
+This endpoint is used to process third party account link, this endpoint will return the link status directly instead of redirecting to the original page.
+
+The param state comes from the response of /users/me/platforms/{platformId}/web/link
+*/
+func (a *Client) PublicProcessWebLinkPlatformV3Short(params *PublicProcessWebLinkPlatformV3Params, authInfo runtime.ClientAuthInfoWriter) (*PublicProcessWebLinkPlatformV3OK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewPublicProcessWebLinkPlatformV3Params()
+	}
+
+	if params.Context == nil {
+		params.Context = context.Background()
+	}
+
+	if params.RetryPolicy != nil {
+		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "PublicProcessWebLinkPlatformV3",
+		Method:             "POST",
+		PathPattern:        "/iam/v3/public/namespaces/{namespace}/users/me/platforms/{platformId}/web/link/process",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/x-www-form-urlencoded"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &PublicProcessWebLinkPlatformV3Reader{formats: a.formats},
+		AuthInfo:           authInfo,
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+
+	switch v := result.(type) {
+
+	case *PublicProcessWebLinkPlatformV3OK:
+		return v, nil
+	case *PublicProcessWebLinkPlatformV3BadRequest:
+		return nil, v
+
+	default:
+		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
+	}
+}
+
+/*
 Deprecated: 2022-08-10 - Use ResetPasswordV3Short instead.
 
 ResetPasswordV3 reset user password
@@ -22112,6 +22488,10 @@ PublicGetUserByUserIDV3 get user by user id
 
 
 This endpoint retrieve user attributes. action code: 10129
+
+
+
+Substitute endpoint: /v4/public/namespaces/{namespace}/users/{userId} [READ]
 */
 func (a *Client) PublicGetUserByUserIDV3(params *PublicGetUserByUserIDV3Params, authInfo runtime.ClientAuthInfoWriter) (*PublicGetUserByUserIDV3OK, *PublicGetUserByUserIDV3BadRequest, *PublicGetUserByUserIDV3NotFound, *PublicGetUserByUserIDV3InternalServerError, error) {
 	// TODO: Validate the params before sending
@@ -22168,6 +22548,10 @@ PublicGetUserByUserIDV3Short get user by user id
 
 
 This endpoint retrieve user attributes. action code: 10129
+
+
+
+Substitute endpoint: /v4/public/namespaces/{namespace}/users/{userId} [READ]
 */
 func (a *Client) PublicGetUserByUserIDV3Short(params *PublicGetUserByUserIDV3Params, authInfo runtime.ClientAuthInfoWriter) (*PublicGetUserByUserIDV3OK, error) {
 	// TODO: Validate the params before sending

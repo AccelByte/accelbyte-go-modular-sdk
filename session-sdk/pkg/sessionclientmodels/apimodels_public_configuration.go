@@ -39,6 +39,9 @@ type ApimodelsPublicConfiguration struct {
 	// fallbackclaimkeys
 	FallbackClaimKeys []string `json:"fallbackClaimKeys,omitempty"`
 
+	// immutablestorage
+	ImmutableStorage bool `json:"immutableStorage"`
+
 	// inactivetimeout
 	// Required: true
 	// Format: int32
@@ -52,6 +55,10 @@ type ApimodelsPublicConfiguration struct {
 	// joinability
 	// Required: true
 	Joinability *string `json:"joinability"`
+
+	// maxactivesession
+	// Format: int32
+	MaxActiveSession int32 `json:"maxActiveSession,omitempty"`
 
 	// maxplayers
 	// Required: true
@@ -67,8 +74,8 @@ type ApimodelsPublicConfiguration struct {
 	// Required: true
 	Name *string `json:"name"`
 
-	// native_session_setting
-	NativeSessionSetting *ModelsNativeSessionSetting `json:"native_session_setting,omitempty"`
+	// nativesessionsetting
+	NativeSessionSetting *ModelsNativeSessionSetting `json:"nativeSessionSetting,omitempty"`
 
 	// persistent
 	// Required: true

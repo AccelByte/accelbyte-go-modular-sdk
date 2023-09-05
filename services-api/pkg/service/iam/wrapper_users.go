@@ -1822,6 +1822,32 @@ func (aaa *UsersService) AdminUpdateCountryAgeRestrictionV3(input *users.AdminUp
 	return ok.GetPayload(), nil
 }
 
+// Deprecated: 2022-01-10 - Please use AdminListUserIDByPlatformUserIDsV3Short instead.
+func (aaa *UsersService) AdminListUserIDByPlatformUserIDsV3(input *users.AdminListUserIDByPlatformUserIDsV3Params) (*iamclientmodels.AccountcommonUserPlatforms, error) {
+	token, err := aaa.TokenRepository.GetToken()
+	if err != nil {
+		return nil, err
+	}
+	ok, badRequest, unauthorized, forbidden, internalServerError, err := aaa.Client.Users.AdminListUserIDByPlatformUserIDsV3(input, client.BearerToken(*token.AccessToken))
+	if badRequest != nil {
+		return nil, badRequest
+	}
+	if unauthorized != nil {
+		return nil, unauthorized
+	}
+	if forbidden != nil {
+		return nil, forbidden
+	}
+	if internalServerError != nil {
+		return nil, internalServerError
+	}
+	if err != nil {
+		return nil, err
+	}
+
+	return ok.GetPayload(), nil
+}
+
 // Deprecated: 2022-01-10 - Please use AdminGetUserByPlatformUserIDV3Short instead.
 func (aaa *UsersService) AdminGetUserByPlatformUserIDV3(input *users.AdminGetUserByPlatformUserIDV3Params) (*iamclientmodels.ModelUserResponseV3, error) {
 	token, err := aaa.TokenRepository.GetToken()
@@ -1950,6 +1976,26 @@ func (aaa *UsersService) AdminListUserIDByUserIDsV3(input *users.AdminListUserID
 	}
 	if forbidden != nil {
 		return nil, forbidden
+	}
+	if internalServerError != nil {
+		return nil, internalServerError
+	}
+	if err != nil {
+		return nil, err
+	}
+
+	return ok.GetPayload(), nil
+}
+
+// Deprecated: 2022-01-10 - Please use AdminBulkGetUsersPlatformShort instead.
+func (aaa *UsersService) AdminBulkGetUsersPlatform(input *users.AdminBulkGetUsersPlatformParams) (*iamclientmodels.ModelListBulkUserPlatformsResponse, error) {
+	token, err := aaa.TokenRepository.GetToken()
+	if err != nil {
+		return nil, err
+	}
+	ok, badRequest, internalServerError, err := aaa.Client.Users.AdminBulkGetUsersPlatform(input, client.BearerToken(*token.AccessToken))
+	if badRequest != nil {
+		return nil, badRequest
 	}
 	if internalServerError != nil {
 		return nil, internalServerError
@@ -2723,7 +2769,7 @@ func (aaa *UsersService) AdminLinkPlatformAccount(input *users.AdminLinkPlatform
 	if err != nil {
 		return err
 	}
-	_, badRequest, unauthorized, forbidden, internalServerError, err := aaa.Client.Users.AdminLinkPlatformAccount(input, client.BearerToken(*token.AccessToken))
+	_, badRequest, unauthorized, forbidden, conflict, internalServerError, err := aaa.Client.Users.AdminLinkPlatformAccount(input, client.BearerToken(*token.AccessToken))
 	if badRequest != nil {
 		return badRequest
 	}
@@ -2732,6 +2778,9 @@ func (aaa *UsersService) AdminLinkPlatformAccount(input *users.AdminLinkPlatform
 	}
 	if forbidden != nil {
 		return forbidden
+	}
+	if conflict != nil {
+		return conflict
 	}
 	if internalServerError != nil {
 		return internalServerError
@@ -3720,6 +3769,23 @@ func (aaa *UsersService) PublicWebLinkPlatformEstablish(input *users.PublicWebLi
 	}
 
 	return found.Location, nil
+}
+
+// Deprecated: 2022-01-10 - Please use PublicProcessWebLinkPlatformV3Short instead.
+func (aaa *UsersService) PublicProcessWebLinkPlatformV3(input *users.PublicProcessWebLinkPlatformV3Params) (*iamclientmodels.ModelLinkRequest, error) {
+	token, err := aaa.TokenRepository.GetToken()
+	if err != nil {
+		return nil, err
+	}
+	ok, badRequest, err := aaa.Client.Users.PublicProcessWebLinkPlatformV3(input, client.BearerToken(*token.AccessToken))
+	if badRequest != nil {
+		return nil, badRequest
+	}
+	if err != nil {
+		return nil, err
+	}
+
+	return ok.GetPayload(), nil
 }
 
 // Deprecated: 2022-01-10 - Please use ResetPasswordV3Short instead.
@@ -5879,6 +5945,31 @@ func (aaa *UsersService) AdminUpdateCountryAgeRestrictionV3Short(input *users.Ad
 	return ok.GetPayload(), nil
 }
 
+func (aaa *UsersService) AdminListUserIDByPlatformUserIDsV3Short(input *users.AdminListUserIDByPlatformUserIDsV3Params) (*iamclientmodels.AccountcommonUserPlatforms, error) {
+	authInfoWriter := input.AuthInfoWriter
+	if authInfoWriter == nil {
+		security := [][]string{
+			{"bearer"},
+		}
+		authInfoWriter = auth.AuthInfoWriter(aaa.GetAuthSession(), security, "")
+	}
+	if input.RetryPolicy == nil {
+		input.RetryPolicy = &utils.Retry{
+			MaxTries:   utils.MaxTries,
+			Backoff:    utils.NewConstantBackoff(0),
+			Transport:  aaa.Client.Runtime.Transport,
+			RetryCodes: utils.RetryCodes,
+		}
+	}
+
+	ok, err := aaa.Client.Users.AdminListUserIDByPlatformUserIDsV3Short(input, authInfoWriter)
+	if err != nil {
+		return nil, err
+	}
+
+	return ok.GetPayload(), nil
+}
+
 func (aaa *UsersService) AdminGetUserByPlatformUserIDV3Short(input *users.AdminGetUserByPlatformUserIDV3Params) (*iamclientmodels.ModelUserResponseV3, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
@@ -5997,6 +6088,31 @@ func (aaa *UsersService) AdminListUserIDByUserIDsV3Short(input *users.AdminListU
 	}
 
 	ok, err := aaa.Client.Users.AdminListUserIDByUserIDsV3Short(input, authInfoWriter)
+	if err != nil {
+		return nil, err
+	}
+
+	return ok.GetPayload(), nil
+}
+
+func (aaa *UsersService) AdminBulkGetUsersPlatformShort(input *users.AdminBulkGetUsersPlatformParams) (*iamclientmodels.ModelListBulkUserPlatformsResponse, error) {
+	authInfoWriter := input.AuthInfoWriter
+	if authInfoWriter == nil {
+		security := [][]string{
+			{"bearer"},
+		}
+		authInfoWriter = auth.AuthInfoWriter(aaa.GetAuthSession(), security, "")
+	}
+	if input.RetryPolicy == nil {
+		input.RetryPolicy = &utils.Retry{
+			MaxTries:   utils.MaxTries,
+			Backoff:    utils.NewConstantBackoff(0),
+			Transport:  aaa.Client.Runtime.Transport,
+			RetryCodes: utils.RetryCodes,
+		}
+	}
+
+	ok, err := aaa.Client.Users.AdminBulkGetUsersPlatformShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
 	}
@@ -7652,6 +7768,31 @@ func (aaa *UsersService) PublicWebLinkPlatformEstablishShort(input *users.Public
 	}
 
 	return found.Location, nil
+}
+
+func (aaa *UsersService) PublicProcessWebLinkPlatformV3Short(input *users.PublicProcessWebLinkPlatformV3Params) (*iamclientmodels.ModelLinkRequest, error) {
+	authInfoWriter := input.AuthInfoWriter
+	if authInfoWriter == nil {
+		security := [][]string{
+			{"bearer"},
+		}
+		authInfoWriter = auth.AuthInfoWriter(aaa.GetAuthSession(), security, "")
+	}
+	if input.RetryPolicy == nil {
+		input.RetryPolicy = &utils.Retry{
+			MaxTries:   utils.MaxTries,
+			Backoff:    utils.NewConstantBackoff(0),
+			Transport:  aaa.Client.Runtime.Transport,
+			RetryCodes: utils.RetryCodes,
+		}
+	}
+
+	ok, err := aaa.Client.Users.PublicProcessWebLinkPlatformV3Short(input, authInfoWriter)
+	if err != nil {
+		return nil, err
+	}
+
+	return ok.GetPayload(), nil
 }
 
 func (aaa *UsersService) ResetPasswordV3Short(input *users.ResetPasswordV3Params) error {

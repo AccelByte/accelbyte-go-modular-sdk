@@ -18,11 +18,13 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/session-sdk/pkg/sessionclient/configuration_template"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/session-sdk/pkg/sessionclient/d_s_m_c_default_configuration"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/session-sdk/pkg/sessionclient/environment_variable"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/session-sdk/pkg/sessionclient/game_session"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/session-sdk/pkg/sessionclient/operations"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/session-sdk/pkg/sessionclient/party"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/session-sdk/pkg/sessionclient/platform_credential"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/session-sdk/pkg/sessionclient/player"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/session-sdk/pkg/sessionclient/session_storage"
 )
 
 // Default justice session service HTTP client.
@@ -88,10 +90,12 @@ func New(transport runtime.ClientTransport, runtime *httptransport.Runtime, form
 	cli.Runtime = runtime
 	cli.ConfigurationTemplate = configuration_template.New(transport, formats)
 	cli.DsmcDefaultConfiguration = d_s_m_c_default_configuration.New(transport, formats)
+	cli.EnvironmentVariable = environment_variable.New(transport, formats)
 	cli.GameSession = game_session.New(transport, formats)
 	cli.Party = party.New(transport, formats)
 	cli.PlatformCredential = platform_credential.New(transport, formats)
 	cli.Player = player.New(transport, formats)
+	cli.SessionStorage = session_storage.New(transport, formats)
 	cli.Operations = operations.New(transport, formats)
 
 	return cli
@@ -158,6 +162,8 @@ type JusticeSessionService struct {
 
 	DsmcDefaultConfiguration d_s_m_c_default_configuration.ClientService
 
+	EnvironmentVariable environment_variable.ClientService
+
 	GameSession game_session.ClientService
 
 	Party party.ClientService
@@ -165,6 +171,8 @@ type JusticeSessionService struct {
 	PlatformCredential platform_credential.ClientService
 
 	Player player.ClientService
+
+	SessionStorage session_storage.ClientService
 
 	Operations operations.ClientService
 
@@ -177,9 +185,11 @@ func (c *JusticeSessionService) SetTransport(transport runtime.ClientTransport) 
 	c.Transport = transport
 	c.ConfigurationTemplate.SetTransport(transport)
 	c.DsmcDefaultConfiguration.SetTransport(transport)
+	c.EnvironmentVariable.SetTransport(transport)
 	c.GameSession.SetTransport(transport)
 	c.Party.SetTransport(transport)
 	c.PlatformCredential.SetTransport(transport)
 	c.Player.SetTransport(transport)
+	c.SessionStorage.SetTransport(transport)
 	c.Operations.SetTransport(transport)
 }
