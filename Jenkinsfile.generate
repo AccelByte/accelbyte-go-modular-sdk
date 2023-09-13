@@ -22,6 +22,7 @@ sdkSpecPath = null
 sdkCodegenPath = null
 mockServerPath = null
 sdkPath = null
+codegenPath = null
 
 breakingChangeCheckExitCode = 0
 outstandingDeprecationCount = 0
@@ -78,7 +79,7 @@ pipeline {
 
         // Generate SDK and the rest of the SDK
         dir(sdkCodegenPath) {
-          sh script: "cd templates/go-modular-extend-sdk && make all SDK_PATH=${sdkPath}", label: "Generate SDK and rest of SDK release"
+          sh script: "make build-linux PLATFORM=amd64 && cd templates/go-modular-extend-sdk && make all SDK_PATH=${sdkPath} CODEGEN_PATH=${sdkCodegenPath}/accelbyte-codegen-linux_amd64 SPEC_PATH=${sdkPath}/spec/", label: "Generate SDK and rest of SDK release"
         }
 
         // Check code-level breaking changes
