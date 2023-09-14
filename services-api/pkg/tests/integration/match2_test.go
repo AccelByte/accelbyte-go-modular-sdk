@@ -144,7 +144,7 @@ func TestIntegrationMatchPool(t *testing.T) {
 	inputCreateTicket := &match_tickets.CreateMatchTicketParams{
 		Body: &match2clientmodels.APIMatchTicketRequest{
 			MatchPool: &poolName,
-			SessionID: &sessionID,
+			SessionID: sessionID,
 		},
 		Namespace: integration.NamespaceTest,
 	}
