@@ -3059,6 +3059,38 @@ func (aaa *UsersService) AdminUpdateUserStatusV3(input *users.AdminUpdateUserSta
 	return nil
 }
 
+// Deprecated: 2022-01-10 - Please use AdminTrustlyUpdateUserIdentityShort instead.
+func (aaa *UsersService) AdminTrustlyUpdateUserIdentity(input *users.AdminTrustlyUpdateUserIdentityParams) error {
+	token, err := aaa.TokenRepository.GetToken()
+	if err != nil {
+		return err
+	}
+	_, badRequest, unauthorized, forbidden, notFound, conflict, internalServerError, err := aaa.Client.Users.AdminTrustlyUpdateUserIdentity(input, client.BearerToken(*token.AccessToken))
+	if badRequest != nil {
+		return badRequest
+	}
+	if unauthorized != nil {
+		return unauthorized
+	}
+	if forbidden != nil {
+		return forbidden
+	}
+	if notFound != nil {
+		return notFound
+	}
+	if conflict != nil {
+		return conflict
+	}
+	if internalServerError != nil {
+		return internalServerError
+	}
+	if err != nil {
+		return err
+	}
+
+	return nil
+}
+
 // Deprecated: 2022-01-10 - Please use AdminVerifyUserWithoutVerificationCodeV3Short instead.
 func (aaa *UsersService) AdminVerifyUserWithoutVerificationCodeV3(input *users.AdminVerifyUserWithoutVerificationCodeV3Params) error {
 	token, err := aaa.TokenRepository.GetToken()
@@ -3238,9 +3270,12 @@ func (aaa *UsersService) PublicCreateUserV3(input *users.PublicCreateUserV3Param
 	if err != nil {
 		return nil, err
 	}
-	created, badRequest, notFound, conflict, internalServerError, err := aaa.Client.Users.PublicCreateUserV3(input, client.BearerToken(*token.AccessToken))
+	created, badRequest, forbidden, notFound, conflict, internalServerError, err := aaa.Client.Users.PublicCreateUserV3(input, client.BearerToken(*token.AccessToken))
 	if badRequest != nil {
 		return nil, badRequest
+	}
+	if forbidden != nil {
+		return nil, forbidden
 	}
 	if notFound != nil {
 		return nil, notFound
@@ -3387,9 +3422,12 @@ func (aaa *UsersService) CreateUserFromInvitationV3(input *users.CreateUserFromI
 	if err != nil {
 		return nil, err
 	}
-	created, badRequest, notFound, internalServerError, err := aaa.Client.Users.CreateUserFromInvitationV3(input, client.BearerToken(*token.AccessToken))
+	created, badRequest, forbidden, notFound, internalServerError, err := aaa.Client.Users.CreateUserFromInvitationV3(input, client.BearerToken(*token.AccessToken))
 	if badRequest != nil {
 		return nil, badRequest
+	}
+	if forbidden != nil {
+		return nil, forbidden
 	}
 	if notFound != nil {
 		return nil, notFound
@@ -3436,12 +3474,15 @@ func (aaa *UsersService) PublicPartialUpdateUserV3(input *users.PublicPartialUpd
 	if err != nil {
 		return nil, err
 	}
-	ok, badRequest, unauthorized, conflict, internalServerError, err := aaa.Client.Users.PublicPartialUpdateUserV3(input, client.BearerToken(*token.AccessToken))
+	ok, badRequest, unauthorized, forbidden, conflict, internalServerError, err := aaa.Client.Users.PublicPartialUpdateUserV3(input, client.BearerToken(*token.AccessToken))
 	if badRequest != nil {
 		return nil, badRequest
 	}
 	if unauthorized != nil {
 		return nil, unauthorized
+	}
+	if forbidden != nil {
+		return nil, forbidden
 	}
 	if conflict != nil {
 		return nil, conflict
@@ -7038,6 +7079,31 @@ func (aaa *UsersService) AdminUpdateUserStatusV3Short(input *users.AdminUpdateUs
 	}
 
 	_, err := aaa.Client.Users.AdminUpdateUserStatusV3Short(input, authInfoWriter)
+	if err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (aaa *UsersService) AdminTrustlyUpdateUserIdentityShort(input *users.AdminTrustlyUpdateUserIdentityParams) error {
+	authInfoWriter := input.AuthInfoWriter
+	if authInfoWriter == nil {
+		security := [][]string{
+			{"bearer"},
+		}
+		authInfoWriter = auth.AuthInfoWriter(aaa.GetAuthSession(), security, "")
+	}
+	if input.RetryPolicy == nil {
+		input.RetryPolicy = &utils.Retry{
+			MaxTries:   utils.MaxTries,
+			Backoff:    utils.NewConstantBackoff(0),
+			Transport:  aaa.Client.Runtime.Transport,
+			RetryCodes: utils.RetryCodes,
+		}
+	}
+
+	_, err := aaa.Client.Users.AdminTrustlyUpdateUserIdentityShort(input, authInfoWriter)
 	if err != nil {
 		return err
 	}

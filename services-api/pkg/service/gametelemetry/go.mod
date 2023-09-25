@@ -3,11 +3,7 @@ module github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/service/ga
 go 1.18
 
 // for development only (not propagated)
-replace (
-	github.com/AccelByte/accelbyte-go-modular-sdk/gametelemetry-sdk => ../../../../gametelemetry-sdk
-	github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk => ../../../../iam-sdk // required: included by services-api
-	github.com/AccelByte/accelbyte-go-modular-sdk/services-api => ../../../../services-api
-)
+replace github.com/AccelByte/accelbyte-go-modular-sdk/gametelemetry-sdk => ../../../../gametelemetry-sdk
 
 require (
 	github.com/AccelByte/accelbyte-go-modular-sdk/gametelemetry-sdk v0.0.0

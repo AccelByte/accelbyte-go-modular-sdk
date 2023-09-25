@@ -3,11 +3,7 @@ module github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/service/gr
 go 1.18
 
 // for development only (not propagated)
-replace (
-	github.com/AccelByte/accelbyte-go-modular-sdk/group-sdk => ../../../../group-sdk
-	github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk => ../../../../iam-sdk // required: included by services-api
-	github.com/AccelByte/accelbyte-go-modular-sdk/services-api => ../../../../services-api
-)
+replace github.com/AccelByte/accelbyte-go-modular-sdk/group-sdk => ../../../../group-sdk
 
 require (
 	github.com/AccelByte/accelbyte-go-modular-sdk/group-sdk v0.0.0

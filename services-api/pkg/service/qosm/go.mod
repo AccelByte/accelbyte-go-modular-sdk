@@ -3,11 +3,7 @@ module github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/service/qo
 go 1.18
 
 // for development only (not propagated)
-replace (
-	github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk => ../../../../iam-sdk // required: included by services-api
-	github.com/AccelByte/accelbyte-go-modular-sdk/qosm-sdk => ../../../../qosm-sdk
-	github.com/AccelByte/accelbyte-go-modular-sdk/services-api => ../../../../services-api
-)
+replace github.com/AccelByte/accelbyte-go-modular-sdk/qosm-sdk => ../../../../qosm-sdk
 
 require (
 	github.com/AccelByte/accelbyte-go-modular-sdk/qosm-sdk v0.0.0

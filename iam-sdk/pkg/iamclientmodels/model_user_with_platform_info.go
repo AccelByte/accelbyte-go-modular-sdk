@@ -36,6 +36,9 @@ type ModelUserWithPlatformInfo struct {
 
 	// username
 	Username string `json:"username,omitempty"`
+
+	// xuid
+	Xuid string `json:"xuid,omitempty"`
 }
 
 // Validate validates this Model user with platform info

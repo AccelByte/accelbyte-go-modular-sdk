@@ -4,7 +4,7 @@
 
 // Code generated; DO NOT EDIT.
 
-package inventoryclientmodels
+package iamclientmodels
 
 import (
 	"github.com/go-openapi/errors"
@@ -13,21 +13,21 @@ import (
 	"github.com/go-openapi/validate"
 )
 
-// ApimodelsBulkRemoveItemsReq Apimodels bulk remove items req
+// ModelCountryBlacklistRequest Model country blacklist request
 //
-// swagger:model Apimodels bulk remove items req.
-type ApimodelsBulkRemoveItemsReq struct {
+// swagger:model Model country blacklist request.
+type ModelCountryBlacklistRequest struct {
 
-	// ids
+	// blacklist
 	// Required: true
-	Ids []string `json:"ids"`
+	Blacklist []string `json:"blacklist"`
 }
 
-// Validate validates this Apimodels bulk remove items req
-func (m *ApimodelsBulkRemoveItemsReq) Validate(formats strfmt.Registry) error {
+// Validate validates this Model country blacklist request
+func (m *ModelCountryBlacklistRequest) Validate(formats strfmt.Registry) error {
 	var res []error
 
-	if err := m.validateIds(formats); err != nil {
+	if err := m.validateBlacklist(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -37,9 +37,9 @@ func (m *ApimodelsBulkRemoveItemsReq) Validate(formats strfmt.Registry) error {
 	return nil
 }
 
-func (m *ApimodelsBulkRemoveItemsReq) validateIds(formats strfmt.Registry) error {
+func (m *ModelCountryBlacklistRequest) validateBlacklist(formats strfmt.Registry) error {
 
-	if err := validate.Required("ids", "body", m.Ids); err != nil {
+	if err := validate.Required("blacklist", "body", m.Blacklist); err != nil {
 		return err
 	}
 
@@ -47,7 +47,7 @@ func (m *ApimodelsBulkRemoveItemsReq) validateIds(formats strfmt.Registry) error
 }
 
 // MarshalBinary interface implementation
-func (m *ApimodelsBulkRemoveItemsReq) MarshalBinary() ([]byte, error) {
+func (m *ModelCountryBlacklistRequest) MarshalBinary() ([]byte, error) {
 	if m == nil {
 		return nil, nil
 	}
@@ -55,8 +55,8 @@ func (m *ApimodelsBulkRemoveItemsReq) MarshalBinary() ([]byte, error) {
 }
 
 // UnmarshalBinary interface implementation
-func (m *ApimodelsBulkRemoveItemsReq) UnmarshalBinary(b []byte) error {
-	var res ApimodelsBulkRemoveItemsReq
+func (m *ModelCountryBlacklistRequest) UnmarshalBinary(b []byte) error {
+	var res ModelCountryBlacklistRequest
 	if err := swag.ReadJSON(b, &res); err != nil {
 		return err
 	}
