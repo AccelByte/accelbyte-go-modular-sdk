@@ -79,7 +79,7 @@ pipeline {
 
         // Generate SDK and the rest of the SDK
         dir(sdkCodegenPath) {
-          sh script: "make build-linux PLATFORM=amd64 && cd templates/go-modular-extend-sdk && make all SDK_PATH=${sdkPath} CODEGEN_PATH=${sdkCodegenPath}/accelbyte-codegen-linux_amd64 SPEC_PATH=${sdkPath}/spec/", label: "Generate SDK and rest of SDK release"
+          sh script: "make build-linux PLATFORM=amd64 && cd templates/go-modular-extend-sdk && make all_with_compat SDK_PATH=${sdkPath} CODEGEN_PATH=${sdkCodegenPath}/accelbyte-codegen-linux_amd64 SPEC_PATH=${sdkPath}/spec/", label: "Generate SDK and rest of SDK release"
         }
 
         // Check code-level breaking changes
