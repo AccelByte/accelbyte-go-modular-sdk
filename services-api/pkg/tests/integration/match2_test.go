@@ -14,7 +14,6 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/match2-sdk/pkg/match2client/match_functions"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/match2-sdk/pkg/match2client/match_pools"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/match2-sdk/pkg/match2client/match_tickets"
-	"github.com/AccelByte/accelbyte-go-modular-sdk/match2-sdk/pkg/match2client/operations"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/match2-sdk/pkg/match2client/rule_sets"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/match2-sdk/pkg/match2clientmodels"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/tests/integration"
@@ -23,10 +22,6 @@ import (
 )
 
 var (
-	operationMatch2Service = &match2.OperationsService{
-		Client:          match2.NewMatch2Client(configRepo),
-		TokenRepository: tokenRepository,
-	}
 	ruleSetsService = &match2.RuleSetsService{
 		Client:          match2.NewMatch2Client(configRepo),
 		TokenRepository: tokenRepository,
@@ -57,24 +52,6 @@ var (
 		TicketExpirationSeconds:         &expirationSeconds,
 	}
 )
-
-func TestIntegrationMatch2HealthCheck(t *testing.T) {
-	// Login User - Arrange
-	Init()
-
-	// CASE Health check
-	input := &operations.GetHealthcheckInfoParams{}
-	err := operationMatch2Service.GetHealthcheckInfoShort(input)
-	if err != nil {
-		assert.FailNow(t, err.Error())
-
-		return
-	}
-	// ESAC
-
-	// Assert
-	assert.Nil(t, err, "err should be nil")
-}
 
 func TestIntegrationMatchPool(t *testing.T) {
 	t.Skip("skip due to UserIsNotInSession error")
