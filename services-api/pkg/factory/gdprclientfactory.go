@@ -19,10 +19,10 @@ import (
 var gdprClientInstance *gdprclient.JusticeGdprService
 
 // NewGdprClient
-// Deprecated: 2023-03-30 - please use NewGdprClient from "github.com/AccelByte/accelbyte-go-modular-sdk/Gdpr-sdk/pkg"
+// Deprecated: 2023-03-30 - please use NewGdprClient from "github.com/AccelByte/accelbyte-go-modular-sdk/gdpr-sdk/pkg"
 func NewGdprClient(configRepository repository.ConfigRepository) *gdprclient.JusticeGdprService {
 	if gdprClientInstance == nil {
-		baseURL := configRepository.GetJusticeBaseUrl()
+		baseURL := strings.TrimSuffix(configRepository.GetJusticeBaseUrl(), "/")
 		if len(baseURL) > 0 {
 			baseURLSplit := strings.Split(baseURL, "://")
 			httpClientConfig := &gdprclient.TransportConfig{

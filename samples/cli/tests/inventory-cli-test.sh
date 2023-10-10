@@ -51,101 +51,101 @@ touch "tmp.dat"
 #- 2 AdminListInventories
 samples/cli/sample-apps Inventory adminListInventories \
     --namespace $AB_NAMESPACE \
-    --inventoryConfigurationCode 'Jb72M5Ku' \
-    --limit '93' \
-    --offset '14' \
-    --sortBy 'inventoryConfigurationCode' \
-    --userId 'A0wMN10e' \
+    --inventoryConfigurationCode 'i9r9focn' \
+    --limit '47' \
+    --offset '46' \
+    --sortBy 'updatedAt:desc' \
+    --userId 'tSeiPOah' \
     > test.out 2>&1
 eval_tap $? 2 'AdminListInventories' test.out
 
 #- 3 AdminCreateInventory
 samples/cli/sample-apps Inventory adminCreateInventory \
     --namespace $AB_NAMESPACE \
-    --body '{"inventoryConfigurationCode": "l2haAkQd", "userId": "zpUJled6"}' \
+    --body '{"inventoryConfigurationCode": "iLrCx5o1", "userId": "HTUBrlLd"}' \
     > test.out 2>&1
 eval_tap $? 3 'AdminCreateInventory' test.out
 
 #- 4 AdminGetInventory
 samples/cli/sample-apps Inventory adminGetInventory \
-    --inventoryId 'l8Vr0l5B' \
+    --inventoryId 'mPodPGEk' \
     --namespace $AB_NAMESPACE \
     > test.out 2>&1
 eval_tap $? 4 'AdminGetInventory' test.out
 
 #- 5 AdminUpdateInventory
 samples/cli/sample-apps Inventory adminUpdateInventory \
-    --inventoryId 'BaVdr5ih' \
+    --inventoryId 'p1Pm6hwh' \
     --namespace $AB_NAMESPACE \
-    --body '{"incMaxSlots": 79}' \
+    --body '{"incMaxSlots": 66}' \
     > test.out 2>&1
 eval_tap $? 5 'AdminUpdateInventory' test.out
 
 #- 6 DeleteInventory
 samples/cli/sample-apps Inventory deleteInventory \
-    --inventoryId 'reuBUzxY' \
+    --inventoryId 'atlyJwFF' \
     --namespace $AB_NAMESPACE \
-    --body '{"message": "NvMoZSVo"}' \
+    --body '{"message": "Y7VfgbeT"}' \
     > test.out 2>&1
 eval_tap $? 6 'DeleteInventory' test.out
 
 #- 7 AdminListItems
 samples/cli/sample-apps Inventory adminListItems \
-    --inventoryId 'vtqNEbRE' \
+    --inventoryId 'KdDjtuD2' \
     --namespace $AB_NAMESPACE \
-    --limit '20' \
-    --offset '95' \
-    --qtyGte '96' \
-    --sortBy 'createdAt' \
-    --sourceItemId 'zX1gnUFk' \
-    --tags '88mFyOpd' \
+    --limit '100' \
+    --offset '8' \
+    --qtyGte '75' \
+    --sortBy 'createdAt:asc' \
+    --sourceItemId 'WuN1SsC8' \
+    --tags 'dMW5T1mw' \
     > test.out 2>&1
 eval_tap $? 7 'AdminListItems' test.out
 
 #- 8 AdminGetInventoryItem
 samples/cli/sample-apps Inventory adminGetInventoryItem \
-    --inventoryId 'iCRygxl9' \
+    --inventoryId 'rgw2j08e' \
     --namespace $AB_NAMESPACE \
-    --slotId '36jrJ2ja' \
-    --sourceItemId 'ktc3jpis' \
+    --slotId 'mhSseeRa' \
+    --sourceItemId 'S9kJoKDI' \
     > test.out 2>&1
 eval_tap $? 8 'AdminGetInventoryItem' test.out
 
 #- 9 AdminListInventoryConfigurations
 samples/cli/sample-apps Inventory adminListInventoryConfigurations \
     --namespace $AB_NAMESPACE \
-    --code '4iYc93sv' \
-    --limit '46' \
-    --offset '82' \
-    --sortBy 'code' \
+    --code 'Xd1kgy35' \
+    --limit '99' \
+    --offset '40' \
+    --sortBy 'updatedAt:asc' \
     > test.out 2>&1
 eval_tap $? 9 'AdminListInventoryConfigurations' test.out
 
 #- 10 AdminCreateInventoryConfiguration
 samples/cli/sample-apps Inventory adminCreateInventoryConfiguration \
     --namespace $AB_NAMESPACE \
-    --body '{"code": "uCDCE0yq", "description": "ugaL24gz", "initialMaxSlots": 91, "maxInstancesPerUser": 77, "maxUpgradeSlots": 23, "name": "EHNlsMsT"}' \
+    --body '{"code": "6ZvGcY2N", "description": "Z6IBmWfb", "initialMaxSlots": 75, "maxInstancesPerUser": 96, "maxUpgradeSlots": 58, "name": "D8l0fNPw"}' \
     > test.out 2>&1
 eval_tap $? 10 'AdminCreateInventoryConfiguration' test.out
 
 #- 11 AdminGetInventoryConfiguration
 samples/cli/sample-apps Inventory adminGetInventoryConfiguration \
-    --inventoryConfigurationId 'BEYg2joj' \
+    --inventoryConfigurationId 'CPV21JAw' \
     --namespace $AB_NAMESPACE \
     > test.out 2>&1
 eval_tap $? 11 'AdminGetInventoryConfiguration' test.out
 
 #- 12 AdminUpdateInventoryConfiguration
 samples/cli/sample-apps Inventory adminUpdateInventoryConfiguration \
-    --inventoryConfigurationId 'maGUKMN1' \
+    --inventoryConfigurationId 'Cxg8WjHw' \
     --namespace $AB_NAMESPACE \
-    --body '{"code": "kuhN85l3", "description": "eGWifgRA", "initialMaxSlots": 77, "maxInstancesPerUser": 56, "maxUpgradeSlots": 30, "name": "DU0Cd9Yi"}' \
+    --body '{"code": "ZihPkTNp", "description": "mUt8t4PD", "initialMaxSlots": 55, "maxInstancesPerUser": 62, "maxUpgradeSlots": 99, "name": "DeAggo8Z"}' \
     > test.out 2>&1
 eval_tap $? 12 'AdminUpdateInventoryConfiguration' test.out
 
 #- 13 AdminDeleteInventoryConfiguration
 samples/cli/sample-apps Inventory adminDeleteInventoryConfiguration \
-    --inventoryConfigurationId 'CZLrP1lv' \
+    --inventoryConfigurationId 'w6SgOHpA' \
     --namespace $AB_NAMESPACE \
     > test.out 2>&1
 eval_tap $? 13 'AdminDeleteInventoryConfiguration' test.out
@@ -153,22 +153,22 @@ eval_tap $? 13 'AdminDeleteInventoryConfiguration' test.out
 #- 14 AdminListItemTypes
 samples/cli/sample-apps Inventory adminListItemTypes \
     --namespace $AB_NAMESPACE \
-    --limit '17' \
-    --offset '97' \
-    --sortBy 'createdAt' \
+    --limit '1' \
+    --offset '23' \
+    --sortBy 'name:desc' \
     > test.out 2>&1
 eval_tap $? 14 'AdminListItemTypes' test.out
 
 #- 15 AdminCreateItemType
 samples/cli/sample-apps Inventory adminCreateItemType \
     --namespace $AB_NAMESPACE \
-    --body '{"name": "izaBDQVl"}' \
+    --body '{"name": "ffOTnqGR"}' \
     > test.out 2>&1
 eval_tap $? 15 'AdminCreateItemType' test.out
 
 #- 16 AdminDeleteItemType
 samples/cli/sample-apps Inventory adminDeleteItemType \
-    --itemTypeName 'jzmqGl9s' \
+    --itemTypeName '4FJHgBlh' \
     --namespace $AB_NAMESPACE \
     > test.out 2>&1
 eval_tap $? 16 'AdminDeleteItemType' test.out
@@ -176,160 +176,160 @@ eval_tap $? 16 'AdminDeleteItemType' test.out
 #- 17 AdminListTags
 samples/cli/sample-apps Inventory adminListTags \
     --namespace $AB_NAMESPACE \
-    --limit '26' \
-    --offset '6' \
-    --owner 'geycOKge' \
-    --sortBy 'name:asc' \
+    --limit '61' \
+    --offset '19' \
+    --owner '8seKbs0e' \
+    --sortBy 'createdAt:desc' \
     > test.out 2>&1
 eval_tap $? 17 'AdminListTags' test.out
 
 #- 18 AdminCreateTag
 samples/cli/sample-apps Inventory adminCreateTag \
     --namespace $AB_NAMESPACE \
-    --body '{"name": "U6ohwjyD", "owner": "CLIENT"}' \
+    --body '{"name": "PcidWVMZ", "owner": "SERVER"}' \
     > test.out 2>&1
 eval_tap $? 18 'AdminCreateTag' test.out
 
 #- 19 AdminDeleteTag
 samples/cli/sample-apps Inventory adminDeleteTag \
     --namespace $AB_NAMESPACE \
-    --tagName 'v9LFIKKn' \
+    --tagName 'YFblYtdw' \
     > test.out 2>&1
 eval_tap $? 19 'AdminDeleteTag' test.out
 
 #- 20 AdminConsumeUserItem
 samples/cli/sample-apps Inventory adminConsumeUserItem \
-    --inventoryId 'jTVia4Uo' \
+    --inventoryId 'waK5jw5g' \
     --namespace $AB_NAMESPACE \
-    --userId 'i8WC35kc' \
-    --body '{"qty": 83, "slotId": "QbotS3ET", "sourceItemId": "JZknOY42"}' \
+    --userId '2aIY2k07' \
+    --body '{"qty": 86, "slotId": "OqWOtf8O", "sourceItemId": "KMP8pSnI"}' \
     > test.out 2>&1
 eval_tap $? 20 'AdminConsumeUserItem' test.out
 
 #- 21 AdminBulkUpdateMyItems
 samples/cli/sample-apps Inventory adminBulkUpdateMyItems \
-    --inventoryId 'YYjudCFA' \
+    --inventoryId 'UcucmSDQ' \
     --namespace $AB_NAMESPACE \
-    --userId '5Zkl0UKY' \
-    --body '[{"customAttributes": {"qWeL59gi": {}, "5w7DHNYV": {}, "K2qc2fm6": {}}, "serverCustomAttributes": {"9OfUMw85": {}, "tvFf1zDm": {}, "wFKf97I9": {}}, "slotId": "QxDyBuDb", "sourceItemId": "ngjKf3Hw", "tags": ["eB6XtQu0", "kod0LXlq", "JYN3y0wX"], "type": "cLQJr7oh"}, {"customAttributes": {"mBuLjQmh": {}, "Nm6ZG9NL": {}, "hmFoEvZS": {}}, "serverCustomAttributes": {"0Aa9j4Ok": {}, "6Erbj1q6": {}, "QX8EkhLY": {}}, "slotId": "zJvvnQop", "sourceItemId": "lU0wiKpp", "tags": ["v7Go5V6N", "Tt1Uepjv", "z6nn1zQQ"], "type": "LxPtacTF"}, {"customAttributes": {"GQ0wybqB": {}, "AegHcsdV": {}, "KPxcB23G": {}}, "serverCustomAttributes": {"FDi0bMud": {}, "e8C76SlD": {}, "uSlCRxZG": {}}, "slotId": "V5DuPJz4", "sourceItemId": "5CONG7m0", "tags": ["bD5V96TL", "TEs0aF99", "DOsGL8xV"], "type": "aD2Vm9QH"}]' \
+    --userId '8t7kPAq9' \
+    --body '[{"customAttributes": {"1ghJXywa": {}, "ZKqY8LnZ": {}, "Bl6nw53w": {}}, "serverCustomAttributes": {"dVVf9Lsf": {}, "j5C50XzG": {}, "Afsq3Lmd": {}}, "slotId": "nUAVYi6L", "sourceItemId": "XMalNudw", "tags": ["jee72saj", "4DmkDkKh", "fWerYiPr"], "type": "aZ097s5h"}, {"customAttributes": {"BaGhLDfs": {}, "4DNv591j": {}, "rJAqVA81": {}}, "serverCustomAttributes": {"13Woq0be": {}, "U0lhauRD": {}, "Gnhcp41W": {}}, "slotId": "hbtdwkeE", "sourceItemId": "uBUV8HKn", "tags": ["rZmWsjPY", "43zyyBJ3", "weEbdQs5"], "type": "2tueVWrG"}, {"customAttributes": {"s4MKB5ZV": {}, "wTpDh6CH": {}, "kX6W0WXP": {}}, "serverCustomAttributes": {"MDB9SLvD": {}, "Vg2ZCmB0": {}, "PCoAYwUb": {}}, "slotId": "8IHgGVP6", "sourceItemId": "r9Sc5vER", "tags": ["EiW6LD2p", "ngsZiHkb", "dbDPLPJB"], "type": "BMrDlwsP"}]' \
     > test.out 2>&1
 eval_tap $? 21 'AdminBulkUpdateMyItems' test.out
 
 #- 22 AdminSaveItemToInventory
 samples/cli/sample-apps Inventory adminSaveItemToInventory \
-    --inventoryId 'Yv90gfQb' \
+    --inventoryId '1JocIKeD' \
     --namespace $AB_NAMESPACE \
-    --userId 'qoe1rwoa' \
-    --body '{"customAttributes": {"b7AmQaUz": {}, "TeOzPejP": {}, "hFf6wY0f": {}}, "qty": 72, "serverCustomAttributes": {"5n28lfA3": {}, "vkigG3y8": {}, "eDh6eL33": {}}, "slotId": "2oHQZonA", "slotUsed": 50, "sourceItemId": "4BiKydUE", "tags": ["5p7iMnr8", "EdrbKHD8", "SL7lMY1t"], "type": "PLbzaqaJ"}' \
+    --userId 'n9S4xqoM' \
+    --body '{"customAttributes": {"550CcsrT": {}, "0wJBd2yn": {}, "ivkOJ0MK": {}}, "qty": 52, "serverCustomAttributes": {"VVMUgAsO": {}, "JlT1O82k": {}, "zoOZE6pY": {}}, "slotId": "GejVqxOg", "slotUsed": 47, "sourceItemId": "MTBn9CY2", "tags": ["TFQ7ynjQ", "io3Pr4Vr", "RgkPnNWY"], "type": "ECqhJgXd"}' \
     > test.out 2>&1
 eval_tap $? 22 'AdminSaveItemToInventory' test.out
 
 #- 23 AdminBulkRemoveItems
 samples/cli/sample-apps Inventory adminBulkRemoveItems \
-    --inventoryId 'OIBATvBd' \
+    --inventoryId 'ZOlrhp36' \
     --namespace $AB_NAMESPACE \
-    --userId 'pGj31sAI' \
-    --body '[{"slotId": "dcXp4vP5", "sourceItemId": "u1bWRU0z"}, {"slotId": "Ot222x8E", "sourceItemId": "KgeFjpAU"}, {"slotId": "uZAzBVrw", "sourceItemId": "OHVftiXt"}]' \
+    --userId 'ki3CI5WK' \
+    --body '[{"slotId": "v6dyHPK9", "sourceItemId": "85k2RN8J"}, {"slotId": "rh9oOGB3", "sourceItemId": "O4JqNeyD"}, {"slotId": "oPEJ6WUS", "sourceItemId": "OMOqUne2"}]' \
     > test.out 2>&1
 eval_tap $? 23 'AdminBulkRemoveItems' test.out
 
 #- 24 AdminSaveItem
 samples/cli/sample-apps Inventory adminSaveItem \
     --namespace $AB_NAMESPACE \
-    --userId 'bHLXRS8R' \
-    --body '{"customAttributes": {"kRWObt7Y": {}, "8mW5uGS2": {}, "r9U2gfk3": {}}, "inventoryConfigurationCode": "4MSt3CKK", "qty": 10, "serverCustomAttributes": {"2UsaWNXC": {}, "NaN56zLB": {}, "hGU4vSFN": {}}, "slotId": "pEfB1Uix", "slotUsed": 33, "sourceItemId": "Z6YZu9SE", "tags": ["gDIqG7hD", "l36wXdur", "NebjNEHg"], "type": "bhsjnvEO"}' \
+    --userId 'g2sUmz1Q' \
+    --body '{"customAttributes": {"7UGBSQSb": {}, "ITqL79DV": {}, "IsWRqvzC": {}}, "inventoryConfigurationCode": "oIMoKNYQ", "qty": 70, "serverCustomAttributes": {"r7Ok8QXt": {}, "hdYsk0xW": {}, "2G1b3pDj": {}}, "slotId": "Mmh739P8", "slotUsed": 87, "sourceItemId": "btCDRgok", "tags": ["2kXAC6YH", "32KiROC0", "Ot6b3DG3"], "type": "gJRngxPt"}' \
     > test.out 2>&1
 eval_tap $? 24 'AdminSaveItem' test.out
 
 #- 25 PublicListInventoryConfigurations
 samples/cli/sample-apps Inventory publicListInventoryConfigurations \
     --namespace $AB_NAMESPACE \
-    --code 'FUsyMyNi' \
-    --limit '72' \
-    --offset '7' \
-    --sortBy 'code' \
+    --code 'qVENFxx5' \
+    --limit '95' \
+    --offset '56' \
+    --sortBy 'createdAt:desc' \
     > test.out 2>&1
 eval_tap $? 25 'PublicListInventoryConfigurations' test.out
 
 #- 26 PublicListItemTypes
 samples/cli/sample-apps Inventory publicListItemTypes \
     --namespace $AB_NAMESPACE \
-    --limit '36' \
-    --offset '51' \
-    --sortBy 'name:desc' \
+    --limit '83' \
+    --offset '53' \
+    --sortBy 'createdAt:desc' \
     > test.out 2>&1
 eval_tap $? 26 'PublicListItemTypes' test.out
 
 #- 27 PublicListTags
 samples/cli/sample-apps Inventory publicListTags \
     --namespace $AB_NAMESPACE \
-    --limit '3' \
-    --offset '100' \
-    --sortBy 'name:asc' \
+    --limit '66' \
+    --offset '84' \
+    --sortBy 'createdAt:desc' \
     > test.out 2>&1
 eval_tap $? 27 'PublicListTags' test.out
 
 #- 28 PublicListInventories
 samples/cli/sample-apps Inventory publicListInventories \
     --namespace $AB_NAMESPACE \
-    --inventoryConfigurationCode 'PwuFn3pN' \
-    --limit '50' \
-    --offset '18' \
-    --sortBy 'createdAt:asc' \
+    --inventoryConfigurationCode '6YKnLITA' \
+    --limit '30' \
+    --offset '52' \
+    --sortBy 'updatedAt' \
     > test.out 2>&1
 eval_tap $? 28 'PublicListInventories' test.out
 
 #- 29 PublicConsumeMyItem
 samples/cli/sample-apps Inventory publicConsumeMyItem \
-    --inventoryId 'npefzPeB' \
+    --inventoryId 'fwwB4ekT' \
     --namespace $AB_NAMESPACE \
-    --body '{"qty": 95, "slotId": "LM57byT5", "sourceItemId": "N7Skmy45"}' \
+    --body '{"qty": 87, "slotId": "nEw5YwcU", "sourceItemId": "kIdmt7mU"}' \
     > test.out 2>&1
 eval_tap $? 29 'PublicConsumeMyItem' test.out
 
 #- 30 PublicListItems
 samples/cli/sample-apps Inventory publicListItems \
-    --inventoryId 'in2lozU0' \
+    --inventoryId '7fWYW1df' \
     --namespace $AB_NAMESPACE \
-    --limit '20' \
-    --offset '42' \
-    --qtyGte '15' \
-    --sortBy 'createdAt:asc' \
-    --sourceItemId 'KF8WOBIp' \
-    --tags '6irEHJoD' \
+    --limit '14' \
+    --offset '89' \
+    --qtyGte '43' \
+    --sortBy 'createdAt' \
+    --sourceItemId '9hDHOWKl' \
+    --tags 'qZMDiAT3' \
     > test.out 2>&1
 eval_tap $? 30 'PublicListItems' test.out
 
 #- 31 PublicBulkUpdateMyItems
 samples/cli/sample-apps Inventory publicBulkUpdateMyItems \
-    --inventoryId 'rDM9geRx' \
+    --inventoryId 'Fvt4F6Bk' \
     --namespace $AB_NAMESPACE \
-    --body '[{"customAttributes": {"MoBm6bsi": {}, "vfbyGkLR": {}, "qnSIrkFw": {}}, "slotId": "GFcQ8a7E", "sourceItemId": "px3fVGbH", "tags": ["wPpwswbT", "iwI05QyX", "gs4aNmqv"]}, {"customAttributes": {"mYr2iJ8p": {}, "rEEtVeea": {}, "aeInHVoq": {}}, "slotId": "HaSL9k7c", "sourceItemId": "DkDxXZIs", "tags": ["NUo9GrXy", "3w98o8Ke", "GN7tG2VD"]}, {"customAttributes": {"ioVcpujD": {}, "SSyFn4Pq": {}, "2QaEUjf4": {}}, "slotId": "cT1pu6BX", "sourceItemId": "Bd5I3AsK", "tags": ["rzQFOudd", "VyFPr9by", "wnKkOUSH"]}]' \
+    --body '[{"customAttributes": {"Yu0aFITo": {}, "KzKPYI15": {}, "7qX31iC7": {}}, "slotId": "i6ZcEZES", "sourceItemId": "VJVXa0nF", "tags": ["n4fZ9M9G", "hE4WdbXl", "ByHfKHEK"]}, {"customAttributes": {"GmJBoMGH": {}, "ykVbcQlx": {}, "VJEOodHH": {}}, "slotId": "q3JkR6uk", "sourceItemId": "tmBf7ZBh", "tags": ["sol54gWe", "D10AsZ4t", "ecuqMZI3"]}, {"customAttributes": {"m1tY5yYG": {}, "ehDOQ2BE": {}, "7dWM0Hq9": {}}, "slotId": "SQxKjojw", "sourceItemId": "HWfCtlHo", "tags": ["3YXD1aNx", "BMeFBtJE", "Jci9chU3"]}]' \
     > test.out 2>&1
 eval_tap $? 31 'PublicBulkUpdateMyItems' test.out
 
 #- 32 PublicBulkRemoveMyItems
 samples/cli/sample-apps Inventory publicBulkRemoveMyItems \
-    --inventoryId 'UMUPv85l' \
+    --inventoryId 'L0Pm0aVs' \
     --namespace $AB_NAMESPACE \
-    --body '[{"slotId": "k4ZlKnHO", "sourceItemId": "RvToIuME"}, {"slotId": "rx6XyUtg", "sourceItemId": "b1wtkuw9"}, {"slotId": "bzRAhk9D", "sourceItemId": "LnHirnAr"}]' \
+    --body '[{"slotId": "ZFV1S670", "sourceItemId": "cLYA8WcC"}, {"slotId": "nXDVTuVj", "sourceItemId": "w1VeF0yv"}, {"slotId": "NxHScq8U", "sourceItemId": "AZitw6t8"}]' \
     > test.out 2>&1
 eval_tap $? 32 'PublicBulkRemoveMyItems' test.out
 
 #- 33 PublicMoveMyItems
 samples/cli/sample-apps Inventory publicMoveMyItems \
-    --inventoryId 'P8v3VS0g' \
+    --inventoryId '0LnFGt9e' \
     --namespace $AB_NAMESPACE \
-    --body '{"items": [{"qty": 38, "slotId": "KLBIN0sC", "sourceItemId": "C8BuFZeK"}, {"qty": 38, "slotId": "iEQbJdrx", "sourceItemId": "riheYOLl"}, {"qty": 46, "slotId": "VwMfy7iw", "sourceItemId": "NvU7wO39"}], "srcInventoryId": "2NX5aJhP"}' \
+    --body '{"items": [{"qty": 75, "slotId": "JpQ2kmOl", "sourceItemId": "6AnxcZD7"}, {"qty": 86, "slotId": "cLuG1Qse", "sourceItemId": "THgT9a8w"}, {"qty": 94, "slotId": "Ivz4O1qQ", "sourceItemId": "bpCfXlRI"}], "srcInventoryId": "gDZhDU7k"}' \
     > test.out 2>&1
 eval_tap $? 33 'PublicMoveMyItems' test.out
 
 #- 34 PublicGetItem
 samples/cli/sample-apps Inventory publicGetItem \
-    --inventoryId '0up3y0PT' \
+    --inventoryId 'unhdnI4c' \
     --namespace $AB_NAMESPACE \
-    --slotId 'n6eVGE0e' \
-    --sourceItemId 'odvwAftI' \
+    --slotId 'q8QCQ8XM' \
+    --sourceItemId 'YIzOWhrp' \
     > test.out 2>&1
 eval_tap $? 34 'PublicGetItem' test.out
 

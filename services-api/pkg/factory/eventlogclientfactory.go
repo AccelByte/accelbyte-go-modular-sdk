@@ -19,10 +19,10 @@ import (
 var eventlogClientInstance *eventlogclient.JusticeEventlogService
 
 // NewEventlogClient
-// Deprecated: 2023-03-30 - please use NewEventlogClient from "github.com/AccelByte/accelbyte-go-modular-sdk/Eventlog-sdk/pkg"
+// Deprecated: 2023-03-30 - please use NewEventlogClient from "github.com/AccelByte/accelbyte-go-modular-sdk/eventlog-sdk/pkg"
 func NewEventlogClient(configRepository repository.ConfigRepository) *eventlogclient.JusticeEventlogService {
 	if eventlogClientInstance == nil {
-		baseURL := configRepository.GetJusticeBaseUrl()
+		baseURL := strings.TrimSuffix(configRepository.GetJusticeBaseUrl(), "/")
 		if len(baseURL) > 0 {
 			baseURLSplit := strings.Split(baseURL, "://")
 			httpClientConfig := &eventlogclient.TransportConfig{

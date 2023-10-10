@@ -15,6 +15,7 @@ import (
 	httptransport "github.com/go-openapi/runtime/client"
 	"github.com/go-openapi/strfmt"
 
+	"github.com/AccelByte/accelbyte-go-modular-sdk/seasonpass-sdk/pkg/seasonpassclient/export"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/seasonpass-sdk/pkg/seasonpassclient/pass"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/seasonpass-sdk/pkg/seasonpassclient/reward"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/seasonpass-sdk/pkg/seasonpassclient/season"
@@ -83,6 +84,7 @@ func New(transport runtime.ClientTransport, runtime *httptransport.Runtime, form
 	cli := new(JusticeSeasonpassService)
 	cli.Transport = transport
 	cli.Runtime = runtime
+	cli.Export = export.New(transport, formats)
 	cli.Pass = pass.New(transport, formats)
 	cli.Reward = reward.New(transport, formats)
 	cli.Season = season.New(transport, formats)
@@ -148,6 +150,8 @@ func (cfg *TransportConfig) WithSchemes(schemes []string) *TransportConfig {
 
 // JusticeSeasonpassService is a client for justice seasonpass service
 type JusticeSeasonpassService struct {
+	Export export.ClientService
+
 	Pass pass.ClientService
 
 	Reward reward.ClientService
@@ -163,6 +167,7 @@ type JusticeSeasonpassService struct {
 // SetTransport changes the transport on the client and all its subresources
 func (c *JusticeSeasonpassService) SetTransport(transport runtime.ClientTransport) {
 	c.Transport = transport
+	c.Export.SetTransport(transport)
 	c.Pass.SetTransport(transport)
 	c.Reward.SetTransport(transport)
 	c.Season.SetTransport(transport)

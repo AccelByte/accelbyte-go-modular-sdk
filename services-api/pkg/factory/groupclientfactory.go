@@ -19,10 +19,10 @@ import (
 var groupClientInstance *groupclient.JusticeGroupService
 
 // NewGroupClient
-// Deprecated: 2023-03-30 - please use NewGroupClient from "github.com/AccelByte/accelbyte-go-modular-sdk/Group-sdk/pkg"
+// Deprecated: 2023-03-30 - please use NewGroupClient from "github.com/AccelByte/accelbyte-go-modular-sdk/group-sdk/pkg"
 func NewGroupClient(configRepository repository.ConfigRepository) *groupclient.JusticeGroupService {
 	if groupClientInstance == nil {
-		baseURL := configRepository.GetJusticeBaseUrl()
+		baseURL := strings.TrimSuffix(configRepository.GetJusticeBaseUrl(), "/")
 		if len(baseURL) > 0 {
 			baseURLSplit := strings.Split(baseURL, "://")
 			httpClientConfig := &groupclient.TransportConfig{

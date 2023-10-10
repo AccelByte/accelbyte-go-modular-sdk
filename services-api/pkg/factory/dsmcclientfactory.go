@@ -19,10 +19,10 @@ import (
 var dsmcClientInstance *dsmcclient.JusticeDsmcService
 
 // NewDsmcClient
-// Deprecated: 2023-03-30 - please use NewDsmcClient from "github.com/AccelByte/accelbyte-go-modular-sdk/Dsmc-sdk/pkg"
+// Deprecated: 2023-03-30 - please use NewDsmcClient from "github.com/AccelByte/accelbyte-go-modular-sdk/dsmc-sdk/pkg"
 func NewDsmcClient(configRepository repository.ConfigRepository) *dsmcclient.JusticeDsmcService {
 	if dsmcClientInstance == nil {
-		baseURL := configRepository.GetJusticeBaseUrl()
+		baseURL := strings.TrimSuffix(configRepository.GetJusticeBaseUrl(), "/")
 		if len(baseURL) > 0 {
 			baseURLSplit := strings.Split(baseURL, "://")
 			httpClientConfig := &dsmcclient.TransportConfig{

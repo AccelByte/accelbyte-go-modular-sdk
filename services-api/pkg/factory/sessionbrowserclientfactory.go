@@ -19,10 +19,10 @@ import (
 var sessionbrowserClientInstance *sessionbrowserclient.JusticeSessionbrowserService
 
 // NewSessionbrowserClient
-// Deprecated: 2023-03-30 - please use NewSessionbrowserClient from "github.com/AccelByte/accelbyte-go-modular-sdk/Sessionbrowser-sdk/pkg"
+// Deprecated: 2023-03-30 - please use NewSessionbrowserClient from "github.com/AccelByte/accelbyte-go-modular-sdk/sessionbrowser-sdk/pkg"
 func NewSessionbrowserClient(configRepository repository.ConfigRepository) *sessionbrowserclient.JusticeSessionbrowserService {
 	if sessionbrowserClientInstance == nil {
-		baseURL := configRepository.GetJusticeBaseUrl()
+		baseURL := strings.TrimSuffix(configRepository.GetJusticeBaseUrl(), "/")
 		if len(baseURL) > 0 {
 			baseURLSplit := strings.Split(baseURL, "://")
 			httpClientConfig := &sessionbrowserclient.TransportConfig{

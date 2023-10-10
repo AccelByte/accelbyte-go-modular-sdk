@@ -19,10 +19,10 @@ import (
 var reportingClientInstance *reportingclient.JusticeReportingService
 
 // NewReportingClient
-// Deprecated: 2023-03-30 - please use NewReportingClient from "github.com/AccelByte/accelbyte-go-modular-sdk/Reporting-sdk/pkg"
+// Deprecated: 2023-03-30 - please use NewReportingClient from "github.com/AccelByte/accelbyte-go-modular-sdk/reporting-sdk/pkg"
 func NewReportingClient(configRepository repository.ConfigRepository) *reportingclient.JusticeReportingService {
 	if reportingClientInstance == nil {
-		baseURL := configRepository.GetJusticeBaseUrl()
+		baseURL := strings.TrimSuffix(configRepository.GetJusticeBaseUrl(), "/")
 		if len(baseURL) > 0 {
 			baseURLSplit := strings.Split(baseURL, "://")
 			httpClientConfig := &reportingclient.TransportConfig{

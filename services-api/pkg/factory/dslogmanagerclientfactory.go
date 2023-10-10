@@ -19,10 +19,10 @@ import (
 var dslogmanagerClientInstance *dslogmanagerclient.JusticeDslogmanagerService
 
 // NewDslogmanagerClient
-// Deprecated: 2023-03-30 - please use NewDslogmanagerClient from "github.com/AccelByte/accelbyte-go-modular-sdk/Dslogmanager-sdk/pkg"
+// Deprecated: 2023-03-30 - please use NewDslogmanagerClient from "github.com/AccelByte/accelbyte-go-modular-sdk/dslogmanager-sdk/pkg"
 func NewDslogmanagerClient(configRepository repository.ConfigRepository) *dslogmanagerclient.JusticeDslogmanagerService {
 	if dslogmanagerClientInstance == nil {
-		baseURL := configRepository.GetJusticeBaseUrl()
+		baseURL := strings.TrimSuffix(configRepository.GetJusticeBaseUrl(), "/")
 		if len(baseURL) > 0 {
 			baseURLSplit := strings.Split(baseURL, "://")
 			httpClientConfig := &dslogmanagerclient.TransportConfig{

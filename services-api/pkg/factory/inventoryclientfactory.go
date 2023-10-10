@@ -19,10 +19,10 @@ import (
 var inventoryClientInstance *inventoryclient.JusticeInventoryService
 
 // NewInventoryClient
-// Deprecated: 2023-03-30 - please use NewInventoryClient from "github.com/AccelByte/accelbyte-go-modular-sdk/Inventory-sdk/pkg"
+// Deprecated: 2023-03-30 - please use NewInventoryClient from "github.com/AccelByte/accelbyte-go-modular-sdk/inventory-sdk/pkg"
 func NewInventoryClient(configRepository repository.ConfigRepository) *inventoryclient.JusticeInventoryService {
 	if inventoryClientInstance == nil {
-		baseURL := configRepository.GetJusticeBaseUrl()
+		baseURL := strings.TrimSuffix(configRepository.GetJusticeBaseUrl(), "/")
 		if len(baseURL) > 0 {
 			baseURLSplit := strings.Split(baseURL, "://")
 			httpClientConfig := &inventoryclient.TransportConfig{

@@ -19,10 +19,10 @@ import (
 var platformClientInstance *platformclient.JusticePlatformService
 
 // NewPlatformClient
-// Deprecated: 2023-03-30 - please use NewPlatformClient from "github.com/AccelByte/accelbyte-go-modular-sdk/Platform-sdk/pkg"
+// Deprecated: 2023-03-30 - please use NewPlatformClient from "github.com/AccelByte/accelbyte-go-modular-sdk/platform-sdk/pkg"
 func NewPlatformClient(configRepository repository.ConfigRepository) *platformclient.JusticePlatformService {
 	if platformClientInstance == nil {
-		baseURL := configRepository.GetJusticeBaseUrl()
+		baseURL := strings.TrimSuffix(configRepository.GetJusticeBaseUrl(), "/")
 		if len(baseURL) > 0 {
 			baseURLSplit := strings.Split(baseURL, "://")
 			httpClientConfig := &platformclient.TransportConfig{

@@ -4,13 +4,13 @@
 
 // Code generated. DO NOT EDIT.
 
-package dataRetrieval
+package configuration
 
 import (
 	"encoding/json"
 
 	gdpr "github.com/AccelByte/accelbyte-go-modular-sdk/gdpr-sdk/pkg"
-	"github.com/AccelByte/accelbyte-go-modular-sdk/gdpr-sdk/pkg/gdprclient/data_retrieval"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/gdpr-sdk/pkg/gdprclient/configuration"
 	"github.com/AccelByte/sample-apps/pkg/repository"
 	"github.com/sirupsen/logrus"
 	"github.com/spf13/cobra"
@@ -22,7 +22,7 @@ var DeleteAdminEmailConfigurationCmd = &cobra.Command{
 	Short: "Delete admin email configuration",
 	Long:  `Delete admin email configuration`,
 	RunE: func(cmd *cobra.Command, args []string) error {
-		dataRetrievalService := &gdpr.DataRetrievalService{
+		configurationService := &gdpr.ConfigurationService{
 			Client:          gdpr.NewGdprClient(&repository.ConfigRepositoryImpl{}),
 			TokenRepository: &repository.TokenRepositoryImpl{},
 		}
@@ -33,11 +33,11 @@ var DeleteAdminEmailConfigurationCmd = &cobra.Command{
 		if errEmails != nil {
 			return errEmails
 		}
-		input := &data_retrieval.DeleteAdminEmailConfigurationParams{
+		input := &configuration.DeleteAdminEmailConfigurationParams{
 			Namespace: namespace,
 			Emails:    emails,
 		}
-		errNoContent := dataRetrievalService.DeleteAdminEmailConfigurationShort(input)
+		errNoContent := configurationService.DeleteAdminEmailConfigurationShort(input)
 		if errNoContent != nil {
 			logrus.Error(errNoContent)
 

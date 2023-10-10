@@ -19,10 +19,10 @@ import (
 var socialClientInstance *socialclient.JusticeSocialService
 
 // NewSocialClient
-// Deprecated: 2023-03-30 - please use NewSocialClient from "github.com/AccelByte/accelbyte-go-modular-sdk/Social-sdk/pkg"
+// Deprecated: 2023-03-30 - please use NewSocialClient from "github.com/AccelByte/accelbyte-go-modular-sdk/social-sdk/pkg"
 func NewSocialClient(configRepository repository.ConfigRepository) *socialclient.JusticeSocialService {
 	if socialClientInstance == nil {
-		baseURL := configRepository.GetJusticeBaseUrl()
+		baseURL := strings.TrimSuffix(configRepository.GetJusticeBaseUrl(), "/")
 		if len(baseURL) > 0 {
 			baseURLSplit := strings.Split(baseURL, "://")
 			httpClientConfig := &socialclient.TransportConfig{

@@ -19,10 +19,10 @@ import (
 var match2ClientInstance *match2client.JusticeMatch2Service
 
 // NewMatch2Client
-// Deprecated: 2023-03-30 - please use NewMatch2Client from "github.com/AccelByte/accelbyte-go-modular-sdk/Match2-sdk/pkg"
+// Deprecated: 2023-03-30 - please use NewMatch2Client from "github.com/AccelByte/accelbyte-go-modular-sdk/match2-sdk/pkg"
 func NewMatch2Client(configRepository repository.ConfigRepository) *match2client.JusticeMatch2Service {
 	if match2ClientInstance == nil {
-		baseURL := configRepository.GetJusticeBaseUrl()
+		baseURL := strings.TrimSuffix(configRepository.GetJusticeBaseUrl(), "/")
 		if len(baseURL) > 0 {
 			baseURLSplit := strings.Split(baseURL, "://")
 			httpClientConfig := &match2client.TransportConfig{

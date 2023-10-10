@@ -19,10 +19,10 @@ import (
 var qosmClientInstance *qosmclient.JusticeQosmService
 
 // NewQosmClient
-// Deprecated: 2023-03-30 - please use NewQosmClient from "github.com/AccelByte/accelbyte-go-modular-sdk/Qosm-sdk/pkg"
+// Deprecated: 2023-03-30 - please use NewQosmClient from "github.com/AccelByte/accelbyte-go-modular-sdk/qosm-sdk/pkg"
 func NewQosmClient(configRepository repository.ConfigRepository) *qosmclient.JusticeQosmService {
 	if qosmClientInstance == nil {
-		baseURL := configRepository.GetJusticeBaseUrl()
+		baseURL := strings.TrimSuffix(configRepository.GetJusticeBaseUrl(), "/")
 		if len(baseURL) > 0 {
 			baseURLSplit := strings.Split(baseURL, "://")
 			httpClientConfig := &qosmclient.TransportConfig{

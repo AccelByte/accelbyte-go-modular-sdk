@@ -4,25 +4,25 @@
 
 // Code generated. DO NOT EDIT.
 
-package dataRetrieval
+package configuration
 
 import (
 	"encoding/json"
 
 	gdpr "github.com/AccelByte/accelbyte-go-modular-sdk/gdpr-sdk/pkg"
-	"github.com/AccelByte/accelbyte-go-modular-sdk/gdpr-sdk/pkg/gdprclient/data_retrieval"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/gdpr-sdk/pkg/gdprclient/configuration"
 	"github.com/AccelByte/sample-apps/pkg/repository"
 	"github.com/sirupsen/logrus"
 	"github.com/spf13/cobra"
 )
 
-// UpdateAdminEmailConfigurationCmd represents the UpdateAdminEmailConfiguration command
-var UpdateAdminEmailConfigurationCmd = &cobra.Command{
-	Use:   "updateAdminEmailConfiguration",
-	Short: "Update admin email configuration",
-	Long:  `Update admin email configuration`,
+// SaveAdminEmailConfigurationCmd represents the SaveAdminEmailConfiguration command
+var SaveAdminEmailConfigurationCmd = &cobra.Command{
+	Use:   "saveAdminEmailConfiguration",
+	Short: "Save admin email configuration",
+	Long:  `Save admin email configuration`,
 	RunE: func(cmd *cobra.Command, args []string) error {
-		dataRetrievalService := &gdpr.DataRetrievalService{
+		configurationService := &gdpr.ConfigurationService{
 			Client:          gdpr.NewGdprClient(&repository.ConfigRepositoryImpl{}),
 			TokenRepository: &repository.TokenRepositoryImpl{},
 		}
@@ -33,11 +33,11 @@ var UpdateAdminEmailConfigurationCmd = &cobra.Command{
 			return errBody
 		}
 		namespace, _ := cmd.Flags().GetString("namespace")
-		input := &data_retrieval.UpdateAdminEmailConfigurationParams{
+		input := &configuration.SaveAdminEmailConfigurationParams{
 			Body:      body,
 			Namespace: namespace,
 		}
-		errNoContent := dataRetrievalService.UpdateAdminEmailConfigurationShort(input)
+		errNoContent := configurationService.SaveAdminEmailConfigurationShort(input)
 		if errNoContent != nil {
 			logrus.Error(errNoContent)
 
@@ -51,8 +51,8 @@ var UpdateAdminEmailConfigurationCmd = &cobra.Command{
 }
 
 func init() {
-	UpdateAdminEmailConfigurationCmd.Flags().String("body", "", "Body")
-	_ = UpdateAdminEmailConfigurationCmd.MarkFlagRequired("body")
-	UpdateAdminEmailConfigurationCmd.Flags().String("namespace", "", "Namespace")
-	_ = UpdateAdminEmailConfigurationCmd.MarkFlagRequired("namespace")
+	SaveAdminEmailConfigurationCmd.Flags().String("body", "", "Body")
+	_ = SaveAdminEmailConfigurationCmd.MarkFlagRequired("body")
+	SaveAdminEmailConfigurationCmd.Flags().String("namespace", "", "Namespace")
+	_ = SaveAdminEmailConfigurationCmd.MarkFlagRequired("namespace")
 }

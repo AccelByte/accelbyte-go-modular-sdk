@@ -4,6 +4,11 @@
 
 ## Operations
 
+### Export Wrapper:  [Export](../../seasonpass-sdk/pkg/wrapper_export.go)
+| Endpoint | Method | ID | Class | Wrapper | Example |
+|---|---|---|---|---|---|
+| `/seasonpass/admin/namespace/{namespace}/export` | GET | ExportSeasonShort | [ExportSeasonShort](../../seasonpass-sdk/pkg/seasonpassclient/export/export_client.go) | [ExportSeasonShort](../../seasonpass-sdk/pkg/wrapper_export.go) | [ExportSeasonShort](../../samples/cli/cmd/seasonpass/export/exportSeason.go) |
+
 ### Season Wrapper:  [Season](../../seasonpass-sdk/pkg/wrapper_season.go)
 | Endpoint | Method | ID | Class | Wrapper | Example |
 |---|---|---|---|---|---|

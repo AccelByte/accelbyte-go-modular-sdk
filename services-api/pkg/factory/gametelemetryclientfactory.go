@@ -19,10 +19,10 @@ import (
 var gametelemetryClientInstance *gametelemetryclient.JusticeGametelemetryService
 
 // NewGametelemetryClient
-// Deprecated: 2023-03-30 - please use NewGametelemetryClient from "github.com/AccelByte/accelbyte-go-modular-sdk/Gametelemetry-sdk/pkg"
+// Deprecated: 2023-03-30 - please use NewGametelemetryClient from "github.com/AccelByte/accelbyte-go-modular-sdk/gametelemetry-sdk/pkg"
 func NewGametelemetryClient(configRepository repository.ConfigRepository) *gametelemetryclient.JusticeGametelemetryService {
 	if gametelemetryClientInstance == nil {
-		baseURL := configRepository.GetJusticeBaseUrl()
+		baseURL := strings.TrimSuffix(configRepository.GetJusticeBaseUrl(), "/")
 		if len(baseURL) > 0 {
 			baseURLSplit := strings.Split(baseURL, "://")
 			httpClientConfig := &gametelemetryclient.TransportConfig{

@@ -4,31 +4,31 @@
 
 // Code generated. DO NOT EDIT.
 
-package dataRetrieval
+package configuration
 
 import (
 	gdpr "github.com/AccelByte/accelbyte-go-modular-sdk/gdpr-sdk/pkg"
-	"github.com/AccelByte/accelbyte-go-modular-sdk/gdpr-sdk/pkg/gdprclient/data_retrieval"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/gdpr-sdk/pkg/gdprclient/configuration"
 	"github.com/AccelByte/sample-apps/pkg/repository"
 	"github.com/sirupsen/logrus"
 	"github.com/spf13/cobra"
 )
 
-// GetAdminEmailConfigurationCmd represents the GetAdminEmailConfiguration command
-var GetAdminEmailConfigurationCmd = &cobra.Command{
-	Use:   "getAdminEmailConfiguration",
-	Short: "Get admin email configuration",
-	Long:  `Get admin email configuration`,
+// AdminGetServicesConfigurationCmd represents the AdminGetServicesConfiguration command
+var AdminGetServicesConfigurationCmd = &cobra.Command{
+	Use:   "adminGetServicesConfiguration",
+	Short: "Admin get services configuration",
+	Long:  `Admin get services configuration`,
 	RunE: func(cmd *cobra.Command, args []string) error {
-		dataRetrievalService := &gdpr.DataRetrievalService{
+		configurationService := &gdpr.ConfigurationService{
 			Client:          gdpr.NewGdprClient(&repository.ConfigRepositoryImpl{}),
 			TokenRepository: &repository.TokenRepositoryImpl{},
 		}
 		namespace, _ := cmd.Flags().GetString("namespace")
-		input := &data_retrieval.GetAdminEmailConfigurationParams{
+		input := &configuration.AdminGetServicesConfigurationParams{
 			Namespace: namespace,
 		}
-		ok, errOK := dataRetrievalService.GetAdminEmailConfigurationShort(input)
+		ok, errOK := configurationService.AdminGetServicesConfigurationShort(input)
 		if errOK != nil {
 			logrus.Error(errOK)
 
@@ -42,6 +42,6 @@ var GetAdminEmailConfigurationCmd = &cobra.Command{
 }
 
 func init() {
-	GetAdminEmailConfigurationCmd.Flags().String("namespace", "", "Namespace")
-	_ = GetAdminEmailConfigurationCmd.MarkFlagRequired("namespace")
+	AdminGetServicesConfigurationCmd.Flags().String("namespace", "", "Namespace")
+	_ = AdminGetServicesConfigurationCmd.MarkFlagRequired("namespace")
 }

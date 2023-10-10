@@ -19,10 +19,10 @@ import (
 var amsClientInstance *amsclient.JusticeAmsService
 
 // NewAmsClient
-// Deprecated: 2023-03-30 - please use NewAmsClient from "github.com/AccelByte/accelbyte-go-modular-sdk/Ams-sdk/pkg"
+// Deprecated: 2023-03-30 - please use NewAmsClient from "github.com/AccelByte/accelbyte-go-modular-sdk/ams-sdk/pkg"
 func NewAmsClient(configRepository repository.ConfigRepository) *amsclient.JusticeAmsService {
 	if amsClientInstance == nil {
-		baseURL := configRepository.GetJusticeBaseUrl()
+		baseURL := strings.TrimSuffix(configRepository.GetJusticeBaseUrl(), "/")
 		if len(baseURL) > 0 {
 			baseURLSplit := strings.Split(baseURL, "://")
 			httpClientConfig := &amsclient.TransportConfig{

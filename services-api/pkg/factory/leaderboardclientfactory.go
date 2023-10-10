@@ -19,10 +19,10 @@ import (
 var leaderboardClientInstance *leaderboardclient.JusticeLeaderboardService
 
 // NewLeaderboardClient
-// Deprecated: 2023-03-30 - please use NewLeaderboardClient from "github.com/AccelByte/accelbyte-go-modular-sdk/Leaderboard-sdk/pkg"
+// Deprecated: 2023-03-30 - please use NewLeaderboardClient from "github.com/AccelByte/accelbyte-go-modular-sdk/leaderboard-sdk/pkg"
 func NewLeaderboardClient(configRepository repository.ConfigRepository) *leaderboardclient.JusticeLeaderboardService {
 	if leaderboardClientInstance == nil {
-		baseURL := configRepository.GetJusticeBaseUrl()
+		baseURL := strings.TrimSuffix(configRepository.GetJusticeBaseUrl(), "/")
 		if len(baseURL) > 0 {
 			baseURLSplit := strings.Split(baseURL, "://")
 			httpClientConfig := &leaderboardclient.TransportConfig{

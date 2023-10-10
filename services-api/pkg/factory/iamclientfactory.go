@@ -19,10 +19,10 @@ import (
 var iamClientInstance *iamclient.JusticeIamService
 
 // NewIamClient
-// Deprecated: 2023-03-30 - please use NewIamClient from "github.com/AccelByte/accelbyte-go-modular-sdk/Iam-sdk/pkg"
+// Deprecated: 2023-03-30 - please use NewIamClient from "github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg"
 func NewIamClient(configRepository repository.ConfigRepository) *iamclient.JusticeIamService {
 	if iamClientInstance == nil {
-		baseURL := configRepository.GetJusticeBaseUrl()
+		baseURL := strings.TrimSuffix(configRepository.GetJusticeBaseUrl(), "/")
 		if len(baseURL) > 0 {
 			baseURLSplit := strings.Split(baseURL, "://")
 			httpClientConfig := &iamclient.TransportConfig{

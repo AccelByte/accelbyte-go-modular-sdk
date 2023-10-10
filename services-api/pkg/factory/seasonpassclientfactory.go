@@ -19,10 +19,10 @@ import (
 var seasonpassClientInstance *seasonpassclient.JusticeSeasonpassService
 
 // NewSeasonpassClient
-// Deprecated: 2023-03-30 - please use NewSeasonpassClient from "github.com/AccelByte/accelbyte-go-modular-sdk/Seasonpass-sdk/pkg"
+// Deprecated: 2023-03-30 - please use NewSeasonpassClient from "github.com/AccelByte/accelbyte-go-modular-sdk/seasonpass-sdk/pkg"
 func NewSeasonpassClient(configRepository repository.ConfigRepository) *seasonpassclient.JusticeSeasonpassService {
 	if seasonpassClientInstance == nil {
-		baseURL := configRepository.GetJusticeBaseUrl()
+		baseURL := strings.TrimSuffix(configRepository.GetJusticeBaseUrl(), "/")
 		if len(baseURL) > 0 {
 			baseURLSplit := strings.Split(baseURL, "://")
 			httpClientConfig := &seasonpassclient.TransportConfig{
