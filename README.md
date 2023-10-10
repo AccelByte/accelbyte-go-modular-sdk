@@ -1,20 +1,18 @@
-# [ON ACTIVE DEVELOPMENT - DO NOT USE YET]
-
 # AccelByte Go Modular SDK
 
 A software development kit (SDK) for interacting with AccelByte services written in Golang.
 
 This SDK was generated from OpenAPI specification documents included in the [spec](spec) directory.
 
+> :warning: **This [accelbyte-go-modular-sdk](https://github.com/AccelByte/accelbyte-go-modular-sdk) 
+> modular package is not to be confused with [accelbyte-go-sdk](https://github.com/AccelByte/accelbyte-go-sdk) 
+> monolithic package:** The former is positioned as the sucessor of the latter.
+> For new projects, we encourage you to try this modular package. For existing projects, a migration path is 
+> available and both packages will be maintained for some time to give time for migration.
+
 ## Setup
 
 This SDK requires `go 1.18` or newer version to be installed.
-
-## How to Migrate
-
-Migrate from [_*accelbyte-go-sdk*_](https://github.com/AccelByte/accelbyte-go-sdk) monolithic package into this [_*accelbyte-go-modular-sdk*_](https://github.com/AccelByte/accelbyte-go-modular-sdk) modular package by importing the AGS service of choice in the go.mod files.
-
-> **_NOTE:_** This modular package will be updated alongside the monolithic one.
 
 ### Import SDK Project
 
@@ -51,6 +49,14 @@ The following environment variables need to be set when using `ConfigRepository`
 | `AB_BASE_URL`      | Yes                                                    | https://demo.accelbyte.io        |
 | `AB_CLIENT_ID`     | Yes                                                    | abcdef0123456789abcdef0123456789 |
 | `AB_CLIENT_SECRET` | Yes, but only if you use a confidential `AB_CLIENT_ID` | ab#c,d)ef(ab#c,d)ef(ab#c,d)ef(ab |
+
+### Migrating An Existing Project
+
+To start migrating an existing project which uses [accelbyte-go-sdk](https://github.com/AccelByte/accelbyte-go-sdk) 
+monolithic package to this [accelbyte-go-modular-sdk](https://github.com/AccelByte/accelbyte-go-modular-sdk) modular package, 
+it can be done with minimum effort by importing the AGS service of choice in the go.mod files and 
+use `go build -tags compat` to build it with compatibility layer. After this, the compatibility layer
+can be removed bit by bit until the project is fully migrated.
 
 ## Usage
 
