@@ -6,7 +6,7 @@ go 1.18
 replace github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk => ../../../../iam-sdk
 
 require (
-	github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk v0.1.0-alpha.1
+	github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk v0.1.0-alpha.3
 	github.com/AccelByte/accelbyte-go-modular-sdk/services-api v0.1.0-alpha.1
 	github.com/AccelByte/bloom v0.0.0-20180915202807-98c052463922
 	github.com/AccelByte/go-jose v2.1.4+incompatible
