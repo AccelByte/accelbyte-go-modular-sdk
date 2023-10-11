@@ -14,11 +14,11 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/tests/integration"
 
 	gdpr "github.com/AccelByte/accelbyte-go-modular-sdk/gdpr-sdk/pkg"
-	"github.com/AccelByte/accelbyte-go-modular-sdk/gdpr-sdk/pkg/gdprclient/data_retrieval"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/gdpr-sdk/pkg/gdprclient/configuration"
 )
 
 var (
-	dataRetrievalService = &gdpr.DataRetrievalService{
+	gdprConfigurationService = &gdpr.ConfigurationService{
 		Client:          gdpr.NewGdprClient(auth.DefaultConfigRepositoryImpl()),
 		TokenRepository: tokenRepository,
 	}
@@ -33,12 +33,12 @@ func TestIntegrationSaveAdminEmailConfiguration(t *testing.T) {
 
 	// CASE Create admin email configuration
 	body = append(body, email)
-	input := &data_retrieval.SaveAdminEmailConfigurationParams{
+	input := &configuration.SaveAdminEmailConfigurationParams{
 		Body:      body,
 		Namespace: integration.NamespaceTest,
 	}
 
-	err := dataRetrievalService.SaveAdminEmailConfigurationShort(input)
+	err := gdprConfigurationService.SaveAdminEmailConfigurationShort(input)
 	// ESAC
 
 	// Assert
@@ -50,11 +50,11 @@ func TestIntegrationAdminListDataRetrieval(t *testing.T) {
 	Init()
 
 	// CASE Get admin email addresses configuration
-	input := &data_retrieval.GetAdminEmailConfigurationParams{
+	input := &configuration.GetAdminEmailConfigurationParams{
 		Namespace: integration.NamespaceTest,
 	}
 
-	ok, err := dataRetrievalService.GetAdminEmailConfigurationShort(input)
+	ok, err := gdprConfigurationService.GetAdminEmailConfigurationShort(input)
 	// ESAC
 
 	// Assert
@@ -68,12 +68,12 @@ func TestIntegrationUpdateAdminEmailConfiguration(t *testing.T) {
 
 	// CASE Update admin email configuration
 	body = append(body, email)
-	input := &data_retrieval.UpdateAdminEmailConfigurationParams{
+	input := &configuration.UpdateAdminEmailConfigurationParams{
 		Body:      body,
 		Namespace: integration.NamespaceTest,
 	}
 
-	err := dataRetrievalService.UpdateAdminEmailConfigurationShort(input)
+	err := gdprConfigurationService.UpdateAdminEmailConfigurationShort(input)
 	if err != nil {
 		assert.FailNow(t, err.Error())
 	}
@@ -89,12 +89,12 @@ func TestIntegrationDeleteAdminEmailConfiguration(t *testing.T) {
 
 	// CASE Delete admin email configuration
 	emails = append(emails, email)
-	input := &data_retrieval.DeleteAdminEmailConfigurationParams{
+	input := &configuration.DeleteAdminEmailConfigurationParams{
 		Emails:    emails,
 		Namespace: integration.NamespaceTest,
 	}
 
-	err := dataRetrievalService.DeleteAdminEmailConfigurationShort(input)
+	err := gdprConfigurationService.DeleteAdminEmailConfigurationShort(input)
 	// ESAC
 
 	// Assert
