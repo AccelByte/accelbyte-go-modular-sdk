@@ -17,14 +17,22 @@ def createGithubRelease(tag_name, prerelease = false, name = null, body = null) 
     request['body'] = body
   }
   request['prerelease'] = prerelease
-  httpRequest(
+
+  def requestBody = JsonOutput.toJson(request)
+  echo "Request Body: ${requestBody}"
+
+  def response = httpRequest(
     url : "https://api.github.com/repos/${githubOwner}/${githubRepo}/releases",
     httpMode: 'POST',
-    requestBody: JsonOutput.toJson(request),
+    requestBody: requestBody,
     contentType: 'APPLICATION_JSON',
     authentication: githubPat,
-    validResponseCodes: '200:201'
+    validResponseCodes: '200:201,422'
   )
+
+ if (response.getStatus() != 201) {
+    error("Failed to create GitHub release. Response code: ${response.getStatus()}. Response message: ${response.getContent()}")
+  }
 }
 
 def isTagExist(tag) {
