@@ -20,6 +20,7 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/session-sdk/pkg/sessionclient/d_s_m_c_default_configuration"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/session-sdk/pkg/sessionclient/environment_variable"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/session-sdk/pkg/sessionclient/game_session"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/session-sdk/pkg/sessionclient/global_configuration"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/session-sdk/pkg/sessionclient/operations"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/session-sdk/pkg/sessionclient/party"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/session-sdk/pkg/sessionclient/platform_credential"
@@ -92,6 +93,7 @@ func New(transport runtime.ClientTransport, runtime *httptransport.Runtime, form
 	cli.DsmcDefaultConfiguration = d_s_m_c_default_configuration.New(transport, formats)
 	cli.EnvironmentVariable = environment_variable.New(transport, formats)
 	cli.GameSession = game_session.New(transport, formats)
+	cli.GlobalConfiguration = global_configuration.New(transport, formats)
 	cli.Party = party.New(transport, formats)
 	cli.PlatformCredential = platform_credential.New(transport, formats)
 	cli.Player = player.New(transport, formats)
@@ -166,6 +168,8 @@ type JusticeSessionService struct {
 
 	GameSession game_session.ClientService
 
+	GlobalConfiguration global_configuration.ClientService
+
 	Party party.ClientService
 
 	PlatformCredential platform_credential.ClientService
@@ -187,6 +191,7 @@ func (c *JusticeSessionService) SetTransport(transport runtime.ClientTransport) 
 	c.DsmcDefaultConfiguration.SetTransport(transport)
 	c.EnvironmentVariable.SetTransport(transport)
 	c.GameSession.SetTransport(transport)
+	c.GlobalConfiguration.SetTransport(transport)
 	c.Party.SetTransport(transport)
 	c.PlatformCredential.SetTransport(transport)
 	c.Player.SetTransport(transport)
