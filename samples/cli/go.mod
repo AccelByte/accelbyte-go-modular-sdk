@@ -43,7 +43,7 @@ require (
 	github.com/AccelByte/accelbyte-go-modular-sdk/gametelemetry-sdk v0.1.0-alpha.1
 	github.com/AccelByte/accelbyte-go-modular-sdk/gdpr-sdk v0.1.0-alpha.1
 	github.com/AccelByte/accelbyte-go-modular-sdk/group-sdk v0.1.0-alpha.1
-	github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk v0.1.0-alpha.3
+	github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk v0.1.0-alpha.4
 	github.com/AccelByte/accelbyte-go-modular-sdk/inventory-sdk v0.0.0-00010101000000-000000000000
 	github.com/AccelByte/accelbyte-go-modular-sdk/leaderboard-sdk v0.1.0-alpha.1
 	github.com/AccelByte/accelbyte-go-modular-sdk/legal-sdk v0.1.0-alpha.1
