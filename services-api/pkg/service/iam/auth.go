@@ -499,11 +499,8 @@ func (o *OAuth20Service) ParseAccessToken(accessToken string, validate bool) (*i
 		if len(tokenResponseV3.Permissions) > 0 {
 			permission := tokenResponseV3.Permissions[0]
 			perm = &Permission{
-				Resource:        *permission.Resource,
-				Action:          int(*permission.Action),
-				ScheduledAction: int(permission.SchedAction),
-				CronSchedule:    permission.SchedCron,
-				RangeSchedule:   permission.SchedRange,
+				Resource: *permission.Resource,
+				Action:   int(*permission.Action),
 			}
 		}
 		errValidate := o.tokenValidation.Validate(accessToken, perm, tokenResponseV3.Namespace, nil)
