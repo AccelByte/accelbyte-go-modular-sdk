@@ -46,6 +46,7 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/platform-sdk/pkg/platformclient/store"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/platform-sdk/pkg/platformclient/subscription"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/platform-sdk/pkg/platformclient/ticket"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/platform-sdk/pkg/platformclient/trade_action"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/platform-sdk/pkg/platformclient/view"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/platform-sdk/pkg/platformclient/wallet"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils"
@@ -143,6 +144,7 @@ func New(transport runtime.ClientTransport, runtime *httptransport.Runtime, form
 	cli.Store = store.New(transport, formats)
 	cli.Subscription = subscription.New(transport, formats)
 	cli.Ticket = ticket.New(transport, formats)
+	cli.TradeAction = trade_action.New(transport, formats)
 	cli.View = view.New(transport, formats)
 	cli.Wallet = wallet.New(transport, formats)
 
@@ -268,6 +270,8 @@ type JusticePlatformService struct {
 
 	Ticket ticket.ClientService
 
+	TradeAction trade_action.ClientService
+
 	View view.ClientService
 
 	Wallet wallet.ClientService
@@ -310,6 +314,7 @@ func (c *JusticePlatformService) SetTransport(transport runtime.ClientTransport)
 	c.Store.SetTransport(transport)
 	c.Subscription.SetTransport(transport)
 	c.Ticket.SetTransport(transport)
+	c.TradeAction.SetTransport(transport)
 	c.View.SetTransport(transport)
 	c.Wallet.SetTransport(transport)
 }

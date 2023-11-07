@@ -16,6 +16,7 @@ import (
 	"github.com/go-openapi/strfmt"
 
 	"github.com/AccelByte/accelbyte-go-modular-sdk/ams-sdk/pkg/amsclient/a_m_s_info"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/ams-sdk/pkg/amsclient/a_m_s_qo_s"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/ams-sdk/pkg/amsclient/account"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/ams-sdk/pkg/amsclient/auth"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/ams-sdk/pkg/amsclient/fleet_commander"
@@ -88,6 +89,7 @@ func New(transport runtime.ClientTransport, runtime *httptransport.Runtime, form
 	cli.Transport = transport
 	cli.Runtime = runtime
 	cli.AmsInfo = a_m_s_info.New(transport, formats)
+	cli.AmsQos = a_m_s_qo_s.New(transport, formats)
 	cli.Account = account.New(transport, formats)
 	cli.Auth = auth.New(transport, formats)
 	cli.FleetCommander = fleet_commander.New(transport, formats)
@@ -158,6 +160,8 @@ func (cfg *TransportConfig) WithSchemes(schemes []string) *TransportConfig {
 type JusticeAmsService struct {
 	AmsInfo a_m_s_info.ClientService
 
+	AmsQos a_m_s_qo_s.ClientService
+
 	Account account.ClientService
 
 	Auth auth.ClientService
@@ -180,6 +184,7 @@ type JusticeAmsService struct {
 func (c *JusticeAmsService) SetTransport(transport runtime.ClientTransport) {
 	c.Transport = transport
 	c.AmsInfo.SetTransport(transport)
+	c.AmsQos.SetTransport(transport)
 	c.Account.SetTransport(transport)
 	c.Auth.SetTransport(transport)
 	c.FleetCommander.SetTransport(transport)

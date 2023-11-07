@@ -38,9 +38,18 @@ func (aaa *UserStatisticService) BulkFetchStatItems(input *user_statistic.BulkFe
 	if err != nil {
 		return nil, err
 	}
-	ok, unprocessableEntity, err := aaa.Client.UserStatistic.BulkFetchStatItems(input, client.BearerToken(*token.AccessToken))
+	ok, unauthorized, forbidden, unprocessableEntity, internalServerError, err := aaa.Client.UserStatistic.BulkFetchStatItems(input, client.BearerToken(*token.AccessToken))
+	if unauthorized != nil {
+		return nil, unauthorized
+	}
+	if forbidden != nil {
+		return nil, forbidden
+	}
 	if unprocessableEntity != nil {
 		return nil, unprocessableEntity
+	}
+	if internalServerError != nil {
+		return nil, internalServerError
 	}
 	if err != nil {
 		return nil, err
@@ -55,9 +64,21 @@ func (aaa *UserStatisticService) BulkIncUserStatItem(input *user_statistic.BulkI
 	if err != nil {
 		return nil, err
 	}
-	ok, unprocessableEntity, err := aaa.Client.UserStatistic.BulkIncUserStatItem(input, client.BearerToken(*token.AccessToken))
+	ok, badRequest, unauthorized, forbidden, unprocessableEntity, internalServerError, err := aaa.Client.UserStatistic.BulkIncUserStatItem(input, client.BearerToken(*token.AccessToken))
+	if badRequest != nil {
+		return nil, badRequest
+	}
+	if unauthorized != nil {
+		return nil, unauthorized
+	}
+	if forbidden != nil {
+		return nil, forbidden
+	}
 	if unprocessableEntity != nil {
 		return nil, unprocessableEntity
+	}
+	if internalServerError != nil {
+		return nil, internalServerError
 	}
 	if err != nil {
 		return nil, err
@@ -72,9 +93,21 @@ func (aaa *UserStatisticService) BulkIncUserStatItemValue(input *user_statistic.
 	if err != nil {
 		return nil, err
 	}
-	ok, unprocessableEntity, err := aaa.Client.UserStatistic.BulkIncUserStatItemValue(input, client.BearerToken(*token.AccessToken))
+	ok, badRequest, unauthorized, forbidden, unprocessableEntity, internalServerError, err := aaa.Client.UserStatistic.BulkIncUserStatItemValue(input, client.BearerToken(*token.AccessToken))
+	if badRequest != nil {
+		return nil, badRequest
+	}
+	if unauthorized != nil {
+		return nil, unauthorized
+	}
+	if forbidden != nil {
+		return nil, forbidden
+	}
 	if unprocessableEntity != nil {
 		return nil, unprocessableEntity
+	}
+	if internalServerError != nil {
+		return nil, internalServerError
 	}
 	if err != nil {
 		return nil, err
@@ -89,12 +122,21 @@ func (aaa *UserStatisticService) BulkFetchOrDefaultStatItems(input *user_statist
 	if err != nil {
 		return nil, err
 	}
-	ok, notFound, unprocessableEntity, err := aaa.Client.UserStatistic.BulkFetchOrDefaultStatItems(input, client.BearerToken(*token.AccessToken))
+	ok, unauthorized, forbidden, notFound, unprocessableEntity, internalServerError, err := aaa.Client.UserStatistic.BulkFetchOrDefaultStatItems(input, client.BearerToken(*token.AccessToken))
+	if unauthorized != nil {
+		return nil, unauthorized
+	}
+	if forbidden != nil {
+		return nil, forbidden
+	}
 	if notFound != nil {
 		return nil, notFound
 	}
 	if unprocessableEntity != nil {
 		return nil, unprocessableEntity
+	}
+	if internalServerError != nil {
+		return nil, internalServerError
 	}
 	if err != nil {
 		return nil, err
@@ -109,9 +151,44 @@ func (aaa *UserStatisticService) BulkResetUserStatItem(input *user_statistic.Bul
 	if err != nil {
 		return nil, err
 	}
-	ok, unprocessableEntity, err := aaa.Client.UserStatistic.BulkResetUserStatItem(input, client.BearerToken(*token.AccessToken))
+	ok, badRequest, unauthorized, forbidden, unprocessableEntity, internalServerError, err := aaa.Client.UserStatistic.BulkResetUserStatItem(input, client.BearerToken(*token.AccessToken))
+	if badRequest != nil {
+		return nil, badRequest
+	}
+	if unauthorized != nil {
+		return nil, unauthorized
+	}
+	if forbidden != nil {
+		return nil, forbidden
+	}
 	if unprocessableEntity != nil {
 		return nil, unprocessableEntity
+	}
+	if internalServerError != nil {
+		return nil, internalServerError
+	}
+	if err != nil {
+		return nil, err
+	}
+
+	return ok.GetPayload(), nil
+}
+
+// Deprecated: 2022-01-10 - Please use GetStatItemsShort instead.
+func (aaa *UserStatisticService) GetStatItems(input *user_statistic.GetStatItemsParams) (*socialclientmodels.StatItemValuePagingSlicedResult, error) {
+	token, err := aaa.TokenRepository.GetToken()
+	if err != nil {
+		return nil, err
+	}
+	ok, unauthorized, forbidden, internalServerError, err := aaa.Client.UserStatistic.GetStatItems(input, client.BearerToken(*token.AccessToken))
+	if unauthorized != nil {
+		return nil, unauthorized
+	}
+	if forbidden != nil {
+		return nil, forbidden
+	}
+	if internalServerError != nil {
+		return nil, internalServerError
 	}
 	if err != nil {
 		return nil, err
@@ -126,9 +203,18 @@ func (aaa *UserStatisticService) GetUserStatItems(input *user_statistic.GetUserS
 	if err != nil {
 		return nil, err
 	}
-	ok, unprocessableEntity, err := aaa.Client.UserStatistic.GetUserStatItems(input, client.BearerToken(*token.AccessToken))
+	ok, unauthorized, forbidden, unprocessableEntity, internalServerError, err := aaa.Client.UserStatistic.GetUserStatItems(input, client.BearerToken(*token.AccessToken))
+	if unauthorized != nil {
+		return nil, unauthorized
+	}
+	if forbidden != nil {
+		return nil, forbidden
+	}
 	if unprocessableEntity != nil {
 		return nil, unprocessableEntity
+	}
+	if internalServerError != nil {
+		return nil, internalServerError
 	}
 	if err != nil {
 		return nil, err
@@ -143,9 +229,21 @@ func (aaa *UserStatisticService) BulkCreateUserStatItems(input *user_statistic.B
 	if err != nil {
 		return nil, err
 	}
-	ok, unprocessableEntity, err := aaa.Client.UserStatistic.BulkCreateUserStatItems(input, client.BearerToken(*token.AccessToken))
+	ok, badRequest, unauthorized, forbidden, unprocessableEntity, internalServerError, err := aaa.Client.UserStatistic.BulkCreateUserStatItems(input, client.BearerToken(*token.AccessToken))
+	if badRequest != nil {
+		return nil, badRequest
+	}
+	if unauthorized != nil {
+		return nil, unauthorized
+	}
+	if forbidden != nil {
+		return nil, forbidden
+	}
 	if unprocessableEntity != nil {
 		return nil, unprocessableEntity
+	}
+	if internalServerError != nil {
+		return nil, internalServerError
 	}
 	if err != nil {
 		return nil, err
@@ -160,9 +258,21 @@ func (aaa *UserStatisticService) BulkIncUserStatItem1(input *user_statistic.Bulk
 	if err != nil {
 		return nil, err
 	}
-	ok, unprocessableEntity, err := aaa.Client.UserStatistic.BulkIncUserStatItem1(input, client.BearerToken(*token.AccessToken))
+	ok, badRequest, unauthorized, forbidden, unprocessableEntity, internalServerError, err := aaa.Client.UserStatistic.BulkIncUserStatItem1(input, client.BearerToken(*token.AccessToken))
+	if badRequest != nil {
+		return nil, badRequest
+	}
+	if unauthorized != nil {
+		return nil, unauthorized
+	}
+	if forbidden != nil {
+		return nil, forbidden
+	}
 	if unprocessableEntity != nil {
 		return nil, unprocessableEntity
+	}
+	if internalServerError != nil {
+		return nil, internalServerError
 	}
 	if err != nil {
 		return nil, err
@@ -177,9 +287,21 @@ func (aaa *UserStatisticService) BulkIncUserStatItemValue1(input *user_statistic
 	if err != nil {
 		return nil, err
 	}
-	ok, unprocessableEntity, err := aaa.Client.UserStatistic.BulkIncUserStatItemValue1(input, client.BearerToken(*token.AccessToken))
+	ok, badRequest, unauthorized, forbidden, unprocessableEntity, internalServerError, err := aaa.Client.UserStatistic.BulkIncUserStatItemValue1(input, client.BearerToken(*token.AccessToken))
+	if badRequest != nil {
+		return nil, badRequest
+	}
+	if unauthorized != nil {
+		return nil, unauthorized
+	}
+	if forbidden != nil {
+		return nil, forbidden
+	}
 	if unprocessableEntity != nil {
 		return nil, unprocessableEntity
+	}
+	if internalServerError != nil {
+		return nil, internalServerError
 	}
 	if err != nil {
 		return nil, err
@@ -194,9 +316,21 @@ func (aaa *UserStatisticService) BulkResetUserStatItem1(input *user_statistic.Bu
 	if err != nil {
 		return nil, err
 	}
-	ok, unprocessableEntity, err := aaa.Client.UserStatistic.BulkResetUserStatItem1(input, client.BearerToken(*token.AccessToken))
+	ok, badRequest, unauthorized, forbidden, unprocessableEntity, internalServerError, err := aaa.Client.UserStatistic.BulkResetUserStatItem1(input, client.BearerToken(*token.AccessToken))
+	if badRequest != nil {
+		return nil, badRequest
+	}
+	if unauthorized != nil {
+		return nil, unauthorized
+	}
+	if forbidden != nil {
+		return nil, forbidden
+	}
 	if unprocessableEntity != nil {
 		return nil, unprocessableEntity
+	}
+	if internalServerError != nil {
+		return nil, internalServerError
 	}
 	if err != nil {
 		return nil, err
@@ -211,7 +345,13 @@ func (aaa *UserStatisticService) CreateUserStatItem(input *user_statistic.Create
 	if err != nil {
 		return err
 	}
-	_, notFound, conflict, unprocessableEntity, err := aaa.Client.UserStatistic.CreateUserStatItem(input, client.BearerToken(*token.AccessToken))
+	_, unauthorized, forbidden, notFound, conflict, unprocessableEntity, internalServerError, err := aaa.Client.UserStatistic.CreateUserStatItem(input, client.BearerToken(*token.AccessToken))
+	if unauthorized != nil {
+		return unauthorized
+	}
+	if forbidden != nil {
+		return forbidden
+	}
 	if notFound != nil {
 		return notFound
 	}
@@ -220,6 +360,9 @@ func (aaa *UserStatisticService) CreateUserStatItem(input *user_statistic.Create
 	}
 	if unprocessableEntity != nil {
 		return unprocessableEntity
+	}
+	if internalServerError != nil {
+		return internalServerError
 	}
 	if err != nil {
 		return err
@@ -234,7 +377,7 @@ func (aaa *UserStatisticService) DeleteUserStatItems(input *user_statistic.Delet
 	if err != nil {
 		return err
 	}
-	_, unauthorized, forbidden, notFound, unprocessableEntity, err := aaa.Client.UserStatistic.DeleteUserStatItems(input, client.BearerToken(*token.AccessToken))
+	_, unauthorized, forbidden, notFound, unprocessableEntity, internalServerError, err := aaa.Client.UserStatistic.DeleteUserStatItems(input, client.BearerToken(*token.AccessToken))
 	if unauthorized != nil {
 		return unauthorized
 	}
@@ -246,6 +389,9 @@ func (aaa *UserStatisticService) DeleteUserStatItems(input *user_statistic.Delet
 	}
 	if unprocessableEntity != nil {
 		return unprocessableEntity
+	}
+	if internalServerError != nil {
+		return internalServerError
 	}
 	if err != nil {
 		return err
@@ -260,9 +406,15 @@ func (aaa *UserStatisticService) IncUserStatItemValue(input *user_statistic.IncU
 	if err != nil {
 		return nil, err
 	}
-	ok, badRequest, notFound, conflict, unprocessableEntity, err := aaa.Client.UserStatistic.IncUserStatItemValue(input, client.BearerToken(*token.AccessToken))
+	ok, badRequest, unauthorized, forbidden, notFound, conflict, unprocessableEntity, internalServerError, err := aaa.Client.UserStatistic.IncUserStatItemValue(input, client.BearerToken(*token.AccessToken))
 	if badRequest != nil {
 		return nil, badRequest
+	}
+	if unauthorized != nil {
+		return nil, unauthorized
+	}
+	if forbidden != nil {
+		return nil, forbidden
 	}
 	if notFound != nil {
 		return nil, notFound
@@ -272,6 +424,9 @@ func (aaa *UserStatisticService) IncUserStatItemValue(input *user_statistic.IncU
 	}
 	if unprocessableEntity != nil {
 		return nil, unprocessableEntity
+	}
+	if internalServerError != nil {
+		return nil, internalServerError
 	}
 	if err != nil {
 		return nil, err
@@ -286,15 +441,24 @@ func (aaa *UserStatisticService) ResetUserStatItemValue(input *user_statistic.Re
 	if err != nil {
 		return nil, err
 	}
-	ok, badRequest, notFound, unprocessableEntity, err := aaa.Client.UserStatistic.ResetUserStatItemValue(input, client.BearerToken(*token.AccessToken))
+	ok, badRequest, unauthorized, forbidden, notFound, unprocessableEntity, internalServerError, err := aaa.Client.UserStatistic.ResetUserStatItemValue(input, client.BearerToken(*token.AccessToken))
 	if badRequest != nil {
 		return nil, badRequest
+	}
+	if unauthorized != nil {
+		return nil, unauthorized
+	}
+	if forbidden != nil {
+		return nil, forbidden
 	}
 	if notFound != nil {
 		return nil, notFound
 	}
 	if unprocessableEntity != nil {
 		return nil, unprocessableEntity
+	}
+	if internalServerError != nil {
+		return nil, internalServerError
 	}
 	if err != nil {
 		return nil, err
@@ -309,9 +473,18 @@ func (aaa *UserStatisticService) BulkFetchStatItems1(input *user_statistic.BulkF
 	if err != nil {
 		return nil, err
 	}
-	ok, unprocessableEntity, err := aaa.Client.UserStatistic.BulkFetchStatItems1(input, client.BearerToken(*token.AccessToken))
+	ok, unauthorized, forbidden, unprocessableEntity, internalServerError, err := aaa.Client.UserStatistic.BulkFetchStatItems1(input, client.BearerToken(*token.AccessToken))
+	if unauthorized != nil {
+		return nil, unauthorized
+	}
+	if forbidden != nil {
+		return nil, forbidden
+	}
 	if unprocessableEntity != nil {
 		return nil, unprocessableEntity
+	}
+	if internalServerError != nil {
+		return nil, internalServerError
 	}
 	if err != nil {
 		return nil, err
@@ -326,9 +499,21 @@ func (aaa *UserStatisticService) PublicBulkIncUserStatItem(input *user_statistic
 	if err != nil {
 		return nil, err
 	}
-	ok, unprocessableEntity, err := aaa.Client.UserStatistic.PublicBulkIncUserStatItem(input, client.BearerToken(*token.AccessToken))
+	ok, badRequest, unauthorized, forbidden, unprocessableEntity, internalServerError, err := aaa.Client.UserStatistic.PublicBulkIncUserStatItem(input, client.BearerToken(*token.AccessToken))
+	if badRequest != nil {
+		return nil, badRequest
+	}
+	if unauthorized != nil {
+		return nil, unauthorized
+	}
+	if forbidden != nil {
+		return nil, forbidden
+	}
 	if unprocessableEntity != nil {
 		return nil, unprocessableEntity
+	}
+	if internalServerError != nil {
+		return nil, internalServerError
 	}
 	if err != nil {
 		return nil, err
@@ -343,9 +528,21 @@ func (aaa *UserStatisticService) PublicBulkIncUserStatItemValue(input *user_stat
 	if err != nil {
 		return nil, err
 	}
-	ok, unprocessableEntity, err := aaa.Client.UserStatistic.PublicBulkIncUserStatItemValue(input, client.BearerToken(*token.AccessToken))
+	ok, badRequest, unauthorized, forbidden, unprocessableEntity, internalServerError, err := aaa.Client.UserStatistic.PublicBulkIncUserStatItemValue(input, client.BearerToken(*token.AccessToken))
+	if badRequest != nil {
+		return nil, badRequest
+	}
+	if unauthorized != nil {
+		return nil, unauthorized
+	}
+	if forbidden != nil {
+		return nil, forbidden
+	}
 	if unprocessableEntity != nil {
 		return nil, unprocessableEntity
+	}
+	if internalServerError != nil {
+		return nil, internalServerError
 	}
 	if err != nil {
 		return nil, err
@@ -360,9 +557,21 @@ func (aaa *UserStatisticService) BulkResetUserStatItem2(input *user_statistic.Bu
 	if err != nil {
 		return nil, err
 	}
-	ok, unprocessableEntity, err := aaa.Client.UserStatistic.BulkResetUserStatItem2(input, client.BearerToken(*token.AccessToken))
+	ok, badRequest, unauthorized, forbidden, unprocessableEntity, internalServerError, err := aaa.Client.UserStatistic.BulkResetUserStatItem2(input, client.BearerToken(*token.AccessToken))
+	if badRequest != nil {
+		return nil, badRequest
+	}
+	if unauthorized != nil {
+		return nil, unauthorized
+	}
+	if forbidden != nil {
+		return nil, forbidden
+	}
 	if unprocessableEntity != nil {
 		return nil, unprocessableEntity
+	}
+	if internalServerError != nil {
+		return nil, internalServerError
 	}
 	if err != nil {
 		return nil, err
@@ -377,9 +586,18 @@ func (aaa *UserStatisticService) PublicListMyStatItems(input *user_statistic.Pub
 	if err != nil {
 		return nil, err
 	}
-	ok, unprocessableEntity, err := aaa.Client.UserStatistic.PublicListMyStatItems(input, client.BearerToken(*token.AccessToken))
+	ok, unauthorized, forbidden, unprocessableEntity, internalServerError, err := aaa.Client.UserStatistic.PublicListMyStatItems(input, client.BearerToken(*token.AccessToken))
+	if unauthorized != nil {
+		return nil, unauthorized
+	}
+	if forbidden != nil {
+		return nil, forbidden
+	}
 	if unprocessableEntity != nil {
 		return nil, unprocessableEntity
+	}
+	if internalServerError != nil {
+		return nil, internalServerError
 	}
 	if err != nil {
 		return nil, err
@@ -394,9 +612,12 @@ func (aaa *UserStatisticService) PublicListAllMyStatItems(input *user_statistic.
 	if err != nil {
 		return nil, err
 	}
-	ok, badRequest, notFound, unprocessableEntity, err := aaa.Client.UserStatistic.PublicListAllMyStatItems(input, client.BearerToken(*token.AccessToken))
+	ok, badRequest, forbidden, notFound, unprocessableEntity, err := aaa.Client.UserStatistic.PublicListAllMyStatItems(input, client.BearerToken(*token.AccessToken))
 	if badRequest != nil {
 		return nil, badRequest
+	}
+	if forbidden != nil {
+		return nil, forbidden
 	}
 	if notFound != nil {
 		return nil, notFound
@@ -417,9 +638,18 @@ func (aaa *UserStatisticService) PublicQueryUserStatItems(input *user_statistic.
 	if err != nil {
 		return nil, err
 	}
-	ok, unprocessableEntity, err := aaa.Client.UserStatistic.PublicQueryUserStatItems(input, client.BearerToken(*token.AccessToken))
+	ok, unauthorized, forbidden, unprocessableEntity, internalServerError, err := aaa.Client.UserStatistic.PublicQueryUserStatItems(input, client.BearerToken(*token.AccessToken))
+	if unauthorized != nil {
+		return nil, unauthorized
+	}
+	if forbidden != nil {
+		return nil, forbidden
+	}
 	if unprocessableEntity != nil {
 		return nil, unprocessableEntity
+	}
+	if internalServerError != nil {
+		return nil, internalServerError
 	}
 	if err != nil {
 		return nil, err
@@ -434,9 +664,21 @@ func (aaa *UserStatisticService) PublicBulkCreateUserStatItems(input *user_stati
 	if err != nil {
 		return nil, err
 	}
-	ok, unprocessableEntity, err := aaa.Client.UserStatistic.PublicBulkCreateUserStatItems(input, client.BearerToken(*token.AccessToken))
+	ok, badRequest, unauthorized, forbidden, unprocessableEntity, internalServerError, err := aaa.Client.UserStatistic.PublicBulkCreateUserStatItems(input, client.BearerToken(*token.AccessToken))
+	if badRequest != nil {
+		return nil, badRequest
+	}
+	if unauthorized != nil {
+		return nil, unauthorized
+	}
+	if forbidden != nil {
+		return nil, forbidden
+	}
 	if unprocessableEntity != nil {
 		return nil, unprocessableEntity
+	}
+	if internalServerError != nil {
+		return nil, internalServerError
 	}
 	if err != nil {
 		return nil, err
@@ -451,15 +693,24 @@ func (aaa *UserStatisticService) PublicQueryUserStatItems1(input *user_statistic
 	if err != nil {
 		return nil, err
 	}
-	ok, badRequest, notFound, unprocessableEntity, err := aaa.Client.UserStatistic.PublicQueryUserStatItems1(input, client.BearerToken(*token.AccessToken))
+	ok, badRequest, unauthorized, forbidden, notFound, unprocessableEntity, internalServerError, err := aaa.Client.UserStatistic.PublicQueryUserStatItems1(input, client.BearerToken(*token.AccessToken))
 	if badRequest != nil {
 		return nil, badRequest
+	}
+	if unauthorized != nil {
+		return nil, unauthorized
+	}
+	if forbidden != nil {
+		return nil, forbidden
 	}
 	if notFound != nil {
 		return nil, notFound
 	}
 	if unprocessableEntity != nil {
 		return nil, unprocessableEntity
+	}
+	if internalServerError != nil {
+		return nil, internalServerError
 	}
 	if err != nil {
 		return nil, err
@@ -474,9 +725,21 @@ func (aaa *UserStatisticService) PublicBulkIncUserStatItem1(input *user_statisti
 	if err != nil {
 		return nil, err
 	}
-	ok, unprocessableEntity, err := aaa.Client.UserStatistic.PublicBulkIncUserStatItem1(input, client.BearerToken(*token.AccessToken))
+	ok, badRequest, unauthorized, forbidden, unprocessableEntity, internalServerError, err := aaa.Client.UserStatistic.PublicBulkIncUserStatItem1(input, client.BearerToken(*token.AccessToken))
+	if badRequest != nil {
+		return nil, badRequest
+	}
+	if unauthorized != nil {
+		return nil, unauthorized
+	}
+	if forbidden != nil {
+		return nil, forbidden
+	}
 	if unprocessableEntity != nil {
 		return nil, unprocessableEntity
+	}
+	if internalServerError != nil {
+		return nil, internalServerError
 	}
 	if err != nil {
 		return nil, err
@@ -491,9 +754,21 @@ func (aaa *UserStatisticService) BulkIncUserStatItemValue2(input *user_statistic
 	if err != nil {
 		return nil, err
 	}
-	ok, unprocessableEntity, err := aaa.Client.UserStatistic.BulkIncUserStatItemValue2(input, client.BearerToken(*token.AccessToken))
+	ok, badRequest, unauthorized, forbidden, unprocessableEntity, internalServerError, err := aaa.Client.UserStatistic.BulkIncUserStatItemValue2(input, client.BearerToken(*token.AccessToken))
+	if badRequest != nil {
+		return nil, badRequest
+	}
+	if unauthorized != nil {
+		return nil, unauthorized
+	}
+	if forbidden != nil {
+		return nil, forbidden
+	}
 	if unprocessableEntity != nil {
 		return nil, unprocessableEntity
+	}
+	if internalServerError != nil {
+		return nil, internalServerError
 	}
 	if err != nil {
 		return nil, err
@@ -508,9 +783,21 @@ func (aaa *UserStatisticService) BulkResetUserStatItem3(input *user_statistic.Bu
 	if err != nil {
 		return nil, err
 	}
-	ok, unprocessableEntity, err := aaa.Client.UserStatistic.BulkResetUserStatItem3(input, client.BearerToken(*token.AccessToken))
+	ok, badRequest, unauthorized, forbidden, unprocessableEntity, internalServerError, err := aaa.Client.UserStatistic.BulkResetUserStatItem3(input, client.BearerToken(*token.AccessToken))
+	if badRequest != nil {
+		return nil, badRequest
+	}
+	if unauthorized != nil {
+		return nil, unauthorized
+	}
+	if forbidden != nil {
+		return nil, forbidden
+	}
 	if unprocessableEntity != nil {
 		return nil, unprocessableEntity
+	}
+	if internalServerError != nil {
+		return nil, internalServerError
 	}
 	if err != nil {
 		return nil, err
@@ -525,7 +812,13 @@ func (aaa *UserStatisticService) PublicCreateUserStatItem(input *user_statistic.
 	if err != nil {
 		return err
 	}
-	_, notFound, conflict, unprocessableEntity, err := aaa.Client.UserStatistic.PublicCreateUserStatItem(input, client.BearerToken(*token.AccessToken))
+	_, unauthorized, forbidden, notFound, conflict, unprocessableEntity, internalServerError, err := aaa.Client.UserStatistic.PublicCreateUserStatItem(input, client.BearerToken(*token.AccessToken))
+	if unauthorized != nil {
+		return unauthorized
+	}
+	if forbidden != nil {
+		return forbidden
+	}
 	if notFound != nil {
 		return notFound
 	}
@@ -534,6 +827,9 @@ func (aaa *UserStatisticService) PublicCreateUserStatItem(input *user_statistic.
 	}
 	if unprocessableEntity != nil {
 		return unprocessableEntity
+	}
+	if internalServerError != nil {
+		return internalServerError
 	}
 	if err != nil {
 		return err
@@ -548,7 +844,7 @@ func (aaa *UserStatisticService) DeleteUserStatItems1(input *user_statistic.Dele
 	if err != nil {
 		return err
 	}
-	_, unauthorized, forbidden, notFound, unprocessableEntity, err := aaa.Client.UserStatistic.DeleteUserStatItems1(input, client.BearerToken(*token.AccessToken))
+	_, unauthorized, forbidden, notFound, unprocessableEntity, internalServerError, err := aaa.Client.UserStatistic.DeleteUserStatItems1(input, client.BearerToken(*token.AccessToken))
 	if unauthorized != nil {
 		return unauthorized
 	}
@@ -560,6 +856,9 @@ func (aaa *UserStatisticService) DeleteUserStatItems1(input *user_statistic.Dele
 	}
 	if unprocessableEntity != nil {
 		return unprocessableEntity
+	}
+	if internalServerError != nil {
+		return internalServerError
 	}
 	if err != nil {
 		return err
@@ -574,9 +873,15 @@ func (aaa *UserStatisticService) PublicIncUserStatItem(input *user_statistic.Pub
 	if err != nil {
 		return nil, err
 	}
-	ok, badRequest, notFound, conflict, unprocessableEntity, err := aaa.Client.UserStatistic.PublicIncUserStatItem(input, client.BearerToken(*token.AccessToken))
+	ok, badRequest, unauthorized, forbidden, notFound, conflict, unprocessableEntity, internalServerError, err := aaa.Client.UserStatistic.PublicIncUserStatItem(input, client.BearerToken(*token.AccessToken))
 	if badRequest != nil {
 		return nil, badRequest
+	}
+	if unauthorized != nil {
+		return nil, unauthorized
+	}
+	if forbidden != nil {
+		return nil, forbidden
 	}
 	if notFound != nil {
 		return nil, notFound
@@ -586,6 +891,9 @@ func (aaa *UserStatisticService) PublicIncUserStatItem(input *user_statistic.Pub
 	}
 	if unprocessableEntity != nil {
 		return nil, unprocessableEntity
+	}
+	if internalServerError != nil {
+		return nil, internalServerError
 	}
 	if err != nil {
 		return nil, err
@@ -600,9 +908,15 @@ func (aaa *UserStatisticService) PublicIncUserStatItemValue(input *user_statisti
 	if err != nil {
 		return nil, err
 	}
-	ok, badRequest, notFound, conflict, unprocessableEntity, err := aaa.Client.UserStatistic.PublicIncUserStatItemValue(input, client.BearerToken(*token.AccessToken))
+	ok, badRequest, unauthorized, forbidden, notFound, conflict, unprocessableEntity, internalServerError, err := aaa.Client.UserStatistic.PublicIncUserStatItemValue(input, client.BearerToken(*token.AccessToken))
 	if badRequest != nil {
 		return nil, badRequest
+	}
+	if unauthorized != nil {
+		return nil, unauthorized
+	}
+	if forbidden != nil {
+		return nil, forbidden
 	}
 	if notFound != nil {
 		return nil, notFound
@@ -612,6 +926,9 @@ func (aaa *UserStatisticService) PublicIncUserStatItemValue(input *user_statisti
 	}
 	if unprocessableEntity != nil {
 		return nil, unprocessableEntity
+	}
+	if internalServerError != nil {
+		return nil, internalServerError
 	}
 	if err != nil {
 		return nil, err
@@ -626,15 +943,24 @@ func (aaa *UserStatisticService) ResetUserStatItemValue1(input *user_statistic.R
 	if err != nil {
 		return nil, err
 	}
-	ok, badRequest, notFound, unprocessableEntity, err := aaa.Client.UserStatistic.ResetUserStatItemValue1(input, client.BearerToken(*token.AccessToken))
+	ok, badRequest, unauthorized, forbidden, notFound, unprocessableEntity, internalServerError, err := aaa.Client.UserStatistic.ResetUserStatItemValue1(input, client.BearerToken(*token.AccessToken))
 	if badRequest != nil {
 		return nil, badRequest
+	}
+	if unauthorized != nil {
+		return nil, unauthorized
+	}
+	if forbidden != nil {
+		return nil, forbidden
 	}
 	if notFound != nil {
 		return nil, notFound
 	}
 	if unprocessableEntity != nil {
 		return nil, unprocessableEntity
+	}
+	if internalServerError != nil {
+		return nil, internalServerError
 	}
 	if err != nil {
 		return nil, err
@@ -649,9 +975,21 @@ func (aaa *UserStatisticService) BulkUpdateUserStatItemV2(input *user_statistic.
 	if err != nil {
 		return nil, err
 	}
-	ok, unprocessableEntity, err := aaa.Client.UserStatistic.BulkUpdateUserStatItemV2(input, client.BearerToken(*token.AccessToken))
+	ok, badRequest, unauthorized, forbidden, unprocessableEntity, internalServerError, err := aaa.Client.UserStatistic.BulkUpdateUserStatItemV2(input, client.BearerToken(*token.AccessToken))
+	if badRequest != nil {
+		return nil, badRequest
+	}
+	if unauthorized != nil {
+		return nil, unauthorized
+	}
+	if forbidden != nil {
+		return nil, forbidden
+	}
 	if unprocessableEntity != nil {
 		return nil, unprocessableEntity
+	}
+	if internalServerError != nil {
+		return nil, internalServerError
 	}
 	if err != nil {
 		return nil, err
@@ -666,12 +1004,21 @@ func (aaa *UserStatisticService) BulkFetchOrDefaultStatItems1(input *user_statis
 	if err != nil {
 		return nil, err
 	}
-	ok, notFound, unprocessableEntity, err := aaa.Client.UserStatistic.BulkFetchOrDefaultStatItems1(input, client.BearerToken(*token.AccessToken))
+	ok, unauthorized, forbidden, notFound, unprocessableEntity, internalServerError, err := aaa.Client.UserStatistic.BulkFetchOrDefaultStatItems1(input, client.BearerToken(*token.AccessToken))
+	if unauthorized != nil {
+		return nil, unauthorized
+	}
+	if forbidden != nil {
+		return nil, forbidden
+	}
 	if notFound != nil {
 		return nil, notFound
 	}
 	if unprocessableEntity != nil {
 		return nil, unprocessableEntity
+	}
+	if internalServerError != nil {
+		return nil, internalServerError
 	}
 	if err != nil {
 		return nil, err
@@ -686,15 +1033,24 @@ func (aaa *UserStatisticService) AdminListUsersStatItems(input *user_statistic.A
 	if err != nil {
 		return nil, err
 	}
-	ok, badRequest, notFound, unprocessableEntity, err := aaa.Client.UserStatistic.AdminListUsersStatItems(input, client.BearerToken(*token.AccessToken))
+	ok, badRequest, unauthorized, forbidden, notFound, unprocessableEntity, internalServerError, err := aaa.Client.UserStatistic.AdminListUsersStatItems(input, client.BearerToken(*token.AccessToken))
 	if badRequest != nil {
 		return nil, badRequest
+	}
+	if unauthorized != nil {
+		return nil, unauthorized
+	}
+	if forbidden != nil {
+		return nil, forbidden
 	}
 	if notFound != nil {
 		return nil, notFound
 	}
 	if unprocessableEntity != nil {
 		return nil, unprocessableEntity
+	}
+	if internalServerError != nil {
+		return nil, internalServerError
 	}
 	if err != nil {
 		return nil, err
@@ -709,9 +1065,21 @@ func (aaa *UserStatisticService) BulkUpdateUserStatItem(input *user_statistic.Bu
 	if err != nil {
 		return nil, err
 	}
-	ok, unprocessableEntity, err := aaa.Client.UserStatistic.BulkUpdateUserStatItem(input, client.BearerToken(*token.AccessToken))
+	ok, badRequest, unauthorized, forbidden, unprocessableEntity, internalServerError, err := aaa.Client.UserStatistic.BulkUpdateUserStatItem(input, client.BearerToken(*token.AccessToken))
+	if badRequest != nil {
+		return nil, badRequest
+	}
+	if unauthorized != nil {
+		return nil, unauthorized
+	}
+	if forbidden != nil {
+		return nil, forbidden
+	}
 	if unprocessableEntity != nil {
 		return nil, unprocessableEntity
+	}
+	if internalServerError != nil {
+		return nil, internalServerError
 	}
 	if err != nil {
 		return nil, err
@@ -726,9 +1094,21 @@ func (aaa *UserStatisticService) BulkResetUserStatItemValues(input *user_statist
 	if err != nil {
 		return nil, err
 	}
-	ok, unprocessableEntity, err := aaa.Client.UserStatistic.BulkResetUserStatItemValues(input, client.BearerToken(*token.AccessToken))
+	ok, badRequest, unauthorized, forbidden, unprocessableEntity, internalServerError, err := aaa.Client.UserStatistic.BulkResetUserStatItemValues(input, client.BearerToken(*token.AccessToken))
+	if badRequest != nil {
+		return nil, badRequest
+	}
+	if unauthorized != nil {
+		return nil, unauthorized
+	}
+	if forbidden != nil {
+		return nil, forbidden
+	}
 	if unprocessableEntity != nil {
 		return nil, unprocessableEntity
+	}
+	if internalServerError != nil {
+		return nil, internalServerError
 	}
 	if err != nil {
 		return nil, err
@@ -743,7 +1123,7 @@ func (aaa *UserStatisticService) DeleteUserStatItems2(input *user_statistic.Dele
 	if err != nil {
 		return err
 	}
-	_, unauthorized, forbidden, notFound, unprocessableEntity, err := aaa.Client.UserStatistic.DeleteUserStatItems2(input, client.BearerToken(*token.AccessToken))
+	_, unauthorized, forbidden, notFound, unprocessableEntity, internalServerError, err := aaa.Client.UserStatistic.DeleteUserStatItems2(input, client.BearerToken(*token.AccessToken))
 	if unauthorized != nil {
 		return unauthorized
 	}
@@ -755,6 +1135,9 @@ func (aaa *UserStatisticService) DeleteUserStatItems2(input *user_statistic.Dele
 	}
 	if unprocessableEntity != nil {
 		return unprocessableEntity
+	}
+	if internalServerError != nil {
+		return internalServerError
 	}
 	if err != nil {
 		return err
@@ -769,9 +1152,15 @@ func (aaa *UserStatisticService) UpdateUserStatItemValue(input *user_statistic.U
 	if err != nil {
 		return nil, err
 	}
-	ok, badRequest, notFound, conflict, unprocessableEntity, err := aaa.Client.UserStatistic.UpdateUserStatItemValue(input, client.BearerToken(*token.AccessToken))
+	ok, badRequest, unauthorized, forbidden, notFound, conflict, unprocessableEntity, internalServerError, err := aaa.Client.UserStatistic.UpdateUserStatItemValue(input, client.BearerToken(*token.AccessToken))
 	if badRequest != nil {
 		return nil, badRequest
+	}
+	if unauthorized != nil {
+		return nil, unauthorized
+	}
+	if forbidden != nil {
+		return nil, forbidden
 	}
 	if notFound != nil {
 		return nil, notFound
@@ -781,6 +1170,9 @@ func (aaa *UserStatisticService) UpdateUserStatItemValue(input *user_statistic.U
 	}
 	if unprocessableEntity != nil {
 		return nil, unprocessableEntity
+	}
+	if internalServerError != nil {
+		return nil, internalServerError
 	}
 	if err != nil {
 		return nil, err
@@ -795,9 +1187,21 @@ func (aaa *UserStatisticService) BulkUpdateUserStatItem1(input *user_statistic.B
 	if err != nil {
 		return nil, err
 	}
-	ok, unprocessableEntity, err := aaa.Client.UserStatistic.BulkUpdateUserStatItem1(input, client.BearerToken(*token.AccessToken))
+	ok, badRequest, unauthorized, forbidden, unprocessableEntity, internalServerError, err := aaa.Client.UserStatistic.BulkUpdateUserStatItem1(input, client.BearerToken(*token.AccessToken))
+	if badRequest != nil {
+		return nil, badRequest
+	}
+	if unauthorized != nil {
+		return nil, unauthorized
+	}
+	if forbidden != nil {
+		return nil, forbidden
+	}
 	if unprocessableEntity != nil {
 		return nil, unprocessableEntity
+	}
+	if internalServerError != nil {
+		return nil, internalServerError
 	}
 	if err != nil {
 		return nil, err
@@ -812,15 +1216,24 @@ func (aaa *UserStatisticService) PublicQueryUserStatItems2(input *user_statistic
 	if err != nil {
 		return nil, err
 	}
-	ok, badRequest, notFound, unprocessableEntity, err := aaa.Client.UserStatistic.PublicQueryUserStatItems2(input, client.BearerToken(*token.AccessToken))
+	ok, badRequest, unauthorized, forbidden, notFound, unprocessableEntity, internalServerError, err := aaa.Client.UserStatistic.PublicQueryUserStatItems2(input, client.BearerToken(*token.AccessToken))
 	if badRequest != nil {
 		return nil, badRequest
+	}
+	if unauthorized != nil {
+		return nil, unauthorized
+	}
+	if forbidden != nil {
+		return nil, forbidden
 	}
 	if notFound != nil {
 		return nil, notFound
 	}
 	if unprocessableEntity != nil {
 		return nil, unprocessableEntity
+	}
+	if internalServerError != nil {
+		return nil, internalServerError
 	}
 	if err != nil {
 		return nil, err
@@ -835,9 +1248,21 @@ func (aaa *UserStatisticService) BulkUpdateUserStatItem2(input *user_statistic.B
 	if err != nil {
 		return nil, err
 	}
-	ok, unprocessableEntity, err := aaa.Client.UserStatistic.BulkUpdateUserStatItem2(input, client.BearerToken(*token.AccessToken))
+	ok, badRequest, unauthorized, forbidden, unprocessableEntity, internalServerError, err := aaa.Client.UserStatistic.BulkUpdateUserStatItem2(input, client.BearerToken(*token.AccessToken))
+	if badRequest != nil {
+		return nil, badRequest
+	}
+	if unauthorized != nil {
+		return nil, unauthorized
+	}
+	if forbidden != nil {
+		return nil, forbidden
+	}
 	if unprocessableEntity != nil {
 		return nil, unprocessableEntity
+	}
+	if internalServerError != nil {
+		return nil, internalServerError
 	}
 	if err != nil {
 		return nil, err
@@ -852,9 +1277,15 @@ func (aaa *UserStatisticService) UpdateUserStatItemValue1(input *user_statistic.
 	if err != nil {
 		return nil, err
 	}
-	ok, badRequest, notFound, conflict, unprocessableEntity, err := aaa.Client.UserStatistic.UpdateUserStatItemValue1(input, client.BearerToken(*token.AccessToken))
+	ok, badRequest, unauthorized, forbidden, notFound, conflict, unprocessableEntity, internalServerError, err := aaa.Client.UserStatistic.UpdateUserStatItemValue1(input, client.BearerToken(*token.AccessToken))
 	if badRequest != nil {
 		return nil, badRequest
+	}
+	if unauthorized != nil {
+		return nil, unauthorized
+	}
+	if forbidden != nil {
+		return nil, forbidden
 	}
 	if notFound != nil {
 		return nil, notFound
@@ -864,6 +1295,9 @@ func (aaa *UserStatisticService) UpdateUserStatItemValue1(input *user_statistic.
 	}
 	if unprocessableEntity != nil {
 		return nil, unprocessableEntity
+	}
+	if internalServerError != nil {
+		return nil, internalServerError
 	}
 	if err != nil {
 		return nil, err
@@ -990,6 +1424,31 @@ func (aaa *UserStatisticService) BulkResetUserStatItemShort(input *user_statisti
 	}
 
 	ok, err := aaa.Client.UserStatistic.BulkResetUserStatItemShort(input, authInfoWriter)
+	if err != nil {
+		return nil, err
+	}
+
+	return ok.GetPayload(), nil
+}
+
+func (aaa *UserStatisticService) GetStatItemsShort(input *user_statistic.GetStatItemsParams) (*socialclientmodels.StatItemValuePagingSlicedResult, error) {
+	authInfoWriter := input.AuthInfoWriter
+	if authInfoWriter == nil {
+		security := [][]string{
+			{"bearer"},
+		}
+		authInfoWriter = auth.AuthInfoWriter(aaa.GetAuthSession(), security, "")
+	}
+	if input.RetryPolicy == nil {
+		input.RetryPolicy = &utils.Retry{
+			MaxTries:   utils.MaxTries,
+			Backoff:    utils.NewConstantBackoff(0),
+			Transport:  aaa.Client.Runtime.Transport,
+			RetryCodes: utils.RetryCodes,
+		}
+	}
+
+	ok, err := aaa.Client.UserStatistic.GetStatItemsShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
 	}

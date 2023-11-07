@@ -33,7 +33,7 @@ func (aaa *AMSInfoService) GetAuthSession() auth.Session {
 }
 
 // Deprecated: 2022-01-10 - Please use InfoRegionsShort instead.
-func (aaa *AMSInfoService) InfoRegions(input *a_m_s_info.InfoRegionsParams) (*amsclientmodels.APIRegionsResponse, error) {
+func (aaa *AMSInfoService) InfoRegions(input *a_m_s_info.InfoRegionsParams) (*amsclientmodels.APIAMSRegionsResponse, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
 		return nil, err
@@ -78,7 +78,7 @@ func (aaa *AMSInfoService) InfoSupportedInstances(input *a_m_s_info.InfoSupporte
 	return ok.GetPayload(), nil
 }
 
-func (aaa *AMSInfoService) InfoRegionsShort(input *a_m_s_info.InfoRegionsParams) (*amsclientmodels.APIRegionsResponse, error) {
+func (aaa *AMSInfoService) InfoRegionsShort(input *a_m_s_info.InfoRegionsParams) (*amsclientmodels.APIAMSRegionsResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{

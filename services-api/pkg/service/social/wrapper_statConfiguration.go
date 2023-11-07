@@ -40,7 +40,16 @@ func (aaa *StatConfigurationService) GetStats(input *stat_configuration.GetStats
 	if err != nil {
 		return nil, err
 	}
-	ok, err := aaa.Client.StatConfiguration.GetStats(input, client.BearerToken(*token.AccessToken))
+	ok, unauthorized, forbidden, internalServerError, err := aaa.Client.StatConfiguration.GetStats(input, client.BearerToken(*token.AccessToken))
+	if unauthorized != nil {
+		return nil, unauthorized
+	}
+	if forbidden != nil {
+		return nil, forbidden
+	}
+	if internalServerError != nil {
+		return nil, internalServerError
+	}
 	if err != nil {
 		return nil, err
 	}
@@ -54,12 +63,27 @@ func (aaa *StatConfigurationService) CreateStat(input *stat_configuration.Create
 	if err != nil {
 		return nil, err
 	}
-	created, notFound, conflict, err := aaa.Client.StatConfiguration.CreateStat(input, client.BearerToken(*token.AccessToken))
+	created, badRequest, unauthorized, forbidden, notFound, conflict, unprocessableEntity, internalServerError, err := aaa.Client.StatConfiguration.CreateStat(input, client.BearerToken(*token.AccessToken))
+	if badRequest != nil {
+		return nil, badRequest
+	}
+	if unauthorized != nil {
+		return nil, unauthorized
+	}
+	if forbidden != nil {
+		return nil, forbidden
+	}
 	if notFound != nil {
 		return nil, notFound
 	}
 	if conflict != nil {
 		return nil, conflict
+	}
+	if unprocessableEntity != nil {
+		return nil, unprocessableEntity
+	}
+	if internalServerError != nil {
+		return nil, internalServerError
 	}
 	if err != nil {
 		return nil, err
@@ -74,7 +98,16 @@ func (aaa *StatConfigurationService) ExportStats(input *stat_configuration.Expor
 	if err != nil {
 		return nil, err
 	}
-	ok, err := aaa.Client.StatConfiguration.ExportStats(input, client.BearerToken(*token.AccessToken), writer)
+	ok, unauthorized, forbidden, internalServerError, err := aaa.Client.StatConfiguration.ExportStats(input, client.BearerToken(*token.AccessToken), writer)
+	if unauthorized != nil {
+		return nil, unauthorized
+	}
+	if forbidden != nil {
+		return nil, forbidden
+	}
+	if internalServerError != nil {
+		return nil, internalServerError
+	}
 	if err != nil {
 		return nil, err
 	}
@@ -88,9 +121,18 @@ func (aaa *StatConfigurationService) ImportStats(input *stat_configuration.Impor
 	if err != nil {
 		return nil, err
 	}
-	created, badRequest, err := aaa.Client.StatConfiguration.ImportStats(input, client.BearerToken(*token.AccessToken))
+	created, badRequest, unauthorized, forbidden, internalServerError, err := aaa.Client.StatConfiguration.ImportStats(input, client.BearerToken(*token.AccessToken))
 	if badRequest != nil {
 		return nil, badRequest
+	}
+	if unauthorized != nil {
+		return nil, unauthorized
+	}
+	if forbidden != nil {
+		return nil, forbidden
+	}
+	if internalServerError != nil {
+		return nil, internalServerError
 	}
 	if err != nil {
 		return nil, err
@@ -105,7 +147,16 @@ func (aaa *StatConfigurationService) QueryStats(input *stat_configuration.QueryS
 	if err != nil {
 		return nil, err
 	}
-	ok, err := aaa.Client.StatConfiguration.QueryStats(input, client.BearerToken(*token.AccessToken))
+	ok, unauthorized, forbidden, internalServerError, err := aaa.Client.StatConfiguration.QueryStats(input, client.BearerToken(*token.AccessToken))
+	if unauthorized != nil {
+		return nil, unauthorized
+	}
+	if forbidden != nil {
+		return nil, forbidden
+	}
+	if internalServerError != nil {
+		return nil, internalServerError
+	}
 	if err != nil {
 		return nil, err
 	}
@@ -119,9 +170,18 @@ func (aaa *StatConfigurationService) GetStat(input *stat_configuration.GetStatPa
 	if err != nil {
 		return nil, err
 	}
-	ok, notFound, err := aaa.Client.StatConfiguration.GetStat(input, client.BearerToken(*token.AccessToken))
+	ok, unauthorized, forbidden, notFound, internalServerError, err := aaa.Client.StatConfiguration.GetStat(input, client.BearerToken(*token.AccessToken))
+	if unauthorized != nil {
+		return nil, unauthorized
+	}
+	if forbidden != nil {
+		return nil, forbidden
+	}
 	if notFound != nil {
 		return nil, notFound
+	}
+	if internalServerError != nil {
+		return nil, internalServerError
 	}
 	if err != nil {
 		return nil, err
@@ -136,9 +196,18 @@ func (aaa *StatConfigurationService) DeleteStat(input *stat_configuration.Delete
 	if err != nil {
 		return err
 	}
-	_, notFound, err := aaa.Client.StatConfiguration.DeleteStat(input, client.BearerToken(*token.AccessToken))
+	_, unauthorized, forbidden, notFound, internalServerError, err := aaa.Client.StatConfiguration.DeleteStat(input, client.BearerToken(*token.AccessToken))
+	if unauthorized != nil {
+		return unauthorized
+	}
+	if forbidden != nil {
+		return forbidden
+	}
 	if notFound != nil {
 		return notFound
+	}
+	if internalServerError != nil {
+		return internalServerError
 	}
 	if err != nil {
 		return err
@@ -153,9 +222,21 @@ func (aaa *StatConfigurationService) UpdateStat(input *stat_configuration.Update
 	if err != nil {
 		return nil, err
 	}
-	ok, notFound, err := aaa.Client.StatConfiguration.UpdateStat(input, client.BearerToken(*token.AccessToken))
+	ok, badRequest, unauthorized, forbidden, notFound, internalServerError, err := aaa.Client.StatConfiguration.UpdateStat(input, client.BearerToken(*token.AccessToken))
+	if badRequest != nil {
+		return nil, badRequest
+	}
+	if unauthorized != nil {
+		return nil, unauthorized
+	}
+	if forbidden != nil {
+		return nil, forbidden
+	}
 	if notFound != nil {
 		return nil, notFound
+	}
+	if internalServerError != nil {
+		return nil, internalServerError
 	}
 	if err != nil {
 		return nil, err
@@ -170,9 +251,21 @@ func (aaa *StatConfigurationService) DeleteTiedStat(input *stat_configuration.De
 	if err != nil {
 		return err
 	}
-	_, conflict, err := aaa.Client.StatConfiguration.DeleteTiedStat(input, client.BearerToken(*token.AccessToken))
+	_, unauthorized, forbidden, notFound, conflict, internalServerError, err := aaa.Client.StatConfiguration.DeleteTiedStat(input, client.BearerToken(*token.AccessToken))
+	if unauthorized != nil {
+		return unauthorized
+	}
+	if forbidden != nil {
+		return forbidden
+	}
+	if notFound != nil {
+		return notFound
+	}
 	if conflict != nil {
 		return conflict
+	}
+	if internalServerError != nil {
+		return internalServerError
 	}
 	if err != nil {
 		return err
@@ -187,12 +280,27 @@ func (aaa *StatConfigurationService) CreateStat1(input *stat_configuration.Creat
 	if err != nil {
 		return nil, err
 	}
-	created, notFound, conflict, err := aaa.Client.StatConfiguration.CreateStat1(input, client.BearerToken(*token.AccessToken))
+	created, badRequest, unauthorized, forbidden, notFound, conflict, unprocessableEntity, internalServerError, err := aaa.Client.StatConfiguration.CreateStat1(input, client.BearerToken(*token.AccessToken))
+	if badRequest != nil {
+		return nil, badRequest
+	}
+	if unauthorized != nil {
+		return nil, unauthorized
+	}
+	if forbidden != nil {
+		return nil, forbidden
+	}
 	if notFound != nil {
 		return nil, notFound
 	}
 	if conflict != nil {
 		return nil, conflict
+	}
+	if unprocessableEntity != nil {
+		return nil, unprocessableEntity
+	}
+	if internalServerError != nil {
+		return nil, internalServerError
 	}
 	if err != nil {
 		return nil, err
