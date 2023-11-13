@@ -109,7 +109,8 @@ func NewQueryOrdersParamsWithHTTPClient(client *http.Client) *QueryOrdersParams 
 	}
 }
 
-/*QueryOrdersParams contains all the parameters to send to the API endpoint
+/*
+QueryOrdersParams contains all the parameters to send to the API endpoint
 for the query orders operation typically these are written to a http.Request
 */
 type QueryOrdersParams struct {
@@ -362,7 +363,7 @@ func (o *QueryOrdersParams) WriteToRequest(r runtime.ClientRequest, reg strfmt.R
 
 	valuesOrderNos := o.OrderNos
 
-	joinedOrderNos := swag.JoinByFormat(valuesOrderNos, "csv")
+	joinedOrderNos := swag.JoinByFormat(valuesOrderNos, "multi")
 	// query array param orderNos
 	if err := r.SetQueryParam("orderNos", joinedOrderNos...); err != nil {
 		return err

@@ -58,7 +58,8 @@ func NewGetBannedUsersParamsWithHTTPClient(client *http.Client) *GetBannedUsersP
 	}
 }
 
-/*GetBannedUsersParams contains all the parameters to send to the API endpoint
+/*
+GetBannedUsersParams contains all the parameters to send to the API endpoint
 for the get banned users operation typically these are written to a http.Request
 */
 type GetBannedUsersParams struct {
@@ -166,7 +167,7 @@ func (o *GetBannedUsersParams) WriteToRequest(r runtime.ClientRequest, reg strfm
 
 	valuesUserIds := o.UserIds
 
-	joinedUserIds := swag.JoinByFormat(valuesUserIds, "csv")
+	joinedUserIds := swag.JoinByFormat(valuesUserIds, "multi")
 	// query array param userIds
 	if err := r.SetQueryParam("userIds", joinedUserIds...); err != nil {
 		return err

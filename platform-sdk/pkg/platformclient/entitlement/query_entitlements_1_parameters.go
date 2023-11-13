@@ -86,7 +86,8 @@ func NewQueryEntitlements1ParamsWithHTTPClient(client *http.Client) *QueryEntitl
 	}
 }
 
-/*QueryEntitlements1Params contains all the parameters to send to the API endpoint
+/*
+QueryEntitlements1Params contains all the parameters to send to the API endpoint
 for the query entitlements 1 operation typically these are written to a http.Request
 */
 type QueryEntitlements1Params struct {
@@ -243,7 +244,7 @@ func (o *QueryEntitlements1Params) WriteToRequest(r runtime.ClientRequest, reg s
 
 	valuesItemIds := o.ItemIds
 
-	joinedItemIds := swag.JoinByFormat(valuesItemIds, "csv")
+	joinedItemIds := swag.JoinByFormat(valuesItemIds, "multi")
 	// query array param itemIds
 	if err := r.SetQueryParam("itemIds", joinedItemIds...); err != nil {
 		return err

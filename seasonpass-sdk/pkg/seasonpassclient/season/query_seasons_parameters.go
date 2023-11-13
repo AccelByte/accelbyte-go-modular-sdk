@@ -85,7 +85,8 @@ func NewQuerySeasonsParamsWithHTTPClient(client *http.Client) *QuerySeasonsParam
 	}
 }
 
-/*QuerySeasonsParams contains all the parameters to send to the API endpoint
+/*
+QuerySeasonsParams contains all the parameters to send to the API endpoint
 for the query seasons operation typically these are written to a http.Request
 */
 type QuerySeasonsParams struct {
@@ -251,7 +252,7 @@ func (o *QuerySeasonsParams) WriteToRequest(r runtime.ClientRequest, reg strfmt.
 
 	valuesStatus := o.Status
 
-	joinedStatus := swag.JoinByFormat(valuesStatus, "csv")
+	joinedStatus := swag.JoinByFormat(valuesStatus, "multi")
 	// query array param status
 	if err := r.SetQueryParam("status", joinedStatus...); err != nil {
 		return err

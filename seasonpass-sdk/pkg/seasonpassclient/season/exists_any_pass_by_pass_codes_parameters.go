@@ -58,7 +58,8 @@ func NewExistsAnyPassByPassCodesParamsWithHTTPClient(client *http.Client) *Exist
 	}
 }
 
-/*ExistsAnyPassByPassCodesParams contains all the parameters to send to the API endpoint
+/*
+ExistsAnyPassByPassCodesParams contains all the parameters to send to the API endpoint
 for the exists any pass by pass codes operation typically these are written to a http.Request
 */
 type ExistsAnyPassByPassCodesParams struct {
@@ -181,7 +182,7 @@ func (o *ExistsAnyPassByPassCodesParams) WriteToRequest(r runtime.ClientRequest,
 
 	valuesPassCodes := o.PassCodes
 
-	joinedPassCodes := swag.JoinByFormat(valuesPassCodes, "csv")
+	joinedPassCodes := swag.JoinByFormat(valuesPassCodes, "multi")
 	// query array param passCodes
 	if err := r.SetQueryParam("passCodes", joinedPassCodes...); err != nil {
 		return err

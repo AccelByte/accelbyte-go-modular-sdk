@@ -58,7 +58,8 @@ func NewGetUserEntitlementOwnershipByItemIdsParamsWithHTTPClient(client *http.Cl
 	}
 }
 
-/*GetUserEntitlementOwnershipByItemIdsParams contains all the parameters to send to the API endpoint
+/*
+GetUserEntitlementOwnershipByItemIdsParams contains all the parameters to send to the API endpoint
 for the get user entitlement ownership by item ids operation typically these are written to a http.Request
 */
 type GetUserEntitlementOwnershipByItemIdsParams struct {
@@ -178,7 +179,7 @@ func (o *GetUserEntitlementOwnershipByItemIdsParams) WriteToRequest(r runtime.Cl
 
 	valuesIds := o.Ids
 
-	joinedIds := swag.JoinByFormat(valuesIds, "csv")
+	joinedIds := swag.JoinByFormat(valuesIds, "multi")
 	// query array param ids
 	if err := r.SetQueryParam("ids", joinedIds...); err != nil {
 		return err

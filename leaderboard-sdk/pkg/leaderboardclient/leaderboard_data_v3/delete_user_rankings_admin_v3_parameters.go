@@ -58,7 +58,8 @@ func NewDeleteUserRankingsAdminV3ParamsWithHTTPClient(client *http.Client) *Dele
 	}
 }
 
-/*DeleteUserRankingsAdminV3Params contains all the parameters to send to the API endpoint
+/*
+DeleteUserRankingsAdminV3Params contains all the parameters to send to the API endpoint
 for the delete user rankings admin v3 operation typically these are written to a http.Request
 */
 type DeleteUserRankingsAdminV3Params struct {
@@ -187,7 +188,7 @@ func (o *DeleteUserRankingsAdminV3Params) WriteToRequest(r runtime.ClientRequest
 
 	valuesLeaderboardCode := o.LeaderboardCode
 
-	joinedLeaderboardCode := swag.JoinByFormat(valuesLeaderboardCode, "csv")
+	joinedLeaderboardCode := swag.JoinByFormat(valuesLeaderboardCode, "multi")
 	// query array param leaderboardCode
 	if err := r.SetQueryParam("leaderboardCode", joinedLeaderboardCode...); err != nil {
 		return err

@@ -58,7 +58,8 @@ func NewPublicQueryUserStatItems2ParamsWithHTTPClient(client *http.Client) *Publ
 	}
 }
 
-/*PublicQueryUserStatItems2Params contains all the parameters to send to the API endpoint
+/*
+PublicQueryUserStatItems2Params contains all the parameters to send to the API endpoint
 for the public query user stat items 2 operation typically these are written to a http.Request
 */
 type PublicQueryUserStatItems2Params struct {
@@ -235,7 +236,7 @@ func (o *PublicQueryUserStatItems2Params) WriteToRequest(r runtime.ClientRequest
 
 	valuesStatCodes := o.StatCodes
 
-	joinedStatCodes := swag.JoinByFormat(valuesStatCodes, "csv")
+	joinedStatCodes := swag.JoinByFormat(valuesStatCodes, "multi")
 	// query array param statCodes
 	if err := r.SetQueryParam("statCodes", joinedStatCodes...); err != nil {
 		return err
@@ -243,7 +244,7 @@ func (o *PublicQueryUserStatItems2Params) WriteToRequest(r runtime.ClientRequest
 
 	valuesTags := o.Tags
 
-	joinedTags := swag.JoinByFormat(valuesTags, "csv")
+	joinedTags := swag.JoinByFormat(valuesTags, "multi")
 	// query array param tags
 	if err := r.SetQueryParam("tags", joinedTags...); err != nil {
 		return err

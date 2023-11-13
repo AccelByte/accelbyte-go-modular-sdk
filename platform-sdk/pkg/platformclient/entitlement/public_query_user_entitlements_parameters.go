@@ -97,7 +97,8 @@ func NewPublicQueryUserEntitlementsParamsWithHTTPClient(client *http.Client) *Pu
 	}
 }
 
-/*PublicQueryUserEntitlementsParams contains all the parameters to send to the API endpoint
+/*
+PublicQueryUserEntitlementsParams contains all the parameters to send to the API endpoint
 for the public query user entitlements operation typically these are written to a http.Request
 */
 type PublicQueryUserEntitlementsParams struct {
@@ -343,7 +344,7 @@ func (o *PublicQueryUserEntitlementsParams) WriteToRequest(r runtime.ClientReque
 
 	valuesFeatures := o.Features
 
-	joinedFeatures := swag.JoinByFormat(valuesFeatures, "csv")
+	joinedFeatures := swag.JoinByFormat(valuesFeatures, "multi")
 	// query array param features
 	if err := r.SetQueryParam("features", joinedFeatures...); err != nil {
 		return err
@@ -351,7 +352,7 @@ func (o *PublicQueryUserEntitlementsParams) WriteToRequest(r runtime.ClientReque
 
 	valuesItemID := o.ItemID
 
-	joinedItemID := swag.JoinByFormat(valuesItemID, "csv")
+	joinedItemID := swag.JoinByFormat(valuesItemID, "multi")
 	// query array param itemId
 	if err := r.SetQueryParam("itemId", joinedItemID...); err != nil {
 		return err

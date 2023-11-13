@@ -58,7 +58,8 @@ func NewExistsAnyUserActiveEntitlementByItemIdsParamsWithHTTPClient(client *http
 	}
 }
 
-/*ExistsAnyUserActiveEntitlementByItemIdsParams contains all the parameters to send to the API endpoint
+/*
+ExistsAnyUserActiveEntitlementByItemIdsParams contains all the parameters to send to the API endpoint
 for the exists any user active entitlement by item ids operation typically these are written to a http.Request
 */
 type ExistsAnyUserActiveEntitlementByItemIdsParams struct {
@@ -178,7 +179,7 @@ func (o *ExistsAnyUserActiveEntitlementByItemIdsParams) WriteToRequest(r runtime
 
 	valuesItemIds := o.ItemIds
 
-	joinedItemIds := swag.JoinByFormat(valuesItemIds, "csv")
+	joinedItemIds := swag.JoinByFormat(valuesItemIds, "multi")
 	// query array param itemIds
 	if err := r.SetQueryParam("itemIds", joinedItemIds...); err != nil {
 		return err

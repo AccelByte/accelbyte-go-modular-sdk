@@ -70,7 +70,8 @@ func NewListBasicItemsByFeaturesParamsWithHTTPClient(client *http.Client) *ListB
 	}
 }
 
-/*ListBasicItemsByFeaturesParams contains all the parameters to send to the API endpoint
+/*
+ListBasicItemsByFeaturesParams contains all the parameters to send to the API endpoint
 for the list basic items by features operation typically these are written to a http.Request
 */
 type ListBasicItemsByFeaturesParams struct {
@@ -204,7 +205,7 @@ func (o *ListBasicItemsByFeaturesParams) WriteToRequest(r runtime.ClientRequest,
 
 	valuesFeatures := o.Features
 
-	joinedFeatures := swag.JoinByFormat(valuesFeatures, "csv")
+	joinedFeatures := swag.JoinByFormat(valuesFeatures, "multi")
 	// query array param features
 	if err := r.SetQueryParam("features", joinedFeatures...); err != nil {
 		return err

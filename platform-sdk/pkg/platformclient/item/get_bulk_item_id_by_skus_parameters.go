@@ -58,7 +58,8 @@ func NewGetBulkItemIDBySkusParamsWithHTTPClient(client *http.Client) *GetBulkIte
 	}
 }
 
-/*GetBulkItemIDBySkusParams contains all the parameters to send to the API endpoint
+/*
+GetBulkItemIDBySkusParams contains all the parameters to send to the API endpoint
 for the get bulk item id by skus operation typically these are written to a http.Request
 */
 type GetBulkItemIDBySkusParams struct {
@@ -182,7 +183,7 @@ func (o *GetBulkItemIDBySkusParams) WriteToRequest(r runtime.ClientRequest, reg 
 
 	valuesSku := o.Sku
 
-	joinedSku := swag.JoinByFormat(valuesSku, "csv")
+	joinedSku := swag.JoinByFormat(valuesSku, "multi")
 	// query array param sku
 	if err := r.SetQueryParam("sku", joinedSku...); err != nil {
 		return err

@@ -78,7 +78,8 @@ func NewPublicListMyStatItemsParamsWithHTTPClient(client *http.Client) *PublicLi
 	}
 }
 
-/*PublicListMyStatItemsParams contains all the parameters to send to the API endpoint
+/*
+PublicListMyStatItemsParams contains all the parameters to send to the API endpoint
 for the public list my stat items operation typically these are written to a http.Request
 */
 type PublicListMyStatItemsParams struct {
@@ -292,7 +293,7 @@ func (o *PublicListMyStatItemsParams) WriteToRequest(r runtime.ClientRequest, re
 
 	valuesStatCodes := o.StatCodes
 
-	joinedStatCodes := swag.JoinByFormat(valuesStatCodes, "csv")
+	joinedStatCodes := swag.JoinByFormat(valuesStatCodes, "multi")
 	// query array param statCodes
 	if err := r.SetQueryParam("statCodes", joinedStatCodes...); err != nil {
 		return err
@@ -300,7 +301,7 @@ func (o *PublicListMyStatItemsParams) WriteToRequest(r runtime.ClientRequest, re
 
 	valuesTags := o.Tags
 
-	joinedTags := swag.JoinByFormat(valuesTags, "csv")
+	joinedTags := swag.JoinByFormat(valuesTags, "multi")
 	// query array param tags
 	if err := r.SetQueryParam("tags", joinedTags...); err != nil {
 		return err

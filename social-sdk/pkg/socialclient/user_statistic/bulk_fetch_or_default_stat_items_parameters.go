@@ -58,7 +58,8 @@ func NewBulkFetchOrDefaultStatItemsParamsWithHTTPClient(client *http.Client) *Bu
 	}
 }
 
-/*BulkFetchOrDefaultStatItemsParams contains all the parameters to send to the API endpoint
+/*
+BulkFetchOrDefaultStatItemsParams contains all the parameters to send to the API endpoint
 for the bulk fetch or default stat items operation typically these are written to a http.Request
 */
 type BulkFetchOrDefaultStatItemsParams struct {
@@ -191,7 +192,7 @@ func (o *BulkFetchOrDefaultStatItemsParams) WriteToRequest(r runtime.ClientReque
 
 	valuesUserIds := o.UserIds
 
-	joinedUserIds := swag.JoinByFormat(valuesUserIds, "csv")
+	joinedUserIds := swag.JoinByFormat(valuesUserIds, "multi")
 	// query array param userIds
 	if err := r.SetQueryParam("userIds", joinedUserIds...); err != nil {
 		return err

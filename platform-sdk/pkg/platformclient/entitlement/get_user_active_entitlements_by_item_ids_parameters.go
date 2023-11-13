@@ -58,7 +58,8 @@ func NewGetUserActiveEntitlementsByItemIdsParamsWithHTTPClient(client *http.Clie
 	}
 }
 
-/*GetUserActiveEntitlementsByItemIdsParams contains all the parameters to send to the API endpoint
+/*
+GetUserActiveEntitlementsByItemIdsParams contains all the parameters to send to the API endpoint
 for the get user active entitlements by item ids operation typically these are written to a http.Request
 */
 type GetUserActiveEntitlementsByItemIdsParams struct {
@@ -178,7 +179,7 @@ func (o *GetUserActiveEntitlementsByItemIdsParams) WriteToRequest(r runtime.Clie
 
 	valuesIds := o.Ids
 
-	joinedIds := swag.JoinByFormat(valuesIds, "csv")
+	joinedIds := swag.JoinByFormat(valuesIds, "multi")
 	// query array param ids
 	if err := r.SetQueryParam("ids", joinedIds...); err != nil {
 		return err

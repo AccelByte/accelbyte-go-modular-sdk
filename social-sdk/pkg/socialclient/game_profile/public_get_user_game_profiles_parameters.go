@@ -58,7 +58,8 @@ func NewPublicGetUserGameProfilesParamsWithHTTPClient(client *http.Client) *Publ
 	}
 }
 
-/*PublicGetUserGameProfilesParams contains all the parameters to send to the API endpoint
+/*
+PublicGetUserGameProfilesParams contains all the parameters to send to the API endpoint
 for the public get user game profiles operation typically these are written to a http.Request
 */
 type PublicGetUserGameProfilesParams struct {
@@ -166,7 +167,7 @@ func (o *PublicGetUserGameProfilesParams) WriteToRequest(r runtime.ClientRequest
 
 	valuesUserIds := o.UserIds
 
-	joinedUserIds := swag.JoinByFormat(valuesUserIds, "csv")
+	joinedUserIds := swag.JoinByFormat(valuesUserIds, "multi")
 	// query array param userIds
 	if err := r.SetQueryParam("userIds", joinedUserIds...); err != nil {
 		return err

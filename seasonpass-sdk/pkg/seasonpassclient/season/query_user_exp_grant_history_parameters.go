@@ -84,7 +84,8 @@ func NewQueryUserExpGrantHistoryParamsWithHTTPClient(client *http.Client) *Query
 	}
 }
 
-/*QueryUserExpGrantHistoryParams contains all the parameters to send to the API endpoint
+/*
+QueryUserExpGrantHistoryParams contains all the parameters to send to the API endpoint
 for the query user exp grant history operation typically these are written to a http.Request
 */
 type QueryUserExpGrantHistoryParams struct {
@@ -386,7 +387,7 @@ func (o *QueryUserExpGrantHistoryParams) WriteToRequest(r runtime.ClientRequest,
 
 	valuesTags := o.Tags
 
-	joinedTags := swag.JoinByFormat(valuesTags, "csv")
+	joinedTags := swag.JoinByFormat(valuesTags, "multi")
 	// query array param tags
 	if err := r.SetQueryParam("tags", joinedTags...); err != nil {
 		return err

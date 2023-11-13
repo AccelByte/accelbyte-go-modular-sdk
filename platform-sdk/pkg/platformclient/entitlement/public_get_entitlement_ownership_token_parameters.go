@@ -58,7 +58,8 @@ func NewPublicGetEntitlementOwnershipTokenParamsWithHTTPClient(client *http.Clie
 	}
 }
 
-/*PublicGetEntitlementOwnershipTokenParams contains all the parameters to send to the API endpoint
+/*
+PublicGetEntitlementOwnershipTokenParams contains all the parameters to send to the API endpoint
 for the public get entitlement ownership token operation typically these are written to a http.Request
 */
 type PublicGetEntitlementOwnershipTokenParams struct {
@@ -186,7 +187,7 @@ func (o *PublicGetEntitlementOwnershipTokenParams) WriteToRequest(r runtime.Clie
 
 	valuesAppIds := o.AppIds
 
-	joinedAppIds := swag.JoinByFormat(valuesAppIds, "csv")
+	joinedAppIds := swag.JoinByFormat(valuesAppIds, "multi")
 	// query array param appIds
 	if err := r.SetQueryParam("appIds", joinedAppIds...); err != nil {
 		return err
@@ -194,7 +195,7 @@ func (o *PublicGetEntitlementOwnershipTokenParams) WriteToRequest(r runtime.Clie
 
 	valuesItemIds := o.ItemIds
 
-	joinedItemIds := swag.JoinByFormat(valuesItemIds, "csv")
+	joinedItemIds := swag.JoinByFormat(valuesItemIds, "multi")
 	// query array param itemIds
 	if err := r.SetQueryParam("itemIds", joinedItemIds...); err != nil {
 		return err
@@ -202,7 +203,7 @@ func (o *PublicGetEntitlementOwnershipTokenParams) WriteToRequest(r runtime.Clie
 
 	valuesSkus := o.Skus
 
-	joinedSkus := swag.JoinByFormat(valuesSkus, "csv")
+	joinedSkus := swag.JoinByFormat(valuesSkus, "multi")
 	// query array param skus
 	if err := r.SetQueryParam("skus", joinedSkus...); err != nil {
 		return err

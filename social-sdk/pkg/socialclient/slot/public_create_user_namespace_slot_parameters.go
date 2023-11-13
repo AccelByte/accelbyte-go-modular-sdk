@@ -58,7 +58,8 @@ func NewPublicCreateUserNamespaceSlotParamsWithHTTPClient(client *http.Client) *
 	}
 }
 
-/*PublicCreateUserNamespaceSlotParams contains all the parameters to send to the API endpoint
+/*
+PublicCreateUserNamespaceSlotParams contains all the parameters to send to the API endpoint
 for the public create user namespace slot operation typically these are written to a http.Request
 */
 type PublicCreateUserNamespaceSlotParams struct {
@@ -309,7 +310,7 @@ func (o *PublicCreateUserNamespaceSlotParams) WriteToRequest(r runtime.ClientReq
 
 	valuesTags := o.Tags
 
-	joinedTags := swag.JoinByFormat(valuesTags, "csv")
+	joinedTags := swag.JoinByFormat(valuesTags, "multi")
 	// query array param tags
 	if err := r.SetQueryParam("tags", joinedTags...); err != nil {
 		return err
