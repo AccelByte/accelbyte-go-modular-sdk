@@ -58,8 +58,7 @@ func NewPublicGetEntitlementOwnershipTokenParamsWithHTTPClient(client *http.Clie
 	}
 }
 
-/*
-PublicGetEntitlementOwnershipTokenParams contains all the parameters to send to the API endpoint
+/*PublicGetEntitlementOwnershipTokenParams contains all the parameters to send to the API endpoint
 for the public get entitlement ownership token operation typically these are written to a http.Request
 */
 type PublicGetEntitlementOwnershipTokenParams struct {

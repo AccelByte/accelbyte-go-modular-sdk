@@ -37,12 +37,15 @@ func (aaa *AdminConcurrentRecordService) AdminPutAdminGameRecordConcurrentHandle
 	if err != nil {
 		return err
 	}
-	_, badRequest, unauthorized, preconditionFailed, internalServerError, err := aaa.Client.AdminConcurrentRecord.AdminPutAdminGameRecordConcurrentHandlerV1(input, client.BearerToken(*token.AccessToken))
+	_, badRequest, unauthorized, forbidden, preconditionFailed, internalServerError, err := aaa.Client.AdminConcurrentRecord.AdminPutAdminGameRecordConcurrentHandlerV1(input, client.BearerToken(*token.AccessToken))
 	if badRequest != nil {
 		return badRequest
 	}
 	if unauthorized != nil {
 		return unauthorized
+	}
+	if forbidden != nil {
+		return forbidden
 	}
 	if preconditionFailed != nil {
 		return preconditionFailed
@@ -63,12 +66,15 @@ func (aaa *AdminConcurrentRecordService) AdminPutGameRecordConcurrentHandlerV1(i
 	if err != nil {
 		return err
 	}
-	_, badRequest, unauthorized, preconditionFailed, internalServerError, err := aaa.Client.AdminConcurrentRecord.AdminPutGameRecordConcurrentHandlerV1(input, client.BearerToken(*token.AccessToken))
+	_, badRequest, unauthorized, forbidden, preconditionFailed, internalServerError, err := aaa.Client.AdminConcurrentRecord.AdminPutGameRecordConcurrentHandlerV1(input, client.BearerToken(*token.AccessToken))
 	if badRequest != nil {
 		return badRequest
 	}
 	if unauthorized != nil {
 		return unauthorized
+	}
+	if forbidden != nil {
+		return forbidden
 	}
 	if preconditionFailed != nil {
 		return preconditionFailed
@@ -89,12 +95,15 @@ func (aaa *AdminConcurrentRecordService) AdminPutAdminPlayerRecordConcurrentHand
 	if err != nil {
 		return err
 	}
-	_, badRequest, unauthorized, preconditionFailed, internalServerError, err := aaa.Client.AdminConcurrentRecord.AdminPutAdminPlayerRecordConcurrentHandlerV1(input, client.BearerToken(*token.AccessToken))
+	_, badRequest, unauthorized, forbidden, preconditionFailed, internalServerError, err := aaa.Client.AdminConcurrentRecord.AdminPutAdminPlayerRecordConcurrentHandlerV1(input, client.BearerToken(*token.AccessToken))
 	if badRequest != nil {
 		return badRequest
 	}
 	if unauthorized != nil {
 		return unauthorized
+	}
+	if forbidden != nil {
+		return forbidden
 	}
 	if preconditionFailed != nil {
 		return preconditionFailed
@@ -115,12 +124,15 @@ func (aaa *AdminConcurrentRecordService) AdminPutPlayerRecordConcurrentHandlerV1
 	if err != nil {
 		return err
 	}
-	_, badRequest, unauthorized, preconditionFailed, internalServerError, err := aaa.Client.AdminConcurrentRecord.AdminPutPlayerRecordConcurrentHandlerV1(input, client.BearerToken(*token.AccessToken))
+	_, badRequest, unauthorized, forbidden, preconditionFailed, internalServerError, err := aaa.Client.AdminConcurrentRecord.AdminPutPlayerRecordConcurrentHandlerV1(input, client.BearerToken(*token.AccessToken))
 	if badRequest != nil {
 		return badRequest
 	}
 	if unauthorized != nil {
 		return unauthorized
+	}
+	if forbidden != nil {
+		return forbidden
 	}
 	if preconditionFailed != nil {
 		return preconditionFailed
@@ -141,12 +153,15 @@ func (aaa *AdminConcurrentRecordService) AdminPutPlayerPublicRecordConcurrentHan
 	if err != nil {
 		return err
 	}
-	_, badRequest, unauthorized, preconditionFailed, internalServerError, err := aaa.Client.AdminConcurrentRecord.AdminPutPlayerPublicRecordConcurrentHandlerV1(input, client.BearerToken(*token.AccessToken))
+	_, badRequest, unauthorized, forbidden, preconditionFailed, internalServerError, err := aaa.Client.AdminConcurrentRecord.AdminPutPlayerPublicRecordConcurrentHandlerV1(input, client.BearerToken(*token.AccessToken))
 	if badRequest != nil {
 		return badRequest
 	}
 	if unauthorized != nil {
 		return unauthorized
+	}
+	if forbidden != nil {
+		return forbidden
 	}
 	if preconditionFailed != nil {
 		return preconditionFailed

@@ -4093,7 +4093,7 @@ func (aaa *UsersService) PublicForceLinkPlatformWithProgression(input *users.Pub
 }
 
 // Deprecated: 2022-01-10 - Please use PublicGetPublisherUserV3Short instead.
-func (aaa *UsersService) PublicGetPublisherUserV3(input *users.PublicGetPublisherUserV3Params) (*iamclientmodels.ModelGetPublisherUserV3Response, error) {
+func (aaa *UsersService) PublicGetPublisherUserV3(input *users.PublicGetPublisherUserV3Params) (*iamclientmodels.ModelGetPublisherUserResponse, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
 		return nil, err
@@ -8111,7 +8111,7 @@ func (aaa *UsersService) PublicForceLinkPlatformWithProgressionShort(input *user
 	return nil
 }
 
-func (aaa *UsersService) PublicGetPublisherUserV3Short(input *users.PublicGetPublisherUserV3Params) (*iamclientmodels.ModelGetPublisherUserV3Response, error) {
+func (aaa *UsersService) PublicGetPublisherUserV3Short(input *users.PublicGetPublisherUserV3Params) (*iamclientmodels.ModelGetPublisherUserResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{

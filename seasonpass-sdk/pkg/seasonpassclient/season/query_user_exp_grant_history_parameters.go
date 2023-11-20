@@ -84,8 +84,7 @@ func NewQueryUserExpGrantHistoryParamsWithHTTPClient(client *http.Client) *Query
 	}
 }
 
-/*
-QueryUserExpGrantHistoryParams contains all the parameters to send to the API endpoint
+/*QueryUserExpGrantHistoryParams contains all the parameters to send to the API endpoint
 for the query user exp grant history operation typically these are written to a http.Request
 */
 type QueryUserExpGrantHistoryParams struct {

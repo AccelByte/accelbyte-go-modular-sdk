@@ -58,8 +58,7 @@ func NewGetUserActiveEntitlementsByItemIdsParamsWithHTTPClient(client *http.Clie
 	}
 }
 
-/*
-GetUserActiveEntitlementsByItemIdsParams contains all the parameters to send to the API endpoint
+/*GetUserActiveEntitlementsByItemIdsParams contains all the parameters to send to the API endpoint
 for the get user active entitlements by item ids operation typically these are written to a http.Request
 */
 type GetUserActiveEntitlementsByItemIdsParams struct {

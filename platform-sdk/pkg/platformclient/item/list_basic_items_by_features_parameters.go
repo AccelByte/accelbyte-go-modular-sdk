@@ -70,8 +70,7 @@ func NewListBasicItemsByFeaturesParamsWithHTTPClient(client *http.Client) *ListB
 	}
 }
 
-/*
-ListBasicItemsByFeaturesParams contains all the parameters to send to the API endpoint
+/*ListBasicItemsByFeaturesParams contains all the parameters to send to the API endpoint
 for the list basic items by features operation typically these are written to a http.Request
 */
 type ListBasicItemsByFeaturesParams struct {

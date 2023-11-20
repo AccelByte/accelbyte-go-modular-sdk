@@ -58,8 +58,7 @@ func NewPublicExistsAnyUserActiveEntitlementParamsWithHTTPClient(client *http.Cl
 	}
 }
 
-/*
-PublicExistsAnyUserActiveEntitlementParams contains all the parameters to send to the API endpoint
+/*PublicExistsAnyUserActiveEntitlementParams contains all the parameters to send to the API endpoint
 for the public exists any user active entitlement operation typically these are written to a http.Request
 */
 type PublicExistsAnyUserActiveEntitlementParams struct {
