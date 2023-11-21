@@ -125,11 +125,12 @@ pipeline {
       }
       steps {
         script {
+          releaseNote = params.RELEASE_NOTE
           if (params.AGS_VERSION != "None") {
-            params.RELEASE_NOTE = params.RELEASE_NOTE.replace('@VERSION@', params.AGS_VERSION)
+            releaseNote = releaseNote.replace('@VERSION@', params.AGS_VERSION)
           }
 
-          if (params.RELEASE_NOTE ==~ /(?s).*@[A-Za-z0-9_-]+@.*/) {
+          if (releaseNote ==~ /(?s).*@[A-Za-z0-9_-]+@.*/) {
             echo 'Release note still contains one or more template placeholders e.g. @VERSION@, etc. Please check.'
             sh 'false' // Fail this job
           }
@@ -144,7 +145,7 @@ pipeline {
           }
 
           params.RELEASE_TAG.split(",").each { tag ->
-            pushGitTag(tag.trim(), params.IS_PRERELEASE, params.RELEASE_NOTE)
+            pushGitTag(tag.trim(), params.IS_PRERELEASE, releaseNote)
           }
         }
       }
