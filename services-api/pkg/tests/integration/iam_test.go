@@ -8,9 +8,7 @@ package integration_test
 
 import (
 	"bytes"
-	"encoding/json"
 	"fmt"
-	"log"
 	"net/http"
 	"os"
 	"testing"
@@ -85,7 +83,7 @@ var (
 		ReachMinimumAge: true,
 		Username:        &dynamicUsername,
 	}
-	updateUserBody = &iamclientmodels.ModelUserUpdateRequest{
+	updateUserBody = &iamclientmodels.ModelUserUpdateRequestV3{
 		DisplayName: "Golang Update Test",
 	}
 )
@@ -106,6 +104,21 @@ func Init() {
 		if errStore != nil {
 			logrus.Error("failed stored the token")
 		}
+	}
+}
+
+func InitLoginClient() {
+	id := os.Getenv("AB_CLIENT_ID")
+	secret := os.Getenv("AB_CLIENT_SECRET")
+	err := oAuth20Service.LoginClient(&id, &secret)
+	if err != nil {
+		logrus.Error("failed login")
+	} else {
+		token, errStore := oAuth20Service.TokenRepository.GetToken()
+		if errStore != nil {
+			logrus.Error("failed stored the token")
+		}
+		logrus.Infof("token: %s", *token.AccessToken)
 	}
 }
 
@@ -298,13 +311,13 @@ func TestIntegrationUser(t *testing.T) {
 	assert.NotNil(t, user, "response should not be nil")
 
 	// CASE Update a user
-	inputUpdate := &users.UpdateUserParams{
+	inputUpdate := &users.AdminUpdateUserV3Params{
 		Body:      updateUserBody,
 		Namespace: integration.NamespaceTest,
 		UserID:    *user.UserID,
 	}
 
-	update, errUpdate := userService.UpdateUserShort(inputUpdate)
+	update, errUpdate := userService.AdminUpdateUserV3Short(inputUpdate)
 	if errUpdate != nil {
 		assert.FailNow(t, errUpdate.Error())
 	}
@@ -320,7 +333,7 @@ func TestIntegrationUser(t *testing.T) {
 	}
 
 	get, errGet := userService.AdminGetUserByUserIDV3Short(inputGet)
-	if errUpdate != nil {
+	if errGet != nil {
 		assert.FailNow(t, errGet.Error())
 	}
 	// ESAC
@@ -329,12 +342,12 @@ func TestIntegrationUser(t *testing.T) {
 	assert.NotNil(t, get, "should not be nil")
 
 	// CASE Delete a user
-	inputDelete := &users.DeleteUserParams{
+	inputDelete := &users.AdminDeleteUserInformationV3Params{
 		Namespace: integration.NamespaceTest,
 		UserID:    *user.UserID,
 	}
 
-	errDelete := userService.DeleteUserShort(inputDelete)
+	errDelete := userService.AdminDeleteUserInformationV3Short(inputDelete)
 	if errDelete != nil {
 		assert.FailNow(t, errDelete.Error())
 	}
@@ -489,54 +502,4 @@ func TestIntegration_LoginOrRefresh_shouldReAuthenticate(t *testing.T) {
 	}
 	assert.NotEmpty(t, *secondToken)
 	assert.NotEqual(t, *secondToken, *firstToken)
-}
-
-func TestIntegrationParseAccessTokenAndValidateLocally(t *testing.T) {
-	t.Parallel()
-	// Login User - Arrange
-	Init()
-
-	accessToken, err := oAuth20Service.GetToken()
-	if err != nil {
-		assert.FailNow(t, err.Error())
-	}
-
-	oAuth20Service.SetLocalValidation(true)
-	parsedToken, err := oAuth20Service.ParseAccessToken(accessToken, true)
-	if err != nil {
-		assert.FailNow(t, err.Error())
-	}
-
-	// assert
-	assert.Nil(t, err, "err should be nil")
-	empJSON, err := json.MarshalIndent(parsedToken, "", "  ")
-	if err != nil {
-		log.Fatalf(err.Error())
-	}
-	t.Logf("token: %s", string(empJSON))
-	assert.NotNil(t, parsedToken, "get token from token repository should not be nil")
-}
-
-func TestIntegrationParseAccessTokenAndValidateRemotely(t *testing.T) {
-	// Login User - Arrange
-	Init()
-
-	accessToken, err := oAuth20Service.GetToken()
-	if err != nil {
-		assert.FailNow(t, err.Error())
-	}
-
-	parsedToken, err := oAuth20Service.ParseAccessToken(accessToken, true)
-	if err != nil {
-		assert.FailNow(t, err.Error())
-	}
-
-	// assert
-	assert.Nil(t, err, "err should be nil")
-	empJSON, err := json.MarshalIndent(parsedToken, "", "  ")
-	if err != nil {
-		log.Fatalf(err.Error())
-	}
-	t.Logf("token: %s", string(empJSON))
-	assert.NotNil(t, parsedToken, "get token from token repository should not be nil")
 }

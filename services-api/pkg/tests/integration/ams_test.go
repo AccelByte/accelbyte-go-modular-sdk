@@ -5,9 +5,11 @@
 package integration_test
 
 import (
+	"fmt"
 	"testing"
 
 	ams "github.com/AccelByte/accelbyte-go-modular-sdk/ams-sdk/pkg"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/ams-sdk/pkg/amsclient/account"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/ams-sdk/pkg/amsclient/fleets"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/ams-sdk/pkg/amsclient/images"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/ams-sdk/pkg/amsclientmodels"
@@ -21,6 +23,11 @@ var (
 		Client:          ams.NewAmsClient(auth.DefaultConfigRepositoryImpl()),
 		TokenRepository: tokenRepository,
 	}
+	accountService = &ams.AccountService{
+		Client:          ams.NewAmsClient(configRepo),
+		TokenRepository: tokenRepository,
+	}
+	accountName  = "GoSDKAccountName"
 	fleetService = &ams.FleetsService{
 		Client:          ams.NewAmsClient(configRepo),
 		TokenRepository: tokenRepository,
@@ -38,9 +45,28 @@ var (
 	imageId = "imageId"
 )
 
+func checkAmsAccount() error {
+	_, err := accountService.AccountGetShort(&account.AccountGetParams{Namespace: integration.NamespaceTest})
+	if err == account.NewAccountGetNotFound() {
+		_, errCreate := accountService.AccountCreateShort(&account.AccountCreateParams{
+			Body:      &amsclientmodels.APIAccountCreateRequest{Name: &accountName},
+			Namespace: integration.NamespaceTest,
+		})
+		if errCreate != nil {
+			return fmt.Errorf("failed to create account. %v", errCreate)
+		}
+	}
+
+	return nil
+}
 func TestIntegrationAmsImageList(t *testing.T) {
 	// Login User - Arrange
 	Init()
+
+	// Check account
+	if err := checkAmsAccount(); err != nil {
+		assert.FailNow(t, err.Error())
+	}
 
 	// CASE Image List
 	inputGet := &images.ImageListParams{

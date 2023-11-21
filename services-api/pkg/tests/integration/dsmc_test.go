@@ -16,6 +16,8 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/tests/integration"
 
 	dsmc "github.com/AccelByte/accelbyte-go-modular-sdk/dsmc-sdk/pkg"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/dsmc-sdk/pkg/dsmcclient/config"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/dsmc-sdk/pkg/dsmcclient/deployment_config"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/dsmc-sdk/pkg/dsmcclient/session"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/dsmc-sdk/pkg/dsmcclientmodels"
 	sessionBrowser "github.com/AccelByte/accelbyte-go-modular-sdk/sessionbrowser-sdk/pkg/sessionbrowserclient/session"
@@ -26,7 +28,14 @@ var (
 		Client:          dsmc.NewDsmcClient(auth.DefaultConfigRepositoryImpl()),
 		TokenRepository: tokenRepository,
 	}
-
+	dsmcConfigService = &dsmc.ConfigService{
+		Client:          dsmc.NewDsmcClient(auth.DefaultConfigRepositoryImpl()),
+		TokenRepository: tokenRepository,
+	}
+	deploymentConfigService = &dsmc.DeploymentConfigService{
+		Client:          dsmc.NewDsmcClient(auth.DefaultConfigRepositoryImpl()),
+		TokenRepository: tokenRepository,
+	}
 	deployment     = "default"
 	gameMode       = "GAME_MODE"
 	emptyString    = ""
@@ -47,11 +56,11 @@ func createSessionBrowser() string {
 }
 
 func TestIntegrationSessionDSMC(t *testing.T) {
-	// Login User - Arrange
-	Init()
+	// Login Client - Arrange
+	InitLoginClient()
 
 	SessionBrowserID := createSessionBrowser()
-	getUserId := GetUserID()
+	getUserId := GetUserID() // use user token to get userId
 	var partyMembers []*dsmcclientmodels.ModelsRequestMatchMember
 	partyMember := &dsmcclientmodels.ModelsRequestMatchMember{
 		UserID: &getUserId,
@@ -81,6 +90,27 @@ func TestIntegrationSessionDSMC(t *testing.T) {
 		PodName:             &emptyString,
 		Region:              &emptyString,
 		SessionID:           &SessionBrowserID,
+	}
+
+	// use client token again
+	InitLoginClient()
+
+	// Get the existing config
+	configs, errConfigs := dsmcConfigService.ListConfigShort(&config.ListConfigParams{})
+	if errConfigs != nil {
+		t.Errorf("failed to get the dsmc configs. %s", errConfigs.Error())
+	}
+
+	bodySessionDsmc.Configuration = &configs.Configs[0].Namespace
+
+	// Check the deployment
+	input := &deployment_config.GetDeploymentParams{
+		Deployment: deployment,
+		Namespace:  integration.NamespaceTest,
+	}
+	_, errGet := deploymentConfigService.GetDeploymentShort(input)
+	if errGet != nil {
+		t.Skipf("failed to get \"%s\" deployment. %s", deployment, errGet.Error())
 	}
 
 	// CASE Create a session

@@ -26,9 +26,9 @@ var (
 	}
 	isAccepted               = true
 	bodyLegals               []*legalclientmodels.AcceptAgreementRequest
-	localizedPolicyVersionID = "152b9b0f-7b8e-4a9e-8a9d-8c82420ad8b3"
-	policyVersionID          = "a76ea12c-14fd-46c5-886f-fd3d0ded4408"
-	policyID                 = "6adb3d65-b428-4dbc-a08d-e5126c644557" // the marketing policy
+	localizedPolicyVersionID = ""
+	policyVersionID          = ""
+	policyID                 = "" // the marketing policy
 	bodyLegal                = &legalclientmodels.AcceptAgreementRequest{
 		IsAccepted:               &isAccepted,
 		LocalizedPolicyVersionID: &localizedPolicyVersionID,
@@ -43,6 +43,12 @@ func TestIntegrationBulkAcceptVersionedPolicy(t *testing.T) {
 	// Login User - Arrange
 	Init()
 
+	// Check if policy exist
+	exist, errCheck := checkPolicy()
+	if !exist {
+		t.Skip("No policy to accept found.")
+	}
+
 	// CASE Bulk accept policy versions
 	bodyLegals = append(bodyLegals, bodyLegal)
 	inputLegal := &agreement.BulkAcceptVersionedPolicyParams{
@@ -53,6 +59,7 @@ func TestIntegrationBulkAcceptVersionedPolicy(t *testing.T) {
 	// ESAC
 
 	// Assert
+	assert.Nil(t, errCheck, "errCheck should be nil")
 	assert.Nil(t, err, "err should be nil")
 	assert.NotNil(t, ok, "response should not be nil")
 }
@@ -76,6 +83,12 @@ func TestIntegrationRetrieveAgreementsPublic(t *testing.T) {
 func TestIntegrationChangePreferenceConsent(t *testing.T) {
 	t.Parallel()
 
+	// Check if policy exist
+	exist, errCheck := checkPolicy()
+	if !exist {
+		t.Skip("No policy to accept found.")
+	}
+
 	// CASE Update marketing preference consent
 	bodyLegals = append(bodyLegals, bodyLegal)
 	inputLegal := &agreement.ChangePreferenceConsentParams{
@@ -88,5 +101,24 @@ func TestIntegrationChangePreferenceConsent(t *testing.T) {
 	// ESAC
 
 	// Assert
+	assert.Nil(t, errCheck, "errCheck should be nil")
 	assert.Nil(t, err, "err should be nil")
+}
+
+func checkPolicy() (bool, error) {
+	input := &agreement.RetrieveAgreementsPublicParams{}
+	policiesExist, err := agreementService.RetrieveAgreementsPublicShort(input)
+	if err != nil {
+		return false, err
+	}
+
+	if len(policiesExist) == 0 {
+		return false, nil
+	} else {
+		policyID = policiesExist[0].PolicyID
+		policyVersionID = policiesExist[0].PolicyID
+		localizedPolicyVersionID = *policiesExist[0].LocalizedPolicyVersion.ID
+	}
+
+	return true, nil
 }

@@ -28,8 +28,8 @@ var (
 )
 
 func TestIntegrationSaveAdminEmailConfiguration(t *testing.T) {
-	// Login User - Arrange
-	Init()
+	// Login Client - Arrange
+	InitLoginClient()
 
 	// CASE Create admin email configuration
 	body = append(body, email)
@@ -46,8 +46,8 @@ func TestIntegrationSaveAdminEmailConfiguration(t *testing.T) {
 }
 
 func TestIntegrationAdminListDataRetrieval(t *testing.T) {
-	// Login User - Arrange
-	Init()
+	// Login Client - Arrange
+	InitLoginClient()
 
 	// CASE Get admin email addresses configuration
 	input := &configuration.GetAdminEmailConfigurationParams{
@@ -63,8 +63,8 @@ func TestIntegrationAdminListDataRetrieval(t *testing.T) {
 }
 
 func TestIntegrationUpdateAdminEmailConfiguration(t *testing.T) {
-	// Login User - Arrange
-	Init()
+	// Login Client - Arrange
+	InitLoginClient()
 
 	// CASE Update admin email configuration
 	body = append(body, email)
@@ -84,8 +84,8 @@ func TestIntegrationUpdateAdminEmailConfiguration(t *testing.T) {
 }
 
 func TestIntegrationDeleteAdminEmailConfiguration(t *testing.T) {
-	// Login User - Arrange
-	Init()
+	// Login Client - Arrange
+	InitLoginClient()
 
 	// CASE Delete admin email configuration
 	emails = append(emails, email)
