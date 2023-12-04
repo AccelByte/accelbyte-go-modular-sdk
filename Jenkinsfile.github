@@ -7,6 +7,7 @@ githubPat = 'accelbyte-sdk-sdkbuild-pat-github'
 bitbucketSsh = 'bitbucket-build-extend-ssh'
 
 githubUrl = "git@github.com:${githubOwner}/${githubRepo}.git"
+sdkName = "AccelByte Go Extend Modular SDK"
 
 def createGithubRelease(tag_name, prerelease = false, name = null, body = null) {
   def request = ['tag_name': tag_name]
@@ -40,9 +41,10 @@ def isTagExist(tag) {
   return codeStatus == 0
 }
 
-def pushGitTag(selectedTag, isPrerelease, releaseNote) {
+def pushGitTag(selectedTag, isPrerelease, releaseNote, agsVersion) {
   serviceWrapperTag = ''
   lobbyServiceWrapperTag = ''
+  agsTag = ags/v${agsVersion}
 
   // if it is service sdk module
   if (selectedTag =~ /.*-sdk\/v[0-9]+.[0-9]+.[0-9]+.*/) {
@@ -76,15 +78,15 @@ def pushGitTag(selectedTag, isPrerelease, releaseNote) {
     if (lobbyServiceWrapperTag) {
       sh "git push ${githubUrl} ${lobbyServiceWrapperTag}"
     }
+    if (agsTag) {
+      sh "git push ${githubUrl} ${agsTag}"
+    }
   }
 
   // create github release from git tags
-  createGithubRelease(selectedTag, isPrerelease, selectedTag, releaseNote)
-  if (serviceWrapperTag) {
-    createGithubRelease(serviceWrapperTag, isPrerelease, serviceWrapperTag, releaseNote)
-  }
-  if (lobbyServiceWrapperTag) {
-    createGithubRelease(lobbyServiceWrapperTag, isPrerelease, lobbyServiceWrapperTag, releaseNote)
+  releaseName = "${sdkName} for AGS v${agsVersion}"
+  if (agsTag) {
+    createGithubRelease(agsTag, isPrerelease, releaseName, releaseNote)
   }
 }
 
@@ -145,7 +147,7 @@ pipeline {
           }
 
           params.RELEASE_TAG.split(",").each { tag ->
-            pushGitTag(tag.trim(), params.IS_PRERELEASE, releaseNote)
+            pushGitTag(tag.trim(), params.IS_PRERELEASE, releaseNote, params.AGS_VERSION)
           }
         }
       }

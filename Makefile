@@ -145,6 +145,17 @@ tag_module:
 		fi \
 	fi
 
+tag_ags:
+	@test -n "$(AGS_VER)" || (echo "AGS_VER is not set" ; exit 1)
+	@echo "AGS version: "$(AGS_VER)
+	git fetch origin
+	@if git rev-parse "ags/v$(AGS_VER)" >/dev/null 2>&1; then \
+		echo "AGS tag already exists!"; exit 1; \
+		else \
+			LAST_COMMIT=$(git log --format="%H" -n 1); \
+			git tag "ags/v$(AGS_VER)" $$LAST_COMMIT; \
+	fi
+
 version_services_api:
 	@test -n "$(UPDATE_SERVICE)" || (echo "UPDATE_SERVICE is not set" ; exit 1)
 	@if [ -n "$$MAJOR" ]; then VERSION_PART=1; elif [ -n "$$PATCH" ]; then VERSION_PART=3; else VERSION_PART=2; fi && \
@@ -237,4 +248,4 @@ outstanding_deprecation:
 					exit (count_not_ok ? 1 : 0); \
 				}' \
 		| tee outstanding_deprecation.out
-	@echo 1..$$(grep -c '^\(not \)\?ok' outstanding_deprecation.out) 
+	@echo 1..$$(grep -c '^\(not \)\?ok' outstanding_deprecation.out)
