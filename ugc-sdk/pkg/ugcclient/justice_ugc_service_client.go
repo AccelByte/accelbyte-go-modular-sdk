@@ -17,6 +17,7 @@ import (
 
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/ugc-sdk/pkg/ugcclient/admin_channel"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/ugc-sdk/pkg/ugcclient/admin_config"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/ugc-sdk/pkg/ugcclient/admin_content"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/ugc-sdk/pkg/ugcclient/admin_content_v2"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/ugc-sdk/pkg/ugcclient/admin_group"
@@ -99,6 +100,7 @@ func New(transport runtime.ClientTransport, runtime *httptransport.Runtime, form
 	cli.Transport = transport
 	cli.Runtime = runtime
 	cli.AdminChannel = admin_channel.New(transport, formats)
+	cli.AdminConfig = admin_config.New(transport, formats)
 	cli.AdminContent = admin_content.New(transport, formats)
 	cli.AdminContentV2 = admin_content_v2.New(transport, formats)
 	cli.AdminGroup = admin_group.New(transport, formats)
@@ -180,6 +182,8 @@ func (cfg *TransportConfig) WithSchemes(schemes []string) *TransportConfig {
 type JusticeUgcService struct {
 	AdminChannel admin_channel.ClientService
 
+	AdminConfig admin_config.ClientService
+
 	AdminContent admin_content.ClientService
 
 	AdminContentV2 admin_content_v2.ClientService
@@ -224,6 +228,7 @@ type JusticeUgcService struct {
 func (c *JusticeUgcService) SetTransport(transport runtime.ClientTransport) {
 	c.Transport = transport
 	c.AdminChannel.SetTransport(transport)
+	c.AdminConfig.SetTransport(transport)
 	c.AdminContent.SetTransport(transport)
 	c.AdminContentV2.SetTransport(transport)
 	c.AdminGroup.SetTransport(transport)

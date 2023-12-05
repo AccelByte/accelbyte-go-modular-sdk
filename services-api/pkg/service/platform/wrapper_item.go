@@ -903,7 +903,7 @@ func (aaa *ItemService) PublicGetItem(input *item.PublicGetItemParams) (*platfor
 }
 
 // Deprecated: 2022-01-10 - Please use QueryItems1Short instead.
-func (aaa *ItemService) QueryItems1(input *item.QueryItems1Params) (*platformclientmodels.FullItemPagingSlicedResult, error) {
+func (aaa *ItemService) QueryItems1(input *item.QueryItems1Params) (*platformclientmodels.FullItemPagingResult, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
 		return nil, err
@@ -2090,7 +2090,7 @@ func (aaa *ItemService) PublicGetItemShort(input *item.PublicGetItemParams) (*pl
 	return ok.GetPayload(), nil
 }
 
-func (aaa *ItemService) QueryItems1Short(input *item.QueryItems1Params) (*platformclientmodels.FullItemPagingSlicedResult, error) {
+func (aaa *ItemService) QueryItems1Short(input *item.QueryItems1Params) (*platformclientmodels.FullItemPagingResult, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{

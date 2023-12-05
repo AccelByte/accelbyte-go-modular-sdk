@@ -54,157 +54,157 @@ touch "tmp.dat"
 
 #- 2 AcceptFriendsNotif
 samples/cli/sample-apps --wsModeStandalone \
-    'type: acceptFriendsNotif\nfriendId: UiE4c9Dg' \
+    'type: acceptFriendsNotif\nfriendId: IfEIuUuY' \
     > test.out 2>&1
 eval_tap $? 2 'AcceptFriendsNotif' test.out
 
 #- 3 AcceptFriendsRequest
 samples/cli/sample-apps --wsModeStandalone \
-    'type: acceptFriendsRequest\nid: euJcXaMt\nfriendId: Z6e0TQPZ' \
+    'type: acceptFriendsRequest\nid: ehB1vhq4\nfriendId: J7dBPNOh' \
     > test.out 2>&1
 eval_tap $? 3 'AcceptFriendsRequest' test.out
 
 #- 4 AcceptFriendsResponse
 samples/cli/sample-apps --wsModeStandalone \
-    'type: acceptFriendsResponse\nid: fCU9aHaB\ncode: 46' \
+    'type: acceptFriendsResponse\nid: hGLKfjLN\ncode: 37' \
     > test.out 2>&1
 eval_tap $? 4 'AcceptFriendsResponse' test.out
 
 #- 5 BlockPlayerNotif
 samples/cli/sample-apps --wsModeStandalone \
-    'type: blockPlayerNotif\nblockedUserId: x7oMJ3dZ\nuserId: FNiIrqYb' \
+    'type: blockPlayerNotif\nblockedUserId: URz6PoXZ\nuserId: RjqDrvLg' \
     > test.out 2>&1
 eval_tap $? 5 'BlockPlayerNotif' test.out
 
 #- 6 BlockPlayerRequest
 samples/cli/sample-apps --wsModeStandalone \
-    'type: blockPlayerRequest\nid: GqZklTxS\nblockUserId: Ru3E5b3Q\nnamespace: ZOWiKR1V' \
+    'type: blockPlayerRequest\nid: 0E4UGmv0\nblockUserId: FkdaMMyc\nnamespace: XtMkkuc6' \
     > test.out 2>&1
 eval_tap $? 6 'BlockPlayerRequest' test.out
 
 #- 7 BlockPlayerResponse
 samples/cli/sample-apps --wsModeStandalone \
-    'type: blockPlayerResponse\nid: MAcrZGOk\nblockUserId: kHJUXJxT\ncode: 56\nnamespace: to7zNXij' \
+    'type: blockPlayerResponse\nid: mvr9kmIL\nblockUserId: 2fZ9ofKs\ncode: 82\nnamespace: yzmgoHzF' \
     > test.out 2>&1
 eval_tap $? 7 'BlockPlayerResponse' test.out
 
 #- 8 CancelFriendsNotif
 samples/cli/sample-apps --wsModeStandalone \
-    'type: cancelFriendsNotif\nuserId: zHCq0cX2' \
+    'type: cancelFriendsNotif\nuserId: swODIuWO' \
     > test.out 2>&1
 eval_tap $? 8 'CancelFriendsNotif' test.out
 
 #- 9 CancelFriendsRequest
 samples/cli/sample-apps --wsModeStandalone \
-    'type: cancelFriendsRequest\nid: N5igXcw6\nfriendId: yaqtaJK4' \
+    'type: cancelFriendsRequest\nid: 3V9bdIxD\nfriendId: bWbsSxgv' \
     > test.out 2>&1
 eval_tap $? 9 'CancelFriendsRequest' test.out
 
 #- 10 CancelFriendsResponse
 samples/cli/sample-apps --wsModeStandalone \
-    'type: cancelFriendsResponse\nid: rpMfnKqs\ncode: 66' \
+    'type: cancelFriendsResponse\nid: mPk6P7Mo\ncode: 10' \
     > test.out 2>&1
 eval_tap $? 10 'CancelFriendsResponse' test.out
 
 #- 11 CancelMatchmakingRequest
 samples/cli/sample-apps --wsModeStandalone \
-    'type: cancelMatchmakingRequest\nid: 4zX0y9m3\ngameMode: BJUM9KZX\nisTempParty: False' \
+    'type: cancelMatchmakingRequest\nid: plDSmyXQ\ngameMode: N5QrWWzO\nisTempParty: False' \
     > test.out 2>&1
 eval_tap $? 11 'CancelMatchmakingRequest' test.out
 
 #- 12 CancelMatchmakingResponse
 samples/cli/sample-apps --wsModeStandalone \
-    'type: cancelMatchmakingResponse\nid: vCWVK0VZ\ncode: 79' \
+    'type: cancelMatchmakingResponse\nid: tlYHUy6E\ncode: 53' \
     > test.out 2>&1
 eval_tap $? 12 'CancelMatchmakingResponse' test.out
 
 #- 13 ChannelChatNotif
 samples/cli/sample-apps --wsModeStandalone \
-    'type: channelChatNotif\nchannelSlug: OQcdiJos\nfrom: 4fNOv87r\npayload: 0mVzTUyP\nsentAt: 4RMae9yB' \
+    'type: channelChatNotif\nchannelSlug: 2zd8e2qM\nfrom: l4Hb1ERj\npayload: nhcQrVr9\nsentAt: h0OJsb4Z' \
     > test.out 2>&1
 eval_tap $? 13 'ChannelChatNotif' test.out
 
 #- 14 ClientResetRequest
 samples/cli/sample-apps --wsModeStandalone \
-    'type: clientResetRequest\nnamespace: wZw2AIs1\nuserId: B5OWHZ3t' \
+    'type: clientResetRequest\nnamespace: DzGKnRKf\nuserId: I1ZvT6e5' \
     > test.out 2>&1
 eval_tap $? 14 'ClientResetRequest' test.out
 
 #- 15 ConnectNotif
 samples/cli/sample-apps --wsModeStandalone \
-    'type: connectNotif\nlobbySessionId: Cbe9lcXd' \
+    'type: connectNotif\nlobbySessionId: 8qfJDaiz' \
     > test.out 2>&1
 eval_tap $? 15 'ConnectNotif' test.out
 
 #- 16 DisconnectNotif
 samples/cli/sample-apps --wsModeStandalone \
-    'type: disconnectNotif\nconnectionId: zvQo3Xhu\nnamespace: P0qzb7GC' \
+    'type: disconnectNotif\nconnectionId: ZhrBQ9i1\nnamespace: dgUfdAxr' \
     > test.out 2>&1
 eval_tap $? 16 'DisconnectNotif' test.out
 
 #- 17 DsNotif
 samples/cli/sample-apps --wsModeStandalone \
-    'type: dsNotif\nalternateIps: [fcry86SG,OEOzBiD8,Ulk5cNqp]\ncustomAttribute: xwZCofME\ndeployment: XB7WHdGG\ngameVersion: wseiGPFd\nimageVersion: aEaTC0Qb\nip: 12MbYQnt\nisOK: False\nisOverrideGameVersion: True\nlastUpdate: LdOOwyYd\nmatchId: qtbiHA8a\nmessage: cSMv3OqO\nnamespace: kfXDtMsW\npodName: V3BeLMcC\nport: 92\nports: {"E8IoLtly":84,"Ukq4ZP8V":69,"UX0XW0id":96}\nprotocol: mpPAM0NZ\nprovider: NQayoyrY\nregion: sqbISexX\nsessionId: NJoNjvcx\nstatus: N12ZZV1l' \
+    'type: dsNotif\nalternateIps: [jUVau8n5,XMrDTous,RVodLlaN]\ncustomAttribute: LGgZy63U\ndeployment: z8o3swwn\ngameVersion: fVnN9dXa\nimageVersion: tOWJ2EOu\nip: 14SChZI9\nisOK: True\nisOverrideGameVersion: False\nlastUpdate: 6tBENwWY\nmatchId: w60LDJFN\nmessage: 7d2iIOZp\nnamespace: IfGP5Bz9\npodName: xMQitqMn\nport: 98\nports: {"rlcsYN1W":13,"VxqB82NK":7,"Yl56bLzi":39}\nprotocol: mDETlWRz\nprovider: r05BrjVT\nregion: iri3t35N\nsessionId: 1bC6aWnQ\nstatus: 5xg80Aks' \
     > test.out 2>&1
 eval_tap $? 17 'DsNotif' test.out
 
 #- 18 ErrorNotif
 samples/cli/sample-apps --wsModeStandalone \
-    'type: errorNotif\nmessage: HucORTsm' \
+    'type: errorNotif\nmessage: YX4tm93q' \
     > test.out 2>&1
 eval_tap $? 18 'ErrorNotif' test.out
 
 #- 19 ExitAllChannel
 samples/cli/sample-apps --wsModeStandalone \
-    'type: exitAllChannel\nnamespace: hwr3q66I\nuserId: ysvOoQ5S' \
+    'type: exitAllChannel\nnamespace: 0poTNonU\nuserId: azu9AVX8' \
     > test.out 2>&1
 eval_tap $? 19 'ExitAllChannel' test.out
 
 #- 20 FriendsStatusRequest
 samples/cli/sample-apps --wsModeStandalone \
-    'type: friendsStatusRequest\nid: Tiky4Edj' \
+    'type: friendsStatusRequest\nid: 3bwMBzGy' \
     > test.out 2>&1
 eval_tap $? 20 'FriendsStatusRequest' test.out
 
 #- 21 FriendsStatusResponse
 samples/cli/sample-apps --wsModeStandalone \
-    'type: friendsStatusResponse\nid: 5IN1CmvZ\nactivity: [pn7qorwm,BmFihEv0,ZEEEKKBq]\navailability: [48,74,83]\ncode: 71\nfriendIds: [jT1nyqlw,0XcrhZKM,hw78mDU3]\nlastSeenAt: [yacYmiRh,6jH6cYB0,cRN3YE3J]' \
+    'type: friendsStatusResponse\nid: iYlkvFKE\nactivity: [Ui2Hl9gv,j9jeX8Zi,rUN4CIzB]\navailability: [34,47,38]\ncode: 61\nfriendIds: [swaAmmav,fnuAmwVQ,8OSIl6tY]\nlastSeenAt: [Der7rPPR,NfAhTLSq,HgcaLoEQ]' \
     > test.out 2>&1
 eval_tap $? 21 'FriendsStatusResponse' test.out
 
 #- 22 GetAllSessionAttributeRequest
 samples/cli/sample-apps --wsModeStandalone \
-    'type: getAllSessionAttributeRequest\nid: wLHUEByt' \
+    'type: getAllSessionAttributeRequest\nid: AYq4IuPO' \
     > test.out 2>&1
 eval_tap $? 22 'GetAllSessionAttributeRequest' test.out
 
 #- 23 GetAllSessionAttributeResponse
 samples/cli/sample-apps --wsModeStandalone \
-    'type: getAllSessionAttributeResponse\nid: wo5G7iu1\nattributes: {"EICHwb5t":"KJ4HBMmp","20onPS5l":"mUww2O0O","ii1he2kN":"DOBlTlAP"}\ncode: 61' \
+    'type: getAllSessionAttributeResponse\nid: rRJZxBHV\nattributes: {"fpQAULuj":"2tY5lec0","wcp3eCi6":"huLNYUqY","f5VoCzOh":"YNH5jm6C"}\ncode: 1' \
     > test.out 2>&1
 eval_tap $? 23 'GetAllSessionAttributeResponse' test.out
 
 #- 24 GetFriendshipStatusRequest
 samples/cli/sample-apps --wsModeStandalone \
-    'type: getFriendshipStatusRequest\nid: YjkxMyJM\nfriendId: DJ4ONCQw' \
+    'type: getFriendshipStatusRequest\nid: 8EBRYOqT\nfriendId: JeYrPH9A' \
     > test.out 2>&1
 eval_tap $? 24 'GetFriendshipStatusRequest' test.out
 
 #- 25 GetFriendshipStatusResponse
 samples/cli/sample-apps --wsModeStandalone \
-    'type: getFriendshipStatusResponse\nid: 04ph78kk\ncode: 64\nfriendshipStatus: TKNrK8Gp' \
+    'type: getFriendshipStatusResponse\nid: mE04xis6\ncode: 58\nfriendshipStatus: rZ4DzZ6U' \
     > test.out 2>&1
 eval_tap $? 25 'GetFriendshipStatusResponse' test.out
 
 #- 26 GetSessionAttributeRequest
 samples/cli/sample-apps --wsModeStandalone \
-    'type: getSessionAttributeRequest\nid: XMqgJUiJ\nkey: nhn7TTQZ' \
+    'type: getSessionAttributeRequest\nid: RMom9sMf\nkey: WTwFanzP' \
     > test.out 2>&1
 eval_tap $? 26 'GetSessionAttributeRequest' test.out
 
 #- 27 GetSessionAttributeResponse
 samples/cli/sample-apps --wsModeStandalone \
-    'type: getSessionAttributeResponse\nid: 5ElUzbJG\ncode: 44\nvalue: n9ABmxwv' \
+    'type: getSessionAttributeResponse\nid: 15TRRUHJ\ncode: 80\nvalue: FS9vvVeM' \
     > test.out 2>&1
 eval_tap $? 27 'GetSessionAttributeResponse' test.out
 
@@ -216,427 +216,427 @@ eval_tap $? 28 'Heartbeat' test.out
 
 #- 29 JoinDefaultChannelRequest
 samples/cli/sample-apps --wsModeStandalone \
-    'type: joinDefaultChannelRequest\nid: pWUxtlbQ' \
+    'type: joinDefaultChannelRequest\nid: UqXXcfvZ' \
     > test.out 2>&1
 eval_tap $? 29 'JoinDefaultChannelRequest' test.out
 
 #- 30 JoinDefaultChannelResponse
 samples/cli/sample-apps --wsModeStandalone \
-    'type: joinDefaultChannelResponse\nid: WnWK87I7\nchannelSlug: UWxCPKsc\ncode: 66' \
+    'type: joinDefaultChannelResponse\nid: FykySC7w\nchannelSlug: YMvKB0fv\ncode: 39' \
     > test.out 2>&1
 eval_tap $? 30 'JoinDefaultChannelResponse' test.out
 
 #- 31 ListIncomingFriendsRequest
 samples/cli/sample-apps --wsModeStandalone \
-    'type: listIncomingFriendsRequest\nid: GTqwToET' \
+    'type: listIncomingFriendsRequest\nid: RoEBre78' \
     > test.out 2>&1
 eval_tap $? 31 'ListIncomingFriendsRequest' test.out
 
 #- 32 ListIncomingFriendsResponse
 samples/cli/sample-apps --wsModeStandalone \
-    'type: listIncomingFriendsResponse\nid: Bvk8KgZM\ncode: 77\nuserIds: [mfEYgUiq,IfqrfnmZ,uKDW1A2G]' \
+    'type: listIncomingFriendsResponse\nid: KeKSlSqs\ncode: 64\nuserIds: [EMzE5e4R,ga4Xyi7r,Of5rADHE]' \
     > test.out 2>&1
 eval_tap $? 32 'ListIncomingFriendsResponse' test.out
 
 #- 33 ListOfFriendsRequest
 samples/cli/sample-apps --wsModeStandalone \
-    'type: listOfFriendsRequest\nid: 2DPUsjhb\nfriendId: bTG8huf0' \
+    'type: listOfFriendsRequest\nid: kTJxHD9v\nfriendId: ClEbJq9E' \
     > test.out 2>&1
 eval_tap $? 33 'ListOfFriendsRequest' test.out
 
 #- 34 ListOfFriendsResponse
 samples/cli/sample-apps --wsModeStandalone \
-    'type: listOfFriendsResponse\nid: ezfG06Im\ncode: 39\nfriendIds: [9bCxjGsL,zXFqloV4,5SG5QMr1]' \
+    'type: listOfFriendsResponse\nid: CFcmvnYq\ncode: 81\nfriendIds: [baWZkO3A,2ZlPz0hh,oRlp1Z1D]' \
     > test.out 2>&1
 eval_tap $? 34 'ListOfFriendsResponse' test.out
 
 #- 35 ListOnlineFriendsRequest
 samples/cli/sample-apps --wsModeStandalone \
-    'type: listOnlineFriendsRequest\nid: cK7dPWOg' \
+    'type: listOnlineFriendsRequest\nid: J5zc8vkl' \
     > test.out 2>&1
 eval_tap $? 35 'ListOnlineFriendsRequest' test.out
 
 #- 36 ListOutgoingFriendsRequest
 samples/cli/sample-apps --wsModeStandalone \
-    'type: listOutgoingFriendsRequest\nid: vT3OINqF' \
+    'type: listOutgoingFriendsRequest\nid: d2ZAMl7h' \
     > test.out 2>&1
 eval_tap $? 36 'ListOutgoingFriendsRequest' test.out
 
 #- 37 ListOutgoingFriendsResponse
 samples/cli/sample-apps --wsModeStandalone \
-    'type: listOutgoingFriendsResponse\nid: 4H1yVkKq\ncode: 88\nfriendIds: [SPGK9ovn,53R3Jyxe,wPxGeugx]' \
+    'type: listOutgoingFriendsResponse\nid: QDrEvj0y\ncode: 41\nfriendIds: [dpw7vtEQ,xXAKqPjD,cpSKb4Zw]' \
     > test.out 2>&1
 eval_tap $? 37 'ListOutgoingFriendsResponse' test.out
 
 #- 38 MatchmakingNotif
 samples/cli/sample-apps --wsModeStandalone \
-    'type: matchmakingNotif\ncounterPartyMember: [QP9o0zTh,QBgdMxRV,vBuIK3p5]\nmatchId: 5ySfe2pp\nmessage: 1gJBmuGz\npartyMember: [tEt8YRfb,U5Ad1ECS,cfn6KdON]\nreadyDuration: 30\nstatus: PcR0KK4w' \
+    'type: matchmakingNotif\ncounterPartyMember: [pieaJa3s,isMIza9R,ffWy9xfK]\nmatchId: QtkJBWxb\nmessage: uyVjFQ9t\npartyMember: [cindyu3y,ZIYjtNfV,OhTf0gAu]\nreadyDuration: 11\nstatus: kxh6hwqB' \
     > test.out 2>&1
 eval_tap $? 38 'MatchmakingNotif' test.out
 
 #- 39 MessageNotif
 samples/cli/sample-apps --wsModeStandalone \
-    'type: messageNotif\nid: YbpuA4qr\nfrom: ADqImWTE\npayload: 7XZcuvAv\nsentAt: 9\nto: zBuAEaHg\ntopic: 7OHy6GZJ' \
+    'type: messageNotif\nid: BlCZGajy\nfrom: ff4fzh3o\npayload: zV9JxJAa\nsentAt: 99\nto: mYk31wNp\ntopic: 3mE6HjQn' \
     > test.out 2>&1
 eval_tap $? 39 'MessageNotif' test.out
 
 #- 40 OfflineNotificationRequest
 samples/cli/sample-apps --wsModeStandalone \
-    'type: offlineNotificationRequest\nid: ISVjb8r5' \
+    'type: offlineNotificationRequest\nid: 2Lhj6ttn' \
     > test.out 2>&1
 eval_tap $? 40 'OfflineNotificationRequest' test.out
 
 #- 41 OfflineNotificationResponse
 samples/cli/sample-apps --wsModeStandalone \
-    'type: offlineNotificationResponse\nid: NpfgcJqz\ncode: 95' \
+    'type: offlineNotificationResponse\nid: Rg5BFhjJ\ncode: 45' \
     > test.out 2>&1
 eval_tap $? 41 'OfflineNotificationResponse' test.out
 
 #- 42 OnlineFriends
 samples/cli/sample-apps --wsModeStandalone \
-    'type: onlineFriends\nid: Tb32PkXC\ncode: 68\nonlineFriendIds: [HMGE9GSW,L6yUdBM4,22WSYCVx]' \
+    'type: onlineFriends\nid: V751oOVa\ncode: 15\nonlineFriendIds: [DBq8lC6R,AvSB7Pmx,TlqnR1jV]' \
     > test.out 2>&1
 eval_tap $? 42 'OnlineFriends' test.out
 
 #- 43 PartyChatNotif
 samples/cli/sample-apps --wsModeStandalone \
-    'type: partyChatNotif\nid: erqrWk9w\nfrom: 9L7nzBxl\npayload: TMeYNP6S\nreceivedAt: 49\nto: 5d9GZCVv' \
+    'type: partyChatNotif\nid: tJFuhR0P\nfrom: 9Y7A856S\npayload: ZqlHbUwj\nreceivedAt: 26\nto: oM7mZMuD' \
     > test.out 2>&1
 eval_tap $? 43 'PartyChatNotif' test.out
 
 #- 44 PartyChatRequest
 samples/cli/sample-apps --wsModeStandalone \
-    'type: partyChatRequest\nid: LFsdhOvi\nfrom: fxEsws7o\npayload: 3Ebm2YHn\nreceivedAt: 82\nto: 2sRTyBjJ' \
+    'type: partyChatRequest\nid: llfc7YLG\nfrom: ZTWimKCX\npayload: p1sxjyOJ\nreceivedAt: 79\nto: Rcj44XxU' \
     > test.out 2>&1
 eval_tap $? 44 'PartyChatRequest' test.out
 
 #- 45 PartyChatResponse
 samples/cli/sample-apps --wsModeStandalone \
-    'type: partyChatResponse\nid: 6QUYZw59\ncode: 22' \
+    'type: partyChatResponse\nid: v7mvp6Jy\ncode: 48' \
     > test.out 2>&1
 eval_tap $? 45 'PartyChatResponse' test.out
 
 #- 46 PartyCreateRequest
 samples/cli/sample-apps --wsModeStandalone \
-    'type: partyCreateRequest\nid: fNUnSsBD' \
+    'type: partyCreateRequest\nid: hNzRz1IU' \
     > test.out 2>&1
 eval_tap $? 46 'PartyCreateRequest' test.out
 
 #- 47 PartyCreateResponse
 samples/cli/sample-apps --wsModeStandalone \
-    'type: partyCreateResponse\nid: N001vBv4\ncode: 63\ninvitationToken: MuiIHkpu\ninvitees: Aj5ely3x\nleaderId: bsSdMFwI\nmembers: DoOLvozd\npartyId: H7IIz81Z' \
+    'type: partyCreateResponse\nid: IwVgIUZ9\ncode: 62\ninvitationToken: GYBHI1KF\ninvitees: 9me2kp7Y\nleaderId: zTYHgMQT\nmembers: K5e2E9dz\npartyId: zedy751t' \
     > test.out 2>&1
 eval_tap $? 47 'PartyCreateResponse' test.out
 
 #- 48 PartyDataUpdateNotif
 samples/cli/sample-apps --wsModeStandalone \
-    'type: partyDataUpdateNotif\ncustomAttributes: {"uFFncZBz":{},"Q3xqEHoH":{},"VCUogls4":{}}\ninvitees: [y0DFbUXu,evFGN7l8,9NU0sUzE]\nleader: jmWz1X4P\nmembers: [OVBoUxzr,MzQHf5d9,ZhUmVX9g]\nnamespace: tSV67kL5\npartyId: Ux2dpL8l\nupdatedAt: 26' \
+    'type: partyDataUpdateNotif\ncustomAttributes: {"n1fO8eB4":{},"pWweqBYB":{},"ob4g20Qx":{}}\ninvitees: [h14VHWFi,H6P6hjri,5eW5ikt1]\nleader: x0FkY2QB\nmembers: [ZLiZpYYJ,Dcv7o7vg,UzoMUahe]\nnamespace: 1MBQ0Nix\npartyId: U6z4sj1D\nupdatedAt: 39' \
     > test.out 2>&1
 eval_tap $? 48 'PartyDataUpdateNotif' test.out
 
 #- 49 PartyGetInvitedNotif
 samples/cli/sample-apps --wsModeStandalone \
-    'type: partyGetInvitedNotif\nfrom: wInReKIh\ninvitationToken: veEBqfgy\npartyId: B3Qnf9uZ' \
+    'type: partyGetInvitedNotif\nfrom: ZgJjIOY6\ninvitationToken: rEbTUgfS\npartyId: YxtoNMeg' \
     > test.out 2>&1
 eval_tap $? 49 'PartyGetInvitedNotif' test.out
 
 #- 50 PartyInfoRequest
 samples/cli/sample-apps --wsModeStandalone \
-    'type: partyInfoRequest\nid: DrMot10M' \
+    'type: partyInfoRequest\nid: BsfxtN7C' \
     > test.out 2>&1
 eval_tap $? 50 'PartyInfoRequest' test.out
 
 #- 51 PartyInfoResponse
 samples/cli/sample-apps --wsModeStandalone \
-    'type: partyInfoResponse\nid: YH8JkVuG\ncode: 35\ncustomAttributes: {"w63nOvDR":{},"GT7RCX3j":{},"FZzNIXku":{}}\ninvitationToken: EcWEjMdG\ninvitees: MZrPovTy\nleaderId: rtpwzbre\nmembers: TD57sCFF\npartyId: M7y7D2pS' \
+    'type: partyInfoResponse\nid: lG59HhCQ\ncode: 28\ncustomAttributes: {"DLqnNyOg":{},"hIcpnZ2l":{},"UwjSTVY6":{}}\ninvitationToken: vp1LIfoU\ninvitees: dVNAaWRK\nleaderId: svAa4nzi\nmembers: WhXa8O8j\npartyId: Z4y8vwEy' \
     > test.out 2>&1
 eval_tap $? 51 'PartyInfoResponse' test.out
 
 #- 52 PartyInviteNotif
 samples/cli/sample-apps --wsModeStandalone \
-    'type: partyInviteNotif\ninviteeId: MzH7NWkq\ninviterId: w4eF4Boa' \
+    'type: partyInviteNotif\ninviteeId: P0pgWNy9\ninviterId: 2lSIDruH' \
     > test.out 2>&1
 eval_tap $? 52 'PartyInviteNotif' test.out
 
 #- 53 PartyInviteRequest
 samples/cli/sample-apps --wsModeStandalone \
-    'type: partyInviteRequest\nid: uGqWmYxz\nfriendId: GCLBHKRf' \
+    'type: partyInviteRequest\nid: dowG74zJ\nfriendId: kSCFrs4T' \
     > test.out 2>&1
 eval_tap $? 53 'PartyInviteRequest' test.out
 
 #- 54 PartyInviteResponse
 samples/cli/sample-apps --wsModeStandalone \
-    'type: partyInviteResponse\nid: xkgV5SnS\ncode: 67' \
+    'type: partyInviteResponse\nid: upPxopv1\ncode: 59' \
     > test.out 2>&1
 eval_tap $? 54 'PartyInviteResponse' test.out
 
 #- 55 PartyJoinNotif
 samples/cli/sample-apps --wsModeStandalone \
-    'type: partyJoinNotif\nuserId: yC5ATS0P' \
+    'type: partyJoinNotif\nuserId: BfrhVuWg' \
     > test.out 2>&1
 eval_tap $? 55 'PartyJoinNotif' test.out
 
 #- 56 PartyJoinRequest
 samples/cli/sample-apps --wsModeStandalone \
-    'type: partyJoinRequest\nid: Ej5QEBZV\ninvitationToken: iRCona8l\npartyId: tVNZLPzg' \
+    'type: partyJoinRequest\nid: DMR9yeW5\ninvitationToken: 70VzF0G1\npartyId: LJZrbwWE' \
     > test.out 2>&1
 eval_tap $? 56 'PartyJoinRequest' test.out
 
 #- 57 PartyJoinResponse
 samples/cli/sample-apps --wsModeStandalone \
-    'type: partyJoinResponse\nid: gmlgVBHW\ncode: 22\ninvitationToken: qmOwV7tM\ninvitees: 5t6nPDMu\nleaderId: r7dWWkDg\nmembers: W0tmkW0w\npartyId: qA1AdCDc' \
+    'type: partyJoinResponse\nid: rG2b5hRy\ncode: 77\ninvitationToken: W3uQmjW0\ninvitees: O6S7CcNw\nleaderId: 09nNm44Z\nmembers: TySmMVnn\npartyId: TpADh1AV' \
     > test.out 2>&1
 eval_tap $? 57 'PartyJoinResponse' test.out
 
 #- 58 PartyKickNotif
 samples/cli/sample-apps --wsModeStandalone \
-    'type: partyKickNotif\nleaderId: XkEV2DAw\npartyId: FVw5XY5C\nuserId: GUtmIY84' \
+    'type: partyKickNotif\nleaderId: E6RZOfjS\npartyId: iDFwsU8F\nuserId: VNyxLNlq' \
     > test.out 2>&1
 eval_tap $? 58 'PartyKickNotif' test.out
 
 #- 59 PartyKickRequest
 samples/cli/sample-apps --wsModeStandalone \
-    'type: partyKickRequest\nid: jxgv29Vs\nmemberId: HpF3TAX3' \
+    'type: partyKickRequest\nid: v6DHTd8T\nmemberId: GXjFL8hR' \
     > test.out 2>&1
 eval_tap $? 59 'PartyKickRequest' test.out
 
 #- 60 PartyKickResponse
 samples/cli/sample-apps --wsModeStandalone \
-    'type: partyKickResponse\nid: A7pGtORx\ncode: 37' \
+    'type: partyKickResponse\nid: 0IrMbsgH\ncode: 89' \
     > test.out 2>&1
 eval_tap $? 60 'PartyKickResponse' test.out
 
 #- 61 PartyLeaveNotif
 samples/cli/sample-apps --wsModeStandalone \
-    'type: partyLeaveNotif\nleaderId: vUNOxBBn\nuserId: 7JV3UTx6' \
+    'type: partyLeaveNotif\nleaderId: FW2vTelL\nuserId: YMmI7LQh' \
     > test.out 2>&1
 eval_tap $? 61 'PartyLeaveNotif' test.out
 
 #- 62 PartyLeaveRequest
 samples/cli/sample-apps --wsModeStandalone \
-    'type: partyLeaveRequest\nid: xfYdpPu9\nignoreUserRegistry: False' \
+    'type: partyLeaveRequest\nid: AxrQKetF\nignoreUserRegistry: True' \
     > test.out 2>&1
 eval_tap $? 62 'PartyLeaveRequest' test.out
 
 #- 63 PartyLeaveResponse
 samples/cli/sample-apps --wsModeStandalone \
-    'type: partyLeaveResponse\nid: sJtSMeTa\ncode: 54' \
+    'type: partyLeaveResponse\nid: npStqU0x\ncode: 4' \
     > test.out 2>&1
 eval_tap $? 63 'PartyLeaveResponse' test.out
 
 #- 64 PartyPromoteLeaderRequest
 samples/cli/sample-apps --wsModeStandalone \
-    'type: partyPromoteLeaderRequest\nid: lVSAW5en\nnewLeaderUserId: XyQK1RXH' \
+    'type: partyPromoteLeaderRequest\nid: DVNPFAOV\nnewLeaderUserId: 5uDzfEW2' \
     > test.out 2>&1
 eval_tap $? 64 'PartyPromoteLeaderRequest' test.out
 
 #- 65 PartyPromoteLeaderResponse
 samples/cli/sample-apps --wsModeStandalone \
-    'type: partyPromoteLeaderResponse\nid: HNjjVDIV\ncode: 8\ninvitationToken: IVLszbEW\ninvitees: IvbSPdzO\nleaderId: 62ubn9jx\nmembers: GAbjhhed\npartyId: mBKCzbBt' \
+    'type: partyPromoteLeaderResponse\nid: nqW5xuaP\ncode: 19\ninvitationToken: qGdLmbvA\ninvitees: cPBU6Asd\nleaderId: NBMtIX3e\nmembers: u4jbee8F\npartyId: cuut8ABa' \
     > test.out 2>&1
 eval_tap $? 65 'PartyPromoteLeaderResponse' test.out
 
 #- 66 PartyRejectNotif
 samples/cli/sample-apps --wsModeStandalone \
-    'type: partyRejectNotif\nleaderId: 1sYTbJH9\npartyId: j8LRu5zU\nuserId: 1ev56cN8' \
+    'type: partyRejectNotif\nleaderId: 1IA47urn\npartyId: ZsXH8wvU\nuserId: whXkCv0C' \
     > test.out 2>&1
 eval_tap $? 66 'PartyRejectNotif' test.out
 
 #- 67 PartyRejectRequest
 samples/cli/sample-apps --wsModeStandalone \
-    'type: partyRejectRequest\nid: 8BMVk0t6\ninvitationToken: sjFFutgs\npartyId: r3XVz4Jf' \
+    'type: partyRejectRequest\nid: RjFUAygM\ninvitationToken: LnFixgaE\npartyId: JluhiGrN' \
     > test.out 2>&1
 eval_tap $? 67 'PartyRejectRequest' test.out
 
 #- 68 PartyRejectResponse
 samples/cli/sample-apps --wsModeStandalone \
-    'type: partyRejectResponse\nid: PchLIoYy\ncode: 53\npartyId: BFUqQn2o' \
+    'type: partyRejectResponse\nid: tQGuxeZ7\ncode: 33\npartyId: 3mZOImfJ' \
     > test.out 2>&1
 eval_tap $? 68 'PartyRejectResponse' test.out
 
 #- 69 PersonalChatHistoryRequest
 samples/cli/sample-apps --wsModeStandalone \
-    'type: personalChatHistoryRequest\nid: ee8oEtH7\nfriendId: QftUGKtc' \
+    'type: personalChatHistoryRequest\nid: AddQ2kKf\nfriendId: IeEHwuRm' \
     > test.out 2>&1
 eval_tap $? 69 'PersonalChatHistoryRequest' test.out
 
 #- 70 PersonalChatHistoryResponse
 samples/cli/sample-apps --wsModeStandalone \
-    'type: personalChatHistoryResponse\nid: 5PJF0dwh\nchat: FgayGQlL\ncode: 26\nfriendId: m0a3lawI' \
+    'type: personalChatHistoryResponse\nid: ju3oZMkz\nchat: u5mqi8Vj\ncode: 99\nfriendId: U96Uy5Y2' \
     > test.out 2>&1
 eval_tap $? 70 'PersonalChatHistoryResponse' test.out
 
 #- 71 PersonalChatNotif
 samples/cli/sample-apps --wsModeStandalone \
-    'type: personalChatNotif\nid: SfwLiVE8\nfrom: ONs2LIzZ\npayload: Z7Wq2U1L\nreceivedAt: 46\nto: Ww4ltxAK' \
+    'type: personalChatNotif\nid: QamhfYgS\nfrom: Thbt1uHg\npayload: 2mOpCptp\nreceivedAt: 89\nto: 42dRz1lb' \
     > test.out 2>&1
 eval_tap $? 71 'PersonalChatNotif' test.out
 
 #- 72 PersonalChatRequest
 samples/cli/sample-apps --wsModeStandalone \
-    'type: personalChatRequest\nid: 04lgJK17\nfrom: XU61Lu7p\npayload: 6AslfMSs\nreceivedAt: 3\nto: xUBBCqjm' \
+    'type: personalChatRequest\nid: JW1lzkxW\nfrom: qXMactKV\npayload: 5xvZKIt4\nreceivedAt: 52\nto: ylOYI6sn' \
     > test.out 2>&1
 eval_tap $? 72 'PersonalChatRequest' test.out
 
 #- 73 PersonalChatResponse
 samples/cli/sample-apps --wsModeStandalone \
-    'type: personalChatResponse\nid: XXqnqV64\ncode: 62' \
+    'type: personalChatResponse\nid: na4Dy4aE\ncode: 75' \
     > test.out 2>&1
 eval_tap $? 73 'PersonalChatResponse' test.out
 
 #- 74 RejectFriendsNotif
 samples/cli/sample-apps --wsModeStandalone \
-    'type: rejectFriendsNotif\nuserId: htAouQTn' \
+    'type: rejectFriendsNotif\nuserId: oHNFmJLF' \
     > test.out 2>&1
 eval_tap $? 74 'RejectFriendsNotif' test.out
 
 #- 75 RejectFriendsRequest
 samples/cli/sample-apps --wsModeStandalone \
-    'type: rejectFriendsRequest\nid: x1n7iIrq\nfriendId: 4pYg4RXa' \
+    'type: rejectFriendsRequest\nid: Y2UFaCMx\nfriendId: xllJtRvo' \
     > test.out 2>&1
 eval_tap $? 75 'RejectFriendsRequest' test.out
 
 #- 76 RejectFriendsResponse
 samples/cli/sample-apps --wsModeStandalone \
-    'type: rejectFriendsResponse\nid: aw3A0al4\ncode: 62' \
+    'type: rejectFriendsResponse\nid: oZriPELe\ncode: 39' \
     > test.out 2>&1
 eval_tap $? 76 'RejectFriendsResponse' test.out
 
 #- 77 RematchmakingNotif
 samples/cli/sample-apps --wsModeStandalone \
-    'type: rematchmakingNotif\nbanDuration: 26' \
+    'type: rematchmakingNotif\nbanDuration: 48' \
     > test.out 2>&1
 eval_tap $? 77 'RematchmakingNotif' test.out
 
 #- 78 RequestFriendsNotif
 samples/cli/sample-apps --wsModeStandalone \
-    'type: requestFriendsNotif\nfriendId: XoEEBq0n' \
+    'type: requestFriendsNotif\nfriendId: Ngk26gJ6' \
     > test.out 2>&1
 eval_tap $? 78 'RequestFriendsNotif' test.out
 
 #- 79 RequestFriendsRequest
 samples/cli/sample-apps --wsModeStandalone \
-    'type: requestFriendsRequest\nid: z7RNc6bg\nfriendId: UH000q5w' \
+    'type: requestFriendsRequest\nid: ypaKfN4g\nfriendId: uflRNR3F' \
     > test.out 2>&1
 eval_tap $? 79 'RequestFriendsRequest' test.out
 
 #- 80 RequestFriendsResponse
 samples/cli/sample-apps --wsModeStandalone \
-    'type: requestFriendsResponse\nid: OsSlgcbA\ncode: 69' \
+    'type: requestFriendsResponse\nid: PyOZsmhv\ncode: 96' \
     > test.out 2>&1
 eval_tap $? 80 'RequestFriendsResponse' test.out
 
 #- 81 SendChannelChatRequest
 samples/cli/sample-apps --wsModeStandalone \
-    'type: sendChannelChatRequest\nid: OGub7hyl\nchannelSlug: pWlvJxMr\npayload: 3kaKWgtG' \
+    'type: sendChannelChatRequest\nid: 1w0GHJmR\nchannelSlug: hom4sGjm\npayload: oV8dq1mN' \
     > test.out 2>&1
 eval_tap $? 81 'SendChannelChatRequest' test.out
 
 #- 82 SendChannelChatResponse
 samples/cli/sample-apps --wsModeStandalone \
-    'type: sendChannelChatResponse\nid: PF4pYEPg\ncode: 63' \
+    'type: sendChannelChatResponse\nid: SCOgCUVb\ncode: 57' \
     > test.out 2>&1
 eval_tap $? 82 'SendChannelChatResponse' test.out
 
 #- 83 SetReadyConsentNotif
 samples/cli/sample-apps --wsModeStandalone \
-    'type: setReadyConsentNotif\nmatchId: BOd58lpq\nuserId: FIRmFmr5' \
+    'type: setReadyConsentNotif\nmatchId: QW2nNpGR\nuserId: SdOcXT7z' \
     > test.out 2>&1
 eval_tap $? 83 'SetReadyConsentNotif' test.out
 
 #- 84 SetReadyConsentRequest
 samples/cli/sample-apps --wsModeStandalone \
-    'type: setReadyConsentRequest\nid: o6uxjifc\nmatchId: 1PeHPC94' \
+    'type: setReadyConsentRequest\nid: fqPVL6fX\nmatchId: 8mKlQHTg' \
     > test.out 2>&1
 eval_tap $? 84 'SetReadyConsentRequest' test.out
 
 #- 85 SetReadyConsentResponse
 samples/cli/sample-apps --wsModeStandalone \
-    'type: setReadyConsentResponse\nid: 6vcX4BHL\ncode: 92' \
+    'type: setReadyConsentResponse\nid: iMlBwpVS\ncode: 71' \
     > test.out 2>&1
 eval_tap $? 85 'SetReadyConsentResponse' test.out
 
 #- 86 SetSessionAttributeRequest
 samples/cli/sample-apps --wsModeStandalone \
-    'type: setSessionAttributeRequest\nid: 1SYvjLYi\nkey: BZ3dQIEY\nnamespace: n9mSWeOL\nvalue: yGrBI8nY' \
+    'type: setSessionAttributeRequest\nid: 4c2Hfpau\nkey: zKiFgG7T\nnamespace: tA4nXBO2\nvalue: fmsFsvR1' \
     > test.out 2>&1
 eval_tap $? 86 'SetSessionAttributeRequest' test.out
 
 #- 87 SetSessionAttributeResponse
 samples/cli/sample-apps --wsModeStandalone \
-    'type: setSessionAttributeResponse\nid: OtYKapLp\ncode: 63' \
+    'type: setSessionAttributeResponse\nid: ZFTiryB1\ncode: 69' \
     > test.out 2>&1
 eval_tap $? 87 'SetSessionAttributeResponse' test.out
 
 #- 88 SetUserStatusRequest
 samples/cli/sample-apps --wsModeStandalone \
-    'type: setUserStatusRequest\nid: XyW18Zbo\nactivity: Hj77pdfD\navailability: 25' \
+    'type: setUserStatusRequest\nid: vkcb9jRg\nactivity: Y2htNv5N\navailability: 1' \
     > test.out 2>&1
 eval_tap $? 88 'SetUserStatusRequest' test.out
 
 #- 89 SetUserStatusResponse
 samples/cli/sample-apps --wsModeStandalone \
-    'type: setUserStatusResponse\nid: GGrxlV7G\ncode: 24' \
+    'type: setUserStatusResponse\nid: LTJVk4vU\ncode: 96' \
     > test.out 2>&1
 eval_tap $? 89 'SetUserStatusResponse' test.out
 
 #- 90 ShutdownNotif
 samples/cli/sample-apps --wsModeStandalone \
-    'type: shutdownNotif\nmessage: 0DgrT6a3' \
+    'type: shutdownNotif\nmessage: BF87ybDS' \
     > test.out 2>&1
 eval_tap $? 90 'ShutdownNotif' test.out
 
 #- 91 SignalingP2PNotif
 samples/cli/sample-apps --wsModeStandalone \
-    'type: signalingP2PNotif\ndestinationId: XcKpI81a\nmessage: BSPC96Ta' \
+    'type: signalingP2PNotif\ndestinationId: KOnUH8To\nmessage: 0zBJEiAD' \
     > test.out 2>&1
 eval_tap $? 91 'SignalingP2PNotif' test.out
 
 #- 92 StartMatchmakingRequest
 samples/cli/sample-apps --wsModeStandalone \
-    'type: startMatchmakingRequest\nid: suQBBsUQ\nextraAttributes: sRu7HI5K\ngameMode: 1SV9gSBc\npartyAttributes: {"hOWruODm":{},"XmefXL7y":{},"H6BhxaUR":{}}\npriority: 55\ntempParty: 9vHL5xPc' \
+    'type: startMatchmakingRequest\nid: JE35VvaC\nextraAttributes: 2UjfLzNL\ngameMode: 7g5c5CpJ\npartyAttributes: {"cxJKffvs":{},"15UbUAFT":{},"ZPtXzCIb":{}}\npriority: 29\ntempParty: tPzIpZdp' \
     > test.out 2>&1
 eval_tap $? 92 'StartMatchmakingRequest' test.out
 
 #- 93 StartMatchmakingResponse
 samples/cli/sample-apps --wsModeStandalone \
-    'type: startMatchmakingResponse\nid: BeG3ybKW\ncode: 67' \
+    'type: startMatchmakingResponse\nid: LZV6I9yF\ncode: 65' \
     > test.out 2>&1
 eval_tap $? 93 'StartMatchmakingResponse' test.out
 
 #- 94 UnblockPlayerNotif
 samples/cli/sample-apps --wsModeStandalone \
-    'type: unblockPlayerNotif\nunblockedUserId: ly22XLub\nuserId: J7wUYgYt' \
+    'type: unblockPlayerNotif\nunblockedUserId: sNpTzllb\nuserId: Omtn3E41' \
     > test.out 2>&1
 eval_tap $? 94 'UnblockPlayerNotif' test.out
 
 #- 95 UnblockPlayerRequest
 samples/cli/sample-apps --wsModeStandalone \
-    'type: unblockPlayerRequest\nid: wkMvGIB7\nnamespace: B3cD7g0W\nunblockedUserId: nnKiwVxE' \
+    'type: unblockPlayerRequest\nid: TVN8tnWr\nnamespace: RZ0P7HRI\nunblockedUserId: 0QTItJKO' \
     > test.out 2>&1
 eval_tap $? 95 'UnblockPlayerRequest' test.out
 
 #- 96 UnblockPlayerResponse
 samples/cli/sample-apps --wsModeStandalone \
-    'type: unblockPlayerResponse\nid: I9WSzg5i\ncode: 59\nnamespace: HquxYwZJ\nunblockedUserId: OwTRfy7c' \
+    'type: unblockPlayerResponse\nid: L1Fm1y30\ncode: 46\nnamespace: 3Q4F4U3k\nunblockedUserId: fr7eTMQ7' \
     > test.out 2>&1
 eval_tap $? 96 'UnblockPlayerResponse' test.out
 
 #- 97 UnfriendNotif
 samples/cli/sample-apps --wsModeStandalone \
-    'type: unfriendNotif\nfriendId: PEoQWwnl' \
+    'type: unfriendNotif\nfriendId: 1loxQpyj' \
     > test.out 2>&1
 eval_tap $? 97 'UnfriendNotif' test.out
 
 #- 98 UnfriendRequest
 samples/cli/sample-apps --wsModeStandalone \
-    'type: unfriendRequest\nid: GDxIDD8d\nfriendId: ktKEszmp' \
+    'type: unfriendRequest\nid: KpwoWKXL\nfriendId: OWllPBAA' \
     > test.out 2>&1
 eval_tap $? 98 'UnfriendRequest' test.out
 
 #- 99 UnfriendResponse
 samples/cli/sample-apps --wsModeStandalone \
-    'type: unfriendResponse\nid: djQsP98J\ncode: 84' \
+    'type: unfriendResponse\nid: bbQZ59cc\ncode: 90' \
     > test.out 2>&1
 eval_tap $? 99 'UnfriendResponse' test.out
 
@@ -648,19 +648,19 @@ eval_tap $? 100 'UserBannedNotification' test.out
 
 #- 101 UserMetricRequest
 samples/cli/sample-apps --wsModeStandalone \
-    'type: userMetricRequest\nid: 2oloOoq8' \
+    'type: userMetricRequest\nid: zwzrpnPd' \
     > test.out 2>&1
 eval_tap $? 101 'UserMetricRequest' test.out
 
 #- 102 UserMetricResponse
 samples/cli/sample-apps --wsModeStandalone \
-    'type: userMetricResponse\nid: 8rxGZQEZ\ncode: 17\nplayerCount: 99' \
+    'type: userMetricResponse\nid: KqdegBmr\ncode: 55\nplayerCount: 92' \
     > test.out 2>&1
 eval_tap $? 102 'UserMetricResponse' test.out
 
 #- 103 UserStatusNotif
 samples/cli/sample-apps --wsModeStandalone \
-    'type: userStatusNotif\nactivity: Ba5cKq9C\navailability: 82\nlastSeenAt: Pj92hAr2\nuserId: rNHgvChG' \
+    'type: userStatusNotif\nactivity: UOS0JYuE\navailability: 21\nlastSeenAt: BB76w25h\nuserId: tdNk5Bwg' \
     > test.out 2>&1
 eval_tap $? 103 'UserStatusNotif' test.out
 
