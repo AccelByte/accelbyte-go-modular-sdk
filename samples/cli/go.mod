@@ -7,6 +7,7 @@ replace (
 	github.com/AccelByte/accelbyte-go-modular-sdk/achievement-sdk => ../../achievement-sdk
 	github.com/AccelByte/accelbyte-go-modular-sdk/ams-sdk => ../../ams-sdk
 	github.com/AccelByte/accelbyte-go-modular-sdk/basic-sdk => ../../basic-sdk
+	github.com/AccelByte/accelbyte-go-modular-sdk/chat-sdk => ../../chat-sdk
 	github.com/AccelByte/accelbyte-go-modular-sdk/cloudsave-sdk => ../../cloudsave-sdk
 	github.com/AccelByte/accelbyte-go-modular-sdk/dslogmanager-sdk => ../../dslogmanager-sdk
 	github.com/AccelByte/accelbyte-go-modular-sdk/dsmc-sdk => ../../dsmc-sdk
@@ -36,6 +37,7 @@ require (
 	github.com/AccelByte/accelbyte-go-modular-sdk/achievement-sdk v0.1.0-alpha.1
 	github.com/AccelByte/accelbyte-go-modular-sdk/ams-sdk v0.1.0-alpha.1
 	github.com/AccelByte/accelbyte-go-modular-sdk/basic-sdk v0.1.0-alpha.1
+	github.com/AccelByte/accelbyte-go-modular-sdk/chat-sdk v0.1.0-alpha.1
 	github.com/AccelByte/accelbyte-go-modular-sdk/cloudsave-sdk v0.1.0-alpha.1
 	github.com/AccelByte/accelbyte-go-modular-sdk/dslogmanager-sdk v0.1.0-alpha.1
 	github.com/AccelByte/accelbyte-go-modular-sdk/dsmc-sdk v0.1.0-alpha.1
