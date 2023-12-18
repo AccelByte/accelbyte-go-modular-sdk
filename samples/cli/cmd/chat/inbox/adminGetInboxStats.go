@@ -8,8 +8,9 @@ package inbox
 
 import (
 	"encoding/json"
-	"github.com/AccelByte/accelbyte-go-modular-sdk/chat-sdk/pkg/chatclient/inbox"
+
 	chat "github.com/AccelByte/accelbyte-go-modular-sdk/chat-sdk/pkg"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/chat-sdk/pkg/chatclient/inbox"
 	"github.com/AccelByte/sample-apps/pkg/repository"
 	"github.com/sirupsen/logrus"
 	"github.com/spf13/cobra"
@@ -17,18 +18,18 @@ import (
 
 // AdminGetInboxStatsCmd represents the AdminGetInboxStats command
 var AdminGetInboxStatsCmd = &cobra.Command{
-	Use:	"adminGetInboxStats",
-	Short:  "Admin get inbox stats",
-	Long:   `Admin get inbox stats`,
+	Use:   "adminGetInboxStats",
+	Short: "Admin get inbox stats",
+	Long:  `Admin get inbox stats`,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		inboxService := &chat.InboxService{
-			Client:		  chat.NewChatClient(&repository.ConfigRepositoryImpl{}),
+			Client:          chat.NewChatClient(&repository.ConfigRepositoryImpl{}),
 			TokenRepository: &repository.TokenRepositoryImpl{},
 		}
 		namespace, _ := cmd.Flags().GetString("namespace")
 		messageIdString := cmd.Flag("messageId").Value.String()
 		var messageId []string
-errMessageId := json.Unmarshal([]byte(messageIdString), &messageId)
+		errMessageId := json.Unmarshal([]byte(messageIdString), &messageId)
 		if errMessageId != nil {
 			return errMessageId
 		}
@@ -36,14 +37,14 @@ errMessageId := json.Unmarshal([]byte(messageIdString), &messageId)
 			Namespace: namespace,
 			MessageID: messageId,
 		}
-ok,errOK := inboxService.AdminGetInboxStatsShort(input)
+		ok, errOK := inboxService.AdminGetInboxStatsShort(input)
 		if errOK != nil {
 			logrus.Error(errOK)
 
 			return errOK
 		}
 
-        logrus.Infof("Response CLI success: %+v", ok)
+		logrus.Infof("Response CLI success: %+v", ok)
 
 		return nil
 	},

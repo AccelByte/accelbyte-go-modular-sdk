@@ -7,8 +7,8 @@
 package inbox
 
 import (
-"github.com/AccelByte/accelbyte-go-modular-sdk/chat-sdk/pkg/chatclient/inbox"
 	chat "github.com/AccelByte/accelbyte-go-modular-sdk/chat-sdk/pkg"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/chat-sdk/pkg/chatclient/inbox"
 	"github.com/AccelByte/sample-apps/pkg/repository"
 	"github.com/sirupsen/logrus"
 	"github.com/spf13/cobra"
@@ -16,28 +16,28 @@ import (
 
 // AdminDeleteInboxCategoryCmd represents the AdminDeleteInboxCategory command
 var AdminDeleteInboxCategoryCmd = &cobra.Command{
-	Use:	"adminDeleteInboxCategory",
-	Short:  "Admin delete inbox category",
-	Long:   `Admin delete inbox category`,
+	Use:   "adminDeleteInboxCategory",
+	Short: "Admin delete inbox category",
+	Long:  `Admin delete inbox category`,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		inboxService := &chat.InboxService{
-			Client:		  chat.NewChatClient(&repository.ConfigRepositoryImpl{}),
+			Client:          chat.NewChatClient(&repository.ConfigRepositoryImpl{}),
 			TokenRepository: &repository.TokenRepositoryImpl{},
 		}
 		category, _ := cmd.Flags().GetString("category")
 		namespace, _ := cmd.Flags().GetString("namespace")
 		input := &inbox.AdminDeleteInboxCategoryParams{
-			Category : category,
+			Category:  category,
 			Namespace: namespace,
 		}
-errOK := inboxService.AdminDeleteInboxCategoryShort(input)
+		errOK := inboxService.AdminDeleteInboxCategoryShort(input)
 		if errOK != nil {
 			logrus.Error(errOK)
 
 			return errOK
 		}
 
-        logrus.Infof("Response CLI success.")
+		logrus.Infof("Response CLI success.")
 
 		return nil
 	},

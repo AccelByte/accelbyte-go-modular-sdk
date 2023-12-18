@@ -7,8 +7,8 @@
 package topic
 
 import (
-"github.com/AccelByte/accelbyte-go-modular-sdk/chat-sdk/pkg/chatclient/topic"
 	chat "github.com/AccelByte/accelbyte-go-modular-sdk/chat-sdk/pkg"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/chat-sdk/pkg/chatclient/topic"
 	"github.com/AccelByte/sample-apps/pkg/repository"
 	"github.com/sirupsen/logrus"
 	"github.com/spf13/cobra"
@@ -16,26 +16,26 @@ import (
 
 // AdminChannelTopicSummaryCmd represents the AdminChannelTopicSummary command
 var AdminChannelTopicSummaryCmd = &cobra.Command{
-	Use:	"adminChannelTopicSummary",
-	Short:  "Admin channel topic summary",
-	Long:   `Admin channel topic summary`,
+	Use:   "adminChannelTopicSummary",
+	Short: "Admin channel topic summary",
+	Long:  `Admin channel topic summary`,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		topicService := &chat.TopicService{
-			Client:		  chat.NewChatClient(&repository.ConfigRepositoryImpl{}),
+			Client:          chat.NewChatClient(&repository.ConfigRepositoryImpl{}),
 			TokenRepository: &repository.TokenRepositoryImpl{},
 		}
 		namespace, _ := cmd.Flags().GetString("namespace")
 		input := &topic.AdminChannelTopicSummaryParams{
 			Namespace: namespace,
 		}
-ok,errOK := topicService.AdminChannelTopicSummaryShort(input)
+		ok, errOK := topicService.AdminChannelTopicSummaryShort(input)
 		if errOK != nil {
 			logrus.Error(errOK)
 
 			return errOK
 		}
 
-        logrus.Infof("Response CLI success: %+v", ok)
+		logrus.Infof("Response CLI success: %+v", ok)
 
 		return nil
 	},

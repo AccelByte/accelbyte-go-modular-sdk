@@ -8,9 +8,10 @@ package inbox
 
 import (
 	"encoding/json"
-"github.com/AccelByte/accelbyte-go-modular-sdk/chat-sdk/pkg/chatclient/inbox"
-	"github.com/AccelByte/accelbyte-go-modular-sdk/chat-sdk/pkg/chatclientmodels"
+
 	chat "github.com/AccelByte/accelbyte-go-modular-sdk/chat-sdk/pkg"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/chat-sdk/pkg/chatclient/inbox"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/chat-sdk/pkg/chatclientmodels"
 	"github.com/AccelByte/sample-apps/pkg/repository"
 	"github.com/sirupsen/logrus"
 	"github.com/spf13/cobra"
@@ -18,35 +19,35 @@ import (
 
 // AdminUpdateInboxCategoryCmd represents the AdminUpdateInboxCategory command
 var AdminUpdateInboxCategoryCmd = &cobra.Command{
-	Use:	"adminUpdateInboxCategory",
-	Short:  "Admin update inbox category",
-	Long:   `Admin update inbox category`,
+	Use:   "adminUpdateInboxCategory",
+	Short: "Admin update inbox category",
+	Long:  `Admin update inbox category`,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		inboxService := &chat.InboxService{
-			Client:		  chat.NewChatClient(&repository.ConfigRepositoryImpl{}),
+			Client:          chat.NewChatClient(&repository.ConfigRepositoryImpl{}),
 			TokenRepository: &repository.TokenRepositoryImpl{},
 		}
 		bodyString := cmd.Flag("body").Value.String()
 		var body *chatclientmodels.ModelsUpdateInboxCategoryRequest
-errBody := json.Unmarshal([]byte(bodyString), &body)
+		errBody := json.Unmarshal([]byte(bodyString), &body)
 		if errBody != nil {
 			return errBody
 		}
 		category, _ := cmd.Flags().GetString("category")
 		namespace, _ := cmd.Flags().GetString("namespace")
 		input := &inbox.AdminUpdateInboxCategoryParams{
-			Body     : body,
-			Category : category,
+			Body:      body,
+			Category:  category,
 			Namespace: namespace,
 		}
-errOK := inboxService.AdminUpdateInboxCategoryShort(input)
+		errOK := inboxService.AdminUpdateInboxCategoryShort(input)
 		if errOK != nil {
 			logrus.Error(errOK)
 
 			return errOK
 		}
 
-        logrus.Infof("Response CLI success.")
+		logrus.Infof("Response CLI success.")
 
 		return nil
 	},

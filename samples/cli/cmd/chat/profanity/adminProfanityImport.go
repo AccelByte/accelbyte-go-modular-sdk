@@ -7,22 +7,23 @@
 package profanity
 
 import (
-"github.com/AccelByte/accelbyte-go-modular-sdk/chat-sdk/pkg/chatclient/profanity"
+	"os"
+
 	chat "github.com/AccelByte/accelbyte-go-modular-sdk/chat-sdk/pkg"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/chat-sdk/pkg/chatclient/profanity"
 	"github.com/AccelByte/sample-apps/pkg/repository"
 	"github.com/sirupsen/logrus"
 	"github.com/spf13/cobra"
-	"os"
 )
 
 // AdminProfanityImportCmd represents the AdminProfanityImport command
 var AdminProfanityImportCmd = &cobra.Command{
-	Use:	"adminProfanityImport",
-	Short:  "Admin profanity import",
-	Long:   `Admin profanity import`,
+	Use:   "adminProfanityImport",
+	Short: "Admin profanity import",
+	Long:  `Admin profanity import`,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		profanityService := &chat.ProfanityService{
-			Client:		  chat.NewChatClient(&repository.ConfigRepositoryImpl{}),
+			Client:          chat.NewChatClient(&repository.ConfigRepositoryImpl{}),
 			TokenRepository: &repository.TokenRepositoryImpl{},
 		}
 		output := cmd.Flag("file").Value.String()
@@ -35,19 +36,19 @@ var AdminProfanityImportCmd = &cobra.Command{
 		action, _ := cmd.Flags().GetString("action")
 		showResult, _ := cmd.Flags().GetBool("showResult")
 		input := &profanity.AdminProfanityImportParams{
-			File      : file,
-			Namespace : namespace,
-			Action    : &action,
+			File:       file,
+			Namespace:  namespace,
+			Action:     &action,
 			ShowResult: &showResult,
 		}
-ok,errOK := profanityService.AdminProfanityImportShort(input)
+		ok, errOK := profanityService.AdminProfanityImportShort(input)
 		if errOK != nil {
 			logrus.Error(errOK)
 
 			return errOK
 		}
 
-        logrus.Infof("Response CLI success: %+v", ok)
+		logrus.Infof("Response CLI success: %+v", ok)
 
 		return nil
 	},

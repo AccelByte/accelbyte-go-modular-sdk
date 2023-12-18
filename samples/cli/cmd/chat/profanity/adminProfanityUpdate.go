@@ -8,9 +8,10 @@ package profanity
 
 import (
 	"encoding/json"
-"github.com/AccelByte/accelbyte-go-modular-sdk/chat-sdk/pkg/chatclient/profanity"
-	"github.com/AccelByte/accelbyte-go-modular-sdk/chat-sdk/pkg/chatclientmodels"
+
 	chat "github.com/AccelByte/accelbyte-go-modular-sdk/chat-sdk/pkg"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/chat-sdk/pkg/chatclient/profanity"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/chat-sdk/pkg/chatclientmodels"
 	"github.com/AccelByte/sample-apps/pkg/repository"
 	"github.com/sirupsen/logrus"
 	"github.com/spf13/cobra"
@@ -18,35 +19,35 @@ import (
 
 // AdminProfanityUpdateCmd represents the AdminProfanityUpdate command
 var AdminProfanityUpdateCmd = &cobra.Command{
-	Use:	"adminProfanityUpdate",
-	Short:  "Admin profanity update",
-	Long:   `Admin profanity update`,
+	Use:   "adminProfanityUpdate",
+	Short: "Admin profanity update",
+	Long:  `Admin profanity update`,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		profanityService := &chat.ProfanityService{
-			Client:		  chat.NewChatClient(&repository.ConfigRepositoryImpl{}),
+			Client:          chat.NewChatClient(&repository.ConfigRepositoryImpl{}),
 			TokenRepository: &repository.TokenRepositoryImpl{},
 		}
 		bodyString := cmd.Flag("body").Value.String()
 		var body *chatclientmodels.ModelsDictionaryUpdateRequest
-errBody := json.Unmarshal([]byte(bodyString), &body)
+		errBody := json.Unmarshal([]byte(bodyString), &body)
 		if errBody != nil {
 			return errBody
 		}
 		id_, _ := cmd.Flags().GetString("id")
 		namespace, _ := cmd.Flags().GetString("namespace")
 		input := &profanity.AdminProfanityUpdateParams{
-			Body     : body,
-			ID       : id_,
+			Body:      body,
+			ID:        id_,
 			Namespace: namespace,
 		}
-ok,errOK := profanityService.AdminProfanityUpdateShort(input)
+		ok, errOK := profanityService.AdminProfanityUpdateShort(input)
 		if errOK != nil {
 			logrus.Error(errOK)
 
 			return errOK
 		}
 
-        logrus.Infof("Response CLI success: %+v", ok)
+		logrus.Infof("Response CLI success: %+v", ok)
 
 		return nil
 	},

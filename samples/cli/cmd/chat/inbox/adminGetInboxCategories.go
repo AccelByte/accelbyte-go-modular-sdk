@@ -7,8 +7,8 @@
 package inbox
 
 import (
-"github.com/AccelByte/accelbyte-go-modular-sdk/chat-sdk/pkg/chatclient/inbox"
 	chat "github.com/AccelByte/accelbyte-go-modular-sdk/chat-sdk/pkg"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/chat-sdk/pkg/chatclient/inbox"
 	"github.com/AccelByte/sample-apps/pkg/repository"
 	"github.com/sirupsen/logrus"
 	"github.com/spf13/cobra"
@@ -16,26 +16,26 @@ import (
 
 // AdminGetInboxCategoriesCmd represents the AdminGetInboxCategories command
 var AdminGetInboxCategoriesCmd = &cobra.Command{
-	Use:	"adminGetInboxCategories",
-	Short:  "Admin get inbox categories",
-	Long:   `Admin get inbox categories`,
+	Use:   "adminGetInboxCategories",
+	Short: "Admin get inbox categories",
+	Long:  `Admin get inbox categories`,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		inboxService := &chat.InboxService{
-			Client:		  chat.NewChatClient(&repository.ConfigRepositoryImpl{}),
+			Client:          chat.NewChatClient(&repository.ConfigRepositoryImpl{}),
 			TokenRepository: &repository.TokenRepositoryImpl{},
 		}
 		namespace, _ := cmd.Flags().GetString("namespace")
 		input := &inbox.AdminGetInboxCategoriesParams{
 			Namespace: namespace,
 		}
-ok,errOK := inboxService.AdminGetInboxCategoriesShort(input)
+		ok, errOK := inboxService.AdminGetInboxCategoriesShort(input)
 		if errOK != nil {
 			logrus.Error(errOK)
 
 			return errOK
 		}
 
-        logrus.Infof("Response CLI success: %+v", ok)
+		logrus.Infof("Response CLI success: %+v", ok)
 
 		return nil
 	},

@@ -7,8 +7,8 @@
 package config
 
 import (
-"github.com/AccelByte/accelbyte-go-modular-sdk/chat-sdk/pkg/chatclient/config"
 	chat "github.com/AccelByte/accelbyte-go-modular-sdk/chat-sdk/pkg"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/chat-sdk/pkg/chatclient/config"
 	"github.com/AccelByte/sample-apps/pkg/repository"
 	"github.com/sirupsen/logrus"
 	"github.com/spf13/cobra"
@@ -16,24 +16,23 @@ import (
 
 // AdminGetAllConfigV1Cmd represents the AdminGetAllConfigV1 command
 var AdminGetAllConfigV1Cmd = &cobra.Command{
-	Use:	"adminGetAllConfigV1",
-	Short:  "Admin get all config V1",
-	Long:   `Admin get all config V1`,
+	Use:   "adminGetAllConfigV1",
+	Short: "Admin get all config V1",
+	Long:  `Admin get all config V1`,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		configService := &chat.ConfigService{
-			Client:		  chat.NewChatClient(&repository.ConfigRepositoryImpl{}),
+			Client:          chat.NewChatClient(&repository.ConfigRepositoryImpl{}),
 			TokenRepository: &repository.TokenRepositoryImpl{},
 		}
-		input := &config.AdminGetAllConfigV1Params{
-		}
-ok,errOK := configService.AdminGetAllConfigV1Short(input)
+		input := &config.AdminGetAllConfigV1Params{}
+		ok, errOK := configService.AdminGetAllConfigV1Short(input)
 		if errOK != nil {
 			logrus.Error(errOK)
 
 			return errOK
 		}
 
-        logrus.Infof("Response CLI success: %+v", ok)
+		logrus.Infof("Response CLI success: %+v", ok)
 
 		return nil
 	},

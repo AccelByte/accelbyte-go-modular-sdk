@@ -7,8 +7,8 @@
 package topic
 
 import (
-"github.com/AccelByte/accelbyte-go-modular-sdk/chat-sdk/pkg/chatclient/topic"
 	chat "github.com/AccelByte/accelbyte-go-modular-sdk/chat-sdk/pkg"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/chat-sdk/pkg/chatclient/topic"
 	"github.com/AccelByte/sample-apps/pkg/repository"
 	"github.com/sirupsen/logrus"
 	"github.com/spf13/cobra"
@@ -16,12 +16,12 @@ import (
 
 // AdminTopicListCmd represents the AdminTopicList command
 var AdminTopicListCmd = &cobra.Command{
-	Use:	"adminTopicList",
-	Short:  "Admin topic list",
-	Long:   `Admin topic list`,
+	Use:   "adminTopicList",
+	Short: "Admin topic list",
+	Long:  `Admin topic list`,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		topicService := &chat.TopicService{
-			Client:		  chat.NewChatClient(&repository.ConfigRepositoryImpl{}),
+			Client:          chat.NewChatClient(&repository.ConfigRepositoryImpl{}),
 			TokenRepository: &repository.TokenRepositoryImpl{},
 		}
 		namespace, _ := cmd.Flags().GetString("namespace")
@@ -30,18 +30,18 @@ var AdminTopicListCmd = &cobra.Command{
 		topicType, _ := cmd.Flags().GetString("topicType")
 		input := &topic.AdminTopicListParams{
 			Namespace: namespace,
-			Limit    : &limit,
-			Offset   : &offset,
+			Limit:     &limit,
+			Offset:    &offset,
 			TopicType: &topicType,
 		}
-ok,errOK := topicService.AdminTopicListShort(input)
+		ok, errOK := topicService.AdminTopicListShort(input)
 		if errOK != nil {
 			logrus.Error(errOK)
 
 			return errOK
 		}
 
-        logrus.Infof("Response CLI success: %+v", ok)
+		logrus.Infof("Response CLI success: %+v", ok)
 
 		return nil
 	},

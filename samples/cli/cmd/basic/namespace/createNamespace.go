@@ -10,7 +10,7 @@ import (
 	"encoding/json"
 
 	basic "github.com/AccelByte/accelbyte-go-modular-sdk/basic-sdk/pkg"
-	namespace_ "github.com/AccelByte/accelbyte-go-modular-sdk/basic-sdk/pkg/basicclient/namespace"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/basic-sdk/pkg/basicclient/namespace"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/basic-sdk/pkg/basicclientmodels"
 	"github.com/AccelByte/sample-apps/pkg/repository"
 	"github.com/sirupsen/logrus"
@@ -33,7 +33,7 @@ var CreateNamespaceCmd = &cobra.Command{
 		if errBody != nil {
 			return errBody
 		}
-		input := &namespace_.CreateNamespaceParams{
+		input := &namespace.CreateNamespaceParams{
 			Body: body,
 		}
 		created, errCreated := namespaceService.CreateNamespaceShort(input)

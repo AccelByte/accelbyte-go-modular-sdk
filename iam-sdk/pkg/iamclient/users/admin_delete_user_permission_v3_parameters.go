@@ -2,7 +2,7 @@
 // This is licensed software from AccelByte Inc, for limitations
 // and restrictions contact your company contract manager.
 
-// Code generated; DO NOT EDIT.
+// Code generated. DO NOT EDIT.
 
 package users
 
@@ -81,7 +81,7 @@ type AdminDeleteUserPermissionV3Params struct {
 	*/
 	Resource string
 	/*UserID
-	  User id
+	  User ID, should follow UUID version 4 without hyphen
 
 	*/
 	UserID string

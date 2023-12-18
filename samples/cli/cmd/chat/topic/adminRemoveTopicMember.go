@@ -7,8 +7,8 @@
 package topic
 
 import (
-	topic_ "github.com/AccelByte/accelbyte-go-modular-sdk/chat-sdk/pkg/chatclient/topic"
 	chat "github.com/AccelByte/accelbyte-go-modular-sdk/chat-sdk/pkg"
+	topic_ "github.com/AccelByte/accelbyte-go-modular-sdk/chat-sdk/pkg/chatclient/topic"
 	"github.com/AccelByte/sample-apps/pkg/repository"
 	"github.com/sirupsen/logrus"
 	"github.com/spf13/cobra"
@@ -16,12 +16,12 @@ import (
 
 // AdminRemoveTopicMemberCmd represents the AdminRemoveTopicMember command
 var AdminRemoveTopicMemberCmd = &cobra.Command{
-	Use:	"adminRemoveTopicMember",
-	Short:  "Admin remove topic member",
-	Long:   `Admin remove topic member`,
+	Use:   "adminRemoveTopicMember",
+	Short: "Admin remove topic member",
+	Long:  `Admin remove topic member`,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		topicService := &chat.TopicService{
-			Client:		  chat.NewChatClient(&repository.ConfigRepositoryImpl{}),
+			Client:          chat.NewChatClient(&repository.ConfigRepositoryImpl{}),
 			TokenRepository: &repository.TokenRepositoryImpl{},
 		}
 		namespace, _ := cmd.Flags().GetString("namespace")
@@ -29,17 +29,17 @@ var AdminRemoveTopicMemberCmd = &cobra.Command{
 		userId, _ := cmd.Flags().GetString("userId")
 		input := &topic_.AdminRemoveTopicMemberParams{
 			Namespace: namespace,
-			Topic    : topic,
-			UserID   : userId,
+			Topic:     topic,
+			UserID:    userId,
 		}
-ok,errOK := topicService.AdminRemoveTopicMemberShort(input)
+		ok, errOK := topicService.AdminRemoveTopicMemberShort(input)
 		if errOK != nil {
 			logrus.Error(errOK)
 
 			return errOK
 		}
 
-        logrus.Infof("Response CLI success: %+v", ok)
+		logrus.Infof("Response CLI success: %+v", ok)
 
 		return nil
 	},

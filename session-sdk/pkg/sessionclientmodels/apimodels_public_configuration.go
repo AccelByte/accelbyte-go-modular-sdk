@@ -2,7 +2,7 @@
 // This is licensed software from AccelByte Inc, for limitations
 // and restrictions contact your company contract manager.
 
-// Code generated; DO NOT EDIT.
+// Code generated. DO NOT EDIT.
 
 package sessionclientmodels
 
@@ -64,6 +64,10 @@ type ApimodelsPublicConfiguration struct {
 	// joinability
 	// Required: true
 	Joinability *string `json:"joinability"`
+
+	// leaderelectiongraceperiod
+	// Format: int32
+	LeaderElectionGracePeriod int32 `json:"leaderElectionGracePeriod,omitempty"`
 
 	// maxactivesession
 	// Format: int32

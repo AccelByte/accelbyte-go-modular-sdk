@@ -1,3 +1,5 @@
+// Code generated. DO NOT EDIT.
+
 module github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/service/session
 
 go 1.18
@@ -7,7 +9,7 @@ replace github.com/AccelByte/accelbyte-go-modular-sdk/session-sdk => ../../../..
 
 require (
 	github.com/AccelByte/accelbyte-go-modular-sdk/services-api v0.1.0-alpha.1
-	github.com/AccelByte/accelbyte-go-modular-sdk/session-sdk v0.1.0-alpha.6
+	github.com/AccelByte/accelbyte-go-modular-sdk/session-sdk v0.0.0
 	github.com/go-openapi/runtime v0.19.29
 )
 

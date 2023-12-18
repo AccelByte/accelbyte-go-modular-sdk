@@ -1,3 +1,5 @@
+// Code generated. DO NOT EDIT.
+
 module github.com/AccelByte/accelbyte-go-modular-sdk/ugc-sdk
 
 go 1.18

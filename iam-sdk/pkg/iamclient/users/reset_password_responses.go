@@ -2,7 +2,7 @@
 // This is licensed software from AccelByte Inc, for limitations
 // and restrictions contact your company contract manager.
 
-// Code generated; DO NOT EDIT.
+// Code generated. DO NOT EDIT.
 
 package users
 
@@ -123,8 +123,8 @@ func NewResetPasswordForbidden() *ResetPasswordForbidden {
 
 /*ResetPasswordForbidden handles this case with default header values.
 
-
- */
+  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>1014021</td><td>verification code expired</td></tr><tr><td>1014019</td><td>verification code already used</td></tr><tr><td>1014020</td><td>verification code invalid</td></tr><tr><td>1014018</td><td>verification code not found</td></tr></table>
+*/
 type ResetPasswordForbidden struct {
 }
 

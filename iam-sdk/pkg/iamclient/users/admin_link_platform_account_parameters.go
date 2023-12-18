@@ -2,7 +2,7 @@
 // This is licensed software from AccelByte Inc, for limitations
 // and restrictions contact your company contract manager.
 
-// Code generated; DO NOT EDIT.
+// Code generated. DO NOT EDIT.
 
 package users
 
@@ -87,18 +87,15 @@ type AdminLinkPlatformAccountParams struct {
 	*/
 	Namespace string
 	/*UserID
-	  User ID
+	  User ID, should follow UUID version 4 without hyphen
 
 	*/
 	UserID string
 	/*SkipConflict
 	    this query is for this case: if target platform account current is linked with another account
-	<ul>
-		<li>true: will unlink from other account and force link to current target ASG account.</li>
-	            	<li>false: will link failed and response conflict details</li>
-	            	<li>empty: default is true</li>
-	<ul>
-
+	- true: will unlink from other account and force link to current target ASG account.
+	- false: will link failed and response conflict details
+	- empty: default is true
 
 	*/
 	SkipConflict *bool

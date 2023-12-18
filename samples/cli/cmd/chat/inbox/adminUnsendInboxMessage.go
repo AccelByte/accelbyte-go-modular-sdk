@@ -8,9 +8,10 @@ package inbox
 
 import (
 	"encoding/json"
+
+	chat "github.com/AccelByte/accelbyte-go-modular-sdk/chat-sdk/pkg"
 	inbox_ "github.com/AccelByte/accelbyte-go-modular-sdk/chat-sdk/pkg/chatclient/inbox"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/chat-sdk/pkg/chatclientmodels"
-	chat "github.com/AccelByte/accelbyte-go-modular-sdk/chat-sdk/pkg"
 	"github.com/AccelByte/sample-apps/pkg/repository"
 	"github.com/sirupsen/logrus"
 	"github.com/spf13/cobra"
@@ -18,35 +19,35 @@ import (
 
 // AdminUnsendInboxMessageCmd represents the AdminUnsendInboxMessage command
 var AdminUnsendInboxMessageCmd = &cobra.Command{
-	Use:	"adminUnsendInboxMessage",
-	Short:  "Admin unsend inbox message",
-	Long:   `Admin unsend inbox message`,
+	Use:   "adminUnsendInboxMessage",
+	Short: "Admin unsend inbox message",
+	Long:  `Admin unsend inbox message`,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		inboxService := &chat.InboxService{
-			Client:		  chat.NewChatClient(&repository.ConfigRepositoryImpl{}),
+			Client:          chat.NewChatClient(&repository.ConfigRepositoryImpl{}),
 			TokenRepository: &repository.TokenRepositoryImpl{},
 		}
 		bodyString := cmd.Flag("body").Value.String()
 		var body *chatclientmodels.ModelsUnsendInboxMessageRequest
-errBody := json.Unmarshal([]byte(bodyString), &body)
+		errBody := json.Unmarshal([]byte(bodyString), &body)
 		if errBody != nil {
 			return errBody
 		}
 		inbox, _ := cmd.Flags().GetString("inbox")
 		namespace, _ := cmd.Flags().GetString("namespace")
 		input := &inbox_.AdminUnsendInboxMessageParams{
-			Body     : body,
-			Inbox    : inbox,
+			Body:      body,
+			Inbox:     inbox,
 			Namespace: namespace,
 		}
-ok,errOK := inboxService.AdminUnsendInboxMessageShort(input)
+		ok, errOK := inboxService.AdminUnsendInboxMessageShort(input)
 		if errOK != nil {
 			logrus.Error(errOK)
 
 			return errOK
 		}
 
-        logrus.Infof("Response CLI success: %+v", ok)
+		logrus.Infof("Response CLI success: %+v", ok)
 
 		return nil
 	},

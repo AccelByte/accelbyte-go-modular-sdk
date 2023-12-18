@@ -7,8 +7,8 @@
 package topic
 
 import (
-"github.com/AccelByte/accelbyte-go-modular-sdk/chat-sdk/pkg/chatclient/topic"
 	chat "github.com/AccelByte/accelbyte-go-modular-sdk/chat-sdk/pkg"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/chat-sdk/pkg/chatclient/topic"
 	"github.com/AccelByte/sample-apps/pkg/repository"
 	"github.com/sirupsen/logrus"
 	"github.com/spf13/cobra"
@@ -16,12 +16,12 @@ import (
 
 // AdminQueryUsersTopicCmd represents the AdminQueryUsersTopic command
 var AdminQueryUsersTopicCmd = &cobra.Command{
-	Use:	"adminQueryUsersTopic",
-	Short:  "Admin query users topic",
-	Long:   `Admin query users topic`,
+	Use:   "adminQueryUsersTopic",
+	Short: "Admin query users topic",
+	Long:  `Admin query users topic`,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		topicService := &chat.TopicService{
-			Client:		  chat.NewChatClient(&repository.ConfigRepositoryImpl{}),
+			Client:          chat.NewChatClient(&repository.ConfigRepositoryImpl{}),
 			TokenRepository: &repository.TokenRepositoryImpl{},
 		}
 		namespace, _ := cmd.Flags().GetString("namespace")
@@ -32,22 +32,22 @@ var AdminQueryUsersTopicCmd = &cobra.Command{
 		topicSubType, _ := cmd.Flags().GetString("topicSubType")
 		topicType, _ := cmd.Flags().GetString("topicType")
 		input := &topic.AdminQueryUsersTopicParams{
-			Namespace        : namespace,
-			UserID           : userId,
+			Namespace:         namespace,
+			UserID:            userId,
 			IncludePastTopics: &includePastTopics,
-			Limit            : &limit,
-			Offset           : &offset,
-			TopicSubType     : &topicSubType,
-			TopicType        : &topicType,
+			Limit:             &limit,
+			Offset:            &offset,
+			TopicSubType:      &topicSubType,
+			TopicType:         &topicType,
 		}
-ok,errOK := topicService.AdminQueryUsersTopicShort(input)
+		ok, errOK := topicService.AdminQueryUsersTopicShort(input)
 		if errOK != nil {
 			logrus.Error(errOK)
 
 			return errOK
 		}
 
-        logrus.Infof("Response CLI success: %+v", ok)
+		logrus.Infof("Response CLI success: %+v", ok)
 
 		return nil
 	},

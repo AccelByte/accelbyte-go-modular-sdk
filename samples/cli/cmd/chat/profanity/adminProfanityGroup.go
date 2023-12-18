@@ -7,8 +7,8 @@
 package profanity
 
 import (
-"github.com/AccelByte/accelbyte-go-modular-sdk/chat-sdk/pkg/chatclient/profanity"
 	chat "github.com/AccelByte/accelbyte-go-modular-sdk/chat-sdk/pkg"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/chat-sdk/pkg/chatclient/profanity"
 	"github.com/AccelByte/sample-apps/pkg/repository"
 	"github.com/sirupsen/logrus"
 	"github.com/spf13/cobra"
@@ -16,12 +16,12 @@ import (
 
 // AdminProfanityGroupCmd represents the AdminProfanityGroup command
 var AdminProfanityGroupCmd = &cobra.Command{
-	Use:	"adminProfanityGroup",
-	Short:  "Admin profanity group",
-	Long:   `Admin profanity group`,
+	Use:   "adminProfanityGroup",
+	Short: "Admin profanity group",
+	Long:  `Admin profanity group`,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		profanityService := &chat.ProfanityService{
-			Client:		  chat.NewChatClient(&repository.ConfigRepositoryImpl{}),
+			Client:          chat.NewChatClient(&repository.ConfigRepositoryImpl{}),
 			TokenRepository: &repository.TokenRepositoryImpl{},
 		}
 		namespace, _ := cmd.Flags().GetString("namespace")
@@ -29,17 +29,17 @@ var AdminProfanityGroupCmd = &cobra.Command{
 		offset, _ := cmd.Flags().GetInt64("offset")
 		input := &profanity.AdminProfanityGroupParams{
 			Namespace: namespace,
-			Limit    : &limit,
-			Offset   : &offset,
+			Limit:     &limit,
+			Offset:    &offset,
 		}
-ok,errOK := profanityService.AdminProfanityGroupShort(input)
+		ok, errOK := profanityService.AdminProfanityGroupShort(input)
 		if errOK != nil {
 			logrus.Error(errOK)
 
 			return errOK
 		}
 
-        logrus.Infof("Response CLI success: %+v", ok)
+		logrus.Infof("Response CLI success: %+v", ok)
 
 		return nil
 	},

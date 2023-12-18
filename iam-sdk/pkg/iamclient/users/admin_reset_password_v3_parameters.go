@@ -2,7 +2,7 @@
 // This is licensed software from AccelByte Inc, for limitations
 // and restrictions contact your company contract manager.
 
-// Code generated; DO NOT EDIT.
+// Code generated. DO NOT EDIT.
 
 package users
 
@@ -74,7 +74,7 @@ type AdminResetPasswordV3Params struct {
 	*/
 	Namespace string
 	/*UserID
-	  User ID
+	  User ID, should follow UUID version 4 without hyphen
 
 	*/
 	UserID string

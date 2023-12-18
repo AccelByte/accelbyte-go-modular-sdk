@@ -8,9 +8,10 @@ package topic
 
 import (
 	"encoding/json"
+
+	chat "github.com/AccelByte/accelbyte-go-modular-sdk/chat-sdk/pkg"
 	topic_ "github.com/AccelByte/accelbyte-go-modular-sdk/chat-sdk/pkg/chatclient/topic"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/chat-sdk/pkg/chatclientmodels"
-	chat "github.com/AccelByte/accelbyte-go-modular-sdk/chat-sdk/pkg"
 	"github.com/AccelByte/sample-apps/pkg/repository"
 	"github.com/sirupsen/logrus"
 	"github.com/spf13/cobra"
@@ -18,17 +19,17 @@ import (
 
 // AdminAddTopicMemberCmd represents the AdminAddTopicMember command
 var AdminAddTopicMemberCmd = &cobra.Command{
-	Use:	"adminAddTopicMember",
-	Short:  "Admin add topic member",
-	Long:   `Admin add topic member`,
+	Use:   "adminAddTopicMember",
+	Short: "Admin add topic member",
+	Long:  `Admin add topic member`,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		topicService := &chat.TopicService{
-			Client:		  chat.NewChatClient(&repository.ConfigRepositoryImpl{}),
+			Client:          chat.NewChatClient(&repository.ConfigRepositoryImpl{}),
 			TokenRepository: &repository.TokenRepositoryImpl{},
 		}
 		bodyString := cmd.Flag("body").Value.String()
 		var body *chatclientmodels.APIAddMemberParams
-errBody := json.Unmarshal([]byte(bodyString), &body)
+		errBody := json.Unmarshal([]byte(bodyString), &body)
 		if errBody != nil {
 			return errBody
 		}
@@ -36,19 +37,19 @@ errBody := json.Unmarshal([]byte(bodyString), &body)
 		topic, _ := cmd.Flags().GetString("topic")
 		userId, _ := cmd.Flags().GetString("userId")
 		input := &topic_.AdminAddTopicMemberParams{
-			Body     : body,
+			Body:      body,
 			Namespace: namespace,
-			Topic    : topic,
-			UserID   : userId,
+			Topic:     topic,
+			UserID:    userId,
 		}
-ok,errOK := topicService.AdminAddTopicMemberShort(input)
+		ok, errOK := topicService.AdminAddTopicMemberShort(input)
 		if errOK != nil {
 			logrus.Error(errOK)
 
 			return errOK
 		}
 
-        logrus.Infof("Response CLI success: %+v", ok)
+		logrus.Infof("Response CLI success: %+v", ok)
 
 		return nil
 	},

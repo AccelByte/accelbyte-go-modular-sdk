@@ -7,8 +7,8 @@
 package topic
 
 import (
-	topic_ "github.com/AccelByte/accelbyte-go-modular-sdk/chat-sdk/pkg/chatclient/topic"
 	chat "github.com/AccelByte/accelbyte-go-modular-sdk/chat-sdk/pkg"
+	topic_ "github.com/AccelByte/accelbyte-go-modular-sdk/chat-sdk/pkg/chatclient/topic"
 	"github.com/AccelByte/sample-apps/pkg/repository"
 	"github.com/sirupsen/logrus"
 	"github.com/spf13/cobra"
@@ -16,28 +16,28 @@ import (
 
 // AdminTopicShardsCmd represents the AdminTopicShards command
 var AdminTopicShardsCmd = &cobra.Command{
-	Use:	"adminTopicShards",
-	Short:  "Admin topic shards",
-	Long:   `Admin topic shards`,
+	Use:   "adminTopicShards",
+	Short: "Admin topic shards",
+	Long:  `Admin topic shards`,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		topicService := &chat.TopicService{
-			Client:		  chat.NewChatClient(&repository.ConfigRepositoryImpl{}),
+			Client:          chat.NewChatClient(&repository.ConfigRepositoryImpl{}),
 			TokenRepository: &repository.TokenRepositoryImpl{},
 		}
 		namespace, _ := cmd.Flags().GetString("namespace")
 		topic, _ := cmd.Flags().GetString("topic")
 		input := &topic_.AdminTopicShardsParams{
 			Namespace: namespace,
-			Topic    : topic,
+			Topic:     topic,
 		}
-ok,errOK := topicService.AdminTopicShardsShort(input)
+		ok, errOK := topicService.AdminTopicShardsShort(input)
 		if errOK != nil {
 			logrus.Error(errOK)
 
 			return errOK
 		}
 
-        logrus.Infof("Response CLI success: %+v", ok)
+		logrus.Infof("Response CLI success: %+v", ok)
 
 		return nil
 	},

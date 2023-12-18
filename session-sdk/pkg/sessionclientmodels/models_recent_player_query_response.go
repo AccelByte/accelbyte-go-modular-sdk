@@ -2,9 +2,9 @@
 // This is licensed software from AccelByte Inc, for limitations
 // and restrictions contact your company contract manager.
 
-// Code generated; DO NOT EDIT.
+// Code generated. DO NOT EDIT.
 
-package platformclientmodels
+package sessionclientmodels
 
 import (
 	"strconv"
@@ -15,21 +15,18 @@ import (
 	"github.com/go-openapi/validate"
 )
 
-// CatalogChangePagingSlicedResult Catalog change paging sliced result
+// ModelsRecentPlayerQueryResponse Models recent player query response
 //
-// swagger:model Catalog change paging sliced result.
-type CatalogChangePagingSlicedResult struct {
+// swagger:model Models recent player query response.
+type ModelsRecentPlayerQueryResponse struct {
 
 	// data
 	// Required: true
-	Data []*CatalogChangeInfo `json:"data"`
-
-	// paging
-	Paging *Paging `json:"paging,omitempty"`
+	Data []*ModelsUserInfo `json:"data"`
 }
 
-// Validate validates this Catalog change paging sliced result
-func (m *CatalogChangePagingSlicedResult) Validate(formats strfmt.Registry) error {
+// Validate validates this Models recent player query response
+func (m *ModelsRecentPlayerQueryResponse) Validate(formats strfmt.Registry) error {
 	var res []error
 
 	if err := m.validateData(formats); err != nil {
@@ -42,7 +39,7 @@ func (m *CatalogChangePagingSlicedResult) Validate(formats strfmt.Registry) erro
 	return nil
 }
 
-func (m *CatalogChangePagingSlicedResult) validateData(formats strfmt.Registry) error {
+func (m *ModelsRecentPlayerQueryResponse) validateData(formats strfmt.Registry) error {
 
 	if err := validate.Required("data", "body", m.Data); err != nil {
 		return err
@@ -68,7 +65,7 @@ func (m *CatalogChangePagingSlicedResult) validateData(formats strfmt.Registry) 
 }
 
 // MarshalBinary interface implementation
-func (m *CatalogChangePagingSlicedResult) MarshalBinary() ([]byte, error) {
+func (m *ModelsRecentPlayerQueryResponse) MarshalBinary() ([]byte, error) {
 	if m == nil {
 		return nil, nil
 	}
@@ -76,8 +73,8 @@ func (m *CatalogChangePagingSlicedResult) MarshalBinary() ([]byte, error) {
 }
 
 // UnmarshalBinary interface implementation
-func (m *CatalogChangePagingSlicedResult) UnmarshalBinary(b []byte) error {
-	var res CatalogChangePagingSlicedResult
+func (m *ModelsRecentPlayerQueryResponse) UnmarshalBinary(b []byte) error {
+	var res ModelsRecentPlayerQueryResponse
 	if err := swag.ReadJSON(b, &res); err != nil {
 		return err
 	}

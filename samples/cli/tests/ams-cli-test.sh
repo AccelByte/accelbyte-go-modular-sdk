@@ -32,7 +32,7 @@ eval_tap() {
 }
 
 echo "TAP version 13"
-echo "1..30"
+echo "1..35"
 
 #- 1 Login
 samples/cli/sample-apps login \
@@ -67,7 +67,7 @@ eval_tap $? 4 'AccountGet' test.out
 #- 5 AccountCreate
 samples/cli/sample-apps Ams accountCreate \
     --namespace $AB_NAMESPACE \
-    --body '{"name": "so1iQdfx"}' \
+    --body '{"name": "iY18yM4R"}' \
     > test.out 2>&1
 eval_tap $? 5 'AccountCreate' test.out
 
@@ -80,173 +80,216 @@ eval_tap $? 6 'AccountLinkTokenGet' test.out
 #- 7 AccountLink
 samples/cli/sample-apps Ams accountLink \
     --namespace $AB_NAMESPACE \
-    --body '{"token": "xN9g90uj"}' \
+    --body '{"token": "eOneknvz"}' \
     > test.out 2>&1
 eval_tap $? 7 'AccountLink' test.out
 
-#- 8 FleetList
+#- 8 ArtifactGet
+samples/cli/sample-apps Ams artifactGet \
+    --namespace $AB_NAMESPACE \
+    --artifactType 'QKKJUXL9' \
+    --endDate '1VXzKDcR' \
+    --fleetID 'M82I3FkV' \
+    --imageID 'Zbg4zAyB' \
+    --maxSize '77' \
+    --minSize '83' \
+    --region '2XZuPLXS' \
+    --startDate '2rSkipWS' \
+    --status '3ypMEQko' \
+    > test.out 2>&1
+eval_tap $? 8 'ArtifactGet' test.out
+
+#- 9 ArtifactUsageGet
+samples/cli/sample-apps Ams artifactUsageGet \
+    --namespace $AB_NAMESPACE \
+    > test.out 2>&1
+eval_tap $? 9 'ArtifactUsageGet' test.out
+
+#- 10 ArtifactDelete
+samples/cli/sample-apps Ams artifactDelete \
+    --artifactID 'CXjka1HS' \
+    --namespace $AB_NAMESPACE \
+    > test.out 2>&1
+eval_tap $? 10 'ArtifactDelete' test.out
+
+#- 11 ArtifactGetURL
+samples/cli/sample-apps Ams artifactGetURL \
+    --artifactID 'Veq4PoUT' \
+    --namespace $AB_NAMESPACE \
+    > test.out 2>&1
+eval_tap $? 11 'ArtifactGetURL' test.out
+
+#- 12 FleetList
 samples/cli/sample-apps Ams fleetList \
     --namespace $AB_NAMESPACE \
     > test.out 2>&1
-eval_tap $? 8 'FleetList' test.out
+eval_tap $? 12 'FleetList' test.out
 
-#- 9 FleetCreate
+#- 13 FleetCreate
 samples/cli/sample-apps Ams fleetCreate \
     --namespace $AB_NAMESPACE \
-    --body '{"active": false, "claimKeys": ["td7zZwK4", "Z1Js3HXt", "sF3DSkSb"], "dsHostConfiguration": {"instanceId": "L0jxPScV", "instanceType": "CPBFTnkS", "serversPerVm": 0}, "imageDeploymentProfile": {"commandLine": "0EK7lXZK", "imageId": "EEwjBJPQ", "portConfigurations": [{"name": "Q8rd2BSJ", "protocol": "62CILLdS"}, {"name": "5LagQw3G", "protocol": "C71Ih77b"}, {"name": "9yI66WHN", "protocol": "Mh6O1sqC"}], "timeout": {"creation": 27, "drain": 62, "session": 32, "unresponsive": 98}}, "name": "xSI8n7W4", "regions": [{"bufferSize": 82, "maxServerCount": 16, "minServerCount": 42, "region": "HaDD14oS"}, {"bufferSize": 55, "maxServerCount": 23, "minServerCount": 35, "region": "aJlZXEIx"}, {"bufferSize": 88, "maxServerCount": 16, "minServerCount": 53, "region": "iSEDkNSt"}]}' \
+    --body '{"active": false, "claimKeys": ["bnbpMF8m", "0tTWnYde", "JNTm4yXI"], "dsHostConfiguration": {"instanceId": "Y5hzMWeI", "instanceType": "EbpVjdQL", "serversPerVm": 90}, "imageDeploymentProfile": {"commandLine": "RA2QyXxt", "imageId": "hRALZhMi", "portConfigurations": [{"name": "ZMPx2smn", "protocol": "V3o7DKSN"}, {"name": "ykTn5r2P", "protocol": "ikpU7STU"}, {"name": "fhih6BaJ", "protocol": "jiJVXb0R"}], "timeout": {"creation": 14, "drain": 10, "session": 18, "unresponsive": 86}}, "name": "B3ijiVxa", "regions": [{"bufferSize": 70, "maxServerCount": 98, "minServerCount": 86, "region": "wReTpXuB"}, {"bufferSize": 37, "maxServerCount": 28, "minServerCount": 13, "region": "aeNQzGGh"}, {"bufferSize": 53, "maxServerCount": 80, "minServerCount": 49, "region": "Ut1EqJfV"}], "samplingRules": {"coredumps": {"crashed": {"collect": false, "percentage": 12}, "success": {"collect": true, "percentage": 91}}, "logs": {"crashed": {"collect": false, "percentage": 47}, "success": {"collect": true, "percentage": 76}}}}' \
     > test.out 2>&1
-eval_tap $? 9 'FleetCreate' test.out
+eval_tap $? 13 'FleetCreate' test.out
 
-#- 10 FleetGet
+#- 14 FleetGet
 samples/cli/sample-apps Ams fleetGet \
-    --fleetID '9ziTLzei' \
+    --fleetID 'GdDD9YfA' \
     --namespace $AB_NAMESPACE \
     > test.out 2>&1
-eval_tap $? 10 'FleetGet' test.out
+eval_tap $? 14 'FleetGet' test.out
 
-#- 11 FleetUpdate
+#- 15 FleetUpdate
 samples/cli/sample-apps Ams fleetUpdate \
-    --fleetID 'w0iF328B' \
+    --fleetID 'diFafe3c' \
     --namespace $AB_NAMESPACE \
-    --body '{"active": false, "claimKeys": ["DarQB6tQ", "Mmg8FVN9", "GwmLbB2Z"], "dsHostConfiguration": {"instanceId": "Azjkw5lg", "instanceType": "dHhQ6n58", "serversPerVm": 91}, "imageDeploymentProfile": {"commandLine": "7UftJnxP", "imageId": "VgDBVkpH", "portConfigurations": [{"name": "NzMU6xnY", "protocol": "hXfSXvF5"}, {"name": "5PydI4H6", "protocol": "28t7Gg4L"}, {"name": "MtcR0evS", "protocol": "w5Tnu88x"}], "timeout": {"creation": 71, "drain": 33, "session": 49, "unresponsive": 32}}, "name": "iWiNSeC8", "regions": [{"bufferSize": 66, "maxServerCount": 42, "minServerCount": 16, "region": "oOBRPT37"}, {"bufferSize": 95, "maxServerCount": 51, "minServerCount": 9, "region": "5dQNUjhF"}, {"bufferSize": 11, "maxServerCount": 100, "minServerCount": 84, "region": "5SDgkEhG"}]}' \
+    --body '{"active": true, "claimKeys": ["DMUvoBVM", "ynv6zYcw", "8yyKfdrw"], "dsHostConfiguration": {"instanceId": "XwYXpTyR", "instanceType": "Yn1p9XIT", "serversPerVm": 56}, "imageDeploymentProfile": {"commandLine": "0CXV6Czx", "imageId": "zVAD33kr", "portConfigurations": [{"name": "6qekQUSs", "protocol": "KMd0wypq"}, {"name": "dmNc3GYZ", "protocol": "yXf3E2Dq"}, {"name": "il8PomFu", "protocol": "QTSoSmiD"}], "timeout": {"creation": 43, "drain": 45, "session": 47, "unresponsive": 47}}, "name": "48vxsjuH", "regions": [{"bufferSize": 19, "maxServerCount": 70, "minServerCount": 24, "region": "8tAdHBbL"}, {"bufferSize": 24, "maxServerCount": 80, "minServerCount": 7, "region": "x4DzYV9o"}, {"bufferSize": 44, "maxServerCount": 9, "minServerCount": 58, "region": "msWUoKyu"}], "samplingRules": {"coredumps": {"crashed": {"collect": true, "percentage": 83}, "success": {"collect": true, "percentage": 50}}, "logs": {"crashed": {"collect": true, "percentage": 18}, "success": {"collect": true, "percentage": 0}}}}' \
     > test.out 2>&1
-eval_tap $? 11 'FleetUpdate' test.out
+eval_tap $? 15 'FleetUpdate' test.out
 
-#- 12 FleetDelete
+#- 16 FleetDelete
 samples/cli/sample-apps Ams fleetDelete \
-    --fleetID 'kSjqslml' \
+    --fleetID '4V48dPwN' \
     --namespace $AB_NAMESPACE \
     > test.out 2>&1
-eval_tap $? 12 'FleetDelete' test.out
+eval_tap $? 16 'FleetDelete' test.out
 
-#- 13 FleetArtifactSamplingRulesGet
+#- 17 FleetArtifactSamplingRulesGet
 samples/cli/sample-apps Ams fleetArtifactSamplingRulesGet \
-    --fleetID 'cehW5IOY' \
+    --fleetID '8NtUR18G' \
     --namespace $AB_NAMESPACE \
     > test.out 2>&1
-eval_tap $? 13 'FleetArtifactSamplingRulesGet' test.out
+eval_tap $? 17 'FleetArtifactSamplingRulesGet' test.out
 
-#- 14 FleetServers
+#- 18 FleetArtifactSamplingRulesSet
+samples/cli/sample-apps Ams fleetArtifactSamplingRulesSet \
+    --fleetID 'dyXlwTHK' \
+    --namespace $AB_NAMESPACE \
+    --body '{"coredumps": {"crashed": {"collect": true, "percentage": 21}, "success": {"collect": false, "percentage": 25}}, "logs": {"crashed": {"collect": true, "percentage": 96}, "success": {"collect": true, "percentage": 13}}}' \
+    > test.out 2>&1
+eval_tap $? 18 'FleetArtifactSamplingRulesSet' test.out
+
+#- 19 FleetServers
 samples/cli/sample-apps Ams fleetServers \
-    --fleetID '7jB0vmM0' \
+    --fleetID 'YiU1DqQh' \
     --namespace $AB_NAMESPACE \
     > test.out 2>&1
-eval_tap $? 14 'FleetServers' test.out
+eval_tap $? 19 'FleetServers' test.out
 
-#- 15 FleetServerHistory
+#- 20 FleetServerHistory
 samples/cli/sample-apps Ams fleetServerHistory \
-    --fleetID 'vlvcipxQ' \
+    --fleetID 'zhYACYoa' \
     --namespace $AB_NAMESPACE \
-    --count '72' \
-    --offset '61' \
-    --reason 'ihQZMCNZ' \
-    --region 'eWNZIoLi' \
-    --serverId '289igU5f' \
-    --sortDirection 'TJOFvYzN' \
-    --status 'Ckuuk89L' \
+    --count '28' \
+    --offset '16' \
+    --reason 'l3DIfgKs' \
+    --region 'YfgRJ6yM' \
+    --serverId 'rw1l5IeZ' \
+    --sortDirection 'oo2RXlbb' \
+    --status 'zciXAbFB' \
     > test.out 2>&1
-eval_tap $? 15 'FleetServerHistory' test.out
+eval_tap $? 20 'FleetServerHistory' test.out
 
-#- 16 ImageList
+#- 21 ImageList
 samples/cli/sample-apps Ams imageList \
     --namespace $AB_NAMESPACE \
     > test.out 2>&1
-eval_tap $? 16 'ImageList' test.out
+eval_tap $? 21 'ImageList' test.out
 
-#- 17 ImageGet
+#- 22 ImageGet
 samples/cli/sample-apps Ams imageGet \
-    --imageID 'm4GKODvz' \
+    --imageID 'eRZRBr2i' \
     --namespace $AB_NAMESPACE \
     > test.out 2>&1
-eval_tap $? 17 'ImageGet' test.out
+eval_tap $? 22 'ImageGet' test.out
 
-#- 18 ImagePatch
+#- 23 ImagePatch
 samples/cli/sample-apps Ams imagePatch \
-    --imageID 'qycHIUi0' \
+    --imageID 's0nHLVk8' \
     --namespace $AB_NAMESPACE \
-    --body '{"addedTags": ["M1m7nn8h", "O520qQUq", "rejoY3A9"], "isProtected": false, "name": "977wgeUo", "removedTags": ["6rR9r8Zt", "ece6Y200", "EfwUUKmK"]}' \
+    --body '{"addedTags": ["dHyANKub", "sfb3zp4g", "SvFybJzl"], "isProtected": false, "name": "qxmOWO5S", "removedTags": ["aNl69vWF", "1RBWmzgb", "Q2VcTenM"]}' \
     > test.out 2>&1
-eval_tap $? 18 'ImagePatch' test.out
+eval_tap $? 23 'ImagePatch' test.out
 
-#- 19 QoSRegionsUpdate
+#- 24 QoSRegionsGet
+samples/cli/sample-apps Ams qoSRegionsGet \
+    --namespace $AB_NAMESPACE \
+    --status 'MSV4gEA2' \
+    > test.out 2>&1
+eval_tap $? 24 'QoSRegionsGet' test.out
+
+#- 25 QoSRegionsUpdate
 samples/cli/sample-apps Ams qoSRegionsUpdate \
     --namespace $AB_NAMESPACE \
-    --region 'AKjMPUuQ' \
-    --body '{"status": "pi1XmIZT"}' \
+    --region 'k0Dmg8qK' \
+    --body '{"status": "Ca2HNQmy"}' \
     > test.out 2>&1
-eval_tap $? 19 'QoSRegionsUpdate' test.out
+eval_tap $? 25 'QoSRegionsUpdate' test.out
 
-#- 20 InfoRegions
+#- 26 InfoRegions
 samples/cli/sample-apps Ams infoRegions \
     --namespace $AB_NAMESPACE \
     > test.out 2>&1
-eval_tap $? 20 'InfoRegions' test.out
+eval_tap $? 26 'InfoRegions' test.out
 
-#- 21 FleetServerInfo
+#- 27 FleetServerInfo
 samples/cli/sample-apps Ams fleetServerInfo \
     --namespace $AB_NAMESPACE \
-    --serverID '34U16FQm' \
+    --serverID 'n4OMXyVd' \
     > test.out 2>&1
-eval_tap $? 21 'FleetServerInfo' test.out
+eval_tap $? 27 'FleetServerInfo' test.out
 
-#- 22 ServerHistory
+#- 28 ServerHistory
 samples/cli/sample-apps Ams serverHistory \
     --namespace $AB_NAMESPACE \
-    --serverID 'fHNIl8XR' \
+    --serverID '2HrIKe2U' \
     > test.out 2>&1
-eval_tap $? 22 'ServerHistory' test.out
+eval_tap $? 28 'ServerHistory' test.out
 
-#- 23 InfoSupportedInstances
+#- 29 InfoSupportedInstances
 samples/cli/sample-apps Ams infoSupportedInstances \
     --namespace $AB_NAMESPACE \
     > test.out 2>&1
-eval_tap $? 23 'InfoSupportedInstances' test.out
+eval_tap $? 29 'InfoSupportedInstances' test.out
 
-#- 24 FleetClaimByID
+#- 30 FleetClaimByID
 samples/cli/sample-apps Ams fleetClaimByID \
-    --fleetID 'gSBN0UGP' \
+    --fleetID 'XJKm9sAN' \
     --namespace $AB_NAMESPACE \
-    --body '{"region": "lWSuPwYT"}' \
+    --body '{"region": "VbQoJerf"}' \
     > test.out 2>&1
-eval_tap $? 24 'FleetClaimByID' test.out
+eval_tap $? 30 'FleetClaimByID' test.out
 
-#- 25 LocalWatchdogConnect
+#- 31 LocalWatchdogConnect
 samples/cli/sample-apps Ams localWatchdogConnect \
     --namespace $AB_NAMESPACE \
-    --watchdogID '44IRtj5L' \
+    --watchdogID 'IP16Ty85' \
     > test.out 2>&1
-eval_tap $? 25 'LocalWatchdogConnect' test.out
+eval_tap $? 31 'LocalWatchdogConnect' test.out
 
-#- 26 QoSRegionsGet
-samples/cli/sample-apps Ams qoSRegionsGet \
-    --namespace $AB_NAMESPACE \
-    --status 'mNfww3qn' \
-    > test.out 2>&1
-eval_tap $? 26 'QoSRegionsGet' test.out
-
-#- 27 FleetClaimByKeys
+#- 32 FleetClaimByKeys
 samples/cli/sample-apps Ams fleetClaimByKeys \
     --namespace $AB_NAMESPACE \
-    --body '{"claimKeys": ["XVg5Kw0u", "FoSOB15g", "aRzoHtSy"], "regions": ["CJ32Ho1c", "oxHgz4Mj", "oocYmcMv"]}' \
+    --body '{"claimKeys": ["VnIkMJuo", "wRCDtX4q", "nVjGrRaW"], "regions": ["gLb6pUtC", "gqUlXNjU", "fj9ddVV9"]}' \
     > test.out 2>&1
-eval_tap $? 27 'FleetClaimByKeys' test.out
+eval_tap $? 32 'FleetClaimByKeys' test.out
 
-#- 28 WatchdogConnect
+#- 33 WatchdogConnect
 samples/cli/sample-apps Ams watchdogConnect \
     --namespace $AB_NAMESPACE \
-    --watchdogID 'xGHecGKb' \
+    --watchdogID 'XjURY4xW' \
     > test.out 2>&1
-eval_tap $? 28 'WatchdogConnect' test.out
+eval_tap $? 33 'WatchdogConnect' test.out
 
-#- 29 Func1
+#- 34 Func1
 samples/cli/sample-apps Ams func1 \
     > test.out 2>&1
-eval_tap $? 29 'Func1' test.out
+eval_tap $? 34 'Func1' test.out
 
-#- 30 BasicHealthCheck
+#- 35 BasicHealthCheck
 samples/cli/sample-apps Ams basicHealthCheck \
     > test.out 2>&1
-eval_tap $? 30 'BasicHealthCheck' test.out
+eval_tap $? 35 'BasicHealthCheck' test.out
 
 
 rm -f "tmp.dat"

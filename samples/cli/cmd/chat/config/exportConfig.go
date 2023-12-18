@@ -7,8 +7,8 @@
 package config
 
 import (
-"github.com/AccelByte/accelbyte-go-modular-sdk/chat-sdk/pkg/chatclient/config"
 	chat "github.com/AccelByte/accelbyte-go-modular-sdk/chat-sdk/pkg"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/chat-sdk/pkg/chatclient/config"
 	"github.com/AccelByte/sample-apps/pkg/repository"
 	"github.com/sirupsen/logrus"
 	"github.com/spf13/cobra"
@@ -16,26 +16,26 @@ import (
 
 // ExportConfigCmd represents the ExportConfig command
 var ExportConfigCmd = &cobra.Command{
-	Use:	"exportConfig",
-	Short:  "Export config",
-	Long:   `Export config`,
+	Use:   "exportConfig",
+	Short: "Export config",
+	Long:  `Export config`,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		configService := &chat.ConfigService{
-			Client:		  chat.NewChatClient(&repository.ConfigRepositoryImpl{}),
+			Client:          chat.NewChatClient(&repository.ConfigRepositoryImpl{}),
 			TokenRepository: &repository.TokenRepositoryImpl{},
 		}
 		namespace, _ := cmd.Flags().GetString("namespace")
 		input := &config.ExportConfigParams{
 			Namespace: namespace,
 		}
-ok,errOK := configService.ExportConfigShort(input)
+		ok, errOK := configService.ExportConfigShort(input)
 		if errOK != nil {
 			logrus.Error(errOK)
 
 			return errOK
 		}
 
-        logrus.Infof("Response CLI success: %+v", ok)
+		logrus.Infof("Response CLI success: %+v", ok)
 
 		return nil
 	},

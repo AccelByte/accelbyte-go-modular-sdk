@@ -8,8 +8,9 @@ package topic
 
 import (
 	"encoding/json"
-	topic_ "github.com/AccelByte/accelbyte-go-modular-sdk/chat-sdk/pkg/chatclient/topic"
+
 	chat "github.com/AccelByte/accelbyte-go-modular-sdk/chat-sdk/pkg"
+	topic_ "github.com/AccelByte/accelbyte-go-modular-sdk/chat-sdk/pkg/chatclient/topic"
 	"github.com/AccelByte/sample-apps/pkg/repository"
 	"github.com/sirupsen/logrus"
 	"github.com/spf13/cobra"
@@ -17,12 +18,12 @@ import (
 
 // AdminQueryTopicCmd represents the AdminQueryTopic command
 var AdminQueryTopicCmd = &cobra.Command{
-	Use:	"adminQueryTopic",
-	Short:  "Admin query topic",
-	Long:   `Admin query topic`,
+	Use:   "adminQueryTopic",
+	Short: "Admin query topic",
+	Long:  `Admin query topic`,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		topicService := &chat.TopicService{
-			Client:		  chat.NewChatClient(&repository.ConfigRepositoryImpl{}),
+			Client:          chat.NewChatClient(&repository.ConfigRepositoryImpl{}),
 			TokenRepository: &repository.TokenRepositoryImpl{},
 		}
 		namespace, _ := cmd.Flags().GetString("namespace")
@@ -33,7 +34,7 @@ var AdminQueryTopicCmd = &cobra.Command{
 		offset, _ := cmd.Flags().GetInt64("offset")
 		topicString := cmd.Flag("topic").Value.String()
 		var topic []string
-errTopic := json.Unmarshal([]byte(topicString), &topic)
+		errTopic := json.Unmarshal([]byte(topicString), &topic)
 		if errTopic != nil {
 			return errTopic
 		}
@@ -41,25 +42,25 @@ errTopic := json.Unmarshal([]byte(topicString), &topic)
 		topicType, _ := cmd.Flags().GetString("topicType")
 		userId, _ := cmd.Flags().GetString("userId")
 		input := &topic_.AdminQueryTopicParams{
-			Namespace         : namespace,
-			IncludeMembers    : &includeMembers,
+			Namespace:          namespace,
+			IncludeMembers:     &includeMembers,
 			IncludePastMembers: &includePastMembers,
-			IncludePastTopics : &includePastTopics,
-			Limit             : &limit,
-			Offset            : &offset,
-			Topic             : topic,
-			TopicSubType      : &topicSubType,
-			TopicType         : &topicType,
-			UserID            : &userId,
+			IncludePastTopics:  &includePastTopics,
+			Limit:              &limit,
+			Offset:             &offset,
+			Topic:              topic,
+			TopicSubType:       &topicSubType,
+			TopicType:          &topicType,
+			UserID:             &userId,
 		}
-ok,errOK := topicService.AdminQueryTopicShort(input)
+		ok, errOK := topicService.AdminQueryTopicShort(input)
 		if errOK != nil {
 			logrus.Error(errOK)
 
 			return errOK
 		}
 
-        logrus.Infof("Response CLI success: %+v", ok)
+		logrus.Infof("Response CLI success: %+v", ok)
 
 		return nil
 	},

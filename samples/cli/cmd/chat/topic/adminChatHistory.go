@@ -8,8 +8,9 @@ package topic
 
 import (
 	"encoding/json"
-	topic_ "github.com/AccelByte/accelbyte-go-modular-sdk/chat-sdk/pkg/chatclient/topic"
+
 	chat "github.com/AccelByte/accelbyte-go-modular-sdk/chat-sdk/pkg"
+	topic_ "github.com/AccelByte/accelbyte-go-modular-sdk/chat-sdk/pkg/chatclient/topic"
 	"github.com/AccelByte/sample-apps/pkg/repository"
 	"github.com/sirupsen/logrus"
 	"github.com/spf13/cobra"
@@ -17,18 +18,18 @@ import (
 
 // AdminChatHistoryCmd represents the AdminChatHistory command
 var AdminChatHistoryCmd = &cobra.Command{
-	Use:	"adminChatHistory",
-	Short:  "Admin chat history",
-	Long:   `Admin chat history`,
+	Use:   "adminChatHistory",
+	Short: "Admin chat history",
+	Long:  `Admin chat history`,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		topicService := &chat.TopicService{
-			Client:		  chat.NewChatClient(&repository.ConfigRepositoryImpl{}),
+			Client:          chat.NewChatClient(&repository.ConfigRepositoryImpl{}),
 			TokenRepository: &repository.TokenRepositoryImpl{},
 		}
 		namespace, _ := cmd.Flags().GetString("namespace")
 		chatIdString := cmd.Flag("chatId").Value.String()
 		var chatId []string
-errChatId := json.Unmarshal([]byte(chatIdString), &chatId)
+		errChatId := json.Unmarshal([]byte(chatIdString), &chatId)
 		if errChatId != nil {
 			return errChatId
 		}
@@ -42,31 +43,31 @@ errChatId := json.Unmarshal([]byte(chatIdString), &chatId)
 		startCreatedAt, _ := cmd.Flags().GetInt64("startCreatedAt")
 		topicString := cmd.Flag("topic").Value.String()
 		var topic []string
-errTopic := json.Unmarshal([]byte(topicString), &topic)
+		errTopic := json.Unmarshal([]byte(topicString), &topic)
 		if errTopic != nil {
 			return errTopic
 		}
 		input := &topic_.AdminChatHistoryParams{
-			Namespace     : namespace,
-			ChatID        : chatId,
-			EndCreatedAt  : &endCreatedAt,
-			Keyword       : &keyword,
-			Limit         : &limit,
-			Offset        : &offset,
-			Order         : &order,
-			SenderUserID  : &senderUserId,
-			ShardID       : &shardId,
+			Namespace:      namespace,
+			ChatID:         chatId,
+			EndCreatedAt:   &endCreatedAt,
+			Keyword:        &keyword,
+			Limit:          &limit,
+			Offset:         &offset,
+			Order:          &order,
+			SenderUserID:   &senderUserId,
+			ShardID:        &shardId,
 			StartCreatedAt: &startCreatedAt,
-			Topic         : topic,
+			Topic:          topic,
 		}
-ok,errOK := topicService.AdminChatHistoryShort(input)
+		ok, errOK := topicService.AdminChatHistoryShort(input)
 		if errOK != nil {
 			logrus.Error(errOK)
 
 			return errOK
 		}
 
-        logrus.Infof("Response CLI success: %+v", ok)
+		logrus.Infof("Response CLI success: %+v", ok)
 
 		return nil
 	},
@@ -76,7 +77,7 @@ func init() {
 	AdminChatHistoryCmd.Flags().String("namespace", "", "Namespace")
 	_ = AdminChatHistoryCmd.MarkFlagRequired("namespace")
 	AdminChatHistoryCmd.Flags().String("chatId", "", "Chat id")
-	AdminChatHistoryCmd.Flags().Int64("endCreatedAt", 0, "End created at")
+	AdminChatHistoryCmd.Flags().Int64("endCreatedAt", 1, "End created at")
 	AdminChatHistoryCmd.Flags().String("keyword", "", "Keyword")
 	AdminChatHistoryCmd.Flags().Int64("limit", 20, "Limit")
 	AdminChatHistoryCmd.Flags().Int64("offset", 0, "Offset")

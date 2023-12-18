@@ -7,8 +7,8 @@
 package profanity
 
 import (
-"github.com/AccelByte/accelbyte-go-modular-sdk/chat-sdk/pkg/chatclient/profanity"
 	chat "github.com/AccelByte/accelbyte-go-modular-sdk/chat-sdk/pkg"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/chat-sdk/pkg/chatclient/profanity"
 	"github.com/AccelByte/sample-apps/pkg/repository"
 	"github.com/sirupsen/logrus"
 	"github.com/spf13/cobra"
@@ -16,12 +16,12 @@ import (
 
 // AdminProfanityQueryCmd represents the AdminProfanityQuery command
 var AdminProfanityQueryCmd = &cobra.Command{
-	Use:	"adminProfanityQuery",
-	Short:  "Admin profanity query",
-	Long:   `Admin profanity query`,
+	Use:   "adminProfanityQuery",
+	Short: "Admin profanity query",
+	Long:  `Admin profanity query`,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		profanityService := &chat.ProfanityService{
-			Client:		  chat.NewChatClient(&repository.ConfigRepositoryImpl{}),
+			Client:          chat.NewChatClient(&repository.ConfigRepositoryImpl{}),
 			TokenRepository: &repository.TokenRepositoryImpl{},
 		}
 		namespace, _ := cmd.Flags().GetString("namespace")
@@ -33,23 +33,23 @@ var AdminProfanityQueryCmd = &cobra.Command{
 		startWith, _ := cmd.Flags().GetString("startWith")
 		wordType, _ := cmd.Flags().GetString("wordType")
 		input := &profanity.AdminProfanityQueryParams{
-			Namespace      : namespace,
-			FilterMask     : &filterMask,
+			Namespace:       namespace,
+			FilterMask:      &filterMask,
 			IncludeChildren: &includeChildren,
-			Limit          : &limit,
-			Offset         : &offset,
-			ParentID       : &parentId,
-			StartWith      : &startWith,
-			WordType       : &wordType,
+			Limit:           &limit,
+			Offset:          &offset,
+			ParentID:        &parentId,
+			StartWith:       &startWith,
+			WordType:        &wordType,
 		}
-ok,errOK := profanityService.AdminProfanityQueryShort(input)
+		ok, errOK := profanityService.AdminProfanityQueryShort(input)
 		if errOK != nil {
 			logrus.Error(errOK)
 
 			return errOK
 		}
 
-        logrus.Infof("Response CLI success: %+v", ok)
+		logrus.Infof("Response CLI success: %+v", ok)
 
 		return nil
 	},

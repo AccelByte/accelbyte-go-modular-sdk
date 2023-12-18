@@ -7,8 +7,8 @@
 package topic
 
 import (
-	topic_ "github.com/AccelByte/accelbyte-go-modular-sdk/chat-sdk/pkg/chatclient/topic"
 	chat "github.com/AccelByte/accelbyte-go-modular-sdk/chat-sdk/pkg"
+	topic_ "github.com/AccelByte/accelbyte-go-modular-sdk/chat-sdk/pkg/chatclient/topic"
 	"github.com/AccelByte/sample-apps/pkg/repository"
 	"github.com/sirupsen/logrus"
 	"github.com/spf13/cobra"
@@ -16,30 +16,30 @@ import (
 
 // AdminDeleteChatCmd represents the AdminDeleteChat command
 var AdminDeleteChatCmd = &cobra.Command{
-	Use:	"adminDeleteChat",
-	Short:  "Admin delete chat",
-	Long:   `Admin delete chat`,
+	Use:   "adminDeleteChat",
+	Short: "Admin delete chat",
+	Long:  `Admin delete chat`,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		topicService := &chat.TopicService{
-			Client:		  chat.NewChatClient(&repository.ConfigRepositoryImpl{}),
+			Client:          chat.NewChatClient(&repository.ConfigRepositoryImpl{}),
 			TokenRepository: &repository.TokenRepositoryImpl{},
 		}
 		chatId, _ := cmd.Flags().GetString("chatId")
 		namespace, _ := cmd.Flags().GetString("namespace")
 		topic, _ := cmd.Flags().GetString("topic")
 		input := &topic_.AdminDeleteChatParams{
-			ChatID   : chatId,
+			ChatID:    chatId,
 			Namespace: namespace,
-			Topic    : topic,
+			Topic:     topic,
 		}
-errNoContent := topicService.AdminDeleteChatShort(input)
+		errNoContent := topicService.AdminDeleteChatShort(input)
 		if errNoContent != nil {
 			logrus.Error(errNoContent)
 
 			return errNoContent
 		}
 
-        logrus.Infof("Response CLI success.")
+		logrus.Infof("Response CLI success.")
 
 		return nil
 	},

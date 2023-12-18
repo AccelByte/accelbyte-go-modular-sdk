@@ -8,9 +8,10 @@ package profanity
 
 import (
 	"encoding/json"
-"github.com/AccelByte/accelbyte-go-modular-sdk/chat-sdk/pkg/chatclient/profanity"
-	"github.com/AccelByte/accelbyte-go-modular-sdk/chat-sdk/pkg/chatclientmodels"
+
 	chat "github.com/AccelByte/accelbyte-go-modular-sdk/chat-sdk/pkg"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/chat-sdk/pkg/chatclient/profanity"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/chat-sdk/pkg/chatclientmodels"
 	"github.com/AccelByte/sample-apps/pkg/repository"
 	"github.com/sirupsen/logrus"
 	"github.com/spf13/cobra"
@@ -18,33 +19,33 @@ import (
 
 // AdminProfanityCreateCmd represents the AdminProfanityCreate command
 var AdminProfanityCreateCmd = &cobra.Command{
-	Use:	"adminProfanityCreate",
-	Short:  "Admin profanity create",
-	Long:   `Admin profanity create`,
+	Use:   "adminProfanityCreate",
+	Short: "Admin profanity create",
+	Long:  `Admin profanity create`,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		profanityService := &chat.ProfanityService{
-			Client:		  chat.NewChatClient(&repository.ConfigRepositoryImpl{}),
+			Client:          chat.NewChatClient(&repository.ConfigRepositoryImpl{}),
 			TokenRepository: &repository.TokenRepositoryImpl{},
 		}
 		bodyString := cmd.Flag("body").Value.String()
 		var body *chatclientmodels.ModelsDictionaryInsertRequest
-errBody := json.Unmarshal([]byte(bodyString), &body)
+		errBody := json.Unmarshal([]byte(bodyString), &body)
 		if errBody != nil {
 			return errBody
 		}
 		namespace, _ := cmd.Flags().GetString("namespace")
 		input := &profanity.AdminProfanityCreateParams{
-			Body     : body,
+			Body:      body,
 			Namespace: namespace,
 		}
-ok,errOK := profanityService.AdminProfanityCreateShort(input)
+		ok, errOK := profanityService.AdminProfanityCreateShort(input)
 		if errOK != nil {
 			logrus.Error(errOK)
 
 			return errOK
 		}
 
-        logrus.Infof("Response CLI success: %+v", ok)
+		logrus.Infof("Response CLI success: %+v", ok)
 
 		return nil
 	},

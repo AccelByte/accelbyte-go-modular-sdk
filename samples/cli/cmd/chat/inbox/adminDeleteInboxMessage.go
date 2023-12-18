@@ -7,8 +7,8 @@
 package inbox
 
 import (
-"github.com/AccelByte/accelbyte-go-modular-sdk/chat-sdk/pkg/chatclient/inbox"
 	chat "github.com/AccelByte/accelbyte-go-modular-sdk/chat-sdk/pkg"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/chat-sdk/pkg/chatclient/inbox"
 	"github.com/AccelByte/sample-apps/pkg/repository"
 	"github.com/sirupsen/logrus"
 	"github.com/spf13/cobra"
@@ -16,12 +16,12 @@ import (
 
 // AdminDeleteInboxMessageCmd represents the AdminDeleteInboxMessage command
 var AdminDeleteInboxMessageCmd = &cobra.Command{
-	Use:	"adminDeleteInboxMessage",
-	Short:  "Admin delete inbox message",
-	Long:   `Admin delete inbox message`,
+	Use:   "adminDeleteInboxMessage",
+	Short: "Admin delete inbox message",
+	Long:  `Admin delete inbox message`,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		inboxService := &chat.InboxService{
-			Client:		  chat.NewChatClient(&repository.ConfigRepositoryImpl{}),
+			Client:          chat.NewChatClient(&repository.ConfigRepositoryImpl{}),
 			TokenRepository: &repository.TokenRepositoryImpl{},
 		}
 		messageId, _ := cmd.Flags().GetString("messageId")
@@ -30,16 +30,16 @@ var AdminDeleteInboxMessageCmd = &cobra.Command{
 		input := &inbox.AdminDeleteInboxMessageParams{
 			MessageID: messageId,
 			Namespace: namespace,
-			Force    : &force,
+			Force:     &force,
 		}
-errOK := inboxService.AdminDeleteInboxMessageShort(input)
+		errOK := inboxService.AdminDeleteInboxMessageShort(input)
 		if errOK != nil {
 			logrus.Error(errOK)
 
 			return errOK
 		}
 
-        logrus.Infof("Response CLI success.")
+		logrus.Infof("Response CLI success.")
 
 		return nil
 	},

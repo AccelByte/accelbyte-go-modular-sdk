@@ -7,8 +7,8 @@
 package inbox
 
 import (
-	inbox_ "github.com/AccelByte/accelbyte-go-modular-sdk/chat-sdk/pkg/chatclient/inbox"
 	chat "github.com/AccelByte/accelbyte-go-modular-sdk/chat-sdk/pkg"
+	inbox_ "github.com/AccelByte/accelbyte-go-modular-sdk/chat-sdk/pkg/chatclient/inbox"
 	"github.com/AccelByte/sample-apps/pkg/repository"
 	"github.com/sirupsen/logrus"
 	"github.com/spf13/cobra"
@@ -16,12 +16,12 @@ import (
 
 // AdminGetInboxUsersCmd represents the AdminGetInboxUsers command
 var AdminGetInboxUsersCmd = &cobra.Command{
-	Use:	"adminGetInboxUsers",
-	Short:  "Admin get inbox users",
-	Long:   `Admin get inbox users`,
+	Use:   "adminGetInboxUsers",
+	Short: "Admin get inbox users",
+	Long:  `Admin get inbox users`,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		inboxService := &chat.InboxService{
-			Client:		  chat.NewChatClient(&repository.ConfigRepositoryImpl{}),
+			Client:          chat.NewChatClient(&repository.ConfigRepositoryImpl{}),
 			TokenRepository: &repository.TokenRepositoryImpl{},
 		}
 		inbox, _ := cmd.Flags().GetString("inbox")
@@ -31,21 +31,21 @@ var AdminGetInboxUsersCmd = &cobra.Command{
 		status, _ := cmd.Flags().GetString("status")
 		userId, _ := cmd.Flags().GetString("userId")
 		input := &inbox_.AdminGetInboxUsersParams{
-			Inbox    : inbox,
+			Inbox:     inbox,
 			Namespace: namespace,
-			Limit    : &limit,
-			Offset   : &offset,
-			Status   : &status,
-			UserID   : &userId,
+			Limit:     &limit,
+			Offset:    &offset,
+			Status:    &status,
+			UserID:    &userId,
 		}
-ok,errOK := inboxService.AdminGetInboxUsersShort(input)
+		ok, errOK := inboxService.AdminGetInboxUsersShort(input)
 		if errOK != nil {
 			logrus.Error(errOK)
 
 			return errOK
 		}
 
-        logrus.Infof("Response CLI success: %+v", ok)
+		logrus.Infof("Response CLI success: %+v", ok)
 
 		return nil
 	},

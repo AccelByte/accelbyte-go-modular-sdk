@@ -24,7 +24,10 @@ var PublicGetMyUserV3Cmd = &cobra.Command{
 			Client:          iam.NewIamClient(&repository.ConfigRepositoryImpl{}),
 			TokenRepository: &repository.TokenRepositoryImpl{},
 		}
-		input := &users.PublicGetMyUserV3Params{}
+		includeAllPlatforms, _ := cmd.Flags().GetBool("includeAllPlatforms")
+		input := &users.PublicGetMyUserV3Params{
+			IncludeAllPlatforms: &includeAllPlatforms,
+		}
 		ok, errOK := usersService.PublicGetMyUserV3Short(input)
 		if errOK != nil {
 			logrus.Error(errOK)
@@ -39,4 +42,5 @@ var PublicGetMyUserV3Cmd = &cobra.Command{
 }
 
 func init() {
+	PublicGetMyUserV3Cmd.Flags().Bool("includeAllPlatforms", false, "Include all platforms")
 }

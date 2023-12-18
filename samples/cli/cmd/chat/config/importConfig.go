@@ -7,22 +7,23 @@
 package config
 
 import (
-"github.com/AccelByte/accelbyte-go-modular-sdk/chat-sdk/pkg/chatclient/config"
+	"os"
+
 	chat "github.com/AccelByte/accelbyte-go-modular-sdk/chat-sdk/pkg"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/chat-sdk/pkg/chatclient/config"
 	"github.com/AccelByte/sample-apps/pkg/repository"
 	"github.com/sirupsen/logrus"
 	"github.com/spf13/cobra"
-	"os"
 )
 
 // ImportConfigCmd represents the ImportConfig command
 var ImportConfigCmd = &cobra.Command{
-	Use:	"importConfig",
-	Short:  "Import config",
-	Long:   `Import config`,
+	Use:   "importConfig",
+	Short: "Import config",
+	Long:  `Import config`,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		configService := &chat.ConfigService{
-			Client:		  chat.NewChatClient(&repository.ConfigRepositoryImpl{}),
+			Client:          chat.NewChatClient(&repository.ConfigRepositoryImpl{}),
 			TokenRepository: &repository.TokenRepositoryImpl{},
 		}
 		namespace, _ := cmd.Flags().GetString("namespace")
@@ -33,17 +34,17 @@ var ImportConfigCmd = &cobra.Command{
 			return err
 		}
 		input := &config.ImportConfigParams{
-			File     : file,
+			File:      file,
 			Namespace: namespace,
 		}
-ok,errOK := configService.ImportConfigShort(input)
+		ok, errOK := configService.ImportConfigShort(input)
 		if errOK != nil {
 			logrus.Error(errOK)
 
 			return errOK
 		}
 
-        logrus.Infof("Response CLI success: %+v", ok)
+		logrus.Infof("Response CLI success: %+v", ok)
 
 		return nil
 	},

@@ -2,7 +2,7 @@
 // This is licensed software from AccelByte Inc, for limitations
 // and restrictions contact your company contract manager.
 
-// Code generated; DO NOT EDIT.
+// Code generated. DO NOT EDIT.
 
 package public_content_legacy
 
@@ -111,7 +111,7 @@ type SearchChannelSpecificContentParams struct {
 	*/
 	Isofficial *string
 	/*Limit
-	  number of content per page
+	  number of content per page. max limit: -1 (-1 means unlimited).
 
 	*/
 	Limit *int64
@@ -141,7 +141,7 @@ type SearchChannelSpecificContentParams struct {
 	*/
 	Subtype *string
 	/*Tags
-	  content tag
+	  content tag. max number of tags: -1 tags (-1 means unlimited).
 
 	*/
 	Tags []string

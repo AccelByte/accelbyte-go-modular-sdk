@@ -4,11 +4,11 @@
 
 // Code generated. DO NOT EDIT.
 
-package images
+package artifacts
 
 import (
 	ams "github.com/AccelByte/accelbyte-go-modular-sdk/ams-sdk/pkg"
-	"github.com/AccelByte/accelbyte-go-modular-sdk/ams-sdk/pkg/amsclient/images"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/ams-sdk/pkg/amsclient/artifacts"
 	"github.com/AccelByte/sample-apps/pkg/repository"
 	"github.com/sirupsen/logrus"
 	"github.com/spf13/cobra"
@@ -20,17 +20,17 @@ var FleetArtifactSamplingRulesGetCmd = &cobra.Command{
 	Short: "Fleet artifact sampling rules get",
 	Long:  `Fleet artifact sampling rules get`,
 	RunE: func(cmd *cobra.Command, args []string) error {
-		imagesService := &ams.ImagesService{
+		artifactsService := &ams.ArtifactsService{
 			Client:          ams.NewAmsClient(&repository.ConfigRepositoryImpl{}),
 			TokenRepository: &repository.TokenRepositoryImpl{},
 		}
 		fleetID, _ := cmd.Flags().GetString("fleetID")
 		namespace, _ := cmd.Flags().GetString("namespace")
-		input := &images.FleetArtifactSamplingRulesGetParams{
+		input := &artifacts.FleetArtifactSamplingRulesGetParams{
 			FleetID:   fleetID,
 			Namespace: namespace,
 		}
-		ok, errOK := imagesService.FleetArtifactSamplingRulesGetShort(input)
+		ok, errOK := artifactsService.FleetArtifactSamplingRulesGetShort(input)
 		if errOK != nil {
 			logrus.Error(errOK)
 

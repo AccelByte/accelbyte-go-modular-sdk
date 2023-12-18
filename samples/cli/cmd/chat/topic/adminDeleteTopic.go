@@ -7,8 +7,8 @@
 package topic
 
 import (
-	topic_ "github.com/AccelByte/accelbyte-go-modular-sdk/chat-sdk/pkg/chatclient/topic"
 	chat "github.com/AccelByte/accelbyte-go-modular-sdk/chat-sdk/pkg"
+	topic_ "github.com/AccelByte/accelbyte-go-modular-sdk/chat-sdk/pkg/chatclient/topic"
 	"github.com/AccelByte/sample-apps/pkg/repository"
 	"github.com/sirupsen/logrus"
 	"github.com/spf13/cobra"
@@ -16,28 +16,28 @@ import (
 
 // AdminDeleteTopicCmd represents the AdminDeleteTopic command
 var AdminDeleteTopicCmd = &cobra.Command{
-	Use:	"adminDeleteTopic",
-	Short:  "Admin delete topic",
-	Long:   `Admin delete topic`,
+	Use:   "adminDeleteTopic",
+	Short: "Admin delete topic",
+	Long:  `Admin delete topic`,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		topicService := &chat.TopicService{
-			Client:		  chat.NewChatClient(&repository.ConfigRepositoryImpl{}),
+			Client:          chat.NewChatClient(&repository.ConfigRepositoryImpl{}),
 			TokenRepository: &repository.TokenRepositoryImpl{},
 		}
 		namespace, _ := cmd.Flags().GetString("namespace")
 		topic, _ := cmd.Flags().GetString("topic")
 		input := &topic_.AdminDeleteTopicParams{
 			Namespace: namespace,
-			Topic    : topic,
+			Topic:     topic,
 		}
-ok,errOK := topicService.AdminDeleteTopicShort(input)
+		ok, errOK := topicService.AdminDeleteTopicShort(input)
 		if errOK != nil {
 			logrus.Error(errOK)
 
 			return errOK
 		}
 
-        logrus.Infof("Response CLI success: %+v", ok)
+		logrus.Infof("Response CLI success: %+v", ok)
 
 		return nil
 	},

@@ -2,7 +2,7 @@
 // This is licensed software from AccelByte Inc, for limitations
 // and restrictions contact your company contract manager.
 
-// Code generated; DO NOT EDIT.
+// Code generated. DO NOT EDIT.
 
 package users
 
@@ -272,7 +272,7 @@ func NewAdminSaveUserRoleV3NotFound() *AdminSaveUserRoleV3NotFound {
 
 /*AdminSaveUserRoleV3NotFound handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20008</td><td>user not found</td></tr></table>
+  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20008</td><td>user not found</td></tr><tr><td>10156</td><td>role not found</td></tr></table>
 */
 type AdminSaveUserRoleV3NotFound struct {
 	Payload *iamclientmodels.RestErrorResponse

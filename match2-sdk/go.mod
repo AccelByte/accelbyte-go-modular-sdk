@@ -1,3 +1,5 @@
+// Code generated. DO NOT EDIT.
+
 module github.com/AccelByte/accelbyte-go-modular-sdk/match2-sdk
 
 go 1.18

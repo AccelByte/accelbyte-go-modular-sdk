@@ -7,8 +7,8 @@
 package topic
 
 import (
-	topic_ "github.com/AccelByte/accelbyte-go-modular-sdk/chat-sdk/pkg/chatclient/topic"
 	chat "github.com/AccelByte/accelbyte-go-modular-sdk/chat-sdk/pkg"
+	topic_ "github.com/AccelByte/accelbyte-go-modular-sdk/chat-sdk/pkg/chatclient/topic"
 	"github.com/AccelByte/sample-apps/pkg/repository"
 	"github.com/sirupsen/logrus"
 	"github.com/spf13/cobra"
@@ -16,12 +16,12 @@ import (
 
 // PublicChatHistoryCmd represents the PublicChatHistory command
 var PublicChatHistoryCmd = &cobra.Command{
-	Use:	"publicChatHistory",
-	Short:  "Public chat history",
-	Long:   `Public chat history`,
+	Use:   "publicChatHistory",
+	Short: "Public chat history",
+	Long:  `Public chat history`,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		topicService := &chat.TopicService{
-			Client:		  chat.NewChatClient(&repository.ConfigRepositoryImpl{}),
+			Client:          chat.NewChatClient(&repository.ConfigRepositoryImpl{}),
 			TokenRepository: &repository.TokenRepositoryImpl{},
 		}
 		namespace, _ := cmd.Flags().GetString("namespace")
@@ -30,20 +30,20 @@ var PublicChatHistoryCmd = &cobra.Command{
 		order, _ := cmd.Flags().GetString("order")
 		startCreatedAt, _ := cmd.Flags().GetInt64("startCreatedAt")
 		input := &topic_.PublicChatHistoryParams{
-			Namespace     : namespace,
-			Topic         : topic,
-			Limit         : &limit,
-			Order         : &order,
+			Namespace:      namespace,
+			Topic:          topic,
+			Limit:          &limit,
+			Order:          &order,
 			StartCreatedAt: &startCreatedAt,
 		}
-ok,errOK := topicService.PublicChatHistoryShort(input)
+		ok, errOK := topicService.PublicChatHistoryShort(input)
 		if errOK != nil {
 			logrus.Error(errOK)
 
 			return errOK
 		}
 
-        logrus.Infof("Response CLI success: %+v", ok)
+		logrus.Infof("Response CLI success: %+v", ok)
 
 		return nil
 	},

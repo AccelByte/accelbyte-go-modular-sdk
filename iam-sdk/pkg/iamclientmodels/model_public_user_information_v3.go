@@ -2,7 +2,7 @@
 // This is licensed software from AccelByte Inc, for limitations
 // and restrictions contact your company contract manager.
 
-// Code generated; DO NOT EDIT.
+// Code generated. DO NOT EDIT.
 
 package iamclientmodels
 
@@ -38,6 +38,9 @@ type ModelPublicUserInformationV3 struct {
 	// username
 	// Required: true
 	UserName *string `json:"userName"`
+
+	// userplatforminfos
+	UserPlatformInfos []*ModelUserPlatformInfo `json:"userPlatformInfos,omitempty"`
 }
 
 // Validate validates this Model public user information V3

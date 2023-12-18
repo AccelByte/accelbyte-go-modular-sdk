@@ -2,7 +2,7 @@
 // This is licensed software from AccelByte Inc, for limitations
 // and restrictions contact your company contract manager.
 
-// Code generated; DO NOT EDIT.
+// Code generated. DO NOT EDIT.
 
 package iamclientmodels
 
@@ -18,11 +18,11 @@ import (
 // swagger:model Model assign user V4 request.
 type ModelAssignUserV4Request struct {
 
-	// assignednamespaces
+	// namespaces to be assigned on role
 	// Required: true
 	AssignedNamespaces []string `json:"assignedNamespaces"`
 
-	// namespace
+	// user's namespace
 	// Required: true
 	Namespace *string `json:"namespace"`
 

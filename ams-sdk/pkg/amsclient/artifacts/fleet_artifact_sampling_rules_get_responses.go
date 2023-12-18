@@ -2,9 +2,9 @@
 // This is licensed software from AccelByte Inc, for limitations
 // and restrictions contact your company contract manager.
 
-// Code generated; DO NOT EDIT.
+// Code generated. DO NOT EDIT.
 
-package images
+package artifacts
 
 import (
 	"encoding/json"
@@ -84,7 +84,7 @@ func NewFleetArtifactSamplingRulesGetOK() *FleetArtifactSamplingRulesGetOK {
   success
 */
 type FleetArtifactSamplingRulesGetOK struct {
-	Payload *amsclientmodels.APIFleetArtifactsSampleRulesResponse
+	Payload *amsclientmodels.APIFleetArtifactsSampleRules
 }
 
 func (o *FleetArtifactSamplingRulesGetOK) Error() string {
@@ -106,7 +106,7 @@ func (o *FleetArtifactSamplingRulesGetOK) ToJSONString() string {
 	return fmt.Sprintf("%+v", string(b))
 }
 
-func (o *FleetArtifactSamplingRulesGetOK) GetPayload() *amsclientmodels.APIFleetArtifactsSampleRulesResponse {
+func (o *FleetArtifactSamplingRulesGetOK) GetPayload() *amsclientmodels.APIFleetArtifactsSampleRules {
 	return o.Payload
 }
 
@@ -117,7 +117,7 @@ func (o *FleetArtifactSamplingRulesGetOK) readResponse(response runtime.ClientRe
 		consumer = runtime.ByteStreamConsumer()
 	}
 
-	o.Payload = new(amsclientmodels.APIFleetArtifactsSampleRulesResponse)
+	o.Payload = new(amsclientmodels.APIFleetArtifactsSampleRules)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

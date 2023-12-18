@@ -8,7 +8,7 @@ package namespace
 
 import (
 	basic "github.com/AccelByte/accelbyte-go-modular-sdk/basic-sdk/pkg"
-	namespace_ "github.com/AccelByte/accelbyte-go-modular-sdk/basic-sdk/pkg/basicclient/namespace"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/basic-sdk/pkg/basicclient/namespace"
 	"github.com/AccelByte/sample-apps/pkg/repository"
 	"github.com/sirupsen/logrus"
 	"github.com/spf13/cobra"
@@ -25,7 +25,7 @@ var PublicGetNamespacesCmd = &cobra.Command{
 			TokenRepository: &repository.TokenRepositoryImpl{},
 		}
 		activeOnly, _ := cmd.Flags().GetBool("activeOnly")
-		input := &namespace_.PublicGetNamespacesParams{
+		input := &namespace.PublicGetNamespacesParams{
 			ActiveOnly: &activeOnly,
 		}
 		ok, errOK := namespaceService.PublicGetNamespacesShort(input)

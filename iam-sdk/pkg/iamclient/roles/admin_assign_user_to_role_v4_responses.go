@@ -2,7 +2,7 @@
 // This is licensed software from AccelByte Inc, for limitations
 // and restrictions contact your company contract manager.
 
-// Code generated; DO NOT EDIT.
+// Code generated. DO NOT EDIT.
 
 package roles
 
@@ -246,7 +246,7 @@ func NewAdminAssignUserToRoleV4Forbidden() *AdminAssignUserToRoleV4Forbidden {
 
 /*AdminAssignUserToRoleV4Forbidden handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr><tr><td>10459</td><td>operator is not a role manager</td></tr></table>
+  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr><tr><td>10459</td><td>operator is not a role manager</td></tr><tr><td>10182</td><td>given namespace cannot be assigned to the role</td></tr></table>
 */
 type AdminAssignUserToRoleV4Forbidden struct {
 	Payload *iamclientmodels.RestErrorResponse

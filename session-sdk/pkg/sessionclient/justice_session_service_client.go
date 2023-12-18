@@ -2,7 +2,7 @@
 // This is licensed software from AccelByte Inc, for limitations
 // and restrictions contact your company contract manager.
 
-// Code generated; DO NOT EDIT.
+// Code generated. DO NOT EDIT.
 
 package sessionclient
 
@@ -27,6 +27,7 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/session-sdk/pkg/sessionclient/party"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/session-sdk/pkg/sessionclient/platform_credential"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/session-sdk/pkg/sessionclient/player"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/session-sdk/pkg/sessionclient/recent_player"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/session-sdk/pkg/sessionclient/session_storage"
 )
 
@@ -101,6 +102,7 @@ func New(transport runtime.ClientTransport, runtime *httptransport.Runtime, form
 	cli.Party = party.New(transport, formats)
 	cli.PlatformCredential = platform_credential.New(transport, formats)
 	cli.Player = player.New(transport, formats)
+	cli.RecentPlayer = recent_player.New(transport, formats)
 	cli.SessionStorage = session_storage.New(transport, formats)
 	cli.Operations = operations.New(transport, formats)
 
@@ -184,6 +186,8 @@ type JusticeSessionService struct {
 
 	Player player.ClientService
 
+	RecentPlayer recent_player.ClientService
+
 	SessionStorage session_storage.ClientService
 
 	Operations operations.ClientService
@@ -205,6 +209,7 @@ func (c *JusticeSessionService) SetTransport(transport runtime.ClientTransport) 
 	c.Party.SetTransport(transport)
 	c.PlatformCredential.SetTransport(transport)
 	c.Player.SetTransport(transport)
+	c.RecentPlayer.SetTransport(transport)
 	c.SessionStorage.SetTransport(transport)
 	c.Operations.SetTransport(transport)
 }

@@ -8,9 +8,10 @@ package topic
 
 import (
 	"encoding/json"
+
+	chat "github.com/AccelByte/accelbyte-go-modular-sdk/chat-sdk/pkg"
 	topic_ "github.com/AccelByte/accelbyte-go-modular-sdk/chat-sdk/pkg/chatclient/topic"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/chat-sdk/pkg/chatclientmodels"
-	chat "github.com/AccelByte/accelbyte-go-modular-sdk/chat-sdk/pkg"
 	"github.com/AccelByte/sample-apps/pkg/repository"
 	"github.com/sirupsen/logrus"
 	"github.com/spf13/cobra"
@@ -18,35 +19,35 @@ import (
 
 // AdminBanTopicMembersCmd represents the AdminBanTopicMembers command
 var AdminBanTopicMembersCmd = &cobra.Command{
-	Use:	"adminBanTopicMembers",
-	Short:  "Admin ban topic members",
-	Long:   `Admin ban topic members`,
+	Use:   "adminBanTopicMembers",
+	Short: "Admin ban topic members",
+	Long:  `Admin ban topic members`,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		topicService := &chat.TopicService{
-			Client:		  chat.NewChatClient(&repository.ConfigRepositoryImpl{}),
+			Client:          chat.NewChatClient(&repository.ConfigRepositoryImpl{}),
 			TokenRepository: &repository.TokenRepositoryImpl{},
 		}
 		bodyString := cmd.Flag("body").Value.String()
 		var body *chatclientmodels.ModelsBanTopicMemberParam
-errBody := json.Unmarshal([]byte(bodyString), &body)
+		errBody := json.Unmarshal([]byte(bodyString), &body)
 		if errBody != nil {
 			return errBody
 		}
 		namespace, _ := cmd.Flags().GetString("namespace")
 		topic, _ := cmd.Flags().GetString("topic")
 		input := &topic_.AdminBanTopicMembersParams{
-			Body     : body,
+			Body:      body,
 			Namespace: namespace,
-			Topic    : topic,
+			Topic:     topic,
 		}
-ok,errOK := topicService.AdminBanTopicMembersShort(input)
+		ok, errOK := topicService.AdminBanTopicMembersShort(input)
 		if errOK != nil {
 			logrus.Error(errOK)
 
 			return errOK
 		}
 
-        logrus.Infof("Response CLI success: %+v", ok)
+		logrus.Infof("Response CLI success: %+v", ok)
 
 		return nil
 	},

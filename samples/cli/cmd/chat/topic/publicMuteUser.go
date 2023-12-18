@@ -8,9 +8,10 @@ package topic
 
 import (
 	"encoding/json"
+
+	chat "github.com/AccelByte/accelbyte-go-modular-sdk/chat-sdk/pkg"
 	topic_ "github.com/AccelByte/accelbyte-go-modular-sdk/chat-sdk/pkg/chatclient/topic"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/chat-sdk/pkg/chatclientmodels"
-	chat "github.com/AccelByte/accelbyte-go-modular-sdk/chat-sdk/pkg"
 	"github.com/AccelByte/sample-apps/pkg/repository"
 	"github.com/sirupsen/logrus"
 	"github.com/spf13/cobra"
@@ -18,35 +19,35 @@ import (
 
 // PublicMuteUserCmd represents the PublicMuteUser command
 var PublicMuteUserCmd = &cobra.Command{
-	Use:	"publicMuteUser",
-	Short:  "Public mute user",
-	Long:   `Public mute user`,
+	Use:   "publicMuteUser",
+	Short: "Public mute user",
+	Long:  `Public mute user`,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		topicService := &chat.TopicService{
-			Client:		  chat.NewChatClient(&repository.ConfigRepositoryImpl{}),
+			Client:          chat.NewChatClient(&repository.ConfigRepositoryImpl{}),
 			TokenRepository: &repository.TokenRepositoryImpl{},
 		}
 		bodyString := cmd.Flag("body").Value.String()
 		var body *chatclientmodels.APIMuteUserRequest
-errBody := json.Unmarshal([]byte(bodyString), &body)
+		errBody := json.Unmarshal([]byte(bodyString), &body)
 		if errBody != nil {
 			return errBody
 		}
 		namespace, _ := cmd.Flags().GetString("namespace")
 		topic, _ := cmd.Flags().GetString("topic")
 		input := &topic_.PublicMuteUserParams{
-			Body     : body,
+			Body:      body,
 			Namespace: namespace,
-			Topic    : topic,
+			Topic:     topic,
 		}
-errNoContent := topicService.PublicMuteUserShort(input)
+		errNoContent := topicService.PublicMuteUserShort(input)
 		if errNoContent != nil {
 			logrus.Error(errNoContent)
 
 			return errNoContent
 		}
 
-        logrus.Infof("Response CLI success.")
+		logrus.Infof("Response CLI success.")
 
 		return nil
 	},

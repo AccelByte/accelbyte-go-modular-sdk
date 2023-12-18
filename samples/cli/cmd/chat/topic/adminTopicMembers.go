@@ -7,8 +7,8 @@
 package topic
 
 import (
-	topic_ "github.com/AccelByte/accelbyte-go-modular-sdk/chat-sdk/pkg/chatclient/topic"
 	chat "github.com/AccelByte/accelbyte-go-modular-sdk/chat-sdk/pkg"
+	topic_ "github.com/AccelByte/accelbyte-go-modular-sdk/chat-sdk/pkg/chatclient/topic"
 	"github.com/AccelByte/sample-apps/pkg/repository"
 	"github.com/sirupsen/logrus"
 	"github.com/spf13/cobra"
@@ -16,12 +16,12 @@ import (
 
 // AdminTopicMembersCmd represents the AdminTopicMembers command
 var AdminTopicMembersCmd = &cobra.Command{
-	Use:	"adminTopicMembers",
-	Short:  "Admin topic members",
-	Long:   `Admin topic members`,
+	Use:   "adminTopicMembers",
+	Short: "Admin topic members",
+	Long:  `Admin topic members`,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		topicService := &chat.TopicService{
-			Client:		  chat.NewChatClient(&repository.ConfigRepositoryImpl{}),
+			Client:          chat.NewChatClient(&repository.ConfigRepositoryImpl{}),
 			TokenRepository: &repository.TokenRepositoryImpl{},
 		}
 		namespace, _ := cmd.Flags().GetString("namespace")
@@ -32,22 +32,22 @@ var AdminTopicMembersCmd = &cobra.Command{
 		offset, _ := cmd.Flags().GetInt64("offset")
 		shardId, _ := cmd.Flags().GetString("shardId")
 		input := &topic_.AdminTopicMembersParams{
-			Namespace  : namespace,
-			Topic      : topic,
-			IsBanned   : &isBanned,
+			Namespace:   namespace,
+			Topic:       topic,
+			IsBanned:    &isBanned,
 			IsModerator: &isModerator,
-			Limit      : &limit,
-			Offset     : &offset,
-			ShardID    : &shardId,
+			Limit:       &limit,
+			Offset:      &offset,
+			ShardID:     &shardId,
 		}
-ok,errOK := topicService.AdminTopicMembersShort(input)
+		ok, errOK := topicService.AdminTopicMembersShort(input)
 		if errOK != nil {
 			logrus.Error(errOK)
 
 			return errOK
 		}
 
-        logrus.Infof("Response CLI success: %+v", ok)
+		logrus.Infof("Response CLI success: %+v", ok)
 
 		return nil
 	},

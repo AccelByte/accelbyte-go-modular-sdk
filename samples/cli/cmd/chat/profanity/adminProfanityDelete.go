@@ -7,8 +7,8 @@
 package profanity
 
 import (
-"github.com/AccelByte/accelbyte-go-modular-sdk/chat-sdk/pkg/chatclient/profanity"
 	chat "github.com/AccelByte/accelbyte-go-modular-sdk/chat-sdk/pkg"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/chat-sdk/pkg/chatclient/profanity"
 	"github.com/AccelByte/sample-apps/pkg/repository"
 	"github.com/sirupsen/logrus"
 	"github.com/spf13/cobra"
@@ -16,28 +16,28 @@ import (
 
 // AdminProfanityDeleteCmd represents the AdminProfanityDelete command
 var AdminProfanityDeleteCmd = &cobra.Command{
-	Use:	"adminProfanityDelete",
-	Short:  "Admin profanity delete",
-	Long:   `Admin profanity delete`,
+	Use:   "adminProfanityDelete",
+	Short: "Admin profanity delete",
+	Long:  `Admin profanity delete`,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		profanityService := &chat.ProfanityService{
-			Client:		  chat.NewChatClient(&repository.ConfigRepositoryImpl{}),
+			Client:          chat.NewChatClient(&repository.ConfigRepositoryImpl{}),
 			TokenRepository: &repository.TokenRepositoryImpl{},
 		}
 		id_, _ := cmd.Flags().GetString("id")
 		namespace, _ := cmd.Flags().GetString("namespace")
 		input := &profanity.AdminProfanityDeleteParams{
-			ID       : id_,
+			ID:        id_,
 			Namespace: namespace,
 		}
-errNoContent := profanityService.AdminProfanityDeleteShort(input)
+		errNoContent := profanityService.AdminProfanityDeleteShort(input)
 		if errNoContent != nil {
 			logrus.Error(errNoContent)
 
 			return errNoContent
 		}
 
-        logrus.Infof("Response CLI success.")
+		logrus.Infof("Response CLI success.")
 
 		return nil
 	},

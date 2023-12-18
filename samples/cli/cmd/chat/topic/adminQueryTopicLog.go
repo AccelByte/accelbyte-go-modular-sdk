@@ -8,8 +8,9 @@ package topic
 
 import (
 	"encoding/json"
-	"github.com/AccelByte/accelbyte-go-modular-sdk/chat-sdk/pkg/chatclient/topic"
+
 	chat "github.com/AccelByte/accelbyte-go-modular-sdk/chat-sdk/pkg"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/chat-sdk/pkg/chatclient/topic"
 	"github.com/AccelByte/sample-apps/pkg/repository"
 	"github.com/sirupsen/logrus"
 	"github.com/spf13/cobra"
@@ -17,12 +18,12 @@ import (
 
 // AdminQueryTopicLogCmd represents the AdminQueryTopicLog command
 var AdminQueryTopicLogCmd = &cobra.Command{
-	Use:	"adminQueryTopicLog",
-	Short:  "Admin query topic log",
-	Long:   `Admin query topic log`,
+	Use:   "adminQueryTopicLog",
+	Short: "Admin query topic log",
+	Long:  `Admin query topic log`,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		topicService := &chat.TopicService{
-			Client:		  chat.NewChatClient(&repository.ConfigRepositoryImpl{}),
+			Client:          chat.NewChatClient(&repository.ConfigRepositoryImpl{}),
 			TokenRepository: &repository.TokenRepositoryImpl{},
 		}
 		namespace, _ := cmd.Flags().GetString("namespace")
@@ -34,30 +35,30 @@ var AdminQueryTopicLogCmd = &cobra.Command{
 		topicId, _ := cmd.Flags().GetString("topicId")
 		topicIdsString := cmd.Flag("topicIds").Value.String()
 		var topicIds []string
-errTopicIds := json.Unmarshal([]byte(topicIdsString), &topicIds)
+		errTopicIds := json.Unmarshal([]byte(topicIdsString), &topicIds)
 		if errTopicIds != nil {
 			return errTopicIds
 		}
 		userId, _ := cmd.Flags().GetString("userId")
 		input := &topic.AdminQueryTopicLogParams{
-			Namespace     : namespace,
-			EndCreatedAt  : &endCreatedAt,
-			Limit         : &limit,
-			Offset        : &offset,
-			SenderUserID  : &senderUserId,
+			Namespace:      namespace,
+			EndCreatedAt:   &endCreatedAt,
+			Limit:          &limit,
+			Offset:         &offset,
+			SenderUserID:   &senderUserId,
 			StartCreatedAt: &startCreatedAt,
-			TopicID       : &topicId,
-			TopicIds      : topicIds,
-			UserID        : &userId,
+			TopicID:        &topicId,
+			TopicIds:       topicIds,
+			UserID:         &userId,
 		}
-ok,errOK := topicService.AdminQueryTopicLogShort(input)
+		ok, errOK := topicService.AdminQueryTopicLogShort(input)
 		if errOK != nil {
 			logrus.Error(errOK)
 
 			return errOK
 		}
 
-        logrus.Infof("Response CLI success: %+v", ok)
+		logrus.Infof("Response CLI success: %+v", ok)
 
 		return nil
 	},
@@ -66,7 +67,7 @@ ok,errOK := topicService.AdminQueryTopicLogShort(input)
 func init() {
 	AdminQueryTopicLogCmd.Flags().String("namespace", "", "Namespace")
 	_ = AdminQueryTopicLogCmd.MarkFlagRequired("namespace")
-	AdminQueryTopicLogCmd.Flags().Int64("endCreatedAt", 0, "End created at")
+	AdminQueryTopicLogCmd.Flags().Int64("endCreatedAt", 1, "End created at")
 	AdminQueryTopicLogCmd.Flags().Int64("limit", 20, "Limit")
 	AdminQueryTopicLogCmd.Flags().Int64("offset", 0, "Offset")
 	AdminQueryTopicLogCmd.Flags().String("senderUserId", "", "Sender user id")

@@ -8,9 +8,10 @@ package inbox
 
 import (
 	"encoding/json"
-"github.com/AccelByte/accelbyte-go-modular-sdk/chat-sdk/pkg/chatclient/inbox"
-	"github.com/AccelByte/accelbyte-go-modular-sdk/chat-sdk/pkg/chatclientmodels"
+
 	chat "github.com/AccelByte/accelbyte-go-modular-sdk/chat-sdk/pkg"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/chat-sdk/pkg/chatclient/inbox"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/chat-sdk/pkg/chatclientmodels"
 	"github.com/AccelByte/sample-apps/pkg/repository"
 	"github.com/sirupsen/logrus"
 	"github.com/spf13/cobra"
@@ -18,33 +19,33 @@ import (
 
 // AdminAddInboxCategoryCmd represents the AdminAddInboxCategory command
 var AdminAddInboxCategoryCmd = &cobra.Command{
-	Use:	"adminAddInboxCategory",
-	Short:  "Admin add inbox category",
-	Long:   `Admin add inbox category`,
+	Use:   "adminAddInboxCategory",
+	Short: "Admin add inbox category",
+	Long:  `Admin add inbox category`,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		inboxService := &chat.InboxService{
-			Client:		  chat.NewChatClient(&repository.ConfigRepositoryImpl{}),
+			Client:          chat.NewChatClient(&repository.ConfigRepositoryImpl{}),
 			TokenRepository: &repository.TokenRepositoryImpl{},
 		}
 		bodyString := cmd.Flag("body").Value.String()
 		var body *chatclientmodels.ModelsAddInboxCategoryRequest
-errBody := json.Unmarshal([]byte(bodyString), &body)
+		errBody := json.Unmarshal([]byte(bodyString), &body)
 		if errBody != nil {
 			return errBody
 		}
 		namespace, _ := cmd.Flags().GetString("namespace")
 		input := &inbox.AdminAddInboxCategoryParams{
-			Body     : body,
+			Body:      body,
 			Namespace: namespace,
 		}
-ok,errOK := inboxService.AdminAddInboxCategoryShort(input)
+		ok, errOK := inboxService.AdminAddInboxCategoryShort(input)
 		if errOK != nil {
 			logrus.Error(errOK)
 
 			return errOK
 		}
 
-        logrus.Infof("Response CLI success: %+v", ok)
+		logrus.Infof("Response CLI success: %+v", ok)
 
 		return nil
 	},
