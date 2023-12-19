@@ -6,7 +6,7 @@ go 1.18
 replace github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk => ../iam-sdk
 
 require (
-	github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk v0.1.0-alpha.7
+	github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk v0.1.0-alpha.8
 	github.com/go-openapi/errors v0.20.2 // indirect
 	github.com/go-openapi/runtime v0.19.29
 	github.com/go-openapi/strfmt v0.21.1

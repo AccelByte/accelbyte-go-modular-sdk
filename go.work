@@ -4,6 +4,7 @@ use (
 	achievement-sdk
 	ams-sdk
 	basic-sdk
+	chat-sdk
 	cloudsave-sdk
 	dslogmanager-sdk
 	dsmc-sdk
@@ -43,6 +44,7 @@ use (
 	services-api/pkg/service/achievement
 	services-api/pkg/service/ams
 	services-api/pkg/service/basic
+	services-api/pkg/service/chat
 	services-api/pkg/service/cloudsave
 	services-api/pkg/service/dslogmanager
 	services-api/pkg/service/dsmc
