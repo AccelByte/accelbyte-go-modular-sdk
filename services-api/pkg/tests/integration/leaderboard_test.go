@@ -18,6 +18,7 @@ import (
 	leaderboard "github.com/AccelByte/accelbyte-go-modular-sdk/leaderboard-sdk/pkg"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/leaderboard-sdk/pkg/leaderboardclient/leaderboard_configuration"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/leaderboard-sdk/pkg/leaderboardclientmodels"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/social-sdk/pkg/socialclient/stat_configuration"
 )
 
 const letterBytes = "abcdefghijklmnopqrstuvwxyz1234567890"
@@ -76,6 +77,7 @@ func TestIntegrationCreateLeaderboardConfigurationAdminV1(t *testing.T) {
 	// Login User - Arrange
 	Init()
 
+	statCodeLeaderboard = checkStatCode(t) // check existing stat code
 	rand.Seed(time.Now().UnixNano())
 	timeNow := time.Now().UTC().AddDate(1, 0, 0)
 	startTime = timeNow.Format("2006-01-02T15:04:05Z")
@@ -156,4 +158,35 @@ func RandStringBytes(n int) string {
 	}
 
 	return string(b)
+}
+
+func checkStatCode(t *testing.T) string {
+	t.Helper()
+
+	getStat, errGetStat := statConfigurationService.GetStatShort(&stat_configuration.GetStatParams{
+		Namespace: integration.NamespaceTest,
+		StatCode:  statCodeLeaderboard,
+	})
+
+	if getStat == nil {
+		tagsSocial = append(tagsSocial, tag)
+		bodyStatSocial.StatCode = &statCodeLeaderboard
+		ok, err := statConfigurationService.CreateStatShort(&stat_configuration.CreateStatParams{
+			Body:      bodyStatSocial,
+			Namespace: integration.NamespaceTest,
+		})
+		if err != nil {
+			assert.Nil(t, err)
+
+			return ""
+		}
+
+		return *ok.StatCode
+	}
+
+	if errGetStat != nil {
+		assert.Nil(t, errGetStat)
+	}
+
+	return *getStat.StatCode
 }
