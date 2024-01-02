@@ -34,9 +34,11 @@ var ExistsAnyUserActiveEntitlementByItemIdsCmd = &cobra.Command{
 		if errItemIds != nil {
 			return errItemIds
 		}
+		platform, _ := cmd.Flags().GetString("platform")
 		input := &entitlement.ExistsAnyUserActiveEntitlementByItemIdsParams{
 			Namespace: namespace,
 			UserID:    userId,
+			Platform:  &platform,
 			ItemIds:   itemIds,
 		}
 		ok, errOK := entitlementService.ExistsAnyUserActiveEntitlementByItemIdsShort(input)
@@ -57,6 +59,7 @@ func init() {
 	_ = ExistsAnyUserActiveEntitlementByItemIdsCmd.MarkFlagRequired("namespace")
 	ExistsAnyUserActiveEntitlementByItemIdsCmd.Flags().String("userId", "", "User id")
 	_ = ExistsAnyUserActiveEntitlementByItemIdsCmd.MarkFlagRequired("userId")
+	ExistsAnyUserActiveEntitlementByItemIdsCmd.Flags().String("platform", "", "Platform")
 	ExistsAnyUserActiveEntitlementByItemIdsCmd.Flags().String("itemIds", "", "Item ids")
 	_ = ExistsAnyUserActiveEntitlementByItemIdsCmd.MarkFlagRequired("itemIds")
 }

@@ -38,6 +38,7 @@ var QueryUserEntitlementsCmd = &cobra.Command{
 		if errFeatures != nil {
 			return errFeatures
 		}
+		fuzzyMatchName, _ := cmd.Flags().GetBool("fuzzyMatchName")
 		itemIdString := cmd.Flag("itemId").Value.String()
 		var itemId []string
 		errItemId := json.Unmarshal([]byte(itemIdString), &itemId)
@@ -46,6 +47,7 @@ var QueryUserEntitlementsCmd = &cobra.Command{
 		}
 		limit, _ := cmd.Flags().GetInt32("limit")
 		offset, _ := cmd.Flags().GetInt32("offset")
+		origin, _ := cmd.Flags().GetString("origin")
 		input := &entitlement.QueryUserEntitlementsParams{
 			Namespace:        namespace,
 			UserID:           userId,
@@ -54,9 +56,11 @@ var QueryUserEntitlementsCmd = &cobra.Command{
 			EntitlementClazz: &entitlementClazz,
 			EntitlementName:  &entitlementName,
 			Features:         features,
+			FuzzyMatchName:   &fuzzyMatchName,
 			ItemID:           itemId,
 			Limit:            &limit,
 			Offset:           &offset,
+			Origin:           &origin,
 		}
 		ok, errOK := entitlementService.QueryUserEntitlementsShort(input)
 		if errOK != nil {
@@ -81,7 +85,9 @@ func init() {
 	QueryUserEntitlementsCmd.Flags().String("entitlementClazz", "", "Entitlement clazz")
 	QueryUserEntitlementsCmd.Flags().String("entitlementName", "", "Entitlement name")
 	QueryUserEntitlementsCmd.Flags().String("features", "", "Features")
+	QueryUserEntitlementsCmd.Flags().Bool("fuzzyMatchName", false, "Fuzzy match name")
 	QueryUserEntitlementsCmd.Flags().String("itemId", "", "Item id")
 	QueryUserEntitlementsCmd.Flags().Int32("limit", 20, "Limit")
 	QueryUserEntitlementsCmd.Flags().Int32("offset", 0, "Offset")
+	QueryUserEntitlementsCmd.Flags().String("origin", "", "Origin")
 }

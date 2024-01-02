@@ -58,13 +58,13 @@ eval_tap 0 3 'SaveConfig # SKIP deprecated' test.out
 
 #- 4 UpdateImage
 samples/cli/sample-apps Dsmc updateImage \
-    --body '{"artifactPath": "aPGRtrg0", "coreDumpEnabled": false, "image": "SFuqkc7u", "imageReplicationsMap": {"9RT93GS3": {"failure_code": "LtSe0Ykg", "region": "KORFZIre", "status": "0SwXM9F6", "uri": "baSotVn5"}, "vwCZDSwz": {"failure_code": "XZZjci4V", "region": "asOZ5cOK", "status": "LNrp410p", "uri": "ka8nS8Sc"}, "3LH5detD": {"failure_code": "iAdVegWK", "region": "OWn93H4b", "status": "PkFf6rKr", "uri": "8VbUmtF8"}}, "namespace": "6A8sHPE2", "patchVersion": "AsqU8No2", "persistent": true, "version": "dwVWEOOy"}' \
+    --body '{"artifactPath": "224G1hFV", "coreDumpEnabled": true, "image": "Pi3w6Ic5", "imageReplicationsMap": {"NcWIeR0h": {"failure_code": "hQh9Iuls", "region": "Cv3PJdtd", "status": "SzA9HmVa", "uri": "J6Q2Ejjc"}, "afxRhp6M": {"failure_code": "MZnVbi0G", "region": "z9xMxMAx", "status": "FNlVIrs5", "uri": "FReEM4q8"}, "l2dV4ZoF": {"failure_code": "HBnQwmIR", "region": "rEZRfgKv", "status": "BpmqXmf1", "uri": "Sm0FG2hH"}}, "namespace": "n8sjjWd9", "patchVersion": "5OA08sqd", "persistent": false, "version": "j1EAIM8r"}' \
     > test.out 2>&1
 eval_tap $? 4 'UpdateImage' test.out
 
 #- 5 CreateImage
 samples/cli/sample-apps Dsmc createImage \
-    --body '{"artifactPath": "hBNZC4iX", "coreDumpEnabled": false, "dockerPath": "7yRtXXhY", "image": "9jC17FbD", "imageSize": 31, "namespace": "c0xIeDp5", "persistent": true, "ulimitFileSize": 31, "version": "hRJWDI8p"}' \
+    --body '{"artifactPath": "GBkd4O78", "coreDumpEnabled": true, "dockerPath": "93MdKqvA", "image": "77cXKF2y", "imageSize": 0, "namespace": "N8wpPU8k", "persistent": false, "ulimitFileSize": 99, "version": "zwoz1Ltl"}' \
     > test.out 2>&1
 eval_tap $? 5 'CreateImage' test.out
 
@@ -76,7 +76,7 @@ eval_tap $? 6 'ImportImages' test.out
 
 #- 7 CreateImagePatch
 samples/cli/sample-apps Dsmc createImagePatch \
-    --body '{"artifactPath": "5zIT9cKv", "coreDumpEnabled": true, "dockerPath": "no0pvLNx", "image": "DdTYklsT", "imageSize": 26, "namespace": "OtzRWBrf", "patchVersion": "Wil4mBwu", "persistent": false, "ulimitFileSize": 51, "uploaderFlag": "ZYTKozYB", "version": "PxUJSHGY"}' \
+    --body '{"artifactPath": "b2HB0pxf", "coreDumpEnabled": true, "dockerPath": "HMCBuGqX", "image": "POrJOq19", "imageSize": 95, "namespace": "zj6IjFI2", "patchVersion": "7JXwEDI1", "persistent": true, "ulimitFileSize": 32, "uploaderFlag": "cv9XzAqr", "version": "iBn5RjS9"}' \
     > test.out 2>&1
 eval_tap $? 7 'CreateImagePatch' test.out
 
@@ -94,7 +94,7 @@ eval_tap $? 9 'GetConfig' test.out
 #- 10 CreateConfig
 samples/cli/sample-apps Dsmc createConfig \
     --namespace $AB_NAMESPACE \
-    --body '{"claim_timeout": 38, "creation_timeout": 0, "default_version": "45NYnhFl", "port": 83, "ports": {"pjGCehVc": 70, "ENozJo8r": 31, "xbs38a21": 38}, "protocol": "NfGd1oz0", "providers": ["oinNiqAc", "zIn8RV2t", "Cc5m2lP0"], "session_timeout": 38, "unreachable_timeout": 31}' \
+    --body '{"claim_timeout": 13, "creation_timeout": 7, "default_version": "2elYEIq1", "port": 43, "ports": {"3UV9Azk8": 58, "adMpdaq4": 11, "YNKitfQ8": 87}, "protocol": "2Y7uJdR1", "providers": ["LRcDBuQT", "btwcRLUC", "nQyw64pR"], "session_timeout": 91, "unreachable_timeout": 68}' \
     > test.out 2>&1
 eval_tap $? 10 'CreateConfig' test.out
 
@@ -107,7 +107,7 @@ eval_tap $? 11 'DeleteConfig' test.out
 #- 12 UpdateConfig
 samples/cli/sample-apps Dsmc updateConfig \
     --namespace $AB_NAMESPACE \
-    --body '{"claim_timeout": 44, "creation_timeout": 75, "default_version": "H5829x53", "port": 21, "protocol": "qbnvASUt", "providers": ["Zu4qIKtk", "yBn3Zg1M", "b3NWnkwI"], "session_timeout": 74, "unreachable_timeout": 30}' \
+    --body '{"claim_timeout": 42, "creation_timeout": 58, "default_version": "1btsJuAs", "port": 70, "protocol": "jaC4C6lq", "providers": ["xTU8Qzk9", "zxOuzuSe", "h9jeETTB"], "session_timeout": 33, "unreachable_timeout": 85}' \
     > test.out 2>&1
 eval_tap $? 12 'UpdateConfig' test.out
 
@@ -120,200 +120,200 @@ eval_tap $? 13 'ClearCache' test.out
 #- 14 GetAllDeployment
 samples/cli/sample-apps Dsmc getAllDeployment \
     --namespace $AB_NAMESPACE \
-    --name 'W75wynhc' \
-    --count '32' \
-    --offset '37' \
+    --name 'DRLHFI6d' \
+    --count '87' \
+    --offset '39' \
     > test.out 2>&1
 eval_tap $? 14 'GetAllDeployment' test.out
 
 #- 15 GetDeployment
 samples/cli/sample-apps Dsmc getDeployment \
-    --deployment 'MJZvPEOk' \
+    --deployment 'XIsIjPx1' \
     --namespace $AB_NAMESPACE \
     > test.out 2>&1
 eval_tap $? 15 'GetDeployment' test.out
 
 #- 16 CreateDeployment
 samples/cli/sample-apps Dsmc createDeployment \
-    --deployment 'nhTjfGwp' \
+    --deployment 'AXsrhYAp' \
     --namespace $AB_NAMESPACE \
-    --body '{"allow_version_override": true, "buffer_count": 5, "buffer_percent": 42, "configuration": "Paqq4SmD", "enable_region_overrides": false, "extendable_session": false, "game_version": "V2EeW4nj", "max_count": 57, "min_count": 30, "overrides": {"vrRAaSqo": {"buffer_count": 38, "buffer_percent": 33, "configuration": "fLL57q3U", "enable_region_overrides": true, "extendable_session": true, "game_version": "hdtajQYh", "max_count": 68, "min_count": 15, "name": "rRvfTbRr", "region_overrides": {"DEY9G3Zc": {"buffer_count": 59, "buffer_percent": 15, "max_count": 45, "min_count": 50, "name": "dcJYWu7Q", "unlimited": false, "use_buffer_percent": false}, "ViLxePlV": {"buffer_count": 90, "buffer_percent": 28, "max_count": 75, "min_count": 98, "name": "uyPPkhzX", "unlimited": true, "use_buffer_percent": true}, "E8hRWcIB": {"buffer_count": 11, "buffer_percent": 27, "max_count": 51, "min_count": 89, "name": "LREa2C4h", "unlimited": false, "use_buffer_percent": false}}, "regions": ["Lt6opDec", "dhvcm2qY", "do1uvwD2"], "session_timeout": 76, "unlimited": true, "use_buffer_percent": false}, "DEvXvyHN": {"buffer_count": 12, "buffer_percent": 8, "configuration": "uOSQuQsW", "enable_region_overrides": true, "extendable_session": false, "game_version": "zGbEBkcm", "max_count": 87, "min_count": 23, "name": "ESdjvtrE", "region_overrides": {"NG8uK5K4": {"buffer_count": 37, "buffer_percent": 81, "max_count": 9, "min_count": 92, "name": "XxXOmlKZ", "unlimited": false, "use_buffer_percent": false}, "jwa7oEZG": {"buffer_count": 9, "buffer_percent": 19, "max_count": 52, "min_count": 50, "name": "qhLqIwho", "unlimited": true, "use_buffer_percent": true}, "i3vOBsLN": {"buffer_count": 14, "buffer_percent": 47, "max_count": 34, "min_count": 31, "name": "cZHpRg3x", "unlimited": true, "use_buffer_percent": false}}, "regions": ["YCuJaK2n", "57smYKS1", "XJOk2Bf7"], "session_timeout": 26, "unlimited": true, "use_buffer_percent": true}, "bXseug2E": {"buffer_count": 34, "buffer_percent": 65, "configuration": "foEU4lZs", "enable_region_overrides": true, "extendable_session": true, "game_version": "Di4yGQZl", "max_count": 22, "min_count": 53, "name": "gNxyrbRC", "region_overrides": {"z4iT9Mbo": {"buffer_count": 26, "buffer_percent": 100, "max_count": 100, "min_count": 79, "name": "qlwuJcSD", "unlimited": true, "use_buffer_percent": false}, "H2doZfgc": {"buffer_count": 20, "buffer_percent": 28, "max_count": 96, "min_count": 16, "name": "Y4oXJTgF", "unlimited": true, "use_buffer_percent": false}, "o9zWD5i4": {"buffer_count": 76, "buffer_percent": 40, "max_count": 27, "min_count": 76, "name": "jRMOvtm0", "unlimited": false, "use_buffer_percent": true}}, "regions": ["asYPqN3s", "PpxgUvfc", "GFRuvCSa"], "session_timeout": 68, "unlimited": true, "use_buffer_percent": true}}, "region_overrides": {"7cLmPb0R": {"buffer_count": 70, "buffer_percent": 81, "max_count": 6, "min_count": 17, "name": "oPrCx7Jm", "unlimited": true, "use_buffer_percent": false}, "gGYIdMwd": {"buffer_count": 44, "buffer_percent": 15, "max_count": 86, "min_count": 1, "name": "GTJiDns1", "unlimited": true, "use_buffer_percent": false}, "Cu5rUys1": {"buffer_count": 17, "buffer_percent": 23, "max_count": 60, "min_count": 83, "name": "zWoiejj2", "unlimited": true, "use_buffer_percent": true}}, "regions": ["AMfdByki", "8Ue0T4b4", "JKYR6wBi"], "session_timeout": 54, "unlimited": true, "use_buffer_percent": false}' \
+    --body '{"allow_version_override": true, "buffer_count": 99, "buffer_percent": 42, "configuration": "9BUHcYVX", "enable_region_overrides": true, "extendable_session": false, "game_version": "Trnhe8LF", "max_count": 72, "min_count": 93, "overrides": {"wb8rtt1q": {"buffer_count": 20, "buffer_percent": 6, "configuration": "dquuPHE1", "enable_region_overrides": false, "extendable_session": true, "game_version": "A7mZzXd4", "max_count": 91, "min_count": 9, "name": "d0rTrtZA", "region_overrides": {"fMOheUX6": {"buffer_count": 8, "buffer_percent": 93, "max_count": 44, "min_count": 32, "name": "cqql4sHt", "unlimited": false, "use_buffer_percent": true}, "d0h4pwkQ": {"buffer_count": 75, "buffer_percent": 0, "max_count": 18, "min_count": 96, "name": "D9xENWCt", "unlimited": false, "use_buffer_percent": false}, "Hi5jeOsV": {"buffer_count": 84, "buffer_percent": 97, "max_count": 3, "min_count": 83, "name": "AbDMypCM", "unlimited": false, "use_buffer_percent": true}}, "regions": ["cQq140Cn", "OZABfdW8", "jFdRABlC"], "session_timeout": 44, "unlimited": false, "use_buffer_percent": true}, "A62quriX": {"buffer_count": 13, "buffer_percent": 21, "configuration": "N9Zuxntv", "enable_region_overrides": true, "extendable_session": true, "game_version": "aewkSeVY", "max_count": 86, "min_count": 38, "name": "73fu2mcg", "region_overrides": {"XSsqKcFQ": {"buffer_count": 86, "buffer_percent": 96, "max_count": 12, "min_count": 67, "name": "wBOIRKSU", "unlimited": true, "use_buffer_percent": false}, "R7aAUk0L": {"buffer_count": 33, "buffer_percent": 70, "max_count": 75, "min_count": 80, "name": "E0to6H4l", "unlimited": true, "use_buffer_percent": false}, "K2yy47Ks": {"buffer_count": 66, "buffer_percent": 76, "max_count": 58, "min_count": 19, "name": "rPZAkxaQ", "unlimited": true, "use_buffer_percent": true}}, "regions": ["pSdQTwxZ", "wJOjTS1v", "U9eJuj5k"], "session_timeout": 82, "unlimited": false, "use_buffer_percent": false}, "bQSFLY8k": {"buffer_count": 92, "buffer_percent": 30, "configuration": "l73MVqjY", "enable_region_overrides": true, "extendable_session": false, "game_version": "uSVaCRtc", "max_count": 71, "min_count": 41, "name": "TfqUUFuK", "region_overrides": {"dHJ15YY6": {"buffer_count": 35, "buffer_percent": 40, "max_count": 96, "min_count": 43, "name": "mTDQg3NV", "unlimited": false, "use_buffer_percent": false}, "0hLsrxBZ": {"buffer_count": 99, "buffer_percent": 44, "max_count": 13, "min_count": 7, "name": "uA6gGGg8", "unlimited": true, "use_buffer_percent": true}, "3ikdN6V0": {"buffer_count": 3, "buffer_percent": 71, "max_count": 24, "min_count": 59, "name": "3tXhuXx0", "unlimited": false, "use_buffer_percent": false}}, "regions": ["arXkebHZ", "CgAcZHaK", "j9zLsYOt"], "session_timeout": 10, "unlimited": false, "use_buffer_percent": true}}, "region_overrides": {"2GHUpyeZ": {"buffer_count": 52, "buffer_percent": 90, "max_count": 99, "min_count": 24, "name": "EoeskfWz", "unlimited": false, "use_buffer_percent": false}, "6xsmzmQT": {"buffer_count": 32, "buffer_percent": 83, "max_count": 89, "min_count": 72, "name": "l1CBMclL", "unlimited": false, "use_buffer_percent": true}, "X3vrCduv": {"buffer_count": 77, "buffer_percent": 43, "max_count": 67, "min_count": 7, "name": "0ChWk84D", "unlimited": false, "use_buffer_percent": true}}, "regions": ["1uOyCJ2t", "thps4FKq", "NotvnMaW"], "session_timeout": 88, "unlimited": false, "use_buffer_percent": false}' \
     > test.out 2>&1
 eval_tap $? 16 'CreateDeployment' test.out
 
 #- 17 DeleteDeployment
 samples/cli/sample-apps Dsmc deleteDeployment \
-    --deployment 'eWm1zUgQ' \
+    --deployment 'Z2rs8hXD' \
     --namespace $AB_NAMESPACE \
     > test.out 2>&1
 eval_tap $? 17 'DeleteDeployment' test.out
 
 #- 18 UpdateDeployment
 samples/cli/sample-apps Dsmc updateDeployment \
-    --deployment 'Dv64ATiR' \
+    --deployment 'bvJhyc47' \
     --namespace $AB_NAMESPACE \
-    --body '{"allow_version_override": true, "buffer_count": 30, "buffer_percent": 46, "configuration": "iYdxMnMn", "enable_region_overrides": false, "extendable_session": true, "game_version": "lWeOosPU", "max_count": 33, "min_count": 78, "regions": ["cmCq5Kel", "45MfLGTJ", "KrixiUbi"], "session_timeout": 32, "unlimited": true, "use_buffer_percent": true}' \
+    --body '{"allow_version_override": false, "buffer_count": 86, "buffer_percent": 35, "configuration": "yMrZw0DP", "enable_region_overrides": false, "extendable_session": true, "game_version": "3JUTPTSM", "max_count": 69, "min_count": 10, "regions": ["E5WOh0sx", "2wbdPoOl", "gN6y5b73"], "session_timeout": 14, "unlimited": false, "use_buffer_percent": true}' \
     > test.out 2>&1
 eval_tap $? 18 'UpdateDeployment' test.out
 
 #- 19 CreateRootRegionOverride
 samples/cli/sample-apps Dsmc createRootRegionOverride \
-    --deployment 'ejhKPYy6' \
+    --deployment '6OrzSIP3' \
     --namespace $AB_NAMESPACE \
-    --region 'FEqwYJEf' \
-    --body '{"buffer_count": 69, "buffer_percent": 21, "max_count": 58, "min_count": 62, "unlimited": false, "use_buffer_percent": false}' \
+    --region 'wJyCG1OL' \
+    --body '{"buffer_count": 65, "buffer_percent": 39, "max_count": 53, "min_count": 70, "unlimited": true, "use_buffer_percent": false}' \
     > test.out 2>&1
 eval_tap $? 19 'CreateRootRegionOverride' test.out
 
 #- 20 DeleteRootRegionOverride
 samples/cli/sample-apps Dsmc deleteRootRegionOverride \
-    --deployment 'j36wIX6m' \
+    --deployment '1BIdx4Kb' \
     --namespace $AB_NAMESPACE \
-    --region 'uMw4Wuv3' \
+    --region '370yOuCr' \
     > test.out 2>&1
 eval_tap $? 20 'DeleteRootRegionOverride' test.out
 
 #- 21 UpdateRootRegionOverride
 samples/cli/sample-apps Dsmc updateRootRegionOverride \
-    --deployment 'PeApAqvu' \
+    --deployment 'ub5SAi6y' \
     --namespace $AB_NAMESPACE \
-    --region 'OEm1d1tg' \
-    --body '{"buffer_count": 90, "buffer_percent": 35, "max_count": 69, "min_count": 85, "unlimited": false, "use_buffer_percent": true}' \
+    --region 'jsvhmr5Q' \
+    --body '{"buffer_count": 4, "buffer_percent": 53, "max_count": 77, "min_count": 81, "unlimited": false, "use_buffer_percent": false}' \
     > test.out 2>&1
 eval_tap $? 21 'UpdateRootRegionOverride' test.out
 
 #- 22 CreateDeploymentOverride
 samples/cli/sample-apps Dsmc createDeploymentOverride \
-    --deployment 'CkbtuHBI' \
+    --deployment 'mDhNIlHO' \
     --namespace $AB_NAMESPACE \
-    --version 'Iu8Erv0N' \
-    --body '{"buffer_count": 99, "buffer_percent": 10, "configuration": "wBOzl0zc", "enable_region_overrides": false, "extendable_session": true, "game_version": "BFsmvu9X", "max_count": 33, "min_count": 91, "region_overrides": {"lPNbB0um": {"buffer_count": 81, "buffer_percent": 22, "max_count": 50, "min_count": 88, "name": "UuNosA6G", "unlimited": false, "use_buffer_percent": false}, "VSfEta2b": {"buffer_count": 72, "buffer_percent": 27, "max_count": 78, "min_count": 72, "name": "Hn0fD3Bo", "unlimited": true, "use_buffer_percent": true}, "q70St7sP": {"buffer_count": 95, "buffer_percent": 23, "max_count": 8, "min_count": 72, "name": "wEuysVQT", "unlimited": true, "use_buffer_percent": true}}, "regions": ["ld4FHAyo", "MEhql35w", "zGDBDepY"], "session_timeout": 75, "unlimited": true, "use_buffer_percent": false}' \
+    --version 'TdsMaOEC' \
+    --body '{"buffer_count": 83, "buffer_percent": 91, "configuration": "JCzaoxIo", "enable_region_overrides": false, "extendable_session": false, "game_version": "b2vS70Ue", "max_count": 36, "min_count": 24, "region_overrides": {"7ZFScdSE": {"buffer_count": 80, "buffer_percent": 77, "max_count": 34, "min_count": 45, "name": "WCwHacTV", "unlimited": true, "use_buffer_percent": false}, "JZoQvZO8": {"buffer_count": 67, "buffer_percent": 49, "max_count": 42, "min_count": 89, "name": "RNIEWUn9", "unlimited": true, "use_buffer_percent": true}, "PZegQs8j": {"buffer_count": 27, "buffer_percent": 58, "max_count": 82, "min_count": 23, "name": "zrcwXZ6B", "unlimited": false, "use_buffer_percent": false}}, "regions": ["Kh10kFgp", "DCZTDIop", "tw4Ofavw"], "session_timeout": 10, "unlimited": false, "use_buffer_percent": false}' \
     > test.out 2>&1
 eval_tap $? 22 'CreateDeploymentOverride' test.out
 
 #- 23 DeleteDeploymentOverride
 samples/cli/sample-apps Dsmc deleteDeploymentOverride \
-    --deployment 'yRO7kJkp' \
+    --deployment 'ytxIkitN' \
     --namespace $AB_NAMESPACE \
-    --version '28epuRQn' \
+    --version 'wBQsyadq' \
     > test.out 2>&1
 eval_tap $? 23 'DeleteDeploymentOverride' test.out
 
 #- 24 UpdateDeploymentOverride
 samples/cli/sample-apps Dsmc updateDeploymentOverride \
-    --deployment 'DKR3wvwX' \
+    --deployment 'Aj7mpn16' \
     --namespace $AB_NAMESPACE \
-    --version 'HYAfJEow' \
-    --body '{"buffer_count": 78, "buffer_percent": 74, "configuration": "qzSczABN", "enable_region_overrides": true, "game_version": "cjvwKxed", "max_count": 79, "min_count": 16, "regions": ["3IL6Zjlq", "KNnBJhpj", "1pY8dIXb"], "session_timeout": 9, "unlimited": true, "use_buffer_percent": true}' \
+    --version '8IF6cx2I' \
+    --body '{"buffer_count": 10, "buffer_percent": 88, "configuration": "3sQRfE5m", "enable_region_overrides": true, "game_version": "eARQZZtL", "max_count": 83, "min_count": 58, "regions": ["PwQn944C", "jNnsgW2k", "QsM8DS2q"], "session_timeout": 19, "unlimited": true, "use_buffer_percent": true}' \
     > test.out 2>&1
 eval_tap $? 24 'UpdateDeploymentOverride' test.out
 
 #- 25 CreateOverrideRegionOverride
 samples/cli/sample-apps Dsmc createOverrideRegionOverride \
-    --deployment 'D3vGz4rD' \
+    --deployment 'mfpMOdDC' \
     --namespace $AB_NAMESPACE \
-    --region 'xsCQFwaC' \
-    --version 'XUSbUVSm' \
-    --body '{"buffer_count": 76, "buffer_percent": 9, "max_count": 64, "min_count": 52, "unlimited": false, "use_buffer_percent": true}' \
+    --region 'jXfTktjJ' \
+    --version 'Qwohl1LF' \
+    --body '{"buffer_count": 9, "buffer_percent": 87, "max_count": 75, "min_count": 45, "unlimited": false, "use_buffer_percent": false}' \
     > test.out 2>&1
 eval_tap $? 25 'CreateOverrideRegionOverride' test.out
 
 #- 26 DeleteOverrideRegionOverride
 samples/cli/sample-apps Dsmc deleteOverrideRegionOverride \
-    --deployment '3smXGwTP' \
+    --deployment '70NZ5zfL' \
     --namespace $AB_NAMESPACE \
-    --region 'v8rysqo8' \
-    --version '1rSbwXlm' \
+    --region 'ZcdJ1ktb' \
+    --version 'fdeeMTvE' \
     > test.out 2>&1
 eval_tap $? 26 'DeleteOverrideRegionOverride' test.out
 
 #- 27 UpdateOverrideRegionOverride
 samples/cli/sample-apps Dsmc updateOverrideRegionOverride \
-    --deployment '393sr5yF' \
+    --deployment '40HEuE1M' \
     --namespace $AB_NAMESPACE \
-    --region 'qcIsB0cV' \
-    --version 'KiTOiLZh' \
-    --body '{"buffer_count": 18, "buffer_percent": 72, "max_count": 56, "min_count": 4, "unlimited": false, "use_buffer_percent": true}' \
+    --region '3Tp5wCww' \
+    --version 'FHjBnHD5' \
+    --body '{"buffer_count": 78, "buffer_percent": 46, "max_count": 72, "min_count": 40, "unlimited": false, "use_buffer_percent": true}' \
     > test.out 2>&1
 eval_tap $? 27 'UpdateOverrideRegionOverride' test.out
 
 #- 28 GetAllPodConfig
 samples/cli/sample-apps Dsmc getAllPodConfig \
     --namespace $AB_NAMESPACE \
-    --count '24' \
-    --offset '74' \
+    --count '78' \
+    --offset '20' \
     > test.out 2>&1
 eval_tap $? 28 'GetAllPodConfig' test.out
 
 #- 29 GetPodConfig
 samples/cli/sample-apps Dsmc getPodConfig \
-    --name 'NUFy8qr1' \
+    --name 'MF0ULUFE' \
     --namespace $AB_NAMESPACE \
     > test.out 2>&1
 eval_tap $? 29 'GetPodConfig' test.out
 
 #- 30 CreatePodConfig
 samples/cli/sample-apps Dsmc createPodConfig \
-    --name 'ib1sicw9' \
+    --name '3gdShs6Y' \
     --namespace $AB_NAMESPACE \
-    --body '{"cpu_limit": 3, "mem_limit": 98, "params": "LdFdaGPg"}' \
+    --body '{"cpu_limit": 92, "mem_limit": 40, "params": "1QQXaeLO"}' \
     > test.out 2>&1
 eval_tap $? 30 'CreatePodConfig' test.out
 
 #- 31 DeletePodConfig
 samples/cli/sample-apps Dsmc deletePodConfig \
-    --name 'r9o1xZZF' \
+    --name 'rKfKXUu5' \
     --namespace $AB_NAMESPACE \
     > test.out 2>&1
 eval_tap $? 31 'DeletePodConfig' test.out
 
 #- 32 UpdatePodConfig
 samples/cli/sample-apps Dsmc updatePodConfig \
-    --name 'TFSYxvTm' \
+    --name 'a1iUP9jj' \
     --namespace $AB_NAMESPACE \
-    --body '{"cpu_limit": 20, "mem_limit": 24, "name": "EmMXFfRW", "params": "ffkC7Zaf"}' \
+    --body '{"cpu_limit": 41, "mem_limit": 8, "name": "x7crcS8s", "params": "ZLcmzaTU"}' \
     > test.out 2>&1
 eval_tap $? 32 'UpdatePodConfig' test.out
 
 #- 33 AddPort
 samples/cli/sample-apps Dsmc addPort \
-    --name 'ScJZYwhi' \
+    --name '7mWIXpdB' \
     --namespace $AB_NAMESPACE \
-    --body '{"port": 92}' \
+    --body '{"port": 3}' \
     > test.out 2>&1
 eval_tap $? 33 'AddPort' test.out
 
 #- 34 DeletePort
 samples/cli/sample-apps Dsmc deletePort \
-    --name 'YNyUTVZc' \
+    --name '5fQ2jo9m' \
     --namespace $AB_NAMESPACE \
     > test.out 2>&1
 eval_tap $? 34 'DeletePort' test.out
 
 #- 35 UpdatePort
 samples/cli/sample-apps Dsmc updatePort \
-    --name 'gZBNfa73' \
+    --name 'qfXfgyVI' \
     --namespace $AB_NAMESPACE \
-    --body '{"name": "2ITkPHHf", "port": 12}' \
+    --body '{"name": "DK1n9ubk", "port": 45}' \
     > test.out 2>&1
 eval_tap $? 35 'UpdatePort' test.out
 
 #- 36 ListImages
 samples/cli/sample-apps Dsmc listImages \
     --namespace $AB_NAMESPACE \
-    --q 'QuCZHROd' \
-    --sortBy 'updatedAt' \
+    --q 'eqRfStzB' \
+    --sortBy 'version' \
     --sortDirection 'desc' \
-    --count '44' \
-    --offset '64' \
+    --count '24' \
+    --offset '91' \
     > test.out 2>&1
 eval_tap $? 36 'ListImages' test.out
 
 #- 37 DeleteImage
 samples/cli/sample-apps Dsmc deleteImage \
     --namespace $AB_NAMESPACE \
-    --imageURI '7F9YxfIq' \
-    --version 'JkoT6yd8' \
+    --imageURI 'e0O8T43n' \
+    --version 'pn40JhO4' \
     > test.out 2>&1
 eval_tap $? 37 'DeleteImage' test.out
 
@@ -332,31 +332,31 @@ eval_tap $? 39 'GetImageLimit' test.out
 #- 40 DeleteImagePatch
 samples/cli/sample-apps Dsmc deleteImagePatch \
     --namespace $AB_NAMESPACE \
-    --imageURI 'ezuiDLdo' \
-    --version '5kdnGEvo' \
-    --versionPatch 'lHoSiywz' \
+    --imageURI 'SqRsX3op' \
+    --version 'SY5IuhUL' \
+    --versionPatch 'jdu3POIe' \
     > test.out 2>&1
 eval_tap $? 40 'DeleteImagePatch' test.out
 
 #- 41 GetImageDetail
 samples/cli/sample-apps Dsmc getImageDetail \
     --namespace $AB_NAMESPACE \
-    --version 'SyxRHJMx' \
+    --version 'QACCgDOk' \
     > test.out 2>&1
 eval_tap $? 41 'GetImageDetail' test.out
 
 #- 42 GetImagePatches
 samples/cli/sample-apps Dsmc getImagePatches \
     --namespace $AB_NAMESPACE \
-    --version 'XSA0nIfA' \
+    --version 'vEiejPMS' \
     > test.out 2>&1
 eval_tap $? 42 'GetImagePatches' test.out
 
 #- 43 GetImagePatchDetail
 samples/cli/sample-apps Dsmc getImagePatchDetail \
     --namespace $AB_NAMESPACE \
-    --version 'weJ0zuCM' \
-    --versionPatch 'oxTiPRqE' \
+    --version 'asc7tH6K' \
+    --versionPatch 'djSVs5jE' \
     > test.out 2>&1
 eval_tap $? 43 'GetImagePatchDetail' test.out
 
@@ -369,9 +369,9 @@ eval_tap $? 44 'GetRepository' test.out
 #- 45 ListServer
 samples/cli/sample-apps Dsmc listServer \
     --namespace $AB_NAMESPACE \
-    --region 'hI3H55ML' \
-    --count '44' \
-    --offset '39' \
+    --region 'n01IICS6' \
+    --count '40' \
+    --offset '97' \
     > test.out 2>&1
 eval_tap $? 45 'ListServer' test.out
 
@@ -384,7 +384,7 @@ eval_tap $? 46 'CountServer' test.out
 #- 47 CountServerDetailed
 samples/cli/sample-apps Dsmc countServerDetailed \
     --namespace $AB_NAMESPACE \
-    --region 'fhEEWisU' \
+    --region 'EoJyJjdi' \
     > test.out 2>&1
 eval_tap $? 47 'CountServerDetailed' test.out
 
@@ -396,7 +396,7 @@ eval_tap $? 48 'ListLocalServer' test.out
 
 #- 49 DeleteLocalServer
 samples/cli/sample-apps Dsmc deleteLocalServer \
-    --name 'kBiqsSEp' \
+    --name 'ZVcAXi71' \
     --namespace $AB_NAMESPACE \
     > test.out 2>&1
 eval_tap $? 49 'DeleteLocalServer' test.out
@@ -404,44 +404,44 @@ eval_tap $? 49 'DeleteLocalServer' test.out
 #- 50 GetServer
 samples/cli/sample-apps Dsmc getServer \
     --namespace $AB_NAMESPACE \
-    --podName '2xvK3VvT' \
+    --podName 'NqTwImyr' \
     > test.out 2>&1
 eval_tap $? 50 'GetServer' test.out
 
 #- 51 DeleteServer
 samples/cli/sample-apps Dsmc deleteServer \
     --namespace $AB_NAMESPACE \
-    --podName 'ttngjKxF' \
+    --podName 'hsg32SZw' \
     > test.out 2>&1
 eval_tap $? 51 'DeleteServer' test.out
 
 #- 52 ListSession
 samples/cli/sample-apps Dsmc listSession \
     --namespace $AB_NAMESPACE \
-    --region 'TcT1zgOG' \
+    --region 'a068zPT6' \
     --withServer 'true' \
     --count '75' \
-    --offset '33' \
+    --offset '49' \
     > test.out 2>&1
 eval_tap $? 52 'ListSession' test.out
 
 #- 53 CountSession
 samples/cli/sample-apps Dsmc countSession \
     --namespace $AB_NAMESPACE \
-    --region 'WNYWjqZB' \
+    --region 'SDqEMtKZ' \
     > test.out 2>&1
 eval_tap $? 53 'CountSession' test.out
 
 #- 54 DeleteSession
 samples/cli/sample-apps Dsmc deleteSession \
     --namespace $AB_NAMESPACE \
-    --sessionID 'IMD1jHLz' \
+    --sessionID 'sRhAoeDV' \
     > test.out 2>&1
 eval_tap $? 54 'DeleteSession' test.out
 
 #- 55 CreateRepository
 samples/cli/sample-apps Dsmc createRepository \
-    --body '{"namespace": "E4a8mBEu", "repository": "e4vO0rDm"}' \
+    --body '{"namespace": "AsGQ0tH1", "repository": "lXxZrHW2"}' \
     > test.out 2>&1
 eval_tap $? 55 'CreateRepository' test.out
 
@@ -461,23 +461,23 @@ eval_tap $? 57 'ImportConfigV1' test.out
 #- 58 GetAllDeploymentClient
 samples/cli/sample-apps Dsmc getAllDeploymentClient \
     --namespace $AB_NAMESPACE \
-    --name 'kfp64FQj' \
-    --count '54' \
-    --offset '25' \
+    --name 'o9Iag92v' \
+    --count '62' \
+    --offset '91' \
     > test.out 2>&1
 eval_tap $? 58 'GetAllDeploymentClient' test.out
 
 #- 59 CreateDeploymentClient
 samples/cli/sample-apps Dsmc createDeploymentClient \
-    --deployment 'UHV2e6aW' \
+    --deployment 'CJazBnMw' \
     --namespace $AB_NAMESPACE \
-    --body '{"allow_version_override": true, "buffer_count": 45, "buffer_percent": 91, "configuration": "7g7qkLyZ", "enable_region_overrides": true, "extendable_session": true, "game_version": "OtVF4rzd", "max_count": 74, "min_count": 51, "overrides": {"K3Vwn1HJ": {"buffer_count": 17, "buffer_percent": 57, "configuration": "rFdgKeqL", "enable_region_overrides": true, "extendable_session": true, "game_version": "cRhAl8x6", "max_count": 38, "min_count": 61, "name": "qJh3ZadE", "region_overrides": {"VWNNttLY": {"buffer_count": 36, "buffer_percent": 29, "max_count": 54, "min_count": 83, "name": "PuK06o7l", "unlimited": true, "use_buffer_percent": false}, "2bVZbVPh": {"buffer_count": 7, "buffer_percent": 51, "max_count": 54, "min_count": 2, "name": "TlJbndQx", "unlimited": true, "use_buffer_percent": false}, "1xtRZB7y": {"buffer_count": 19, "buffer_percent": 87, "max_count": 73, "min_count": 18, "name": "bQSzjxGW", "unlimited": false, "use_buffer_percent": true}}, "regions": ["yhy0tdws", "moNklj7d", "4afoaEi9"], "session_timeout": 75, "unlimited": false, "use_buffer_percent": true}, "y5m7UPg6": {"buffer_count": 17, "buffer_percent": 63, "configuration": "YpvLlDfY", "enable_region_overrides": true, "extendable_session": true, "game_version": "3YRPZ2aW", "max_count": 30, "min_count": 30, "name": "laLJV3jz", "region_overrides": {"R4TsrGyQ": {"buffer_count": 78, "buffer_percent": 29, "max_count": 62, "min_count": 95, "name": "czaU5ySY", "unlimited": true, "use_buffer_percent": true}, "lUlXnq56": {"buffer_count": 19, "buffer_percent": 15, "max_count": 63, "min_count": 0, "name": "gjYGxNOn", "unlimited": true, "use_buffer_percent": false}, "K2OlQuFn": {"buffer_count": 53, "buffer_percent": 28, "max_count": 80, "min_count": 56, "name": "5ycM2iKG", "unlimited": false, "use_buffer_percent": false}}, "regions": ["5bMW2ziY", "eYtNEYDQ", "Mb5rbAhl"], "session_timeout": 37, "unlimited": true, "use_buffer_percent": true}, "53kL6yFW": {"buffer_count": 98, "buffer_percent": 9, "configuration": "HXTqGkUF", "enable_region_overrides": true, "extendable_session": true, "game_version": "NJUROxLt", "max_count": 11, "min_count": 50, "name": "PCPyVFrF", "region_overrides": {"Waeg4Cwz": {"buffer_count": 34, "buffer_percent": 3, "max_count": 19, "min_count": 34, "name": "JV3o7hZ3", "unlimited": true, "use_buffer_percent": true}, "iSA0Hopw": {"buffer_count": 3, "buffer_percent": 68, "max_count": 1, "min_count": 85, "name": "4Ho0tLNL", "unlimited": false, "use_buffer_percent": false}, "fXrgf5sg": {"buffer_count": 31, "buffer_percent": 92, "max_count": 55, "min_count": 9, "name": "BmCTWWYN", "unlimited": true, "use_buffer_percent": false}}, "regions": ["LQC6F7Dk", "dCUR9j84", "cpjUInkd"], "session_timeout": 40, "unlimited": false, "use_buffer_percent": true}}, "region_overrides": {"i6tDzwMd": {"buffer_count": 76, "buffer_percent": 62, "max_count": 68, "min_count": 19, "name": "D9n1Be7z", "unlimited": false, "use_buffer_percent": true}, "tBsi8E8L": {"buffer_count": 43, "buffer_percent": 99, "max_count": 27, "min_count": 90, "name": "GgLjZc7V", "unlimited": false, "use_buffer_percent": true}, "riuJUVfX": {"buffer_count": 3, "buffer_percent": 21, "max_count": 34, "min_count": 13, "name": "7XE0ljKK", "unlimited": false, "use_buffer_percent": false}}, "regions": ["kNjuLuyz", "3KglCh2l", "ijaFwSBh"], "session_timeout": 68, "unlimited": false, "use_buffer_percent": true}' \
+    --body '{"allow_version_override": true, "buffer_count": 89, "buffer_percent": 80, "configuration": "BoKWIpJT", "enable_region_overrides": true, "extendable_session": true, "game_version": "YutDFvB6", "max_count": 87, "min_count": 61, "overrides": {"IoBzxaLI": {"buffer_count": 48, "buffer_percent": 5, "configuration": "HKhzEwzf", "enable_region_overrides": false, "extendable_session": true, "game_version": "RjLRNzXb", "max_count": 82, "min_count": 77, "name": "YTHyaLoT", "region_overrides": {"KA9gKMvL": {"buffer_count": 97, "buffer_percent": 57, "max_count": 21, "min_count": 63, "name": "OSDf8ln9", "unlimited": true, "use_buffer_percent": false}, "PXHYxKNi": {"buffer_count": 87, "buffer_percent": 29, "max_count": 43, "min_count": 84, "name": "E9b1sACz", "unlimited": false, "use_buffer_percent": false}, "VTqs3XXO": {"buffer_count": 64, "buffer_percent": 18, "max_count": 8, "min_count": 53, "name": "EcY3Dlcx", "unlimited": false, "use_buffer_percent": true}}, "regions": ["XY6GEYpk", "L6HyeSOz", "eXkkD0po"], "session_timeout": 81, "unlimited": true, "use_buffer_percent": false}, "lhpdkuzS": {"buffer_count": 34, "buffer_percent": 91, "configuration": "oobJM6SN", "enable_region_overrides": false, "extendable_session": true, "game_version": "lZpIMKIL", "max_count": 65, "min_count": 37, "name": "HrtUFs8w", "region_overrides": {"Rtscaix5": {"buffer_count": 51, "buffer_percent": 65, "max_count": 94, "min_count": 15, "name": "3f77tF0d", "unlimited": true, "use_buffer_percent": true}, "xWvtDuMg": {"buffer_count": 27, "buffer_percent": 5, "max_count": 15, "min_count": 29, "name": "n3Sunuwh", "unlimited": true, "use_buffer_percent": false}, "mSwphBjR": {"buffer_count": 43, "buffer_percent": 30, "max_count": 16, "min_count": 66, "name": "XbreZ8zy", "unlimited": true, "use_buffer_percent": true}}, "regions": ["K2kuaQxl", "M5KpiPWB", "qUkXfoJA"], "session_timeout": 34, "unlimited": false, "use_buffer_percent": false}, "RxA7SnUg": {"buffer_count": 30, "buffer_percent": 96, "configuration": "ysoVAPel", "enable_region_overrides": false, "extendable_session": false, "game_version": "eo6NUW5z", "max_count": 22, "min_count": 49, "name": "RZrBPoXa", "region_overrides": {"h0nleMey": {"buffer_count": 36, "buffer_percent": 69, "max_count": 19, "min_count": 2, "name": "67hIih7F", "unlimited": true, "use_buffer_percent": true}, "xp3EFntx": {"buffer_count": 28, "buffer_percent": 14, "max_count": 75, "min_count": 98, "name": "46WZyRFS", "unlimited": true, "use_buffer_percent": true}, "qXwdNRQw": {"buffer_count": 42, "buffer_percent": 23, "max_count": 19, "min_count": 43, "name": "DnjcRE1w", "unlimited": false, "use_buffer_percent": true}}, "regions": ["BRzH5VWj", "IQnMti5E", "DNYVkj6f"], "session_timeout": 22, "unlimited": false, "use_buffer_percent": true}}, "region_overrides": {"1uzgzEPC": {"buffer_count": 99, "buffer_percent": 26, "max_count": 55, "min_count": 23, "name": "Qj3cYq8T", "unlimited": false, "use_buffer_percent": false}, "pr8va96d": {"buffer_count": 13, "buffer_percent": 43, "max_count": 2, "min_count": 31, "name": "GOvhy73i", "unlimited": true, "use_buffer_percent": true}, "9ly6ooJi": {"buffer_count": 17, "buffer_percent": 72, "max_count": 50, "min_count": 58, "name": "57ZpCVnz", "unlimited": true, "use_buffer_percent": false}}, "regions": ["ZlAMx3Bu", "XU3XZp52", "zUFsU2QZ"], "session_timeout": 43, "unlimited": false, "use_buffer_percent": true}' \
     > test.out 2>&1
 eval_tap $? 59 'CreateDeploymentClient' test.out
 
 #- 60 DeleteDeploymentClient
 samples/cli/sample-apps Dsmc deleteDeploymentClient \
-    --deployment '3Zcsmd7A' \
+    --deployment 'hrCOaqkb' \
     --namespace $AB_NAMESPACE \
     > test.out 2>&1
 eval_tap $? 60 'DeleteDeploymentClient' test.out
@@ -485,22 +485,22 @@ eval_tap $? 60 'DeleteDeploymentClient' test.out
 #- 61 GetAllPodConfigClient
 samples/cli/sample-apps Dsmc getAllPodConfigClient \
     --namespace $AB_NAMESPACE \
-    --count '28' \
-    --offset '63' \
+    --count '64' \
+    --offset '98' \
     > test.out 2>&1
 eval_tap $? 61 'GetAllPodConfigClient' test.out
 
 #- 62 CreatePodConfigClient
 samples/cli/sample-apps Dsmc createPodConfigClient \
-    --name '3Xy1U75e' \
+    --name 'VEabBbvL' \
     --namespace $AB_NAMESPACE \
-    --body '{"cpu_limit": 74, "mem_limit": 95, "params": "pj16MI2y"}' \
+    --body '{"cpu_limit": 43, "mem_limit": 29, "params": "x2uzbNPc"}' \
     > test.out 2>&1
 eval_tap $? 62 'CreatePodConfigClient' test.out
 
 #- 63 DeletePodConfigClient
 samples/cli/sample-apps Dsmc deletePodConfigClient \
-    --name 'voMsndal' \
+    --name 'mtJQTuPO' \
     --namespace $AB_NAMESPACE \
     > test.out 2>&1
 eval_tap $? 63 'DeletePodConfigClient' test.out
@@ -508,10 +508,10 @@ eval_tap $? 63 'DeletePodConfigClient' test.out
 #- 64 ListImagesClient
 samples/cli/sample-apps Dsmc listImagesClient \
     --namespace $AB_NAMESPACE \
-    --count '32' \
-    --offset '72' \
-    --q '38LAHSIc' \
-    --sortBy 'createdAt' \
+    --count '49' \
+    --offset '84' \
+    --q '4bzkK6Py' \
+    --sortBy 'version' \
     --sortDirection 'asc' \
     > test.out 2>&1
 eval_tap $? 64 'ListImagesClient' test.out
@@ -525,93 +525,93 @@ eval_tap $? 65 'ImageLimitClient' test.out
 #- 66 ImageDetailClient
 samples/cli/sample-apps Dsmc imageDetailClient \
     --namespace $AB_NAMESPACE \
-    --version '8SR0OUAE' \
+    --version 'FH7FqvSq' \
     > test.out 2>&1
 eval_tap $? 66 'ImageDetailClient' test.out
 
 #- 67 ListServerClient
 samples/cli/sample-apps Dsmc listServerClient \
     --namespace $AB_NAMESPACE \
-    --region 'ZPaYzD4U' \
-    --count '17' \
-    --offset '26' \
+    --region 'mK5WJfMa' \
+    --count '59' \
+    --offset '72' \
     > test.out 2>&1
 eval_tap $? 67 'ListServerClient' test.out
 
 #- 68 ServerHeartbeat
 samples/cli/sample-apps Dsmc serverHeartbeat \
     --namespace $AB_NAMESPACE \
-    --body '{"podName": "VJHwPiBp"}' \
+    --body '{"podName": "Rr4Zu4zI"}' \
     > test.out 2>&1
 eval_tap $? 68 'ServerHeartbeat' test.out
 
 #- 69 DeregisterLocalServer
 samples/cli/sample-apps Dsmc deregisterLocalServer \
     --namespace $AB_NAMESPACE \
-    --body '{"name": "3xuPWHL2"}' \
+    --body '{"name": "1SuK6GDe"}' \
     > test.out 2>&1
 eval_tap $? 69 'DeregisterLocalServer' test.out
 
 #- 70 RegisterLocalServer
 samples/cli/sample-apps Dsmc registerLocalServer \
     --namespace $AB_NAMESPACE \
-    --body '{"custom_attribute": "TaCvyVIw", "ip": "zxelPd9Z", "name": "QmCoMHUr", "port": 75}' \
+    --body '{"custom_attribute": "mauBlnZr", "ip": "I0JqbKwX", "name": "ScHvniwJ", "port": 87}' \
     > test.out 2>&1
 eval_tap $? 70 'RegisterLocalServer' test.out
 
 #- 71 RegisterServer
 samples/cli/sample-apps Dsmc registerServer \
     --namespace $AB_NAMESPACE \
-    --body '{"custom_attribute": "fdtufGqt", "pod_name": "5v7APc3X"}' \
+    --body '{"custom_attribute": "2vT8JXlZ", "pod_name": "QPwpkimy"}' \
     > test.out 2>&1
 eval_tap $? 71 'RegisterServer' test.out
 
 #- 72 ShutdownServer
 samples/cli/sample-apps Dsmc shutdownServer \
     --namespace $AB_NAMESPACE \
-    --body '{"kill_me": true, "pod_name": "beGBrVbS"}' \
+    --body '{"kill_me": false, "pod_name": "e2dzALeH"}' \
     > test.out 2>&1
 eval_tap $? 72 'ShutdownServer' test.out
 
 #- 73 GetServerSessionTimeout
 samples/cli/sample-apps Dsmc getServerSessionTimeout \
     --namespace $AB_NAMESPACE \
-    --podName 'jptIRVwA' \
+    --podName '10CCbZLj' \
     > test.out 2>&1
 eval_tap $? 73 'GetServerSessionTimeout' test.out
 
 #- 74 GetServerSession
 samples/cli/sample-apps Dsmc getServerSession \
     --namespace $AB_NAMESPACE \
-    --podName '2S6E0Ult' \
+    --podName 'nnB48sMx' \
     > test.out 2>&1
 eval_tap $? 74 'GetServerSession' test.out
 
 #- 75 CreateSession
 samples/cli/sample-apps Dsmc createSession \
     --namespace $AB_NAMESPACE \
-    --body '{"client_version": "5FNSNtMK", "configuration": "GEJs98xh", "deployment": "maH7NRjl", "game_mode": "grtSWJHN", "matching_allies": [{"matching_parties": [{"party_attributes": {"XntwsOt4": {}, "U1ljOxaD": {}, "2uLUMb2o": {}}, "party_id": "gDcuOid9", "party_members": [{"user_id": "D9yttQFB"}, {"user_id": "JaGB2uve"}, {"user_id": "l5KhICm8"}]}, {"party_attributes": {"yW2tGFO1": {}, "CsdEIU4F": {}, "zwRM1kG6": {}}, "party_id": "RsZespii", "party_members": [{"user_id": "6OIw7bOz"}, {"user_id": "OoBHBa4Q"}, {"user_id": "SM3rFT6u"}]}, {"party_attributes": {"rYLyaIKp": {}, "XY96D797": {}, "6cO0yLzS": {}}, "party_id": "6JnEANBL", "party_members": [{"user_id": "BjUFsxSq"}, {"user_id": "KsxcIJrD"}, {"user_id": "wyAMUAQM"}]}]}, {"matching_parties": [{"party_attributes": {"nVPjbQdx": {}, "xEc6Kop9": {}, "ViEo643d": {}}, "party_id": "qL7FoVf0", "party_members": [{"user_id": "VJqMXKfv"}, {"user_id": "FcU8QfWM"}, {"user_id": "Sg2gazR5"}]}, {"party_attributes": {"xtpjzhM2": {}, "cpCB1wtx": {}, "BRDb8oZg": {}}, "party_id": "W0NIXdk0", "party_members": [{"user_id": "EBAOVbgp"}, {"user_id": "hpAtifYU"}, {"user_id": "x1dwl9ev"}]}, {"party_attributes": {"EoOL8rLe": {}, "fH0DPM0U": {}, "1UbsNG8v": {}}, "party_id": "SiIobnva", "party_members": [{"user_id": "w8NuELFk"}, {"user_id": "s2LF2ozx"}, {"user_id": "N0anJIzr"}]}]}, {"matching_parties": [{"party_attributes": {"zgJShnRV": {}, "8cO3FUQv": {}, "TVTWYDF8": {}}, "party_id": "I13uAVVS", "party_members": [{"user_id": "VqzuWM1H"}, {"user_id": "UV0osLex"}, {"user_id": "nVIuxkY3"}]}, {"party_attributes": {"hrui6BEb": {}, "XY1ULLZS": {}, "WiXoG2PW": {}}, "party_id": "H8n41aat", "party_members": [{"user_id": "4J40Ktrn"}, {"user_id": "ZIXVDL0B"}, {"user_id": "6eloF5f5"}]}, {"party_attributes": {"hbv6SAHp": {}, "cfs3qLYv": {}, "O4ge2UA2": {}}, "party_id": "nh1YsudN", "party_members": [{"user_id": "OlzpzsP9"}, {"user_id": "y8jFjv4a"}, {"user_id": "tLU2xRdN"}]}]}], "namespace": "wWMrLgRD", "notification_payload": {}, "pod_name": "BTB0lorB", "region": "PP1GvA6R", "session_id": "5j7rmM9j"}' \
+    --body '{"client_version": "uGeTy5hZ", "configuration": "AkjUoN5L", "deployment": "czcgl7ZS", "game_mode": "XpmZFCT2", "matching_allies": [{"matching_parties": [{"party_attributes": {"LYo1SXbe": {}, "gGDT8iIy": {}, "09iVU6yy": {}}, "party_id": "dr9dUSeJ", "party_members": [{"user_id": "NtRgPDTR"}, {"user_id": "Mg4BIjIN"}, {"user_id": "3bsuGpaF"}]}, {"party_attributes": {"qrsK2qJC": {}, "2NkNv4Pp": {}, "e0QNWbnq": {}}, "party_id": "ZpHzRsSK", "party_members": [{"user_id": "k7C3rhAp"}, {"user_id": "o9wXT6D9"}, {"user_id": "XNxaPop9"}]}, {"party_attributes": {"oNqQit5T": {}, "wr7pAM75": {}, "SM4XBxDy": {}}, "party_id": "zND5Tb8l", "party_members": [{"user_id": "Ov9nD50r"}, {"user_id": "sBHeyDUL"}, {"user_id": "KGsM8EQf"}]}]}, {"matching_parties": [{"party_attributes": {"qae812UI": {}, "Anp8dRzz": {}, "N8eYlOhl": {}}, "party_id": "zXLuHtVM", "party_members": [{"user_id": "MMEfCH07"}, {"user_id": "VAElrhAt"}, {"user_id": "eNLjgZIh"}]}, {"party_attributes": {"041PhHVJ": {}, "rfoJR5bU": {}, "S2ETedqW": {}}, "party_id": "wsB9LNzt", "party_members": [{"user_id": "MSpRTfp0"}, {"user_id": "zrqgaaX7"}, {"user_id": "XpOAz2rR"}]}, {"party_attributes": {"VfU18r3c": {}, "TqIP0Gb0": {}, "KHcWONla": {}}, "party_id": "a1zhGoKl", "party_members": [{"user_id": "rpknakvY"}, {"user_id": "V2vk35W7"}, {"user_id": "i89uB1ia"}]}]}, {"matching_parties": [{"party_attributes": {"kg7WB1Nn": {}, "g4lfNzR4": {}, "NNKgCRTC": {}}, "party_id": "n1NMgBlF", "party_members": [{"user_id": "KwqPcMrG"}, {"user_id": "eRPY3Rb5"}, {"user_id": "PqgQX6h2"}]}, {"party_attributes": {"J7udlqrC": {}, "XDdmriv7": {}, "xoAz6Ou3": {}}, "party_id": "zRHnWlqP", "party_members": [{"user_id": "K1LyWqCc"}, {"user_id": "ZsvQtwTU"}, {"user_id": "SVbfnYi3"}]}, {"party_attributes": {"1595wPZX": {}, "A33FjWeB": {}, "FmkxO7BP": {}}, "party_id": "fxHF036n", "party_members": [{"user_id": "go8Vg6Hu"}, {"user_id": "luBvRzs5"}, {"user_id": "fdVC1K22"}]}]}], "namespace": "NWKtipVY", "notification_payload": {}, "pod_name": "lxbih4mA", "region": "aH0AEocB", "session_id": "IgnFwZpg"}' \
     > test.out 2>&1
 eval_tap $? 75 'CreateSession' test.out
 
 #- 76 ClaimServer
 samples/cli/sample-apps Dsmc claimServer \
     --namespace $AB_NAMESPACE \
-    --body '{"session_id": "iNwx1jKc"}' \
+    --body '{"session_id": "yofsJNQc"}' \
     > test.out 2>&1
 eval_tap $? 76 'ClaimServer' test.out
 
 #- 77 GetSession
 samples/cli/sample-apps Dsmc getSession \
     --namespace $AB_NAMESPACE \
-    --sessionID '1EQEIBW2' \
+    --sessionID 'I77iIYQt' \
     > test.out 2>&1
 eval_tap $? 77 'GetSession' test.out
 
 #- 78 CancelSession
 samples/cli/sample-apps Dsmc cancelSession \
     --namespace $AB_NAMESPACE \
-    --sessionID 'KIxm88GQ' \
+    --sessionID 'LCMcyWNu' \
     > test.out 2>&1
 eval_tap $? 78 'CancelSession' test.out
 
@@ -627,7 +627,7 @@ eval_tap $? 80 'ListProviders' test.out
 
 #- 81 ListProvidersByRegion
 samples/cli/sample-apps Dsmc listProvidersByRegion \
-    --region 'zndl9C2Q' \
+    --region 'SxncjHeh' \
     > test.out 2>&1
 eval_tap $? 81 'ListProvidersByRegion' test.out
 

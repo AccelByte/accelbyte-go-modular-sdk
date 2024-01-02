@@ -162,6 +162,8 @@ const (
 	TypePersonalChatNotif              = "personalChatNotif"
 	TypePersonalChatRequest            = "personalChatRequest"
 	TypePersonalChatResponse           = "personalChatResponse"
+	TypeRefreshTokenRequest            = "refreshTokenRequest"
+	TypeRefreshTokenResponse           = "refreshTokenResponse"
 	TypeRejectFriendsNotif             = "rejectFriendsNotif"
 	TypeRejectFriendsRequest           = "rejectFriendsRequest"
 	TypeRejectFriendsResponse          = "rejectFriendsResponse"
