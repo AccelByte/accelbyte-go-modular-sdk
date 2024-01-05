@@ -6,6 +6,7 @@ package integration_test
 
 import (
 	"testing"
+	"time"
 
 	chat "github.com/AccelByte/accelbyte-go-modular-sdk/chat-sdk/pkg"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/chat-sdk/pkg/chatclient/inbox"
@@ -136,7 +137,7 @@ func TestIntegrationInbox(t *testing.T) {
 	Init()
 
 	// CASE Save Inbox Message
-	expiredAt := int64(1704251627)
+	expiredAt := time.Now().Add(time.Hour).Unix()
 	scopeChat := chatclientmodels.ModelsSaveInboxMessageRequestScopeUSER
 	statusChat := chatclientmodels.ModelsSaveInboxMessageRequestStatusDRAFT
 	userIdChat := GetUserID()
