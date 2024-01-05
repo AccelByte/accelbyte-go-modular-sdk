@@ -9,39 +9,39 @@ import (
 
 	"github.com/stretchr/testify/assert"
 
-	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils/auth"
-
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/tests/integration"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils/auth"
 
 	dslogmanager "github.com/AccelByte/accelbyte-go-modular-sdk/dslogmanager-sdk/pkg"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/dslogmanager-sdk/pkg/dslogmanagerclient/terminated_servers"
 )
 
 var (
-	terminatedServersService = &dslogmanager.TerminatedServersService{
-		Client:          dslogmanager.NewDslogmanagerClient(auth.DefaultConfigRepositoryImpl()),
-		TokenRepository: tokenRepository,
-	}
 	limit = int64(20)
 )
 
 func TestIntegrationListTerminatedServers(t *testing.T) {
+	t.Skipf("temporarily disabled") // Armada is deprecated
+
 	t.Parallel()
 
 	// Login User - Arrange
 	Init()
 
-	// CASE Get all terminated servers
 	inputTerminatedServer := &terminated_servers.ListTerminatedServersParams{
 		Namespace: integration.NamespaceTest,
 		Limit:     &limit,
+	}
+
+	terminatedServersService := &dslogmanager.TerminatedServersService{
+		Client:          dslogmanager.NewDslogmanagerClient(auth.DefaultConfigRepositoryImpl()),
+		TokenRepository: tokenRepository,
 	}
 
 	ok, err := terminatedServersService.ListTerminatedServersShort(inputTerminatedServer)
 	if err != nil {
 		assert.FailNow(t, err.Error())
 	}
-	// ESAC
 
 	// Assert
 	assert.Nil(t, err, "err should be nil")

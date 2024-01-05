@@ -9,38 +9,32 @@ import (
 
 	"github.com/stretchr/testify/assert"
 
-	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils/auth"
-
 	qosm "github.com/AccelByte/accelbyte-go-modular-sdk/qosm-sdk/pkg"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/qosm-sdk/pkg/qosmclient/public"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/qosm-sdk/pkg/qosmclient/server"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/qosm-sdk/pkg/qosmclientmodels"
-)
-
-var (
-	qosmConfigRepo = auth.DefaultConfigRepositoryImpl()
-	qosmTokenRepo  = tokenRepository
-	qosmClient     = qosm.NewQosmClient(qosmConfigRepo)
-	serverService  = &qosm.ServerService{
-		Client:          qosmClient,
-		TokenRepository: qosmTokenRepo,
-	}
-	publicService = &qosm.PublicService{
-		Client:          qosmClient,
-		TokenRepository: qosmTokenRepo,
-	}
+	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils/auth"
 )
 
 // ListServer + Heartbeat
 func TestIntegrationListServerHeartbeat(t *testing.T) {
+	t.Skipf("temporarily disabled") // Armada is deprecated
+
 	// Login User - Arrange
 	Init()
 
-	// CASE ListServer
+	qosmConfigRepo := auth.DefaultConfigRepositoryImpl()
+	qosmTokenRepo := tokenRepository
+	qosmClient := qosm.NewQosmClient(qosmConfigRepo)
+
+	publicService := &qosm.PublicService{
+		Client:          qosmClient,
+		TokenRepository: qosmTokenRepo,
+	}
+
 	inputListServer := &public.ListServerParams{}
 
 	listServerOk, errListSertver := publicService.ListServerShort(inputListServer)
-	// ESAC
 
 	// Assert
 	assert.Nil(t, errListSertver, "err should be nil")
@@ -49,7 +43,6 @@ func TestIntegrationListServerHeartbeat(t *testing.T) {
 		t.Skip("response 'Servers' is empty")
 	}
 
-	// CASE Heartbeat
 	firstServer := listServerOk.Servers[0]
 	heartbeatRequest := qosmclientmodels.ModelsHeartbeatRequest{
 		IP:     firstServer.IP,
@@ -60,8 +53,12 @@ func TestIntegrationListServerHeartbeat(t *testing.T) {
 		Body: &heartbeatRequest,
 	}
 
+	serverService := &qosm.ServerService{
+		Client:          qosmClient,
+		TokenRepository: qosmTokenRepo,
+	}
+
 	err := serverService.HeartbeatShort(inputHeartbeat)
-	// ESAC
 
 	// Assert
 	assert.Nil(t, err, "err should be nil")
