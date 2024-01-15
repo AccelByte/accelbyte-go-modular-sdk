@@ -768,9 +768,8 @@ func serveStandalone() {
 		var activity []string
 		activity = append(activity, activityString)
 		availabilityString := m["availability"]
-		var availability []int64
-		convToInt, _ := strconv.ParseInt(availabilityString, 10, 64)
-		availability = append(availability, convToInt)
+		var availability []string
+		availability = append(availability, availabilityString)
 		codeString := m["code"]
 		code, _ := strconv.ParseInt(codeString, 10, 64)
 		friendIdsString := m["friendIds"]

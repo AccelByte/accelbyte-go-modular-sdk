@@ -38,10 +38,7 @@ func (aaa *ArtifactsService) ArtifactGet(input *artifacts.ArtifactGetParams) ([]
 	if err != nil {
 		return nil, err
 	}
-	ok, noContent, badRequest, unauthorized, forbidden, internalServerError, err := aaa.Client.Artifacts.ArtifactGet(input, client.BearerToken(*token.AccessToken))
-	if noContent != nil {
-		return nil, noContent
-	}
+	ok, badRequest, unauthorized, forbidden, internalServerError, err := aaa.Client.Artifacts.ArtifactGet(input, client.BearerToken(*token.AccessToken))
 	if badRequest != nil {
 		return nil, badRequest
 	}
@@ -90,10 +87,7 @@ func (aaa *ArtifactsService) ArtifactDelete(input *artifacts.ArtifactDeleteParam
 	if err != nil {
 		return err
 	}
-	_, noContent, badRequest, unauthorized, forbidden, internalServerError, err := aaa.Client.Artifacts.ArtifactDelete(input, client.BearerToken(*token.AccessToken))
-	if noContent != nil {
-		return noContent
-	}
+	_, badRequest, unauthorized, forbidden, notFound, internalServerError, err := aaa.Client.Artifacts.ArtifactDelete(input, client.BearerToken(*token.AccessToken))
 	if badRequest != nil {
 		return badRequest
 	}
@@ -102,6 +96,9 @@ func (aaa *ArtifactsService) ArtifactDelete(input *artifacts.ArtifactDeleteParam
 	}
 	if forbidden != nil {
 		return forbidden
+	}
+	if notFound != nil {
+		return notFound
 	}
 	if internalServerError != nil {
 		return internalServerError
@@ -119,10 +116,7 @@ func (aaa *ArtifactsService) ArtifactGetURL(input *artifacts.ArtifactGetURLParam
 	if err != nil {
 		return nil, err
 	}
-	ok, noContent, badRequest, unauthorized, forbidden, internalServerError, err := aaa.Client.Artifacts.ArtifactGetURL(input, client.BearerToken(*token.AccessToken))
-	if noContent != nil {
-		return nil, noContent
-	}
+	ok, badRequest, unauthorized, forbidden, notFound, internalServerError, err := aaa.Client.Artifacts.ArtifactGetURL(input, client.BearerToken(*token.AccessToken))
 	if badRequest != nil {
 		return nil, badRequest
 	}
@@ -131,6 +125,9 @@ func (aaa *ArtifactsService) ArtifactGetURL(input *artifacts.ArtifactGetURLParam
 	}
 	if forbidden != nil {
 		return nil, forbidden
+	}
+	if notFound != nil {
+		return nil, notFound
 	}
 	if internalServerError != nil {
 		return nil, internalServerError

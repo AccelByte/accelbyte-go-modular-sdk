@@ -21,10 +21,11 @@
 ### Account Wrapper:  [Account](../../ams-sdk/pkg/wrapper_account.go)
 | Endpoint | Method | ID | Class | Wrapper | Example |
 |---|---|---|---|---|---|
-| `/ams/v1/admin/namespaces/{namespace}/account` | GET | AccountGetShort | [AccountGetShort](../../ams-sdk/pkg/amsclient/account/account_client.go) | [AccountGetShort](../../ams-sdk/pkg/wrapper_account.go) | [AccountGetShort](../../samples/cli/cmd/ams/account/accountGet.go) |
-| `/ams/v1/admin/namespaces/{namespace}/account` | POST | AccountCreateShort | [AccountCreateShort](../../ams-sdk/pkg/amsclient/account/account_client.go) | [AccountCreateShort](../../ams-sdk/pkg/wrapper_account.go) | [AccountCreateShort](../../samples/cli/cmd/ams/account/accountCreate.go) |
-| `/ams/v1/admin/namespaces/{namespace}/account/link` | GET | AccountLinkTokenGetShort | [AccountLinkTokenGetShort](../../ams-sdk/pkg/amsclient/account/account_client.go) | [AccountLinkTokenGetShort](../../ams-sdk/pkg/wrapper_account.go) | [AccountLinkTokenGetShort](../../samples/cli/cmd/ams/account/accountLinkTokenGet.go) |
-| `/ams/v1/admin/namespaces/{namespace}/account/link` | POST | AccountLinkShort | [AccountLinkShort](../../ams-sdk/pkg/amsclient/account/account_client.go) | [AccountLinkShort](../../ams-sdk/pkg/wrapper_account.go) | [AccountLinkShort](../../samples/cli/cmd/ams/account/accountLink.go) |
+| `/ams/v1/admin/namespaces/{namespace}/account` | GET | AdminAccountGetShort | [AdminAccountGetShort](../../ams-sdk/pkg/amsclient/account/account_client.go) | [AdminAccountGetShort](../../ams-sdk/pkg/wrapper_account.go) | [AdminAccountGetShort](../../samples/cli/cmd/ams/account/adminAccountGet.go) |
+| `/ams/v1/admin/namespaces/{namespace}/account` | POST | AdminAccountCreateShort | [AdminAccountCreateShort](../../ams-sdk/pkg/amsclient/account/account_client.go) | [AdminAccountCreateShort](../../ams-sdk/pkg/wrapper_account.go) | [AdminAccountCreateShort](../../samples/cli/cmd/ams/account/adminAccountCreate.go) |
+| `/ams/v1/admin/namespaces/{namespace}/account/link` | GET | AdminAccountLinkTokenGetShort | [AdminAccountLinkTokenGetShort](../../ams-sdk/pkg/amsclient/account/account_client.go) | [AdminAccountLinkTokenGetShort](../../ams-sdk/pkg/wrapper_account.go) | [AdminAccountLinkTokenGetShort](../../samples/cli/cmd/ams/account/adminAccountLinkTokenGet.go) |
+| `/ams/v1/admin/namespaces/{namespace}/account/link` | POST | AdminAccountLinkTokenPostShort | [AdminAccountLinkTokenPostShort](../../ams-sdk/pkg/amsclient/account/account_client.go) | [AdminAccountLinkTokenPostShort](../../ams-sdk/pkg/wrapper_account.go) | [AdminAccountLinkTokenPostShort](../../samples/cli/cmd/ams/account/adminAccountLinkTokenPost.go) |
+| `/ams/v1/namespaces/{namespace}/account` | GET | AccountGetShort | [AccountGetShort](../../ams-sdk/pkg/amsclient/account/account_client.go) | [AccountGetShort](../../ams-sdk/pkg/wrapper_account.go) | [AccountGetShort](../../samples/cli/cmd/ams/account/accountGet.go) |
 
 ### Artifacts Wrapper:  [Artifacts](../../ams-sdk/pkg/wrapper_artifacts.go)
 | Endpoint | Method | ID | Class | Wrapper | Example |
@@ -73,6 +74,7 @@
 |---|---|---|---|---|---|
 | `/ams/v1/admin/namespaces/{namespace}/regions` | GET | InfoRegionsShort | [InfoRegionsShort](../../ams-sdk/pkg/amsclient/a_m_s_info/ams_info_client.go) | [InfoRegionsShort](../../ams-sdk/pkg/wrapper_amsInfo.go) | [InfoRegionsShort](../../samples/cli/cmd/ams/amsInfo/infoRegions.go) |
 | `/ams/v1/admin/namespaces/{namespace}/supported-instances` | GET | InfoSupportedInstancesShort | [InfoSupportedInstancesShort](../../ams-sdk/pkg/amsclient/a_m_s_info/ams_info_client.go) | [InfoSupportedInstancesShort](../../ams-sdk/pkg/wrapper_amsInfo.go) | [InfoSupportedInstancesShort](../../samples/cli/cmd/ams/amsInfo/infoSupportedInstances.go) |
+| `/ams/v1/upload-url` | GET | UploadURLGetShort | [UploadURLGetShort](../../ams-sdk/pkg/amsclient/a_m_s_info/ams_info_client.go) | [UploadURLGetShort](../../ams-sdk/pkg/wrapper_amsInfo.go) | [UploadURLGetShort](../../samples/cli/cmd/ams/amsInfo/uploadURLGet.go) |
 
 ### Watchdogs Wrapper:  [Watchdogs](../../ams-sdk/pkg/wrapper_watchdogs.go)
 | Endpoint | Method | ID | Class | Wrapper | Example |
@@ -130,10 +132,6 @@
 | `api.QoSServer` | [ApiQoSServer ](../../ams-sdk/pkg/amsclientmodels/api_qo_s_server.go) |
 | `api.ReferencingFleet` | [ApiReferencingFleet ](../../ams-sdk/pkg/amsclientmodels/api_referencing_fleet.go) |
 | `api.RegionConfig` | [ApiRegionConfig ](../../ams-sdk/pkg/amsclientmodels/api_region_config.go) |
-| `api.Time` | [ApiTime ](../../ams-sdk/pkg/amsclientmodels/api_time.go) |
 | `api.Timeout` | [ApiTimeout ](../../ams-sdk/pkg/amsclientmodels/api_timeout.go) |
 | `api.UpdateServerRequest` | [ApiUpdateServerRequest ](../../ams-sdk/pkg/amsclientmodels/api_update_server_request.go) |
 | `response.ErrorResponse` | [ResponseErrorResponse ](../../ams-sdk/pkg/amsclientmodels/response_error_response.go) |
-| `time.Location` | [TimeLocation ](../../ams-sdk/pkg/amsclientmodels/time_location.go) |
-| `time.zone` | [TimeZone ](../../ams-sdk/pkg/amsclientmodels/time_zone.go) |
-| `time.zoneTrans` | [TimeZoneTrans ](../../ams-sdk/pkg/amsclientmodels/time_zone_trans.go) |

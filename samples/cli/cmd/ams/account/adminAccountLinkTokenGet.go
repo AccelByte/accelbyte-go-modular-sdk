@@ -14,21 +14,21 @@ import (
 	"github.com/spf13/cobra"
 )
 
-// AccountLinkTokenGetCmd represents the AccountLinkTokenGet command
-var AccountLinkTokenGetCmd = &cobra.Command{
-	Use:   "accountLinkTokenGet",
-	Short: "Account link token get",
-	Long:  `Account link token get`,
+// AdminAccountLinkTokenGetCmd represents the AdminAccountLinkTokenGet command
+var AdminAccountLinkTokenGetCmd = &cobra.Command{
+	Use:   "adminAccountLinkTokenGet",
+	Short: "Admin account link token get",
+	Long:  `Admin account link token get`,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		accountService := &ams.AccountService{
 			Client:          ams.NewAmsClient(&repository.ConfigRepositoryImpl{}),
 			TokenRepository: &repository.TokenRepositoryImpl{},
 		}
 		namespace, _ := cmd.Flags().GetString("namespace")
-		input := &account.AccountLinkTokenGetParams{
+		input := &account.AdminAccountLinkTokenGetParams{
 			Namespace: namespace,
 		}
-		ok, errOK := accountService.AccountLinkTokenGetShort(input)
+		ok, errOK := accountService.AdminAccountLinkTokenGetShort(input)
 		if errOK != nil {
 			logrus.Error(errOK)
 
@@ -42,6 +42,6 @@ var AccountLinkTokenGetCmd = &cobra.Command{
 }
 
 func init() {
-	AccountLinkTokenGetCmd.Flags().String("namespace", "", "Namespace")
-	_ = AccountLinkTokenGetCmd.MarkFlagRequired("namespace")
+	AdminAccountLinkTokenGetCmd.Flags().String("namespace", "", "Namespace")
+	_ = AdminAccountLinkTokenGetCmd.MarkFlagRequired("namespace")
 }
