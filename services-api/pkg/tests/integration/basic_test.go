@@ -20,7 +20,6 @@ import (
 )
 
 var (
-	basicURL           = "https://picsum.photos/200"
 	timezone           = "Asia/Jakarta"
 	basicLanguange     = "en"
 	userProfileService = &basic.UserProfileService{
@@ -28,23 +27,17 @@ var (
 		TokenRepository: tokenRepository,
 	}
 	bodyBasic = &basicclientmodels.UserProfilePrivateCreate{
-		AvatarLargeURL: basicURL,
-		AvatarSmallURL: basicURL,
-		AvatarURL:      basicURL,
-		FirstName:      "go",
-		Language:       basicLanguange,
-		LastName:       "sdk",
-		TimeZone:       timezone,
+		FirstName: "go",
+		Language:  basicLanguange,
+		LastName:  "sdk",
+		TimeZone:  timezone,
 	}
 	bodyBasicUpdate = &basicclientmodels.UserProfileUpdate{
-		AvatarLargeURL: basicURL,
-		AvatarSmallURL: basicURL,
-		AvatarURL:      basicURL,
-		FirstName:      "goUpdate",
-		Language:       basicLanguange,
-		LastName:       "sdkUpdate",
-		TimeZone:       timezone,
-		ZipCode:        emptyString,
+		FirstName: "goUpdate",
+		Language:  basicLanguange,
+		LastName:  "sdkUpdate",
+		TimeZone:  timezone,
+		ZipCode:   emptyString,
 	}
 )
 

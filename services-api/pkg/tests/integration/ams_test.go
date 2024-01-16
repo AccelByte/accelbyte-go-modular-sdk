@@ -6,6 +6,7 @@ package integration_test
 
 import (
 	"fmt"
+	"strings"
 	"testing"
 
 	ams "github.com/AccelByte/accelbyte-go-modular-sdk/ams-sdk/pkg"
@@ -48,7 +49,7 @@ var (
 func checkAmsAccount() error {
 	_, err := accountService.AccountGetShort(&account.AccountGetParams{Namespace: integration.NamespaceTest})
 	if err != nil {
-		_, errCreate := accountService.AccountCreateShort(&account.AccountCreateParams{
+		_, errCreate := accountService.AdminAccountCreateShort(&account.AdminAccountCreateParams{
 			Body:      &amsclientmodels.APIAccountCreateRequest{Name: &accountName},
 			Namespace: integration.NamespaceTest,
 		})
@@ -60,6 +61,10 @@ func checkAmsAccount() error {
 	return nil
 }
 func TestIntegrationAmsImageList(t *testing.T) {
+	if strings.Contains(configRepository.BaseUrl, "gamingservices.accelbyte.io") {
+		t.Skip("skip for ags starter")
+	}
+
 	// Login User - Arrange
 	Init()
 
