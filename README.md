@@ -1,14 +1,16 @@
-# AccelByte Go Modular SDK
-
-A software development kit (SDK) for interacting with AccelByte services written in Golang.
-
-This SDK was generated from OpenAPI specification documents included in the [spec](spec) directory.
+# AccelByte Modular Go SDK
 
 > :warning: **This [accelbyte-go-modular-sdk](https://github.com/AccelByte/accelbyte-go-modular-sdk) 
-> modular package is not to be confused with [accelbyte-go-sdk](https://github.com/AccelByte/accelbyte-go-sdk) 
-> monolithic package:** The former is positioned as the sucessor of the latter.
-> For new projects, we encourage you to try this modular package. For existing projects, a migration path is 
-> available and both packages will be maintained for some time to give time for migration.
+> is not to be confused with [accelbyte-go-sdk](https://github.com/AccelByte/accelbyte-go-sdk):** 
+> * The former (modular SDK) is planned to be the sucessor for the latter (monolithic SDK).
+> * The modular SDK allows developers to include only the required modules in projects.
+> * If you are starting a new project, you may experiment with modular SDK.
+> * If you use monolithic SDK in an existing project, a migration path is available via compatibility layer in modular SDK.
+> * Both monolithic and modular SDK will be maintained for some time to give time for migration until monolithic SDK is deprecated in the future.
+
+A software development kit (SDK) for interacting with AccelByte Gaming Services (AGS) written in Go.
+
+This SDK was generated from AGS OpenAPI spec files included in the [spec](spec) directory.
 
 ## Setup
 
