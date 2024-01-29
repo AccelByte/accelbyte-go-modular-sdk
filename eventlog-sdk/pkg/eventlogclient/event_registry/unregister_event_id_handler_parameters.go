@@ -57,7 +57,8 @@ func NewUnregisterEventIDHandlerParamsWithHTTPClient(client *http.Client) *Unreg
 	}
 }
 
-/*UnregisterEventIDHandlerParams contains all the parameters to send to the API endpoint
+/*
+UnregisterEventIDHandlerParams contains all the parameters to send to the API endpoint
 for the unregister event id handler operation typically these are written to a http.Request
 */
 type UnregisterEventIDHandlerParams struct {
@@ -74,6 +75,9 @@ type UnregisterEventIDHandlerParams struct {
 	AuthInfoWriter runtime.ClientAuthInfoWriter
 	Context        context.Context
 	HTTPClient     *http.Client
+
+	// XFlightId is an optional parameter from this SDK
+	XFlightId *string
 }
 
 // WithTimeout adds the timeout to the unregister event id handler params
@@ -123,6 +127,15 @@ func (o *UnregisterEventIDHandlerParams) SetHTTPClientTransport(roundTripper htt
 	}
 }
 
+// SetFlightId adds the flightId as the header value for this specific endpoint
+func (o *UnregisterEventIDHandlerParams) SetFlightId(flightId string) {
+	if o.XFlightId != nil {
+		o.XFlightId = &flightId
+	} else {
+		o.XFlightId = &utils.GetDefaultFlightID().Value
+	}
+}
+
 // WithEventID adds the eventID to the unregister event id handler params
 func (o *UnregisterEventIDHandlerParams) WithEventID(eventID string) *UnregisterEventIDHandlerParams {
 	o.SetEventID(eventID)
@@ -150,6 +163,16 @@ func (o *UnregisterEventIDHandlerParams) WriteToRequest(r runtime.ClientRequest,
 	// setting the default header value
 	if err := r.SetHeaderParam("X-Amzn-Trace-Id", utils.AmazonTraceIDGen()); err != nil {
 		return err
+	}
+
+	if o.XFlightId == nil {
+		if err := r.SetHeaderParam("X-Flight-Id", utils.GetDefaultFlightID().Value); err != nil {
+			return err
+		}
+	} else {
+		if err := r.SetHeaderParam("X-Flight-Id", *o.XFlightId); err != nil {
+			return err
+		}
 	}
 
 	if len(res) > 0 {

@@ -59,7 +59,8 @@ func NewCreateSessionParamsWithHTTPClient(client *http.Client) *CreateSessionPar
 	}
 }
 
-/*CreateSessionParams contains all the parameters to send to the API endpoint
+/*
+CreateSessionParams contains all the parameters to send to the API endpoint
 for the create session operation typically these are written to a http.Request
 */
 type CreateSessionParams struct {
@@ -78,6 +79,9 @@ type CreateSessionParams struct {
 	AuthInfoWriter runtime.ClientAuthInfoWriter
 	Context        context.Context
 	HTTPClient     *http.Client
+
+	// XFlightId is an optional parameter from this SDK
+	XFlightId *string
 }
 
 // WithTimeout adds the timeout to the create session params
@@ -127,6 +131,15 @@ func (o *CreateSessionParams) SetHTTPClientTransport(roundTripper http.RoundTrip
 	}
 }
 
+// SetFlightId adds the flightId as the header value for this specific endpoint
+func (o *CreateSessionParams) SetFlightId(flightId string) {
+	if o.XFlightId != nil {
+		o.XFlightId = &flightId
+	} else {
+		o.XFlightId = &utils.GetDefaultFlightID().Value
+	}
+}
+
 // WithBody adds the body to the create session params
 func (o *CreateSessionParams) WithBody(body *sessionbrowserclientmodels.ModelsCreateSessionRequest) *CreateSessionParams {
 	o.SetBody(body)
@@ -171,6 +184,16 @@ func (o *CreateSessionParams) WriteToRequest(r runtime.ClientRequest, reg strfmt
 	// setting the default header value
 	if err := r.SetHeaderParam("X-Amzn-Trace-Id", utils.AmazonTraceIDGen()); err != nil {
 		return err
+	}
+
+	if o.XFlightId == nil {
+		if err := r.SetHeaderParam("X-Flight-Id", utils.GetDefaultFlightID().Value); err != nil {
+			return err
+		}
+	} else {
+		if err := r.SetHeaderParam("X-Flight-Id", *o.XFlightId); err != nil {
+			return err
+		}
 	}
 
 	if len(res) > 0 {

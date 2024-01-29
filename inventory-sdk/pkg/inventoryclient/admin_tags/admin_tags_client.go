@@ -43,7 +43,7 @@ type ClientService interface {
 /*
 Deprecated: 2022-08-10 - Use AdminListTagsShort instead.
 
-AdminListTags to list tags
+# AdminListTags to list tags
 
 This endpoint will list all tags in a namespace.
 The response body will be in the form of standard pagination.
@@ -119,6 +119,10 @@ func (a *Client) AdminListTagsShort(params *AdminListTagsParams, authInfo runtim
 		params.SetHTTPClientTransport(params.RetryPolicy)
 	}
 
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
+	}
+
 	result, err := a.transport.Submit(&runtime.ClientOperation{
 		ID:                 "AdminListTags",
 		Method:             "GET",
@@ -153,7 +157,7 @@ func (a *Client) AdminListTagsShort(params *AdminListTagsParams, authInfo runtim
 /*
 Deprecated: 2022-08-10 - Use AdminCreateTagShort instead.
 
-AdminCreateTag to create a tag
+# AdminCreateTag to create a tag
 
 This endpoint will create a new tag.
 The tag name must be unique per namespace.
@@ -234,6 +238,10 @@ func (a *Client) AdminCreateTagShort(params *AdminCreateTagParams, authInfo runt
 		params.SetHTTPClientTransport(params.RetryPolicy)
 	}
 
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
+	}
+
 	result, err := a.transport.Submit(&runtime.ClientOperation{
 		ID:                 "AdminCreateTag",
 		Method:             "POST",
@@ -270,7 +278,7 @@ func (a *Client) AdminCreateTagShort(params *AdminCreateTagParams, authInfo runt
 /*
 Deprecated: 2022-08-10 - Use AdminDeleteTagShort instead.
 
-AdminDeleteTag to delete a tag
+# AdminDeleteTag to delete a tag
 
 This endpoint will delete a tag by tagName in a specified namespace.
 If the tagName doesn't exist in a namespace, it'll return not found.
@@ -344,6 +352,10 @@ func (a *Client) AdminDeleteTagShort(params *AdminDeleteTagParams, authInfo runt
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{

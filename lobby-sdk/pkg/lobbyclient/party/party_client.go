@@ -124,6 +124,10 @@ func (a *Client) AdminGetPartyDataV1Short(params *AdminGetPartyDataV1Params, aut
 		params.SetHTTPClientTransport(params.RetryPolicy)
 	}
 
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
+	}
+
 	result, err := a.transport.Submit(&runtime.ClientOperation{
 		ID:                 "adminGetPartyDataV1",
 		Method:             "GET",
@@ -241,6 +245,10 @@ func (a *Client) AdminGetUserPartyV1Short(params *AdminGetUserPartyV1Params, aut
 		params.SetHTTPClientTransport(params.RetryPolicy)
 	}
 
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
+	}
+
 	result, err := a.transport.Submit(&runtime.ClientOperation{
 		ID:                 "adminGetUserPartyV1",
 		Method:             "GET",
@@ -283,7 +291,6 @@ Deprecated: 2022-08-10 - Use PublicGetPartyDataV1Short instead.
 
 PublicGetPartyDataV1 get party data by party id
 Required valid user authorization
-
 
 load personal party data in a namespace based on Party ID
 
@@ -349,7 +356,6 @@ func (a *Client) PublicGetPartyDataV1(params *PublicGetPartyDataV1Params, authIn
 PublicGetPartyDataV1Short get party data by party id
 Required valid user authorization
 
-
 load personal party data in a namespace based on Party ID
 
 Action Code: 50101
@@ -366,6 +372,10 @@ func (a *Client) PublicGetPartyDataV1Short(params *PublicGetPartyDataV1Params, a
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -410,7 +420,6 @@ Deprecated: 2022-08-10 - Use PublicUpdatePartyAttributesV1Short instead.
 
 PublicUpdatePartyAttributesV1 update party attributes
 Required valid user authorization
-
 
 update party attributes in a namespace.
 */
@@ -477,7 +486,6 @@ func (a *Client) PublicUpdatePartyAttributesV1(params *PublicUpdatePartyAttribut
 PublicUpdatePartyAttributesV1Short update party attributes
 Required valid user authorization
 
-
 update party attributes in a namespace.
 */
 func (a *Client) PublicUpdatePartyAttributesV1Short(params *PublicUpdatePartyAttributesV1Params, authInfo runtime.ClientAuthInfoWriter) (*PublicUpdatePartyAttributesV1OK, error) {
@@ -492,6 +500,10 @@ func (a *Client) PublicUpdatePartyAttributesV1Short(params *PublicUpdatePartyAtt
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -538,7 +550,6 @@ Deprecated: 2022-08-10 - Use PublicSetPartyLimitV1Short instead.
 
 PublicSetPartyLimitV1 set party limit
 Required valid user authorization
-
 
 Set party limit, only party leader can call this endpoint.
 */
@@ -602,7 +613,6 @@ func (a *Client) PublicSetPartyLimitV1(params *PublicSetPartyLimitV1Params, auth
 PublicSetPartyLimitV1Short set party limit
 Required valid user authorization
 
-
 Set party limit, only party leader can call this endpoint.
 */
 func (a *Client) PublicSetPartyLimitV1Short(params *PublicSetPartyLimitV1Params, authInfo runtime.ClientAuthInfoWriter) (*PublicSetPartyLimitV1OK, error) {
@@ -617,6 +627,10 @@ func (a *Client) PublicSetPartyLimitV1Short(params *PublicSetPartyLimitV1Params,
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{

@@ -57,7 +57,8 @@ func NewAdminListUserRolesV4ParamsWithHTTPClient(client *http.Client) *AdminList
 	}
 }
 
-/*AdminListUserRolesV4Params contains all the parameters to send to the API endpoint
+/*
+AdminListUserRolesV4Params contains all the parameters to send to the API endpoint
 for the admin list user roles v4 operation typically these are written to a http.Request
 */
 type AdminListUserRolesV4Params struct {
@@ -79,6 +80,9 @@ type AdminListUserRolesV4Params struct {
 	AuthInfoWriter runtime.ClientAuthInfoWriter
 	Context        context.Context
 	HTTPClient     *http.Client
+
+	// XFlightId is an optional parameter from this SDK
+	XFlightId *string
 }
 
 // WithTimeout adds the timeout to the admin list user roles v4 params
@@ -128,6 +132,15 @@ func (o *AdminListUserRolesV4Params) SetHTTPClientTransport(roundTripper http.Ro
 	}
 }
 
+// SetFlightId adds the flightId as the header value for this specific endpoint
+func (o *AdminListUserRolesV4Params) SetFlightId(flightId string) {
+	if o.XFlightId != nil {
+		o.XFlightId = &flightId
+	} else {
+		o.XFlightId = &utils.GetDefaultFlightID().Value
+	}
+}
+
 // WithNamespace adds the namespace to the admin list user roles v4 params
 func (o *AdminListUserRolesV4Params) WithNamespace(namespace string) *AdminListUserRolesV4Params {
 	o.SetNamespace(namespace)
@@ -171,6 +184,16 @@ func (o *AdminListUserRolesV4Params) WriteToRequest(r runtime.ClientRequest, reg
 	// setting the default header value
 	if err := r.SetHeaderParam("X-Amzn-Trace-Id", utils.AmazonTraceIDGen()); err != nil {
 		return err
+	}
+
+	if o.XFlightId == nil {
+		if err := r.SetHeaderParam("X-Flight-Id", utils.GetDefaultFlightID().Value); err != nil {
+			return err
+		}
+	} else {
+		if err := r.SetHeaderParam("X-Flight-Id", *o.XFlightId); err != nil {
+			return err
+		}
 	}
 
 	if len(res) > 0 {

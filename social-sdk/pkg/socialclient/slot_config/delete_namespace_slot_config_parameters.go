@@ -57,7 +57,8 @@ func NewDeleteNamespaceSlotConfigParamsWithHTTPClient(client *http.Client) *Dele
 	}
 }
 
-/*DeleteNamespaceSlotConfigParams contains all the parameters to send to the API endpoint
+/*
+DeleteNamespaceSlotConfigParams contains all the parameters to send to the API endpoint
 for the delete namespace slot config operation typically these are written to a http.Request
 */
 type DeleteNamespaceSlotConfigParams struct {
@@ -74,6 +75,9 @@ type DeleteNamespaceSlotConfigParams struct {
 	AuthInfoWriter runtime.ClientAuthInfoWriter
 	Context        context.Context
 	HTTPClient     *http.Client
+
+	// XFlightId is an optional parameter from this SDK
+	XFlightId *string
 }
 
 // WithTimeout adds the timeout to the delete namespace slot config params
@@ -123,6 +127,15 @@ func (o *DeleteNamespaceSlotConfigParams) SetHTTPClientTransport(roundTripper ht
 	}
 }
 
+// SetFlightId adds the flightId as the header value for this specific endpoint
+func (o *DeleteNamespaceSlotConfigParams) SetFlightId(flightId string) {
+	if o.XFlightId != nil {
+		o.XFlightId = &flightId
+	} else {
+		o.XFlightId = &utils.GetDefaultFlightID().Value
+	}
+}
+
 // WithNamespace adds the namespace to the delete namespace slot config params
 func (o *DeleteNamespaceSlotConfigParams) WithNamespace(namespace string) *DeleteNamespaceSlotConfigParams {
 	o.SetNamespace(namespace)
@@ -150,6 +163,16 @@ func (o *DeleteNamespaceSlotConfigParams) WriteToRequest(r runtime.ClientRequest
 	// setting the default header value
 	if err := r.SetHeaderParam("X-Amzn-Trace-Id", utils.AmazonTraceIDGen()); err != nil {
 		return err
+	}
+
+	if o.XFlightId == nil {
+		if err := r.SetHeaderParam("X-Flight-Id", utils.GetDefaultFlightID().Value); err != nil {
+			return err
+		}
+	} else {
+		if err := r.SetHeaderParam("X-Flight-Id", *o.XFlightId); err != nil {
+			return err
+		}
 	}
 
 	if len(res) > 0 {

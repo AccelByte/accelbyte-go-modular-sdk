@@ -59,7 +59,8 @@ func NewStoreMatchResultsParamsWithHTTPClient(client *http.Client) *StoreMatchRe
 	}
 }
 
-/*StoreMatchResultsParams contains all the parameters to send to the API endpoint
+/*
+StoreMatchResultsParams contains all the parameters to send to the API endpoint
 for the store match results operation typically these are written to a http.Request
 */
 type StoreMatchResultsParams struct {
@@ -78,6 +79,9 @@ type StoreMatchResultsParams struct {
 	AuthInfoWriter runtime.ClientAuthInfoWriter
 	Context        context.Context
 	HTTPClient     *http.Client
+
+	// XFlightId is an optional parameter from this SDK
+	XFlightId *string
 }
 
 // WithTimeout adds the timeout to the store match results params
@@ -127,6 +131,15 @@ func (o *StoreMatchResultsParams) SetHTTPClientTransport(roundTripper http.Round
 	}
 }
 
+// SetFlightId adds the flightId as the header value for this specific endpoint
+func (o *StoreMatchResultsParams) SetFlightId(flightId string) {
+	if o.XFlightId != nil {
+		o.XFlightId = &flightId
+	} else {
+		o.XFlightId = &utils.GetDefaultFlightID().Value
+	}
+}
+
 // WithBody adds the body to the store match results params
 func (o *StoreMatchResultsParams) WithBody(body *matchmakingclientmodels.ModelsMatchResultRequest) *StoreMatchResultsParams {
 	o.SetBody(body)
@@ -171,6 +184,16 @@ func (o *StoreMatchResultsParams) WriteToRequest(r runtime.ClientRequest, reg st
 	// setting the default header value
 	if err := r.SetHeaderParam("X-Amzn-Trace-Id", utils.AmazonTraceIDGen()); err != nil {
 		return err
+	}
+
+	if o.XFlightId == nil {
+		if err := r.SetHeaderParam("X-Flight-Id", utils.GetDefaultFlightID().Value); err != nil {
+			return err
+		}
+	} else {
+		if err := r.SetHeaderParam("X-Flight-Id", *o.XFlightId); err != nil {
+			return err
+		}
 	}
 
 	if len(res) > 0 {

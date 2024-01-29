@@ -44,65 +44,66 @@ type ClientService interface {
 Deprecated: 2022-08-10 - Use CreatePaymentOrderByDedicatedShort instead.
 
 CreatePaymentOrderByDedicated create payment order by dedicated server
- [Not Supported Yet In Starter]
+
+	[Not Supported Yet In Starter]
 
 This API is used to create payment order from non justice service. e.g. from dedicated server, the result contains the payment station url.
 
- Path Parameter:
+	Path Parameter:
 
 
-     Parameter                                                         | Type   | Required | Description
-    -------------------------------------------------------------------|--------|----------|-----------------------------------------------------------------------------------------------------------------
-    namespace                                                          | String | Yes      | Namespace that payment order resides in, should be publisher namespace if it's a Steam like platform that share
-    payment config cross namespaces, otherwise it's the game namespace
-
-
-
-     Request Body Parameters:
-
-
-     Parameter        | Type    | Required | Description
-    ------------------|---------|----------|--------------------------------------------------------------------------------------------------
-    extOrderNo        | String  | Yes      | External order number, it should be unique in invoker order system
-    sku               | String  | No       | Item identity
-    targetNamespace   | String  | Yes      | The game namespace
-    targetUserId      | String  | Yes      | User id for the order owner in game namespace
-    extUserId         | String  | No       | External user id, can be user character id
-    price             | int     | Yes      | price which should be greater than 0
-    title             | String  | Yes      | Item title
-    description       | String  | Yes      | Item description
-    currencyCode      | String  | No       | Currency code, default is USD
-    currencyNamespace | String  | No       | Currency namespace, default is publisher namespace
-    region            | String  | No       | Country of the user, will get from user info if not present
-    language          | String  | No       | Language of the user
-    sandbox           | Boolean | No       | set to true will create sandbox order that not real paid for xsolla/alipay and will not validate
-    price for wxpay.
-    returnUrl         | String  | No       | customized return url for redirect once payment finished, leave unset to use configuration in
-    namespace
-    notifyUrl         | String  | No       | customized notify url for payment web hook, leave unset to use configuration in namespace
-    customParameters  | String  | No       | Custom parameters
+	    Parameter                                                         | Type   | Required | Description
+	   -------------------------------------------------------------------|--------|----------|-----------------------------------------------------------------------------------------------------------------
+	   namespace                                                          | String | Yes      | Namespace that payment order resides in, should be publisher namespace if it's a Steam like platform that share
+	   payment config cross namespaces, otherwise it's the game namespace
 
 
 
- Request Body Example:
+	    Request Body Parameters:
 
 
-    {
+	    Parameter        | Type    | Required | Description
+	   ------------------|---------|----------|--------------------------------------------------------------------------------------------------
+	   extOrderNo        | String  | Yes      | External order number, it should be unique in invoker order system
+	   sku               | String  | No       | Item identity
+	   targetNamespace   | String  | Yes      | The game namespace
+	   targetUserId      | String  | Yes      | User id for the order owner in game namespace
+	   extUserId         | String  | No       | External user id, can be user character id
+	   price             | int     | Yes      | price which should be greater than 0
+	   title             | String  | Yes      | Item title
+	   description       | String  | Yes      | Item description
+	   currencyCode      | String  | No       | Currency code, default is USD
+	   currencyNamespace | String  | No       | Currency namespace, default is publisher namespace
+	   region            | String  | No       | Country of the user, will get from user info if not present
+	   language          | String  | No       | Language of the user
+	   sandbox           | Boolean | No       | set to true will create sandbox order that not real paid for xsolla/alipay and will not validate
+	   price for wxpay.
+	   returnUrl         | String  | No       | customized return url for redirect once payment finished, leave unset to use configuration in
+	   namespace
+	   notifyUrl         | String  | No       | customized notify url for payment web hook, leave unset to use configuration in namespace
+	   customParameters  | String  | No       | Custom parameters
 
-               "extOrderNo": "123456789",
-               "sku": "sku",
-               "targetNamespace": "game1",
-               "targetUserId": "94451623768940d58416ca33ca767ec3",
-               "extUserId": "678",
-               "title": "Frostmourne",
-               "description": "Here was power. Here was despair",
-               "price": 100,
-               "region": "CN",
-               "language": "zh-CN",
-               "currencyCode": "USD",
-               "currencyNamespace": "accelbyte"
 
-    }
+
+	Request Body Example:
+
+
+	   {
+
+	              "extOrderNo": "123456789",
+	              "sku": "sku",
+	              "targetNamespace": "game1",
+	              "targetUserId": "94451623768940d58416ca33ca767ec3",
+	              "extUserId": "678",
+	              "title": "Frostmourne",
+	              "description": "Here was power. Here was despair",
+	              "price": 100,
+	              "region": "CN",
+	              "language": "zh-CN",
+	              "currencyCode": "USD",
+	              "currencyNamespace": "accelbyte"
+
+	   }
 
 `
 
@@ -110,96 +111,94 @@ This API is used to create payment order from non justice service. e.g. from ded
 
 After user complete the payment, it will send notification to configured web hook, http status code should return 200 or 204 once you resolve notification successfully, otherwise payment system will retry notification in interval
 
- Payment notification parameter:
+	Payment notification parameter:
 
 
-     Parameter | Type   | Required | Description
-    -----------|--------|----------|------------------------------------------------
-    payload    | String | Yes      | Payment notification payload in json string
-    sign       | String | Yes      | sha1 hex signature for payload and private key
+	    Parameter | Type   | Required | Description
+	   -----------|--------|----------|------------------------------------------------
+	   payload    | String | Yes      | Payment notification payload in json string
+	   sign       | String | Yes      | sha1 hex signature for payload and private key
 
 
 
- Payment notification parameter Example:
+	Payment notification parameter Example:
 
 
-    {
+	   {
 
-           "payload": "{
-               "type": "payment",
-               "nonceStr": "34c1dcf3eb58455eb161465bbfc0b590",
-               "paymentOrderNo": "18081239088",
-               "namespace": "accelbyte",
-               "targetNamespace": "game1",
-               "targetUserId": "94451623768940d58416ca33ca767ec3",
-               "extOrderNo": "123456789",
-               "sku": "sku",
-               "extUserId": "678",
-               "price": 100,
-               "paymentProvider": "XSOLLA",
-               "vat": 0,
-               "salesTax": 0,
-               "paymentProviderFee": 0,
-               "paymentMethodFee": 0,
-               "currency": {
-                       "currencyCode": "USD",
-                       "currencySymbol": "$",
-                       "currencyType": "REAL",
-                       "namespace": "accelbyte",
-                       "decimals": 2
-                   },
-               "status": "CHARGED",
-               "createdTime": "2018-07-28T00:39:16.274Z",
-               "chargedTime": "2018-07-28T00:39:16.274Z"
-           }",
+	          "payload": "{
+	              "type": "payment",
+	              "nonceStr": "34c1dcf3eb58455eb161465bbfc0b590",
+	              "paymentOrderNo": "18081239088",
+	              "namespace": "accelbyte",
+	              "targetNamespace": "game1",
+	              "targetUserId": "94451623768940d58416ca33ca767ec3",
+	              "extOrderNo": "123456789",
+	              "sku": "sku",
+	              "extUserId": "678",
+	              "price": 100,
+	              "paymentProvider": "XSOLLA",
+	              "vat": 0,
+	              "salesTax": 0,
+	              "paymentProviderFee": 0,
+	              "paymentMethodFee": 0,
+	              "currency": {
+	                      "currencyCode": "USD",
+	                      "currencySymbol": "$",
+	                      "currencyType": "REAL",
+	                      "namespace": "accelbyte",
+	                      "decimals": 2
+	                  },
+	              "status": "CHARGED",
+	              "createdTime": "2018-07-28T00:39:16.274Z",
+	              "chargedTime": "2018-07-28T00:39:16.274Z"
+	          }",
 
-           "sign":"e31fb92516cc9faaf50ad70343e1293acec6f3d5"
+	          "sign":"e31fb92516cc9faaf50ad70343e1293acec6f3d5"
 
-    }
+	   }
 
 `
 
- Payment notification payload parameter list:
+	Payment notification payload parameter list:
 
 
-     Parameter         | Type     | Required | Description
-    -------------------|----------|----------|--------------------------------------------------------------------------------------
-    type               | String   | Yes      | Notification type: 'payment'
-    paymentOrderNo     | String   | Yes      | Payment system generated order number
-    extOrderNo         | String   | No       | External order number that passed by invoker
-    namespace          | String   | Yes      | Namespace that related payment order resides in
-    targetNamespace    | String   | Yes      | The game namespace
-    targetUserId       | String   | Yes      | The user id in game namespace
-    sku                | String   | No       | Item identify, it will return if pass it when create payment
-    extUserId          | String   | No       | External user id, can be character id, it will return if pass it when create payment
-    price              | int      | Yes      | Price of item
-    paymentProvider    | String   | Yes      | Payment provider, allowed values: xsolla/alipay/wxpay/wallet
-    vat                | int      | Yes      | Payment order VAT
-    salesTax           | int      | Yes      | Payment order sales tax
-    paymentProviderFee | int      | Yes      | Payment provider fee
-    paymentMethodFee   | int      | Yes      | Payment method fee
-    currency           | Map      | Yes      | Payment order currency info
-    status             | String   | Yes      | Payment order status
-    statusReason       | String   | No       | Payment order status reason
-    createdTime        | Datetime | No       | The time of the order created
-    chargedTime        | Datetime | No       | The time of the order charged
-    customParameters   | Map      | No       | custom parameters, will return if pass it when create payment
-    nonceStr           | String   | Yes      | Random string, max length is 32, can be timestamp or uuid
+	    Parameter         | Type     | Required | Description
+	   -------------------|----------|----------|--------------------------------------------------------------------------------------
+	   type               | String   | Yes      | Notification type: 'payment'
+	   paymentOrderNo     | String   | Yes      | Payment system generated order number
+	   extOrderNo         | String   | No       | External order number that passed by invoker
+	   namespace          | String   | Yes      | Namespace that related payment order resides in
+	   targetNamespace    | String   | Yes      | The game namespace
+	   targetUserId       | String   | Yes      | The user id in game namespace
+	   sku                | String   | No       | Item identify, it will return if pass it when create payment
+	   extUserId          | String   | No       | External user id, can be character id, it will return if pass it when create payment
+	   price              | int      | Yes      | Price of item
+	   paymentProvider    | String   | Yes      | Payment provider, allowed values: xsolla/alipay/wxpay/wallet
+	   vat                | int      | Yes      | Payment order VAT
+	   salesTax           | int      | Yes      | Payment order sales tax
+	   paymentProviderFee | int      | Yes      | Payment provider fee
+	   paymentMethodFee   | int      | Yes      | Payment method fee
+	   currency           | Map      | Yes      | Payment order currency info
+	   status             | String   | Yes      | Payment order status
+	   statusReason       | String   | No       | Payment order status reason
+	   createdTime        | Datetime | No       | The time of the order created
+	   chargedTime        | Datetime | No       | The time of the order charged
+	   customParameters   | Map      | No       | custom parameters, will return if pass it when create payment
+	   nonceStr           | String   | Yes      | Random string, max length is 32, can be timestamp or uuid
 
 
 
- Currency info parameter list:
+	Currency info parameter list:
 
 
-     Parameter     | Type   | Required | Description
-    ---------------|--------|----------|-----------------------------
-    currencyCode   | String | Yes      | Currency Code
-    currencySymbol | String | Yes      | Currency Symbol
-    currencyType   | String | Yes      | Currency type(REAL/VIRTUAL)
-    namespace      | String | Yes      | Currency namespace
-    decimals       | int    | Yes      | Currency decimals
-
-
+	    Parameter     | Type   | Required | Description
+	   ---------------|--------|----------|-----------------------------
+	   currencyCode   | String | Yes      | Currency Code
+	   currencySymbol | String | Yes      | Currency Symbol
+	   currencyType   | String | Yes      | Currency type(REAL/VIRTUAL)
+	   namespace      | String | Yes      | Currency namespace
+	   decimals       | int    | Yes      | Currency decimals
 
 #### Encryption Rule:
 
@@ -207,12 +206,12 @@ Concat payload json string and private key and then do sha1Hex.
 
 #### Other detail info:
 
-  * Token type : client token
-  *  Required permission : resource="ADMIN:NAMESPACE:{namespace}:PAYMENT", action=1 (CREATE)
-  *  Optional permission(user with this permission will create sandbox order) : resource="SANDBOX", action=1 (CREATE)
-  * It will be forbidden while the target user is banned: PAYMENT_INITIATE or ORDER_AND_PAYMENT
-  *  cross namespace allowed
-  *  Returns : created payment order info
+  - Token type : client token
+  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:PAYMENT", action=1 (CREATE)
+  - Optional permission(user with this permission will create sandbox order) : resource="SANDBOX", action=1 (CREATE)
+  - It will be forbidden while the target user is banned: PAYMENT_INITIATE or ORDER_AND_PAYMENT
+  - cross namespace allowed
+  - Returns : created payment order info
 */
 func (a *Client) CreatePaymentOrderByDedicated(params *CreatePaymentOrderByDedicatedParams, authInfo runtime.ClientAuthInfoWriter) (*CreatePaymentOrderByDedicatedCreated, *CreatePaymentOrderByDedicatedBadRequest, *CreatePaymentOrderByDedicatedForbidden, *CreatePaymentOrderByDedicatedNotFound, *CreatePaymentOrderByDedicatedConflict, *CreatePaymentOrderByDedicatedUnprocessableEntity, error) {
 	// TODO: Validate the params before sending
@@ -272,65 +271,66 @@ func (a *Client) CreatePaymentOrderByDedicated(params *CreatePaymentOrderByDedic
 
 /*
 CreatePaymentOrderByDedicatedShort create payment order by dedicated server
- [Not Supported Yet In Starter]
+
+	[Not Supported Yet In Starter]
 
 This API is used to create payment order from non justice service. e.g. from dedicated server, the result contains the payment station url.
 
- Path Parameter:
+	Path Parameter:
 
 
-     Parameter                                                         | Type   | Required | Description
-    -------------------------------------------------------------------|--------|----------|-----------------------------------------------------------------------------------------------------------------
-    namespace                                                          | String | Yes      | Namespace that payment order resides in, should be publisher namespace if it's a Steam like platform that share
-    payment config cross namespaces, otherwise it's the game namespace
-
-
-
-     Request Body Parameters:
-
-
-     Parameter        | Type    | Required | Description
-    ------------------|---------|----------|--------------------------------------------------------------------------------------------------
-    extOrderNo        | String  | Yes      | External order number, it should be unique in invoker order system
-    sku               | String  | No       | Item identity
-    targetNamespace   | String  | Yes      | The game namespace
-    targetUserId      | String  | Yes      | User id for the order owner in game namespace
-    extUserId         | String  | No       | External user id, can be user character id
-    price             | int     | Yes      | price which should be greater than 0
-    title             | String  | Yes      | Item title
-    description       | String  | Yes      | Item description
-    currencyCode      | String  | No       | Currency code, default is USD
-    currencyNamespace | String  | No       | Currency namespace, default is publisher namespace
-    region            | String  | No       | Country of the user, will get from user info if not present
-    language          | String  | No       | Language of the user
-    sandbox           | Boolean | No       | set to true will create sandbox order that not real paid for xsolla/alipay and will not validate
-    price for wxpay.
-    returnUrl         | String  | No       | customized return url for redirect once payment finished, leave unset to use configuration in
-    namespace
-    notifyUrl         | String  | No       | customized notify url for payment web hook, leave unset to use configuration in namespace
-    customParameters  | String  | No       | Custom parameters
+	    Parameter                                                         | Type   | Required | Description
+	   -------------------------------------------------------------------|--------|----------|-----------------------------------------------------------------------------------------------------------------
+	   namespace                                                          | String | Yes      | Namespace that payment order resides in, should be publisher namespace if it's a Steam like platform that share
+	   payment config cross namespaces, otherwise it's the game namespace
 
 
 
- Request Body Example:
+	    Request Body Parameters:
 
 
-    {
+	    Parameter        | Type    | Required | Description
+	   ------------------|---------|----------|--------------------------------------------------------------------------------------------------
+	   extOrderNo        | String  | Yes      | External order number, it should be unique in invoker order system
+	   sku               | String  | No       | Item identity
+	   targetNamespace   | String  | Yes      | The game namespace
+	   targetUserId      | String  | Yes      | User id for the order owner in game namespace
+	   extUserId         | String  | No       | External user id, can be user character id
+	   price             | int     | Yes      | price which should be greater than 0
+	   title             | String  | Yes      | Item title
+	   description       | String  | Yes      | Item description
+	   currencyCode      | String  | No       | Currency code, default is USD
+	   currencyNamespace | String  | No       | Currency namespace, default is publisher namespace
+	   region            | String  | No       | Country of the user, will get from user info if not present
+	   language          | String  | No       | Language of the user
+	   sandbox           | Boolean | No       | set to true will create sandbox order that not real paid for xsolla/alipay and will not validate
+	   price for wxpay.
+	   returnUrl         | String  | No       | customized return url for redirect once payment finished, leave unset to use configuration in
+	   namespace
+	   notifyUrl         | String  | No       | customized notify url for payment web hook, leave unset to use configuration in namespace
+	   customParameters  | String  | No       | Custom parameters
 
-               "extOrderNo": "123456789",
-               "sku": "sku",
-               "targetNamespace": "game1",
-               "targetUserId": "94451623768940d58416ca33ca767ec3",
-               "extUserId": "678",
-               "title": "Frostmourne",
-               "description": "Here was power. Here was despair",
-               "price": 100,
-               "region": "CN",
-               "language": "zh-CN",
-               "currencyCode": "USD",
-               "currencyNamespace": "accelbyte"
 
-    }
+
+	Request Body Example:
+
+
+	   {
+
+	              "extOrderNo": "123456789",
+	              "sku": "sku",
+	              "targetNamespace": "game1",
+	              "targetUserId": "94451623768940d58416ca33ca767ec3",
+	              "extUserId": "678",
+	              "title": "Frostmourne",
+	              "description": "Here was power. Here was despair",
+	              "price": 100,
+	              "region": "CN",
+	              "language": "zh-CN",
+	              "currencyCode": "USD",
+	              "currencyNamespace": "accelbyte"
+
+	   }
 
 `
 
@@ -338,96 +338,94 @@ This API is used to create payment order from non justice service. e.g. from ded
 
 After user complete the payment, it will send notification to configured web hook, http status code should return 200 or 204 once you resolve notification successfully, otherwise payment system will retry notification in interval
 
- Payment notification parameter:
+	Payment notification parameter:
 
 
-     Parameter | Type   | Required | Description
-    -----------|--------|----------|------------------------------------------------
-    payload    | String | Yes      | Payment notification payload in json string
-    sign       | String | Yes      | sha1 hex signature for payload and private key
+	    Parameter | Type   | Required | Description
+	   -----------|--------|----------|------------------------------------------------
+	   payload    | String | Yes      | Payment notification payload in json string
+	   sign       | String | Yes      | sha1 hex signature for payload and private key
 
 
 
- Payment notification parameter Example:
+	Payment notification parameter Example:
 
 
-    {
+	   {
 
-           "payload": "{
-               "type": "payment",
-               "nonceStr": "34c1dcf3eb58455eb161465bbfc0b590",
-               "paymentOrderNo": "18081239088",
-               "namespace": "accelbyte",
-               "targetNamespace": "game1",
-               "targetUserId": "94451623768940d58416ca33ca767ec3",
-               "extOrderNo": "123456789",
-               "sku": "sku",
-               "extUserId": "678",
-               "price": 100,
-               "paymentProvider": "XSOLLA",
-               "vat": 0,
-               "salesTax": 0,
-               "paymentProviderFee": 0,
-               "paymentMethodFee": 0,
-               "currency": {
-                       "currencyCode": "USD",
-                       "currencySymbol": "$",
-                       "currencyType": "REAL",
-                       "namespace": "accelbyte",
-                       "decimals": 2
-                   },
-               "status": "CHARGED",
-               "createdTime": "2018-07-28T00:39:16.274Z",
-               "chargedTime": "2018-07-28T00:39:16.274Z"
-           }",
+	          "payload": "{
+	              "type": "payment",
+	              "nonceStr": "34c1dcf3eb58455eb161465bbfc0b590",
+	              "paymentOrderNo": "18081239088",
+	              "namespace": "accelbyte",
+	              "targetNamespace": "game1",
+	              "targetUserId": "94451623768940d58416ca33ca767ec3",
+	              "extOrderNo": "123456789",
+	              "sku": "sku",
+	              "extUserId": "678",
+	              "price": 100,
+	              "paymentProvider": "XSOLLA",
+	              "vat": 0,
+	              "salesTax": 0,
+	              "paymentProviderFee": 0,
+	              "paymentMethodFee": 0,
+	              "currency": {
+	                      "currencyCode": "USD",
+	                      "currencySymbol": "$",
+	                      "currencyType": "REAL",
+	                      "namespace": "accelbyte",
+	                      "decimals": 2
+	                  },
+	              "status": "CHARGED",
+	              "createdTime": "2018-07-28T00:39:16.274Z",
+	              "chargedTime": "2018-07-28T00:39:16.274Z"
+	          }",
 
-           "sign":"e31fb92516cc9faaf50ad70343e1293acec6f3d5"
+	          "sign":"e31fb92516cc9faaf50ad70343e1293acec6f3d5"
 
-    }
+	   }
 
 `
 
- Payment notification payload parameter list:
+	Payment notification payload parameter list:
 
 
-     Parameter         | Type     | Required | Description
-    -------------------|----------|----------|--------------------------------------------------------------------------------------
-    type               | String   | Yes      | Notification type: 'payment'
-    paymentOrderNo     | String   | Yes      | Payment system generated order number
-    extOrderNo         | String   | No       | External order number that passed by invoker
-    namespace          | String   | Yes      | Namespace that related payment order resides in
-    targetNamespace    | String   | Yes      | The game namespace
-    targetUserId       | String   | Yes      | The user id in game namespace
-    sku                | String   | No       | Item identify, it will return if pass it when create payment
-    extUserId          | String   | No       | External user id, can be character id, it will return if pass it when create payment
-    price              | int      | Yes      | Price of item
-    paymentProvider    | String   | Yes      | Payment provider, allowed values: xsolla/alipay/wxpay/wallet
-    vat                | int      | Yes      | Payment order VAT
-    salesTax           | int      | Yes      | Payment order sales tax
-    paymentProviderFee | int      | Yes      | Payment provider fee
-    paymentMethodFee   | int      | Yes      | Payment method fee
-    currency           | Map      | Yes      | Payment order currency info
-    status             | String   | Yes      | Payment order status
-    statusReason       | String   | No       | Payment order status reason
-    createdTime        | Datetime | No       | The time of the order created
-    chargedTime        | Datetime | No       | The time of the order charged
-    customParameters   | Map      | No       | custom parameters, will return if pass it when create payment
-    nonceStr           | String   | Yes      | Random string, max length is 32, can be timestamp or uuid
+	    Parameter         | Type     | Required | Description
+	   -------------------|----------|----------|--------------------------------------------------------------------------------------
+	   type               | String   | Yes      | Notification type: 'payment'
+	   paymentOrderNo     | String   | Yes      | Payment system generated order number
+	   extOrderNo         | String   | No       | External order number that passed by invoker
+	   namespace          | String   | Yes      | Namespace that related payment order resides in
+	   targetNamespace    | String   | Yes      | The game namespace
+	   targetUserId       | String   | Yes      | The user id in game namespace
+	   sku                | String   | No       | Item identify, it will return if pass it when create payment
+	   extUserId          | String   | No       | External user id, can be character id, it will return if pass it when create payment
+	   price              | int      | Yes      | Price of item
+	   paymentProvider    | String   | Yes      | Payment provider, allowed values: xsolla/alipay/wxpay/wallet
+	   vat                | int      | Yes      | Payment order VAT
+	   salesTax           | int      | Yes      | Payment order sales tax
+	   paymentProviderFee | int      | Yes      | Payment provider fee
+	   paymentMethodFee   | int      | Yes      | Payment method fee
+	   currency           | Map      | Yes      | Payment order currency info
+	   status             | String   | Yes      | Payment order status
+	   statusReason       | String   | No       | Payment order status reason
+	   createdTime        | Datetime | No       | The time of the order created
+	   chargedTime        | Datetime | No       | The time of the order charged
+	   customParameters   | Map      | No       | custom parameters, will return if pass it when create payment
+	   nonceStr           | String   | Yes      | Random string, max length is 32, can be timestamp or uuid
 
 
 
- Currency info parameter list:
+	Currency info parameter list:
 
 
-     Parameter     | Type   | Required | Description
-    ---------------|--------|----------|-----------------------------
-    currencyCode   | String | Yes      | Currency Code
-    currencySymbol | String | Yes      | Currency Symbol
-    currencyType   | String | Yes      | Currency type(REAL/VIRTUAL)
-    namespace      | String | Yes      | Currency namespace
-    decimals       | int    | Yes      | Currency decimals
-
-
+	    Parameter     | Type   | Required | Description
+	   ---------------|--------|----------|-----------------------------
+	   currencyCode   | String | Yes      | Currency Code
+	   currencySymbol | String | Yes      | Currency Symbol
+	   currencyType   | String | Yes      | Currency type(REAL/VIRTUAL)
+	   namespace      | String | Yes      | Currency namespace
+	   decimals       | int    | Yes      | Currency decimals
 
 #### Encryption Rule:
 
@@ -435,12 +433,12 @@ Concat payload json string and private key and then do sha1Hex.
 
 #### Other detail info:
 
-  * Token type : client token
-  *  Required permission : resource="ADMIN:NAMESPACE:{namespace}:PAYMENT", action=1 (CREATE)
-  *  Optional permission(user with this permission will create sandbox order) : resource="SANDBOX", action=1 (CREATE)
-  * It will be forbidden while the target user is banned: PAYMENT_INITIATE or ORDER_AND_PAYMENT
-  *  cross namespace allowed
-  *  Returns : created payment order info
+  - Token type : client token
+  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:PAYMENT", action=1 (CREATE)
+  - Optional permission(user with this permission will create sandbox order) : resource="SANDBOX", action=1 (CREATE)
+  - It will be forbidden while the target user is banned: PAYMENT_INITIATE or ORDER_AND_PAYMENT
+  - cross namespace allowed
+  - Returns : created payment order info
 */
 func (a *Client) CreatePaymentOrderByDedicatedShort(params *CreatePaymentOrderByDedicatedParams, authInfo runtime.ClientAuthInfoWriter) (*CreatePaymentOrderByDedicatedCreated, error) {
 	// TODO: Validate the params before sending
@@ -454,6 +452,10 @@ func (a *Client) CreatePaymentOrderByDedicatedShort(params *CreatePaymentOrderBy
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -497,42 +499,40 @@ func (a *Client) CreatePaymentOrderByDedicatedShort(params *CreatePaymentOrderBy
 Deprecated: 2022-08-10 - Use RefundPaymentOrderByDedicatedShort instead.
 
 RefundPaymentOrderByDedicated refund payment order by dedicated server
- [Not Supported Yet In Starter]
+
+	[Not Supported Yet In Starter]
 
 This API is used to refund payment order by paymentOrderNo from non justice service. e.g. dedicated server.
 
-  * if the status field of response json is "REFUNDED", usually wallet paid, it indicates payment order already refunded
-  * if the status field of response json is "REFUNDING", usually real money paid, platform will send notification to registered notify url once refund successfully
-
-
+  - if the status field of response json is "REFUNDED", usually wallet paid, it indicates payment order already refunded
+  - if the status field of response json is "REFUNDING", usually real money paid, platform will send notification to registered notify url once refund successfully
 
 Path Parameter:
 
-
-     Parameter     | Type   | Required | Description
-    ---------------|--------|----------|-----------------------------------------
-    namespace      | String | Yes      | Namespace that payment order resides in
-    paymentOrderNo | String | Yes      | Payment order number
-
-
-
- Request Body Parameters:
-
-
-     Parameter  | Type   | Required | Description
-    ------------|--------|----------|--------------------
-    description | String | Yes      | Refund description
+	    Parameter     | Type   | Required | Description
+	   ---------------|--------|----------|-----------------------------------------
+	   namespace      | String | Yes      | Namespace that payment order resides in
+	   paymentOrderNo | String | Yes      | Payment order number
 
 
 
- Request Body Example:
+	Request Body Parameters:
 
 
-    {
+	    Parameter  | Type   | Required | Description
+	   ------------|--------|----------|--------------------
+	   description | String | Yes      | Refund description
 
-               "description": "Repeated item."
 
-    }
+
+	Request Body Example:
+
+
+	   {
+
+	              "description": "Repeated item."
+
+	   }
 
 `
 
@@ -540,98 +540,93 @@ Path Parameter:
 
 It will send notification to configured web hook after refund successfully, http status code should return 200 or 204 once you resolve notification successfully, otherwise payment system will retry notification in interval
 
- Refund notification parameter:
+	Refund notification parameter:
 
 
-     Parameter | Type   | Required | Description
-    -----------|--------|----------|------------------------------------------------
-    payload    | String | Yes      | Refund notification payload in json string
-    sign       | String | Yes      | sha1 hex signature for payload and private key
+	    Parameter | Type   | Required | Description
+	   -----------|--------|----------|------------------------------------------------
+	   payload    | String | Yes      | Refund notification payload in json string
+	   sign       | String | Yes      | sha1 hex signature for payload and private key
 
 
 
- Refund notification Example:
+	Refund notification Example:
 
 
-    {
+	   {
 
-           "payload": "{
-               "type": "payment",
-               "nonceStr": "34c1dcf3eb58455eb161465bbfc0b590",
-               "paymentOrderNo": "18081239088",
-               "namespace": "accelbyte",
-               "targetNamespace": "game1",
-               "targetUserId": "94451623768940d58416ca33ca767ec3",
-               "extOrderNo": "123456789",
-               "sku": "sku",
-               "extUserId": "678",
-               "price": 100,
-               "paymentProvider": "XSOLLA",
-               "vat": 0,
-               "salesTax": 0,
-               "paymentProviderFee": 0,
-               "paymentMethodFee": 0,
-               "currency": {
-                       "currencyCode": "USD",
-                       "currencySymbol": "$",
-                       "currencyType": "REAL",
-                       "namespace": "accelbyte",
-                       "decimals": 2
-                   },
-               "status": "REFUNDED",
-               "createdTime": "2018-07-28T00:39:16.274Z",
-               "chargedTime": "2018-07-28T00:39:16.274Z",
-               "refundedTime": "2018-07-28T00:39:16.274Z"
-           }",
+	          "payload": "{
+	              "type": "payment",
+	              "nonceStr": "34c1dcf3eb58455eb161465bbfc0b590",
+	              "paymentOrderNo": "18081239088",
+	              "namespace": "accelbyte",
+	              "targetNamespace": "game1",
+	              "targetUserId": "94451623768940d58416ca33ca767ec3",
+	              "extOrderNo": "123456789",
+	              "sku": "sku",
+	              "extUserId": "678",
+	              "price": 100,
+	              "paymentProvider": "XSOLLA",
+	              "vat": 0,
+	              "salesTax": 0,
+	              "paymentProviderFee": 0,
+	              "paymentMethodFee": 0,
+	              "currency": {
+	                      "currencyCode": "USD",
+	                      "currencySymbol": "$",
+	                      "currencyType": "REAL",
+	                      "namespace": "accelbyte",
+	                      "decimals": 2
+	                  },
+	              "status": "REFUNDED",
+	              "createdTime": "2018-07-28T00:39:16.274Z",
+	              "chargedTime": "2018-07-28T00:39:16.274Z",
+	              "refundedTime": "2018-07-28T00:39:16.274Z"
+	          }",
 
-           "sign":"e31fb92516cc9faaf50ad70343e1293acec6f3d5"
+	          "sign":"e31fb92516cc9faaf50ad70343e1293acec6f3d5"
 
-    }
+	   }
 
 `
 
- Refund notification payload parameter list:
+	Refund notification payload parameter list:
 
 
-     Parameter         | Type     | Required | Description
-    -------------------|----------|----------|--------------------------------------------------------------------------------------
-    type               | String   | Yes      | Notification type: 'payment'
-    paymentOrderNo     | String   | Yes      | Payment system generated order number
-    extOrderNo         | String   | No       | External order number that passed by invoker
-    namespace          | String   | Yes      | Namespace that related payment order resides in
-    targetNamespace    | String   | Yes      | The game namespace
-    targetUserId       | String   | Yes      | The user id in game namespace
-    sku                | String   | No       | Item identify, it will return if pass it when create payment
-    extUserId          | String   | No       | External user id, can be character id, it will return if pass it when create payment
-    price              | int      | Yes      | Price of item
-    paymentProvider    | String   | Yes      | Payment provider: xsolla/alipay/wxpay/wallet
-    vat                | int      | Yes      | Payment order VAT
-    salesTax           | int      | Yes      | Payment order sales tax
-    paymentProviderFee | int      | Yes      | Payment provider fee
-    paymentMethodFee   | int      | Yes      | Payment method fee
-    currency           | Map      | Yes      | Payment order currency info
-    status             | String   | Yes      | Payment order status
-    statusReason       | String   | No       | Payment order refund status reason
-    createdTime        | Datetime | No       | The time of the order created
-    chargedTime        | Datetime | No       | The time of the order charged
-    refundedTime       | Datetime | No       | The time of the order refunded
-    customParameters   | Map      | No       | custom parameters, will return if pass it when create payment
-    nonceStr           | String   | Yes      | Random string, max length is 32,
-
-
+	    Parameter         | Type     | Required | Description
+	   -------------------|----------|----------|--------------------------------------------------------------------------------------
+	   type               | String   | Yes      | Notification type: 'payment'
+	   paymentOrderNo     | String   | Yes      | Payment system generated order number
+	   extOrderNo         | String   | No       | External order number that passed by invoker
+	   namespace          | String   | Yes      | Namespace that related payment order resides in
+	   targetNamespace    | String   | Yes      | The game namespace
+	   targetUserId       | String   | Yes      | The user id in game namespace
+	   sku                | String   | No       | Item identify, it will return if pass it when create payment
+	   extUserId          | String   | No       | External user id, can be character id, it will return if pass it when create payment
+	   price              | int      | Yes      | Price of item
+	   paymentProvider    | String   | Yes      | Payment provider: xsolla/alipay/wxpay/wallet
+	   vat                | int      | Yes      | Payment order VAT
+	   salesTax           | int      | Yes      | Payment order sales tax
+	   paymentProviderFee | int      | Yes      | Payment provider fee
+	   paymentMethodFee   | int      | Yes      | Payment method fee
+	   currency           | Map      | Yes      | Payment order currency info
+	   status             | String   | Yes      | Payment order status
+	   statusReason       | String   | No       | Payment order refund status reason
+	   createdTime        | Datetime | No       | The time of the order created
+	   chargedTime        | Datetime | No       | The time of the order charged
+	   refundedTime       | Datetime | No       | The time of the order refunded
+	   customParameters   | Map      | No       | custom parameters, will return if pass it when create payment
+	   nonceStr           | String   | Yes      | Random string, max length is 32,
 
 Currency info parameter list:
 
-
-     Parameter     | Type   | Required | Description
-    ---------------|--------|----------|-----------------------------
-    currencyCode   | String | Yes      | Currency Code
-    currencySymbol | String | Yes      | Currency Symbol
-    currencyType   | String | Yes      | Currency type(REAL/VIRTUAL)
-    namespace      | String | Yes      | Currency namespace
-    decimals       | int    | Yes      | Currency decimals
-
-
+	 Parameter     | Type   | Required | Description
+	---------------|--------|----------|-----------------------------
+	currencyCode   | String | Yes      | Currency Code
+	currencySymbol | String | Yes      | Currency Symbol
+	currencyType   | String | Yes      | Currency type(REAL/VIRTUAL)
+	namespace      | String | Yes      | Currency namespace
+	decimals       | int    | Yes      | Currency decimals
 
 #### Encryption Rule:
 
@@ -639,9 +634,9 @@ Concat payload json string and private key and then do sha1Hex.
 
 #### Other detail info:
 
-  * Token type : client token
-  *  Required permission : resource="ADMIN:NAMESPACE:{namespace}:PAYMENT", action=4 (UPDATE)
-  *  cross namespace allowed
+  - Token type : client token
+  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:PAYMENT", action=4 (UPDATE)
+  - cross namespace allowed
 */
 func (a *Client) RefundPaymentOrderByDedicated(params *RefundPaymentOrderByDedicatedParams, authInfo runtime.ClientAuthInfoWriter) (*RefundPaymentOrderByDedicatedOK, *RefundPaymentOrderByDedicatedNoContent, *RefundPaymentOrderByDedicatedNotFound, *RefundPaymentOrderByDedicatedConflict, *RefundPaymentOrderByDedicatedUnprocessableEntity, error) {
 	// TODO: Validate the params before sending
@@ -698,42 +693,40 @@ func (a *Client) RefundPaymentOrderByDedicated(params *RefundPaymentOrderByDedic
 
 /*
 RefundPaymentOrderByDedicatedShort refund payment order by dedicated server
- [Not Supported Yet In Starter]
+
+	[Not Supported Yet In Starter]
 
 This API is used to refund payment order by paymentOrderNo from non justice service. e.g. dedicated server.
 
-  * if the status field of response json is "REFUNDED", usually wallet paid, it indicates payment order already refunded
-  * if the status field of response json is "REFUNDING", usually real money paid, platform will send notification to registered notify url once refund successfully
-
-
+  - if the status field of response json is "REFUNDED", usually wallet paid, it indicates payment order already refunded
+  - if the status field of response json is "REFUNDING", usually real money paid, platform will send notification to registered notify url once refund successfully
 
 Path Parameter:
 
-
-     Parameter     | Type   | Required | Description
-    ---------------|--------|----------|-----------------------------------------
-    namespace      | String | Yes      | Namespace that payment order resides in
-    paymentOrderNo | String | Yes      | Payment order number
-
-
-
- Request Body Parameters:
-
-
-     Parameter  | Type   | Required | Description
-    ------------|--------|----------|--------------------
-    description | String | Yes      | Refund description
+	    Parameter     | Type   | Required | Description
+	   ---------------|--------|----------|-----------------------------------------
+	   namespace      | String | Yes      | Namespace that payment order resides in
+	   paymentOrderNo | String | Yes      | Payment order number
 
 
 
- Request Body Example:
+	Request Body Parameters:
 
 
-    {
+	    Parameter  | Type   | Required | Description
+	   ------------|--------|----------|--------------------
+	   description | String | Yes      | Refund description
 
-               "description": "Repeated item."
 
-    }
+
+	Request Body Example:
+
+
+	   {
+
+	              "description": "Repeated item."
+
+	   }
 
 `
 
@@ -741,98 +734,93 @@ Path Parameter:
 
 It will send notification to configured web hook after refund successfully, http status code should return 200 or 204 once you resolve notification successfully, otherwise payment system will retry notification in interval
 
- Refund notification parameter:
+	Refund notification parameter:
 
 
-     Parameter | Type   | Required | Description
-    -----------|--------|----------|------------------------------------------------
-    payload    | String | Yes      | Refund notification payload in json string
-    sign       | String | Yes      | sha1 hex signature for payload and private key
+	    Parameter | Type   | Required | Description
+	   -----------|--------|----------|------------------------------------------------
+	   payload    | String | Yes      | Refund notification payload in json string
+	   sign       | String | Yes      | sha1 hex signature for payload and private key
 
 
 
- Refund notification Example:
+	Refund notification Example:
 
 
-    {
+	   {
 
-           "payload": "{
-               "type": "payment",
-               "nonceStr": "34c1dcf3eb58455eb161465bbfc0b590",
-               "paymentOrderNo": "18081239088",
-               "namespace": "accelbyte",
-               "targetNamespace": "game1",
-               "targetUserId": "94451623768940d58416ca33ca767ec3",
-               "extOrderNo": "123456789",
-               "sku": "sku",
-               "extUserId": "678",
-               "price": 100,
-               "paymentProvider": "XSOLLA",
-               "vat": 0,
-               "salesTax": 0,
-               "paymentProviderFee": 0,
-               "paymentMethodFee": 0,
-               "currency": {
-                       "currencyCode": "USD",
-                       "currencySymbol": "$",
-                       "currencyType": "REAL",
-                       "namespace": "accelbyte",
-                       "decimals": 2
-                   },
-               "status": "REFUNDED",
-               "createdTime": "2018-07-28T00:39:16.274Z",
-               "chargedTime": "2018-07-28T00:39:16.274Z",
-               "refundedTime": "2018-07-28T00:39:16.274Z"
-           }",
+	          "payload": "{
+	              "type": "payment",
+	              "nonceStr": "34c1dcf3eb58455eb161465bbfc0b590",
+	              "paymentOrderNo": "18081239088",
+	              "namespace": "accelbyte",
+	              "targetNamespace": "game1",
+	              "targetUserId": "94451623768940d58416ca33ca767ec3",
+	              "extOrderNo": "123456789",
+	              "sku": "sku",
+	              "extUserId": "678",
+	              "price": 100,
+	              "paymentProvider": "XSOLLA",
+	              "vat": 0,
+	              "salesTax": 0,
+	              "paymentProviderFee": 0,
+	              "paymentMethodFee": 0,
+	              "currency": {
+	                      "currencyCode": "USD",
+	                      "currencySymbol": "$",
+	                      "currencyType": "REAL",
+	                      "namespace": "accelbyte",
+	                      "decimals": 2
+	                  },
+	              "status": "REFUNDED",
+	              "createdTime": "2018-07-28T00:39:16.274Z",
+	              "chargedTime": "2018-07-28T00:39:16.274Z",
+	              "refundedTime": "2018-07-28T00:39:16.274Z"
+	          }",
 
-           "sign":"e31fb92516cc9faaf50ad70343e1293acec6f3d5"
+	          "sign":"e31fb92516cc9faaf50ad70343e1293acec6f3d5"
 
-    }
+	   }
 
 `
 
- Refund notification payload parameter list:
+	Refund notification payload parameter list:
 
 
-     Parameter         | Type     | Required | Description
-    -------------------|----------|----------|--------------------------------------------------------------------------------------
-    type               | String   | Yes      | Notification type: 'payment'
-    paymentOrderNo     | String   | Yes      | Payment system generated order number
-    extOrderNo         | String   | No       | External order number that passed by invoker
-    namespace          | String   | Yes      | Namespace that related payment order resides in
-    targetNamespace    | String   | Yes      | The game namespace
-    targetUserId       | String   | Yes      | The user id in game namespace
-    sku                | String   | No       | Item identify, it will return if pass it when create payment
-    extUserId          | String   | No       | External user id, can be character id, it will return if pass it when create payment
-    price              | int      | Yes      | Price of item
-    paymentProvider    | String   | Yes      | Payment provider: xsolla/alipay/wxpay/wallet
-    vat                | int      | Yes      | Payment order VAT
-    salesTax           | int      | Yes      | Payment order sales tax
-    paymentProviderFee | int      | Yes      | Payment provider fee
-    paymentMethodFee   | int      | Yes      | Payment method fee
-    currency           | Map      | Yes      | Payment order currency info
-    status             | String   | Yes      | Payment order status
-    statusReason       | String   | No       | Payment order refund status reason
-    createdTime        | Datetime | No       | The time of the order created
-    chargedTime        | Datetime | No       | The time of the order charged
-    refundedTime       | Datetime | No       | The time of the order refunded
-    customParameters   | Map      | No       | custom parameters, will return if pass it when create payment
-    nonceStr           | String   | Yes      | Random string, max length is 32,
-
-
+	    Parameter         | Type     | Required | Description
+	   -------------------|----------|----------|--------------------------------------------------------------------------------------
+	   type               | String   | Yes      | Notification type: 'payment'
+	   paymentOrderNo     | String   | Yes      | Payment system generated order number
+	   extOrderNo         | String   | No       | External order number that passed by invoker
+	   namespace          | String   | Yes      | Namespace that related payment order resides in
+	   targetNamespace    | String   | Yes      | The game namespace
+	   targetUserId       | String   | Yes      | The user id in game namespace
+	   sku                | String   | No       | Item identify, it will return if pass it when create payment
+	   extUserId          | String   | No       | External user id, can be character id, it will return if pass it when create payment
+	   price              | int      | Yes      | Price of item
+	   paymentProvider    | String   | Yes      | Payment provider: xsolla/alipay/wxpay/wallet
+	   vat                | int      | Yes      | Payment order VAT
+	   salesTax           | int      | Yes      | Payment order sales tax
+	   paymentProviderFee | int      | Yes      | Payment provider fee
+	   paymentMethodFee   | int      | Yes      | Payment method fee
+	   currency           | Map      | Yes      | Payment order currency info
+	   status             | String   | Yes      | Payment order status
+	   statusReason       | String   | No       | Payment order refund status reason
+	   createdTime        | Datetime | No       | The time of the order created
+	   chargedTime        | Datetime | No       | The time of the order charged
+	   refundedTime       | Datetime | No       | The time of the order refunded
+	   customParameters   | Map      | No       | custom parameters, will return if pass it when create payment
+	   nonceStr           | String   | Yes      | Random string, max length is 32,
 
 Currency info parameter list:
 
-
-     Parameter     | Type   | Required | Description
-    ---------------|--------|----------|-----------------------------
-    currencyCode   | String | Yes      | Currency Code
-    currencySymbol | String | Yes      | Currency Symbol
-    currencyType   | String | Yes      | Currency type(REAL/VIRTUAL)
-    namespace      | String | Yes      | Currency namespace
-    decimals       | int    | Yes      | Currency decimals
-
-
+	 Parameter     | Type   | Required | Description
+	---------------|--------|----------|-----------------------------
+	currencyCode   | String | Yes      | Currency Code
+	currencySymbol | String | Yes      | Currency Symbol
+	currencyType   | String | Yes      | Currency type(REAL/VIRTUAL)
+	namespace      | String | Yes      | Currency namespace
+	decimals       | int    | Yes      | Currency decimals
 
 #### Encryption Rule:
 
@@ -840,9 +828,9 @@ Concat payload json string and private key and then do sha1Hex.
 
 #### Other detail info:
 
-  * Token type : client token
-  *  Required permission : resource="ADMIN:NAMESPACE:{namespace}:PAYMENT", action=4 (UPDATE)
-  *  cross namespace allowed
+  - Token type : client token
+  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:PAYMENT", action=4 (UPDATE)
+  - cross namespace allowed
 */
 func (a *Client) RefundPaymentOrderByDedicatedShort(params *RefundPaymentOrderByDedicatedParams, authInfo runtime.ClientAuthInfoWriter) (*RefundPaymentOrderByDedicatedOK, error) {
 	// TODO: Validate the params before sending
@@ -856,6 +844,10 @@ func (a *Client) RefundPaymentOrderByDedicatedShort(params *RefundPaymentOrderBy
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -897,11 +889,13 @@ func (a *Client) RefundPaymentOrderByDedicatedShort(params *RefundPaymentOrderBy
 Deprecated: 2022-08-10 - Use SyncPaymentOrdersShort instead.
 
 SyncPaymentOrders sync payment orders
- [Not Supported Yet In Starter] Sync payment orders. If response contains nextEvaluatedKey, please use it as query param in the next call to fetch the next batch, a batch has 1000 elements or less.
+
+	[Not Supported Yet In Starter] Sync payment orders. If response contains nextEvaluatedKey, please use it as query param in the next call to fetch the next batch, a batch has 1000 elements or less.
+
 Other detail info:
 
-  * Required permission : resource="ADMIN:PAYMENT", action=2 (READ)
-  *  Returns : sync payment orders
+  - Required permission : resource="ADMIN:PAYMENT", action=2 (READ)
+  - Returns : sync payment orders
 */
 func (a *Client) SyncPaymentOrders(params *SyncPaymentOrdersParams, authInfo runtime.ClientAuthInfoWriter) (*SyncPaymentOrdersOK, error) {
 	// TODO: Validate the params before sending
@@ -946,11 +940,13 @@ func (a *Client) SyncPaymentOrders(params *SyncPaymentOrdersParams, authInfo run
 
 /*
 SyncPaymentOrdersShort sync payment orders
- [Not Supported Yet In Starter] Sync payment orders. If response contains nextEvaluatedKey, please use it as query param in the next call to fetch the next batch, a batch has 1000 elements or less.
+
+	[Not Supported Yet In Starter] Sync payment orders. If response contains nextEvaluatedKey, please use it as query param in the next call to fetch the next batch, a batch has 1000 elements or less.
+
 Other detail info:
 
-  * Required permission : resource="ADMIN:PAYMENT", action=2 (READ)
-  *  Returns : sync payment orders
+  - Required permission : resource="ADMIN:PAYMENT", action=2 (READ)
+  - Returns : sync payment orders
 */
 func (a *Client) SyncPaymentOrdersShort(params *SyncPaymentOrdersParams, authInfo runtime.ClientAuthInfoWriter) (*SyncPaymentOrdersOK, error) {
 	// TODO: Validate the params before sending
@@ -964,6 +960,10 @@ func (a *Client) SyncPaymentOrdersShort(params *SyncPaymentOrdersParams, authInf
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{

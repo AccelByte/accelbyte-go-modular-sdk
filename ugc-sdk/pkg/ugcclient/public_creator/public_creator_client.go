@@ -112,6 +112,10 @@ func (a *Client) PublicSearchCreatorShort(params *PublicSearchCreatorParams, aut
 		params.SetHTTPClientTransport(params.RetryPolicy)
 	}
 
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
+	}
+
 	result, err := a.transport.Submit(&runtime.ClientOperation{
 		ID:                 "PublicSearchCreator",
 		Method:             "GET",
@@ -217,6 +221,10 @@ func (a *Client) PublicGetCreatorShort(params *PublicGetCreatorParams, authInfo 
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{

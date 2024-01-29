@@ -76,7 +76,7 @@ Required permission: ADMIN:NAMESPACE:{namespace}:DSM:CONFIG [READ]
 
 Required scope: social
 
-This endpoint get a all deployments in a namespace
+# This endpoint get a all deployments in a namespace
 
 Parameter Offset and Count is Required
 */
@@ -136,7 +136,7 @@ Required permission: ADMIN:NAMESPACE:{namespace}:DSM:CONFIG [READ]
 
 Required scope: social
 
-This endpoint get a all deployments in a namespace
+# This endpoint get a all deployments in a namespace
 
 Parameter Offset and Count is Required
 */
@@ -152,6 +152,10 @@ func (a *Client) GetAllDeploymentShort(params *GetAllDeploymentParams, authInfo 
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -270,6 +274,10 @@ func (a *Client) GetDeploymentShort(params *GetDeploymentParams, authInfo runtim
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -392,6 +400,10 @@ func (a *Client) CreateDeploymentShort(params *CreateDeploymentParams, authInfo 
 		params.SetHTTPClientTransport(params.RetryPolicy)
 	}
 
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
+	}
+
 	result, err := a.transport.Submit(&runtime.ClientOperation{
 		ID:                 "CreateDeployment",
 		Method:             "POST",
@@ -510,6 +522,10 @@ func (a *Client) DeleteDeploymentShort(params *DeleteDeploymentParams, authInfo 
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -633,6 +649,10 @@ func (a *Client) UpdateDeploymentShort(params *UpdateDeploymentParams, authInfo 
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -760,6 +780,10 @@ func (a *Client) CreateRootRegionOverrideShort(params *CreateRootRegionOverrideP
 		params.SetHTTPClientTransport(params.RetryPolicy)
 	}
 
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
+	}
+
 	result, err := a.transport.Submit(&runtime.ClientOperation{
 		ID:                 "CreateRootRegionOverride",
 		Method:             "POST",
@@ -882,6 +906,10 @@ func (a *Client) DeleteRootRegionOverrideShort(params *DeleteRootRegionOverrideP
 		params.SetHTTPClientTransport(params.RetryPolicy)
 	}
 
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
+	}
+
 	result, err := a.transport.Submit(&runtime.ClientOperation{
 		ID:                 "DeleteRootRegionOverride",
 		Method:             "DELETE",
@@ -1000,6 +1028,10 @@ func (a *Client) UpdateRootRegionOverrideShort(params *UpdateRootRegionOverrideP
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -1125,6 +1157,10 @@ func (a *Client) CreateDeploymentOverrideShort(params *CreateDeploymentOverrideP
 		params.SetHTTPClientTransport(params.RetryPolicy)
 	}
 
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
+	}
+
 	result, err := a.transport.Submit(&runtime.ClientOperation{
 		ID:                 "CreateDeploymentOverride",
 		Method:             "POST",
@@ -1247,6 +1283,10 @@ func (a *Client) DeleteDeploymentOverrideShort(params *DeleteDeploymentOverrideP
 		params.SetHTTPClientTransport(params.RetryPolicy)
 	}
 
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
+	}
+
 	result, err := a.transport.Submit(&runtime.ClientOperation{
 		ID:                 "DeleteDeploymentOverride",
 		Method:             "DELETE",
@@ -1365,6 +1405,10 @@ func (a *Client) UpdateDeploymentOverrideShort(params *UpdateDeploymentOverrideP
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -1490,6 +1534,10 @@ func (a *Client) CreateOverrideRegionOverrideShort(params *CreateOverrideRegionO
 		params.SetHTTPClientTransport(params.RetryPolicy)
 	}
 
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
+	}
+
 	result, err := a.transport.Submit(&runtime.ClientOperation{
 		ID:                 "CreateOverrideRegionOverride",
 		Method:             "POST",
@@ -1612,6 +1660,10 @@ func (a *Client) DeleteOverrideRegionOverrideShort(params *DeleteOverrideRegionO
 		params.SetHTTPClientTransport(params.RetryPolicy)
 	}
 
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
+	}
+
 	result, err := a.transport.Submit(&runtime.ClientOperation{
 		ID:                 "DeleteOverrideRegionOverride",
 		Method:             "DELETE",
@@ -1732,6 +1784,10 @@ func (a *Client) UpdateOverrideRegionOverrideShort(params *UpdateOverrideRegionO
 		params.SetHTTPClientTransport(params.RetryPolicy)
 	}
 
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
+	}
+
 	result, err := a.transport.Submit(&runtime.ClientOperation{
 		ID:                 "UpdateOverrideRegionOverride",
 		Method:             "PATCH",
@@ -1775,7 +1831,7 @@ Required permission: NAMESPACE:{namespace}:DSM:CONFIG [READ]
 
 Required scope: social
 
-This endpoint get a all deployments in a namespace
+# This endpoint get a all deployments in a namespace
 
 Parameter Offset and Count is Required
 */
@@ -1835,7 +1891,7 @@ Required permission: NAMESPACE:{namespace}:DSM:CONFIG [READ]
 
 Required scope: social
 
-This endpoint get a all deployments in a namespace
+# This endpoint get a all deployments in a namespace
 
 Parameter Offset and Count is Required
 */
@@ -1851,6 +1907,10 @@ func (a *Client) GetAllDeploymentClientShort(params *GetAllDeploymentClientParam
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -1971,6 +2031,10 @@ func (a *Client) CreateDeploymentClientShort(params *CreateDeploymentClientParam
 		params.SetHTTPClientTransport(params.RetryPolicy)
 	}
 
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
+	}
+
 	result, err := a.transport.Submit(&runtime.ClientOperation{
 		ID:                 "CreateDeploymentClient",
 		Method:             "POST",
@@ -2089,6 +2153,10 @@ func (a *Client) DeleteDeploymentClientShort(params *DeleteDeploymentClientParam
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{

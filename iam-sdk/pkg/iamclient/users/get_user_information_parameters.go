@@ -57,7 +57,8 @@ func NewGetUserInformationParamsWithHTTPClient(client *http.Client) *GetUserInfo
 	}
 }
 
-/*GetUserInformationParams contains all the parameters to send to the API endpoint
+/*
+GetUserInformationParams contains all the parameters to send to the API endpoint
 for the get user information operation typically these are written to a http.Request
 */
 type GetUserInformationParams struct {
@@ -79,6 +80,9 @@ type GetUserInformationParams struct {
 	AuthInfoWriter runtime.ClientAuthInfoWriter
 	Context        context.Context
 	HTTPClient     *http.Client
+
+	// XFlightId is an optional parameter from this SDK
+	XFlightId *string
 }
 
 // WithTimeout adds the timeout to the get user information params
@@ -128,6 +132,15 @@ func (o *GetUserInformationParams) SetHTTPClientTransport(roundTripper http.Roun
 	}
 }
 
+// SetFlightId adds the flightId as the header value for this specific endpoint
+func (o *GetUserInformationParams) SetFlightId(flightId string) {
+	if o.XFlightId != nil {
+		o.XFlightId = &flightId
+	} else {
+		o.XFlightId = &utils.GetDefaultFlightID().Value
+	}
+}
+
 // WithNamespace adds the namespace to the get user information params
 func (o *GetUserInformationParams) WithNamespace(namespace string) *GetUserInformationParams {
 	o.SetNamespace(namespace)
@@ -171,6 +184,16 @@ func (o *GetUserInformationParams) WriteToRequest(r runtime.ClientRequest, reg s
 	// setting the default header value
 	if err := r.SetHeaderParam("X-Amzn-Trace-Id", utils.AmazonTraceIDGen()); err != nil {
 		return err
+	}
+
+	if o.XFlightId == nil {
+		if err := r.SetHeaderParam("X-Flight-Id", utils.GetDefaultFlightID().Value); err != nil {
+			return err
+		}
+	} else {
+		if err := r.SetHeaderParam("X-Flight-Id", *o.XFlightId); err != nil {
+			return err
+		}
 	}
 
 	if len(res) > 0 {

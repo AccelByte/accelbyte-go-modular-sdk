@@ -57,7 +57,8 @@ func NewWatchdogConnectParamsWithHTTPClient(client *http.Client) *WatchdogConnec
 	}
 }
 
-/*WatchdogConnectParams contains all the parameters to send to the API endpoint
+/*
+WatchdogConnectParams contains all the parameters to send to the API endpoint
 for the watchdog connect operation typically these are written to a http.Request
 */
 type WatchdogConnectParams struct {
@@ -79,6 +80,9 @@ type WatchdogConnectParams struct {
 	AuthInfoWriter runtime.ClientAuthInfoWriter
 	Context        context.Context
 	HTTPClient     *http.Client
+
+	// XFlightId is an optional parameter from this SDK
+	XFlightId *string
 }
 
 // WithTimeout adds the timeout to the watchdog connect params
@@ -128,6 +132,15 @@ func (o *WatchdogConnectParams) SetHTTPClientTransport(roundTripper http.RoundTr
 	}
 }
 
+// SetFlightId adds the flightId as the header value for this specific endpoint
+func (o *WatchdogConnectParams) SetFlightId(flightId string) {
+	if o.XFlightId != nil {
+		o.XFlightId = &flightId
+	} else {
+		o.XFlightId = &utils.GetDefaultFlightID().Value
+	}
+}
+
 // WithNamespace adds the namespace to the watchdog connect params
 func (o *WatchdogConnectParams) WithNamespace(namespace string) *WatchdogConnectParams {
 	o.SetNamespace(namespace)
@@ -171,6 +184,16 @@ func (o *WatchdogConnectParams) WriteToRequest(r runtime.ClientRequest, reg strf
 	// setting the default header value
 	if err := r.SetHeaderParam("X-Amzn-Trace-Id", utils.AmazonTraceIDGen()); err != nil {
 		return err
+	}
+
+	if o.XFlightId == nil {
+		if err := r.SetHeaderParam("X-Flight-Id", utils.GetDefaultFlightID().Value); err != nil {
+			return err
+		}
+	} else {
+		if err := r.SetHeaderParam("X-Flight-Id", *o.XFlightId); err != nil {
+			return err
+		}
 	}
 
 	if len(res) > 0 {

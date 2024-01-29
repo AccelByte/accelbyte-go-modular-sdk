@@ -72,8 +72,8 @@ QueryCampaigns query campaigns
 Query campaigns, if name is presented, it's fuzzy match.
 Other detail info:
 
-  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:CAMPAIGN", action=2 (READ) (READ)
-  *  Returns : slice of campaigns
+  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:CAMPAIGN", action=2 (READ) (READ)
+  - Returns : slice of campaigns
 */
 func (a *Client) QueryCampaigns(params *QueryCampaignsParams, authInfo runtime.ClientAuthInfoWriter) (*QueryCampaignsOK, error) {
 	// TODO: Validate the params before sending
@@ -121,8 +121,8 @@ QueryCampaignsShort query campaigns
 Query campaigns, if name is presented, it's fuzzy match.
 Other detail info:
 
-  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:CAMPAIGN", action=2 (READ) (READ)
-  *  Returns : slice of campaigns
+  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:CAMPAIGN", action=2 (READ) (READ)
+  - Returns : slice of campaigns
 */
 func (a *Client) QueryCampaignsShort(params *QueryCampaignsParams, authInfo runtime.ClientAuthInfoWriter) (*QueryCampaignsOK, error) {
 	// TODO: Validate the params before sending
@@ -136,6 +136,10 @@ func (a *Client) QueryCampaignsShort(params *QueryCampaignsParams, authInfo runt
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -172,8 +176,8 @@ CreateCampaign create campaign
 Create campaign.
 Other detail info:
 
-  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:CAMPAIGN", action=1 (CREATE)
-  *  Returns : created campaign
+  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:CAMPAIGN", action=1 (CREATE)
+  - Returns : created campaign
 */
 func (a *Client) CreateCampaign(params *CreateCampaignParams, authInfo runtime.ClientAuthInfoWriter) (*CreateCampaignCreated, *CreateCampaignConflict, *CreateCampaignUnprocessableEntity, error) {
 	// TODO: Validate the params before sending
@@ -227,8 +231,8 @@ CreateCampaignShort create campaign
 Create campaign.
 Other detail info:
 
-  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:CAMPAIGN", action=1 (CREATE)
-  *  Returns : created campaign
+  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:CAMPAIGN", action=1 (CREATE)
+  - Returns : created campaign
 */
 func (a *Client) CreateCampaignShort(params *CreateCampaignParams, authInfo runtime.ClientAuthInfoWriter) (*CreateCampaignCreated, error) {
 	// TODO: Validate the params before sending
@@ -242,6 +246,10 @@ func (a *Client) CreateCampaignShort(params *CreateCampaignParams, authInfo runt
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -282,8 +290,8 @@ GetCampaign get campaign
 Get campaign info.
 Other detail info:
 
-  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:CAMPAIGN", action=2 (READ)
-  *  Returns : campaign info
+  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:CAMPAIGN", action=2 (READ)
+  - Returns : campaign info
 */
 func (a *Client) GetCampaign(params *GetCampaignParams, authInfo runtime.ClientAuthInfoWriter) (*GetCampaignOK, *GetCampaignNotFound, error) {
 	// TODO: Validate the params before sending
@@ -334,8 +342,8 @@ GetCampaignShort get campaign
 Get campaign info.
 Other detail info:
 
-  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:CAMPAIGN", action=2 (READ)
-  *  Returns : campaign info
+  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:CAMPAIGN", action=2 (READ)
+  - Returns : campaign info
 */
 func (a *Client) GetCampaignShort(params *GetCampaignParams, authInfo runtime.ClientAuthInfoWriter) (*GetCampaignOK, error) {
 	// TODO: Validate the params before sending
@@ -349,6 +357,10 @@ func (a *Client) GetCampaignShort(params *GetCampaignParams, authInfo runtime.Cl
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -387,8 +399,8 @@ UpdateCampaign update campaign
 Update campaign.
 Other detail info:
 
-  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:CAMPAIGN", action=4 (UPDATE)
-  *  Returns : updated campaign
+  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:CAMPAIGN", action=4 (UPDATE)
+  - Returns : updated campaign
 */
 func (a *Client) UpdateCampaign(params *UpdateCampaignParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateCampaignOK, *UpdateCampaignNotFound, *UpdateCampaignConflict, *UpdateCampaignUnprocessableEntity, error) {
 	// TODO: Validate the params before sending
@@ -445,8 +457,8 @@ UpdateCampaignShort update campaign
 Update campaign.
 Other detail info:
 
-  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:CAMPAIGN", action=4 (UPDATE)
-  *  Returns : updated campaign
+  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:CAMPAIGN", action=4 (UPDATE)
+  - Returns : updated campaign
 */
 func (a *Client) UpdateCampaignShort(params *UpdateCampaignParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateCampaignOK, error) {
 	// TODO: Validate the params before sending
@@ -460,6 +472,10 @@ func (a *Client) UpdateCampaignShort(params *UpdateCampaignParams, authInfo runt
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -502,8 +518,8 @@ GetCampaignDynamic get campaign dynamic
 Get campaign dynamic.
 Other detail info:
 
-  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:CAMPAIGN", action=2 (READ)
-  *  Returns : campaign dynamic
+  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:CAMPAIGN", action=2 (READ)
+  - Returns : campaign dynamic
 */
 func (a *Client) GetCampaignDynamic(params *GetCampaignDynamicParams, authInfo runtime.ClientAuthInfoWriter) (*GetCampaignDynamicOK, *GetCampaignDynamicNotFound, error) {
 	// TODO: Validate the params before sending
@@ -554,8 +570,8 @@ GetCampaignDynamicShort get campaign dynamic
 Get campaign dynamic.
 Other detail info:
 
-  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:CAMPAIGN", action=2 (READ)
-  *  Returns : campaign dynamic
+  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:CAMPAIGN", action=2 (READ)
+  - Returns : campaign dynamic
 */
 func (a *Client) GetCampaignDynamicShort(params *GetCampaignDynamicParams, authInfo runtime.ClientAuthInfoWriter) (*GetCampaignDynamicOK, error) {
 	// TODO: Validate the params before sending
@@ -569,6 +585,10 @@ func (a *Client) GetCampaignDynamicShort(params *GetCampaignDynamicParams, authI
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -607,8 +627,8 @@ QueryCodes query codes
 Query campaign codes.
 Other detail info:
 
-  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:CAMPAIGN", action=2 (READ) (READ)
-  *  Returns : list of codes
+  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:CAMPAIGN", action=2 (READ) (READ)
+  - Returns : list of codes
 */
 func (a *Client) QueryCodes(params *QueryCodesParams, authInfo runtime.ClientAuthInfoWriter) (*QueryCodesOK, error) {
 	// TODO: Validate the params before sending
@@ -656,8 +676,8 @@ QueryCodesShort query codes
 Query campaign codes.
 Other detail info:
 
-  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:CAMPAIGN", action=2 (READ) (READ)
-  *  Returns : list of codes
+  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:CAMPAIGN", action=2 (READ) (READ)
+  - Returns : list of codes
 */
 func (a *Client) QueryCodesShort(params *QueryCodesParams, authInfo runtime.ClientAuthInfoWriter) (*QueryCodesOK, error) {
 	// TODO: Validate the params before sending
@@ -671,6 +691,10 @@ func (a *Client) QueryCodesShort(params *QueryCodesParams, authInfo runtime.Clie
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -707,8 +731,8 @@ CreateCodes create campaign codes
 This API is used to create campaign codes, it will increase the batch No. based on last creation.
 Other detail info:
 
-  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:CAMPAIGN", action=1 (CREATE)
-  *  Returns : number of codes created
+  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:CAMPAIGN", action=1 (CREATE)
+  - Returns : number of codes created
 */
 func (a *Client) CreateCodes(params *CreateCodesParams, authInfo runtime.ClientAuthInfoWriter) (*CreateCodesCreated, *CreateCodesNotFound, *CreateCodesUnprocessableEntity, error) {
 	// TODO: Validate the params before sending
@@ -762,8 +786,8 @@ CreateCodesShort create campaign codes
 This API is used to create campaign codes, it will increase the batch No. based on last creation.
 Other detail info:
 
-  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:CAMPAIGN", action=1 (CREATE)
-  *  Returns : number of codes created
+  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:CAMPAIGN", action=1 (CREATE)
+  - Returns : number of codes created
 */
 func (a *Client) CreateCodesShort(params *CreateCodesParams, authInfo runtime.ClientAuthInfoWriter) (*CreateCodesCreated, error) {
 	// TODO: Validate the params before sending
@@ -777,6 +801,10 @@ func (a *Client) CreateCodesShort(params *CreateCodesParams, authInfo runtime.Cl
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -817,8 +845,8 @@ Download download codes
 Download all or a batch of campaign's codes as a csv file.
 Other detail info:
 
-  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:CAMPAIGN", action=2 (READ)
-  *  Returns : codes csv file
+  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:CAMPAIGN", action=2 (READ)
+  - Returns : codes csv file
 */
 func (a *Client) Download(params *DownloadParams, authInfo runtime.ClientAuthInfoWriter, writer io.Writer) (*DownloadOK, error) {
 	// TODO: Validate the params before sending
@@ -866,8 +894,8 @@ DownloadShort download codes
 Download all or a batch of campaign's codes as a csv file.
 Other detail info:
 
-  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:CAMPAIGN", action=2 (READ)
-  *  Returns : codes csv file
+  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:CAMPAIGN", action=2 (READ)
+  - Returns : codes csv file
 */
 func (a *Client) DownloadShort(params *DownloadParams, authInfo runtime.ClientAuthInfoWriter, writer io.Writer) (*DownloadOK, error) {
 	// TODO: Validate the params before sending
@@ -881,6 +909,10 @@ func (a *Client) DownloadShort(params *DownloadParams, authInfo runtime.ClientAu
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -919,8 +951,8 @@ Bulk disable codes.
 Bulk disable campaign codes, all matched codes will be disabled except those have already been redeemed.
 Other detail info:
 
-  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:CAMPAIGN", action=4 (UPDATE)
-  *  Returns : the number of code actually disabled
+  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:CAMPAIGN", action=4 (UPDATE)
+  - Returns : the number of code actually disabled
 */
 func (a *Client) BulkDisableCodes(params *BulkDisableCodesParams, authInfo runtime.ClientAuthInfoWriter) (*BulkDisableCodesOK, error) {
 	// TODO: Validate the params before sending
@@ -970,8 +1002,8 @@ Bulk disable codes.
 Bulk disable campaign codes, all matched codes will be disabled except those have already been redeemed.
 Other detail info:
 
-  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:CAMPAIGN", action=4 (UPDATE)
-  *  Returns : the number of code actually disabled
+  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:CAMPAIGN", action=4 (UPDATE)
+  - Returns : the number of code actually disabled
 */
 func (a *Client) BulkDisableCodesShort(params *BulkDisableCodesParams, authInfo runtime.ClientAuthInfoWriter) (*BulkDisableCodesOK, error) {
 	// TODO: Validate the params before sending
@@ -985,6 +1017,10 @@ func (a *Client) BulkDisableCodesShort(params *BulkDisableCodesParams, authInfo 
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -1021,8 +1057,8 @@ BulkEnableCodes bulk enable codes
 Bulk enable campaign codes.
 Other detail info:
 
-  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:CAMPAIGN", action=4 (UPDATE)
-  *  Returns : the number of code actually enabled
+  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:CAMPAIGN", action=4 (UPDATE)
+  - Returns : the number of code actually enabled
 */
 func (a *Client) BulkEnableCodes(params *BulkEnableCodesParams, authInfo runtime.ClientAuthInfoWriter) (*BulkEnableCodesOK, error) {
 	// TODO: Validate the params before sending
@@ -1070,8 +1106,8 @@ BulkEnableCodesShort bulk enable codes
 Bulk enable campaign codes.
 Other detail info:
 
-  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:CAMPAIGN", action=4 (UPDATE)
-  *  Returns : the number of code actually enabled
+  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:CAMPAIGN", action=4 (UPDATE)
+  - Returns : the number of code actually enabled
 */
 func (a *Client) BulkEnableCodesShort(params *BulkEnableCodesParams, authInfo runtime.ClientAuthInfoWriter) (*BulkEnableCodesOK, error) {
 	// TODO: Validate the params before sending
@@ -1085,6 +1121,10 @@ func (a *Client) BulkEnableCodesShort(params *BulkEnableCodesParams, authInfo ru
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -1121,8 +1161,8 @@ QueryRedeemHistory query redeem history
 Query redeem history.
 Other detail info:
 
-  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:CAMPAIGN", action=2 (READ)
-  *  Returns : slice of redeem history
+  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:CAMPAIGN", action=2 (READ)
+  - Returns : slice of redeem history
 */
 func (a *Client) QueryRedeemHistory(params *QueryRedeemHistoryParams, authInfo runtime.ClientAuthInfoWriter) (*QueryRedeemHistoryOK, error) {
 	// TODO: Validate the params before sending
@@ -1170,8 +1210,8 @@ QueryRedeemHistoryShort query redeem history
 Query redeem history.
 Other detail info:
 
-  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:CAMPAIGN", action=2 (READ)
-  *  Returns : slice of redeem history
+  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:CAMPAIGN", action=2 (READ)
+  - Returns : slice of redeem history
 */
 func (a *Client) QueryRedeemHistoryShort(params *QueryRedeemHistoryParams, authInfo runtime.ClientAuthInfoWriter) (*QueryRedeemHistoryOK, error) {
 	// TODO: Validate the params before sending
@@ -1185,6 +1225,10 @@ func (a *Client) QueryRedeemHistoryShort(params *QueryRedeemHistoryParams, authI
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -1221,8 +1265,8 @@ GetCode get code info
 Get campaign code, it will check code whether available to redeem if redeemable true.
 Other detail info:
 
-  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:CAMPAIGN", action=2 (READ) (READ)
-  *  Returns : code info
+  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:CAMPAIGN", action=2 (READ) (READ)
+  - Returns : code info
 */
 func (a *Client) GetCode(params *GetCodeParams, authInfo runtime.ClientAuthInfoWriter) (*GetCodeOK, *GetCodeNotFound, *GetCodeConflict, error) {
 	// TODO: Validate the params before sending
@@ -1276,8 +1320,8 @@ GetCodeShort get code info
 Get campaign code, it will check code whether available to redeem if redeemable true.
 Other detail info:
 
-  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:CAMPAIGN", action=2 (READ) (READ)
-  *  Returns : code info
+  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:CAMPAIGN", action=2 (READ) (READ)
+  - Returns : code info
 */
 func (a *Client) GetCodeShort(params *GetCodeParams, authInfo runtime.ClientAuthInfoWriter) (*GetCodeOK, error) {
 	// TODO: Validate the params before sending
@@ -1291,6 +1335,10 @@ func (a *Client) GetCodeShort(params *GetCodeParams, authInfo runtime.ClientAuth
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -1333,8 +1381,8 @@ Disable code.
 Disable an active code, the code can't be disabled if it has already been redeemed.
 Other detail info:
 
-  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:CAMPAIGN", action=4 (UPDATE)
-  *  Returns : disabled code
+  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:CAMPAIGN", action=4 (UPDATE)
+  - Returns : disabled code
 */
 func (a *Client) DisableCode(params *DisableCodeParams, authInfo runtime.ClientAuthInfoWriter) (*DisableCodeOK, *DisableCodeNotFound, error) {
 	// TODO: Validate the params before sending
@@ -1387,8 +1435,8 @@ Disable code.
 Disable an active code, the code can't be disabled if it has already been redeemed.
 Other detail info:
 
-  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:CAMPAIGN", action=4 (UPDATE)
-  *  Returns : disabled code
+  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:CAMPAIGN", action=4 (UPDATE)
+  - Returns : disabled code
 */
 func (a *Client) DisableCodeShort(params *DisableCodeParams, authInfo runtime.ClientAuthInfoWriter) (*DisableCodeOK, error) {
 	// TODO: Validate the params before sending
@@ -1402,6 +1450,10 @@ func (a *Client) DisableCodeShort(params *DisableCodeParams, authInfo runtime.Cl
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -1440,8 +1492,8 @@ EnableCode enable code
 Enable code.
 Other detail info:
 
-  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:CAMPAIGN", action=4 (UPDATE)
-  *  Returns : enabled code
+  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:CAMPAIGN", action=4 (UPDATE)
+  - Returns : enabled code
 */
 func (a *Client) EnableCode(params *EnableCodeParams, authInfo runtime.ClientAuthInfoWriter) (*EnableCodeOK, *EnableCodeNotFound, error) {
 	// TODO: Validate the params before sending
@@ -1492,8 +1544,8 @@ EnableCodeShort enable code
 Enable code.
 Other detail info:
 
-  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:CAMPAIGN", action=4 (UPDATE)
-  *  Returns : enabled code
+  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:CAMPAIGN", action=4 (UPDATE)
+  - Returns : enabled code
 */
 func (a *Client) EnableCodeShort(params *EnableCodeParams, authInfo runtime.ClientAuthInfoWriter) (*EnableCodeOK, error) {
 	// TODO: Validate the params before sending
@@ -1507,6 +1559,10 @@ func (a *Client) EnableCodeShort(params *EnableCodeParams, authInfo runtime.Clie
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -1542,11 +1598,13 @@ func (a *Client) EnableCodeShort(params *EnableCodeParams, authInfo runtime.Clie
 Deprecated: 2022-08-10 - Use ApplyUserRedemptionShort instead.
 
 ApplyUserRedemption redeem code
- [SERVICE COMMUNICATION ONLY] Redeem code. If the campaign which the code belongs to is INACTIVE, the code couldn't be redeemed even if its status is ACTIVE.
+
+	[SERVICE COMMUNICATION ONLY] Redeem code. If the campaign which the code belongs to is INACTIVE, the code couldn't be redeemed even if its status is ACTIVE.
+
 Other detail info:
 
-  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:USER:{userId}:REDEMPTION", action=1 (CREATE)
-  *  Returns : Redeem result
+  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:USER:{userId}:REDEMPTION", action=1 (CREATE)
+  - Returns : Redeem result
 */
 func (a *Client) ApplyUserRedemption(params *ApplyUserRedemptionParams, authInfo runtime.ClientAuthInfoWriter) (*ApplyUserRedemptionOK, *ApplyUserRedemptionNotFound, *ApplyUserRedemptionConflict, *ApplyUserRedemptionUnprocessableEntity, error) {
 	// TODO: Validate the params before sending
@@ -1600,11 +1658,13 @@ func (a *Client) ApplyUserRedemption(params *ApplyUserRedemptionParams, authInfo
 
 /*
 ApplyUserRedemptionShort redeem code
- [SERVICE COMMUNICATION ONLY] Redeem code. If the campaign which the code belongs to is INACTIVE, the code couldn't be redeemed even if its status is ACTIVE.
+
+	[SERVICE COMMUNICATION ONLY] Redeem code. If the campaign which the code belongs to is INACTIVE, the code couldn't be redeemed even if its status is ACTIVE.
+
 Other detail info:
 
-  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:USER:{userId}:REDEMPTION", action=1 (CREATE)
-  *  Returns : Redeem result
+  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:USER:{userId}:REDEMPTION", action=1 (CREATE)
+  - Returns : Redeem result
 */
 func (a *Client) ApplyUserRedemptionShort(params *ApplyUserRedemptionParams, authInfo runtime.ClientAuthInfoWriter) (*ApplyUserRedemptionOK, error) {
 	// TODO: Validate the params before sending
@@ -1618,6 +1678,10 @@ func (a *Client) ApplyUserRedemptionShort(params *ApplyUserRedemptionParams, aut
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{

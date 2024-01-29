@@ -96,7 +96,7 @@ Allowed character for operand: alphanumeric, underscore `_` and dash `-`
 
 Allowed character for operator: `&` `|` `(` `)`
 
- Please note that value of tags query param should be URL encoded
+	Please note that value of tags query param should be URL encoded
 */
 func (a *Client) SearchChannelSpecificContent(params *SearchChannelSpecificContentParams, authInfo runtime.ClientAuthInfoWriter) (*SearchChannelSpecificContentOK, *SearchChannelSpecificContentBadRequest, *SearchChannelSpecificContentUnauthorized, *SearchChannelSpecificContentInternalServerError, error) {
 	// TODO: Validate the params before sending
@@ -170,7 +170,7 @@ Allowed character for operand: alphanumeric, underscore `_` and dash `-`
 
 Allowed character for operator: `&` `|` `(` `)`
 
- Please note that value of tags query param should be URL encoded
+	Please note that value of tags query param should be URL encoded
 */
 func (a *Client) SearchChannelSpecificContentShort(params *SearchChannelSpecificContentParams, authInfo runtime.ClientAuthInfoWriter) (*SearchChannelSpecificContentOK, error) {
 	// TODO: Validate the params before sending
@@ -184,6 +184,10 @@ func (a *Client) SearchChannelSpecificContentShort(params *SearchChannelSpecific
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -243,7 +247,7 @@ Allowed character for operand: alphanumeric, underscore `_` and dash `-`
 
 Allowed character for operator: `&` `|` `(` `)`
 
- Please note that value of tags query param should be URL encoded
+	Please note that value of tags query param should be URL encoded
 */
 func (a *Client) PublicSearchContent(params *PublicSearchContentParams, authInfo runtime.ClientAuthInfoWriter) (*PublicSearchContentOK, *PublicSearchContentBadRequest, *PublicSearchContentUnauthorized, *PublicSearchContentInternalServerError, error) {
 	// TODO: Validate the params before sending
@@ -317,7 +321,7 @@ Allowed character for operand: alphanumeric, underscore `_` and dash `-`
 
 Allowed character for operator: `&` `|` `(` `)`
 
- Please note that value of tags query param should be URL encoded
+	Please note that value of tags query param should be URL encoded
 */
 func (a *Client) PublicSearchContentShort(params *PublicSearchContentParams, authInfo runtime.ClientAuthInfoWriter) (*PublicSearchContentOK, error) {
 	// TODO: Validate the params before sending
@@ -331,6 +335,10 @@ func (a *Client) PublicSearchContentShort(params *PublicSearchContentParams, aut
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -440,6 +448,10 @@ func (a *Client) PublicGetContentBulkShort(params *PublicGetContentBulkParams, a
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -554,6 +566,10 @@ func (a *Client) PublicGetContentBulkByShareCodesShort(params *PublicGetContentB
 		params.SetHTTPClientTransport(params.RetryPolicy)
 	}
 
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
+	}
+
 	result, err := a.transport.Submit(&runtime.ClientOperation{
 		ID:                 "PublicGetContentBulkByShareCodes",
 		Method:             "POST",
@@ -663,6 +679,10 @@ func (a *Client) PublicDownloadContentByShareCodeShort(params *PublicDownloadCon
 		params.SetHTTPClientTransport(params.RetryPolicy)
 	}
 
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
+	}
+
 	result, err := a.transport.Submit(&runtime.ClientOperation{
 		ID:                 "PublicDownloadContentByShareCode",
 		Method:             "GET",
@@ -770,6 +790,10 @@ func (a *Client) PublicDownloadContentByContentIDShort(params *PublicDownloadCon
 		params.SetHTTPClientTransport(params.RetryPolicy)
 	}
 
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
+	}
+
 	result, err := a.transport.Submit(&runtime.ClientOperation{
 		ID:                 "PublicDownloadContentByContentID",
 		Method:             "GET",
@@ -806,12 +830,11 @@ func (a *Client) PublicDownloadContentByContentIDShort(params *PublicDownloadCon
 /*
 Deprecated: 2022-08-10 - Use PublicDownloadContentPreviewShort instead.
 
-PublicDownloadContentPreview get content preview
-
+# PublicDownloadContentPreview get content preview
 
 Requires valid user token
 
- NOTE: Preview is Legacy Code, please use Screenshot for better solution to display preview of a content
+	NOTE: Preview is Legacy Code, please use Screenshot for better solution to display preview of a content
 */
 func (a *Client) PublicDownloadContentPreview(params *PublicDownloadContentPreviewParams, authInfo runtime.ClientAuthInfoWriter) (*PublicDownloadContentPreviewOK, *PublicDownloadContentPreviewUnauthorized, *PublicDownloadContentPreviewNotFound, *PublicDownloadContentPreviewInternalServerError, error) {
 	// TODO: Validate the params before sending
@@ -866,10 +889,9 @@ func (a *Client) PublicDownloadContentPreview(params *PublicDownloadContentPrevi
 /*
 PublicDownloadContentPreviewShort get content preview
 
-
 Requires valid user token
 
- NOTE: Preview is Legacy Code, please use Screenshot for better solution to display preview of a content
+	NOTE: Preview is Legacy Code, please use Screenshot for better solution to display preview of a content
 */
 func (a *Client) PublicDownloadContentPreviewShort(params *PublicDownloadContentPreviewParams, authInfo runtime.ClientAuthInfoWriter) (*PublicDownloadContentPreviewOK, error) {
 	// TODO: Validate the params before sending
@@ -883,6 +905,10 @@ func (a *Client) PublicDownloadContentPreviewShort(params *PublicDownloadContent
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -999,6 +1025,10 @@ func (a *Client) CreateContentDirectShort(params *CreateContentDirectParams, aut
 		params.SetHTTPClientTransport(params.RetryPolicy)
 	}
 
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
+	}
+
 	result, err := a.transport.Submit(&runtime.ClientOperation{
 		ID:                 "CreateContentDirect",
 		Method:             "POST",
@@ -1043,8 +1073,6 @@ Required permission NAMESPACE:{namespace}:USER:{userId}:CONTENT [CREATE].
 All request body are required except payload, preview, tags, contentType and customAttributes.
 contentType values is used to enforce the Content-Type header needed by the client to upload the content using the S3 presigned URL.
 If not specified, it will use fileExtension value.
-
-
 
 NOTE: Preview is Legacy Code, please use Screenshot for better solution to display preview of a content
 */
@@ -1109,8 +1137,6 @@ All request body are required except payload, preview, tags, contentType and cus
 contentType values is used to enforce the Content-Type header needed by the client to upload the content using the S3 presigned URL.
 If not specified, it will use fileExtension value.
 
-
-
 NOTE: Preview is Legacy Code, please use Screenshot for better solution to display preview of a content
 */
 func (a *Client) CreateContentS3Short(params *CreateContentS3Params, authInfo runtime.ClientAuthInfoWriter) (*CreateContentS3Created, error) {
@@ -1125,6 +1151,10 @@ func (a *Client) CreateContentS3Short(params *CreateContentS3Params, authInfo ru
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -1176,10 +1206,7 @@ If not specified, it will use `fileExtension` value.
 
 To update content file, set `updateContentFile` to `true` and upload the file using URL in `payloadURL.url` in response body.
 
-
-
-
- NOTE: Preview is Legacy Code, please use Screenshot for better solution to display preview of a content
+	NOTE: Preview is Legacy Code, please use Screenshot for better solution to display preview of a content
 */
 func (a *Client) PublicUpdateContentByShareCode(params *PublicUpdateContentByShareCodeParams, authInfo runtime.ClientAuthInfoWriter) (*PublicUpdateContentByShareCodeOK, *PublicUpdateContentByShareCodeBadRequest, *PublicUpdateContentByShareCodeUnauthorized, *PublicUpdateContentByShareCodeForbidden, *PublicUpdateContentByShareCodeNotFound, *PublicUpdateContentByShareCodeConflict, *PublicUpdateContentByShareCodeInternalServerError, error) {
 	// TODO: Validate the params before sending
@@ -1252,10 +1279,7 @@ If not specified, it will use `fileExtension` value.
 
 To update content file, set `updateContentFile` to `true` and upload the file using URL in `payloadURL.url` in response body.
 
-
-
-
- NOTE: Preview is Legacy Code, please use Screenshot for better solution to display preview of a content
+	NOTE: Preview is Legacy Code, please use Screenshot for better solution to display preview of a content
 */
 func (a *Client) PublicUpdateContentByShareCodeShort(params *PublicUpdateContentByShareCodeParams, authInfo runtime.ClientAuthInfoWriter) (*PublicUpdateContentByShareCodeOK, error) {
 	// TODO: Validate the params before sending
@@ -1269,6 +1293,10 @@ func (a *Client) PublicUpdateContentByShareCodeShort(params *PublicUpdateContent
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -1319,8 +1347,6 @@ All request body are required except payload, preview, tags, contentType, update
 contentType values is used to enforce the Content-Type header needed by the client to upload the content using the S3 presigned URL.
 If not specified, it will use fileExtension value.
 To update content's file, set `updateContentFile` to `true` and upload the file using URL in `payloadURL.url` in response body.
-
-
 
 NOTE: Preview is Legacy Code, please use Screenshot for better solution to display preview of a content
 */
@@ -1388,8 +1414,6 @@ contentType values is used to enforce the Content-Type header needed by the clie
 If not specified, it will use fileExtension value.
 To update content's file, set `updateContentFile` to `true` and upload the file using URL in `payloadURL.url` in response body.
 
-
-
 NOTE: Preview is Legacy Code, please use Screenshot for better solution to display preview of a content
 */
 func (a *Client) UpdateContentS3Short(params *UpdateContentS3Params, authInfo runtime.ClientAuthInfoWriter) (*UpdateContentS3OK, error) {
@@ -1404,6 +1428,10 @@ func (a *Client) UpdateContentS3Short(params *UpdateContentS3Params, authInfo ru
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -1515,6 +1543,10 @@ func (a *Client) PublicDeleteContentByShareCodeShort(params *PublicDeleteContent
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -1634,6 +1666,10 @@ func (a *Client) UpdateContentDirectShort(params *UpdateContentDirectParams, aut
 		params.SetHTTPClientTransport(params.RetryPolicy)
 	}
 
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
+	}
+
 	result, err := a.transport.Submit(&runtime.ClientOperation{
 		ID:                 "UpdateContentDirect",
 		Method:             "PUT",
@@ -1743,6 +1779,10 @@ func (a *Client) DeleteContentShort(params *DeleteContentParams, authInfo runtim
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -1873,6 +1913,10 @@ func (a *Client) UpdateContentShareCodeShort(params *UpdateContentShareCodeParam
 		params.SetHTTPClientTransport(params.RetryPolicy)
 	}
 
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
+	}
+
 	result, err := a.transport.Submit(&runtime.ClientOperation{
 		ID:                 "UpdateContentShareCode",
 		Method:             "PATCH",
@@ -1984,6 +2028,10 @@ func (a *Client) PublicGetUserContentShort(params *PublicGetUserContentParams, a
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -2099,6 +2147,10 @@ func (a *Client) UpdateScreenshotsShort(params *UpdateScreenshotsParams, authInf
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -2228,6 +2280,10 @@ func (a *Client) UploadContentScreenshotShort(params *UploadContentScreenshotPar
 		params.SetHTTPClientTransport(params.RetryPolicy)
 	}
 
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
+	}
+
 	result, err := a.transport.Submit(&runtime.ClientOperation{
 		ID:                 "UploadContentScreenshot",
 		Method:             "POST",
@@ -2343,6 +2399,10 @@ func (a *Client) DeleteContentScreenshotShort(params *DeleteContentScreenshotPar
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{

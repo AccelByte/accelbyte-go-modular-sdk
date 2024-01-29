@@ -57,7 +57,8 @@ func NewDeleteDLCItemConfigParamsWithHTTPClient(client *http.Client) *DeleteDLCI
 	}
 }
 
-/*DeleteDLCItemConfigParams contains all the parameters to send to the API endpoint
+/*
+DeleteDLCItemConfigParams contains all the parameters to send to the API endpoint
 for the delete dlc item config operation typically these are written to a http.Request
 */
 type DeleteDLCItemConfigParams struct {
@@ -74,6 +75,9 @@ type DeleteDLCItemConfigParams struct {
 	AuthInfoWriter runtime.ClientAuthInfoWriter
 	Context        context.Context
 	HTTPClient     *http.Client
+
+	// XFlightId is an optional parameter from this SDK
+	XFlightId *string
 }
 
 // WithTimeout adds the timeout to the delete dlc item config params
@@ -123,6 +127,15 @@ func (o *DeleteDLCItemConfigParams) SetHTTPClientTransport(roundTripper http.Rou
 	}
 }
 
+// SetFlightId adds the flightId as the header value for this specific endpoint
+func (o *DeleteDLCItemConfigParams) SetFlightId(flightId string) {
+	if o.XFlightId != nil {
+		o.XFlightId = &flightId
+	} else {
+		o.XFlightId = &utils.GetDefaultFlightID().Value
+	}
+}
+
 // WithNamespace adds the namespace to the delete dlc item config params
 func (o *DeleteDLCItemConfigParams) WithNamespace(namespace string) *DeleteDLCItemConfigParams {
 	o.SetNamespace(namespace)
@@ -150,6 +163,16 @@ func (o *DeleteDLCItemConfigParams) WriteToRequest(r runtime.ClientRequest, reg 
 	// setting the default header value
 	if err := r.SetHeaderParam("X-Amzn-Trace-Id", utils.AmazonTraceIDGen()); err != nil {
 		return err
+	}
+
+	if o.XFlightId == nil {
+		if err := r.SetHeaderParam("X-Flight-Id", utils.GetDefaultFlightID().Value); err != nil {
+			return err
+		}
+	} else {
+		if err := r.SetHeaderParam("X-Flight-Id", *o.XFlightId); err != nil {
+			return err
+		}
 	}
 
 	if len(res) > 0 {

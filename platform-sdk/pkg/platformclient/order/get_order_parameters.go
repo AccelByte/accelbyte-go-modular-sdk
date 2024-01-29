@@ -57,7 +57,8 @@ func NewGetOrderParamsWithHTTPClient(client *http.Client) *GetOrderParams {
 	}
 }
 
-/*GetOrderParams contains all the parameters to send to the API endpoint
+/*
+GetOrderParams contains all the parameters to send to the API endpoint
 for the get order operation typically these are written to a http.Request
 */
 type GetOrderParams struct {
@@ -73,6 +74,9 @@ type GetOrderParams struct {
 	AuthInfoWriter runtime.ClientAuthInfoWriter
 	Context        context.Context
 	HTTPClient     *http.Client
+
+	// XFlightId is an optional parameter from this SDK
+	XFlightId *string
 }
 
 // WithTimeout adds the timeout to the get order params
@@ -122,6 +126,15 @@ func (o *GetOrderParams) SetHTTPClientTransport(roundTripper http.RoundTripper) 
 	}
 }
 
+// SetFlightId adds the flightId as the header value for this specific endpoint
+func (o *GetOrderParams) SetFlightId(flightId string) {
+	if o.XFlightId != nil {
+		o.XFlightId = &flightId
+	} else {
+		o.XFlightId = &utils.GetDefaultFlightID().Value
+	}
+}
+
 // WithNamespace adds the namespace to the get order params
 func (o *GetOrderParams) WithNamespace(namespace string) *GetOrderParams {
 	o.SetNamespace(namespace)
@@ -165,6 +178,16 @@ func (o *GetOrderParams) WriteToRequest(r runtime.ClientRequest, reg strfmt.Regi
 	// setting the default header value
 	if err := r.SetHeaderParam("X-Amzn-Trace-Id", utils.AmazonTraceIDGen()); err != nil {
 		return err
+	}
+
+	if o.XFlightId == nil {
+		if err := r.SetHeaderParam("X-Flight-Id", utils.GetDefaultFlightID().Value); err != nil {
+			return err
+		}
+	} else {
+		if err := r.SetHeaderParam("X-Flight-Id", *o.XFlightId); err != nil {
+			return err
+		}
 	}
 
 	if len(res) > 0 {

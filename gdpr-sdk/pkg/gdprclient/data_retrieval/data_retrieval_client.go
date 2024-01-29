@@ -55,8 +55,7 @@ type ClientService interface {
 /*
 Deprecated: 2022-08-10 - Use AdminGetListPersonalDataRequestShort instead.
 
-AdminGetListPersonalDataRequest get list personal data requests
-
+# AdminGetListPersonalDataRequest get list personal data requests
 
 Required permission `ADMIN:NAMESPACE:{namespace}:INFORMATION:USER [READ]` and scope `account`
 */
@@ -119,7 +118,6 @@ func (a *Client) AdminGetListPersonalDataRequest(params *AdminGetListPersonalDat
 /*
 AdminGetListPersonalDataRequestShort get list personal data requests
 
-
 Required permission `ADMIN:NAMESPACE:{namespace}:INFORMATION:USER [READ]` and scope `account`
 */
 func (a *Client) AdminGetListPersonalDataRequestShort(params *AdminGetListPersonalDataRequestParams, authInfo runtime.ClientAuthInfoWriter) (*AdminGetListPersonalDataRequestOK, error) {
@@ -134,6 +132,10 @@ func (a *Client) AdminGetListPersonalDataRequestShort(params *AdminGetListPerson
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -176,8 +178,7 @@ func (a *Client) AdminGetListPersonalDataRequestShort(params *AdminGetListPerson
 /*
 Deprecated: 2022-08-10 - Use AdminGetUserPersonalDataRequestsShort instead.
 
-AdminGetUserPersonalDataRequests get user's personal data requests
-
+# AdminGetUserPersonalDataRequests get user's personal data requests
 
 Required permission `ADMIN:NAMESPACE:{namespace}:INFORMATION:USER:{userId} [READ]` and scope `account`
 */
@@ -234,7 +235,6 @@ func (a *Client) AdminGetUserPersonalDataRequests(params *AdminGetUserPersonalDa
 /*
 AdminGetUserPersonalDataRequestsShort get user's personal data requests
 
-
 Required permission `ADMIN:NAMESPACE:{namespace}:INFORMATION:USER:{userId} [READ]` and scope `account`
 */
 func (a *Client) AdminGetUserPersonalDataRequestsShort(params *AdminGetUserPersonalDataRequestsParams, authInfo runtime.ClientAuthInfoWriter) (*AdminGetUserPersonalDataRequestsOK, error) {
@@ -249,6 +249,10 @@ func (a *Client) AdminGetUserPersonalDataRequestsShort(params *AdminGetUserPerso
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -287,13 +291,9 @@ func (a *Client) AdminGetUserPersonalDataRequestsShort(params *AdminGetUserPerso
 /*
 Deprecated: 2022-08-10 - Use AdminRequestDataRetrievalShort instead.
 
-AdminRequestDataRetrieval submit user personal data retrieval request
-
+# AdminRequestDataRetrieval submit user personal data retrieval request
 
 Required permission `ADMIN:NAMESPACE:{namespace}:INFORMATION:USER:{userId} [CREATE]` and scope `account`
-
-
-
 
 If admin request data for themselves, password is need to be set
 */
@@ -350,11 +350,7 @@ func (a *Client) AdminRequestDataRetrieval(params *AdminRequestDataRetrievalPara
 /*
 AdminRequestDataRetrievalShort submit user personal data retrieval request
 
-
 Required permission `ADMIN:NAMESPACE:{namespace}:INFORMATION:USER:{userId} [CREATE]` and scope `account`
-
-
-
 
 If admin request data for themselves, password is need to be set
 */
@@ -370,6 +366,10 @@ func (a *Client) AdminRequestDataRetrievalShort(params *AdminRequestDataRetrieva
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -408,8 +408,7 @@ func (a *Client) AdminRequestDataRetrievalShort(params *AdminRequestDataRetrieva
 /*
 Deprecated: 2022-08-10 - Use AdminCancelUserPersonalDataRequestShort instead.
 
-AdminCancelUserPersonalDataRequest cancel user's personal data requests
-
+# AdminCancelUserPersonalDataRequest cancel user's personal data requests
 
 Required permission `ADMIN:NAMESPACE:{namespace}:INFORMATION:USER:{userId} [DELETE]` and scope `account`
 */
@@ -469,7 +468,6 @@ func (a *Client) AdminCancelUserPersonalDataRequest(params *AdminCancelUserPerso
 /*
 AdminCancelUserPersonalDataRequestShort cancel user's personal data requests
 
-
 Required permission `ADMIN:NAMESPACE:{namespace}:INFORMATION:USER:{userId} [DELETE]` and scope `account`
 */
 func (a *Client) AdminCancelUserPersonalDataRequestShort(params *AdminCancelUserPersonalDataRequestParams, authInfo runtime.ClientAuthInfoWriter) (*AdminCancelUserPersonalDataRequestNoContent, error) {
@@ -484,6 +482,10 @@ func (a *Client) AdminCancelUserPersonalDataRequestShort(params *AdminCancelUser
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -524,8 +526,7 @@ func (a *Client) AdminCancelUserPersonalDataRequestShort(params *AdminCancelUser
 /*
 Deprecated: 2022-08-10 - Use AdminGeneratePersonalDataURLShort instead.
 
-AdminGeneratePersonalDataURL generate personal data download url
-
+# AdminGeneratePersonalDataURL generate personal data download url
 
 Required permission `ADMIN:NAMESPACE:{namespace}:INFORMATION:USER:{userId} [READ]` and scope `account`
 */
@@ -585,7 +586,6 @@ func (a *Client) AdminGeneratePersonalDataURL(params *AdminGeneratePersonalDataU
 /*
 AdminGeneratePersonalDataURLShort generate personal data download url
 
-
 Required permission `ADMIN:NAMESPACE:{namespace}:INFORMATION:USER:{userId} [READ]` and scope `account`
 */
 func (a *Client) AdminGeneratePersonalDataURLShort(params *AdminGeneratePersonalDataURLParams, authInfo runtime.ClientAuthInfoWriter) (*AdminGeneratePersonalDataURLOK, error) {
@@ -600,6 +600,10 @@ func (a *Client) AdminGeneratePersonalDataURLShort(params *AdminGeneratePersonal
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -640,8 +644,7 @@ func (a *Client) AdminGeneratePersonalDataURLShort(params *AdminGeneratePersonal
 /*
 Deprecated: 2022-08-10 - Use PublicGetUserPersonalDataRequestsShort instead.
 
-PublicGetUserPersonalDataRequests get user's personal data requests
-
+# PublicGetUserPersonalDataRequests get user's personal data requests
 
 Requires valid user access token
 */
@@ -698,7 +701,6 @@ func (a *Client) PublicGetUserPersonalDataRequests(params *PublicGetUserPersonal
 /*
 PublicGetUserPersonalDataRequestsShort get user's personal data requests
 
-
 Requires valid user access token
 */
 func (a *Client) PublicGetUserPersonalDataRequestsShort(params *PublicGetUserPersonalDataRequestsParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGetUserPersonalDataRequestsOK, error) {
@@ -713,6 +715,10 @@ func (a *Client) PublicGetUserPersonalDataRequestsShort(params *PublicGetUserPer
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -751,8 +757,7 @@ func (a *Client) PublicGetUserPersonalDataRequestsShort(params *PublicGetUserPer
 /*
 Deprecated: 2022-08-10 - Use PublicRequestDataRetrievalShort instead.
 
-PublicRequestDataRetrieval submit personal data retrieval request
-
+# PublicRequestDataRetrieval submit personal data retrieval request
 
 Requires valid user access token
 */
@@ -809,7 +814,6 @@ func (a *Client) PublicRequestDataRetrieval(params *PublicRequestDataRetrievalPa
 /*
 PublicRequestDataRetrievalShort submit personal data retrieval request
 
-
 Requires valid user access token
 */
 func (a *Client) PublicRequestDataRetrievalShort(params *PublicRequestDataRetrievalParams, authInfo runtime.ClientAuthInfoWriter) (*PublicRequestDataRetrievalCreated, error) {
@@ -824,6 +828,10 @@ func (a *Client) PublicRequestDataRetrievalShort(params *PublicRequestDataRetrie
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -862,8 +870,7 @@ func (a *Client) PublicRequestDataRetrievalShort(params *PublicRequestDataRetrie
 /*
 Deprecated: 2022-08-10 - Use PublicCancelUserPersonalDataRequestShort instead.
 
-PublicCancelUserPersonalDataRequest cancel user's personal data requests
-
+# PublicCancelUserPersonalDataRequest cancel user's personal data requests
 
 Requires valid user access token
 */
@@ -923,7 +930,6 @@ func (a *Client) PublicCancelUserPersonalDataRequest(params *PublicCancelUserPer
 /*
 PublicCancelUserPersonalDataRequestShort cancel user's personal data requests
 
-
 Requires valid user access token
 */
 func (a *Client) PublicCancelUserPersonalDataRequestShort(params *PublicCancelUserPersonalDataRequestParams, authInfo runtime.ClientAuthInfoWriter) (*PublicCancelUserPersonalDataRequestNoContent, error) {
@@ -938,6 +944,10 @@ func (a *Client) PublicCancelUserPersonalDataRequestShort(params *PublicCancelUs
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -978,8 +988,7 @@ func (a *Client) PublicCancelUserPersonalDataRequestShort(params *PublicCancelUs
 /*
 Deprecated: 2022-08-10 - Use PublicGeneratePersonalDataURLShort instead.
 
-PublicGeneratePersonalDataURL generate personal data download url
-
+# PublicGeneratePersonalDataURL generate personal data download url
 
 Requires valid user access token
 */
@@ -1039,7 +1048,6 @@ func (a *Client) PublicGeneratePersonalDataURL(params *PublicGeneratePersonalDat
 /*
 PublicGeneratePersonalDataURLShort generate personal data download url
 
-
 Requires valid user access token
 */
 func (a *Client) PublicGeneratePersonalDataURLShort(params *PublicGeneratePersonalDataURLParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGeneratePersonalDataURLOK, error) {
@@ -1054,6 +1062,10 @@ func (a *Client) PublicGeneratePersonalDataURLShort(params *PublicGeneratePerson
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{

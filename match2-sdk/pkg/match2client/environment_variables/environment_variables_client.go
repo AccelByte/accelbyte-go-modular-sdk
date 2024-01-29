@@ -107,6 +107,10 @@ func (a *Client) EnvironmentVariableListShort(params *EnvironmentVariableListPar
 		params.SetHTTPClientTransport(params.RetryPolicy)
 	}
 
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
+	}
+
 	result, err := a.transport.Submit(&runtime.ClientOperation{
 		ID:                 "EnvironmentVariableList",
 		Method:             "GET",

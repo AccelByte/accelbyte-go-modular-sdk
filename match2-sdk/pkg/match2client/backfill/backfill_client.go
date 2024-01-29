@@ -129,6 +129,10 @@ func (a *Client) CreateBackfillShort(params *CreateBackfillParams, authInfo runt
 		params.SetHTTPClientTransport(params.RetryPolicy)
 	}
 
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
+	}
+
 	result, err := a.transport.Submit(&runtime.ClientOperation{
 		ID:                 "CreateBackfill",
 		Method:             "POST",
@@ -248,6 +252,10 @@ func (a *Client) GetBackfillProposalShort(params *GetBackfillProposalParams, aut
 		params.SetHTTPClientTransport(params.RetryPolicy)
 	}
 
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
+	}
+
 	result, err := a.transport.Submit(&runtime.ClientOperation{
 		ID:                 "GetBackfillProposal",
 		Method:             "GET",
@@ -365,6 +373,10 @@ func (a *Client) GetBackfillShort(params *GetBackfillParams, authInfo runtime.Cl
 		params.SetHTTPClientTransport(params.RetryPolicy)
 	}
 
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
+	}
+
 	result, err := a.transport.Submit(&runtime.ClientOperation{
 		ID:                 "GetBackfill",
 		Method:             "GET",
@@ -477,6 +489,10 @@ func (a *Client) DeleteBackfillShort(params *DeleteBackfillParams, authInfo runt
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -594,6 +610,10 @@ func (a *Client) AcceptBackfillShort(params *AcceptBackfillParams, authInfo runt
 		params.SetHTTPClientTransport(params.RetryPolicy)
 	}
 
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
+	}
+
 	result, err := a.transport.Submit(&runtime.ClientOperation{
 		ID:                 "AcceptBackfill",
 		Method:             "PUT",
@@ -709,6 +729,10 @@ func (a *Client) RejectBackfillShort(params *RejectBackfillParams, authInfo runt
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{

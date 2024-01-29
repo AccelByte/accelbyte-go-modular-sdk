@@ -57,7 +57,8 @@ func NewFleetServersParamsWithHTTPClient(client *http.Client) *FleetServersParam
 	}
 }
 
-/*FleetServersParams contains all the parameters to send to the API endpoint
+/*
+FleetServersParams contains all the parameters to send to the API endpoint
 for the fleet servers operation typically these are written to a http.Request
 */
 type FleetServersParams struct {
@@ -79,6 +80,9 @@ type FleetServersParams struct {
 	AuthInfoWriter runtime.ClientAuthInfoWriter
 	Context        context.Context
 	HTTPClient     *http.Client
+
+	// XFlightId is an optional parameter from this SDK
+	XFlightId *string
 }
 
 // WithTimeout adds the timeout to the fleet servers params
@@ -128,6 +132,15 @@ func (o *FleetServersParams) SetHTTPClientTransport(roundTripper http.RoundTripp
 	}
 }
 
+// SetFlightId adds the flightId as the header value for this specific endpoint
+func (o *FleetServersParams) SetFlightId(flightId string) {
+	if o.XFlightId != nil {
+		o.XFlightId = &flightId
+	} else {
+		o.XFlightId = &utils.GetDefaultFlightID().Value
+	}
+}
+
 // WithFleetID adds the fleetID to the fleet servers params
 func (o *FleetServersParams) WithFleetID(fleetID string) *FleetServersParams {
 	o.SetFleetID(fleetID)
@@ -171,6 +184,16 @@ func (o *FleetServersParams) WriteToRequest(r runtime.ClientRequest, reg strfmt.
 	// setting the default header value
 	if err := r.SetHeaderParam("X-Amzn-Trace-Id", utils.AmazonTraceIDGen()); err != nil {
 		return err
+	}
+
+	if o.XFlightId == nil {
+		if err := r.SetHeaderParam("X-Flight-Id", utils.GetDefaultFlightID().Value); err != nil {
+			return err
+		}
+	} else {
+		if err := r.SetHeaderParam("X-Flight-Id", *o.XFlightId); err != nil {
+			return err
+		}
 	}
 
 	if len(res) > 0 {

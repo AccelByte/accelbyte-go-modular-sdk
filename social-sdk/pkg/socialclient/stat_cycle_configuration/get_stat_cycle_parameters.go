@@ -57,7 +57,8 @@ func NewGetStatCycleParamsWithHTTPClient(client *http.Client) *GetStatCycleParam
 	}
 }
 
-/*GetStatCycleParams contains all the parameters to send to the API endpoint
+/*
+GetStatCycleParams contains all the parameters to send to the API endpoint
 for the get stat cycle operation typically these are written to a http.Request
 */
 type GetStatCycleParams struct {
@@ -79,6 +80,9 @@ type GetStatCycleParams struct {
 	AuthInfoWriter runtime.ClientAuthInfoWriter
 	Context        context.Context
 	HTTPClient     *http.Client
+
+	// XFlightId is an optional parameter from this SDK
+	XFlightId *string
 }
 
 // WithTimeout adds the timeout to the get stat cycle params
@@ -128,6 +132,15 @@ func (o *GetStatCycleParams) SetHTTPClientTransport(roundTripper http.RoundTripp
 	}
 }
 
+// SetFlightId adds the flightId as the header value for this specific endpoint
+func (o *GetStatCycleParams) SetFlightId(flightId string) {
+	if o.XFlightId != nil {
+		o.XFlightId = &flightId
+	} else {
+		o.XFlightId = &utils.GetDefaultFlightID().Value
+	}
+}
+
 // WithCycleID adds the cycleID to the get stat cycle params
 func (o *GetStatCycleParams) WithCycleID(cycleID string) *GetStatCycleParams {
 	o.SetCycleID(cycleID)
@@ -171,6 +184,16 @@ func (o *GetStatCycleParams) WriteToRequest(r runtime.ClientRequest, reg strfmt.
 	// setting the default header value
 	if err := r.SetHeaderParam("X-Amzn-Trace-Id", utils.AmazonTraceIDGen()); err != nil {
 		return err
+	}
+
+	if o.XFlightId == nil {
+		if err := r.SetHeaderParam("X-Flight-Id", utils.GetDefaultFlightID().Value); err != nil {
+			return err
+		}
+	} else {
+		if err := r.SetHeaderParam("X-Flight-Id", *o.XFlightId); err != nil {
+			return err
+		}
 	}
 
 	if len(res) > 0 {

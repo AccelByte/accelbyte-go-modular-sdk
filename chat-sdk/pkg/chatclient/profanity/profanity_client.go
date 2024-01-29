@@ -130,6 +130,10 @@ func (a *Client) AdminProfanityQueryShort(params *AdminProfanityQueryParams, aut
 		params.SetHTTPClientTransport(params.RetryPolicy)
 	}
 
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
+	}
+
 	result, err := a.transport.Submit(&runtime.ClientOperation{
 		ID:                 "adminProfanityQuery",
 		Method:             "GET",
@@ -245,6 +249,10 @@ func (a *Client) AdminProfanityCreateShort(params *AdminProfanityCreateParams, a
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -364,6 +372,10 @@ func (a *Client) AdminProfanityCreateBulkShort(params *AdminProfanityCreateBulkP
 		params.SetHTTPClientTransport(params.RetryPolicy)
 	}
 
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
+	}
+
 	result, err := a.transport.Submit(&runtime.ClientOperation{
 		ID:                 "adminProfanityCreateBulk",
 		Method:             "POST",
@@ -478,6 +490,10 @@ func (a *Client) AdminProfanityExportShort(params *AdminProfanityExportParams, a
 		params.SetHTTPClientTransport(params.RetryPolicy)
 	}
 
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
+	}
+
 	result, err := a.transport.Submit(&runtime.ClientOperation{
 		ID:                 "adminProfanityExport",
 		Method:             "GET",
@@ -588,6 +604,10 @@ func (a *Client) AdminProfanityGroupShort(params *AdminProfanityGroupParams, aut
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -703,6 +723,10 @@ func (a *Client) AdminProfanityImportShort(params *AdminProfanityImportParams, a
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -822,6 +846,10 @@ func (a *Client) AdminProfanityUpdateShort(params *AdminProfanityUpdateParams, a
 		params.SetHTTPClientTransport(params.RetryPolicy)
 	}
 
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
+	}
+
 	result, err := a.transport.Submit(&runtime.ClientOperation{
 		ID:                 "adminProfanityUpdate",
 		Method:             "PUT",
@@ -937,6 +965,10 @@ func (a *Client) AdminProfanityDeleteShort(params *AdminProfanityDeleteParams, a
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{

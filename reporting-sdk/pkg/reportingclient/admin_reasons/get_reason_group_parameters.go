@@ -57,7 +57,8 @@ func NewGetReasonGroupParamsWithHTTPClient(client *http.Client) *GetReasonGroupP
 	}
 }
 
-/*GetReasonGroupParams contains all the parameters to send to the API endpoint
+/*
+GetReasonGroupParams contains all the parameters to send to the API endpoint
 for the get reason group operation typically these are written to a http.Request
 */
 type GetReasonGroupParams struct {
@@ -76,6 +77,9 @@ type GetReasonGroupParams struct {
 	AuthInfoWriter runtime.ClientAuthInfoWriter
 	Context        context.Context
 	HTTPClient     *http.Client
+
+	// XFlightId is an optional parameter from this SDK
+	XFlightId *string
 }
 
 // WithTimeout adds the timeout to the get reason group params
@@ -125,6 +129,15 @@ func (o *GetReasonGroupParams) SetHTTPClientTransport(roundTripper http.RoundTri
 	}
 }
 
+// SetFlightId adds the flightId as the header value for this specific endpoint
+func (o *GetReasonGroupParams) SetFlightId(flightId string) {
+	if o.XFlightId != nil {
+		o.XFlightId = &flightId
+	} else {
+		o.XFlightId = &utils.GetDefaultFlightID().Value
+	}
+}
+
 // WithGroupID adds the groupID to the get reason group params
 func (o *GetReasonGroupParams) WithGroupID(groupID string) *GetReasonGroupParams {
 	o.SetGroupID(groupID)
@@ -168,6 +181,16 @@ func (o *GetReasonGroupParams) WriteToRequest(r runtime.ClientRequest, reg strfm
 	// setting the default header value
 	if err := r.SetHeaderParam("X-Amzn-Trace-Id", utils.AmazonTraceIDGen()); err != nil {
 		return err
+	}
+
+	if o.XFlightId == nil {
+		if err := r.SetHeaderParam("X-Flight-Id", utils.GetDefaultFlightID().Value); err != nil {
+			return err
+		}
+	} else {
+		if err := r.SetHeaderParam("X-Flight-Id", *o.XFlightId); err != nil {
+			return err
+		}
 	}
 
 	if len(res) > 0 {

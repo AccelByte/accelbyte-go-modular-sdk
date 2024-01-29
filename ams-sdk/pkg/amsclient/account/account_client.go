@@ -121,6 +121,10 @@ func (a *Client) AdminAccountGetShort(params *AdminAccountGetParams, authInfo ru
 		params.SetHTTPClientTransport(params.RetryPolicy)
 	}
 
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
+	}
+
 	result, err := a.transport.Submit(&runtime.ClientOperation{
 		ID:                 "AdminAccountGet",
 		Method:             "GET",
@@ -228,6 +232,10 @@ func (a *Client) AdminAccountCreateShort(params *AdminAccountCreateParams, authI
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -344,6 +352,10 @@ func (a *Client) AdminAccountLinkTokenGetShort(params *AdminAccountLinkTokenGetP
 		params.SetHTTPClientTransport(params.RetryPolicy)
 	}
 
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
+	}
+
 	result, err := a.transport.Submit(&runtime.ClientOperation{
 		ID:                 "AdminAccountLinkTokenGet",
 		Method:             "GET",
@@ -385,7 +397,7 @@ Deprecated: 2022-08-10 - Use AdminAccountLinkTokenPostShort instead.
 AdminAccountLinkTokenPost link an account to a namespace
 This route will attempt to register the account to namespace linkage in AMS and requires a valid account link token. This route fails if an account is already linked
 
-AdminAccountLink
+# AdminAccountLink
 
 Required Permission: ADMIN:NAMESPACE:{namespace}:ARMADA:ACCOUNT [CREATE]
 */
@@ -443,7 +455,7 @@ func (a *Client) AdminAccountLinkTokenPost(params *AdminAccountLinkTokenPostPara
 AdminAccountLinkTokenPostShort link an account to a namespace
 This route will attempt to register the account to namespace linkage in AMS and requires a valid account link token. This route fails if an account is already linked
 
-AdminAccountLink
+# AdminAccountLink
 
 Required Permission: ADMIN:NAMESPACE:{namespace}:ARMADA:ACCOUNT [CREATE]
 */
@@ -459,6 +471,10 @@ func (a *Client) AdminAccountLinkTokenPostShort(params *AdminAccountLinkTokenPos
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -569,6 +585,10 @@ func (a *Client) AccountGetShort(params *AccountGetParams, authInfo runtime.Clie
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{

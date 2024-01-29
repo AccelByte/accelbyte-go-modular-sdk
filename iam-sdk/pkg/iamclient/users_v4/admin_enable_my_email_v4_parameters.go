@@ -57,7 +57,8 @@ func NewAdminEnableMyEmailV4ParamsWithHTTPClient(client *http.Client) *AdminEnab
 	}
 }
 
-/*AdminEnableMyEmailV4Params contains all the parameters to send to the API endpoint
+/*
+AdminEnableMyEmailV4Params contains all the parameters to send to the API endpoint
 for the admin enable my email v4 operation typically these are written to a http.Request
 */
 type AdminEnableMyEmailV4Params struct {
@@ -74,6 +75,9 @@ type AdminEnableMyEmailV4Params struct {
 	AuthInfoWriter runtime.ClientAuthInfoWriter
 	Context        context.Context
 	HTTPClient     *http.Client
+
+	// XFlightId is an optional parameter from this SDK
+	XFlightId *string
 }
 
 // WithTimeout adds the timeout to the admin enable my email v4 params
@@ -123,6 +127,15 @@ func (o *AdminEnableMyEmailV4Params) SetHTTPClientTransport(roundTripper http.Ro
 	}
 }
 
+// SetFlightId adds the flightId as the header value for this specific endpoint
+func (o *AdminEnableMyEmailV4Params) SetFlightId(flightId string) {
+	if o.XFlightId != nil {
+		o.XFlightId = &flightId
+	} else {
+		o.XFlightId = &utils.GetDefaultFlightID().Value
+	}
+}
+
 // WithCode adds the code to the admin enable my email v4 params
 func (o *AdminEnableMyEmailV4Params) WithCode(code string) *AdminEnableMyEmailV4Params {
 	o.SetCode(code)
@@ -154,6 +167,16 @@ func (o *AdminEnableMyEmailV4Params) WriteToRequest(r runtime.ClientRequest, reg
 	// setting the default header value
 	if err := r.SetHeaderParam("X-Amzn-Trace-Id", utils.AmazonTraceIDGen()); err != nil {
 		return err
+	}
+
+	if o.XFlightId == nil {
+		if err := r.SetHeaderParam("X-Flight-Id", utils.GetDefaultFlightID().Value); err != nil {
+			return err
+		}
+	} else {
+		if err := r.SetHeaderParam("X-Flight-Id", *o.XFlightId); err != nil {
+			return err
+		}
 	}
 
 	if len(res) > 0 {

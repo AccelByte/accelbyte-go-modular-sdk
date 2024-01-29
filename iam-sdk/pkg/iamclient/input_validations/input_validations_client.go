@@ -117,6 +117,10 @@ func (a *Client) AdminGetInputValidationsShort(params *AdminGetInputValidationsP
 		params.SetHTTPClientTransport(params.RetryPolicy)
 	}
 
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
+	}
+
 	result, err := a.transport.Submit(&runtime.ClientOperation{
 		ID:                 "AdminGetInputValidations",
 		Method:             "GET",
@@ -272,6 +276,10 @@ func (a *Client) AdminUpdateInputValidationsShort(params *AdminUpdateInputValida
 		params.SetHTTPClientTransport(params.RetryPolicy)
 	}
 
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
+	}
+
 	result, err := a.transport.Submit(&runtime.ClientOperation{
 		ID:                 "AdminUpdateInputValidations",
 		Method:             "PUT",
@@ -377,6 +385,10 @@ func (a *Client) AdminResetInputValidationsShort(params *AdminResetInputValidati
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -486,6 +498,10 @@ func (a *Client) PublicGetInputValidationsShort(params *PublicGetInputValidation
 		params.SetHTTPClientTransport(params.RetryPolicy)
 	}
 
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
+	}
+
 	result, err := a.transport.Submit(&runtime.ClientOperation{
 		ID:                 "PublicGetInputValidations",
 		Method:             "GET",
@@ -585,6 +601,10 @@ func (a *Client) PublicGetInputValidationByFieldShort(params *PublicGetInputVali
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{

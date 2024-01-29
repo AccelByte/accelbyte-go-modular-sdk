@@ -101,6 +101,10 @@ func (a *Client) LoginSSOClientShort(params *LoginSSOClientParams, authInfo runt
 		params.SetHTTPClientTransport(params.RetryPolicy)
 	}
 
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
+	}
+
 	result, err := a.transport.Submit(&runtime.ClientOperation{
 		ID:                 "LoginSSOClient",
 		Method:             "GET",
@@ -206,6 +210,10 @@ func (a *Client) LogoutSSOClientShort(params *LogoutSSOClientParams, authInfo ru
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{

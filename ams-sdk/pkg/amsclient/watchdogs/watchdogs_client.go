@@ -107,6 +107,10 @@ func (a *Client) LocalWatchdogConnectShort(params *LocalWatchdogConnectParams, a
 		params.SetHTTPClientTransport(params.RetryPolicy)
 	}
 
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
+	}
+
 	result, err := a.transport.Submit(&runtime.ClientOperation{
 		ID:                 "LocalWatchdogConnect",
 		Method:             "GET",
@@ -197,6 +201,10 @@ func (a *Client) WatchdogConnectShort(params *WatchdogConnectParams, authInfo ru
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{

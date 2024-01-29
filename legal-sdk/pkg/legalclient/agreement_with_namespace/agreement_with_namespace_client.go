@@ -45,7 +45,7 @@ Deprecated: 2022-08-10 - Use RetrieveAcceptedAgreementsForMultiUsersShort instea
 
 RetrieveAcceptedAgreementsForMultiUsers retrieve accepted legal agreements for multi users
 This API will return all accepted Legal Agreements for each user, including agreements of game users if publisher user has corresponding game accountOther detail info:
-  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:LEGAL", action=2 (READ)
+  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:LEGAL", action=2 (READ)
 */
 func (a *Client) RetrieveAcceptedAgreementsForMultiUsers(params *RetrieveAcceptedAgreementsForMultiUsersParams, authInfo runtime.ClientAuthInfoWriter) (*RetrieveAcceptedAgreementsForMultiUsersOK, error) {
 	// TODO: Validate the params before sending
@@ -91,7 +91,7 @@ func (a *Client) RetrieveAcceptedAgreementsForMultiUsers(params *RetrieveAccepte
 /*
 RetrieveAcceptedAgreementsForMultiUsersShort retrieve accepted legal agreements for multi users
 This API will return all accepted Legal Agreements for each user, including agreements of game users if publisher user has corresponding game accountOther detail info:
-  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:LEGAL", action=2 (READ)
+  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:LEGAL", action=2 (READ)
 */
 func (a *Client) RetrieveAcceptedAgreementsForMultiUsersShort(params *RetrieveAcceptedAgreementsForMultiUsersParams, authInfo runtime.ClientAuthInfoWriter) (*RetrieveAcceptedAgreementsForMultiUsersOK, error) {
 	// TODO: Validate the params before sending
@@ -105,6 +105,10 @@ func (a *Client) RetrieveAcceptedAgreementsForMultiUsersShort(params *RetrieveAc
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -139,7 +143,7 @@ Deprecated: 2022-08-10 - Use RetrieveAcceptedAgreements1Short instead.
 
 RetrieveAcceptedAgreements1 retrieve accepted legal agreements
 This API will return all accepted Legal Agreements for specified user. Other detail info:
-  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:LEGAL", action=2 (READ)
+  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:LEGAL", action=2 (READ)
 */
 func (a *Client) RetrieveAcceptedAgreements1(params *RetrieveAcceptedAgreements1Params, authInfo runtime.ClientAuthInfoWriter) (*RetrieveAcceptedAgreements1OK, error) {
 	// TODO: Validate the params before sending
@@ -185,7 +189,7 @@ func (a *Client) RetrieveAcceptedAgreements1(params *RetrieveAcceptedAgreements1
 /*
 RetrieveAcceptedAgreements1Short retrieve accepted legal agreements
 This API will return all accepted Legal Agreements for specified user. Other detail info:
-  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:LEGAL", action=2 (READ)
+  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:LEGAL", action=2 (READ)
 */
 func (a *Client) RetrieveAcceptedAgreements1Short(params *RetrieveAcceptedAgreements1Params, authInfo runtime.ClientAuthInfoWriter) (*RetrieveAcceptedAgreements1OK, error) {
 	// TODO: Validate the params before sending
@@ -199,6 +203,10 @@ func (a *Client) RetrieveAcceptedAgreements1Short(params *RetrieveAcceptedAgreem
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -233,7 +241,7 @@ Deprecated: 2022-08-10 - Use RetrieveAllUsersByPolicyVersion1Short instead.
 
 RetrieveAllUsersByPolicyVersion1 retrieve all users accepting legal agreements
 This API will return all users who has accepted a specific policy version.Other detail info:
-  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:LEGAL", action=2 (READ)
+  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:LEGAL", action=2 (READ)
 */
 func (a *Client) RetrieveAllUsersByPolicyVersion1(params *RetrieveAllUsersByPolicyVersion1Params, authInfo runtime.ClientAuthInfoWriter) (*RetrieveAllUsersByPolicyVersion1OK, *RetrieveAllUsersByPolicyVersion1NotFound, error) {
 	// TODO: Validate the params before sending
@@ -282,7 +290,7 @@ func (a *Client) RetrieveAllUsersByPolicyVersion1(params *RetrieveAllUsersByPoli
 /*
 RetrieveAllUsersByPolicyVersion1Short retrieve all users accepting legal agreements
 This API will return all users who has accepted a specific policy version.Other detail info:
-  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:LEGAL", action=2 (READ)
+  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:LEGAL", action=2 (READ)
 */
 func (a *Client) RetrieveAllUsersByPolicyVersion1Short(params *RetrieveAllUsersByPolicyVersion1Params, authInfo runtime.ClientAuthInfoWriter) (*RetrieveAllUsersByPolicyVersion1OK, error) {
 	// TODO: Validate the params before sending
@@ -296,6 +304,10 @@ func (a *Client) RetrieveAllUsersByPolicyVersion1Short(params *RetrieveAllUsersB
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{

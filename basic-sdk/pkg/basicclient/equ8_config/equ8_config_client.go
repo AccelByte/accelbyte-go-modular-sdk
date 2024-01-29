@@ -47,7 +47,7 @@ GetConfig get equ8 config
 Get equ8 config.
 Other detail info:
 
-  * Required permission : resource= "ADMIN:NAMESPACE:{namespace}:EQU8CONFIG" , action=2 (READ)
+  - Required permission : resource= "ADMIN:NAMESPACE:{namespace}:EQU8CONFIG" , action=2 (READ)
 */
 func (a *Client) GetConfig(params *GetConfigParams, authInfo runtime.ClientAuthInfoWriter) (*GetConfigOK, *GetConfigNotFound, *GetConfigInternalServerError, error) {
 	// TODO: Validate the params before sending
@@ -101,7 +101,7 @@ GetConfigShort get equ8 config
 Get equ8 config.
 Other detail info:
 
-  * Required permission : resource= "ADMIN:NAMESPACE:{namespace}:EQU8CONFIG" , action=2 (READ)
+  - Required permission : resource= "ADMIN:NAMESPACE:{namespace}:EQU8CONFIG" , action=2 (READ)
 */
 func (a *Client) GetConfigShort(params *GetConfigParams, authInfo runtime.ClientAuthInfoWriter) (*GetConfigOK, error) {
 	// TODO: Validate the params before sending
@@ -115,6 +115,10 @@ func (a *Client) GetConfigShort(params *GetConfigParams, authInfo runtime.Client
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -155,7 +159,7 @@ DeleteConfig delete equ8 config
 Delete equ8 config.
 Other detail info:
 
-  * Required permission : resource= "ADMIN:NAMESPACE:{namespace}:EQU8CONFIG" , action=8 (DELETE)
+  - Required permission : resource= "ADMIN:NAMESPACE:{namespace}:EQU8CONFIG" , action=8 (DELETE)
 */
 func (a *Client) DeleteConfig(params *DeleteConfigParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteConfigNoContent, error) {
 	// TODO: Validate the params before sending
@@ -203,7 +207,7 @@ DeleteConfigShort delete equ8 config
 Delete equ8 config.
 Other detail info:
 
-  * Required permission : resource= "ADMIN:NAMESPACE:{namespace}:EQU8CONFIG" , action=8 (DELETE)
+  - Required permission : resource= "ADMIN:NAMESPACE:{namespace}:EQU8CONFIG" , action=8 (DELETE)
 */
 func (a *Client) DeleteConfigShort(params *DeleteConfigParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteConfigNoContent, error) {
 	// TODO: Validate the params before sending
@@ -217,6 +221,10 @@ func (a *Client) DeleteConfigShort(params *DeleteConfigParams, authInfo runtime.
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -253,7 +261,7 @@ UpdateConfig create or update equ8 config
 Update equ8 config, create if not exists.
 Other detail info:
 
-  * Required permission : resource= "ADMIN:NAMESPACE:{namespace}:EQU8CONFIG" , action=4 (UPDATE)
+  - Required permission : resource= "ADMIN:NAMESPACE:{namespace}:EQU8CONFIG" , action=4 (UPDATE)
 */
 func (a *Client) UpdateConfig(params *UpdateConfigParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateConfigOK, *UpdateConfigBadRequest, *UpdateConfigInternalServerError, error) {
 	// TODO: Validate the params before sending
@@ -307,7 +315,7 @@ UpdateConfigShort create or update equ8 config
 Update equ8 config, create if not exists.
 Other detail info:
 
-  * Required permission : resource= "ADMIN:NAMESPACE:{namespace}:EQU8CONFIG" , action=4 (UPDATE)
+  - Required permission : resource= "ADMIN:NAMESPACE:{namespace}:EQU8CONFIG" , action=4 (UPDATE)
 */
 func (a *Client) UpdateConfigShort(params *UpdateConfigParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateConfigOK, error) {
 	// TODO: Validate the params before sending
@@ -321,6 +329,10 @@ func (a *Client) UpdateConfigShort(params *UpdateConfigParams, authInfo runtime.
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{

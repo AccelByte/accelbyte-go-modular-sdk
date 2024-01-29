@@ -133,8 +133,8 @@ GetAppleIAPConfig get apple iap config
 Get apple iap config.
 Other detail info:
 
-  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:IAP:CONFIG", action=2 (READ)
-  *  Returns : apple iap config
+  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:IAP:CONFIG", action=2 (READ)
+  - Returns : apple iap config
 */
 func (a *Client) GetAppleIAPConfig(params *GetAppleIAPConfigParams, authInfo runtime.ClientAuthInfoWriter) (*GetAppleIAPConfigOK, error) {
 	// TODO: Validate the params before sending
@@ -182,8 +182,8 @@ GetAppleIAPConfigShort get apple iap config
 Get apple iap config.
 Other detail info:
 
-  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:IAP:CONFIG", action=2 (READ)
-  *  Returns : apple iap config
+  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:IAP:CONFIG", action=2 (READ)
+  - Returns : apple iap config
 */
 func (a *Client) GetAppleIAPConfigShort(params *GetAppleIAPConfigParams, authInfo runtime.ClientAuthInfoWriter) (*GetAppleIAPConfigOK, error) {
 	// TODO: Validate the params before sending
@@ -197,6 +197,10 @@ func (a *Client) GetAppleIAPConfigShort(params *GetAppleIAPConfigParams, authInf
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -231,8 +235,8 @@ Deprecated: 2022-08-10 - Use UpdateAppleIAPConfigShort instead.
 
 UpdateAppleIAPConfig update apple iap config
 Update apple iap config. Other detail info:
-  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:IAP:CONFIG", action=4 (UPDATE)
-  *  Returns : updated apple iap config
+  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:IAP:CONFIG", action=4 (UPDATE)
+  - Returns : updated apple iap config
 */
 func (a *Client) UpdateAppleIAPConfig(params *UpdateAppleIAPConfigParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateAppleIAPConfigOK, error) {
 	// TODO: Validate the params before sending
@@ -278,8 +282,8 @@ func (a *Client) UpdateAppleIAPConfig(params *UpdateAppleIAPConfigParams, authIn
 /*
 UpdateAppleIAPConfigShort update apple iap config
 Update apple iap config. Other detail info:
-  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:IAP:CONFIG", action=4 (UPDATE)
-  *  Returns : updated apple iap config
+  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:IAP:CONFIG", action=4 (UPDATE)
+  - Returns : updated apple iap config
 */
 func (a *Client) UpdateAppleIAPConfigShort(params *UpdateAppleIAPConfigParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateAppleIAPConfigOK, error) {
 	// TODO: Validate the params before sending
@@ -293,6 +297,10 @@ func (a *Client) UpdateAppleIAPConfigShort(params *UpdateAppleIAPConfigParams, a
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -329,7 +337,7 @@ DeleteAppleIAPConfig delete apple iap config
 Delete apple iap config.
 Other detail info:
 
-  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:IAP:CONFIG", action=8 (DELETE)
+  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:IAP:CONFIG", action=8 (DELETE)
 */
 func (a *Client) DeleteAppleIAPConfig(params *DeleteAppleIAPConfigParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteAppleIAPConfigNoContent, error) {
 	// TODO: Validate the params before sending
@@ -377,7 +385,7 @@ DeleteAppleIAPConfigShort delete apple iap config
 Delete apple iap config.
 Other detail info:
 
-  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:IAP:CONFIG", action=8 (DELETE)
+  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:IAP:CONFIG", action=8 (DELETE)
 */
 func (a *Client) DeleteAppleIAPConfigShort(params *DeleteAppleIAPConfigParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteAppleIAPConfigNoContent, error) {
 	// TODO: Validate the params before sending
@@ -391,6 +399,10 @@ func (a *Client) DeleteAppleIAPConfigShort(params *DeleteAppleIAPConfigParams, a
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -427,8 +439,8 @@ GetEpicGamesIAPConfig get epicgames iap config
 Get epic games iap config.
 Other detail info:
 
-  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:IAP:CONFIG", action=2 (READ)
-  *  Returns : epic games iap config
+  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:IAP:CONFIG", action=2 (READ)
+  - Returns : epic games iap config
 */
 func (a *Client) GetEpicGamesIAPConfig(params *GetEpicGamesIAPConfigParams, authInfo runtime.ClientAuthInfoWriter) (*GetEpicGamesIAPConfigOK, error) {
 	// TODO: Validate the params before sending
@@ -476,8 +488,8 @@ GetEpicGamesIAPConfigShort get epicgames iap config
 Get epic games iap config.
 Other detail info:
 
-  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:IAP:CONFIG", action=2 (READ)
-  *  Returns : epic games iap config
+  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:IAP:CONFIG", action=2 (READ)
+  - Returns : epic games iap config
 */
 func (a *Client) GetEpicGamesIAPConfigShort(params *GetEpicGamesIAPConfigParams, authInfo runtime.ClientAuthInfoWriter) (*GetEpicGamesIAPConfigOK, error) {
 	// TODO: Validate the params before sending
@@ -491,6 +503,10 @@ func (a *Client) GetEpicGamesIAPConfigShort(params *GetEpicGamesIAPConfigParams,
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -525,8 +541,8 @@ Deprecated: 2022-08-10 - Use UpdateEpicGamesIAPConfigShort instead.
 
 UpdateEpicGamesIAPConfig update epic games iap config
 Update epic games iap config. Other detail info:
-  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:IAP:CONFIG", action=4 (UPDATE)
-  *  Returns : updated epic games iap config
+  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:IAP:CONFIG", action=4 (UPDATE)
+  - Returns : updated epic games iap config
 */
 func (a *Client) UpdateEpicGamesIAPConfig(params *UpdateEpicGamesIAPConfigParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateEpicGamesIAPConfigOK, error) {
 	// TODO: Validate the params before sending
@@ -572,8 +588,8 @@ func (a *Client) UpdateEpicGamesIAPConfig(params *UpdateEpicGamesIAPConfigParams
 /*
 UpdateEpicGamesIAPConfigShort update epic games iap config
 Update epic games iap config. Other detail info:
-  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:IAP:CONFIG", action=4 (UPDATE)
-  *  Returns : updated epic games iap config
+  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:IAP:CONFIG", action=4 (UPDATE)
+  - Returns : updated epic games iap config
 */
 func (a *Client) UpdateEpicGamesIAPConfigShort(params *UpdateEpicGamesIAPConfigParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateEpicGamesIAPConfigOK, error) {
 	// TODO: Validate the params before sending
@@ -587,6 +603,10 @@ func (a *Client) UpdateEpicGamesIAPConfigShort(params *UpdateEpicGamesIAPConfigP
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -623,7 +643,7 @@ DeleteEpicGamesIAPConfig delete epic games iap config
 Delete epic games iap config.
 Other detail info:
 
-  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:IAP:CONFIG", action=8 (DELETE)
+  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:IAP:CONFIG", action=8 (DELETE)
 */
 func (a *Client) DeleteEpicGamesIAPConfig(params *DeleteEpicGamesIAPConfigParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteEpicGamesIAPConfigNoContent, error) {
 	// TODO: Validate the params before sending
@@ -671,7 +691,7 @@ DeleteEpicGamesIAPConfigShort delete epic games iap config
 Delete epic games iap config.
 Other detail info:
 
-  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:IAP:CONFIG", action=8 (DELETE)
+  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:IAP:CONFIG", action=8 (DELETE)
 */
 func (a *Client) DeleteEpicGamesIAPConfigShort(params *DeleteEpicGamesIAPConfigParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteEpicGamesIAPConfigNoContent, error) {
 	// TODO: Validate the params before sending
@@ -685,6 +705,10 @@ func (a *Client) DeleteEpicGamesIAPConfigShort(params *DeleteEpicGamesIAPConfigP
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -721,8 +745,8 @@ GetGoogleIAPConfig get google iap config
 Get google iap config.
 Other detail info:
 
-  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:IAP:CONFIG", action=2 (READ)
-  *  Returns : google iap config
+  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:IAP:CONFIG", action=2 (READ)
+  - Returns : google iap config
 */
 func (a *Client) GetGoogleIAPConfig(params *GetGoogleIAPConfigParams, authInfo runtime.ClientAuthInfoWriter) (*GetGoogleIAPConfigOK, error) {
 	// TODO: Validate the params before sending
@@ -770,8 +794,8 @@ GetGoogleIAPConfigShort get google iap config
 Get google iap config.
 Other detail info:
 
-  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:IAP:CONFIG", action=2 (READ)
-  *  Returns : google iap config
+  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:IAP:CONFIG", action=2 (READ)
+  - Returns : google iap config
 */
 func (a *Client) GetGoogleIAPConfigShort(params *GetGoogleIAPConfigParams, authInfo runtime.ClientAuthInfoWriter) (*GetGoogleIAPConfigOK, error) {
 	// TODO: Validate the params before sending
@@ -785,6 +809,10 @@ func (a *Client) GetGoogleIAPConfigShort(params *GetGoogleIAPConfigParams, authI
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -819,8 +847,8 @@ Deprecated: 2022-08-10 - Use UpdateGoogleIAPConfigShort instead.
 
 UpdateGoogleIAPConfig update google iap config
 Update google iap config. Other detail info:
-  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:IAP:CONFIG", action=4 (UPDATE)
-  *  Returns : updated google iap config
+  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:IAP:CONFIG", action=4 (UPDATE)
+  - Returns : updated google iap config
 */
 func (a *Client) UpdateGoogleIAPConfig(params *UpdateGoogleIAPConfigParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateGoogleIAPConfigOK, error) {
 	// TODO: Validate the params before sending
@@ -866,8 +894,8 @@ func (a *Client) UpdateGoogleIAPConfig(params *UpdateGoogleIAPConfigParams, auth
 /*
 UpdateGoogleIAPConfigShort update google iap config
 Update google iap config. Other detail info:
-  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:IAP:CONFIG", action=4 (UPDATE)
-  *  Returns : updated google iap config
+  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:IAP:CONFIG", action=4 (UPDATE)
+  - Returns : updated google iap config
 */
 func (a *Client) UpdateGoogleIAPConfigShort(params *UpdateGoogleIAPConfigParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateGoogleIAPConfigOK, error) {
 	// TODO: Validate the params before sending
@@ -881,6 +909,10 @@ func (a *Client) UpdateGoogleIAPConfigShort(params *UpdateGoogleIAPConfigParams,
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -917,7 +949,7 @@ DeleteGoogleIAPConfig delete google iap config
 Delete google iap config.
 Other detail info:
 
-  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:IAP:CONFIG", action=8 (DELETE)
+  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:IAP:CONFIG", action=8 (DELETE)
 */
 func (a *Client) DeleteGoogleIAPConfig(params *DeleteGoogleIAPConfigParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteGoogleIAPConfigNoContent, error) {
 	// TODO: Validate the params before sending
@@ -965,7 +997,7 @@ DeleteGoogleIAPConfigShort delete google iap config
 Delete google iap config.
 Other detail info:
 
-  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:IAP:CONFIG", action=8 (DELETE)
+  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:IAP:CONFIG", action=8 (DELETE)
 */
 func (a *Client) DeleteGoogleIAPConfigShort(params *DeleteGoogleIAPConfigParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteGoogleIAPConfigNoContent, error) {
 	// TODO: Validate the params before sending
@@ -979,6 +1011,10 @@ func (a *Client) DeleteGoogleIAPConfigShort(params *DeleteGoogleIAPConfigParams,
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -1015,8 +1051,8 @@ UpdateGoogleP12File upload google play p12 file
 Upload google play p12 file.
 Other detail info:
 
-  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:IAP:CONFIG", action=4 (UPDATE)
-  *  Returns : updated google iap config
+  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:IAP:CONFIG", action=4 (UPDATE)
+  - Returns : updated google iap config
 */
 func (a *Client) UpdateGoogleP12File(params *UpdateGoogleP12FileParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateGoogleP12FileOK, error) {
 	// TODO: Validate the params before sending
@@ -1064,8 +1100,8 @@ UpdateGoogleP12FileShort upload google play p12 file
 Upload google play p12 file.
 Other detail info:
 
-  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:IAP:CONFIG", action=4 (UPDATE)
-  *  Returns : updated google iap config
+  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:IAP:CONFIG", action=4 (UPDATE)
+  - Returns : updated google iap config
 */
 func (a *Client) UpdateGoogleP12FileShort(params *UpdateGoogleP12FileParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateGoogleP12FileOK, error) {
 	// TODO: Validate the params before sending
@@ -1079,6 +1115,10 @@ func (a *Client) UpdateGoogleP12FileShort(params *UpdateGoogleP12FileParams, aut
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -1115,7 +1155,7 @@ GetIAPItemConfig get iap item config
 Get iap item config.
 Other detail info:
 
-  * Required permission : resource= "ADMIN:NAMESPACE:{namespace}:IAP:CONFIG" , action=2 (READ)
+  - Required permission : resource= "ADMIN:NAMESPACE:{namespace}:IAP:CONFIG" , action=2 (READ)
 */
 func (a *Client) GetIAPItemConfig(params *GetIAPItemConfigParams, authInfo runtime.ClientAuthInfoWriter) (*GetIAPItemConfigOK, *GetIAPItemConfigNotFound, error) {
 	// TODO: Validate the params before sending
@@ -1166,7 +1206,7 @@ GetIAPItemConfigShort get iap item config
 Get iap item config.
 Other detail info:
 
-  * Required permission : resource= "ADMIN:NAMESPACE:{namespace}:IAP:CONFIG" , action=2 (READ)
+  - Required permission : resource= "ADMIN:NAMESPACE:{namespace}:IAP:CONFIG" , action=2 (READ)
 */
 func (a *Client) GetIAPItemConfigShort(params *GetIAPItemConfigParams, authInfo runtime.ClientAuthInfoWriter) (*GetIAPItemConfigOK, error) {
 	// TODO: Validate the params before sending
@@ -1180,6 +1220,10 @@ func (a *Client) GetIAPItemConfigShort(params *GetIAPItemConfigParams, authInfo 
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -1216,8 +1260,8 @@ Deprecated: 2022-08-10 - Use UpdateIAPItemConfigShort instead.
 
 UpdateIAPItemConfig update iap item config
 Update iap item config. Other detail info:
-  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:IAP:CONFIG", action=4 (UPDATE)
-  *  Returns : updated iap item config
+  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:IAP:CONFIG", action=4 (UPDATE)
+  - Returns : updated iap item config
 */
 func (a *Client) UpdateIAPItemConfig(params *UpdateIAPItemConfigParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateIAPItemConfigOK, *UpdateIAPItemConfigBadRequest, *UpdateIAPItemConfigConflict, *UpdateIAPItemConfigUnprocessableEntity, error) {
 	// TODO: Validate the params before sending
@@ -1272,8 +1316,8 @@ func (a *Client) UpdateIAPItemConfig(params *UpdateIAPItemConfigParams, authInfo
 /*
 UpdateIAPItemConfigShort update iap item config
 Update iap item config. Other detail info:
-  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:IAP:CONFIG", action=4 (UPDATE)
-  *  Returns : updated iap item config
+  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:IAP:CONFIG", action=4 (UPDATE)
+  - Returns : updated iap item config
 */
 func (a *Client) UpdateIAPItemConfigShort(params *UpdateIAPItemConfigParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateIAPItemConfigOK, error) {
 	// TODO: Validate the params before sending
@@ -1287,6 +1331,10 @@ func (a *Client) UpdateIAPItemConfigShort(params *UpdateIAPItemConfigParams, aut
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -1329,7 +1377,7 @@ DeleteIAPItemConfig delete a iap item config
 delete a iap item config.
 Other detail info:
 
-  * Required permission : resource= "ADMIN:NAMESPACE:{namespace}:IAP:CONFIG" , action=8 (DELETE)
+  - Required permission : resource= "ADMIN:NAMESPACE:{namespace}:IAP:CONFIG" , action=8 (DELETE)
 */
 func (a *Client) DeleteIAPItemConfig(params *DeleteIAPItemConfigParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteIAPItemConfigNoContent, error) {
 	// TODO: Validate the params before sending
@@ -1377,7 +1425,7 @@ DeleteIAPItemConfigShort delete a iap item config
 delete a iap item config.
 Other detail info:
 
-  * Required permission : resource= "ADMIN:NAMESPACE:{namespace}:IAP:CONFIG" , action=8 (DELETE)
+  - Required permission : resource= "ADMIN:NAMESPACE:{namespace}:IAP:CONFIG" , action=8 (DELETE)
 */
 func (a *Client) DeleteIAPItemConfigShort(params *DeleteIAPItemConfigParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteIAPItemConfigNoContent, error) {
 	// TODO: Validate the params before sending
@@ -1391,6 +1439,10 @@ func (a *Client) DeleteIAPItemConfigShort(params *DeleteIAPItemConfigParams, aut
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -1427,8 +1479,8 @@ GetOculusIAPConfig get oculus iap config
 Get oculus iap config.
 Other detail info:
 
-  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:IAP:CONFIG", action=2 (READ)
-  *  Returns : steam iap config
+  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:IAP:CONFIG", action=2 (READ)
+  - Returns : steam iap config
 */
 func (a *Client) GetOculusIAPConfig(params *GetOculusIAPConfigParams, authInfo runtime.ClientAuthInfoWriter) (*GetOculusIAPConfigOK, error) {
 	// TODO: Validate the params before sending
@@ -1476,8 +1528,8 @@ GetOculusIAPConfigShort get oculus iap config
 Get oculus iap config.
 Other detail info:
 
-  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:IAP:CONFIG", action=2 (READ)
-  *  Returns : steam iap config
+  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:IAP:CONFIG", action=2 (READ)
+  - Returns : steam iap config
 */
 func (a *Client) GetOculusIAPConfigShort(params *GetOculusIAPConfigParams, authInfo runtime.ClientAuthInfoWriter) (*GetOculusIAPConfigOK, error) {
 	// TODO: Validate the params before sending
@@ -1491,6 +1543,10 @@ func (a *Client) GetOculusIAPConfigShort(params *GetOculusIAPConfigParams, authI
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -1525,8 +1581,8 @@ Deprecated: 2022-08-10 - Use UpdateOculusIAPConfigShort instead.
 
 UpdateOculusIAPConfig update oculus iap config
 Update oculus iap config. Other detail info:
-  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:IAP:CONFIG", action=4 (UPDATE)
-  *  Returns : updated steam iap config
+  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:IAP:CONFIG", action=4 (UPDATE)
+  - Returns : updated steam iap config
 */
 func (a *Client) UpdateOculusIAPConfig(params *UpdateOculusIAPConfigParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateOculusIAPConfigOK, error) {
 	// TODO: Validate the params before sending
@@ -1572,8 +1628,8 @@ func (a *Client) UpdateOculusIAPConfig(params *UpdateOculusIAPConfigParams, auth
 /*
 UpdateOculusIAPConfigShort update oculus iap config
 Update oculus iap config. Other detail info:
-  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:IAP:CONFIG", action=4 (UPDATE)
-  *  Returns : updated steam iap config
+  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:IAP:CONFIG", action=4 (UPDATE)
+  - Returns : updated steam iap config
 */
 func (a *Client) UpdateOculusIAPConfigShort(params *UpdateOculusIAPConfigParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateOculusIAPConfigOK, error) {
 	// TODO: Validate the params before sending
@@ -1587,6 +1643,10 @@ func (a *Client) UpdateOculusIAPConfigShort(params *UpdateOculusIAPConfigParams,
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -1623,7 +1683,7 @@ DeleteOculusIAPConfig delete oculus iap config
 Delete oculus iap config.
 Other detail info:
 
-  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:IAP:CONFIG", action=8 (DELETE)
+  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:IAP:CONFIG", action=8 (DELETE)
 */
 func (a *Client) DeleteOculusIAPConfig(params *DeleteOculusIAPConfigParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteOculusIAPConfigNoContent, error) {
 	// TODO: Validate the params before sending
@@ -1671,7 +1731,7 @@ DeleteOculusIAPConfigShort delete oculus iap config
 Delete oculus iap config.
 Other detail info:
 
-  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:IAP:CONFIG", action=8 (DELETE)
+  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:IAP:CONFIG", action=8 (DELETE)
 */
 func (a *Client) DeleteOculusIAPConfigShort(params *DeleteOculusIAPConfigParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteOculusIAPConfigNoContent, error) {
 	// TODO: Validate the params before sending
@@ -1685,6 +1745,10 @@ func (a *Client) DeleteOculusIAPConfigShort(params *DeleteOculusIAPConfigParams,
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -1721,8 +1785,8 @@ GetPlayStationIAPConfig get playstation iap config
 Get playstation iap config.
 Other detail info:
 
-  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:IAP:CONFIG", action=2 (READ)
-  *  Returns : playstation iap config
+  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:IAP:CONFIG", action=2 (READ)
+  - Returns : playstation iap config
 */
 func (a *Client) GetPlayStationIAPConfig(params *GetPlayStationIAPConfigParams, authInfo runtime.ClientAuthInfoWriter) (*GetPlayStationIAPConfigOK, error) {
 	// TODO: Validate the params before sending
@@ -1770,8 +1834,8 @@ GetPlayStationIAPConfigShort get playstation iap config
 Get playstation iap config.
 Other detail info:
 
-  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:IAP:CONFIG", action=2 (READ)
-  *  Returns : playstation iap config
+  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:IAP:CONFIG", action=2 (READ)
+  - Returns : playstation iap config
 */
 func (a *Client) GetPlayStationIAPConfigShort(params *GetPlayStationIAPConfigParams, authInfo runtime.ClientAuthInfoWriter) (*GetPlayStationIAPConfigOK, error) {
 	// TODO: Validate the params before sending
@@ -1785,6 +1849,10 @@ func (a *Client) GetPlayStationIAPConfigShort(params *GetPlayStationIAPConfigPar
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -1819,8 +1887,8 @@ Deprecated: 2022-08-10 - Use UpdatePlaystationIAPConfigShort instead.
 
 UpdatePlaystationIAPConfig update playstation iap config
 Update playstation iap config. Other detail info:
-  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:IAP:CONFIG", action=4 (UPDATE)
-  *  Returns : updated playstation iap config
+  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:IAP:CONFIG", action=4 (UPDATE)
+  - Returns : updated playstation iap config
 */
 func (a *Client) UpdatePlaystationIAPConfig(params *UpdatePlaystationIAPConfigParams, authInfo runtime.ClientAuthInfoWriter) (*UpdatePlaystationIAPConfigOK, *UpdatePlaystationIAPConfigBadRequest, error) {
 	// TODO: Validate the params before sending
@@ -1869,8 +1937,8 @@ func (a *Client) UpdatePlaystationIAPConfig(params *UpdatePlaystationIAPConfigPa
 /*
 UpdatePlaystationIAPConfigShort update playstation iap config
 Update playstation iap config. Other detail info:
-  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:IAP:CONFIG", action=4 (UPDATE)
-  *  Returns : updated playstation iap config
+  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:IAP:CONFIG", action=4 (UPDATE)
+  - Returns : updated playstation iap config
 */
 func (a *Client) UpdatePlaystationIAPConfigShort(params *UpdatePlaystationIAPConfigParams, authInfo runtime.ClientAuthInfoWriter) (*UpdatePlaystationIAPConfigOK, error) {
 	// TODO: Validate the params before sending
@@ -1884,6 +1952,10 @@ func (a *Client) UpdatePlaystationIAPConfigShort(params *UpdatePlaystationIAPCon
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -1922,7 +1994,7 @@ DeletePlaystationIAPConfig delete playstation iap config
 Delete playstation iap config.
 Other detail info:
 
-  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:IAP:CONFIG", action=8 (DELETE)
+  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:IAP:CONFIG", action=8 (DELETE)
 */
 func (a *Client) DeletePlaystationIAPConfig(params *DeletePlaystationIAPConfigParams, authInfo runtime.ClientAuthInfoWriter) (*DeletePlaystationIAPConfigNoContent, error) {
 	// TODO: Validate the params before sending
@@ -1970,7 +2042,7 @@ DeletePlaystationIAPConfigShort delete playstation iap config
 Delete playstation iap config.
 Other detail info:
 
-  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:IAP:CONFIG", action=8 (DELETE)
+  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:IAP:CONFIG", action=8 (DELETE)
 */
 func (a *Client) DeletePlaystationIAPConfigShort(params *DeletePlaystationIAPConfigParams, authInfo runtime.ClientAuthInfoWriter) (*DeletePlaystationIAPConfigNoContent, error) {
 	// TODO: Validate the params before sending
@@ -1984,6 +2056,10 @@ func (a *Client) DeletePlaystationIAPConfigShort(params *DeletePlaystationIAPCon
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -2018,8 +2094,8 @@ Deprecated: 2022-08-10 - Use ValidateExistedPlaystationIAPConfigShort instead.
 
 ValidateExistedPlaystationIAPConfig validate existed playstation iap config
 Validate playstation iap config. Other detail info:
-  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:IAP:CONFIG", action=2 (READ)
-  *  Returns : Test Results
+  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:IAP:CONFIG", action=2 (READ)
+  - Returns : Test Results
 */
 func (a *Client) ValidateExistedPlaystationIAPConfig(params *ValidateExistedPlaystationIAPConfigParams, authInfo runtime.ClientAuthInfoWriter) (*ValidateExistedPlaystationIAPConfigOK, error) {
 	// TODO: Validate the params before sending
@@ -2065,8 +2141,8 @@ func (a *Client) ValidateExistedPlaystationIAPConfig(params *ValidateExistedPlay
 /*
 ValidateExistedPlaystationIAPConfigShort validate existed playstation iap config
 Validate playstation iap config. Other detail info:
-  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:IAP:CONFIG", action=2 (READ)
-  *  Returns : Test Results
+  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:IAP:CONFIG", action=2 (READ)
+  - Returns : Test Results
 */
 func (a *Client) ValidateExistedPlaystationIAPConfigShort(params *ValidateExistedPlaystationIAPConfigParams, authInfo runtime.ClientAuthInfoWriter) (*ValidateExistedPlaystationIAPConfigOK, error) {
 	// TODO: Validate the params before sending
@@ -2080,6 +2156,10 @@ func (a *Client) ValidateExistedPlaystationIAPConfigShort(params *ValidateExiste
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -2114,8 +2194,8 @@ Deprecated: 2022-08-10 - Use ValidatePlaystationIAPConfigShort instead.
 
 ValidatePlaystationIAPConfig validate playstation iap config
 Validate playstation iap config. Other detail info:
-  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:IAP:CONFIG", action=4 (UPDATE)
-  *  Returns : Test Results
+  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:IAP:CONFIG", action=4 (UPDATE)
+  - Returns : Test Results
 */
 func (a *Client) ValidatePlaystationIAPConfig(params *ValidatePlaystationIAPConfigParams, authInfo runtime.ClientAuthInfoWriter) (*ValidatePlaystationIAPConfigOK, error) {
 	// TODO: Validate the params before sending
@@ -2161,8 +2241,8 @@ func (a *Client) ValidatePlaystationIAPConfig(params *ValidatePlaystationIAPConf
 /*
 ValidatePlaystationIAPConfigShort validate playstation iap config
 Validate playstation iap config. Other detail info:
-  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:IAP:CONFIG", action=4 (UPDATE)
-  *  Returns : Test Results
+  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:IAP:CONFIG", action=4 (UPDATE)
+  - Returns : Test Results
 */
 func (a *Client) ValidatePlaystationIAPConfigShort(params *ValidatePlaystationIAPConfigParams, authInfo runtime.ClientAuthInfoWriter) (*ValidatePlaystationIAPConfigOK, error) {
 	// TODO: Validate the params before sending
@@ -2176,6 +2256,10 @@ func (a *Client) ValidatePlaystationIAPConfigShort(params *ValidatePlaystationIA
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -2212,8 +2296,8 @@ GetSteamIAPConfig get steam iap config
 Get steam iap config.
 Other detail info:
 
-  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:IAP:CONFIG", action=2 (READ)
-  *  Returns : steam iap config
+  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:IAP:CONFIG", action=2 (READ)
+  - Returns : steam iap config
 */
 func (a *Client) GetSteamIAPConfig(params *GetSteamIAPConfigParams, authInfo runtime.ClientAuthInfoWriter) (*GetSteamIAPConfigOK, error) {
 	// TODO: Validate the params before sending
@@ -2261,8 +2345,8 @@ GetSteamIAPConfigShort get steam iap config
 Get steam iap config.
 Other detail info:
 
-  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:IAP:CONFIG", action=2 (READ)
-  *  Returns : steam iap config
+  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:IAP:CONFIG", action=2 (READ)
+  - Returns : steam iap config
 */
 func (a *Client) GetSteamIAPConfigShort(params *GetSteamIAPConfigParams, authInfo runtime.ClientAuthInfoWriter) (*GetSteamIAPConfigOK, error) {
 	// TODO: Validate the params before sending
@@ -2276,6 +2360,10 @@ func (a *Client) GetSteamIAPConfigShort(params *GetSteamIAPConfigParams, authInf
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -2310,8 +2398,8 @@ Deprecated: 2022-08-10 - Use UpdateSteamIAPConfigShort instead.
 
 UpdateSteamIAPConfig update steam iap config
 Update steam iap config. Other detail info:
-  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:IAP:CONFIG", action=4 (UPDATE)
-  *  Returns : updated steam iap config
+  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:IAP:CONFIG", action=4 (UPDATE)
+  - Returns : updated steam iap config
 */
 func (a *Client) UpdateSteamIAPConfig(params *UpdateSteamIAPConfigParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateSteamIAPConfigOK, *UpdateSteamIAPConfigBadRequest, error) {
 	// TODO: Validate the params before sending
@@ -2360,8 +2448,8 @@ func (a *Client) UpdateSteamIAPConfig(params *UpdateSteamIAPConfigParams, authIn
 /*
 UpdateSteamIAPConfigShort update steam iap config
 Update steam iap config. Other detail info:
-  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:IAP:CONFIG", action=4 (UPDATE)
-  *  Returns : updated steam iap config
+  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:IAP:CONFIG", action=4 (UPDATE)
+  - Returns : updated steam iap config
 */
 func (a *Client) UpdateSteamIAPConfigShort(params *UpdateSteamIAPConfigParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateSteamIAPConfigOK, error) {
 	// TODO: Validate the params before sending
@@ -2375,6 +2463,10 @@ func (a *Client) UpdateSteamIAPConfigShort(params *UpdateSteamIAPConfigParams, a
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -2413,7 +2505,7 @@ DeleteSteamIAPConfig delete steam iap config
 Delete steam iap config.
 Other detail info:
 
-  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:IAP:CONFIG", action=8 (DELETE)
+  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:IAP:CONFIG", action=8 (DELETE)
 */
 func (a *Client) DeleteSteamIAPConfig(params *DeleteSteamIAPConfigParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteSteamIAPConfigNoContent, error) {
 	// TODO: Validate the params before sending
@@ -2461,7 +2553,7 @@ DeleteSteamIAPConfigShort delete steam iap config
 Delete steam iap config.
 Other detail info:
 
-  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:IAP:CONFIG", action=8 (DELETE)
+  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:IAP:CONFIG", action=8 (DELETE)
 */
 func (a *Client) DeleteSteamIAPConfigShort(params *DeleteSteamIAPConfigParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteSteamIAPConfigNoContent, error) {
 	// TODO: Validate the params before sending
@@ -2475,6 +2567,10 @@ func (a *Client) DeleteSteamIAPConfigShort(params *DeleteSteamIAPConfigParams, a
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -2511,8 +2607,8 @@ GetTwitchIAPConfig get twitch iap config
 Get twitch iap config.
 Other detail info:
 
-  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:IAP:CONFIG", action=2 (READ)
-  *  Returns : twitch iap config
+  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:IAP:CONFIG", action=2 (READ)
+  - Returns : twitch iap config
 */
 func (a *Client) GetTwitchIAPConfig(params *GetTwitchIAPConfigParams, authInfo runtime.ClientAuthInfoWriter) (*GetTwitchIAPConfigOK, error) {
 	// TODO: Validate the params before sending
@@ -2560,8 +2656,8 @@ GetTwitchIAPConfigShort get twitch iap config
 Get twitch iap config.
 Other detail info:
 
-  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:IAP:CONFIG", action=2 (READ)
-  *  Returns : twitch iap config
+  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:IAP:CONFIG", action=2 (READ)
+  - Returns : twitch iap config
 */
 func (a *Client) GetTwitchIAPConfigShort(params *GetTwitchIAPConfigParams, authInfo runtime.ClientAuthInfoWriter) (*GetTwitchIAPConfigOK, error) {
 	// TODO: Validate the params before sending
@@ -2575,6 +2671,10 @@ func (a *Client) GetTwitchIAPConfigShort(params *GetTwitchIAPConfigParams, authI
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -2609,8 +2709,8 @@ Deprecated: 2022-08-10 - Use UpdateTwitchIAPConfigShort instead.
 
 UpdateTwitchIAPConfig update twitch iap config
 Update twitch iap config. Other detail info:
-  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:IAP:CONFIG", action=4 (UPDATE)
-  *  Returns : updated twitch iap config
+  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:IAP:CONFIG", action=4 (UPDATE)
+  - Returns : updated twitch iap config
 */
 func (a *Client) UpdateTwitchIAPConfig(params *UpdateTwitchIAPConfigParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateTwitchIAPConfigOK, error) {
 	// TODO: Validate the params before sending
@@ -2656,8 +2756,8 @@ func (a *Client) UpdateTwitchIAPConfig(params *UpdateTwitchIAPConfigParams, auth
 /*
 UpdateTwitchIAPConfigShort update twitch iap config
 Update twitch iap config. Other detail info:
-  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:IAP:CONFIG", action=4 (UPDATE)
-  *  Returns : updated twitch iap config
+  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:IAP:CONFIG", action=4 (UPDATE)
+  - Returns : updated twitch iap config
 */
 func (a *Client) UpdateTwitchIAPConfigShort(params *UpdateTwitchIAPConfigParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateTwitchIAPConfigOK, error) {
 	// TODO: Validate the params before sending
@@ -2671,6 +2771,10 @@ func (a *Client) UpdateTwitchIAPConfigShort(params *UpdateTwitchIAPConfigParams,
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -2707,7 +2811,7 @@ DeleteTwitchIAPConfig delete twitch iap config
 Delete twitch iap config.
 Other detail info:
 
-  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:IAP:CONFIG", action=8 (DELETE)
+  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:IAP:CONFIG", action=8 (DELETE)
 */
 func (a *Client) DeleteTwitchIAPConfig(params *DeleteTwitchIAPConfigParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteTwitchIAPConfigNoContent, error) {
 	// TODO: Validate the params before sending
@@ -2755,7 +2859,7 @@ DeleteTwitchIAPConfigShort delete twitch iap config
 Delete twitch iap config.
 Other detail info:
 
-  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:IAP:CONFIG", action=8 (DELETE)
+  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:IAP:CONFIG", action=8 (DELETE)
 */
 func (a *Client) DeleteTwitchIAPConfigShort(params *DeleteTwitchIAPConfigParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteTwitchIAPConfigNoContent, error) {
 	// TODO: Validate the params before sending
@@ -2769,6 +2873,10 @@ func (a *Client) DeleteTwitchIAPConfigShort(params *DeleteTwitchIAPConfigParams,
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -2805,8 +2913,8 @@ GetXblIAPConfig get xbox iap config
 Get xbox iap config.
 Other detail info:
 
-  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:IAP:CONFIG", action=2 (READ)
-  *  Returns : xbox iap config
+  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:IAP:CONFIG", action=2 (READ)
+  - Returns : xbox iap config
 */
 func (a *Client) GetXblIAPConfig(params *GetXblIAPConfigParams, authInfo runtime.ClientAuthInfoWriter) (*GetXblIAPConfigOK, error) {
 	// TODO: Validate the params before sending
@@ -2854,8 +2962,8 @@ GetXblIAPConfigShort get xbox iap config
 Get xbox iap config.
 Other detail info:
 
-  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:IAP:CONFIG", action=2 (READ)
-  *  Returns : xbox iap config
+  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:IAP:CONFIG", action=2 (READ)
+  - Returns : xbox iap config
 */
 func (a *Client) GetXblIAPConfigShort(params *GetXblIAPConfigParams, authInfo runtime.ClientAuthInfoWriter) (*GetXblIAPConfigOK, error) {
 	// TODO: Validate the params before sending
@@ -2869,6 +2977,10 @@ func (a *Client) GetXblIAPConfigShort(params *GetXblIAPConfigParams, authInfo ru
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -2903,8 +3015,8 @@ Deprecated: 2022-08-10 - Use UpdateXblIAPConfigShort instead.
 
 UpdateXblIAPConfig update xbl iap config
 Update xbl iap config. Other detail info:
-  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:IAP:CONFIG", action=4 (UPDATE)
-  *  Returns : updated xbl iap config
+  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:IAP:CONFIG", action=4 (UPDATE)
+  - Returns : updated xbl iap config
 */
 func (a *Client) UpdateXblIAPConfig(params *UpdateXblIAPConfigParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateXblIAPConfigOK, error) {
 	// TODO: Validate the params before sending
@@ -2950,8 +3062,8 @@ func (a *Client) UpdateXblIAPConfig(params *UpdateXblIAPConfigParams, authInfo r
 /*
 UpdateXblIAPConfigShort update xbl iap config
 Update xbl iap config. Other detail info:
-  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:IAP:CONFIG", action=4 (UPDATE)
-  *  Returns : updated xbl iap config
+  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:IAP:CONFIG", action=4 (UPDATE)
+  - Returns : updated xbl iap config
 */
 func (a *Client) UpdateXblIAPConfigShort(params *UpdateXblIAPConfigParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateXblIAPConfigOK, error) {
 	// TODO: Validate the params before sending
@@ -2965,6 +3077,10 @@ func (a *Client) UpdateXblIAPConfigShort(params *UpdateXblIAPConfigParams, authI
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -3001,7 +3117,7 @@ DeleteXblAPConfig delete xbl iap config
 Delete xbl iap config.
 Other detail info:
 
-  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:IAP:CONFIG", action=8 (DELETE)
+  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:IAP:CONFIG", action=8 (DELETE)
 */
 func (a *Client) DeleteXblAPConfig(params *DeleteXblAPConfigParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteXblAPConfigNoContent, error) {
 	// TODO: Validate the params before sending
@@ -3049,7 +3165,7 @@ DeleteXblAPConfigShort delete xbl iap config
 Delete xbl iap config.
 Other detail info:
 
-  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:IAP:CONFIG", action=8 (DELETE)
+  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:IAP:CONFIG", action=8 (DELETE)
 */
 func (a *Client) DeleteXblAPConfigShort(params *DeleteXblAPConfigParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteXblAPConfigNoContent, error) {
 	// TODO: Validate the params before sending
@@ -3063,6 +3179,10 @@ func (a *Client) DeleteXblAPConfigShort(params *DeleteXblAPConfigParams, authInf
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -3099,8 +3219,8 @@ UpdateXblBPCertFile upload xbl business partner cert file
 Upload xbl business partner cert file.
 Other detail info:
 
-  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:IAP:CONFIG", action=4 (UPDATE)
-  *  Returns : updated xbl iap config
+  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:IAP:CONFIG", action=4 (UPDATE)
+  - Returns : updated xbl iap config
 */
 func (a *Client) UpdateXblBPCertFile(params *UpdateXblBPCertFileParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateXblBPCertFileOK, error) {
 	// TODO: Validate the params before sending
@@ -3148,8 +3268,8 @@ UpdateXblBPCertFileShort upload xbl business partner cert file
 Upload xbl business partner cert file.
 Other detail info:
 
-  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:IAP:CONFIG", action=4 (UPDATE)
-  *  Returns : updated xbl iap config
+  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:IAP:CONFIG", action=4 (UPDATE)
+  - Returns : updated xbl iap config
 */
 func (a *Client) UpdateXblBPCertFileShort(params *UpdateXblBPCertFileParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateXblBPCertFileOK, error) {
 	// TODO: Validate the params before sending
@@ -3163,6 +3283,10 @@ func (a *Client) UpdateXblBPCertFileShort(params *UpdateXblBPCertFileParams, aut
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -3199,8 +3323,8 @@ QueryUserIAPOrders query iap orders
 Query IAP orders.
 Other detail info:
 
-  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:USER:{userId}:IAP", action=2 (READ)
-  *  Returns : paginated iap orders
+  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:USER:{userId}:IAP", action=2 (READ)
+  - Returns : paginated iap orders
 */
 func (a *Client) QueryUserIAPOrders(params *QueryUserIAPOrdersParams, authInfo runtime.ClientAuthInfoWriter) (*QueryUserIAPOrdersOK, error) {
 	// TODO: Validate the params before sending
@@ -3248,8 +3372,8 @@ QueryUserIAPOrdersShort query iap orders
 Query IAP orders.
 Other detail info:
 
-  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:USER:{userId}:IAP", action=2 (READ)
-  *  Returns : paginated iap orders
+  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:USER:{userId}:IAP", action=2 (READ)
+  - Returns : paginated iap orders
 */
 func (a *Client) QueryUserIAPOrdersShort(params *QueryUserIAPOrdersParams, authInfo runtime.ClientAuthInfoWriter) (*QueryUserIAPOrdersOK, error) {
 	// TODO: Validate the params before sending
@@ -3263,6 +3387,10 @@ func (a *Client) QueryUserIAPOrdersShort(params *QueryUserIAPOrdersParams, authI
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -3299,8 +3427,8 @@ QueryAllUserIAPOrders query all user iap orders
 Query all user IAP orders.
 Other detail info:
 
-  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:USER:{userId}:IAP", action=2 (READ)
-  *  Returns : list of iap orders
+  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:USER:{userId}:IAP", action=2 (READ)
+  - Returns : list of iap orders
 */
 func (a *Client) QueryAllUserIAPOrders(params *QueryAllUserIAPOrdersParams, authInfo runtime.ClientAuthInfoWriter) (*QueryAllUserIAPOrdersOK, error) {
 	// TODO: Validate the params before sending
@@ -3348,8 +3476,8 @@ QueryAllUserIAPOrdersShort query all user iap orders
 Query all user IAP orders.
 Other detail info:
 
-  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:USER:{userId}:IAP", action=2 (READ)
-  *  Returns : list of iap orders
+  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:USER:{userId}:IAP", action=2 (READ)
+  - Returns : list of iap orders
 */
 func (a *Client) QueryAllUserIAPOrdersShort(params *QueryAllUserIAPOrdersParams, authInfo runtime.ClientAuthInfoWriter) (*QueryAllUserIAPOrdersOK, error) {
 	// TODO: Validate the params before sending
@@ -3363,6 +3491,10 @@ func (a *Client) QueryAllUserIAPOrdersShort(params *QueryAllUserIAPOrdersParams,
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -3399,8 +3531,8 @@ QueryUserIAPConsumeHistory query iap consume history
 Query IAP consume history.
 Other detail info:
 
-  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:USER:{userId}:IAP", action=2 (READ)
-  *  Returns : paginated iap consume history
+  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:USER:{userId}:IAP", action=2 (READ)
+  - Returns : paginated iap consume history
 */
 func (a *Client) QueryUserIAPConsumeHistory(params *QueryUserIAPConsumeHistoryParams, authInfo runtime.ClientAuthInfoWriter) (*QueryUserIAPConsumeHistoryOK, error) {
 	// TODO: Validate the params before sending
@@ -3448,8 +3580,8 @@ QueryUserIAPConsumeHistoryShort query iap consume history
 Query IAP consume history.
 Other detail info:
 
-  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:USER:{userId}:IAP", action=2 (READ)
-  *  Returns : paginated iap consume history
+  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:USER:{userId}:IAP", action=2 (READ)
+  - Returns : paginated iap consume history
 */
 func (a *Client) QueryUserIAPConsumeHistoryShort(params *QueryUserIAPConsumeHistoryParams, authInfo runtime.ClientAuthInfoWriter) (*QueryUserIAPConsumeHistoryOK, error) {
 	// TODO: Validate the params before sending
@@ -3463,6 +3595,10 @@ func (a *Client) QueryUserIAPConsumeHistoryShort(params *QueryUserIAPConsumeHist
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -3496,12 +3632,13 @@ func (a *Client) QueryUserIAPConsumeHistoryShort(params *QueryUserIAPConsumeHist
 Deprecated: 2022-08-10 - Use MockFulfillIAPItemShort instead.
 
 MockFulfillIAPItem mock fulfill iap item.
- [TEST FACILITY ONLY] Forbidden in live environment. Mock fulfill iap item without validate receipt.
+
+	[TEST FACILITY ONLY] Forbidden in live environment. Mock fulfill iap item without validate receipt.
 
 Other detail info:
 
-  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:USER:{userId}:IAP", action=4 (UPDATE)
-  *  Returns :
+  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:USER:{userId}:IAP", action=4 (UPDATE)
+  - Returns :
 */
 func (a *Client) MockFulfillIAPItem(params *MockFulfillIAPItemParams, authInfo runtime.ClientAuthInfoWriter) (*MockFulfillIAPItemNoContent, *MockFulfillIAPItemBadRequest, *MockFulfillIAPItemNotFound, *MockFulfillIAPItemConflict, error) {
 	// TODO: Validate the params before sending
@@ -3559,8 +3696,8 @@ MockFulfillIAPItemShort mock fulfill iap item.
 
 Other detail info:
 
-  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:USER:{userId}:IAP", action=4 (UPDATE)
-  *  Returns :
+  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:USER:{userId}:IAP", action=4 (UPDATE)
+  - Returns :
 */
 func (a *Client) MockFulfillIAPItemShort(params *MockFulfillIAPItemParams, authInfo runtime.ClientAuthInfoWriter) (*MockFulfillIAPItemNoContent, error) {
 	// TODO: Validate the params before sending
@@ -3574,6 +3711,10 @@ func (a *Client) MockFulfillIAPItemShort(params *MockFulfillIAPItemParams, authI
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -3679,6 +3820,10 @@ func (a *Client) GetIAPItemMappingShort(params *GetIAPItemMappingParams, authInf
 		params.SetHTTPClientTransport(params.RetryPolicy)
 	}
 
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
+	}
+
 	result, err := a.transport.Submit(&runtime.ClientOperation{
 		ID:                 "getIAPItemMapping",
 		Method:             "GET",
@@ -3716,8 +3861,8 @@ Sync my game twitch drops entitlements.
 
 Other detail info:
 
-  * Required permission : resource=NAMESPACE:{namespace}:IAP, action=4 (UPDATE)
-  *  Returns :
+  - Required permission : resource=NAMESPACE:{namespace}:IAP, action=4 (UPDATE)
+  - Returns :
 */
 func (a *Client) SyncTwitchDropsEntitlement(params *SyncTwitchDropsEntitlementParams, authInfo runtime.ClientAuthInfoWriter) (*SyncTwitchDropsEntitlementOK, *SyncTwitchDropsEntitlementBadRequest, error) {
 	// TODO: Validate the params before sending
@@ -3769,8 +3914,8 @@ Sync my game twitch drops entitlements.
 
 Other detail info:
 
-  * Required permission : resource=NAMESPACE:{namespace}:IAP, action=4 (UPDATE)
-  *  Returns :
+  - Required permission : resource=NAMESPACE:{namespace}:IAP, action=4 (UPDATE)
+  - Returns :
 */
 func (a *Client) SyncTwitchDropsEntitlementShort(params *SyncTwitchDropsEntitlementParams, authInfo runtime.ClientAuthInfoWriter) (*SyncTwitchDropsEntitlementOK, error) {
 	// TODO: Validate the params before sending
@@ -3784,6 +3929,10 @@ func (a *Client) SyncTwitchDropsEntitlementShort(params *SyncTwitchDropsEntitlem
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -3823,8 +3972,8 @@ Verify apple iap receipt and fulfill item.
 
 Other detail info:
 
-  * Required permission : resource="NAMESPACE:{namespace}:USER:{userId}:IAP", action=4 (UPDATE)
-  *  Returns :
+  - Required permission : resource="NAMESPACE:{namespace}:USER:{userId}:IAP", action=4 (UPDATE)
+  - Returns :
 */
 func (a *Client) PublicFulfillAppleIAPItem(params *PublicFulfillAppleIAPItemParams, authInfo runtime.ClientAuthInfoWriter) (*PublicFulfillAppleIAPItemNoContent, *PublicFulfillAppleIAPItemBadRequest, *PublicFulfillAppleIAPItemNotFound, *PublicFulfillAppleIAPItemConflict, error) {
 	// TODO: Validate the params before sending
@@ -3882,8 +4031,8 @@ Verify apple iap receipt and fulfill item.
 
 Other detail info:
 
-  * Required permission : resource="NAMESPACE:{namespace}:USER:{userId}:IAP", action=4 (UPDATE)
-  *  Returns :
+  - Required permission : resource="NAMESPACE:{namespace}:USER:{userId}:IAP", action=4 (UPDATE)
+  - Returns :
 */
 func (a *Client) PublicFulfillAppleIAPItemShort(params *PublicFulfillAppleIAPItemParams, authInfo runtime.ClientAuthInfoWriter) (*PublicFulfillAppleIAPItemNoContent, error) {
 	// TODO: Validate the params before sending
@@ -3897,6 +4046,10 @@ func (a *Client) PublicFulfillAppleIAPItemShort(params *PublicFulfillAppleIAPIte
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -3940,8 +4093,8 @@ Sync epic games inventory's items.
 
 Other detail info:
 
-  * Required permission : resource="NAMESPACE:{namespace}:USER:{userId}:IAP", action=4 (UPDATE)
-  *  Returns :
+  - Required permission : resource="NAMESPACE:{namespace}:USER:{userId}:IAP", action=4 (UPDATE)
+  - Returns :
 */
 func (a *Client) SyncEpicGamesInventory(params *SyncEpicGamesInventoryParams, authInfo runtime.ClientAuthInfoWriter) (*SyncEpicGamesInventoryOK, *SyncEpicGamesInventoryBadRequest, error) {
 	// TODO: Validate the params before sending
@@ -3993,8 +4146,8 @@ Sync epic games inventory's items.
 
 Other detail info:
 
-  * Required permission : resource="NAMESPACE:{namespace}:USER:{userId}:IAP", action=4 (UPDATE)
-  *  Returns :
+  - Required permission : resource="NAMESPACE:{namespace}:USER:{userId}:IAP", action=4 (UPDATE)
+  - Returns :
 */
 func (a *Client) SyncEpicGamesInventoryShort(params *SyncEpicGamesInventoryParams, authInfo runtime.ClientAuthInfoWriter) (*SyncEpicGamesInventoryOK, error) {
 	// TODO: Validate the params before sending
@@ -4008,6 +4161,10 @@ func (a *Client) SyncEpicGamesInventoryShort(params *SyncEpicGamesInventoryParam
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -4047,8 +4204,8 @@ Verify google iap receipt and fulfill item.
 
 Other detail info:
 
-  * Required permission : resource="NAMESPACE:{namespace}:USER:{userId}:IAP", action=4 (UPDATE)
-  *  Returns :
+  - Required permission : resource="NAMESPACE:{namespace}:USER:{userId}:IAP", action=4 (UPDATE)
+  - Returns :
 */
 func (a *Client) PublicFulfillGoogleIAPItem(params *PublicFulfillGoogleIAPItemParams, authInfo runtime.ClientAuthInfoWriter) (*PublicFulfillGoogleIAPItemOK, *PublicFulfillGoogleIAPItemBadRequest, *PublicFulfillGoogleIAPItemNotFound, *PublicFulfillGoogleIAPItemConflict, error) {
 	// TODO: Validate the params before sending
@@ -4106,8 +4263,8 @@ Verify google iap receipt and fulfill item.
 
 Other detail info:
 
-  * Required permission : resource="NAMESPACE:{namespace}:USER:{userId}:IAP", action=4 (UPDATE)
-  *  Returns :
+  - Required permission : resource="NAMESPACE:{namespace}:USER:{userId}:IAP", action=4 (UPDATE)
+  - Returns :
 */
 func (a *Client) PublicFulfillGoogleIAPItemShort(params *PublicFulfillGoogleIAPItemParams, authInfo runtime.ClientAuthInfoWriter) (*PublicFulfillGoogleIAPItemOK, error) {
 	// TODO: Validate the params before sending
@@ -4121,6 +4278,10 @@ func (a *Client) PublicFulfillGoogleIAPItemShort(params *PublicFulfillGoogleIAPI
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -4164,8 +4325,8 @@ Sync Oculus entitlements.
 
 Other detail info:
 
-  * Required permission : resource="NAMESPACE:{namespace}:USER:{userId}:IAP", action=4 (UPDATE)
-  *  Returns :
+  - Required permission : resource="NAMESPACE:{namespace}:USER:{userId}:IAP", action=4 (UPDATE)
+  - Returns :
 */
 func (a *Client) SyncOculusConsumableEntitlements(params *SyncOculusConsumableEntitlementsParams, authInfo runtime.ClientAuthInfoWriter) (*SyncOculusConsumableEntitlementsOK, *SyncOculusConsumableEntitlementsBadRequest, error) {
 	// TODO: Validate the params before sending
@@ -4217,8 +4378,8 @@ Sync Oculus entitlements.
 
 Other detail info:
 
-  * Required permission : resource="NAMESPACE:{namespace}:USER:{userId}:IAP", action=4 (UPDATE)
-  *  Returns :
+  - Required permission : resource="NAMESPACE:{namespace}:USER:{userId}:IAP", action=4 (UPDATE)
+  - Returns :
 */
 func (a *Client) SyncOculusConsumableEntitlementsShort(params *SyncOculusConsumableEntitlementsParams, authInfo runtime.ClientAuthInfoWriter) (*SyncOculusConsumableEntitlementsOK, error) {
 	// TODO: Validate the params before sending
@@ -4232,6 +4393,10 @@ func (a *Client) SyncOculusConsumableEntitlementsShort(params *SyncOculusConsuma
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -4271,8 +4436,8 @@ Synchronize with entitlements in PSN Store.
 
 Other detail info:
 
-  * Required permission : resource="NAMESPACE:{namespace}:USER:{userId}:IAP", action=4 (UPDATE)
-  *  Returns : result of synchronization
+  - Required permission : resource="NAMESPACE:{namespace}:USER:{userId}:IAP", action=4 (UPDATE)
+  - Returns : result of synchronization
 */
 func (a *Client) PublicReconcilePlayStationStore(params *PublicReconcilePlayStationStoreParams, authInfo runtime.ClientAuthInfoWriter) (*PublicReconcilePlayStationStoreOK, *PublicReconcilePlayStationStoreBadRequest, error) {
 	// TODO: Validate the params before sending
@@ -4324,8 +4489,8 @@ Synchronize with entitlements in PSN Store.
 
 Other detail info:
 
-  * Required permission : resource="NAMESPACE:{namespace}:USER:{userId}:IAP", action=4 (UPDATE)
-  *  Returns : result of synchronization
+  - Required permission : resource="NAMESPACE:{namespace}:USER:{userId}:IAP", action=4 (UPDATE)
+  - Returns : result of synchronization
 */
 func (a *Client) PublicReconcilePlayStationStoreShort(params *PublicReconcilePlayStationStoreParams, authInfo runtime.ClientAuthInfoWriter) (*PublicReconcilePlayStationStoreOK, error) {
 	// TODO: Validate the params before sending
@@ -4339,6 +4504,10 @@ func (a *Client) PublicReconcilePlayStationStoreShort(params *PublicReconcilePla
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -4378,8 +4547,8 @@ Synchronize with entitlements in PSN Store with multiple service labels.
 
 Other detail info:
 
-  * Required permission : resource="NAMESPACE:{namespace}:USER:{userId}:IAP", action=4 (UPDATE)
-  *  Returns : result of synchronization
+  - Required permission : resource="NAMESPACE:{namespace}:USER:{userId}:IAP", action=4 (UPDATE)
+  - Returns : result of synchronization
 */
 func (a *Client) PublicReconcilePlayStationStoreWithMultipleServiceLabels(params *PublicReconcilePlayStationStoreWithMultipleServiceLabelsParams, authInfo runtime.ClientAuthInfoWriter) (*PublicReconcilePlayStationStoreWithMultipleServiceLabelsOK, *PublicReconcilePlayStationStoreWithMultipleServiceLabelsBadRequest, error) {
 	// TODO: Validate the params before sending
@@ -4431,8 +4600,8 @@ Synchronize with entitlements in PSN Store with multiple service labels.
 
 Other detail info:
 
-  * Required permission : resource="NAMESPACE:{namespace}:USER:{userId}:IAP", action=4 (UPDATE)
-  *  Returns : result of synchronization
+  - Required permission : resource="NAMESPACE:{namespace}:USER:{userId}:IAP", action=4 (UPDATE)
+  - Returns : result of synchronization
 */
 func (a *Client) PublicReconcilePlayStationStoreWithMultipleServiceLabelsShort(params *PublicReconcilePlayStationStoreWithMultipleServiceLabelsParams, authInfo runtime.ClientAuthInfoWriter) (*PublicReconcilePlayStationStoreWithMultipleServiceLabelsOK, error) {
 	// TODO: Validate the params before sending
@@ -4446,6 +4615,10 @@ func (a *Client) PublicReconcilePlayStationStoreWithMultipleServiceLabelsShort(p
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -4485,8 +4658,8 @@ Sync steam inventory's items.
 
 Other detail info:
 
-  * Required permission : resource="NAMESPACE:{namespace}:USER:{userId}:IAP", action=4 (UPDATE)
-  *  Returns :
+  - Required permission : resource="NAMESPACE:{namespace}:USER:{userId}:IAP", action=4 (UPDATE)
+  - Returns :
 */
 func (a *Client) SyncSteamInventory(params *SyncSteamInventoryParams, authInfo runtime.ClientAuthInfoWriter) (*SyncSteamInventoryNoContent, *SyncSteamInventoryBadRequest, error) {
 	// TODO: Validate the params before sending
@@ -4538,8 +4711,8 @@ Sync steam inventory's items.
 
 Other detail info:
 
-  * Required permission : resource="NAMESPACE:{namespace}:USER:{userId}:IAP", action=4 (UPDATE)
-  *  Returns :
+  - Required permission : resource="NAMESPACE:{namespace}:USER:{userId}:IAP", action=4 (UPDATE)
+  - Returns :
 */
 func (a *Client) SyncSteamInventoryShort(params *SyncSteamInventoryParams, authInfo runtime.ClientAuthInfoWriter) (*SyncSteamInventoryNoContent, error) {
 	// TODO: Validate the params before sending
@@ -4553,6 +4726,10 @@ func (a *Client) SyncSteamInventoryShort(params *SyncSteamInventoryParams, authI
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -4592,8 +4769,8 @@ Sync twitch drops entitlements.
 
 Other detail info:
 
-  * Required permission : resource="NAMESPACE:{namespace}:USER:{userId}:IAP", action=4 (UPDATE)
-  *  Returns :
+  - Required permission : resource="NAMESPACE:{namespace}:USER:{userId}:IAP", action=4 (UPDATE)
+  - Returns :
 */
 func (a *Client) SyncTwitchDropsEntitlement1(params *SyncTwitchDropsEntitlement1Params, authInfo runtime.ClientAuthInfoWriter) (*SyncTwitchDropsEntitlement1NoContent, *SyncTwitchDropsEntitlement1BadRequest, error) {
 	// TODO: Validate the params before sending
@@ -4645,8 +4822,8 @@ Sync twitch drops entitlements.
 
 Other detail info:
 
-  * Required permission : resource="NAMESPACE:{namespace}:USER:{userId}:IAP", action=4 (UPDATE)
-  *  Returns :
+  - Required permission : resource="NAMESPACE:{namespace}:USER:{userId}:IAP", action=4 (UPDATE)
+  - Returns :
 */
 func (a *Client) SyncTwitchDropsEntitlement1Short(params *SyncTwitchDropsEntitlement1Params, authInfo runtime.ClientAuthInfoWriter) (*SyncTwitchDropsEntitlement1NoContent, error) {
 	// TODO: Validate the params before sending
@@ -4660,6 +4837,10 @@ func (a *Client) SyncTwitchDropsEntitlement1Short(params *SyncTwitchDropsEntitle
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -4699,8 +4880,8 @@ Sync Xbox inventory's items.
 
 Other detail info:
 
-  * Required permission : resource="NAMESPACE:{namespace}:USER:{userId}:IAP", action=4 (UPDATE)
-  *  Returns :
+  - Required permission : resource="NAMESPACE:{namespace}:USER:{userId}:IAP", action=4 (UPDATE)
+  - Returns :
 */
 func (a *Client) SyncXboxInventory(params *SyncXboxInventoryParams, authInfo runtime.ClientAuthInfoWriter) (*SyncXboxInventoryOK, *SyncXboxInventoryBadRequest, error) {
 	// TODO: Validate the params before sending
@@ -4752,8 +4933,8 @@ Sync Xbox inventory's items.
 
 Other detail info:
 
-  * Required permission : resource="NAMESPACE:{namespace}:USER:{userId}:IAP", action=4 (UPDATE)
-  *  Returns :
+  - Required permission : resource="NAMESPACE:{namespace}:USER:{userId}:IAP", action=4 (UPDATE)
+  - Returns :
 */
 func (a *Client) SyncXboxInventoryShort(params *SyncXboxInventoryParams, authInfo runtime.ClientAuthInfoWriter) (*SyncXboxInventoryOK, error) {
 	// TODO: Validate the params before sending
@@ -4767,6 +4948,10 @@ func (a *Client) SyncXboxInventoryShort(params *SyncXboxInventoryParams, authInf
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{

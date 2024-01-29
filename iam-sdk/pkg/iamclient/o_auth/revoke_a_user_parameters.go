@@ -57,7 +57,8 @@ func NewRevokeAUserParamsWithHTTPClient(client *http.Client) *RevokeAUserParams 
 	}
 }
 
-/*RevokeAUserParams contains all the parameters to send to the API endpoint
+/*
+RevokeAUserParams contains all the parameters to send to the API endpoint
 for the revoke a user operation typically these are written to a http.Request
 */
 type RevokeAUserParams struct {
@@ -74,6 +75,9 @@ type RevokeAUserParams struct {
 	AuthInfoWriter runtime.ClientAuthInfoWriter
 	Context        context.Context
 	HTTPClient     *http.Client
+
+	// XFlightId is an optional parameter from this SDK
+	XFlightId *string
 }
 
 // WithTimeout adds the timeout to the revoke a user params
@@ -123,6 +127,15 @@ func (o *RevokeAUserParams) SetHTTPClientTransport(roundTripper http.RoundTrippe
 	}
 }
 
+// SetFlightId adds the flightId as the header value for this specific endpoint
+func (o *RevokeAUserParams) SetFlightId(flightId string) {
+	if o.XFlightId != nil {
+		o.XFlightId = &flightId
+	} else {
+		o.XFlightId = &utils.GetDefaultFlightID().Value
+	}
+}
+
 // WithUserID adds the userID to the revoke a user params
 func (o *RevokeAUserParams) WithUserID(userID string) *RevokeAUserParams {
 	o.SetUserID(userID)
@@ -154,6 +167,16 @@ func (o *RevokeAUserParams) WriteToRequest(r runtime.ClientRequest, reg strfmt.R
 	// setting the default header value
 	if err := r.SetHeaderParam("X-Amzn-Trace-Id", utils.AmazonTraceIDGen()); err != nil {
 		return err
+	}
+
+	if o.XFlightId == nil {
+		if err := r.SetHeaderParam("X-Flight-Id", utils.GetDefaultFlightID().Value); err != nil {
+			return err
+		}
+	} else {
+		if err := r.SetHeaderParam("X-Flight-Id", *o.XFlightId); err != nil {
+			return err
+		}
 	}
 
 	if len(res) > 0 {

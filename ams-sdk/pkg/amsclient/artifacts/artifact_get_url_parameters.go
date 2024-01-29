@@ -57,7 +57,8 @@ func NewArtifactGetURLParamsWithHTTPClient(client *http.Client) *ArtifactGetURLP
 	}
 }
 
-/*ArtifactGetURLParams contains all the parameters to send to the API endpoint
+/*
+ArtifactGetURLParams contains all the parameters to send to the API endpoint
 for the artifact get url operation typically these are written to a http.Request
 */
 type ArtifactGetURLParams struct {
@@ -79,6 +80,9 @@ type ArtifactGetURLParams struct {
 	AuthInfoWriter runtime.ClientAuthInfoWriter
 	Context        context.Context
 	HTTPClient     *http.Client
+
+	// XFlightId is an optional parameter from this SDK
+	XFlightId *string
 }
 
 // WithTimeout adds the timeout to the artifact get url params
@@ -128,6 +132,15 @@ func (o *ArtifactGetURLParams) SetHTTPClientTransport(roundTripper http.RoundTri
 	}
 }
 
+// SetFlightId adds the flightId as the header value for this specific endpoint
+func (o *ArtifactGetURLParams) SetFlightId(flightId string) {
+	if o.XFlightId != nil {
+		o.XFlightId = &flightId
+	} else {
+		o.XFlightId = &utils.GetDefaultFlightID().Value
+	}
+}
+
 // WithArtifactID adds the artifactID to the artifact get url params
 func (o *ArtifactGetURLParams) WithArtifactID(artifactID string) *ArtifactGetURLParams {
 	o.SetArtifactID(artifactID)
@@ -171,6 +184,16 @@ func (o *ArtifactGetURLParams) WriteToRequest(r runtime.ClientRequest, reg strfm
 	// setting the default header value
 	if err := r.SetHeaderParam("X-Amzn-Trace-Id", utils.AmazonTraceIDGen()); err != nil {
 		return err
+	}
+
+	if o.XFlightId == nil {
+		if err := r.SetHeaderParam("X-Flight-Id", utils.GetDefaultFlightID().Value); err != nil {
+			return err
+		}
+	} else {
+		if err := r.SetHeaderParam("X-Flight-Id", *o.XFlightId); err != nil {
+			return err
+		}
 	}
 
 	if len(res) > 0 {

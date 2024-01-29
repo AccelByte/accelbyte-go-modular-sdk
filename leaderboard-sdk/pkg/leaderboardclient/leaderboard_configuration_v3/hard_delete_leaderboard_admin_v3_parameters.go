@@ -57,7 +57,8 @@ func NewHardDeleteLeaderboardAdminV3ParamsWithHTTPClient(client *http.Client) *H
 	}
 }
 
-/*HardDeleteLeaderboardAdminV3Params contains all the parameters to send to the API endpoint
+/*
+HardDeleteLeaderboardAdminV3Params contains all the parameters to send to the API endpoint
 for the hard delete leaderboard admin v3 operation typically these are written to a http.Request
 */
 type HardDeleteLeaderboardAdminV3Params struct {
@@ -79,6 +80,9 @@ type HardDeleteLeaderboardAdminV3Params struct {
 	AuthInfoWriter runtime.ClientAuthInfoWriter
 	Context        context.Context
 	HTTPClient     *http.Client
+
+	// XFlightId is an optional parameter from this SDK
+	XFlightId *string
 }
 
 // WithTimeout adds the timeout to the hard delete leaderboard admin v3 params
@@ -128,6 +132,15 @@ func (o *HardDeleteLeaderboardAdminV3Params) SetHTTPClientTransport(roundTripper
 	}
 }
 
+// SetFlightId adds the flightId as the header value for this specific endpoint
+func (o *HardDeleteLeaderboardAdminV3Params) SetFlightId(flightId string) {
+	if o.XFlightId != nil {
+		o.XFlightId = &flightId
+	} else {
+		o.XFlightId = &utils.GetDefaultFlightID().Value
+	}
+}
+
 // WithLeaderboardCode adds the leaderboardCode to the hard delete leaderboard admin v3 params
 func (o *HardDeleteLeaderboardAdminV3Params) WithLeaderboardCode(leaderboardCode string) *HardDeleteLeaderboardAdminV3Params {
 	o.SetLeaderboardCode(leaderboardCode)
@@ -171,6 +184,16 @@ func (o *HardDeleteLeaderboardAdminV3Params) WriteToRequest(r runtime.ClientRequ
 	// setting the default header value
 	if err := r.SetHeaderParam("X-Amzn-Trace-Id", utils.AmazonTraceIDGen()); err != nil {
 		return err
+	}
+
+	if o.XFlightId == nil {
+		if err := r.SetHeaderParam("X-Flight-Id", utils.GetDefaultFlightID().Value); err != nil {
+			return err
+		}
+	} else {
+		if err := r.SetHeaderParam("X-Flight-Id", *o.XFlightId); err != nil {
+			return err
+		}
 	}
 
 	if len(res) > 0 {

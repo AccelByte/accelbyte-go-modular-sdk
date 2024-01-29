@@ -138,6 +138,10 @@ func (a *Client) ListConfigShort(params *ListConfigParams, authInfo runtime.Clie
 		params.SetHTTPClientTransport(params.RetryPolicy)
 	}
 
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
+	}
+
 	result, err := a.transport.Submit(&runtime.ClientOperation{
 		ID:                 "ListConfig",
 		Method:             "GET",
@@ -389,6 +393,10 @@ func (a *Client) SaveConfigShort(params *SaveConfigParams, authInfo runtime.Clie
 		params.SetHTTPClientTransport(params.RetryPolicy)
 	}
 
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
+	}
+
 	result, err := a.transport.Submit(&runtime.ClientOperation{
 		ID:                 "SaveConfig",
 		Method:             "POST",
@@ -502,6 +510,10 @@ func (a *Client) GetConfigShort(params *GetConfigParams, authInfo runtime.Client
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -678,6 +690,10 @@ func (a *Client) CreateConfigShort(params *CreateConfigParams, authInfo runtime.
 		params.SetHTTPClientTransport(params.RetryPolicy)
 	}
 
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
+	}
+
 	result, err := a.transport.Submit(&runtime.ClientOperation{
 		ID:                 "CreateConfig",
 		Method:             "POST",
@@ -800,6 +816,10 @@ func (a *Client) DeleteConfigShort(params *DeleteConfigParams, authInfo runtime.
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -980,6 +1000,10 @@ func (a *Client) UpdateConfigShort(params *UpdateConfigParams, authInfo runtime.
 		params.SetHTTPClientTransport(params.RetryPolicy)
 	}
 
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
+	}
+
 	result, err := a.transport.Submit(&runtime.ClientOperation{
 		ID:                 "UpdateConfig",
 		Method:             "PATCH",
@@ -1092,6 +1116,10 @@ func (a *Client) ClearCacheShort(params *ClearCacheParams, authInfo runtime.Clie
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -1211,6 +1239,10 @@ func (a *Client) AddPortShort(params *AddPortParams, authInfo runtime.ClientAuth
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -1335,6 +1367,10 @@ func (a *Client) DeletePortShort(params *DeletePortParams, authInfo runtime.Clie
 		params.SetHTTPClientTransport(params.RetryPolicy)
 	}
 
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
+	}
+
 	result, err := a.transport.Submit(&runtime.ClientOperation{
 		ID:                 "DeletePort",
 		Method:             "DELETE",
@@ -1455,6 +1491,10 @@ func (a *Client) UpdatePortShort(params *UpdatePortParams, authInfo runtime.Clie
 		params.SetHTTPClientTransport(params.RetryPolicy)
 	}
 
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
+	}
+
 	result, err := a.transport.Submit(&runtime.ClientOperation{
 		ID:                 "UpdatePort",
 		Method:             "PATCH",
@@ -1573,6 +1613,10 @@ func (a *Client) ExportConfigV1Short(params *ExportConfigV1Params, authInfo runt
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -1700,6 +1744,10 @@ func (a *Client) ImportConfigV1Short(params *ImportConfigV1Params, authInfo runt
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{

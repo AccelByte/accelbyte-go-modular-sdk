@@ -105,6 +105,10 @@ func (a *Client) GetHealthcheckInfoShort(params *GetHealthcheckInfoParams, authI
 		params.SetHTTPClientTransport(params.RetryPolicy)
 	}
 
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
+	}
+
 	result, err := a.transport.Submit(&runtime.ClientOperation{
 		ID:                 "GetHealthcheckInfo",
 		Method:             "GET",
@@ -193,6 +197,10 @@ func (a *Client) HandlerV3HealthzShort(params *HandlerV3HealthzParams, authInfo 
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -290,6 +298,10 @@ func (a *Client) PublicGetMessagesShort(params *PublicGetMessagesParams, authInf
 		params.SetHTTPClientTransport(params.RetryPolicy)
 	}
 
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
+	}
+
 	result, err := a.transport.Submit(&runtime.ClientOperation{
 		ID:                 "publicGetMessages",
 		Method:             "GET",
@@ -380,6 +392,10 @@ func (a *Client) VersionCheckHandlerShort(params *VersionCheckHandlerParams, aut
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{

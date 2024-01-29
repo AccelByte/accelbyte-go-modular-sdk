@@ -59,7 +59,8 @@ func NewAdminProfanityCreateParamsWithHTTPClient(client *http.Client) *AdminProf
 	}
 }
 
-/*AdminProfanityCreateParams contains all the parameters to send to the API endpoint
+/*
+AdminProfanityCreateParams contains all the parameters to send to the API endpoint
 for the admin profanity create operation typically these are written to a http.Request
 */
 type AdminProfanityCreateParams struct {
@@ -78,6 +79,9 @@ type AdminProfanityCreateParams struct {
 	AuthInfoWriter runtime.ClientAuthInfoWriter
 	Context        context.Context
 	HTTPClient     *http.Client
+
+	// XFlightId is an optional parameter from this SDK
+	XFlightId *string
 }
 
 // WithTimeout adds the timeout to the admin profanity create params
@@ -127,6 +131,15 @@ func (o *AdminProfanityCreateParams) SetHTTPClientTransport(roundTripper http.Ro
 	}
 }
 
+// SetFlightId adds the flightId as the header value for this specific endpoint
+func (o *AdminProfanityCreateParams) SetFlightId(flightId string) {
+	if o.XFlightId != nil {
+		o.XFlightId = &flightId
+	} else {
+		o.XFlightId = &utils.GetDefaultFlightID().Value
+	}
+}
+
 // WithBody adds the body to the admin profanity create params
 func (o *AdminProfanityCreateParams) WithBody(body *chatclientmodels.ModelsDictionaryInsertRequest) *AdminProfanityCreateParams {
 	o.SetBody(body)
@@ -171,6 +184,16 @@ func (o *AdminProfanityCreateParams) WriteToRequest(r runtime.ClientRequest, reg
 	// setting the default header value
 	if err := r.SetHeaderParam("X-Amzn-Trace-Id", utils.AmazonTraceIDGen()); err != nil {
 		return err
+	}
+
+	if o.XFlightId == nil {
+		if err := r.SetHeaderParam("X-Flight-Id", utils.GetDefaultFlightID().Value); err != nil {
+			return err
+		}
+	} else {
+		if err := r.SetHeaderParam("X-Flight-Id", *o.XFlightId); err != nil {
+			return err
+		}
 	}
 
 	if len(res) > 0 {

@@ -68,8 +68,8 @@ This API is used to get root categories.
 
 Other detail info:
 
-  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:CATEGORY", action=2 (READ)
-  *  Returns : root category data
+  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:CATEGORY", action=2 (READ)
+  - Returns : root category data
 */
 func (a *Client) GetRootCategories(params *GetRootCategoriesParams, authInfo runtime.ClientAuthInfoWriter) (*GetRootCategoriesOK, error) {
 	// TODO: Validate the params before sending
@@ -118,8 +118,8 @@ This API is used to get root categories.
 
 Other detail info:
 
-  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:CATEGORY", action=2 (READ)
-  *  Returns : root category data
+  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:CATEGORY", action=2 (READ)
+  - Returns : root category data
 */
 func (a *Client) GetRootCategoriesShort(params *GetRootCategoriesParams, authInfo runtime.ClientAuthInfoWriter) (*GetRootCategoriesOK, error) {
 	// TODO: Validate the params before sending
@@ -133,6 +133,10 @@ func (a *Client) GetRootCategoriesShort(params *GetRootCategoriesParams, authInf
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -170,19 +174,18 @@ This API is used to create category.
 
 A category is a path separated by "/". A category also has localized display names. Example:
 
+	{
 
-    {
+	    "categoryPath": "/games",
 
-        "categoryPath": "/games",
+	    "localizationDisplayNames": {"en" : "Games"}
 
-        "localizationDisplayNames": {"en" : "Games"}
-
-    }
+	}
 
 Other detail info:
 
-  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:CATEGORY", action=1 (CREATE)
-  *  Returns : created category data
+  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:CATEGORY", action=1 (CREATE)
+  - Returns : created category data
 */
 func (a *Client) CreateCategory(params *CreateCategoryParams, authInfo runtime.ClientAuthInfoWriter) (*CreateCategoryCreated, *CreateCategoryBadRequest, *CreateCategoryNotFound, *CreateCategoryConflict, *CreateCategoryUnprocessableEntity, error) {
 	// TODO: Validate the params before sending
@@ -243,19 +246,18 @@ This API is used to create category.
 
 A category is a path separated by "/". A category also has localized display names. Example:
 
+	{
 
-    {
+	    "categoryPath": "/games",
 
-        "categoryPath": "/games",
+	    "localizationDisplayNames": {"en" : "Games"}
 
-        "localizationDisplayNames": {"en" : "Games"}
-
-    }
+	}
 
 Other detail info:
 
-  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:CATEGORY", action=1 (CREATE)
-  *  Returns : created category data
+  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:CATEGORY", action=1 (CREATE)
+  - Returns : created category data
 */
 func (a *Client) CreateCategoryShort(params *CreateCategoryParams, authInfo runtime.ClientAuthInfoWriter) (*CreateCategoryCreated, error) {
 	// TODO: Validate the params before sending
@@ -269,6 +271,10 @@ func (a *Client) CreateCategoryShort(params *CreateCategoryParams, authInfo runt
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -314,8 +320,8 @@ This API is used to list all categories' basic info of a store ordered by catego
 
 Other detail info:
 
-  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:CATEGORY", action=2 (READ)
-  *  Returns : list of categories' paths
+  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:CATEGORY", action=2 (READ)
+  - Returns : list of categories' paths
 */
 func (a *Client) ListCategoriesBasic(params *ListCategoriesBasicParams, authInfo runtime.ClientAuthInfoWriter) (*ListCategoriesBasicOK, error) {
 	// TODO: Validate the params before sending
@@ -364,8 +370,8 @@ This API is used to list all categories' basic info of a store ordered by catego
 
 Other detail info:
 
-  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:CATEGORY", action=2 (READ)
-  *  Returns : list of categories' paths
+  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:CATEGORY", action=2 (READ)
+  - Returns : list of categories' paths
 */
 func (a *Client) ListCategoriesBasicShort(params *ListCategoriesBasicParams, authInfo runtime.ClientAuthInfoWriter) (*ListCategoriesBasicOK, error) {
 	// TODO: Validate the params before sending
@@ -379,6 +385,10 @@ func (a *Client) ListCategoriesBasicShort(params *ListCategoriesBasicParams, aut
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -416,8 +426,8 @@ This API is used to get category by category path.
 
 Other detail info:
 
-  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:CATEGORY", action=2 (READ)
-  *  Returns : category data
+  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:CATEGORY", action=2 (READ)
+  - Returns : category data
 */
 func (a *Client) GetCategory(params *GetCategoryParams, authInfo runtime.ClientAuthInfoWriter) (*GetCategoryOK, *GetCategoryNotFound, error) {
 	// TODO: Validate the params before sending
@@ -469,8 +479,8 @@ This API is used to get category by category path.
 
 Other detail info:
 
-  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:CATEGORY", action=2 (READ)
-  *  Returns : category data
+  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:CATEGORY", action=2 (READ)
+  - Returns : category data
 */
 func (a *Client) GetCategoryShort(params *GetCategoryParams, authInfo runtime.ClientAuthInfoWriter) (*GetCategoryOK, error) {
 	// TODO: Validate the params before sending
@@ -484,6 +494,10 @@ func (a *Client) GetCategoryShort(params *GetCategoryParams, authInfo runtime.Cl
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -523,19 +537,18 @@ This API is used to update category.
 
 The category update data is a category object, example as:
 
+	{
 
-    {
+	    "storeId": "store-id",
 
-        "storeId": "store-id",
+	    "localizationDisplayNames": {"en" : "Games"}
 
-        "localizationDisplayNames": {"en" : "Games"}
-
-    }
+	}
 
 Other detail info:
 
-  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:CATEGORY", action=4 (UPDATE)
-  *  Returns : the updated category data
+  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:CATEGORY", action=4 (UPDATE)
+  - Returns : the updated category data
 */
 func (a *Client) UpdateCategory(params *UpdateCategoryParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateCategoryOK, *UpdateCategoryBadRequest, *UpdateCategoryNotFound, *UpdateCategoryConflict, *UpdateCategoryUnprocessableEntity, error) {
 	// TODO: Validate the params before sending
@@ -596,19 +609,18 @@ This API is used to update category.
 
 The category update data is a category object, example as:
 
+	{
 
-    {
+	    "storeId": "store-id",
 
-        "storeId": "store-id",
+	    "localizationDisplayNames": {"en" : "Games"}
 
-        "localizationDisplayNames": {"en" : "Games"}
-
-    }
+	}
 
 Other detail info:
 
-  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:CATEGORY", action=4 (UPDATE)
-  *  Returns : the updated category data
+  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:CATEGORY", action=4 (UPDATE)
+  - Returns : the updated category data
 */
 func (a *Client) UpdateCategoryShort(params *UpdateCategoryParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateCategoryOK, error) {
 	// TODO: Validate the params before sending
@@ -622,6 +634,10 @@ func (a *Client) UpdateCategoryShort(params *UpdateCategoryParams, authInfo runt
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -667,8 +683,8 @@ This API is used to delete category by category path.
 
 Other detail info:
 
-  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:CATEGORY", action=8 (DELETE)
-  *  Returns : the deleted category data
+  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:CATEGORY", action=8 (DELETE)
+  - Returns : the deleted category data
 */
 func (a *Client) DeleteCategory(params *DeleteCategoryParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteCategoryOK, *DeleteCategoryNotFound, *DeleteCategoryConflict, error) {
 	// TODO: Validate the params before sending
@@ -723,8 +739,8 @@ This API is used to delete category by category path.
 
 Other detail info:
 
-  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:CATEGORY", action=8 (DELETE)
-  *  Returns : the deleted category data
+  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:CATEGORY", action=8 (DELETE)
+  - Returns : the deleted category data
 */
 func (a *Client) DeleteCategoryShort(params *DeleteCategoryParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteCategoryOK, error) {
 	// TODO: Validate the params before sending
@@ -738,6 +754,10 @@ func (a *Client) DeleteCategoryShort(params *DeleteCategoryParams, authInfo runt
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -779,8 +799,8 @@ This API is used to get child categories by category path.
 
 Other detail info:
 
-  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:CATEGORY", action=2 (READ)
-  *  Returns : list of child categories data
+  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:CATEGORY", action=2 (READ)
+  - Returns : list of child categories data
 */
 func (a *Client) GetChildCategories(params *GetChildCategoriesParams, authInfo runtime.ClientAuthInfoWriter) (*GetChildCategoriesOK, error) {
 	// TODO: Validate the params before sending
@@ -829,8 +849,8 @@ This API is used to get child categories by category path.
 
 Other detail info:
 
-  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:CATEGORY", action=2 (READ)
-  *  Returns : list of child categories data
+  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:CATEGORY", action=2 (READ)
+  - Returns : list of child categories data
 */
 func (a *Client) GetChildCategoriesShort(params *GetChildCategoriesParams, authInfo runtime.ClientAuthInfoWriter) (*GetChildCategoriesOK, error) {
 	// TODO: Validate the params before sending
@@ -844,6 +864,10 @@ func (a *Client) GetChildCategoriesShort(params *GetChildCategoriesParams, authI
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -881,8 +905,8 @@ This API is used to get descendant categories by category path.
 
 Other detail info:
 
-  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:CATEGORY", action=2 (READ)
-  *  Returns : list of descendant categories data
+  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:CATEGORY", action=2 (READ)
+  - Returns : list of descendant categories data
 */
 func (a *Client) GetDescendantCategories(params *GetDescendantCategoriesParams, authInfo runtime.ClientAuthInfoWriter) (*GetDescendantCategoriesOK, error) {
 	// TODO: Validate the params before sending
@@ -931,8 +955,8 @@ This API is used to get descendant categories by category path.
 
 Other detail info:
 
-  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:CATEGORY", action=2 (READ)
-  *  Returns : list of descendant categories data
+  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:CATEGORY", action=2 (READ)
+  - Returns : list of descendant categories data
 */
 func (a *Client) GetDescendantCategoriesShort(params *GetDescendantCategoriesParams, authInfo runtime.ClientAuthInfoWriter) (*GetDescendantCategoriesOK, error) {
 	// TODO: Validate the params before sending
@@ -946,6 +970,10 @@ func (a *Client) GetDescendantCategoriesShort(params *GetDescendantCategoriesPar
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -983,9 +1011,9 @@ This API is used to get root categories.
 
 Other detail info:
 
-  * Optional permission : resource="PREVIEW", action=1(CREATE) (user with this permission can view draft store category)
-  *  Optional permission : resource="SANDBOX", action=1(CREATE) (user with this permission can view draft store category)
-  *  Returns : root category data
+  - Optional permission : resource="PREVIEW", action=1(CREATE) (user with this permission can view draft store category)
+  - Optional permission : resource="SANDBOX", action=1(CREATE) (user with this permission can view draft store category)
+  - Returns : root category data
 */
 func (a *Client) PublicGetRootCategories(params *PublicGetRootCategoriesParams) (*PublicGetRootCategoriesOK, error) {
 	// TODO: Validate the params before sending
@@ -1033,9 +1061,9 @@ This API is used to get root categories.
 
 Other detail info:
 
-  * Optional permission : resource="PREVIEW", action=1(CREATE) (user with this permission can view draft store category)
-  *  Optional permission : resource="SANDBOX", action=1(CREATE) (user with this permission can view draft store category)
-  *  Returns : root category data
+  - Optional permission : resource="PREVIEW", action=1(CREATE) (user with this permission can view draft store category)
+  - Optional permission : resource="SANDBOX", action=1(CREATE) (user with this permission can view draft store category)
+  - Returns : root category data
 */
 func (a *Client) PublicGetRootCategoriesShort(params *PublicGetRootCategoriesParams) (*PublicGetRootCategoriesOK, error) {
 	// TODO: Validate the params before sending
@@ -1049,6 +1077,10 @@ func (a *Client) PublicGetRootCategoriesShort(params *PublicGetRootCategoriesPar
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -1085,9 +1117,9 @@ This API is used to download store's structured categories.
 
 Other detail info:
 
-  * Optional permission : resource="PREVIEW", action=1(CREATE) (user with this permission can view draft store content)
-  *  Optional permission : resource="SANDBOX", action=1(CREATE) (user with this permission can view draft store content)
-  *  Returns : structured categories
+  - Optional permission : resource="PREVIEW", action=1(CREATE) (user with this permission can view draft store content)
+  - Optional permission : resource="SANDBOX", action=1(CREATE) (user with this permission can view draft store content)
+  - Returns : structured categories
 */
 func (a *Client) DownloadCategories(params *DownloadCategoriesParams) (*DownloadCategoriesOK, *DownloadCategoriesNotFound, error) {
 	// TODO: Validate the params before sending
@@ -1138,9 +1170,9 @@ This API is used to download store's structured categories.
 
 Other detail info:
 
-  * Optional permission : resource="PREVIEW", action=1(CREATE) (user with this permission can view draft store content)
-  *  Optional permission : resource="SANDBOX", action=1(CREATE) (user with this permission can view draft store content)
-  *  Returns : structured categories
+  - Optional permission : resource="PREVIEW", action=1(CREATE) (user with this permission can view draft store content)
+  - Optional permission : resource="SANDBOX", action=1(CREATE) (user with this permission can view draft store content)
+  - Returns : structured categories
 */
 func (a *Client) DownloadCategoriesShort(params *DownloadCategoriesParams) (*DownloadCategoriesOK, error) {
 	// TODO: Validate the params before sending
@@ -1154,6 +1186,10 @@ func (a *Client) DownloadCategoriesShort(params *DownloadCategoriesParams) (*Dow
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -1192,9 +1228,9 @@ This API is used to get category by category path.
 
 Other detail info:
 
-  * Optional permission : resource="PREVIEW", action=1(CREATE) (user with this permission can view draft store category)
-  *  Optional permission : resource="SANDBOX", action=1 (CREATE)(user with this permission can view draft store category)
-  *  Returns : category data
+  - Optional permission : resource="PREVIEW", action=1(CREATE) (user with this permission can view draft store category)
+  - Optional permission : resource="SANDBOX", action=1 (CREATE)(user with this permission can view draft store category)
+  - Returns : category data
 */
 func (a *Client) PublicGetCategory(params *PublicGetCategoryParams) (*PublicGetCategoryOK, *PublicGetCategoryNotFound, error) {
 	// TODO: Validate the params before sending
@@ -1245,9 +1281,9 @@ This API is used to get category by category path.
 
 Other detail info:
 
-  * Optional permission : resource="PREVIEW", action=1(CREATE) (user with this permission can view draft store category)
-  *  Optional permission : resource="SANDBOX", action=1 (CREATE)(user with this permission can view draft store category)
-  *  Returns : category data
+  - Optional permission : resource="PREVIEW", action=1(CREATE) (user with this permission can view draft store category)
+  - Optional permission : resource="SANDBOX", action=1 (CREATE)(user with this permission can view draft store category)
+  - Returns : category data
 */
 func (a *Client) PublicGetCategoryShort(params *PublicGetCategoryParams) (*PublicGetCategoryOK, error) {
 	// TODO: Validate the params before sending
@@ -1261,6 +1297,10 @@ func (a *Client) PublicGetCategoryShort(params *PublicGetCategoryParams) (*Publi
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -1299,9 +1339,9 @@ This API is used to get child categories by category path.
 
 Other detail info:
 
-  * Optional permission : resource="PREVIEW", action=1(CREATE) (user with this permission can view draft store category)
-  *  Optional permission : resource="SANDBOX", action=1(CREATE) (user with this permission can view draft store category)
-  *  Returns : list of child categories data
+  - Optional permission : resource="PREVIEW", action=1(CREATE) (user with this permission can view draft store category)
+  - Optional permission : resource="SANDBOX", action=1(CREATE) (user with this permission can view draft store category)
+  - Returns : list of child categories data
 */
 func (a *Client) PublicGetChildCategories(params *PublicGetChildCategoriesParams) (*PublicGetChildCategoriesOK, error) {
 	// TODO: Validate the params before sending
@@ -1349,9 +1389,9 @@ This API is used to get child categories by category path.
 
 Other detail info:
 
-  * Optional permission : resource="PREVIEW", action=1(CREATE) (user with this permission can view draft store category)
-  *  Optional permission : resource="SANDBOX", action=1(CREATE) (user with this permission can view draft store category)
-  *  Returns : list of child categories data
+  - Optional permission : resource="PREVIEW", action=1(CREATE) (user with this permission can view draft store category)
+  - Optional permission : resource="SANDBOX", action=1(CREATE) (user with this permission can view draft store category)
+  - Returns : list of child categories data
 */
 func (a *Client) PublicGetChildCategoriesShort(params *PublicGetChildCategoriesParams) (*PublicGetChildCategoriesOK, error) {
 	// TODO: Validate the params before sending
@@ -1365,6 +1405,10 @@ func (a *Client) PublicGetChildCategoriesShort(params *PublicGetChildCategoriesP
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -1401,9 +1445,9 @@ This API is used to get descendant categories by category path.
 
 Other detail info:
 
-  * Optional permission : resource="PREVIEW", action=1(CREATE) (user with this permission can view draft store category)
-  *  Optional permission : resource="SANDBOX", action=1(CREATE) (user with this permission can view draft store category)
-  *  Returns : list of descendant categories data
+  - Optional permission : resource="PREVIEW", action=1(CREATE) (user with this permission can view draft store category)
+  - Optional permission : resource="SANDBOX", action=1(CREATE) (user with this permission can view draft store category)
+  - Returns : list of descendant categories data
 */
 func (a *Client) PublicGetDescendantCategories(params *PublicGetDescendantCategoriesParams) (*PublicGetDescendantCategoriesOK, error) {
 	// TODO: Validate the params before sending
@@ -1451,9 +1495,9 @@ This API is used to get descendant categories by category path.
 
 Other detail info:
 
-  * Optional permission : resource="PREVIEW", action=1(CREATE) (user with this permission can view draft store category)
-  *  Optional permission : resource="SANDBOX", action=1(CREATE) (user with this permission can view draft store category)
-  *  Returns : list of descendant categories data
+  - Optional permission : resource="PREVIEW", action=1(CREATE) (user with this permission can view draft store category)
+  - Optional permission : resource="SANDBOX", action=1(CREATE) (user with this permission can view draft store category)
+  - Returns : list of descendant categories data
 */
 func (a *Client) PublicGetDescendantCategoriesShort(params *PublicGetDescendantCategoriesParams) (*PublicGetDescendantCategoriesOK, error) {
 	// TODO: Validate the params before sending
@@ -1467,6 +1511,10 @@ func (a *Client) PublicGetDescendantCategoriesShort(params *PublicGetDescendantC
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{

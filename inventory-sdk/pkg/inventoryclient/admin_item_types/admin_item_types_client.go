@@ -43,7 +43,7 @@ type ClientService interface {
 /*
 Deprecated: 2022-08-10 - Use AdminListItemTypesShort instead.
 
-AdminListItemTypes to list itemtypes
+# AdminListItemTypes to list itemtypes
 
 This endpoint will list all item types in a namespace.
 The response body will be in the form of standard pagination.
@@ -119,6 +119,10 @@ func (a *Client) AdminListItemTypesShort(params *AdminListItemTypesParams, authI
 		params.SetHTTPClientTransport(params.RetryPolicy)
 	}
 
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
+	}
+
 	result, err := a.transport.Submit(&runtime.ClientOperation{
 		ID:                 "AdminListItemTypes",
 		Method:             "GET",
@@ -153,7 +157,7 @@ func (a *Client) AdminListItemTypesShort(params *AdminListItemTypesParams, authI
 /*
 Deprecated: 2022-08-10 - Use AdminCreateItemTypeShort instead.
 
-AdminCreateItemType to create an itemtype
+# AdminCreateItemType to create an itemtype
 
 This endpoint will create a new itemtype.
 The itemtype name must be unique per namespace.
@@ -234,6 +238,10 @@ func (a *Client) AdminCreateItemTypeShort(params *AdminCreateItemTypeParams, aut
 		params.SetHTTPClientTransport(params.RetryPolicy)
 	}
 
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
+	}
+
 	result, err := a.transport.Submit(&runtime.ClientOperation{
 		ID:                 "AdminCreateItemType",
 		Method:             "POST",
@@ -270,7 +278,7 @@ func (a *Client) AdminCreateItemTypeShort(params *AdminCreateItemTypeParams, aut
 /*
 Deprecated: 2022-08-10 - Use AdminDeleteItemTypeShort instead.
 
-AdminDeleteItemType to delete an item type
+# AdminDeleteItemType to delete an item type
 
 This endpoint will delete a item type by itemtypeName in a specified namespace.
 If the itemtypeName doesn't exist in a namespace, it'll return not found.
@@ -344,6 +352,10 @@ func (a *Client) AdminDeleteItemTypeShort(params *AdminDeleteItemTypeParams, aut
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{

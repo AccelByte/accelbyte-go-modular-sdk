@@ -57,7 +57,8 @@ func NewPublicDisableMyBackupCodesV4ParamsWithHTTPClient(client *http.Client) *P
 	}
 }
 
-/*PublicDisableMyBackupCodesV4Params contains all the parameters to send to the API endpoint
+/*
+PublicDisableMyBackupCodesV4Params contains all the parameters to send to the API endpoint
 for the public disable my backup codes v4 operation typically these are written to a http.Request
 */
 type PublicDisableMyBackupCodesV4Params struct {
@@ -74,6 +75,9 @@ type PublicDisableMyBackupCodesV4Params struct {
 	AuthInfoWriter runtime.ClientAuthInfoWriter
 	Context        context.Context
 	HTTPClient     *http.Client
+
+	// XFlightId is an optional parameter from this SDK
+	XFlightId *string
 }
 
 // WithTimeout adds the timeout to the public disable my backup codes v4 params
@@ -123,6 +127,15 @@ func (o *PublicDisableMyBackupCodesV4Params) SetHTTPClientTransport(roundTripper
 	}
 }
 
+// SetFlightId adds the flightId as the header value for this specific endpoint
+func (o *PublicDisableMyBackupCodesV4Params) SetFlightId(flightId string) {
+	if o.XFlightId != nil {
+		o.XFlightId = &flightId
+	} else {
+		o.XFlightId = &utils.GetDefaultFlightID().Value
+	}
+}
+
 // WithNamespace adds the namespace to the public disable my backup codes v4 params
 func (o *PublicDisableMyBackupCodesV4Params) WithNamespace(namespace string) *PublicDisableMyBackupCodesV4Params {
 	o.SetNamespace(namespace)
@@ -150,6 +163,16 @@ func (o *PublicDisableMyBackupCodesV4Params) WriteToRequest(r runtime.ClientRequ
 	// setting the default header value
 	if err := r.SetHeaderParam("X-Amzn-Trace-Id", utils.AmazonTraceIDGen()); err != nil {
 		return err
+	}
+
+	if o.XFlightId == nil {
+		if err := r.SetHeaderParam("X-Flight-Id", utils.GetDefaultFlightID().Value); err != nil {
+			return err
+		}
+	} else {
+		if err := r.SetHeaderParam("X-Flight-Id", *o.XFlightId); err != nil {
+			return err
+		}
 	}
 
 	if len(res) > 0 {

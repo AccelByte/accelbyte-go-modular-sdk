@@ -57,7 +57,8 @@ func NewAcceptGroupInvitationPublicV1ParamsWithHTTPClient(client *http.Client) *
 	}
 }
 
-/*AcceptGroupInvitationPublicV1Params contains all the parameters to send to the API endpoint
+/*
+AcceptGroupInvitationPublicV1Params contains all the parameters to send to the API endpoint
 for the accept group invitation public v1 operation typically these are written to a http.Request
 */
 type AcceptGroupInvitationPublicV1Params struct {
@@ -79,6 +80,9 @@ type AcceptGroupInvitationPublicV1Params struct {
 	AuthInfoWriter runtime.ClientAuthInfoWriter
 	Context        context.Context
 	HTTPClient     *http.Client
+
+	// XFlightId is an optional parameter from this SDK
+	XFlightId *string
 }
 
 // WithTimeout adds the timeout to the accept group invitation public v1 params
@@ -128,6 +132,15 @@ func (o *AcceptGroupInvitationPublicV1Params) SetHTTPClientTransport(roundTrippe
 	}
 }
 
+// SetFlightId adds the flightId as the header value for this specific endpoint
+func (o *AcceptGroupInvitationPublicV1Params) SetFlightId(flightId string) {
+	if o.XFlightId != nil {
+		o.XFlightId = &flightId
+	} else {
+		o.XFlightId = &utils.GetDefaultFlightID().Value
+	}
+}
+
 // WithGroupID adds the groupID to the accept group invitation public v1 params
 func (o *AcceptGroupInvitationPublicV1Params) WithGroupID(groupID string) *AcceptGroupInvitationPublicV1Params {
 	o.SetGroupID(groupID)
@@ -171,6 +184,16 @@ func (o *AcceptGroupInvitationPublicV1Params) WriteToRequest(r runtime.ClientReq
 	// setting the default header value
 	if err := r.SetHeaderParam("X-Amzn-Trace-Id", utils.AmazonTraceIDGen()); err != nil {
 		return err
+	}
+
+	if o.XFlightId == nil {
+		if err := r.SetHeaderParam("X-Flight-Id", utils.GetDefaultFlightID().Value); err != nil {
+			return err
+		}
+	} else {
+		if err := r.SetHeaderParam("X-Flight-Id", *o.XFlightId); err != nil {
+			return err
+		}
 	}
 
 	if len(res) > 0 {

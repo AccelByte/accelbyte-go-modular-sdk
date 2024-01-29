@@ -105,6 +105,10 @@ func (a *Client) GetDefaultProviderShort(params *GetDefaultProviderParams, authI
 		params.SetHTTPClientTransport(params.RetryPolicy)
 	}
 
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
+	}
+
 	result, err := a.transport.Submit(&runtime.ClientOperation{
 		ID:                 "GetDefaultProvider",
 		Method:             "GET",
@@ -197,6 +201,10 @@ func (a *Client) ListProvidersShort(params *ListProvidersParams, authInfo runtim
 		params.SetHTTPClientTransport(params.RetryPolicy)
 	}
 
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
+	}
+
 	result, err := a.transport.Submit(&runtime.ClientOperation{
 		ID:                 "ListProviders",
 		Method:             "GET",
@@ -287,6 +295,10 @@ func (a *Client) ListProvidersByRegionShort(params *ListProvidersByRegionParams,
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{

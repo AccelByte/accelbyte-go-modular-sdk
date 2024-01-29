@@ -59,7 +59,7 @@ AnonymizeCampaign anonymize campaign
 Anonymize campaign. At current it will only anonymize redeem history.
 Other detail info:
 
-  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:USER:{userId}:ANONYMIZATION", action=8 (DELETE)
+  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:USER:{userId}:ANONYMIZATION", action=8 (DELETE)
 */
 func (a *Client) AnonymizeCampaign(params *AnonymizeCampaignParams, authInfo runtime.ClientAuthInfoWriter) (*AnonymizeCampaignNoContent, error) {
 	// TODO: Validate the params before sending
@@ -107,7 +107,7 @@ AnonymizeCampaignShort anonymize campaign
 Anonymize campaign. At current it will only anonymize redeem history.
 Other detail info:
 
-  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:USER:{userId}:ANONYMIZATION", action=8 (DELETE)
+  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:USER:{userId}:ANONYMIZATION", action=8 (DELETE)
 */
 func (a *Client) AnonymizeCampaignShort(params *AnonymizeCampaignParams, authInfo runtime.ClientAuthInfoWriter) (*AnonymizeCampaignNoContent, error) {
 	// TODO: Validate the params before sending
@@ -121,6 +121,10 @@ func (a *Client) AnonymizeCampaignShort(params *AnonymizeCampaignParams, authInf
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -157,7 +161,7 @@ AnonymizeEntitlement anonymize entitlement
 Anonymize entitlement. At current it will only anonymize entitlement, entitlement history.
 Other detail info:
 
-  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:USER:{userId}:ANONYMIZATION", action=8 (DELETE)
+  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:USER:{userId}:ANONYMIZATION", action=8 (DELETE)
 */
 func (a *Client) AnonymizeEntitlement(params *AnonymizeEntitlementParams, authInfo runtime.ClientAuthInfoWriter) (*AnonymizeEntitlementNoContent, error) {
 	// TODO: Validate the params before sending
@@ -205,7 +209,7 @@ AnonymizeEntitlementShort anonymize entitlement
 Anonymize entitlement. At current it will only anonymize entitlement, entitlement history.
 Other detail info:
 
-  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:USER:{userId}:ANONYMIZATION", action=8 (DELETE)
+  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:USER:{userId}:ANONYMIZATION", action=8 (DELETE)
 */
 func (a *Client) AnonymizeEntitlementShort(params *AnonymizeEntitlementParams, authInfo runtime.ClientAuthInfoWriter) (*AnonymizeEntitlementNoContent, error) {
 	// TODO: Validate the params before sending
@@ -219,6 +223,10 @@ func (a *Client) AnonymizeEntitlementShort(params *AnonymizeEntitlementParams, a
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -255,7 +263,7 @@ AnonymizeFulfillment anonymize fulfillment
 Anonymize fulfillment. At current it will only anonymize fulfillment history.
 Other detail info:
 
-  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:USER:{userId}:ANONYMIZATION", action=8 (DELETE)
+  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:USER:{userId}:ANONYMIZATION", action=8 (DELETE)
 */
 func (a *Client) AnonymizeFulfillment(params *AnonymizeFulfillmentParams, authInfo runtime.ClientAuthInfoWriter) (*AnonymizeFulfillmentNoContent, error) {
 	// TODO: Validate the params before sending
@@ -303,7 +311,7 @@ AnonymizeFulfillmentShort anonymize fulfillment
 Anonymize fulfillment. At current it will only anonymize fulfillment history.
 Other detail info:
 
-  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:USER:{userId}:ANONYMIZATION", action=8 (DELETE)
+  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:USER:{userId}:ANONYMIZATION", action=8 (DELETE)
 */
 func (a *Client) AnonymizeFulfillmentShort(params *AnonymizeFulfillmentParams, authInfo runtime.ClientAuthInfoWriter) (*AnonymizeFulfillmentNoContent, error) {
 	// TODO: Validate the params before sending
@@ -317,6 +325,10 @@ func (a *Client) AnonymizeFulfillmentShort(params *AnonymizeFulfillmentParams, a
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -353,7 +365,7 @@ AnonymizeIntegration anonymize integrations
 Anonymize integrations. At current it will only anonymize iap histories.
 Other detail info:
 
-  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:USER:{userId}:ANONYMIZATION", action=8 (DELETE)
+  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:USER:{userId}:ANONYMIZATION", action=8 (DELETE)
 */
 func (a *Client) AnonymizeIntegration(params *AnonymizeIntegrationParams, authInfo runtime.ClientAuthInfoWriter) (*AnonymizeIntegrationNoContent, error) {
 	// TODO: Validate the params before sending
@@ -401,7 +413,7 @@ AnonymizeIntegrationShort anonymize integrations
 Anonymize integrations. At current it will only anonymize iap histories.
 Other detail info:
 
-  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:USER:{userId}:ANONYMIZATION", action=8 (DELETE)
+  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:USER:{userId}:ANONYMIZATION", action=8 (DELETE)
 */
 func (a *Client) AnonymizeIntegrationShort(params *AnonymizeIntegrationParams, authInfo runtime.ClientAuthInfoWriter) (*AnonymizeIntegrationNoContent, error) {
 	// TODO: Validate the params before sending
@@ -415,6 +427,10 @@ func (a *Client) AnonymizeIntegrationShort(params *AnonymizeIntegrationParams, a
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -451,7 +467,7 @@ AnonymizeOrder anonymize order
 Anonymize order. At current it will only anonymize order, order history.
 Other detail info:
 
-  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:USER:{userId}:ANONYMIZATION", action=8 (DELETE)
+  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:USER:{userId}:ANONYMIZATION", action=8 (DELETE)
 */
 func (a *Client) AnonymizeOrder(params *AnonymizeOrderParams, authInfo runtime.ClientAuthInfoWriter) (*AnonymizeOrderNoContent, error) {
 	// TODO: Validate the params before sending
@@ -499,7 +515,7 @@ AnonymizeOrderShort anonymize order
 Anonymize order. At current it will only anonymize order, order history.
 Other detail info:
 
-  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:USER:{userId}:ANONYMIZATION", action=8 (DELETE)
+  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:USER:{userId}:ANONYMIZATION", action=8 (DELETE)
 */
 func (a *Client) AnonymizeOrderShort(params *AnonymizeOrderParams, authInfo runtime.ClientAuthInfoWriter) (*AnonymizeOrderNoContent, error) {
 	// TODO: Validate the params before sending
@@ -513,6 +529,10 @@ func (a *Client) AnonymizeOrderShort(params *AnonymizeOrderParams, authInfo runt
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -549,7 +569,7 @@ AnonymizePayment anonymize payment
 Anonymize payment. At current it will only anonymize payment order, payment order history.
 Other detail info:
 
-  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:USER:{userId}:ANONYMIZATION", action=8 (DELETE)
+  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:USER:{userId}:ANONYMIZATION", action=8 (DELETE)
 */
 func (a *Client) AnonymizePayment(params *AnonymizePaymentParams, authInfo runtime.ClientAuthInfoWriter) (*AnonymizePaymentNoContent, error) {
 	// TODO: Validate the params before sending
@@ -597,7 +617,7 @@ AnonymizePaymentShort anonymize payment
 Anonymize payment. At current it will only anonymize payment order, payment order history.
 Other detail info:
 
-  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:USER:{userId}:ANONYMIZATION", action=8 (DELETE)
+  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:USER:{userId}:ANONYMIZATION", action=8 (DELETE)
 */
 func (a *Client) AnonymizePaymentShort(params *AnonymizePaymentParams, authInfo runtime.ClientAuthInfoWriter) (*AnonymizePaymentNoContent, error) {
 	// TODO: Validate the params before sending
@@ -611,6 +631,10 @@ func (a *Client) AnonymizePaymentShort(params *AnonymizePaymentParams, authInfo 
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -647,7 +671,7 @@ AnonymizeRevocation anonymize revocation
 Anonymize revocation. At current it will only anonymize revocation history.
 Other detail info:
 
-  * Required permission : resource=ADMIN:NAMESPACE:{namespace}:USER:{userId}:ANONYMIZATION, action=8 (DELETE)
+  - Required permission : resource=ADMIN:NAMESPACE:{namespace}:USER:{userId}:ANONYMIZATION, action=8 (DELETE)
 */
 func (a *Client) AnonymizeRevocation(params *AnonymizeRevocationParams, authInfo runtime.ClientAuthInfoWriter) (*AnonymizeRevocationNoContent, error) {
 	// TODO: Validate the params before sending
@@ -695,7 +719,7 @@ AnonymizeRevocationShort anonymize revocation
 Anonymize revocation. At current it will only anonymize revocation history.
 Other detail info:
 
-  * Required permission : resource=ADMIN:NAMESPACE:{namespace}:USER:{userId}:ANONYMIZATION, action=8 (DELETE)
+  - Required permission : resource=ADMIN:NAMESPACE:{namespace}:USER:{userId}:ANONYMIZATION, action=8 (DELETE)
 */
 func (a *Client) AnonymizeRevocationShort(params *AnonymizeRevocationParams, authInfo runtime.ClientAuthInfoWriter) (*AnonymizeRevocationNoContent, error) {
 	// TODO: Validate the params before sending
@@ -709,6 +733,10 @@ func (a *Client) AnonymizeRevocationShort(params *AnonymizeRevocationParams, aut
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -745,7 +773,7 @@ AnonymizeSubscription anonymize subscription
 Anonymize subscription. At current it will anonymize subscription, billing history and subscription activity.
 Other detail info:
 
-  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:USER:{userId}:ANONYMIZATION", action=8 (DELETE)
+  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:USER:{userId}:ANONYMIZATION", action=8 (DELETE)
 */
 func (a *Client) AnonymizeSubscription(params *AnonymizeSubscriptionParams, authInfo runtime.ClientAuthInfoWriter) (*AnonymizeSubscriptionNoContent, error) {
 	// TODO: Validate the params before sending
@@ -793,7 +821,7 @@ AnonymizeSubscriptionShort anonymize subscription
 Anonymize subscription. At current it will anonymize subscription, billing history and subscription activity.
 Other detail info:
 
-  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:USER:{userId}:ANONYMIZATION", action=8 (DELETE)
+  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:USER:{userId}:ANONYMIZATION", action=8 (DELETE)
 */
 func (a *Client) AnonymizeSubscriptionShort(params *AnonymizeSubscriptionParams, authInfo runtime.ClientAuthInfoWriter) (*AnonymizeSubscriptionNoContent, error) {
 	// TODO: Validate the params before sending
@@ -807,6 +835,10 @@ func (a *Client) AnonymizeSubscriptionShort(params *AnonymizeSubscriptionParams,
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -843,7 +875,7 @@ AnonymizeWallet anonymize wallet
 Anonymize wallet. At current it will only anonymize wallet, wallet transaction.
 Other detail info:
 
-  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:USER:{userId}:ANONYMIZATION", action=8 (DELETE)
+  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:USER:{userId}:ANONYMIZATION", action=8 (DELETE)
 */
 func (a *Client) AnonymizeWallet(params *AnonymizeWalletParams, authInfo runtime.ClientAuthInfoWriter) (*AnonymizeWalletNoContent, error) {
 	// TODO: Validate the params before sending
@@ -891,7 +923,7 @@ AnonymizeWalletShort anonymize wallet
 Anonymize wallet. At current it will only anonymize wallet, wallet transaction.
 Other detail info:
 
-  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:USER:{userId}:ANONYMIZATION", action=8 (DELETE)
+  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:USER:{userId}:ANONYMIZATION", action=8 (DELETE)
 */
 func (a *Client) AnonymizeWalletShort(params *AnonymizeWalletParams, authInfo runtime.ClientAuthInfoWriter) (*AnonymizeWalletNoContent, error) {
 	// TODO: Validate the params before sending
@@ -905,6 +937,10 @@ func (a *Client) AnonymizeWalletShort(params *AnonymizeWalletParams, authInfo ru
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{

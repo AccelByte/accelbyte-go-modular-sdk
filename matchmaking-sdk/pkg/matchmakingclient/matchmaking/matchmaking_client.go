@@ -167,6 +167,10 @@ func (a *Client) GetAllChannelsHandlerShort(params *GetAllChannelsHandlerParams,
 		params.SetHTTPClientTransport(params.RetryPolicy)
 	}
 
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
+	}
+
 	result, err := a.transport.Submit(&runtime.ClientOperation{
 		ID:                 "GetAllChannelsHandler",
 		Method:             "GET",
@@ -217,7 +221,7 @@ If match timeout is set to 0, by default, incoming matchmaking requests will be 
 
 If max worker delay is set to 0, by default, it will wait for at max ~8 seconds during low volume.
 
-Rule Set
+# Rule Set
 
 Matching Rule used to classify the player. Player that has matched criteria will be grouped together within an ally.
 
@@ -290,7 +294,7 @@ If match timeout is set to 0, by default, incoming matchmaking requests will be 
 
 If max worker delay is set to 0, by default, it will wait for at max ~8 seconds during low volume.
 
-Rule Set
+# Rule Set
 
 Matching Rule used to classify the player. Player that has matched criteria will be grouped together within an ally.
 
@@ -308,6 +312,10 @@ func (a *Client) CreateChannelHandlerShort(params *CreateChannelHandlerParams, a
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -428,6 +436,10 @@ func (a *Client) GetMatchPoolMetricShort(params *GetMatchPoolMetricParams, authI
 		params.SetHTTPClientTransport(params.RetryPolicy)
 	}
 
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
+	}
+
 	result, err := a.transport.Submit(&runtime.ClientOperation{
 		ID:                 "GetMatchPoolMetric",
 		Method:             "GET",
@@ -543,6 +555,10 @@ func (a *Client) DeleteChannelHandlerShort(params *DeleteChannelHandlerParams, a
 		params.SetHTTPClientTransport(params.RetryPolicy)
 	}
 
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
+	}
+
 	result, err := a.transport.Submit(&runtime.ClientOperation{
 		ID:                 "DeleteChannelHandler",
 		Method:             "DELETE",
@@ -655,6 +671,10 @@ func (a *Client) StoreMatchResultsShort(params *StoreMatchResultsParams, authInf
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -778,6 +798,10 @@ func (a *Client) RebalanceShort(params *RebalanceParams, authInfo runtime.Client
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -914,6 +938,10 @@ func (a *Client) QueueSessionHandlerShort(params *QueueSessionHandlerParams, aut
 		params.SetHTTPClientTransport(params.RetryPolicy)
 	}
 
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
+	}
+
 	result, err := a.transport.Submit(&runtime.ClientOperation{
 		ID:                 "QueueSessionHandler",
 		Method:             "POST",
@@ -1033,6 +1061,10 @@ func (a *Client) DequeueSessionHandlerShort(params *DequeueSessionHandlerParams,
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -1164,6 +1196,10 @@ func (a *Client) QuerySessionHandlerShort(params *QuerySessionHandlerParams, aut
 		params.SetHTTPClientTransport(params.RetryPolicy)
 	}
 
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
+	}
+
 	result, err := a.transport.Submit(&runtime.ClientOperation{
 		ID:                 "QuerySessionHandler",
 		Method:             "GET",
@@ -1279,6 +1315,10 @@ func (a *Client) GetAllPartyInAllChannelShort(params *GetAllPartyInAllChannelPar
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -1398,6 +1438,10 @@ func (a *Client) BulkGetSessionsShort(params *BulkGetSessionsParams, authInfo ru
 		params.SetHTTPClientTransport(params.RetryPolicy)
 	}
 
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
+	}
+
 	result, err := a.transport.Submit(&runtime.ClientOperation{
 		ID:                 "BulkGetSessions",
 		Method:             "GET",
@@ -1511,6 +1555,10 @@ func (a *Client) ExportChannelsShort(params *ExportChannelsParams, authInfo runt
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -1633,6 +1681,10 @@ func (a *Client) ImportChannelsShort(params *ImportChannelsParams, authInfo runt
 		params.SetHTTPClientTransport(params.RetryPolicy)
 	}
 
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
+	}
+
 	result, err := a.transport.Submit(&runtime.ClientOperation{
 		ID:                 "ImportChannels",
 		Method:             "POST",
@@ -1750,6 +1802,10 @@ func (a *Client) GetSingleMatchmakingChannelShort(params *GetSingleMatchmakingCh
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -1873,6 +1929,10 @@ func (a *Client) UpdateMatchmakingChannelShort(params *UpdateMatchmakingChannelP
 		params.SetHTTPClientTransport(params.RetryPolicy)
 	}
 
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
+	}
+
 	result, err := a.transport.Submit(&runtime.ClientOperation{
 		ID:                 "UpdateMatchmakingChannel",
 		Method:             "PATCH",
@@ -1988,6 +2048,10 @@ func (a *Client) GetAllPartyInChannelShort(params *GetAllPartyInChannelParams, a
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -2111,6 +2175,10 @@ func (a *Client) GetAllSessionsInChannelShort(params *GetAllSessionsInChannelPar
 		params.SetHTTPClientTransport(params.RetryPolicy)
 	}
 
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
+	}
+
 	result, err := a.transport.Submit(&runtime.ClientOperation{
 		ID:                 "GetAllSessionsInChannel",
 		Method:             "GET",
@@ -2228,6 +2296,10 @@ func (a *Client) AddUserIntoSessionInChannelShort(params *AddUserIntoSessionInCh
 		params.SetHTTPClientTransport(params.RetryPolicy)
 	}
 
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
+	}
+
 	result, err := a.transport.Submit(&runtime.ClientOperation{
 		ID:                 "AddUserIntoSessionInChannel",
 		Method:             "POST",
@@ -2343,6 +2415,10 @@ func (a *Client) DeleteSessionInChannelShort(params *DeleteSessionInChannelParam
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -2463,6 +2539,10 @@ func (a *Client) DeleteUserFromSessionInChannelShort(params *DeleteUserFromSessi
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -2586,6 +2666,10 @@ func (a *Client) GetStatDataShort(params *GetStatDataParams, authInfo runtime.Cl
 		params.SetHTTPClientTransport(params.RetryPolicy)
 	}
 
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
+	}
+
 	result, err := a.transport.Submit(&runtime.ClientOperation{
 		ID:                 "GetStatData",
 		Method:             "GET",
@@ -2626,28 +2710,13 @@ func (a *Client) GetStatDataShort(params *GetStatDataParams, authInfo runtime.Cl
 /*
 Deprecated: 2022-08-10 - Use SearchSessionsShort instead.
 
-SearchSessions search sessions
-
-
-
-
-
+# SearchSessions search sessions
 
 ## The endpoint is going to be deprecated
 
+# Endpoint migration guide
 
-Endpoint migration guide
-
-
-
-
-  * Substitute endpoint: /sessionbrowser/admin/namespaces/{namespace}/sessions/history/search [GET]
-
-
-
-
-
-
+  - Substitute endpoint: /sessionbrowser/admin/namespaces/{namespace}/sessions/history/search [GET]
 
 Search sessions.
 */
@@ -2710,26 +2779,11 @@ func (a *Client) SearchSessions(params *SearchSessionsParams, authInfo runtime.C
 /*
 SearchSessionsShort search sessions
 
-
-
-
-
-
 ## The endpoint is going to be deprecated
 
+# Endpoint migration guide
 
-Endpoint migration guide
-
-
-
-
-  * Substitute endpoint: /sessionbrowser/admin/namespaces/{namespace}/sessions/history/search [GET]
-
-
-
-
-
-
+  - Substitute endpoint: /sessionbrowser/admin/namespaces/{namespace}/sessions/history/search [GET]
 
 Search sessions.
 */
@@ -2745,6 +2799,10 @@ func (a *Client) SearchSessionsShort(params *SearchSessionsParams, authInfo runt
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -2787,28 +2845,13 @@ func (a *Client) SearchSessionsShort(params *SearchSessionsParams, authInfo runt
 /*
 Deprecated: 2022-08-10 - Use GetSessionHistoryDetailedShort instead.
 
-GetSessionHistoryDetailed get session history detailed
-
-
-
-
-
+# GetSessionHistoryDetailed get session history detailed
 
 ## The endpoint is going to be deprecated
 
+# Endpoint migration guide
 
-Endpoint migration guide
-
-
-
-
-  * Substitute endpoint: /sessionbrowser/admin/namespaces/{namespace}/sessions/{sessionId}/history/detailed [GET]
-
-
-
-
-
-
+  - Substitute endpoint: /sessionbrowser/admin/namespaces/{namespace}/sessions/{sessionId}/history/detailed [GET]
 
 Get session history detailed.
 
@@ -2873,26 +2916,11 @@ func (a *Client) GetSessionHistoryDetailed(params *GetSessionHistoryDetailedPara
 /*
 GetSessionHistoryDetailedShort get session history detailed
 
-
-
-
-
-
 ## The endpoint is going to be deprecated
 
+# Endpoint migration guide
 
-Endpoint migration guide
-
-
-
-
-  * Substitute endpoint: /sessionbrowser/admin/namespaces/{namespace}/sessions/{sessionId}/history/detailed [GET]
-
-
-
-
-
-
+  - Substitute endpoint: /sessionbrowser/admin/namespaces/{namespace}/sessions/{sessionId}/history/detailed [GET]
 
 Get session history detailed.
 
@@ -2910,6 +2938,10 @@ func (a *Client) GetSessionHistoryDetailedShort(params *GetSessionHistoryDetaile
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -3029,6 +3061,10 @@ func (a *Client) PublicGetAllMatchmakingChannelShort(params *PublicGetAllMatchma
 		params.SetHTTPClientTransport(params.RetryPolicy)
 	}
 
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
+	}
+
 	result, err := a.transport.Submit(&runtime.ClientOperation{
 		ID:                 "PublicGetAllMatchmakingChannel",
 		Method:             "GET",
@@ -3146,6 +3182,10 @@ func (a *Client) PublicGetSingleMatchmakingChannelShort(params *PublicGetSingleM
 		params.SetHTTPClientTransport(params.RetryPolicy)
 	}
 
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
+	}
+
 	result, err := a.transport.Submit(&runtime.ClientOperation{
 		ID:                 "PublicGetSingleMatchmakingChannel",
 		Method:             "GET",
@@ -3186,27 +3226,13 @@ func (a *Client) PublicGetSingleMatchmakingChannelShort(params *PublicGetSingleM
 /*
 Deprecated: 2022-08-10 - Use SearchSessionsV2Short instead.
 
-SearchSessionsV2 search sessions
-
-
-
-
+# SearchSessionsV2 search sessions
 
 ## The endpoint is going to be deprecated
 
+# Endpoint migration guide
 
-Endpoint migration guide
-
-
-
-
-  * Substitute endpoint: /sessionbrowser/admin/namespaces/{namespace}/sessions/history/search [GET]
-
-
-
-
-
-
+  - Substitute endpoint: /sessionbrowser/admin/namespaces/{namespace}/sessions/history/search [GET]
 
 Search sessions. Optimize the query by differentiating query with filter namespace only and filter with namespace & other filter (partyID, userID, matchID).
 Query with filter namespace only will not group whole session data while query with filter namespace & other filter will include session data.
@@ -3270,25 +3296,11 @@ func (a *Client) SearchSessionsV2(params *SearchSessionsV2Params, authInfo runti
 /*
 SearchSessionsV2Short search sessions
 
-
-
-
-
 ## The endpoint is going to be deprecated
 
+# Endpoint migration guide
 
-Endpoint migration guide
-
-
-
-
-  * Substitute endpoint: /sessionbrowser/admin/namespaces/{namespace}/sessions/history/search [GET]
-
-
-
-
-
-
+  - Substitute endpoint: /sessionbrowser/admin/namespaces/{namespace}/sessions/history/search [GET]
 
 Search sessions. Optimize the query by differentiating query with filter namespace only and filter with namespace & other filter (partyID, userID, matchID).
 Query with filter namespace only will not group whole session data while query with filter namespace & other filter will include session data.
@@ -3305,6 +3317,10 @@ func (a *Client) SearchSessionsV2Short(params *SearchSessionsV2Params, authInfo 
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{

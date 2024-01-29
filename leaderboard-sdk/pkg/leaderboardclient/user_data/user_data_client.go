@@ -39,13 +39,9 @@ type ClientService interface {
 /*
 Deprecated: 2022-08-10 - Use GetUserLeaderboardRankingsAdminV1Short instead.
 
-GetUserLeaderboardRankingsAdminV1 get user rankings
-
+# GetUserLeaderboardRankingsAdminV1 get user rankings
 
 Required permission 'ADMIN:NAMESPACE:{namespace}:LEADERBOARD [READ]'
-
-
-
 
 Get user leaderboard rankings
 */
@@ -105,11 +101,7 @@ func (a *Client) GetUserLeaderboardRankingsAdminV1(params *GetUserLeaderboardRan
 /*
 GetUserLeaderboardRankingsAdminV1Short get user rankings
 
-
 Required permission 'ADMIN:NAMESPACE:{namespace}:LEADERBOARD [READ]'
-
-
-
 
 Get user leaderboard rankings
 */
@@ -125,6 +117,10 @@ func (a *Client) GetUserLeaderboardRankingsAdminV1Short(params *GetUserLeaderboa
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{

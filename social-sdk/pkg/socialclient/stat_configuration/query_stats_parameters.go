@@ -78,7 +78,8 @@ func NewQueryStatsParamsWithHTTPClient(client *http.Client) *QueryStatsParams {
 	}
 }
 
-/*QueryStatsParams contains all the parameters to send to the API endpoint
+/*
+QueryStatsParams contains all the parameters to send to the API endpoint
 for the query stats operation typically these are written to a http.Request
 */
 type QueryStatsParams struct {
@@ -114,6 +115,9 @@ type QueryStatsParams struct {
 	AuthInfoWriter runtime.ClientAuthInfoWriter
 	Context        context.Context
 	HTTPClient     *http.Client
+
+	// XFlightId is an optional parameter from this SDK
+	XFlightId *string
 }
 
 // WithTimeout adds the timeout to the query stats params
@@ -160,6 +164,15 @@ func (o *QueryStatsParams) SetHTTPClientTransport(roundTripper http.RoundTripper
 		o.HTTPClient.Transport = roundTripper
 	} else {
 		o.HTTPClient = &http.Client{Transport: roundTripper}
+	}
+}
+
+// SetFlightId adds the flightId as the header value for this specific endpoint
+func (o *QueryStatsParams) SetFlightId(flightId string) {
+	if o.XFlightId != nil {
+		o.XFlightId = &flightId
+	} else {
+		o.XFlightId = &utils.GetDefaultFlightID().Value
 	}
 }
 
@@ -318,6 +331,16 @@ func (o *QueryStatsParams) WriteToRequest(r runtime.ClientRequest, reg strfmt.Re
 	// setting the default header value
 	if err := r.SetHeaderParam("X-Amzn-Trace-Id", utils.AmazonTraceIDGen()); err != nil {
 		return err
+	}
+
+	if o.XFlightId == nil {
+		if err := r.SetHeaderParam("X-Flight-Id", utils.GetDefaultFlightID().Value); err != nil {
+			return err
+		}
+	} else {
+		if err := r.SetHeaderParam("X-Flight-Id", *o.XFlightId); err != nil {
+			return err
+		}
 	}
 
 	if len(res) > 0 {

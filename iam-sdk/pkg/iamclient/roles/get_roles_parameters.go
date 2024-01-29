@@ -57,7 +57,8 @@ func NewGetRolesParamsWithHTTPClient(client *http.Client) *GetRolesParams {
 	}
 }
 
-/*GetRolesParams contains all the parameters to send to the API endpoint
+/*
+GetRolesParams contains all the parameters to send to the API endpoint
 for the get roles operation typically these are written to a http.Request
 */
 type GetRolesParams struct {
@@ -77,6 +78,9 @@ type GetRolesParams struct {
 	AuthInfoWriter runtime.ClientAuthInfoWriter
 	Context        context.Context
 	HTTPClient     *http.Client
+
+	// XFlightId is an optional parameter from this SDK
+	XFlightId *string
 }
 
 // WithTimeout adds the timeout to the get roles params
@@ -126,6 +130,15 @@ func (o *GetRolesParams) SetHTTPClientTransport(roundTripper http.RoundTripper) 
 	}
 }
 
+// SetFlightId adds the flightId as the header value for this specific endpoint
+func (o *GetRolesParams) SetFlightId(flightId string) {
+	if o.XFlightId != nil {
+		o.XFlightId = &flightId
+	} else {
+		o.XFlightId = &utils.GetDefaultFlightID().Value
+	}
+}
+
 // WithIsWildcard adds the isWildcard to the get roles params
 func (o *GetRolesParams) WithIsWildcard(isWildcard *string) *GetRolesParams {
 	o.SetIsWildcard(isWildcard)
@@ -164,6 +177,16 @@ func (o *GetRolesParams) WriteToRequest(r runtime.ClientRequest, reg strfmt.Regi
 	// setting the default header value
 	if err := r.SetHeaderParam("X-Amzn-Trace-Id", utils.AmazonTraceIDGen()); err != nil {
 		return err
+	}
+
+	if o.XFlightId == nil {
+		if err := r.SetHeaderParam("X-Flight-Id", utils.GetDefaultFlightID().Value); err != nil {
+			return err
+		}
+	} else {
+		if err := r.SetHeaderParam("X-Flight-Id", *o.XFlightId); err != nil {
+			return err
+		}
 	}
 
 	if len(res) > 0 {

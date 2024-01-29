@@ -118,6 +118,10 @@ func (a *Client) GetFollowedContentShort(params *GetFollowedContentParams, authI
 		params.SetHTTPClientTransport(params.RetryPolicy)
 	}
 
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
+	}
+
 	result, err := a.transport.Submit(&runtime.ClientOperation{
 		ID:                 "GetFollowedContent",
 		Method:             "GET",
@@ -223,6 +227,10 @@ func (a *Client) GetFollowedUsersShort(params *GetFollowedUsersParams, authInfo 
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -332,6 +340,10 @@ func (a *Client) UpdateUserFollowStatusShort(params *UpdateUserFollowStatusParam
 		params.SetHTTPClientTransport(params.RetryPolicy)
 	}
 
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
+	}
+
 	result, err := a.transport.Submit(&runtime.ClientOperation{
 		ID:                 "UpdateUserFollowStatus",
 		Method:             "PUT",
@@ -437,6 +449,10 @@ func (a *Client) GetPublicFollowersShort(params *GetPublicFollowersParams, authI
 		params.SetHTTPClientTransport(params.RetryPolicy)
 	}
 
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
+	}
+
 	result, err := a.transport.Submit(&runtime.ClientOperation{
 		ID:                 "GetPublicFollowers",
 		Method:             "GET",
@@ -540,6 +556,10 @@ func (a *Client) GetPublicFollowingShort(params *GetPublicFollowingParams, authI
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{

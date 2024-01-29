@@ -203,6 +203,10 @@ func (a *Client) BulkFetchStatItemsShort(params *BulkFetchStatItemsParams, authI
 		params.SetHTTPClientTransport(params.RetryPolicy)
 	}
 
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
+	}
+
 	result, err := a.transport.Submit(&runtime.ClientOperation{
 		ID:                 "bulkFetchStatItems",
 		Method:             "GET",
@@ -244,8 +248,8 @@ Deprecated: 2022-08-10 - Use BulkIncUserStatItemShort instead.
 BulkIncUserStatItem bulk update multiple user's statitems value
 Bulk update multiple user's statitems value.
 Other detail info:
-              *  Required permission : resource="ADMIN:NAMESPACE:{namespace}:STATITEM", action=4 (UPDATE)
-              *  Returns : bulk updated result
+  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:STATITEM", action=4 (UPDATE)
+  - Returns : bulk updated result
 */
 func (a *Client) BulkIncUserStatItem(params *BulkIncUserStatItemParams, authInfo runtime.ClientAuthInfoWriter) (*BulkIncUserStatItemOK, *BulkIncUserStatItemBadRequest, *BulkIncUserStatItemUnauthorized, *BulkIncUserStatItemForbidden, *BulkIncUserStatItemUnprocessableEntity, *BulkIncUserStatItemInternalServerError, error) {
 	// TODO: Validate the params before sending
@@ -307,8 +311,8 @@ func (a *Client) BulkIncUserStatItem(params *BulkIncUserStatItemParams, authInfo
 BulkIncUserStatItemShort bulk update multiple user's statitems value
 Bulk update multiple user's statitems value.
 Other detail info:
-              *  Required permission : resource="ADMIN:NAMESPACE:{namespace}:STATITEM", action=4 (UPDATE)
-              *  Returns : bulk updated result
+  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:STATITEM", action=4 (UPDATE)
+  - Returns : bulk updated result
 */
 func (a *Client) BulkIncUserStatItemShort(params *BulkIncUserStatItemParams, authInfo runtime.ClientAuthInfoWriter) (*BulkIncUserStatItemOK, error) {
 	// TODO: Validate the params before sending
@@ -322,6 +326,10 @@ func (a *Client) BulkIncUserStatItemShort(params *BulkIncUserStatItemParams, aut
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -367,8 +375,8 @@ Deprecated: 2022-08-10 - Use BulkIncUserStatItemValueShort instead.
 BulkIncUserStatItemValue bulk update multiple user's statitems value
 Bulk update multiple user's statitems value.
 Other detail info:
-              *  Required permission : resource="ADMIN:NAMESPACE:{namespace}:STATITEM", action=4 (UPDATE)
-              *  Returns : bulk updated result
+  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:STATITEM", action=4 (UPDATE)
+  - Returns : bulk updated result
 */
 func (a *Client) BulkIncUserStatItemValue(params *BulkIncUserStatItemValueParams, authInfo runtime.ClientAuthInfoWriter) (*BulkIncUserStatItemValueOK, *BulkIncUserStatItemValueBadRequest, *BulkIncUserStatItemValueUnauthorized, *BulkIncUserStatItemValueForbidden, *BulkIncUserStatItemValueUnprocessableEntity, *BulkIncUserStatItemValueInternalServerError, error) {
 	// TODO: Validate the params before sending
@@ -430,8 +438,8 @@ func (a *Client) BulkIncUserStatItemValue(params *BulkIncUserStatItemValueParams
 BulkIncUserStatItemValueShort bulk update multiple user's statitems value
 Bulk update multiple user's statitems value.
 Other detail info:
-              *  Required permission : resource="ADMIN:NAMESPACE:{namespace}:STATITEM", action=4 (UPDATE)
-              *  Returns : bulk updated result
+  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:STATITEM", action=4 (UPDATE)
+  - Returns : bulk updated result
 */
 func (a *Client) BulkIncUserStatItemValueShort(params *BulkIncUserStatItemValueParams, authInfo runtime.ClientAuthInfoWriter) (*BulkIncUserStatItemValueOK, error) {
 	// TODO: Validate the params before sending
@@ -445,6 +453,10 @@ func (a *Client) BulkIncUserStatItemValueShort(params *BulkIncUserStatItemValueP
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -568,6 +580,10 @@ func (a *Client) BulkFetchOrDefaultStatItemsShort(params *BulkFetchOrDefaultStat
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -697,6 +713,10 @@ func (a *Client) BulkResetUserStatItemShort(params *BulkResetUserStatItemParams,
 		params.SetHTTPClientTransport(params.RetryPolicy)
 	}
 
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
+	}
+
 	result, err := a.transport.Submit(&runtime.ClientOperation{
 		ID:                 "bulkResetUserStatItem",
 		Method:             "PUT",
@@ -814,6 +834,10 @@ func (a *Client) GetStatItemsShort(params *GetStatItemsParams, authInfo runtime.
 		params.SetHTTPClientTransport(params.RetryPolicy)
 	}
 
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
+	}
+
 	result, err := a.transport.Submit(&runtime.ClientOperation{
 		ID:                 "getStatItems",
 		Method:             "GET",
@@ -853,8 +877,8 @@ Deprecated: 2022-08-10 - Use GetUserStatItemsShort instead.
 GetUserStatItems list user's statitems
 List user's statItems.
 Other detail info:
-              *  Required permission : resource="ADMIN:NAMESPACE:{namespace}:USER:{userId}:STATITEM", action=2 (READ)
-              *  Returns : stat items
+  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:USER:{userId}:STATITEM", action=2 (READ)
+  - Returns : stat items
 */
 func (a *Client) GetUserStatItems(params *GetUserStatItemsParams, authInfo runtime.ClientAuthInfoWriter) (*GetUserStatItemsOK, *GetUserStatItemsUnauthorized, *GetUserStatItemsForbidden, *GetUserStatItemsUnprocessableEntity, *GetUserStatItemsInternalServerError, error) {
 	// TODO: Validate the params before sending
@@ -913,8 +937,8 @@ func (a *Client) GetUserStatItems(params *GetUserStatItemsParams, authInfo runti
 GetUserStatItemsShort list user's statitems
 List user's statItems.
 Other detail info:
-              *  Required permission : resource="ADMIN:NAMESPACE:{namespace}:USER:{userId}:STATITEM", action=2 (READ)
-              *  Returns : stat items
+  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:USER:{userId}:STATITEM", action=2 (READ)
+  - Returns : stat items
 */
 func (a *Client) GetUserStatItemsShort(params *GetUserStatItemsParams, authInfo runtime.ClientAuthInfoWriter) (*GetUserStatItemsOK, error) {
 	// TODO: Validate the params before sending
@@ -928,6 +952,10 @@ func (a *Client) GetUserStatItemsShort(params *GetUserStatItemsParams, authInfo 
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -971,8 +999,8 @@ Deprecated: 2022-08-10 - Use BulkCreateUserStatItemsShort instead.
 BulkCreateUserStatItems bulk create user's statitems
 Bulk create user's statItems.
 Other detail info:
-              *  Required permission : resource="ADMIN:NAMESPACE:{namespace}:USER:{userId}:STATITEM", action=1 (CREATE)
-              *  Returns : bulk created result
+  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:USER:{userId}:STATITEM", action=1 (CREATE)
+  - Returns : bulk created result
 */
 func (a *Client) BulkCreateUserStatItems(params *BulkCreateUserStatItemsParams, authInfo runtime.ClientAuthInfoWriter) (*BulkCreateUserStatItemsOK, *BulkCreateUserStatItemsBadRequest, *BulkCreateUserStatItemsUnauthorized, *BulkCreateUserStatItemsForbidden, *BulkCreateUserStatItemsUnprocessableEntity, *BulkCreateUserStatItemsInternalServerError, error) {
 	// TODO: Validate the params before sending
@@ -1034,8 +1062,8 @@ func (a *Client) BulkCreateUserStatItems(params *BulkCreateUserStatItemsParams, 
 BulkCreateUserStatItemsShort bulk create user's statitems
 Bulk create user's statItems.
 Other detail info:
-                *  Required permission : resource="ADMIN:NAMESPACE:{namespace}:USER:{userId}:STATITEM", action=1 (CREATE)
-                *  Returns : bulk created result
+  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:USER:{userId}:STATITEM", action=1 (CREATE)
+  - Returns : bulk created result
 */
 func (a *Client) BulkCreateUserStatItemsShort(params *BulkCreateUserStatItemsParams, authInfo runtime.ClientAuthInfoWriter) (*BulkCreateUserStatItemsOK, error) {
 	// TODO: Validate the params before sending
@@ -1049,6 +1077,10 @@ func (a *Client) BulkCreateUserStatItemsShort(params *BulkCreateUserStatItemsPar
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -1094,8 +1126,8 @@ Deprecated: 2022-08-10 - Use BulkIncUserStatItem1Short instead.
 BulkIncUserStatItem1 bulk update user's statitems value
 Bulk update user's statitems value.
 Other detail info:
-                  *  Required permission : resource="ADMIN:NAMESPACE:{namespace}:USER:{userId}:STATITEM", action=4 (UPDATE)
-                  *  Returns : bulk updated result
+  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:USER:{userId}:STATITEM", action=4 (UPDATE)
+  - Returns : bulk updated result
 */
 func (a *Client) BulkIncUserStatItem1(params *BulkIncUserStatItem1Params, authInfo runtime.ClientAuthInfoWriter) (*BulkIncUserStatItem1OK, *BulkIncUserStatItem1BadRequest, *BulkIncUserStatItem1Unauthorized, *BulkIncUserStatItem1Forbidden, *BulkIncUserStatItem1UnprocessableEntity, *BulkIncUserStatItem1InternalServerError, error) {
 	// TODO: Validate the params before sending
@@ -1157,8 +1189,8 @@ func (a *Client) BulkIncUserStatItem1(params *BulkIncUserStatItem1Params, authIn
 BulkIncUserStatItem1Short bulk update user's statitems value
 Bulk update user's statitems value.
 Other detail info:
-                  *  Required permission : resource="ADMIN:NAMESPACE:{namespace}:USER:{userId}:STATITEM", action=4 (UPDATE)
-                  *  Returns : bulk updated result
+  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:USER:{userId}:STATITEM", action=4 (UPDATE)
+  - Returns : bulk updated result
 */
 func (a *Client) BulkIncUserStatItem1Short(params *BulkIncUserStatItem1Params, authInfo runtime.ClientAuthInfoWriter) (*BulkIncUserStatItem1OK, error) {
 	// TODO: Validate the params before sending
@@ -1172,6 +1204,10 @@ func (a *Client) BulkIncUserStatItem1Short(params *BulkIncUserStatItem1Params, a
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -1217,8 +1253,8 @@ Deprecated: 2022-08-10 - Use BulkIncUserStatItemValue1Short instead.
 BulkIncUserStatItemValue1 bulk update user's statitems value
 Bulk update user's statitems value.
 Other detail info:
-                  *  Required permission : resource="ADMIN:NAMESPACE:{namespace}:USER:{userId}:STATITEM", action=4 (UPDATE)
-                  *  Returns : bulk updated result
+  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:USER:{userId}:STATITEM", action=4 (UPDATE)
+  - Returns : bulk updated result
 */
 func (a *Client) BulkIncUserStatItemValue1(params *BulkIncUserStatItemValue1Params, authInfo runtime.ClientAuthInfoWriter) (*BulkIncUserStatItemValue1OK, *BulkIncUserStatItemValue1BadRequest, *BulkIncUserStatItemValue1Unauthorized, *BulkIncUserStatItemValue1Forbidden, *BulkIncUserStatItemValue1UnprocessableEntity, *BulkIncUserStatItemValue1InternalServerError, error) {
 	// TODO: Validate the params before sending
@@ -1280,8 +1316,8 @@ func (a *Client) BulkIncUserStatItemValue1(params *BulkIncUserStatItemValue1Para
 BulkIncUserStatItemValue1Short bulk update user's statitems value
 Bulk update user's statitems value.
 Other detail info:
-                  *  Required permission : resource="ADMIN:NAMESPACE:{namespace}:USER:{userId}:STATITEM", action=4 (UPDATE)
-                  *  Returns : bulk updated result
+  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:USER:{userId}:STATITEM", action=4 (UPDATE)
+  - Returns : bulk updated result
 */
 func (a *Client) BulkIncUserStatItemValue1Short(params *BulkIncUserStatItemValue1Params, authInfo runtime.ClientAuthInfoWriter) (*BulkIncUserStatItemValue1OK, error) {
 	// TODO: Validate the params before sending
@@ -1295,6 +1331,10 @@ func (a *Client) BulkIncUserStatItemValue1Short(params *BulkIncUserStatItemValue
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -1420,6 +1460,10 @@ func (a *Client) BulkResetUserStatItem1Short(params *BulkResetUserStatItem1Param
 		params.SetHTTPClientTransport(params.RetryPolicy)
 	}
 
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
+	}
+
 	result, err := a.transport.Submit(&runtime.ClientOperation{
 		ID:                 "bulkResetUserStatItem_1",
 		Method:             "PUT",
@@ -1463,8 +1507,8 @@ Deprecated: 2022-08-10 - Use CreateUserStatItemShort instead.
 CreateUserStatItem create user's statitem
 Create statItem for a user.
 Other detail info:
-                  *  Required permission : resource="ADMIN:NAMESPACE:{namespace}:USER:{userId}:STATITEM", action=1 (CREATE)
-                  *  Returns : created user's statItem
+  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:USER:{userId}:STATITEM", action=1 (CREATE)
+  - Returns : created user's statItem
 */
 func (a *Client) CreateUserStatItem(params *CreateUserStatItemParams, authInfo runtime.ClientAuthInfoWriter) (*CreateUserStatItemCreated, *CreateUserStatItemUnauthorized, *CreateUserStatItemForbidden, *CreateUserStatItemNotFound, *CreateUserStatItemConflict, *CreateUserStatItemUnprocessableEntity, *CreateUserStatItemInternalServerError, error) {
 	// TODO: Validate the params before sending
@@ -1529,8 +1573,8 @@ func (a *Client) CreateUserStatItem(params *CreateUserStatItemParams, authInfo r
 CreateUserStatItemShort create user's statitem
 Create statItem for a user.
 Other detail info:
-                  *  Required permission : resource="ADMIN:NAMESPACE:{namespace}:USER:{userId}:STATITEM", action=1 (CREATE)
-                  *  Returns : created user's statItem
+  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:USER:{userId}:STATITEM", action=1 (CREATE)
+  - Returns : created user's statItem
 */
 func (a *Client) CreateUserStatItemShort(params *CreateUserStatItemParams, authInfo runtime.ClientAuthInfoWriter) (*CreateUserStatItemCreated, error) {
 	// TODO: Validate the params before sending
@@ -1544,6 +1588,10 @@ func (a *Client) CreateUserStatItemShort(params *CreateUserStatItemParams, authI
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -1592,8 +1640,8 @@ DeleteUserStatItems delete user's statitems
 This endpoint is for testing purpose. Use this endpoint for cleaning up after testing.
 Delete user's statItems given stat code.
 Other detail info:
-                  *  Required permission : resource="ADMIN:NAMESPACE:{namespace}:USER:{userId}:STATITEM", action=8 (DELETE)
-                  *  Returns : no content
+  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:USER:{userId}:STATITEM", action=8 (DELETE)
+  - Returns : no content
 */
 func (a *Client) DeleteUserStatItems(params *DeleteUserStatItemsParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteUserStatItemsNoContent, *DeleteUserStatItemsUnauthorized, *DeleteUserStatItemsForbidden, *DeleteUserStatItemsNotFound, *DeleteUserStatItemsUnprocessableEntity, *DeleteUserStatItemsInternalServerError, error) {
 	// TODO: Validate the params before sending
@@ -1656,8 +1704,8 @@ DeleteUserStatItemsShort delete user's statitems
 This endpoint is for testing purpose. Use this endpoint for cleaning up after testing.
 Delete user's statItems given stat code.
 Other detail info:
-                    *  Required permission : resource="ADMIN:NAMESPACE:{namespace}:USER:{userId}:STATITEM", action=8 (DELETE)
-                    *  Returns : no content
+  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:USER:{userId}:STATITEM", action=8 (DELETE)
+  - Returns : no content
 */
 func (a *Client) DeleteUserStatItemsShort(params *DeleteUserStatItemsParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteUserStatItemsNoContent, error) {
 	// TODO: Validate the params before sending
@@ -1671,6 +1719,10 @@ func (a *Client) DeleteUserStatItemsShort(params *DeleteUserStatItemsParams, aut
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -1716,8 +1768,8 @@ Deprecated: 2022-08-10 - Use IncUserStatItemValueShort instead.
 IncUserStatItemValue update user's statitem value
 Update user's statitem value.
 Other detail info:
-                      *  Required permission : resource="ADMIN:NAMESPACE:{namespace}:USER:{userId}:STATITEM", action=4 (UPDATE)
-                      *  Returns : updated user's statItem
+  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:USER:{userId}:STATITEM", action=4 (UPDATE)
+  - Returns : updated user's statItem
 */
 func (a *Client) IncUserStatItemValue(params *IncUserStatItemValueParams, authInfo runtime.ClientAuthInfoWriter) (*IncUserStatItemValueOK, *IncUserStatItemValueBadRequest, *IncUserStatItemValueUnauthorized, *IncUserStatItemValueForbidden, *IncUserStatItemValueNotFound, *IncUserStatItemValueConflict, *IncUserStatItemValueUnprocessableEntity, *IncUserStatItemValueInternalServerError, error) {
 	// TODO: Validate the params before sending
@@ -1785,8 +1837,8 @@ func (a *Client) IncUserStatItemValue(params *IncUserStatItemValueParams, authIn
 IncUserStatItemValueShort update user's statitem value
 Update user's statitem value.
 Other detail info:
-                      *  Required permission : resource="ADMIN:NAMESPACE:{namespace}:USER:{userId}:STATITEM", action=4 (UPDATE)
-                      *  Returns : updated user's statItem
+  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:USER:{userId}:STATITEM", action=4 (UPDATE)
+  - Returns : updated user's statItem
 */
 func (a *Client) IncUserStatItemValueShort(params *IncUserStatItemValueParams, authInfo runtime.ClientAuthInfoWriter) (*IncUserStatItemValueOK, error) {
 	// TODO: Validate the params before sending
@@ -1800,6 +1852,10 @@ func (a *Client) IncUserStatItemValueShort(params *IncUserStatItemValueParams, a
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -1936,6 +1992,10 @@ func (a *Client) ResetUserStatItemValueShort(params *ResetUserStatItemValueParam
 		params.SetHTTPClientTransport(params.RetryPolicy)
 	}
 
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
+	}
+
 	result, err := a.transport.Submit(&runtime.ClientOperation{
 		ID:                 "resetUserStatItemValue",
 		Method:             "PUT",
@@ -2058,6 +2118,10 @@ func (a *Client) BulkFetchStatItems1Short(params *BulkFetchStatItems1Params, aut
 		params.SetHTTPClientTransport(params.RetryPolicy)
 	}
 
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
+	}
+
 	result, err := a.transport.Submit(&runtime.ClientOperation{
 		ID:                 "bulkFetchStatItems_1",
 		Method:             "GET",
@@ -2099,8 +2163,8 @@ Deprecated: 2022-08-10 - Use PublicBulkIncUserStatItemShort instead.
 PublicBulkIncUserStatItem public bulk update multiple user's statitems value
 Public bulk update multiple user's statitems value.
 Other detail info:
-                      *  Required permission : resource="NAMESPACE:{namespace}:STATITEM", action=4 (UPDATE)
-                      *  Returns : bulk updated result
+  - Required permission : resource="NAMESPACE:{namespace}:STATITEM", action=4 (UPDATE)
+  - Returns : bulk updated result
 */
 func (a *Client) PublicBulkIncUserStatItem(params *PublicBulkIncUserStatItemParams, authInfo runtime.ClientAuthInfoWriter) (*PublicBulkIncUserStatItemOK, *PublicBulkIncUserStatItemBadRequest, *PublicBulkIncUserStatItemUnauthorized, *PublicBulkIncUserStatItemForbidden, *PublicBulkIncUserStatItemUnprocessableEntity, *PublicBulkIncUserStatItemInternalServerError, error) {
 	// TODO: Validate the params before sending
@@ -2162,8 +2226,8 @@ func (a *Client) PublicBulkIncUserStatItem(params *PublicBulkIncUserStatItemPara
 PublicBulkIncUserStatItemShort public bulk update multiple user's statitems value
 Public bulk update multiple user's statitems value.
 Other detail info:
-                      *  Required permission : resource="NAMESPACE:{namespace}:STATITEM", action=4 (UPDATE)
-                      *  Returns : bulk updated result
+  - Required permission : resource="NAMESPACE:{namespace}:STATITEM", action=4 (UPDATE)
+  - Returns : bulk updated result
 */
 func (a *Client) PublicBulkIncUserStatItemShort(params *PublicBulkIncUserStatItemParams, authInfo runtime.ClientAuthInfoWriter) (*PublicBulkIncUserStatItemOK, error) {
 	// TODO: Validate the params before sending
@@ -2177,6 +2241,10 @@ func (a *Client) PublicBulkIncUserStatItemShort(params *PublicBulkIncUserStatIte
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -2222,8 +2290,8 @@ Deprecated: 2022-08-10 - Use PublicBulkIncUserStatItemValueShort instead.
 PublicBulkIncUserStatItemValue public bulk update multiple user's statitems value
 Public bulk update multiple user's statitems value.
 Other detail info:
-                      *  Required permission : resource="NAMESPACE:{namespace}:STATITEM", action=4 (UPDATE)
-                      *  Returns : bulk updated result
+  - Required permission : resource="NAMESPACE:{namespace}:STATITEM", action=4 (UPDATE)
+  - Returns : bulk updated result
 */
 func (a *Client) PublicBulkIncUserStatItemValue(params *PublicBulkIncUserStatItemValueParams, authInfo runtime.ClientAuthInfoWriter) (*PublicBulkIncUserStatItemValueOK, *PublicBulkIncUserStatItemValueBadRequest, *PublicBulkIncUserStatItemValueUnauthorized, *PublicBulkIncUserStatItemValueForbidden, *PublicBulkIncUserStatItemValueUnprocessableEntity, *PublicBulkIncUserStatItemValueInternalServerError, error) {
 	// TODO: Validate the params before sending
@@ -2285,8 +2353,8 @@ func (a *Client) PublicBulkIncUserStatItemValue(params *PublicBulkIncUserStatIte
 PublicBulkIncUserStatItemValueShort public bulk update multiple user's statitems value
 Public bulk update multiple user's statitems value.
 Other detail info:
-                      *  Required permission : resource="NAMESPACE:{namespace}:STATITEM", action=4 (UPDATE)
-                      *  Returns : bulk updated result
+  - Required permission : resource="NAMESPACE:{namespace}:STATITEM", action=4 (UPDATE)
+  - Returns : bulk updated result
 */
 func (a *Client) PublicBulkIncUserStatItemValueShort(params *PublicBulkIncUserStatItemValueParams, authInfo runtime.ClientAuthInfoWriter) (*PublicBulkIncUserStatItemValueOK, error) {
 	// TODO: Validate the params before sending
@@ -2300,6 +2368,10 @@ func (a *Client) PublicBulkIncUserStatItemValueShort(params *PublicBulkIncUserSt
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -2429,6 +2501,10 @@ func (a *Client) BulkResetUserStatItem2Short(params *BulkResetUserStatItem2Param
 		params.SetHTTPClientTransport(params.RetryPolicy)
 	}
 
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
+	}
+
 	result, err := a.transport.Submit(&runtime.ClientOperation{
 		ID:                 "bulkResetUserStatItem_2",
 		Method:             "PUT",
@@ -2472,8 +2548,8 @@ Deprecated: 2022-08-10 - Use PublicListMyStatItemsShort instead.
 PublicListMyStatItems public list user's statitems
 Public list all statItems by pagination.
 Other detail info:
-                      *  Required permission : resource="NAMESPACE:{namespace}:USER:{userId}:STATITEM", action=2 (READ)
-                      *  Returns : stat items
+  - Required permission : resource="NAMESPACE:{namespace}:USER:{userId}:STATITEM", action=2 (READ)
+  - Returns : stat items
 */
 func (a *Client) PublicListMyStatItems(params *PublicListMyStatItemsParams, authInfo runtime.ClientAuthInfoWriter) (*PublicListMyStatItemsOK, *PublicListMyStatItemsUnauthorized, *PublicListMyStatItemsForbidden, *PublicListMyStatItemsUnprocessableEntity, *PublicListMyStatItemsInternalServerError, error) {
 	// TODO: Validate the params before sending
@@ -2532,8 +2608,8 @@ func (a *Client) PublicListMyStatItems(params *PublicListMyStatItemsParams, auth
 PublicListMyStatItemsShort public list user's statitems
 Public list all statItems by pagination.
 Other detail info:
-                      *  Required permission : resource="NAMESPACE:{namespace}:USER:{userId}:STATITEM", action=2 (READ)
-                      *  Returns : stat items
+  - Required permission : resource="NAMESPACE:{namespace}:USER:{userId}:STATITEM", action=2 (READ)
+  - Returns : stat items
 */
 func (a *Client) PublicListMyStatItemsShort(params *PublicListMyStatItemsParams, authInfo runtime.ClientAuthInfoWriter) (*PublicListMyStatItemsOK, error) {
 	// TODO: Validate the params before sending
@@ -2547,6 +2623,10 @@ func (a *Client) PublicListMyStatItemsShort(params *PublicListMyStatItemsParams,
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -2590,11 +2670,12 @@ Deprecated: 2022-08-10 - Use PublicListAllMyStatItemsShort instead.
 PublicListAllMyStatItems public list user's statitems
 Public list all statItems of user.
 NOTE:
-                    * If stat code does not exist, will ignore this stat code.
-                    * If stat item does not exist, will return default value
+  - If stat code does not exist, will ignore this stat code.
+  - If stat item does not exist, will return default value
+
 Other detail info:
-                    *  Required permission : resource="NAMESPACE:{namespace}:USER:{userId}:STATITEM", action=2 (READ)
-                    *  Returns : stat items
+  - Required permission : resource="NAMESPACE:{namespace}:USER:{userId}:STATITEM", action=2 (READ)
+  - Returns : stat items
 */
 func (a *Client) PublicListAllMyStatItems(params *PublicListAllMyStatItemsParams, authInfo runtime.ClientAuthInfoWriter) (*PublicListAllMyStatItemsOK, *PublicListAllMyStatItemsBadRequest, *PublicListAllMyStatItemsForbidden, *PublicListAllMyStatItemsNotFound, *PublicListAllMyStatItemsUnprocessableEntity, error) {
 	// TODO: Validate the params before sending
@@ -2653,11 +2734,12 @@ func (a *Client) PublicListAllMyStatItems(params *PublicListAllMyStatItemsParams
 PublicListAllMyStatItemsShort public list user's statitems
 Public list all statItems of user.
 NOTE:
-                  * If stat code does not exist, will ignore this stat code.
-                  * If stat item does not exist, will return default value
+  - If stat code does not exist, will ignore this stat code.
+  - If stat item does not exist, will return default value
+
 Other detail info:
-                  *  Required permission : resource="NAMESPACE:{namespace}:USER:{userId}:STATITEM", action=2 (READ)
-                  *  Returns : stat items
+  - Required permission : resource="NAMESPACE:{namespace}:USER:{userId}:STATITEM", action=2 (READ)
+  - Returns : stat items
 */
 func (a *Client) PublicListAllMyStatItemsShort(params *PublicListAllMyStatItemsParams, authInfo runtime.ClientAuthInfoWriter) (*PublicListAllMyStatItemsOK, error) {
 	// TODO: Validate the params before sending
@@ -2671,6 +2753,10 @@ func (a *Client) PublicListAllMyStatItemsShort(params *PublicListAllMyStatItemsP
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -2714,8 +2800,8 @@ Deprecated: 2022-08-10 - Use PublicQueryUserStatItemsShort instead.
 PublicQueryUserStatItems public list user's statitems
 Public list all statItems by pagination.
 Other detail info:
-                  *  Required permission : resource="NAMESPACE:{namespace}:USER:{userId}:STATITEM", action=2 (READ)
-                  *  Returns : stat items
+  - Required permission : resource="NAMESPACE:{namespace}:USER:{userId}:STATITEM", action=2 (READ)
+  - Returns : stat items
 */
 func (a *Client) PublicQueryUserStatItems(params *PublicQueryUserStatItemsParams, authInfo runtime.ClientAuthInfoWriter) (*PublicQueryUserStatItemsOK, *PublicQueryUserStatItemsUnauthorized, *PublicQueryUserStatItemsForbidden, *PublicQueryUserStatItemsUnprocessableEntity, *PublicQueryUserStatItemsInternalServerError, error) {
 	// TODO: Validate the params before sending
@@ -2774,8 +2860,8 @@ func (a *Client) PublicQueryUserStatItems(params *PublicQueryUserStatItemsParams
 PublicQueryUserStatItemsShort public list user's statitems
 Public list all statItems by pagination.
 Other detail info:
-                  *  Required permission : resource="NAMESPACE:{namespace}:USER:{userId}:STATITEM", action=2 (READ)
-                  *  Returns : stat items
+  - Required permission : resource="NAMESPACE:{namespace}:USER:{userId}:STATITEM", action=2 (READ)
+  - Returns : stat items
 */
 func (a *Client) PublicQueryUserStatItemsShort(params *PublicQueryUserStatItemsParams, authInfo runtime.ClientAuthInfoWriter) (*PublicQueryUserStatItemsOK, error) {
 	// TODO: Validate the params before sending
@@ -2789,6 +2875,10 @@ func (a *Client) PublicQueryUserStatItemsShort(params *PublicQueryUserStatItemsP
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -2832,8 +2922,8 @@ Deprecated: 2022-08-10 - Use PublicBulkCreateUserStatItemsShort instead.
 PublicBulkCreateUserStatItems bulk create user's statitems
 Bulk create statItems.
 Other detail info:
-                  *  Required permission : resource="NAMESPACE:{namespace}:USER:{userId}:STATITEM", action=1 (CREATE)
-                  *  Returns : bulk created result
+  - Required permission : resource="NAMESPACE:{namespace}:USER:{userId}:STATITEM", action=1 (CREATE)
+  - Returns : bulk created result
 */
 func (a *Client) PublicBulkCreateUserStatItems(params *PublicBulkCreateUserStatItemsParams, authInfo runtime.ClientAuthInfoWriter) (*PublicBulkCreateUserStatItemsOK, *PublicBulkCreateUserStatItemsBadRequest, *PublicBulkCreateUserStatItemsUnauthorized, *PublicBulkCreateUserStatItemsForbidden, *PublicBulkCreateUserStatItemsUnprocessableEntity, *PublicBulkCreateUserStatItemsInternalServerError, error) {
 	// TODO: Validate the params before sending
@@ -2895,8 +2985,8 @@ func (a *Client) PublicBulkCreateUserStatItems(params *PublicBulkCreateUserStatI
 PublicBulkCreateUserStatItemsShort bulk create user's statitems
 Bulk create statItems.
 Other detail info:
-                  *  Required permission : resource="NAMESPACE:{namespace}:USER:{userId}:STATITEM", action=1 (CREATE)
-                  *  Returns : bulk created result
+  - Required permission : resource="NAMESPACE:{namespace}:USER:{userId}:STATITEM", action=1 (CREATE)
+  - Returns : bulk created result
 */
 func (a *Client) PublicBulkCreateUserStatItemsShort(params *PublicBulkCreateUserStatItemsParams, authInfo runtime.ClientAuthInfoWriter) (*PublicBulkCreateUserStatItemsOK, error) {
 	// TODO: Validate the params before sending
@@ -2910,6 +3000,10 @@ func (a *Client) PublicBulkCreateUserStatItemsShort(params *PublicBulkCreateUser
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -2955,11 +3049,12 @@ Deprecated: 2022-08-10 - Use PublicQueryUserStatItems1Short instead.
 PublicQueryUserStatItems1 public list user's statitems
 Public list all statItems of user.
 NOTE:
-                * If stat code does not exist, will ignore this stat code.
-                * If stat item does not exist, will return default value
+  - If stat code does not exist, will ignore this stat code.
+  - If stat item does not exist, will return default value
+
 Other detail info:
-                *  Required permission : resource="NAMESPACE:{namespace}:USER:{userId}:STATITEM", action=2 (READ)
-                *  Returns : stat items
+  - Required permission : resource="NAMESPACE:{namespace}:USER:{userId}:STATITEM", action=2 (READ)
+  - Returns : stat items
 */
 func (a *Client) PublicQueryUserStatItems1(params *PublicQueryUserStatItems1Params, authInfo runtime.ClientAuthInfoWriter) (*PublicQueryUserStatItems1OK, *PublicQueryUserStatItems1BadRequest, *PublicQueryUserStatItems1Unauthorized, *PublicQueryUserStatItems1Forbidden, *PublicQueryUserStatItems1NotFound, *PublicQueryUserStatItems1UnprocessableEntity, *PublicQueryUserStatItems1InternalServerError, error) {
 	// TODO: Validate the params before sending
@@ -3024,11 +3119,12 @@ func (a *Client) PublicQueryUserStatItems1(params *PublicQueryUserStatItems1Para
 PublicQueryUserStatItems1Short public list user's statitems
 Public list all statItems of user.
 NOTE:
-              * If stat code does not exist, will ignore this stat code.
-              * If stat item does not exist, will return default value
+  - If stat code does not exist, will ignore this stat code.
+  - If stat item does not exist, will return default value
+
 Other detail info:
-              *  Required permission : resource="NAMESPACE:{namespace}:USER:{userId}:STATITEM", action=2 (READ)
-              *  Returns : stat items
+  - Required permission : resource="NAMESPACE:{namespace}:USER:{userId}:STATITEM", action=2 (READ)
+  - Returns : stat items
 */
 func (a *Client) PublicQueryUserStatItems1Short(params *PublicQueryUserStatItems1Params, authInfo runtime.ClientAuthInfoWriter) (*PublicQueryUserStatItems1OK, error) {
 	// TODO: Validate the params before sending
@@ -3042,6 +3138,10 @@ func (a *Client) PublicQueryUserStatItems1Short(params *PublicQueryUserStatItems
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -3089,8 +3189,8 @@ Deprecated: 2022-08-10 - Use PublicBulkIncUserStatItem1Short instead.
 PublicBulkIncUserStatItem1 public bulk update user's statitems value
 Public bulk update user's statitems value.
 Other detail info:
-              *  Required permission : resource="NAMESPACE:{namespace}:USER:{userId}:STATITEM", action=4 (UPDATE)
-              *  Returns : bulk updated result
+  - Required permission : resource="NAMESPACE:{namespace}:USER:{userId}:STATITEM", action=4 (UPDATE)
+  - Returns : bulk updated result
 */
 func (a *Client) PublicBulkIncUserStatItem1(params *PublicBulkIncUserStatItem1Params, authInfo runtime.ClientAuthInfoWriter) (*PublicBulkIncUserStatItem1OK, *PublicBulkIncUserStatItem1BadRequest, *PublicBulkIncUserStatItem1Unauthorized, *PublicBulkIncUserStatItem1Forbidden, *PublicBulkIncUserStatItem1UnprocessableEntity, *PublicBulkIncUserStatItem1InternalServerError, error) {
 	// TODO: Validate the params before sending
@@ -3152,8 +3252,8 @@ func (a *Client) PublicBulkIncUserStatItem1(params *PublicBulkIncUserStatItem1Pa
 PublicBulkIncUserStatItem1Short public bulk update user's statitems value
 Public bulk update user's statitems value.
 Other detail info:
-              *  Required permission : resource="NAMESPACE:{namespace}:USER:{userId}:STATITEM", action=4 (UPDATE)
-              *  Returns : bulk updated result
+  - Required permission : resource="NAMESPACE:{namespace}:USER:{userId}:STATITEM", action=4 (UPDATE)
+  - Returns : bulk updated result
 */
 func (a *Client) PublicBulkIncUserStatItem1Short(params *PublicBulkIncUserStatItem1Params, authInfo runtime.ClientAuthInfoWriter) (*PublicBulkIncUserStatItem1OK, error) {
 	// TODO: Validate the params before sending
@@ -3167,6 +3267,10 @@ func (a *Client) PublicBulkIncUserStatItem1Short(params *PublicBulkIncUserStatIt
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -3212,8 +3316,8 @@ Deprecated: 2022-08-10 - Use BulkIncUserStatItemValue2Short instead.
 BulkIncUserStatItemValue2 public bulk update user's statitems value
 Public bulk update user's statitems value.
 Other detail info:
-              *  Required permission : resource="NAMESPACE:{namespace}:USER:{userId}:STATITEM", action=4 (UPDATE)
-              *  Returns : bulk updated result
+  - Required permission : resource="NAMESPACE:{namespace}:USER:{userId}:STATITEM", action=4 (UPDATE)
+  - Returns : bulk updated result
 */
 func (a *Client) BulkIncUserStatItemValue2(params *BulkIncUserStatItemValue2Params, authInfo runtime.ClientAuthInfoWriter) (*BulkIncUserStatItemValue2OK, *BulkIncUserStatItemValue2BadRequest, *BulkIncUserStatItemValue2Unauthorized, *BulkIncUserStatItemValue2Forbidden, *BulkIncUserStatItemValue2UnprocessableEntity, *BulkIncUserStatItemValue2InternalServerError, error) {
 	// TODO: Validate the params before sending
@@ -3275,8 +3379,8 @@ func (a *Client) BulkIncUserStatItemValue2(params *BulkIncUserStatItemValue2Para
 BulkIncUserStatItemValue2Short public bulk update user's statitems value
 Public bulk update user's statitems value.
 Other detail info:
-                *  Required permission : resource="NAMESPACE:{namespace}:USER:{userId}:STATITEM", action=4 (UPDATE)
-                *  Returns : bulk updated result
+  - Required permission : resource="NAMESPACE:{namespace}:USER:{userId}:STATITEM", action=4 (UPDATE)
+  - Returns : bulk updated result
 */
 func (a *Client) BulkIncUserStatItemValue2Short(params *BulkIncUserStatItemValue2Params, authInfo runtime.ClientAuthInfoWriter) (*BulkIncUserStatItemValue2OK, error) {
 	// TODO: Validate the params before sending
@@ -3290,6 +3394,10 @@ func (a *Client) BulkIncUserStatItemValue2Short(params *BulkIncUserStatItemValue
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -3415,6 +3523,10 @@ func (a *Client) BulkResetUserStatItem3Short(params *BulkResetUserStatItem3Param
 		params.SetHTTPClientTransport(params.RetryPolicy)
 	}
 
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
+	}
+
 	result, err := a.transport.Submit(&runtime.ClientOperation{
 		ID:                 "bulkResetUserStatItem_3",
 		Method:             "PUT",
@@ -3458,8 +3570,8 @@ Deprecated: 2022-08-10 - Use PublicCreateUserStatItemShort instead.
 PublicCreateUserStatItem create user's statitem
 Create user's statItem.
 Other detail info:
-                  *  Required permission : resource="NAMESPACE:{namespace}:USER:{userId}:STATITEM", action=1 (CREATE)
-                  *  Returns : created user's statItem
+  - Required permission : resource="NAMESPACE:{namespace}:USER:{userId}:STATITEM", action=1 (CREATE)
+  - Returns : created user's statItem
 */
 func (a *Client) PublicCreateUserStatItem(params *PublicCreateUserStatItemParams, authInfo runtime.ClientAuthInfoWriter) (*PublicCreateUserStatItemCreated, *PublicCreateUserStatItemUnauthorized, *PublicCreateUserStatItemForbidden, *PublicCreateUserStatItemNotFound, *PublicCreateUserStatItemConflict, *PublicCreateUserStatItemUnprocessableEntity, *PublicCreateUserStatItemInternalServerError, error) {
 	// TODO: Validate the params before sending
@@ -3524,8 +3636,8 @@ func (a *Client) PublicCreateUserStatItem(params *PublicCreateUserStatItemParams
 PublicCreateUserStatItemShort create user's statitem
 Create user's statItem.
 Other detail info:
-                  *  Required permission : resource="NAMESPACE:{namespace}:USER:{userId}:STATITEM", action=1 (CREATE)
-                  *  Returns : created user's statItem
+  - Required permission : resource="NAMESPACE:{namespace}:USER:{userId}:STATITEM", action=1 (CREATE)
+  - Returns : created user's statItem
 */
 func (a *Client) PublicCreateUserStatItemShort(params *PublicCreateUserStatItemParams, authInfo runtime.ClientAuthInfoWriter) (*PublicCreateUserStatItemCreated, error) {
 	// TODO: Validate the params before sending
@@ -3539,6 +3651,10 @@ func (a *Client) PublicCreateUserStatItemShort(params *PublicCreateUserStatItemP
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -3586,8 +3702,8 @@ Deprecated: 2022-08-10 - Use DeleteUserStatItems1Short instead.
 DeleteUserStatItems1 delete user's statitems
 Delete user's statItems given stat code.
 Other detail info:
-                  *  Required permission : resource="NAMESPACE:{namespace}:USER:{userId}:STATITEM", action=8 (DELETE)
-                  *  Returns : no content
+  - Required permission : resource="NAMESPACE:{namespace}:USER:{userId}:STATITEM", action=8 (DELETE)
+  - Returns : no content
 */
 func (a *Client) DeleteUserStatItems1(params *DeleteUserStatItems1Params, authInfo runtime.ClientAuthInfoWriter) (*DeleteUserStatItems1NoContent, *DeleteUserStatItems1Unauthorized, *DeleteUserStatItems1Forbidden, *DeleteUserStatItems1NotFound, *DeleteUserStatItems1UnprocessableEntity, *DeleteUserStatItems1InternalServerError, error) {
 	// TODO: Validate the params before sending
@@ -3649,8 +3765,8 @@ func (a *Client) DeleteUserStatItems1(params *DeleteUserStatItems1Params, authIn
 DeleteUserStatItems1Short delete user's statitems
 Delete user's statItems given stat code.
 Other detail info:
-                    *  Required permission : resource="NAMESPACE:{namespace}:USER:{userId}:STATITEM", action=8 (DELETE)
-                    *  Returns : no content
+  - Required permission : resource="NAMESPACE:{namespace}:USER:{userId}:STATITEM", action=8 (DELETE)
+  - Returns : no content
 */
 func (a *Client) DeleteUserStatItems1Short(params *DeleteUserStatItems1Params, authInfo runtime.ClientAuthInfoWriter) (*DeleteUserStatItems1NoContent, error) {
 	// TODO: Validate the params before sending
@@ -3664,6 +3780,10 @@ func (a *Client) DeleteUserStatItems1Short(params *DeleteUserStatItems1Params, a
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -3709,8 +3829,8 @@ Deprecated: 2022-08-10 - Use PublicIncUserStatItemShort instead.
 PublicIncUserStatItem public update user's statitem value
 Public update user's statitem value.
 Other detail info:
-                      *  Required permission : resource="NAMESPACE:{namespace}:USER:{userId}:STATITEM", action=4 (UPDATE)
-                      *  Returns : updated user's statItem
+  - Required permission : resource="NAMESPACE:{namespace}:USER:{userId}:STATITEM", action=4 (UPDATE)
+  - Returns : updated user's statItem
 */
 func (a *Client) PublicIncUserStatItem(params *PublicIncUserStatItemParams, authInfo runtime.ClientAuthInfoWriter) (*PublicIncUserStatItemOK, *PublicIncUserStatItemBadRequest, *PublicIncUserStatItemUnauthorized, *PublicIncUserStatItemForbidden, *PublicIncUserStatItemNotFound, *PublicIncUserStatItemConflict, *PublicIncUserStatItemUnprocessableEntity, *PublicIncUserStatItemInternalServerError, error) {
 	// TODO: Validate the params before sending
@@ -3778,8 +3898,8 @@ func (a *Client) PublicIncUserStatItem(params *PublicIncUserStatItemParams, auth
 PublicIncUserStatItemShort public update user's statitem value
 Public update user's statitem value.
 Other detail info:
-                      *  Required permission : resource="NAMESPACE:{namespace}:USER:{userId}:STATITEM", action=4 (UPDATE)
-                      *  Returns : updated user's statItem
+  - Required permission : resource="NAMESPACE:{namespace}:USER:{userId}:STATITEM", action=4 (UPDATE)
+  - Returns : updated user's statItem
 */
 func (a *Client) PublicIncUserStatItemShort(params *PublicIncUserStatItemParams, authInfo runtime.ClientAuthInfoWriter) (*PublicIncUserStatItemOK, error) {
 	// TODO: Validate the params before sending
@@ -3793,6 +3913,10 @@ func (a *Client) PublicIncUserStatItemShort(params *PublicIncUserStatItemParams,
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -3842,8 +3966,8 @@ Deprecated: 2022-08-10 - Use PublicIncUserStatItemValueShort instead.
 PublicIncUserStatItemValue public update user's statitem value
 Public update user's statitem value.
 Other detail info:
-                      *  Required permission : resource="NAMESPACE:{namespace}:USER:{userId}:STATITEM", action=4 (UPDATE)
-                      *  Returns : updated user's statItem
+  - Required permission : resource="NAMESPACE:{namespace}:USER:{userId}:STATITEM", action=4 (UPDATE)
+  - Returns : updated user's statItem
 */
 func (a *Client) PublicIncUserStatItemValue(params *PublicIncUserStatItemValueParams, authInfo runtime.ClientAuthInfoWriter) (*PublicIncUserStatItemValueOK, *PublicIncUserStatItemValueBadRequest, *PublicIncUserStatItemValueUnauthorized, *PublicIncUserStatItemValueForbidden, *PublicIncUserStatItemValueNotFound, *PublicIncUserStatItemValueConflict, *PublicIncUserStatItemValueUnprocessableEntity, *PublicIncUserStatItemValueInternalServerError, error) {
 	// TODO: Validate the params before sending
@@ -3911,8 +4035,8 @@ func (a *Client) PublicIncUserStatItemValue(params *PublicIncUserStatItemValuePa
 PublicIncUserStatItemValueShort public update user's statitem value
 Public update user's statitem value.
 Other detail info:
-                      *  Required permission : resource="NAMESPACE:{namespace}:USER:{userId}:STATITEM", action=4 (UPDATE)
-                      *  Returns : updated user's statItem
+  - Required permission : resource="NAMESPACE:{namespace}:USER:{userId}:STATITEM", action=4 (UPDATE)
+  - Returns : updated user's statItem
 */
 func (a *Client) PublicIncUserStatItemValueShort(params *PublicIncUserStatItemValueParams, authInfo runtime.ClientAuthInfoWriter) (*PublicIncUserStatItemValueOK, error) {
 	// TODO: Validate the params before sending
@@ -3926,6 +4050,10 @@ func (a *Client) PublicIncUserStatItemValueShort(params *PublicIncUserStatItemVa
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -4060,6 +4188,10 @@ func (a *Client) ResetUserStatItemValue1Short(params *ResetUserStatItemValue1Par
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -4199,6 +4331,10 @@ func (a *Client) BulkUpdateUserStatItemV2Short(params *BulkUpdateUserStatItemV2P
 		params.SetHTTPClientTransport(params.RetryPolicy)
 	}
 
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
+	}
+
 	result, err := a.transport.Submit(&runtime.ClientOperation{
 		ID:                 "bulkUpdateUserStatItemV2",
 		Method:             "PUT",
@@ -4322,6 +4458,10 @@ func (a *Client) BulkFetchOrDefaultStatItems1Short(params *BulkFetchOrDefaultSta
 		params.SetHTTPClientTransport(params.RetryPolicy)
 	}
 
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
+	}
+
 	result, err := a.transport.Submit(&runtime.ClientOperation{
 		ID:                 "bulkFetchOrDefaultStatItems_1",
 		Method:             "GET",
@@ -4365,11 +4505,12 @@ Deprecated: 2022-08-10 - Use AdminListUsersStatItemsShort instead.
 AdminListUsersStatItems admin list user's statitems
 Admin list all statItems of user
 NOTE:
-                    * If stat code does not exist, will ignore this stat code.
-                    * If stat item does not exist, will return default value
+  - If stat code does not exist, will ignore this stat code.
+  - If stat item does not exist, will return default value
+
 Other detail info:+ *Required permission*: resource=ADMIN:NAMESPACE:{namespace}:STATITEM, action=2 (READ)
 
-                    *  Returns : stat items
+  - Returns : stat items
 */
 func (a *Client) AdminListUsersStatItems(params *AdminListUsersStatItemsParams, authInfo runtime.ClientAuthInfoWriter) (*AdminListUsersStatItemsOK, *AdminListUsersStatItemsBadRequest, *AdminListUsersStatItemsUnauthorized, *AdminListUsersStatItemsForbidden, *AdminListUsersStatItemsNotFound, *AdminListUsersStatItemsUnprocessableEntity, *AdminListUsersStatItemsInternalServerError, error) {
 	// TODO: Validate the params before sending
@@ -4434,11 +4575,12 @@ func (a *Client) AdminListUsersStatItems(params *AdminListUsersStatItemsParams, 
 AdminListUsersStatItemsShort admin list user's statitems
 Admin list all statItems of user
 NOTE:
-                  * If stat code does not exist, will ignore this stat code.
-                  * If stat item does not exist, will return default value
+  - If stat code does not exist, will ignore this stat code.
+  - If stat item does not exist, will return default value
+
 Other detail info:+ *Required permission*: resource=ADMIN:NAMESPACE:{namespace}:STATITEM, action=2 (READ)
 
-                  *  Returns : stat items
+  - Returns : stat items
 */
 func (a *Client) AdminListUsersStatItemsShort(params *AdminListUsersStatItemsParams, authInfo runtime.ClientAuthInfoWriter) (*AdminListUsersStatItemsOK, error) {
 	// TODO: Validate the params before sending
@@ -4452,6 +4594,10 @@ func (a *Client) AdminListUsersStatItemsShort(params *AdminListUsersStatItemsPar
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -4597,6 +4743,10 @@ func (a *Client) BulkUpdateUserStatItemShort(params *BulkUpdateUserStatItemParam
 		params.SetHTTPClientTransport(params.RetryPolicy)
 	}
 
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
+	}
+
 	result, err := a.transport.Submit(&runtime.ClientOperation{
 		ID:                 "bulkUpdateUserStatItem",
 		Method:             "PUT",
@@ -4720,6 +4870,10 @@ func (a *Client) BulkResetUserStatItemValuesShort(params *BulkResetUserStatItemV
 		params.SetHTTPClientTransport(params.RetryPolicy)
 	}
 
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
+	}
+
 	result, err := a.transport.Submit(&runtime.ClientOperation{
 		ID:                 "bulkResetUserStatItemValues",
 		Method:             "PUT",
@@ -4767,8 +4921,8 @@ Otherwise, it will delete all stat items related to the user Id.
 
 Delete user's statItems given stat code.
 Other detail info:
-                  *  Required permission : resource="ADMIN:NAMESPACE:{namespace}:USER:{userId}:STATITEM", action=8 (DELETE)
-                  *  Returns : no content
+  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:USER:{userId}:STATITEM", action=8 (DELETE)
+  - Returns : no content
 */
 func (a *Client) DeleteUserStatItems2(params *DeleteUserStatItems2Params, authInfo runtime.ClientAuthInfoWriter) (*DeleteUserStatItems2NoContent, *DeleteUserStatItems2Unauthorized, *DeleteUserStatItems2Forbidden, *DeleteUserStatItems2NotFound, *DeleteUserStatItems2UnprocessableEntity, *DeleteUserStatItems2InternalServerError, error) {
 	// TODO: Validate the params before sending
@@ -4834,8 +4988,8 @@ Otherwise, it will delete all stat items related to the user Id.
 
 Delete user's statItems given stat code.
 Other detail info:
-                    *  Required permission : resource="ADMIN:NAMESPACE:{namespace}:USER:{userId}:STATITEM", action=8 (DELETE)
-                    *  Returns : no content
+  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:USER:{userId}:STATITEM", action=8 (DELETE)
+  - Returns : no content
 */
 func (a *Client) DeleteUserStatItems2Short(params *DeleteUserStatItems2Params, authInfo runtime.ClientAuthInfoWriter) (*DeleteUserStatItems2NoContent, error) {
 	// TODO: Validate the params before sending
@@ -4849,6 +5003,10 @@ func (a *Client) DeleteUserStatItems2Short(params *DeleteUserStatItems2Params, a
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -4998,6 +5156,10 @@ func (a *Client) UpdateUserStatItemValueShort(params *UpdateUserStatItemValuePar
 		params.SetHTTPClientTransport(params.RetryPolicy)
 	}
 
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
+	}
+
 	result, err := a.transport.Submit(&runtime.ClientOperation{
 		ID:                 "updateUserStatItemValue",
 		Method:             "PUT",
@@ -5137,6 +5299,10 @@ func (a *Client) BulkUpdateUserStatItem1Short(params *BulkUpdateUserStatItem1Par
 		params.SetHTTPClientTransport(params.RetryPolicy)
 	}
 
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
+	}
+
 	result, err := a.transport.Submit(&runtime.ClientOperation{
 		ID:                 "bulkUpdateUserStatItem_1",
 		Method:             "PUT",
@@ -5180,11 +5346,12 @@ Deprecated: 2022-08-10 - Use PublicQueryUserStatItems2Short instead.
 PublicQueryUserStatItems2 public list user's statitems
 Public list all statItems of user.
 NOTE:
-                    * If stat code does not exist, will ignore this stat code.
-                    * If stat item does not exist, will return default value
+  - If stat code does not exist, will ignore this stat code.
+  - If stat item does not exist, will return default value
+
 Other detail info:
-                    *  Required permission : resource="NAMESPACE:{namespace}:USER:{userId}:STATITEM", action=2 (READ)
-                    *  Returns : stat items
+  - Required permission : resource="NAMESPACE:{namespace}:USER:{userId}:STATITEM", action=2 (READ)
+  - Returns : stat items
 */
 func (a *Client) PublicQueryUserStatItems2(params *PublicQueryUserStatItems2Params, authInfo runtime.ClientAuthInfoWriter) (*PublicQueryUserStatItems2OK, *PublicQueryUserStatItems2BadRequest, *PublicQueryUserStatItems2Unauthorized, *PublicQueryUserStatItems2Forbidden, *PublicQueryUserStatItems2NotFound, *PublicQueryUserStatItems2UnprocessableEntity, *PublicQueryUserStatItems2InternalServerError, error) {
 	// TODO: Validate the params before sending
@@ -5249,11 +5416,12 @@ func (a *Client) PublicQueryUserStatItems2(params *PublicQueryUserStatItems2Para
 PublicQueryUserStatItems2Short public list user's statitems
 Public list all statItems of user.
 NOTE:
-                  * If stat code does not exist, will ignore this stat code.
-                  * If stat item does not exist, will return default value
+  - If stat code does not exist, will ignore this stat code.
+  - If stat item does not exist, will return default value
+
 Other detail info:
-                  *  Required permission : resource="NAMESPACE:{namespace}:USER:{userId}:STATITEM", action=2 (READ)
-                  *  Returns : stat items
+  - Required permission : resource="NAMESPACE:{namespace}:USER:{userId}:STATITEM", action=2 (READ)
+  - Returns : stat items
 */
 func (a *Client) PublicQueryUserStatItems2Short(params *PublicQueryUserStatItems2Params, authInfo runtime.ClientAuthInfoWriter) (*PublicQueryUserStatItems2OK, error) {
 	// TODO: Validate the params before sending
@@ -5267,6 +5435,10 @@ func (a *Client) PublicQueryUserStatItems2Short(params *PublicQueryUserStatItems
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -5410,6 +5582,10 @@ func (a *Client) BulkUpdateUserStatItem2Short(params *BulkUpdateUserStatItem2Par
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -5557,6 +5733,10 @@ func (a *Client) UpdateUserStatItemValue1Short(params *UpdateUserStatItemValue1P
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{

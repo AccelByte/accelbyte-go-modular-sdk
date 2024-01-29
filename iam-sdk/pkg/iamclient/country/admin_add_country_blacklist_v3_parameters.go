@@ -59,7 +59,8 @@ func NewAdminAddCountryBlacklistV3ParamsWithHTTPClient(client *http.Client) *Adm
 	}
 }
 
-/*AdminAddCountryBlacklistV3Params contains all the parameters to send to the API endpoint
+/*
+AdminAddCountryBlacklistV3Params contains all the parameters to send to the API endpoint
 for the admin add country blacklist v3 operation typically these are written to a http.Request
 */
 type AdminAddCountryBlacklistV3Params struct {
@@ -78,6 +79,9 @@ type AdminAddCountryBlacklistV3Params struct {
 	AuthInfoWriter runtime.ClientAuthInfoWriter
 	Context        context.Context
 	HTTPClient     *http.Client
+
+	// XFlightId is an optional parameter from this SDK
+	XFlightId *string
 }
 
 // WithTimeout adds the timeout to the admin add country blacklist v3 params
@@ -127,6 +131,15 @@ func (o *AdminAddCountryBlacklistV3Params) SetHTTPClientTransport(roundTripper h
 	}
 }
 
+// SetFlightId adds the flightId as the header value for this specific endpoint
+func (o *AdminAddCountryBlacklistV3Params) SetFlightId(flightId string) {
+	if o.XFlightId != nil {
+		o.XFlightId = &flightId
+	} else {
+		o.XFlightId = &utils.GetDefaultFlightID().Value
+	}
+}
+
 // WithBody adds the body to the admin add country blacklist v3 params
 func (o *AdminAddCountryBlacklistV3Params) WithBody(body *iamclientmodels.ModelCountryBlacklistRequest) *AdminAddCountryBlacklistV3Params {
 	o.SetBody(body)
@@ -171,6 +184,16 @@ func (o *AdminAddCountryBlacklistV3Params) WriteToRequest(r runtime.ClientReques
 	// setting the default header value
 	if err := r.SetHeaderParam("X-Amzn-Trace-Id", utils.AmazonTraceIDGen()); err != nil {
 		return err
+	}
+
+	if o.XFlightId == nil {
+		if err := r.SetHeaderParam("X-Flight-Id", utils.GetDefaultFlightID().Value); err != nil {
+			return err
+		}
+	} else {
+		if err := r.SetHeaderParam("X-Flight-Id", *o.XFlightId); err != nil {
+			return err
+		}
 	}
 
 	if len(res) > 0 {

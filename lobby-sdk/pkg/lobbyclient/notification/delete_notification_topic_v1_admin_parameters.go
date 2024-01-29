@@ -57,7 +57,8 @@ func NewDeleteNotificationTopicV1AdminParamsWithHTTPClient(client *http.Client) 
 	}
 }
 
-/*DeleteNotificationTopicV1AdminParams contains all the parameters to send to the API endpoint
+/*
+DeleteNotificationTopicV1AdminParams contains all the parameters to send to the API endpoint
 for the delete notification topic v1 admin operation typically these are written to a http.Request
 */
 type DeleteNotificationTopicV1AdminParams struct {
@@ -79,6 +80,9 @@ type DeleteNotificationTopicV1AdminParams struct {
 	AuthInfoWriter runtime.ClientAuthInfoWriter
 	Context        context.Context
 	HTTPClient     *http.Client
+
+	// XFlightId is an optional parameter from this SDK
+	XFlightId *string
 }
 
 // WithTimeout adds the timeout to the delete notification topic v1 admin params
@@ -128,6 +132,15 @@ func (o *DeleteNotificationTopicV1AdminParams) SetHTTPClientTransport(roundTripp
 	}
 }
 
+// SetFlightId adds the flightId as the header value for this specific endpoint
+func (o *DeleteNotificationTopicV1AdminParams) SetFlightId(flightId string) {
+	if o.XFlightId != nil {
+		o.XFlightId = &flightId
+	} else {
+		o.XFlightId = &utils.GetDefaultFlightID().Value
+	}
+}
+
 // WithNamespace adds the namespace to the delete notification topic v1 admin params
 func (o *DeleteNotificationTopicV1AdminParams) WithNamespace(namespace string) *DeleteNotificationTopicV1AdminParams {
 	o.SetNamespace(namespace)
@@ -171,6 +184,16 @@ func (o *DeleteNotificationTopicV1AdminParams) WriteToRequest(r runtime.ClientRe
 	// setting the default header value
 	if err := r.SetHeaderParam("X-Amzn-Trace-Id", utils.AmazonTraceIDGen()); err != nil {
 		return err
+	}
+
+	if o.XFlightId == nil {
+		if err := r.SetHeaderParam("X-Flight-Id", utils.GetDefaultFlightID().Value); err != nil {
+			return err
+		}
+	} else {
+		if err := r.SetHeaderParam("X-Flight-Id", *o.XFlightId); err != nil {
+			return err
+		}
 	}
 
 	if len(res) > 0 {

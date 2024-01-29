@@ -44,7 +44,7 @@ This API is used to register/update a session on xbox.
 
 Other detail info:
 
-  * Required permission : resource=ADMIN:NAMESPACE:{namespace}:USER:{userId}:INTEGRATION, action=4 (UPDATE)
+  - Required permission : resource=ADMIN:NAMESPACE:{namespace}:USER:{userId}:INTEGRATION, action=4 (UPDATE)
 */
 func (a *Client) RegisterXblSessions(params *RegisterXblSessionsParams, authInfo runtime.ClientAuthInfoWriter) (*RegisterXblSessionsOK, *RegisterXblSessionsBadRequest, error) {
 	// TODO: Validate the params before sending
@@ -96,7 +96,7 @@ This API is used to register/update a session on xbox.
 
 Other detail info:
 
-  * Required permission : resource=ADMIN:NAMESPACE:{namespace}:USER:{userId}:INTEGRATION, action=4 (UPDATE)
+  - Required permission : resource=ADMIN:NAMESPACE:{namespace}:USER:{userId}:INTEGRATION, action=4 (UPDATE)
 */
 func (a *Client) RegisterXblSessionsShort(params *RegisterXblSessionsParams, authInfo runtime.ClientAuthInfoWriter) (*RegisterXblSessionsOK, error) {
 	// TODO: Validate the params before sending
@@ -110,6 +110,10 @@ func (a *Client) RegisterXblSessionsShort(params *RegisterXblSessionsParams, aut
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{

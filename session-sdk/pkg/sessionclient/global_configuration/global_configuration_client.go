@@ -111,6 +111,10 @@ func (a *Client) AdminListGlobalConfigurationShort(params *AdminListGlobalConfig
 		params.SetHTTPClientTransport(params.RetryPolicy)
 	}
 
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
+	}
+
 	result, err := a.transport.Submit(&runtime.ClientOperation{
 		ID:                 "adminListGlobalConfiguration",
 		Method:             "GET",
@@ -213,6 +217,10 @@ func (a *Client) AdminUpdateGlobalConfigurationShort(params *AdminUpdateGlobalCo
 		params.SetHTTPClientTransport(params.RetryPolicy)
 	}
 
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
+	}
+
 	result, err := a.transport.Submit(&runtime.ClientOperation{
 		ID:                 "adminUpdateGlobalConfiguration",
 		Method:             "PUT",
@@ -313,6 +321,10 @@ func (a *Client) AdminDeleteGlobalConfigurationShort(params *AdminDeleteGlobalCo
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{

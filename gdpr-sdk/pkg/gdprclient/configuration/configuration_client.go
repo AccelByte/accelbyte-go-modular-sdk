@@ -54,7 +54,6 @@ Deprecated: 2022-08-10 - Use GetAdminEmailConfigurationShort instead.
 GetAdminEmailConfiguration get admin email addresses configuration
 Get list of admin email address configuration.
 
-
 Required permission `ADMIN:NAMESPACE:{namespace}:EMAIL:CONFIGURATION [READ]` and scope `account`
 */
 func (a *Client) GetAdminEmailConfiguration(params *GetAdminEmailConfigurationParams, authInfo runtime.ClientAuthInfoWriter) (*GetAdminEmailConfigurationOK, *GetAdminEmailConfigurationUnauthorized, *GetAdminEmailConfigurationInternalServerError, error) {
@@ -108,7 +107,6 @@ func (a *Client) GetAdminEmailConfiguration(params *GetAdminEmailConfigurationPa
 GetAdminEmailConfigurationShort get admin email addresses configuration
 Get list of admin email address configuration.
 
-
 Required permission `ADMIN:NAMESPACE:{namespace}:EMAIL:CONFIGURATION [READ]` and scope `account`
 */
 func (a *Client) GetAdminEmailConfigurationShort(params *GetAdminEmailConfigurationParams, authInfo runtime.ClientAuthInfoWriter) (*GetAdminEmailConfigurationOK, error) {
@@ -123,6 +121,10 @@ func (a *Client) GetAdminEmailConfigurationShort(params *GetAdminEmailConfigurat
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -234,6 +236,10 @@ func (a *Client) UpdateAdminEmailConfigurationShort(params *UpdateAdminEmailConf
 		params.SetHTTPClientTransport(params.RetryPolicy)
 	}
 
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
+	}
+
 	result, err := a.transport.Submit(&runtime.ClientOperation{
 		ID:                 "UpdateAdminEmailConfiguration",
 		Method:             "PUT",
@@ -272,7 +278,6 @@ Deprecated: 2022-08-10 - Use SaveAdminEmailConfigurationShort instead.
 
 SaveAdminEmailConfiguration add admin email address configuration
 Add admin email address for receiving personal data request notification.
-
 
 Required permission `ADMIN:NAMESPACE:{namespace}:EMAIL:CONFIGURATION [CREATE]` and scope `account`
 */
@@ -330,7 +335,6 @@ func (a *Client) SaveAdminEmailConfiguration(params *SaveAdminEmailConfiguration
 SaveAdminEmailConfigurationShort add admin email address configuration
 Add admin email address for receiving personal data request notification.
 
-
 Required permission `ADMIN:NAMESPACE:{namespace}:EMAIL:CONFIGURATION [CREATE]` and scope `account`
 */
 func (a *Client) SaveAdminEmailConfigurationShort(params *SaveAdminEmailConfigurationParams, authInfo runtime.ClientAuthInfoWriter) (*SaveAdminEmailConfigurationNoContent, error) {
@@ -345,6 +349,10 @@ func (a *Client) SaveAdminEmailConfigurationShort(params *SaveAdminEmailConfigur
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -385,7 +393,6 @@ Deprecated: 2022-08-10 - Use DeleteAdminEmailConfigurationShort instead.
 
 DeleteAdminEmailConfiguration delete admin emails configurations
 Delete a list of admin email addresses to stop receiving personal data request notification.
-
 
 Required permission `ADMIN:NAMESPACE:{namespace}:EMAIL:CONFIGURATION [DELETE]` and scope `account`
 */
@@ -449,7 +456,6 @@ func (a *Client) DeleteAdminEmailConfiguration(params *DeleteAdminEmailConfigura
 DeleteAdminEmailConfigurationShort delete admin emails configurations
 Delete a list of admin email addresses to stop receiving personal data request notification.
 
-
 Required permission `ADMIN:NAMESPACE:{namespace}:EMAIL:CONFIGURATION [DELETE]` and scope `account`
 */
 func (a *Client) DeleteAdminEmailConfigurationShort(params *DeleteAdminEmailConfigurationParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteAdminEmailConfigurationNoContent, error) {
@@ -464,6 +470,10 @@ func (a *Client) DeleteAdminEmailConfigurationShort(params *DeleteAdminEmailConf
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -508,7 +518,6 @@ Deprecated: 2022-08-10 - Use AdminGetServicesConfigurationShort instead.
 
 AdminGetServicesConfiguration get registered services configuration
 Get Registered Services Configuration.
-
 
 Required permission `ADMIN:NAMESPACE:{namespace}:GDPR:CONFIGURATION [READ]` and scope `account`
 */
@@ -566,7 +575,6 @@ func (a *Client) AdminGetServicesConfiguration(params *AdminGetServicesConfigura
 AdminGetServicesConfigurationShort get registered services configuration
 Get Registered Services Configuration.
 
-
 Required permission `ADMIN:NAMESPACE:{namespace}:GDPR:CONFIGURATION [READ]` and scope `account`
 */
 func (a *Client) AdminGetServicesConfigurationShort(params *AdminGetServicesConfigurationParams, authInfo runtime.ClientAuthInfoWriter) (*AdminGetServicesConfigurationOK, error) {
@@ -581,6 +589,10 @@ func (a *Client) AdminGetServicesConfigurationShort(params *AdminGetServicesConf
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -621,7 +633,6 @@ Deprecated: 2022-08-10 - Use AdminUpdateServicesConfigurationShort instead.
 
 AdminUpdateServicesConfiguration update registered services configuration
 Update Registered Services Configuration.
-
 
 Required permission `ADMIN:NAMESPACE:{namespace}:GDPR:CONFIGURATION [UPDATE]` and scope `account`
 */
@@ -679,7 +690,6 @@ func (a *Client) AdminUpdateServicesConfiguration(params *AdminUpdateServicesCon
 AdminUpdateServicesConfigurationShort update registered services configuration
 Update Registered Services Configuration.
 
-
 Required permission `ADMIN:NAMESPACE:{namespace}:GDPR:CONFIGURATION [UPDATE]` and scope `account`
 */
 func (a *Client) AdminUpdateServicesConfigurationShort(params *AdminUpdateServicesConfigurationParams, authInfo runtime.ClientAuthInfoWriter) (*AdminUpdateServicesConfigurationOK, error) {
@@ -694,6 +704,10 @@ func (a *Client) AdminUpdateServicesConfigurationShort(params *AdminUpdateServic
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -733,9 +747,10 @@ func (a *Client) AdminUpdateServicesConfigurationShort(params *AdminUpdateServic
 Deprecated: 2022-08-10 - Use AdminResetServicesConfigurationShort instead.
 
 AdminResetServicesConfiguration reset registered services configuration
- [TEST FACILITY ONLY]
-Reset Registered Services Configuration to use the default configuration.
 
+	[TEST FACILITY ONLY]
+
+Reset Registered Services Configuration to use the default configuration.
 
 Required permission `ADMIN:NAMESPACE:{namespace}:GDPR:CONFIGURATION [DELETE]` and scope `account`
 */
@@ -788,9 +803,10 @@ func (a *Client) AdminResetServicesConfiguration(params *AdminResetServicesConfi
 
 /*
 AdminResetServicesConfigurationShort reset registered services configuration
- [TEST FACILITY ONLY]
-Reset Registered Services Configuration to use the default configuration.
 
+	[TEST FACILITY ONLY]
+
+Reset Registered Services Configuration to use the default configuration.
 
 Required permission `ADMIN:NAMESPACE:{namespace}:GDPR:CONFIGURATION [DELETE]` and scope `account`
 */
@@ -806,6 +822,10 @@ func (a *Client) AdminResetServicesConfigurationShort(params *AdminResetServices
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{

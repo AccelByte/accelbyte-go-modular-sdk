@@ -57,7 +57,8 @@ func NewSetDefaultPolicy1ParamsWithHTTPClient(client *http.Client) *SetDefaultPo
 	}
 }
 
-/*SetDefaultPolicy1Params contains all the parameters to send to the API endpoint
+/*
+SetDefaultPolicy1Params contains all the parameters to send to the API endpoint
 for the set default policy 1 operation typically these are written to a http.Request
 */
 type SetDefaultPolicy1Params struct {
@@ -79,6 +80,9 @@ type SetDefaultPolicy1Params struct {
 	AuthInfoWriter runtime.ClientAuthInfoWriter
 	Context        context.Context
 	HTTPClient     *http.Client
+
+	// XFlightId is an optional parameter from this SDK
+	XFlightId *string
 }
 
 // WithTimeout adds the timeout to the set default policy 1 params
@@ -128,6 +132,15 @@ func (o *SetDefaultPolicy1Params) SetHTTPClientTransport(roundTripper http.Round
 	}
 }
 
+// SetFlightId adds the flightId as the header value for this specific endpoint
+func (o *SetDefaultPolicy1Params) SetFlightId(flightId string) {
+	if o.XFlightId != nil {
+		o.XFlightId = &flightId
+	} else {
+		o.XFlightId = &utils.GetDefaultFlightID().Value
+	}
+}
+
 // WithLocalizedPolicyVersionID adds the localizedPolicyVersionID to the set default policy 1 params
 func (o *SetDefaultPolicy1Params) WithLocalizedPolicyVersionID(localizedPolicyVersionID string) *SetDefaultPolicy1Params {
 	o.SetLocalizedPolicyVersionID(localizedPolicyVersionID)
@@ -171,6 +184,16 @@ func (o *SetDefaultPolicy1Params) WriteToRequest(r runtime.ClientRequest, reg st
 	// setting the default header value
 	if err := r.SetHeaderParam("X-Amzn-Trace-Id", utils.AmazonTraceIDGen()); err != nil {
 		return err
+	}
+
+	if o.XFlightId == nil {
+		if err := r.SetHeaderParam("X-Flight-Id", utils.GetDefaultFlightID().Value); err != nil {
+			return err
+		}
+	} else {
+		if err := r.SetHeaderParam("X-Flight-Id", *o.XFlightId); err != nil {
+			return err
+		}
 	}
 
 	if len(res) > 0 {

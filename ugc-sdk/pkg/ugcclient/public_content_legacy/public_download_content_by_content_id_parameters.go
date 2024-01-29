@@ -57,7 +57,8 @@ func NewPublicDownloadContentByContentIDParamsWithHTTPClient(client *http.Client
 	}
 }
 
-/*PublicDownloadContentByContentIDParams contains all the parameters to send to the API endpoint
+/*
+PublicDownloadContentByContentIDParams contains all the parameters to send to the API endpoint
 for the public download content by content id operation typically these are written to a http.Request
 */
 type PublicDownloadContentByContentIDParams struct {
@@ -79,6 +80,9 @@ type PublicDownloadContentByContentIDParams struct {
 	AuthInfoWriter runtime.ClientAuthInfoWriter
 	Context        context.Context
 	HTTPClient     *http.Client
+
+	// XFlightId is an optional parameter from this SDK
+	XFlightId *string
 }
 
 // WithTimeout adds the timeout to the public download content by content id params
@@ -128,6 +132,15 @@ func (o *PublicDownloadContentByContentIDParams) SetHTTPClientTransport(roundTri
 	}
 }
 
+// SetFlightId adds the flightId as the header value for this specific endpoint
+func (o *PublicDownloadContentByContentIDParams) SetFlightId(flightId string) {
+	if o.XFlightId != nil {
+		o.XFlightId = &flightId
+	} else {
+		o.XFlightId = &utils.GetDefaultFlightID().Value
+	}
+}
+
 // WithContentID adds the contentID to the public download content by content id params
 func (o *PublicDownloadContentByContentIDParams) WithContentID(contentID string) *PublicDownloadContentByContentIDParams {
 	o.SetContentID(contentID)
@@ -171,6 +184,16 @@ func (o *PublicDownloadContentByContentIDParams) WriteToRequest(r runtime.Client
 	// setting the default header value
 	if err := r.SetHeaderParam("X-Amzn-Trace-Id", utils.AmazonTraceIDGen()); err != nil {
 		return err
+	}
+
+	if o.XFlightId == nil {
+		if err := r.SetHeaderParam("X-Flight-Id", utils.GetDefaultFlightID().Value); err != nil {
+			return err
+		}
+	} else {
+		if err := r.SetHeaderParam("X-Flight-Id", *o.XFlightId); err != nil {
+			return err
+		}
 	}
 
 	if len(res) > 0 {

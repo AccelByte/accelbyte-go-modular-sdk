@@ -59,7 +59,8 @@ func NewUpdateLocalizationTemplateParamsWithHTTPClient(client *http.Client) *Upd
 	}
 }
 
-/*UpdateLocalizationTemplateParams contains all the parameters to send to the API endpoint
+/*
+UpdateLocalizationTemplateParams contains all the parameters to send to the API endpoint
 for the update localization template operation typically these are written to a http.Request
 */
 type UpdateLocalizationTemplateParams struct {
@@ -88,6 +89,9 @@ type UpdateLocalizationTemplateParams struct {
 	AuthInfoWriter runtime.ClientAuthInfoWriter
 	Context        context.Context
 	HTTPClient     *http.Client
+
+	// XFlightId is an optional parameter from this SDK
+	XFlightId *string
 }
 
 // WithTimeout adds the timeout to the update localization template params
@@ -134,6 +138,15 @@ func (o *UpdateLocalizationTemplateParams) SetHTTPClientTransport(roundTripper h
 		o.HTTPClient.Transport = roundTripper
 	} else {
 		o.HTTPClient = &http.Client{Transport: roundTripper}
+	}
+}
+
+// SetFlightId adds the flightId as the header value for this specific endpoint
+func (o *UpdateLocalizationTemplateParams) SetFlightId(flightId string) {
+	if o.XFlightId != nil {
+		o.XFlightId = &flightId
+	} else {
+		o.XFlightId = &utils.GetDefaultFlightID().Value
 	}
 }
 
@@ -213,6 +226,16 @@ func (o *UpdateLocalizationTemplateParams) WriteToRequest(r runtime.ClientReques
 	// setting the default header value
 	if err := r.SetHeaderParam("X-Amzn-Trace-Id", utils.AmazonTraceIDGen()); err != nil {
 		return err
+	}
+
+	if o.XFlightId == nil {
+		if err := r.SetHeaderParam("X-Flight-Id", utils.GetDefaultFlightID().Value); err != nil {
+			return err
+		}
+	} else {
+		if err := r.SetHeaderParam("X-Flight-Id", *o.XFlightId); err != nil {
+			return err
+		}
 	}
 
 	if len(res) > 0 {

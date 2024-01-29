@@ -103,6 +103,10 @@ func (a *Client) PortalHealthCheckShort(params *PortalHealthCheckParams, authInf
 		params.SetHTTPClientTransport(params.RetryPolicy)
 	}
 
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
+	}
+
 	result, err := a.transport.Submit(&runtime.ClientOperation{
 		ID:                 "PortalHealthCheck",
 		Method:             "GET",
@@ -193,6 +197,10 @@ func (a *Client) Func1Short(params *Func1Params, authInfo runtime.ClientAuthInfo
 		params.SetHTTPClientTransport(params.RetryPolicy)
 	}
 
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
+	}
+
 	result, err := a.transport.Submit(&runtime.ClientOperation{
 		ID:                 "func1",
 		Method:             "GET",
@@ -281,6 +289,10 @@ func (a *Client) BasicHealthCheckShort(params *BasicHealthCheckParams, authInfo 
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{

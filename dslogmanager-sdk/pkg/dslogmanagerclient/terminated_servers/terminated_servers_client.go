@@ -48,7 +48,7 @@ ListTerminatedServers retrieve all terminated servers
 ```
 Required permission: ADMIN:NAMESPACE:{namespace}:DSLM:SERVER [READ]
 
-This endpoint used to retrieve terminated servers in a namespace
+# This endpoint used to retrieve terminated servers in a namespace
 
 The namespace filter is will give result exact namespace response
 ```
@@ -108,7 +108,7 @@ ListTerminatedServersShort retrieve all terminated servers
 ```
 Required permission: ADMIN:NAMESPACE:{namespace}:DSLM:SERVER [READ]
 
-This endpoint used to retrieve terminated servers in a namespace
+# This endpoint used to retrieve terminated servers in a namespace
 
 The namespace filter is will give result exact namespace response
 ```
@@ -125,6 +125,10 @@ func (a *Client) ListTerminatedServersShort(params *ListTerminatedServersParams,
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -239,6 +243,10 @@ func (a *Client) DownloadServerLogsShort(params *DownloadServerLogsParams, authI
 		params.SetHTTPClientTransport(params.RetryPolicy)
 	}
 
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
+	}
+
 	result, err := a.transport.Submit(&runtime.ClientOperation{
 		ID:                 "downloadServerLogs",
 		Method:             "GET",
@@ -347,6 +355,10 @@ func (a *Client) CheckServerLogsShort(params *CheckServerLogsParams, authInfo ru
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{

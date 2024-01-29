@@ -138,6 +138,10 @@ func (a *Client) AdminQueryPartiesShort(params *AdminQueryPartiesParams, authInf
 		params.SetHTTPClientTransport(params.RetryPolicy)
 	}
 
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
+	}
+
 	result, err := a.transport.Submit(&runtime.ClientOperation{
 		ID:                 "adminQueryParties",
 		Method:             "GET",
@@ -251,6 +255,10 @@ func (a *Client) PublicPartyJoinCodeShort(params *PublicPartyJoinCodeParams, aut
 		params.SetHTTPClientTransport(params.RetryPolicy)
 	}
 
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
+	}
+
 	result, err := a.transport.Submit(&runtime.ClientOperation{
 		ID:                 "publicPartyJoinCode",
 		Method:             "POST",
@@ -360,6 +368,10 @@ func (a *Client) PublicGetPartyShort(params *PublicGetPartyParams, authInfo runt
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -495,6 +507,10 @@ func (a *Client) PublicUpdatePartyShort(params *PublicUpdatePartyParams, authInf
 		params.SetHTTPClientTransport(params.RetryPolicy)
 	}
 
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
+	}
+
 	result, err := a.transport.Submit(&runtime.ClientOperation{
 		ID:                 "publicUpdateParty",
 		Method:             "PUT",
@@ -622,6 +638,10 @@ func (a *Client) PublicPatchUpdatePartyShort(params *PublicPatchUpdatePartyParam
 		params.SetHTTPClientTransport(params.RetryPolicy)
 	}
 
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
+	}
+
 	result, err := a.transport.Submit(&runtime.ClientOperation{
 		ID:                 "publicPatchUpdateParty",
 		Method:             "PATCH",
@@ -739,6 +759,10 @@ func (a *Client) PublicGeneratePartyCodeShort(params *PublicGeneratePartyCodePar
 		params.SetHTTPClientTransport(params.RetryPolicy)
 	}
 
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
+	}
+
 	result, err := a.transport.Submit(&runtime.ClientOperation{
 		ID:                 "publicGeneratePartyCode",
 		Method:             "POST",
@@ -854,6 +878,10 @@ func (a *Client) PublicRevokePartyCodeShort(params *PublicRevokePartyCodeParams,
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -983,6 +1011,10 @@ func (a *Client) PublicPartyInviteShort(params *PublicPartyInviteParams, authInf
 		params.SetHTTPClientTransport(params.RetryPolicy)
 	}
 
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
+	}
+
 	result, err := a.transport.Submit(&runtime.ClientOperation{
 		ID:                 "publicPartyInvite",
 		Method:             "POST",
@@ -1098,6 +1130,10 @@ func (a *Client) PublicPromotePartyLeaderShort(params *PublicPromotePartyLeaderP
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -1217,6 +1253,10 @@ func (a *Client) PublicPartyJoinShort(params *PublicPartyJoinParams, authInfo ru
 		params.SetHTTPClientTransport(params.RetryPolicy)
 	}
 
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
+	}
+
 	result, err := a.transport.Submit(&runtime.ClientOperation{
 		ID:                 "publicPartyJoin",
 		Method:             "POST",
@@ -1326,6 +1366,10 @@ func (a *Client) PublicPartyLeaveShort(params *PublicPartyLeaveParams, authInfo 
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -1439,6 +1483,10 @@ func (a *Client) PublicPartyRejectShort(params *PublicPartyRejectParams, authInf
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -1556,6 +1604,10 @@ func (a *Client) PublicPartyKickShort(params *PublicPartyKickParams, authInfo ru
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -1717,6 +1769,10 @@ func (a *Client) PublicCreatePartyShort(params *PublicCreatePartyParams, authInf
 		params.SetHTTPClientTransport(params.RetryPolicy)
 	}
 
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
+	}
+
 	result, err := a.transport.Submit(&runtime.ClientOperation{
 		ID:                 "publicCreateParty",
 		Method:             "POST",
@@ -1822,6 +1878,10 @@ func (a *Client) PublicQueryMyPartiesShort(params *PublicQueryMyPartiesParams, a
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{

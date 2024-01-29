@@ -133,6 +133,10 @@ func (a *Client) ListServerClientShort(params *ListServerClientParams, authInfo 
 		params.SetHTTPClientTransport(params.RetryPolicy)
 	}
 
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
+	}
+
 	result, err := a.transport.Submit(&runtime.ClientOperation{
 		ID:                 "ListServerClient",
 		Method:             "GET",
@@ -261,6 +265,10 @@ func (a *Client) ServerHeartbeatShort(params *ServerHeartbeatParams, authInfo ru
 		params.SetHTTPClientTransport(params.RetryPolicy)
 	}
 
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
+	}
+
 	result, err := a.transport.Submit(&runtime.ClientOperation{
 		ID:                 "ServerHeartbeat",
 		Method:             "PUT",
@@ -382,6 +390,10 @@ func (a *Client) DeregisterLocalServerShort(params *DeregisterLocalServerParams,
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -516,6 +528,10 @@ func (a *Client) RegisterLocalServerShort(params *RegisterLocalServerParams, aut
 		params.SetHTTPClientTransport(params.RetryPolicy)
 	}
 
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
+	}
+
 	result, err := a.transport.Submit(&runtime.ClientOperation{
 		ID:                 "RegisterLocalServer",
 		Method:             "POST",
@@ -647,6 +663,10 @@ func (a *Client) RegisterServerShort(params *RegisterServerParams, authInfo runt
 		params.SetHTTPClientTransport(params.RetryPolicy)
 	}
 
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
+	}
+
 	result, err := a.transport.Submit(&runtime.ClientOperation{
 		ID:                 "RegisterServer",
 		Method:             "POST",
@@ -767,6 +787,10 @@ func (a *Client) ShutdownServerShort(params *ShutdownServerParams, authInfo runt
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -895,6 +919,10 @@ func (a *Client) GetServerSessionTimeoutShort(params *GetServerSessionTimeoutPar
 		params.SetHTTPClientTransport(params.RetryPolicy)
 	}
 
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
+	}
+
 	result, err := a.transport.Submit(&runtime.ClientOperation{
 		ID:                 "GetServerSessionTimeout",
 		Method:             "GET",
@@ -1019,6 +1047,10 @@ func (a *Client) GetServerSessionShort(params *GetServerSessionParams, authInfo 
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{

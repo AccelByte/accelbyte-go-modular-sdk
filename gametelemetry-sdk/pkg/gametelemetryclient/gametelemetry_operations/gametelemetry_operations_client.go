@@ -49,49 +49,27 @@ This endpoint does not require permission.
 
 This endpoint send events into designated streaming pipeline and each request can contain single or multiple events.
 
-
 Format of the event:
 
 - **EventNamespace (required)**: Namespace of the relevant game with domain name format.
 
-
 Only accept input with valid characters. Allowed characters: Aa-Zz0-9_.-
 
-
-
-
 It is encouraged to use alphanumeric only characters. _.- will be deprecated soon
-
-
-
 
 Example: accelbyte
 
-
-
 - **EventName (required)**: Name of the event.
-
 
 Only accept input with valid characters. Allowed characters: Aa-Zz0-9_.-
 
-
-
-
 It is encouraged to use alphanumeric only characters. _.- will be deprecated soon
-
-
-
 
 Example: player_killed, mission_accomplished
 
-
-
 - **Payload (required)**: An arbitrary json with the payload of the said event.
 
-
-Default maximum payload size is 1MB
-
-
+# Default maximum payload size is 1MB
 
 - **ClientTimestamp (optional)**: Timestamp of the event captured by the client SDK.
 */
@@ -146,49 +124,27 @@ This endpoint does not require permission.
 
 This endpoint send events into designated streaming pipeline and each request can contain single or multiple events.
 
-
 Format of the event:
 
 - **EventNamespace (required)**: Namespace of the relevant game with domain name format.
 
-
 Only accept input with valid characters. Allowed characters: Aa-Zz0-9_.-
 
-
-
-
 It is encouraged to use alphanumeric only characters. _.- will be deprecated soon
-
-
-
 
 Example: accelbyte
 
-
-
 - **EventName (required)**: Name of the event.
-
 
 Only accept input with valid characters. Allowed characters: Aa-Zz0-9_.-
 
-
-
-
 It is encouraged to use alphanumeric only characters. _.- will be deprecated soon
-
-
-
 
 Example: player_killed, mission_accomplished
 
-
-
 - **Payload (required)**: An arbitrary json with the payload of the said event.
 
-
-Default maximum payload size is 1MB
-
-
+# Default maximum payload size is 1MB
 
 - **ClientTimestamp (optional)**: Timestamp of the event captured by the client SDK.
 */
@@ -204,6 +160,10 @@ func (a *Client) ProtectedSaveEventsGameTelemetryV1ProtectedEventsPostShort(para
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -313,6 +273,10 @@ func (a *Client) ProtectedGetPlaytimeGameTelemetryV1ProtectedSteamIdsSteamIDPlay
 		params.SetHTTPClientTransport(params.RetryPolicy)
 	}
 
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
+	}
+
 	result, err := a.transport.Submit(&runtime.ClientOperation{
 		ID:                 "protected_get_playtime_game_telemetry_v1_protected_steamIds__steamId__playtime_get",
 		Method:             "GET",
@@ -414,6 +378,10 @@ func (a *Client) ProtectedUpdatePlaytimeGameTelemetryV1ProtectedSteamIdsSteamIDP
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{

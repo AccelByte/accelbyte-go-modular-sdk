@@ -49,22 +49,12 @@ Deprecated: 2022-08-10 - Use AdminListUserAchievementsShort instead.
 
 AdminListUserAchievements query user achievements [include achieved and in-progress]
 
-
 Required permission
 `ADMIN:NAMESPACE:{namespace}:USER:{userId}:ACHIEVEMENT [READ]` and scope `social`
 
-
-
-
 Note:
 
-
-
-
 User Achievement status value mean: `status = 1 (in progress)` and `status = 2 (unlocked)`
-
-
-
 
 `achievedAt` value will return default value: `0001-01-01T00:00:00Z` for user achievement that locked or in progress
 */
@@ -124,22 +114,12 @@ func (a *Client) AdminListUserAchievements(params *AdminListUserAchievementsPara
 /*
 AdminListUserAchievementsShort query user achievements [include achieved and in-progress]
 
-
 Required permission
 `ADMIN:NAMESPACE:{namespace}:USER:{userId}:ACHIEVEMENT [READ]` and scope `social`
 
-
-
-
 Note:
 
-
-
-
 User Achievement status value mean: `status = 1 (in progress)` and `status = 2 (unlocked)`
-
-
-
 
 `achievedAt` value will return default value: `0001-01-01T00:00:00Z` for user achievement that locked or in progress
 */
@@ -155,6 +135,10 @@ func (a *Client) AdminListUserAchievementsShort(params *AdminListUserAchievement
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -195,13 +179,9 @@ func (a *Client) AdminListUserAchievementsShort(params *AdminListUserAchievement
 /*
 Deprecated: 2022-08-10 - Use AdminResetAchievementShort instead.
 
-AdminResetAchievement reset an achievement
-
+# AdminResetAchievement reset an achievement
 
 [TEST FACILITY ONLY]
-
-
-
 
 Required permission
 `ADMIN:NAMESPACE:{namespace}:USER:{userId}:ACHIEVEMENT [DELETE]` and scope `social`
@@ -262,11 +242,7 @@ func (a *Client) AdminResetAchievement(params *AdminResetAchievementParams, auth
 /*
 AdminResetAchievementShort reset an achievement
 
-
 [TEST FACILITY ONLY]
-
-
-
 
 Required permission
 `ADMIN:NAMESPACE:{namespace}:USER:{userId}:ACHIEVEMENT [DELETE]` and scope `social`
@@ -283,6 +259,10 @@ func (a *Client) AdminResetAchievementShort(params *AdminResetAchievementParams,
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -323,8 +303,7 @@ func (a *Client) AdminResetAchievementShort(params *AdminResetAchievementParams,
 /*
 Deprecated: 2022-08-10 - Use AdminUnlockAchievementShort instead.
 
-AdminUnlockAchievement unlock an achievement
-
+# AdminUnlockAchievement unlock an achievement
 
 Required permission
 `ADMIN:NAMESPACE:{namespace}:USER:{userId}:ACHIEVEMENT [UPDATE]` and scope `social`
@@ -385,7 +364,6 @@ func (a *Client) AdminUnlockAchievement(params *AdminUnlockAchievementParams, au
 /*
 AdminUnlockAchievementShort unlock an achievement
 
-
 Required permission
 `ADMIN:NAMESPACE:{namespace}:USER:{userId}:ACHIEVEMENT [UPDATE]` and scope `social`
 */
@@ -401,6 +379,10 @@ func (a *Client) AdminUnlockAchievementShort(params *AdminUnlockAchievementParam
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -443,22 +425,12 @@ Deprecated: 2022-08-10 - Use PublicListUserAchievementsShort instead.
 
 PublicListUserAchievements query user achievements [include achieved and in-progress]
 
-
 Required permission
 `NAMESPACE:{namespace}:USER:{userId}:ACHIEVEMENT [READ]` and scope `social`
 
-
-
-
 Note:
 
-
-
-
 User Achievement status value mean: `status = 1 (in progress)` and `status = 2 (unlocked)`
-
-
-
 
 `achievedAt` value will return default value: `0001-01-01T00:00:00Z` for user achievement that locked or in progress
 */
@@ -518,22 +490,12 @@ func (a *Client) PublicListUserAchievements(params *PublicListUserAchievementsPa
 /*
 PublicListUserAchievementsShort query user achievements [include achieved and in-progress]
 
-
 Required permission
 `NAMESPACE:{namespace}:USER:{userId}:ACHIEVEMENT [READ]` and scope `social`
 
-
-
-
 Note:
 
-
-
-
 User Achievement status value mean: `status = 1 (in progress)` and `status = 2 (unlocked)`
-
-
-
 
 `achievedAt` value will return default value: `0001-01-01T00:00:00Z` for user achievement that locked or in progress
 */
@@ -549,6 +511,10 @@ func (a *Client) PublicListUserAchievementsShort(params *PublicListUserAchieveme
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -589,8 +555,7 @@ func (a *Client) PublicListUserAchievementsShort(params *PublicListUserAchieveme
 /*
 Deprecated: 2022-08-10 - Use PublicUnlockAchievementShort instead.
 
-PublicUnlockAchievement unlock an achievement
-
+# PublicUnlockAchievement unlock an achievement
 
 Required permission
 `NAMESPACE:{namespace}:USER:{userId}:ACHIEVEMENT [UPDATE]` and scope `social`
@@ -651,7 +616,6 @@ func (a *Client) PublicUnlockAchievement(params *PublicUnlockAchievementParams, 
 /*
 PublicUnlockAchievementShort unlock an achievement
 
-
 Required permission
 `NAMESPACE:{namespace}:USER:{userId}:ACHIEVEMENT [UPDATE]` and scope `social`
 */
@@ -667,6 +631,10 @@ func (a *Client) PublicUnlockAchievementShort(params *PublicUnlockAchievementPar
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{

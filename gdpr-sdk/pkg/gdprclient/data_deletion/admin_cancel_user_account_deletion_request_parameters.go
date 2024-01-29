@@ -57,7 +57,8 @@ func NewAdminCancelUserAccountDeletionRequestParamsWithHTTPClient(client *http.C
 	}
 }
 
-/*AdminCancelUserAccountDeletionRequestParams contains all the parameters to send to the API endpoint
+/*
+AdminCancelUserAccountDeletionRequestParams contains all the parameters to send to the API endpoint
 for the admin cancel user account deletion request operation typically these are written to a http.Request
 */
 type AdminCancelUserAccountDeletionRequestParams struct {
@@ -79,6 +80,9 @@ type AdminCancelUserAccountDeletionRequestParams struct {
 	AuthInfoWriter runtime.ClientAuthInfoWriter
 	Context        context.Context
 	HTTPClient     *http.Client
+
+	// XFlightId is an optional parameter from this SDK
+	XFlightId *string
 }
 
 // WithTimeout adds the timeout to the admin cancel user account deletion request params
@@ -128,6 +132,15 @@ func (o *AdminCancelUserAccountDeletionRequestParams) SetHTTPClientTransport(rou
 	}
 }
 
+// SetFlightId adds the flightId as the header value for this specific endpoint
+func (o *AdminCancelUserAccountDeletionRequestParams) SetFlightId(flightId string) {
+	if o.XFlightId != nil {
+		o.XFlightId = &flightId
+	} else {
+		o.XFlightId = &utils.GetDefaultFlightID().Value
+	}
+}
+
 // WithNamespace adds the namespace to the admin cancel user account deletion request params
 func (o *AdminCancelUserAccountDeletionRequestParams) WithNamespace(namespace string) *AdminCancelUserAccountDeletionRequestParams {
 	o.SetNamespace(namespace)
@@ -171,6 +184,16 @@ func (o *AdminCancelUserAccountDeletionRequestParams) WriteToRequest(r runtime.C
 	// setting the default header value
 	if err := r.SetHeaderParam("X-Amzn-Trace-Id", utils.AmazonTraceIDGen()); err != nil {
 		return err
+	}
+
+	if o.XFlightId == nil {
+		if err := r.SetHeaderParam("X-Flight-Id", utils.GetDefaultFlightID().Value); err != nil {
+			return err
+		}
+	} else {
+		if err := r.SetHeaderParam("X-Flight-Id", *o.XFlightId); err != nil {
+			return err
+		}
 	}
 
 	if len(res) > 0 {

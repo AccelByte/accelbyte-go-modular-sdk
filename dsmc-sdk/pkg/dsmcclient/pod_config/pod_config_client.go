@@ -131,6 +131,10 @@ func (a *Client) GetLowestInstanceSpecShort(params *GetLowestInstanceSpecParams,
 		params.SetHTTPClientTransport(params.RetryPolicy)
 	}
 
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
+	}
+
 	result, err := a.transport.Submit(&runtime.ClientOperation{
 		ID:                 "GetLowestInstanceSpec",
 		Method:             "GET",
@@ -170,7 +174,7 @@ Required permission: ADMIN:NAMESPACE:{namespace}:DSM:CONFIG [READ]
 
 Required scope: social
 
-This endpoint get a all pod configs in a namespace
+# This endpoint get a all pod configs in a namespace
 
 Parameter Offset and Count is Required
 */
@@ -230,7 +234,7 @@ Required permission: ADMIN:NAMESPACE:{namespace}:DSM:CONFIG [READ]
 
 Required scope: social
 
-This endpoint get a all pod configs in a namespace
+# This endpoint get a all pod configs in a namespace
 
 Parameter Offset and Count is Required
 */
@@ -246,6 +250,10 @@ func (a *Client) GetAllPodConfigShort(params *GetAllPodConfigParams, authInfo ru
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -366,6 +374,10 @@ func (a *Client) GetPodConfigShort(params *GetPodConfigParams, authInfo runtime.
 		params.SetHTTPClientTransport(params.RetryPolicy)
 	}
 
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
+	}
+
 	result, err := a.transport.Submit(&runtime.ClientOperation{
 		ID:                 "GetPodConfig",
 		Method:             "GET",
@@ -484,6 +496,10 @@ func (a *Client) CreatePodConfigShort(params *CreatePodConfigParams, authInfo ru
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -607,6 +623,10 @@ func (a *Client) DeletePodConfigShort(params *DeletePodConfigParams, authInfo ru
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -734,6 +754,10 @@ func (a *Client) UpdatePodConfigShort(params *UpdatePodConfigParams, authInfo ru
 		params.SetHTTPClientTransport(params.RetryPolicy)
 	}
 
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
+	}
+
 	result, err := a.transport.Submit(&runtime.ClientOperation{
 		ID:                 "UpdatePodConfig",
 		Method:             "PATCH",
@@ -779,7 +803,7 @@ Required permission: NAMESPACE:{namespace}:DSM:CONFIG [READ]
 
 Required scope: social
 
-This endpoint get a all pod configs in a namespace
+# This endpoint get a all pod configs in a namespace
 
 Parameter Offset and Count is Required
 */
@@ -839,7 +863,7 @@ Required permission: NAMESPACE:{namespace}:DSM:CONFIG [READ]
 
 Required scope: social
 
-This endpoint get a all pod configs in a namespace
+# This endpoint get a all pod configs in a namespace
 
 Parameter Offset and Count is Required
 */
@@ -855,6 +879,10 @@ func (a *Client) GetAllPodConfigClientShort(params *GetAllPodConfigClientParams,
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -973,6 +1001,10 @@ func (a *Client) CreatePodConfigClientShort(params *CreatePodConfigClientParams,
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -1096,6 +1128,10 @@ func (a *Client) DeletePodConfigClientShort(params *DeletePodConfigClientParams,
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{

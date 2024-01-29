@@ -59,7 +59,8 @@ func NewGetListGroupByIDsAdminV2ParamsWithHTTPClient(client *http.Client) *GetLi
 	}
 }
 
-/*GetListGroupByIDsAdminV2Params contains all the parameters to send to the API endpoint
+/*
+GetListGroupByIDsAdminV2Params contains all the parameters to send to the API endpoint
 for the get list group by i ds admin v2 operation typically these are written to a http.Request
 */
 type GetListGroupByIDsAdminV2Params struct {
@@ -78,6 +79,9 @@ type GetListGroupByIDsAdminV2Params struct {
 	AuthInfoWriter runtime.ClientAuthInfoWriter
 	Context        context.Context
 	HTTPClient     *http.Client
+
+	// XFlightId is an optional parameter from this SDK
+	XFlightId *string
 }
 
 // WithTimeout adds the timeout to the get list group by i ds admin v2 params
@@ -127,6 +131,15 @@ func (o *GetListGroupByIDsAdminV2Params) SetHTTPClientTransport(roundTripper htt
 	}
 }
 
+// SetFlightId adds the flightId as the header value for this specific endpoint
+func (o *GetListGroupByIDsAdminV2Params) SetFlightId(flightId string) {
+	if o.XFlightId != nil {
+		o.XFlightId = &flightId
+	} else {
+		o.XFlightId = &utils.GetDefaultFlightID().Value
+	}
+}
+
 // WithBody adds the body to the get list group by i ds admin v2 params
 func (o *GetListGroupByIDsAdminV2Params) WithBody(body *groupclientmodels.ModelsGetGroupListRequestV2) *GetListGroupByIDsAdminV2Params {
 	o.SetBody(body)
@@ -171,6 +184,16 @@ func (o *GetListGroupByIDsAdminV2Params) WriteToRequest(r runtime.ClientRequest,
 	// setting the default header value
 	if err := r.SetHeaderParam("X-Amzn-Trace-Id", utils.AmazonTraceIDGen()); err != nil {
 		return err
+	}
+
+	if o.XFlightId == nil {
+		if err := r.SetHeaderParam("X-Flight-Id", utils.GetDefaultFlightID().Value); err != nil {
+			return err
+		}
+	} else {
+		if err := r.SetHeaderParam("X-Flight-Id", *o.XFlightId); err != nil {
+			return err
+		}
 	}
 
 	if len(res) > 0 {

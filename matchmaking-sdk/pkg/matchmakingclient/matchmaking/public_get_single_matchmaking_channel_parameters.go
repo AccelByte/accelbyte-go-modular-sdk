@@ -57,7 +57,8 @@ func NewPublicGetSingleMatchmakingChannelParamsWithHTTPClient(client *http.Clien
 	}
 }
 
-/*PublicGetSingleMatchmakingChannelParams contains all the parameters to send to the API endpoint
+/*
+PublicGetSingleMatchmakingChannelParams contains all the parameters to send to the API endpoint
 for the public get single matchmaking channel operation typically these are written to a http.Request
 */
 type PublicGetSingleMatchmakingChannelParams struct {
@@ -79,6 +80,9 @@ type PublicGetSingleMatchmakingChannelParams struct {
 	AuthInfoWriter runtime.ClientAuthInfoWriter
 	Context        context.Context
 	HTTPClient     *http.Client
+
+	// XFlightId is an optional parameter from this SDK
+	XFlightId *string
 }
 
 // WithTimeout adds the timeout to the public get single matchmaking channel params
@@ -128,6 +132,15 @@ func (o *PublicGetSingleMatchmakingChannelParams) SetHTTPClientTransport(roundTr
 	}
 }
 
+// SetFlightId adds the flightId as the header value for this specific endpoint
+func (o *PublicGetSingleMatchmakingChannelParams) SetFlightId(flightId string) {
+	if o.XFlightId != nil {
+		o.XFlightId = &flightId
+	} else {
+		o.XFlightId = &utils.GetDefaultFlightID().Value
+	}
+}
+
 // WithChannelName adds the channelName to the public get single matchmaking channel params
 func (o *PublicGetSingleMatchmakingChannelParams) WithChannelName(channelName string) *PublicGetSingleMatchmakingChannelParams {
 	o.SetChannelName(channelName)
@@ -171,6 +184,16 @@ func (o *PublicGetSingleMatchmakingChannelParams) WriteToRequest(r runtime.Clien
 	// setting the default header value
 	if err := r.SetHeaderParam("X-Amzn-Trace-Id", utils.AmazonTraceIDGen()); err != nil {
 		return err
+	}
+
+	if o.XFlightId == nil {
+		if err := r.SetHeaderParam("X-Flight-Id", utils.GetDefaultFlightID().Value); err != nil {
+			return err
+		}
+	} else {
+		if err := r.SetHeaderParam("X-Flight-Id", *o.XFlightId); err != nil {
+			return err
+		}
 	}
 
 	if len(res) > 0 {

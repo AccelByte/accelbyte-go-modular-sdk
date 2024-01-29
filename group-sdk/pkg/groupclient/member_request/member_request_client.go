@@ -47,28 +47,15 @@ type ClientService interface {
 /*
 Deprecated: 2022-08-10 - Use GetGroupJoinRequestPublicV1Short instead.
 
-GetGroupJoinRequestPublicV1 get group join request list
+# GetGroupJoinRequestPublicV1 get group join request list
 
-
-Required valid user authentication
-
-
-
+# Required valid user authentication
 
 Required Member Role Permission: "GROUP:JOIN [READ]"
 
-
-
-
-This endpoint is used to Get Group Join Request List
-
-
-
+# This endpoint is used to Get Group Join Request List
 
 Get Group Join Request List for specific group. Group members needs to have permission and also belong to the group to access this endpoint
-
-
-
 
 Action Code: 73501
 */
@@ -128,26 +115,13 @@ func (a *Client) GetGroupJoinRequestPublicV1(params *GetGroupJoinRequestPublicV1
 /*
 GetGroupJoinRequestPublicV1Short get group join request list
 
-
-Required valid user authentication
-
-
-
+# Required valid user authentication
 
 Required Member Role Permission: "GROUP:JOIN [READ]"
 
-
-
-
-This endpoint is used to Get Group Join Request List
-
-
-
+# This endpoint is used to Get Group Join Request List
 
 Get Group Join Request List for specific group. Group members needs to have permission and also belong to the group to access this endpoint
-
-
-
 
 Action Code: 73501
 */
@@ -163,6 +137,10 @@ func (a *Client) GetGroupJoinRequestPublicV1Short(params *GetGroupJoinRequestPub
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -203,23 +181,13 @@ func (a *Client) GetGroupJoinRequestPublicV1Short(params *GetGroupJoinRequestPub
 /*
 Deprecated: 2022-08-10 - Use GetGroupInvitationRequestPublicV1Short instead.
 
-GetGroupInvitationRequestPublicV1 get group invitation request list
+# GetGroupInvitationRequestPublicV1 get group invitation request list
 
+# Required valid user authentication
 
-Required valid user authentication
-
-
-
-
-This endpoint is used to Get Group Invitation Request List
-
-
-
+# This endpoint is used to Get Group Invitation Request List
 
 Get Group Invitation Request List for the user calling this endpoint. It will check any group invitation for this user
-
-
-
 
 Action Code: 73502
 */
@@ -279,21 +247,11 @@ func (a *Client) GetGroupInvitationRequestPublicV1(params *GetGroupInvitationReq
 /*
 GetGroupInvitationRequestPublicV1Short get group invitation request list
 
+# Required valid user authentication
 
-Required valid user authentication
-
-
-
-
-This endpoint is used to Get Group Invitation Request List
-
-
-
+# This endpoint is used to Get Group Invitation Request List
 
 Get Group Invitation Request List for the user calling this endpoint. It will check any group invitation for this user
-
-
-
 
 Action Code: 73502
 */
@@ -309,6 +267,10 @@ func (a *Client) GetGroupInvitationRequestPublicV1Short(params *GetGroupInvitati
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -349,28 +311,15 @@ func (a *Client) GetGroupInvitationRequestPublicV1Short(params *GetGroupInvitati
 /*
 Deprecated: 2022-08-10 - Use GetGroupInviteRequestPublicV2Short instead.
 
-GetGroupInviteRequestPublicV2 get group invite request list
+# GetGroupInviteRequestPublicV2 get group invite request list
 
-
-Required valid user authentication
-
-
-
+# Required valid user authentication
 
 Required Member Role Permission: "GROUP:JOIN [READ]"
 
-
-
-
-This endpoint is used to Get Group Invite Request List
-
-
-
+# This endpoint is used to Get Group Invite Request List
 
 Get Group Invite Request List for specific group. Group members needs to have permission and also belong to the group to access this endpoint
-
-
-
 
 Action Code: 73501
 */
@@ -430,26 +379,13 @@ func (a *Client) GetGroupInviteRequestPublicV2(params *GetGroupInviteRequestPubl
 /*
 GetGroupInviteRequestPublicV2Short get group invite request list
 
-
-Required valid user authentication
-
-
-
+# Required valid user authentication
 
 Required Member Role Permission: "GROUP:JOIN [READ]"
 
-
-
-
-This endpoint is used to Get Group Invite Request List
-
-
-
+# This endpoint is used to Get Group Invite Request List
 
 Get Group Invite Request List for specific group. Group members needs to have permission and also belong to the group to access this endpoint
-
-
-
 
 Action Code: 73501
 */
@@ -465,6 +401,10 @@ func (a *Client) GetGroupInviteRequestPublicV2Short(params *GetGroupInviteReques
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -505,28 +445,15 @@ func (a *Client) GetGroupInviteRequestPublicV2Short(params *GetGroupInviteReques
 /*
 Deprecated: 2022-08-10 - Use GetGroupJoinRequestPublicV2Short instead.
 
-GetGroupJoinRequestPublicV2 get group join request list
+# GetGroupJoinRequestPublicV2 get group join request list
 
-
-Required valid user authentication
-
-
-
+# Required valid user authentication
 
 Required Member Role Permission: "GROUP:JOIN [READ]"
 
-
-
-
-This endpoint is used to Get Group Join Request List
-
-
-
+# This endpoint is used to Get Group Join Request List
 
 Get Group Join Request List for specific group. Group members needs to have permission and also belong to the group to access this endpoint
-
-
-
 
 Action Code: 73501
 */
@@ -586,26 +513,13 @@ func (a *Client) GetGroupJoinRequestPublicV2(params *GetGroupJoinRequestPublicV2
 /*
 GetGroupJoinRequestPublicV2Short get group join request list
 
-
-Required valid user authentication
-
-
-
+# Required valid user authentication
 
 Required Member Role Permission: "GROUP:JOIN [READ]"
 
-
-
-
-This endpoint is used to Get Group Join Request List
-
-
-
+# This endpoint is used to Get Group Join Request List
 
 Get Group Join Request List for specific group. Group members needs to have permission and also belong to the group to access this endpoint
-
-
-
 
 Action Code: 73501
 */
@@ -621,6 +535,10 @@ func (a *Client) GetGroupJoinRequestPublicV2Short(params *GetGroupJoinRequestPub
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -661,23 +579,13 @@ func (a *Client) GetGroupJoinRequestPublicV2Short(params *GetGroupJoinRequestPub
 /*
 Deprecated: 2022-08-10 - Use GetMyGroupJoinRequestV2Short instead.
 
-GetMyGroupJoinRequestV2 get my join request to the groups
+# GetMyGroupJoinRequestV2 get my join request to the groups
 
+# Required valid user authentication
 
-Required valid user authentication
-
-
-
-
-This endpoint is used to Get My Join Request To The Groups
-
-
-
+# This endpoint is used to Get My Join Request To The Groups
 
 Get My Join Request To The Groups for the user calling this endpoint. It will check any join request group for this user
-
-
-
 
 Action Code: 73502
 */
@@ -737,21 +645,11 @@ func (a *Client) GetMyGroupJoinRequestV2(params *GetMyGroupJoinRequestV2Params, 
 /*
 GetMyGroupJoinRequestV2Short get my join request to the groups
 
+# Required valid user authentication
 
-Required valid user authentication
-
-
-
-
-This endpoint is used to Get My Join Request To The Groups
-
-
-
+# This endpoint is used to Get My Join Request To The Groups
 
 Get My Join Request To The Groups for the user calling this endpoint. It will check any join request group for this user
-
-
-
 
 Action Code: 73502
 */
@@ -767,6 +665,10 @@ func (a *Client) GetMyGroupJoinRequestV2Short(params *GetMyGroupJoinRequestV2Par
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{

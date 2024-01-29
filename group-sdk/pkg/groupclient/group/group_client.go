@@ -83,18 +83,11 @@ type ClientService interface {
 /*
 Deprecated: 2022-08-10 - Use GetGroupListAdminV1Short instead.
 
-GetGroupListAdminV1 get list of groups
-
+# GetGroupListAdminV1 get list of groups
 
 Required Permission: "ADMIN:NAMESPACE:{namespace}:GROUP [READ]"
 
-
-
-
 Get list of groups. This endpoint will show any types of group
-
-
-
 
 Action Code: 73301
 */
@@ -154,16 +147,9 @@ func (a *Client) GetGroupListAdminV1(params *GetGroupListAdminV1Params, authInfo
 /*
 GetGroupListAdminV1Short get list of groups
 
-
 Required Permission: "ADMIN:NAMESPACE:{namespace}:GROUP [READ]"
 
-
-
-
 Get list of groups. This endpoint will show any types of group
-
-
-
 
 Action Code: 73301
 */
@@ -179,6 +165,10 @@ func (a *Client) GetGroupListAdminV1Short(params *GetGroupListAdminV1Params, aut
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -219,18 +209,11 @@ func (a *Client) GetGroupListAdminV1Short(params *GetGroupListAdminV1Params, aut
 /*
 Deprecated: 2022-08-10 - Use GetSingleGroupAdminV1Short instead.
 
-GetSingleGroupAdminV1 get single group
-
+# GetSingleGroupAdminV1 get single group
 
 Required Permission: "ADMIN:NAMESPACE:{namespace}:GROUP [READ]"
 
-
-
-
 Get single group information. This endpoint will show the group information by the groupId
-
-
-
 
 Action Code: 73306
 */
@@ -293,16 +276,9 @@ func (a *Client) GetSingleGroupAdminV1(params *GetSingleGroupAdminV1Params, auth
 /*
 GetSingleGroupAdminV1Short get single group
 
-
 Required Permission: "ADMIN:NAMESPACE:{namespace}:GROUP [READ]"
 
-
-
-
 Get single group information. This endpoint will show the group information by the groupId
-
-
-
 
 Action Code: 73306
 */
@@ -318,6 +294,10 @@ func (a *Client) GetSingleGroupAdminV1Short(params *GetSingleGroupAdminV1Params,
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -360,18 +340,11 @@ func (a *Client) GetSingleGroupAdminV1Short(params *GetSingleGroupAdminV1Params,
 /*
 Deprecated: 2022-08-10 - Use DeleteGroupAdminV1Short instead.
 
-DeleteGroupAdminV1 delete existing group
-
+# DeleteGroupAdminV1 delete existing group
 
 Required Permission: "ADMIN:NAMESPACE:{namespace}:GROUP:{groupId} [DELETE]"
 
-
-
-
 Delete existing group. It will check whether the groupID is exist before doing the process to delete the group.
-
-
-
 
 Action Code: 73302
 */
@@ -434,16 +407,9 @@ func (a *Client) DeleteGroupAdminV1(params *DeleteGroupAdminV1Params, authInfo r
 /*
 DeleteGroupAdminV1Short delete existing group
 
-
 Required Permission: "ADMIN:NAMESPACE:{namespace}:GROUP:{groupId} [DELETE]"
 
-
-
-
 Delete existing group. It will check whether the groupID is exist before doing the process to delete the group.
-
-
-
 
 Action Code: 73302
 */
@@ -459,6 +425,10 @@ func (a *Client) DeleteGroupAdminV1Short(params *DeleteGroupAdminV1Params, authI
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -501,18 +471,11 @@ func (a *Client) DeleteGroupAdminV1Short(params *DeleteGroupAdminV1Params, authI
 /*
 Deprecated: 2022-08-10 - Use GetGroupListPublicV1Short instead.
 
-GetGroupListPublicV1 get list of groups
+# GetGroupListPublicV1 get list of groups
 
-
-Required valid user authentication
-
-
-
+# Required valid user authentication
 
 Get list of groups. This endpoint will only show OPEN and PUBLIC group type. This endpoint can search based on the group name by filling the "groupName" query parameter
-
-
-
 
 Action Code: 73303
 */
@@ -572,16 +535,9 @@ func (a *Client) GetGroupListPublicV1(params *GetGroupListPublicV1Params, authIn
 /*
 GetGroupListPublicV1Short get list of groups
 
-
-Required valid user authentication
-
-
-
+# Required valid user authentication
 
 Get list of groups. This endpoint will only show OPEN and PUBLIC group type. This endpoint can search based on the group name by filling the "groupName" query parameter
-
-
-
 
 Action Code: 73303
 */
@@ -597,6 +553,10 @@ func (a *Client) GetGroupListPublicV1Short(params *GetGroupListPublicV1Params, a
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -637,58 +597,33 @@ func (a *Client) GetGroupListPublicV1Short(params *GetGroupListPublicV1Params, a
 /*
 Deprecated: 2022-08-10 - Use CreateNewGroupPublicV1Short instead.
 
-CreateNewGroupPublicV1 create new group
+# CreateNewGroupPublicV1 create new group
 
+# Required valid user authentication
 
-Required valid user authentication
+# This endpoint is used to create new group
 
+# There are some fields that needs to be fulfilled
 
+  - groupDescription : the description of the group (optional)
 
+  - groupIcon : group icon URL link (optional)
 
-This endpoint is used to create new group
+  - groupName : name of the group
 
+  - groupRegion : region of the group
 
+  - groupRules : rules for specific group. It consists of groupCustomRule that can be used to save custom rule, and groupPredefinedRules that has similar usage with configuration, but this rule only works in specific group
 
+  - allowedAction : available action in group service. It consist of joinGroup and inviteGroup
 
-There are some fields that needs to be fulfilled
+  - ruleAttribute : attribute of the player that needs to be checked
 
+  - ruleCriteria : criteria of the value. The value will be in enum of EQUAL, MINIMUM, MAXIMUM
 
+  - ruleValue : value that needs to be checked
 
-
-
-
-  * groupDescription : the description of the group (optional)
-
-
-  * groupIcon : group icon URL link (optional)
-
-
-  * groupName : name of the group
-
-
-  * groupRegion : region of the group
-
-
-  * groupRules : rules for specific group. It consists of groupCustomRule that can be used to save custom rule, and groupPredefinedRules that has similar usage with configuration, but this rule only works in specific group
-
-
-  * allowedAction : available action in group service. It consist of joinGroup and inviteGroup
-
-
-  * ruleAttribute : attribute of the player that needs to be checked
-
-
-  * ruleCriteria : criteria of the value. The value will be in enum of EQUAL, MINIMUM, MAXIMUM
-
-
-  * ruleValue : value that needs to be checked
-
-
-  * customAttributes : additional custom group attributes (optional)
-
-
-
-
+  - customAttributes : additional custom group attributes (optional)
 
 Action Code: 73304
 */
@@ -751,56 +686,31 @@ func (a *Client) CreateNewGroupPublicV1(params *CreateNewGroupPublicV1Params, au
 /*
 CreateNewGroupPublicV1Short create new group
 
+# Required valid user authentication
 
-Required valid user authentication
+# This endpoint is used to create new group
 
+# There are some fields that needs to be fulfilled
 
+  - groupDescription : the description of the group (optional)
 
+  - groupIcon : group icon URL link (optional)
 
-This endpoint is used to create new group
+  - groupName : name of the group
 
+  - groupRegion : region of the group
 
+  - groupRules : rules for specific group. It consists of groupCustomRule that can be used to save custom rule, and groupPredefinedRules that has similar usage with configuration, but this rule only works in specific group
 
+  - allowedAction : available action in group service. It consist of joinGroup and inviteGroup
 
-There are some fields that needs to be fulfilled
+  - ruleAttribute : attribute of the player that needs to be checked
 
+  - ruleCriteria : criteria of the value. The value will be in enum of EQUAL, MINIMUM, MAXIMUM
 
+  - ruleValue : value that needs to be checked
 
-
-
-
-  * groupDescription : the description of the group (optional)
-
-
-  * groupIcon : group icon URL link (optional)
-
-
-  * groupName : name of the group
-
-
-  * groupRegion : region of the group
-
-
-  * groupRules : rules for specific group. It consists of groupCustomRule that can be used to save custom rule, and groupPredefinedRules that has similar usage with configuration, but this rule only works in specific group
-
-
-  * allowedAction : available action in group service. It consist of joinGroup and inviteGroup
-
-
-  * ruleAttribute : attribute of the player that needs to be checked
-
-
-  * ruleCriteria : criteria of the value. The value will be in enum of EQUAL, MINIMUM, MAXIMUM
-
-
-  * ruleValue : value that needs to be checked
-
-
-  * customAttributes : additional custom group attributes (optional)
-
-
-
-
+  - customAttributes : additional custom group attributes (optional)
 
 Action Code: 73304
 */
@@ -816,6 +726,10 @@ func (a *Client) CreateNewGroupPublicV1Short(params *CreateNewGroupPublicV1Param
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -858,18 +772,11 @@ func (a *Client) CreateNewGroupPublicV1Short(params *CreateNewGroupPublicV1Param
 /*
 Deprecated: 2022-08-10 - Use GetSingleGroupPublicV1Short instead.
 
-GetSingleGroupPublicV1 get single group
+# GetSingleGroupPublicV1 get single group
 
-
-Required valid user authentication
-
-
-
+# Required valid user authentication
 
 Get single group information. This endpoint will show the group information by the groupId
-
-
-
 
 Action Code: 73306
 */
@@ -932,16 +839,9 @@ func (a *Client) GetSingleGroupPublicV1(params *GetSingleGroupPublicV1Params, au
 /*
 GetSingleGroupPublicV1Short get single group
 
-
-Required valid user authentication
-
-
-
+# Required valid user authentication
 
 Get single group information. This endpoint will show the group information by the groupId
-
-
-
 
 Action Code: 73306
 */
@@ -957,6 +857,10 @@ func (a *Client) GetSingleGroupPublicV1Short(params *GetSingleGroupPublicV1Param
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -999,24 +903,14 @@ func (a *Client) GetSingleGroupPublicV1Short(params *GetSingleGroupPublicV1Param
 /*
 Deprecated: 2022-08-10 - Use UpdateSingleGroupV1Short instead.
 
-UpdateSingleGroupV1 update existing group
+# UpdateSingleGroupV1 update existing group
 
-
-Required valid user authentication
-
-
-
+# Required valid user authentication
 
 Required Member Role Permission: "GROUP [UPDATE]"
 
-
-
-
 Update existing group. This endpoint supports partial update. This endpoint will check the group ID of the user based on the access token and compare it with the group ID in path parameter.
 It will also check the member role of the user based on the access token
-
-
-
 
 Action Code: 73307
 */
@@ -1079,22 +973,12 @@ func (a *Client) UpdateSingleGroupV1(params *UpdateSingleGroupV1Params, authInfo
 /*
 UpdateSingleGroupV1Short update existing group
 
-
-Required valid user authentication
-
-
-
+# Required valid user authentication
 
 Required Member Role Permission: "GROUP [UPDATE]"
 
-
-
-
 Update existing group. This endpoint supports partial update. This endpoint will check the group ID of the user based on the access token and compare it with the group ID in path parameter.
 It will also check the member role of the user based on the access token
-
-
-
 
 Action Code: 73307
 */
@@ -1110,6 +994,10 @@ func (a *Client) UpdateSingleGroupV1Short(params *UpdateSingleGroupV1Params, aut
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -1152,25 +1040,15 @@ func (a *Client) UpdateSingleGroupV1Short(params *UpdateSingleGroupV1Params, aut
 /*
 Deprecated: 2022-08-10 - Use DeleteGroupPublicV1Short instead.
 
-DeleteGroupPublicV1 delete existing group
+# DeleteGroupPublicV1 delete existing group
 
-
-Required valid user authentication
-
-
-
+# Required valid user authentication
 
 Required Member Role Permission: "GROUP [DELETE]"
-
-
-
 
 Delete existing group. This endpoint will check the group ID of the user based on the access token
 and compare it with the group ID in path parameter. It will also check the member role of the user based on
 the access token
-
-
-
 
 Action Code: 73305
 */
@@ -1233,23 +1111,13 @@ func (a *Client) DeleteGroupPublicV1(params *DeleteGroupPublicV1Params, authInfo
 /*
 DeleteGroupPublicV1Short delete existing group
 
-
-Required valid user authentication
-
-
-
+# Required valid user authentication
 
 Required Member Role Permission: "GROUP [DELETE]"
-
-
-
 
 Delete existing group. This endpoint will check the group ID of the user based on the access token
 and compare it with the group ID in path parameter. It will also check the member role of the user based on
 the access token
-
-
-
 
 Action Code: 73305
 */
@@ -1265,6 +1133,10 @@ func (a *Client) DeleteGroupPublicV1Short(params *DeleteGroupPublicV1Params, aut
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -1307,24 +1179,14 @@ func (a *Client) DeleteGroupPublicV1Short(params *DeleteGroupPublicV1Params, aut
 /*
 Deprecated: 2022-08-10 - Use UpdatePatchSingleGroupPublicV1Short instead.
 
-UpdatePatchSingleGroupPublicV1 update existing group
+# UpdatePatchSingleGroupPublicV1 update existing group
 
-
-Required valid user authentication
-
-
-
+# Required valid user authentication
 
 Required Member Role Permission: "GROUP [UPDATE]"
 
-
-
-
 Update existing group. This endpoint supports partial update. This endpoint will check the group ID of the user based on the access token and compare it with the group ID in path parameter.
 It will also check the member role of the user based on the access token
-
-
-
 
 Action Code: 73307
 */
@@ -1387,22 +1249,12 @@ func (a *Client) UpdatePatchSingleGroupPublicV1(params *UpdatePatchSingleGroupPu
 /*
 UpdatePatchSingleGroupPublicV1Short update existing group
 
-
-Required valid user authentication
-
-
-
+# Required valid user authentication
 
 Required Member Role Permission: "GROUP [UPDATE]"
 
-
-
-
 Update existing group. This endpoint supports partial update. This endpoint will check the group ID of the user based on the access token and compare it with the group ID in path parameter.
 It will also check the member role of the user based on the access token
-
-
-
 
 Action Code: 73307
 */
@@ -1418,6 +1270,10 @@ func (a *Client) UpdatePatchSingleGroupPublicV1Short(params *UpdatePatchSingleGr
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -1460,25 +1316,15 @@ func (a *Client) UpdatePatchSingleGroupPublicV1Short(params *UpdatePatchSingleGr
 /*
 Deprecated: 2022-08-10 - Use UpdateGroupCustomAttributesPublicV1Short instead.
 
-UpdateGroupCustomAttributesPublicV1 update group custom attributes
+# UpdateGroupCustomAttributesPublicV1 update group custom attributes
 
-
-Requires valid user authentication
-
-
-
+# Requires valid user authentication
 
 Required Member Role Permission: "GROUP [UPDATE]"
-
-
-
 
 This endpoint replaces current group custom attributes entirely.
 This endpoint will check the group ID of the user based on the access token and compare it with the group ID in path parameter.
 It will also check the member role of the user based on the access token
-
-
-
 
 Action Code: 73311
 */
@@ -1541,23 +1387,13 @@ func (a *Client) UpdateGroupCustomAttributesPublicV1(params *UpdateGroupCustomAt
 /*
 UpdateGroupCustomAttributesPublicV1Short update group custom attributes
 
-
-Requires valid user authentication
-
-
-
+# Requires valid user authentication
 
 Required Member Role Permission: "GROUP [UPDATE]"
-
-
-
 
 This endpoint replaces current group custom attributes entirely.
 This endpoint will check the group ID of the user based on the access token and compare it with the group ID in path parameter.
 It will also check the member role of the user based on the access token
-
-
-
 
 Action Code: 73311
 */
@@ -1573,6 +1409,10 @@ func (a *Client) UpdateGroupCustomAttributesPublicV1Short(params *UpdateGroupCus
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -1615,20 +1455,13 @@ func (a *Client) UpdateGroupCustomAttributesPublicV1Short(params *UpdateGroupCus
 /*
 Deprecated: 2022-08-10 - Use UpdateGroupCustomRulePublicV1Short instead.
 
-UpdateGroupCustomRulePublicV1 update group custom rule
+# UpdateGroupCustomRulePublicV1 update group custom rule
 
-
-Required valid user authentication
-
-
-
+# Required valid user authentication
 
 Update group custom rule. This endpoint will check the group ID of the user based on the access token
 and compare it with the group ID in path parameter. It will also check the member role of the user based
 on the access token
-
-
-
 
 Action Code: 73308
 */
@@ -1691,18 +1524,11 @@ func (a *Client) UpdateGroupCustomRulePublicV1(params *UpdateGroupCustomRulePubl
 /*
 UpdateGroupCustomRulePublicV1Short update group custom rule
 
-
-Required valid user authentication
-
-
-
+# Required valid user authentication
 
 Update group custom rule. This endpoint will check the group ID of the user based on the access token
 and compare it with the group ID in path parameter. It will also check the member role of the user based
 on the access token
-
-
-
 
 Action Code: 73308
 */
@@ -1718,6 +1544,10 @@ func (a *Client) UpdateGroupCustomRulePublicV1Short(params *UpdateGroupCustomRul
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -1760,30 +1590,17 @@ func (a *Client) UpdateGroupCustomRulePublicV1Short(params *UpdateGroupCustomRul
 /*
 Deprecated: 2022-08-10 - Use UpdateGroupPredefinedRulePublicV1Short instead.
 
-UpdateGroupPredefinedRulePublicV1 update predefined group rule
+# UpdateGroupPredefinedRulePublicV1 update predefined group rule
 
-
-Required valid user authentication
-
-
-
+# Required valid user authentication
 
 Required Member Role Permission: "GROUP [UPDATE]"
-
-
-
 
 Update predefined group rule. This endpoint will check the group ID of the user based on the access token
 and compare it with the group ID in path parameter. It will also check the member role of the user based on
 the access token
 
-
-
-
-If the rule action is not defined in the group, it will be added immediately to the predefined group rule
-
-
-
+# If the rule action is not defined in the group, it will be added immediately to the predefined group rule
 
 Action Code: 73310
 */
@@ -1846,28 +1663,15 @@ func (a *Client) UpdateGroupPredefinedRulePublicV1(params *UpdateGroupPredefined
 /*
 UpdateGroupPredefinedRulePublicV1Short update predefined group rule
 
-
-Required valid user authentication
-
-
-
+# Required valid user authentication
 
 Required Member Role Permission: "GROUP [UPDATE]"
-
-
-
 
 Update predefined group rule. This endpoint will check the group ID of the user based on the access token
 and compare it with the group ID in path parameter. It will also check the member role of the user based on
 the access token
 
-
-
-
-If the rule action is not defined in the group, it will be added immediately to the predefined group rule
-
-
-
+# If the rule action is not defined in the group, it will be added immediately to the predefined group rule
 
 Action Code: 73310
 */
@@ -1883,6 +1687,10 @@ func (a *Client) UpdateGroupPredefinedRulePublicV1Short(params *UpdateGroupPrede
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -1925,25 +1733,15 @@ func (a *Client) UpdateGroupPredefinedRulePublicV1Short(params *UpdateGroupPrede
 /*
 Deprecated: 2022-08-10 - Use DeleteGroupPredefinedRulePublicV1Short instead.
 
-DeleteGroupPredefinedRulePublicV1 delete group predefined rule
+# DeleteGroupPredefinedRulePublicV1 delete group predefined rule
 
-
-Required valid user authentication
-
-
-
+# Required valid user authentication
 
 Required Member Role Permission: "GROUP [UPDATE]"
-
-
-
 
 Delete group predefined rule based on the allowed action. This endpoint will check the group ID of the user based on the access token
 and compare it with the group ID in path parameter. It will also check the member role of the user based on
 the access token
-
-
-
 
 Action Code: 73309
 */
@@ -2006,23 +1804,13 @@ func (a *Client) DeleteGroupPredefinedRulePublicV1(params *DeleteGroupPredefined
 /*
 DeleteGroupPredefinedRulePublicV1Short delete group predefined rule
 
-
-Required valid user authentication
-
-
-
+# Required valid user authentication
 
 Required Member Role Permission: "GROUP [UPDATE]"
-
-
-
 
 Delete group predefined rule based on the allowed action. This endpoint will check the group ID of the user based on the access token
 and compare it with the group ID in path parameter. It will also check the member role of the user based on
 the access token
-
-
-
 
 Action Code: 73309
 */
@@ -2038,6 +1826,10 @@ func (a *Client) DeleteGroupPredefinedRulePublicV1Short(params *DeleteGroupPrede
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -2080,18 +1872,11 @@ func (a *Client) DeleteGroupPredefinedRulePublicV1Short(params *DeleteGroupPrede
 /*
 Deprecated: 2022-08-10 - Use GetListGroupByIDsAdminV2Short instead.
 
-GetListGroupByIDsAdminV2 get list of groups by group ids
+# GetListGroupByIDsAdminV2 get list of groups by group ids
 
-
-Required valid user authentication
-
-
-
+# Required valid user authentication
 
 Get list of groups by group Ids.
-
-
-
 
 Action Code: 73303
 */
@@ -2151,16 +1936,9 @@ func (a *Client) GetListGroupByIDsAdminV2(params *GetListGroupByIDsAdminV2Params
 /*
 GetListGroupByIDsAdminV2Short get list of groups by group ids
 
-
-Required valid user authentication
-
-
-
+# Required valid user authentication
 
 Get list of groups by group Ids.
-
-
-
 
 Action Code: 73303
 */
@@ -2176,6 +1954,10 @@ func (a *Client) GetListGroupByIDsAdminV2Short(params *GetListGroupByIDsAdminV2P
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -2216,58 +1998,33 @@ func (a *Client) GetListGroupByIDsAdminV2Short(params *GetListGroupByIDsAdminV2P
 /*
 Deprecated: 2022-08-10 - Use CreateNewGroupPublicV2Short instead.
 
-CreateNewGroupPublicV2 create new group
+# CreateNewGroupPublicV2 create new group
 
+# Required valid user authentication
 
-Required valid user authentication
+# This endpoint is used to create new group
 
+# There are some fields that needs to be fulfilled
 
+  - groupDescription : the description of the group (optional)
 
+  - groupIcon : group icon URL link (optional)
 
-This endpoint is used to create new group
+  - groupName : name of the group
 
+  - groupRegion : region of the group
 
+  - groupRules : rules for specific group. It consists of groupCustomRule that can be used to save custom rule, and groupPredefinedRules that has similar usage with configuration, but this rule only works in specific group
 
+  - allowedAction : available action in group service. It consist of joinGroup and inviteGroup
 
-There are some fields that needs to be fulfilled
+  - ruleAttribute : attribute of the player that needs to be checked
 
+  - ruleCriteria : criteria of the value. The value will be in enum of EQUAL, MINIMUM, MAXIMUM
 
+  - ruleValue : value that needs to be checked
 
-
-
-
-  * groupDescription : the description of the group (optional)
-
-
-  * groupIcon : group icon URL link (optional)
-
-
-  * groupName : name of the group
-
-
-  * groupRegion : region of the group
-
-
-  * groupRules : rules for specific group. It consists of groupCustomRule that can be used to save custom rule, and groupPredefinedRules that has similar usage with configuration, but this rule only works in specific group
-
-
-  * allowedAction : available action in group service. It consist of joinGroup and inviteGroup
-
-
-  * ruleAttribute : attribute of the player that needs to be checked
-
-
-  * ruleCriteria : criteria of the value. The value will be in enum of EQUAL, MINIMUM, MAXIMUM
-
-
-  * ruleValue : value that needs to be checked
-
-
-  * customAttributes : additional custom group attributes (optional)
-
-
-
-
+  - customAttributes : additional custom group attributes (optional)
 
 Action Code: 73304
 */
@@ -2330,56 +2087,31 @@ func (a *Client) CreateNewGroupPublicV2(params *CreateNewGroupPublicV2Params, au
 /*
 CreateNewGroupPublicV2Short create new group
 
+# Required valid user authentication
 
-Required valid user authentication
+# This endpoint is used to create new group
 
+# There are some fields that needs to be fulfilled
 
+  - groupDescription : the description of the group (optional)
 
+  - groupIcon : group icon URL link (optional)
 
-This endpoint is used to create new group
+  - groupName : name of the group
 
+  - groupRegion : region of the group
 
+  - groupRules : rules for specific group. It consists of groupCustomRule that can be used to save custom rule, and groupPredefinedRules that has similar usage with configuration, but this rule only works in specific group
 
+  - allowedAction : available action in group service. It consist of joinGroup and inviteGroup
 
-There are some fields that needs to be fulfilled
+  - ruleAttribute : attribute of the player that needs to be checked
 
+  - ruleCriteria : criteria of the value. The value will be in enum of EQUAL, MINIMUM, MAXIMUM
 
+  - ruleValue : value that needs to be checked
 
-
-
-
-  * groupDescription : the description of the group (optional)
-
-
-  * groupIcon : group icon URL link (optional)
-
-
-  * groupName : name of the group
-
-
-  * groupRegion : region of the group
-
-
-  * groupRules : rules for specific group. It consists of groupCustomRule that can be used to save custom rule, and groupPredefinedRules that has similar usage with configuration, but this rule only works in specific group
-
-
-  * allowedAction : available action in group service. It consist of joinGroup and inviteGroup
-
-
-  * ruleAttribute : attribute of the player that needs to be checked
-
-
-  * ruleCriteria : criteria of the value. The value will be in enum of EQUAL, MINIMUM, MAXIMUM
-
-
-  * ruleValue : value that needs to be checked
-
-
-  * customAttributes : additional custom group attributes (optional)
-
-
-
-
+  - customAttributes : additional custom group attributes (optional)
 
 Action Code: 73304
 */
@@ -2395,6 +2127,10 @@ func (a *Client) CreateNewGroupPublicV2Short(params *CreateNewGroupPublicV2Param
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -2437,18 +2173,11 @@ func (a *Client) CreateNewGroupPublicV2Short(params *CreateNewGroupPublicV2Param
 /*
 Deprecated: 2022-08-10 - Use GetListGroupByIDsV2Short instead.
 
-GetListGroupByIDsV2 get list of groups by group ids
+# GetListGroupByIDsV2 get list of groups by group ids
 
-
-Required valid user authentication
-
-
-
+# Required valid user authentication
 
 Get list of groups by group Ids.
-
-
-
 
 Action Code: 73303
 */
@@ -2508,16 +2237,9 @@ func (a *Client) GetListGroupByIDsV2(params *GetListGroupByIDsV2Params, authInfo
 /*
 GetListGroupByIDsV2Short get list of groups by group ids
 
-
-Required valid user authentication
-
-
-
+# Required valid user authentication
 
 Get list of groups by group Ids.
-
-
-
 
 Action Code: 73303
 */
@@ -2533,6 +2255,10 @@ func (a *Client) GetListGroupByIDsV2Short(params *GetListGroupByIDsV2Params, aut
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -2573,24 +2299,14 @@ func (a *Client) GetListGroupByIDsV2Short(params *GetListGroupByIDsV2Params, aut
 /*
 Deprecated: 2022-08-10 - Use UpdatePutSingleGroupPublicV2Short instead.
 
-UpdatePutSingleGroupPublicV2 update existing group
+# UpdatePutSingleGroupPublicV2 update existing group
 
-
-Required valid user authentication
-
-
-
+# Required valid user authentication
 
 Required Member Role Permission: "GROUP [UPDATE]"
 
-
-
-
 Update existing group. This endpoint supports partial update. This endpoint will check the group ID of the user based on the access token and compare it with the group ID in path parameter.
 It will also check the member role of the user based on the access token
-
-
-
 
 Action Code: 73307
 */
@@ -2653,22 +2369,12 @@ func (a *Client) UpdatePutSingleGroupPublicV2(params *UpdatePutSingleGroupPublic
 /*
 UpdatePutSingleGroupPublicV2Short update existing group
 
-
-Required valid user authentication
-
-
-
+# Required valid user authentication
 
 Required Member Role Permission: "GROUP [UPDATE]"
 
-
-
-
 Update existing group. This endpoint supports partial update. This endpoint will check the group ID of the user based on the access token and compare it with the group ID in path parameter.
 It will also check the member role of the user based on the access token
-
-
-
 
 Action Code: 73307
 */
@@ -2684,6 +2390,10 @@ func (a *Client) UpdatePutSingleGroupPublicV2Short(params *UpdatePutSingleGroupP
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -2726,25 +2436,15 @@ func (a *Client) UpdatePutSingleGroupPublicV2Short(params *UpdatePutSingleGroupP
 /*
 Deprecated: 2022-08-10 - Use DeleteGroupPublicV2Short instead.
 
-DeleteGroupPublicV2 delete existing group
+# DeleteGroupPublicV2 delete existing group
 
-
-Required valid user authentication
-
-
-
+# Required valid user authentication
 
 Required Member Role Permission: "GROUP [DELETE]"
-
-
-
 
 Delete existing group. This endpoint will check the group ID of the user based on the access token
 and compare it with the group ID in path parameter. It will also check the member role of the user based on
 the access token
-
-
-
 
 Action Code: 73305
 */
@@ -2807,23 +2507,13 @@ func (a *Client) DeleteGroupPublicV2(params *DeleteGroupPublicV2Params, authInfo
 /*
 DeleteGroupPublicV2Short delete existing group
 
-
-Required valid user authentication
-
-
-
+# Required valid user authentication
 
 Required Member Role Permission: "GROUP [DELETE]"
-
-
-
 
 Delete existing group. This endpoint will check the group ID of the user based on the access token
 and compare it with the group ID in path parameter. It will also check the member role of the user based on
 the access token
-
-
-
 
 Action Code: 73305
 */
@@ -2839,6 +2529,10 @@ func (a *Client) DeleteGroupPublicV2Short(params *DeleteGroupPublicV2Params, aut
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -2881,24 +2575,14 @@ func (a *Client) DeleteGroupPublicV2Short(params *DeleteGroupPublicV2Params, aut
 /*
 Deprecated: 2022-08-10 - Use UpdatePatchSingleGroupPublicV2Short instead.
 
-UpdatePatchSingleGroupPublicV2 update existing group
+# UpdatePatchSingleGroupPublicV2 update existing group
 
-
-Required valid user authentication
-
-
-
+# Required valid user authentication
 
 Required Member Role Permission: "GROUP [UPDATE]"
 
-
-
-
 Update existing group. This endpoint supports partial update. This endpoint will check the group ID of the user based on the access token and compare it with the group ID in path parameter.
 It will also check the member role of the user based on the access token
-
-
-
 
 Action Code: 73307
 */
@@ -2961,22 +2645,12 @@ func (a *Client) UpdatePatchSingleGroupPublicV2(params *UpdatePatchSingleGroupPu
 /*
 UpdatePatchSingleGroupPublicV2Short update existing group
 
-
-Required valid user authentication
-
-
-
+# Required valid user authentication
 
 Required Member Role Permission: "GROUP [UPDATE]"
 
-
-
-
 Update existing group. This endpoint supports partial update. This endpoint will check the group ID of the user based on the access token and compare it with the group ID in path parameter.
 It will also check the member role of the user based on the access token
-
-
-
 
 Action Code: 73307
 */
@@ -2992,6 +2666,10 @@ func (a *Client) UpdatePatchSingleGroupPublicV2Short(params *UpdatePatchSingleGr
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -3034,25 +2712,15 @@ func (a *Client) UpdatePatchSingleGroupPublicV2Short(params *UpdatePatchSingleGr
 /*
 Deprecated: 2022-08-10 - Use UpdateGroupCustomAttributesPublicV2Short instead.
 
-UpdateGroupCustomAttributesPublicV2 update group custom attributes
+# UpdateGroupCustomAttributesPublicV2 update group custom attributes
 
-
-Requires valid user authentication
-
-
-
+# Requires valid user authentication
 
 Required Member Role Permission: "GROUP [UPDATE]"
-
-
-
 
 This endpoint replaces current group custom attributes entirely.
 This endpoint will check the group ID of the user based on the access token and compare it with the group ID in path parameter.
 It will also check the member role of the user based on the access token
-
-
-
 
 Action Code: 73311
 */
@@ -3115,23 +2783,13 @@ func (a *Client) UpdateGroupCustomAttributesPublicV2(params *UpdateGroupCustomAt
 /*
 UpdateGroupCustomAttributesPublicV2Short update group custom attributes
 
-
-Requires valid user authentication
-
-
-
+# Requires valid user authentication
 
 Required Member Role Permission: "GROUP [UPDATE]"
-
-
-
 
 This endpoint replaces current group custom attributes entirely.
 This endpoint will check the group ID of the user based on the access token and compare it with the group ID in path parameter.
 It will also check the member role of the user based on the access token
-
-
-
 
 Action Code: 73311
 */
@@ -3147,6 +2805,10 @@ func (a *Client) UpdateGroupCustomAttributesPublicV2Short(params *UpdateGroupCus
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -3189,20 +2851,13 @@ func (a *Client) UpdateGroupCustomAttributesPublicV2Short(params *UpdateGroupCus
 /*
 Deprecated: 2022-08-10 - Use UpdateGroupCustomRulePublicV2Short instead.
 
-UpdateGroupCustomRulePublicV2 update group custom rule
+# UpdateGroupCustomRulePublicV2 update group custom rule
 
-
-Required valid user authentication
-
-
-
+# Required valid user authentication
 
 Update group custom rule. This endpoint will check the group ID of the user based on the access token
 and compare it with the group ID in path parameter. It will also check the member role of the user based
 on the access token
-
-
-
 
 Action Code: 73308
 */
@@ -3265,18 +2920,11 @@ func (a *Client) UpdateGroupCustomRulePublicV2(params *UpdateGroupCustomRulePubl
 /*
 UpdateGroupCustomRulePublicV2Short update group custom rule
 
-
-Required valid user authentication
-
-
-
+# Required valid user authentication
 
 Update group custom rule. This endpoint will check the group ID of the user based on the access token
 and compare it with the group ID in path parameter. It will also check the member role of the user based
 on the access token
-
-
-
 
 Action Code: 73308
 */
@@ -3292,6 +2940,10 @@ func (a *Client) UpdateGroupCustomRulePublicV2Short(params *UpdateGroupCustomRul
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -3334,30 +2986,17 @@ func (a *Client) UpdateGroupCustomRulePublicV2Short(params *UpdateGroupCustomRul
 /*
 Deprecated: 2022-08-10 - Use UpdateGroupPredefinedRulePublicV2Short instead.
 
-UpdateGroupPredefinedRulePublicV2 update predefined group rule
+# UpdateGroupPredefinedRulePublicV2 update predefined group rule
 
-
-Required valid user authentication
-
-
-
+# Required valid user authentication
 
 Required Member Role Permission: "GROUP [UPDATE]"
-
-
-
 
 Update predefined group rule. This endpoint will check the group ID of the user based on the access token
 and compare it with the group ID in path parameter. It will also check the member role of the user based on
 the access token
 
-
-
-
-If the rule action is not defined in the group, it will be added immediately to the predefined group rule
-
-
-
+# If the rule action is not defined in the group, it will be added immediately to the predefined group rule
 
 Action Code: 73310
 */
@@ -3420,28 +3059,15 @@ func (a *Client) UpdateGroupPredefinedRulePublicV2(params *UpdateGroupPredefined
 /*
 UpdateGroupPredefinedRulePublicV2Short update predefined group rule
 
-
-Required valid user authentication
-
-
-
+# Required valid user authentication
 
 Required Member Role Permission: "GROUP [UPDATE]"
-
-
-
 
 Update predefined group rule. This endpoint will check the group ID of the user based on the access token
 and compare it with the group ID in path parameter. It will also check the member role of the user based on
 the access token
 
-
-
-
-If the rule action is not defined in the group, it will be added immediately to the predefined group rule
-
-
-
+# If the rule action is not defined in the group, it will be added immediately to the predefined group rule
 
 Action Code: 73310
 */
@@ -3457,6 +3083,10 @@ func (a *Client) UpdateGroupPredefinedRulePublicV2Short(params *UpdateGroupPrede
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -3499,25 +3129,15 @@ func (a *Client) UpdateGroupPredefinedRulePublicV2Short(params *UpdateGroupPrede
 /*
 Deprecated: 2022-08-10 - Use DeleteGroupPredefinedRulePublicV2Short instead.
 
-DeleteGroupPredefinedRulePublicV2 delete group predefined rule
+# DeleteGroupPredefinedRulePublicV2 delete group predefined rule
 
-
-Required valid user authentication
-
-
-
+# Required valid user authentication
 
 Required Member Role Permission: "GROUP [UPDATE]"
-
-
-
 
 Delete group predefined rule based on the allowed action. This endpoint will check the group ID of the user based on the access token
 and compare it with the group ID in path parameter. It will also check the member role of the user based on
 the access token
-
-
-
 
 Action Code: 73309
 */
@@ -3580,23 +3200,13 @@ func (a *Client) DeleteGroupPredefinedRulePublicV2(params *DeleteGroupPredefined
 /*
 DeleteGroupPredefinedRulePublicV2Short delete group predefined rule
 
-
-Required valid user authentication
-
-
-
+# Required valid user authentication
 
 Required Member Role Permission: "GROUP [UPDATE]"
-
-
-
 
 Delete group predefined rule based on the allowed action. This endpoint will check the group ID of the user based on the access token
 and compare it with the group ID in path parameter. It will also check the member role of the user based on
 the access token
-
-
-
 
 Action Code: 73309
 */
@@ -3612,6 +3222,10 @@ func (a *Client) DeleteGroupPredefinedRulePublicV2Short(params *DeleteGroupPrede
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{

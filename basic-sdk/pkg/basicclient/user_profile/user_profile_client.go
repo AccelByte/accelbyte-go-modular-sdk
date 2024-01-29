@@ -93,8 +93,8 @@ GetUserProfileInfoByPublicID get user profile info by public id
 Get user profile by public id.
 Other detail info:
 
-  * Required permission : resource= "ADMIN:NAMESPACE:{namespace}:PROFILE" , action=2 (READ)
-  *  Returns : user profile info
+  - Required permission : resource= "ADMIN:NAMESPACE:{namespace}:PROFILE" , action=2 (READ)
+  - Returns : user profile info
 */
 func (a *Client) GetUserProfileInfoByPublicID(params *GetUserProfileInfoByPublicIDParams, authInfo runtime.ClientAuthInfoWriter) (*GetUserProfileInfoByPublicIDOK, *GetUserProfileInfoByPublicIDBadRequest, *GetUserProfileInfoByPublicIDUnauthorized, *GetUserProfileInfoByPublicIDForbidden, *GetUserProfileInfoByPublicIDNotFound, error) {
 	// TODO: Validate the params before sending
@@ -154,8 +154,8 @@ GetUserProfileInfoByPublicIDShort get user profile info by public id
 Get user profile by public id.
 Other detail info:
 
-  * Required permission : resource= "ADMIN:NAMESPACE:{namespace}:PROFILE" , action=2 (READ)
-  *  Returns : user profile info
+  - Required permission : resource= "ADMIN:NAMESPACE:{namespace}:PROFILE" , action=2 (READ)
+  - Returns : user profile info
 */
 func (a *Client) GetUserProfileInfoByPublicIDShort(params *GetUserProfileInfoByPublicIDParams, authInfo runtime.ClientAuthInfoWriter) (*GetUserProfileInfoByPublicIDOK, error) {
 	// TODO: Validate the params before sending
@@ -169,6 +169,10 @@ func (a *Client) GetUserProfileInfoByPublicIDShort(params *GetUserProfileInfoByP
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -213,9 +217,9 @@ AdminGetUserProfilePublicInfoByIds admin get user profile public info by ids
 Admin get user public profile by ids.
 Other detail info:
 
-  * Required permission : resource= "ADMIN:NAMESPACE:{namespace}:PROFILE" , action=2 (GET)
-  *  Action code : 11405
-  *  Returns : user public profiles
+  - Required permission : resource= "ADMIN:NAMESPACE:{namespace}:PROFILE" , action=2 (GET)
+  - Action code : 11405
+  - Returns : user public profiles
 */
 func (a *Client) AdminGetUserProfilePublicInfoByIds(params *AdminGetUserProfilePublicInfoByIdsParams, authInfo runtime.ClientAuthInfoWriter) (*AdminGetUserProfilePublicInfoByIdsOK, *AdminGetUserProfilePublicInfoByIdsBadRequest, error) {
 	// TODO: Validate the params before sending
@@ -266,9 +270,9 @@ AdminGetUserProfilePublicInfoByIdsShort admin get user profile public info by id
 Admin get user public profile by ids.
 Other detail info:
 
-  * Required permission : resource= "ADMIN:NAMESPACE:{namespace}:PROFILE" , action=2 (GET)
-  *  Action code : 11405
-  *  Returns : user public profiles
+  - Required permission : resource= "ADMIN:NAMESPACE:{namespace}:PROFILE" , action=2 (GET)
+  - Action code : 11405
+  - Returns : user public profiles
 */
 func (a *Client) AdminGetUserProfilePublicInfoByIdsShort(params *AdminGetUserProfilePublicInfoByIdsParams, authInfo runtime.ClientAuthInfoWriter) (*AdminGetUserProfilePublicInfoByIdsOK, error) {
 	// TODO: Validate the params before sending
@@ -282,6 +286,10 @@ func (a *Client) AdminGetUserProfilePublicInfoByIdsShort(params *AdminGetUserPro
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -320,9 +328,9 @@ GetUserProfileInfo get user profile
 Get user profile.
 Other detail info:
 
-  * Required permission : resource= "ADMIN:NAMESPACE:{namespace}:USER:{userId}:PROFILE" , action=2 (READ)
-  *  Returns : user profile
-  *  Action code : 11403
+  - Required permission : resource= "ADMIN:NAMESPACE:{namespace}:USER:{userId}:PROFILE" , action=2 (READ)
+  - Returns : user profile
+  - Action code : 11403
 */
 func (a *Client) GetUserProfileInfo(params *GetUserProfileInfoParams, authInfo runtime.ClientAuthInfoWriter) (*GetUserProfileInfoOK, *GetUserProfileInfoBadRequest, *GetUserProfileInfoUnauthorized, *GetUserProfileInfoForbidden, *GetUserProfileInfoNotFound, error) {
 	// TODO: Validate the params before sending
@@ -382,9 +390,9 @@ GetUserProfileInfoShort get user profile
 Get user profile.
 Other detail info:
 
-  * Required permission : resource= "ADMIN:NAMESPACE:{namespace}:USER:{userId}:PROFILE" , action=2 (READ)
-  *  Returns : user profile
-  *  Action code : 11403
+  - Required permission : resource= "ADMIN:NAMESPACE:{namespace}:USER:{userId}:PROFILE" , action=2 (READ)
+  - Returns : user profile
+  - Action code : 11403
 */
 func (a *Client) GetUserProfileInfoShort(params *GetUserProfileInfoParams, authInfo runtime.ClientAuthInfoWriter) (*GetUserProfileInfoOK, error) {
 	// TODO: Validate the params before sending
@@ -398,6 +406,10 @@ func (a *Client) GetUserProfileInfoShort(params *GetUserProfileInfoParams, authI
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -442,9 +454,9 @@ UpdateUserProfile update user profile
 Update user profile.
 Other detail info:
 
-  * Required permission : resource= "ADMIN:NAMESPACE:{namespace}:USER:{userId}:PROFILE" , action=4 (UPDATE)
-  *  Action code : 11402
-  *  Returns : Updated user profile
+  - Required permission : resource= "ADMIN:NAMESPACE:{namespace}:USER:{userId}:PROFILE" , action=4 (UPDATE)
+  - Action code : 11402
+  - Returns : Updated user profile
 */
 func (a *Client) UpdateUserProfile(params *UpdateUserProfileParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateUserProfileOK, *UpdateUserProfileBadRequest, *UpdateUserProfileUnauthorized, *UpdateUserProfileForbidden, *UpdateUserProfileNotFound, error) {
 	// TODO: Validate the params before sending
@@ -504,9 +516,9 @@ UpdateUserProfileShort update user profile
 Update user profile.
 Other detail info:
 
-  * Required permission : resource= "ADMIN:NAMESPACE:{namespace}:USER:{userId}:PROFILE" , action=4 (UPDATE)
-  *  Action code : 11402
-  *  Returns : Updated user profile
+  - Required permission : resource= "ADMIN:NAMESPACE:{namespace}:USER:{userId}:PROFILE" , action=4 (UPDATE)
+  - Action code : 11402
+  - Returns : Updated user profile
 */
 func (a *Client) UpdateUserProfileShort(params *UpdateUserProfileParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateUserProfileOK, error) {
 	// TODO: Validate the params before sending
@@ -520,6 +532,10 @@ func (a *Client) UpdateUserProfileShort(params *UpdateUserProfileParams, authInf
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -564,9 +580,9 @@ DeleteUserProfile delete user profile
 Delete user profile.
 Other detail info:
 
-  * Required permission : resource= "ADMIN:NAMESPACE:{namespace}:USER:{userId}:PROFILE" , action=8 (DELETE)
-  *  Action code : 11407
-  *  Returns : Delete user profile
+  - Required permission : resource= "ADMIN:NAMESPACE:{namespace}:USER:{userId}:PROFILE" , action=8 (DELETE)
+  - Action code : 11407
+  - Returns : Delete user profile
 */
 func (a *Client) DeleteUserProfile(params *DeleteUserProfileParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteUserProfileOK, *DeleteUserProfileBadRequest, *DeleteUserProfileUnauthorized, *DeleteUserProfileForbidden, *DeleteUserProfileNotFound, error) {
 	// TODO: Validate the params before sending
@@ -626,9 +642,9 @@ DeleteUserProfileShort delete user profile
 Delete user profile.
 Other detail info:
 
-  * Required permission : resource= "ADMIN:NAMESPACE:{namespace}:USER:{userId}:PROFILE" , action=8 (DELETE)
-  *  Action code : 11407
-  *  Returns : Delete user profile
+  - Required permission : resource= "ADMIN:NAMESPACE:{namespace}:USER:{userId}:PROFILE" , action=8 (DELETE)
+  - Action code : 11407
+  - Returns : Delete user profile
 */
 func (a *Client) DeleteUserProfileShort(params *DeleteUserProfileParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteUserProfileOK, error) {
 	// TODO: Validate the params before sending
@@ -642,6 +658,10 @@ func (a *Client) DeleteUserProfileShort(params *DeleteUserProfileParams, authInf
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -686,9 +706,9 @@ GetCustomAttributesInfo get user custom attributes
 Get user custom attributes.
 Other detail info:
 
-  * Required permission : resource= "ADMIN:NAMESPACE:{namespace}:USER:{userId}:PROFILE" , action=2 (READ)
-  *  Returns : custom attributes
-  *  Action code : 11403
+  - Required permission : resource= "ADMIN:NAMESPACE:{namespace}:USER:{userId}:PROFILE" , action=2 (READ)
+  - Returns : custom attributes
+  - Action code : 11403
 */
 func (a *Client) GetCustomAttributesInfo(params *GetCustomAttributesInfoParams, authInfo runtime.ClientAuthInfoWriter) (*GetCustomAttributesInfoOK, *GetCustomAttributesInfoUnauthorized, *GetCustomAttributesInfoForbidden, *GetCustomAttributesInfoNotFound, error) {
 	// TODO: Validate the params before sending
@@ -745,9 +765,9 @@ GetCustomAttributesInfoShort get user custom attributes
 Get user custom attributes.
 Other detail info:
 
-  * Required permission : resource= "ADMIN:NAMESPACE:{namespace}:USER:{userId}:PROFILE" , action=2 (READ)
-  *  Returns : custom attributes
-  *  Action code : 11403
+  - Required permission : resource= "ADMIN:NAMESPACE:{namespace}:USER:{userId}:PROFILE" , action=2 (READ)
+  - Returns : custom attributes
+  - Action code : 11403
 */
 func (a *Client) GetCustomAttributesInfoShort(params *GetCustomAttributesInfoParams, authInfo runtime.ClientAuthInfoWriter) (*GetCustomAttributesInfoOK, error) {
 	// TODO: Validate the params before sending
@@ -761,6 +781,10 @@ func (a *Client) GetCustomAttributesInfoShort(params *GetCustomAttributesInfoPar
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -803,10 +827,10 @@ UpdateCustomAttributesPartially update partially custom attributes tied to the u
 Update partially custom attributes tied to the user id.
 Other detail info:
 
-  * Required permission : resource= "ADMIN:NAMESPACE:{namespace}:USER:{userId}:PROFILE" , action=4 (UPDATE)
-  *  Action code : 11402
-  *  Request body : allowed format: JSON object
-  *  Returns : Updated custom attributes
+  - Required permission : resource= "ADMIN:NAMESPACE:{namespace}:USER:{userId}:PROFILE" , action=4 (UPDATE)
+  - Action code : 11402
+  - Request body : allowed format: JSON object
+  - Returns : Updated custom attributes
 */
 func (a *Client) UpdateCustomAttributesPartially(params *UpdateCustomAttributesPartiallyParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateCustomAttributesPartiallyOK, *UpdateCustomAttributesPartiallyBadRequest, *UpdateCustomAttributesPartiallyUnauthorized, *UpdateCustomAttributesPartiallyForbidden, *UpdateCustomAttributesPartiallyNotFound, error) {
 	// TODO: Validate the params before sending
@@ -866,10 +890,10 @@ UpdateCustomAttributesPartiallyShort update partially custom attributes tied to 
 Update partially custom attributes tied to the user id.
 Other detail info:
 
-  * Required permission : resource= "ADMIN:NAMESPACE:{namespace}:USER:{userId}:PROFILE" , action=4 (UPDATE)
-  *  Action code : 11402
-  *  Request body : allowed format: JSON object
-  *  Returns : Updated custom attributes
+  - Required permission : resource= "ADMIN:NAMESPACE:{namespace}:USER:{userId}:PROFILE" , action=4 (UPDATE)
+  - Action code : 11402
+  - Request body : allowed format: JSON object
+  - Returns : Updated custom attributes
 */
 func (a *Client) UpdateCustomAttributesPartiallyShort(params *UpdateCustomAttributesPartiallyParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateCustomAttributesPartiallyOK, error) {
 	// TODO: Validate the params before sending
@@ -883,6 +907,10 @@ func (a *Client) UpdateCustomAttributesPartiallyShort(params *UpdateCustomAttrib
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -927,9 +955,9 @@ GetPrivateCustomAttributesInfo get user private custom attributes
 Get user private custom attributes.
 Other detail info:
 
-  * Required permission : resource= "ADMIN:NAMESPACE:{namespace}:USER:{userId}:PROFILE" , action=2 (READ)
-  *  Returns : custom attributes
-  *  Action code : 11403
+  - Required permission : resource= "ADMIN:NAMESPACE:{namespace}:USER:{userId}:PROFILE" , action=2 (READ)
+  - Returns : custom attributes
+  - Action code : 11403
 */
 func (a *Client) GetPrivateCustomAttributesInfo(params *GetPrivateCustomAttributesInfoParams, authInfo runtime.ClientAuthInfoWriter) (*GetPrivateCustomAttributesInfoOK, *GetPrivateCustomAttributesInfoUnauthorized, *GetPrivateCustomAttributesInfoForbidden, *GetPrivateCustomAttributesInfoNotFound, error) {
 	// TODO: Validate the params before sending
@@ -986,9 +1014,9 @@ GetPrivateCustomAttributesInfoShort get user private custom attributes
 Get user private custom attributes.
 Other detail info:
 
-  * Required permission : resource= "ADMIN:NAMESPACE:{namespace}:USER:{userId}:PROFILE" , action=2 (READ)
-  *  Returns : custom attributes
-  *  Action code : 11403
+  - Required permission : resource= "ADMIN:NAMESPACE:{namespace}:USER:{userId}:PROFILE" , action=2 (READ)
+  - Returns : custom attributes
+  - Action code : 11403
 */
 func (a *Client) GetPrivateCustomAttributesInfoShort(params *GetPrivateCustomAttributesInfoParams, authInfo runtime.ClientAuthInfoWriter) (*GetPrivateCustomAttributesInfoOK, error) {
 	// TODO: Validate the params before sending
@@ -1002,6 +1030,10 @@ func (a *Client) GetPrivateCustomAttributesInfoShort(params *GetPrivateCustomAtt
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -1044,10 +1076,10 @@ UpdatePrivateCustomAttributesPartially update partially private custom attribute
 Update partially private custom attributes tied to the user id.
 Other detail info:
 
-  * Required permission : resource= "ADMIN:NAMESPACE:{namespace}:USER:{userId}:PROFILE" , action=4 (UPDATE)
-  *  Action code : 11402
-  *  Request body : allowed format: JSON object
-  *  Returns : Updated custom attributes
+  - Required permission : resource= "ADMIN:NAMESPACE:{namespace}:USER:{userId}:PROFILE" , action=4 (UPDATE)
+  - Action code : 11402
+  - Request body : allowed format: JSON object
+  - Returns : Updated custom attributes
 */
 func (a *Client) UpdatePrivateCustomAttributesPartially(params *UpdatePrivateCustomAttributesPartiallyParams, authInfo runtime.ClientAuthInfoWriter) (*UpdatePrivateCustomAttributesPartiallyOK, *UpdatePrivateCustomAttributesPartiallyBadRequest, *UpdatePrivateCustomAttributesPartiallyUnauthorized, *UpdatePrivateCustomAttributesPartiallyForbidden, *UpdatePrivateCustomAttributesPartiallyNotFound, error) {
 	// TODO: Validate the params before sending
@@ -1107,10 +1139,10 @@ UpdatePrivateCustomAttributesPartiallyShort update partially private custom attr
 Update partially private custom attributes tied to the user id.
 Other detail info:
 
-  * Required permission : resource= "ADMIN:NAMESPACE:{namespace}:USER:{userId}:PROFILE" , action=4 (UPDATE)
-  *  Action code : 11402
-  *  Request body : allowed format: JSON object
-  *  Returns : Updated custom attributes
+  - Required permission : resource= "ADMIN:NAMESPACE:{namespace}:USER:{userId}:PROFILE" , action=4 (UPDATE)
+  - Action code : 11402
+  - Request body : allowed format: JSON object
+  - Returns : Updated custom attributes
 */
 func (a *Client) UpdatePrivateCustomAttributesPartiallyShort(params *UpdatePrivateCustomAttributesPartiallyParams, authInfo runtime.ClientAuthInfoWriter) (*UpdatePrivateCustomAttributesPartiallyOK, error) {
 	// TODO: Validate the params before sending
@@ -1124,6 +1156,10 @@ func (a *Client) UpdatePrivateCustomAttributesPartiallyShort(params *UpdatePriva
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -1168,9 +1204,9 @@ UpdateUserProfileStatus update user profile status
 Update user profile status.
 Other detail info:
 
-  * Required permission : resource= "ADMIN:NAMESPACE:{namespace}:USER:{userId}:PROFILE" , action=4 (UPDATE)
-  *  Action code : 11406
-  *  Returns : user profile
+  - Required permission : resource= "ADMIN:NAMESPACE:{namespace}:USER:{userId}:PROFILE" , action=4 (UPDATE)
+  - Action code : 11406
+  - Returns : user profile
 */
 func (a *Client) UpdateUserProfileStatus(params *UpdateUserProfileStatusParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateUserProfileStatusOK, *UpdateUserProfileStatusBadRequest, *UpdateUserProfileStatusUnauthorized, *UpdateUserProfileStatusForbidden, *UpdateUserProfileStatusNotFound, error) {
 	// TODO: Validate the params before sending
@@ -1230,9 +1266,9 @@ UpdateUserProfileStatusShort update user profile status
 Update user profile status.
 Other detail info:
 
-  * Required permission : resource= "ADMIN:NAMESPACE:{namespace}:USER:{userId}:PROFILE" , action=4 (UPDATE)
-  *  Action code : 11406
-  *  Returns : user profile
+  - Required permission : resource= "ADMIN:NAMESPACE:{namespace}:USER:{userId}:PROFILE" , action=4 (UPDATE)
+  - Action code : 11406
+  - Returns : user profile
 */
 func (a *Client) UpdateUserProfileStatusShort(params *UpdateUserProfileStatusParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateUserProfileStatusOK, error) {
 	// TODO: Validate the params before sending
@@ -1246,6 +1282,10 @@ func (a *Client) UpdateUserProfileStatusShort(params *UpdateUserProfileStatusPar
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -1290,8 +1330,8 @@ PublicGetUserProfilePublicInfoByIds get user profile public info by ids
 Get user public profile by ids.
 Other detail info:
 
-  * Action code : 11405
-  *  Returns : user public profiles
+  - Action code : 11405
+  - Returns : user public profiles
 */
 func (a *Client) PublicGetUserProfilePublicInfoByIds(params *PublicGetUserProfilePublicInfoByIdsParams) (*PublicGetUserProfilePublicInfoByIdsOK, *PublicGetUserProfilePublicInfoByIdsBadRequest, error) {
 	// TODO: Validate the params before sending
@@ -1341,8 +1381,8 @@ PublicGetUserProfilePublicInfoByIdsShort get user profile public info by ids
 Get user public profile by ids.
 Other detail info:
 
-  * Action code : 11405
-  *  Returns : user public profiles
+  - Action code : 11405
+  - Returns : user public profiles
 */
 func (a *Client) PublicGetUserProfilePublicInfoByIdsShort(params *PublicGetUserProfilePublicInfoByIdsParams) (*PublicGetUserProfilePublicInfoByIdsOK, error) {
 	// TODO: Validate the params before sending
@@ -1356,6 +1396,10 @@ func (a *Client) PublicGetUserProfilePublicInfoByIdsShort(params *PublicGetUserP
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -1393,7 +1437,7 @@ PublicGetUserProfileInfoByPublicID get user profile public info by public id
 Get user public profile by public id.
 Other detail info:
 
-  * Returns : user public profile
+  - Returns : user public profile
 */
 func (a *Client) PublicGetUserProfileInfoByPublicID(params *PublicGetUserProfileInfoByPublicIDParams) (*PublicGetUserProfileInfoByPublicIDOK, *PublicGetUserProfileInfoByPublicIDBadRequest, *PublicGetUserProfileInfoByPublicIDNotFound, error) {
 	// TODO: Validate the params before sending
@@ -1446,7 +1490,7 @@ PublicGetUserProfileInfoByPublicIDShort get user profile public info by public i
 Get user public profile by public id.
 Other detail info:
 
-  * Returns : user public profile
+  - Returns : user public profile
 */
 func (a *Client) PublicGetUserProfileInfoByPublicIDShort(params *PublicGetUserProfileInfoByPublicIDParams) (*PublicGetUserProfileInfoByPublicIDOK, error) {
 	// TODO: Validate the params before sending
@@ -1460,6 +1504,10 @@ func (a *Client) PublicGetUserProfileInfoByPublicIDShort(params *PublicGetUserPr
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -1497,17 +1545,19 @@ Deprecated: 2022-08-10 - Use GetMyProfileInfoShort instead.
 
 GetMyProfileInfo get my profile
 Get my profile
- Client with user token can get user profile in target namespace
+
+	Client with user token can get user profile in target namespace
+
 Other detail info:
 
-  * Required permission : resource= "NAMESPACE:{namespace}:PROFILE" , action=2 (READ)
-  *  Action code : 11403
-  *  Returns : user profile
-  *  Path's namespace :
-    * can be filled with publisher namespace in order to get publisher user profile
-    * can be filled with game namespace in order to get game user profile
-  *  Language : allowed format: en, en-US
-  *  Timezone : IANA time zone, e.g. Asia/Shanghai
+  - Required permission : resource= "NAMESPACE:{namespace}:PROFILE" , action=2 (READ)
+  - Action code : 11403
+  - Returns : user profile
+  - Path's namespace :
+  - can be filled with publisher namespace in order to get publisher user profile
+  - can be filled with game namespace in order to get game user profile
+  - Language : allowed format: en, en-US
+  - Timezone : IANA time zone, e.g. Asia/Shanghai
 */
 func (a *Client) GetMyProfileInfo(params *GetMyProfileInfoParams, authInfo runtime.ClientAuthInfoWriter) (*GetMyProfileInfoOK, *GetMyProfileInfoBadRequest, *GetMyProfileInfoUnauthorized, *GetMyProfileInfoForbidden, *GetMyProfileInfoNotFound, error) {
 	// TODO: Validate the params before sending
@@ -1565,17 +1615,19 @@ func (a *Client) GetMyProfileInfo(params *GetMyProfileInfoParams, authInfo runti
 /*
 GetMyProfileInfoShort get my profile
 Get my profile
- Client with user token can get user profile in target namespace
+
+	Client with user token can get user profile in target namespace
+
 Other detail info:
 
-  * Required permission : resource= "NAMESPACE:{namespace}:PROFILE" , action=2 (READ)
-  *  Action code : 11403
-  *  Returns : user profile
-  *  Path's namespace :
-    * can be filled with publisher namespace in order to get publisher user profile
-    * can be filled with game namespace in order to get game user profile
-  *  Language : allowed format: en, en-US
-  *  Timezone : IANA time zone, e.g. Asia/Shanghai
+  - Required permission : resource= "NAMESPACE:{namespace}:PROFILE" , action=2 (READ)
+  - Action code : 11403
+  - Returns : user profile
+  - Path's namespace :
+  - can be filled with publisher namespace in order to get publisher user profile
+  - can be filled with game namespace in order to get game user profile
+  - Language : allowed format: en, en-US
+  - Timezone : IANA time zone, e.g. Asia/Shanghai
 */
 func (a *Client) GetMyProfileInfoShort(params *GetMyProfileInfoParams, authInfo runtime.ClientAuthInfoWriter) (*GetMyProfileInfoOK, error) {
 	// TODO: Validate the params before sending
@@ -1589,6 +1641,10 @@ func (a *Client) GetMyProfileInfoShort(params *GetMyProfileInfoParams, authInfo 
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -1634,14 +1690,14 @@ Update my profile.
 Updates user profile in the target namespace (namespace in the path). If token's namespace doesn't match the target namespace, the service automatically maps the token's user ID into the user ID in the target namespace. The endpoint returns the updated user profile on a successful call.
 Other detail info:
 
-  * Required permission : resource= "NAMESPACE:{namespace}:PROFILE" , action=4 (UPDATE)
-  *  Action code : 11402
-  *  Returns : user profile
-  *  Path's namespace :
-    * can be filled with publisher namespace in order to update publisher user profile
-    * can be filled with game namespace in order to update game user profile
-  *  Language : allowed format: en, en-US
-  *  Timezone : IANA time zone, e.g. Asia/Shanghai
+  - Required permission : resource= "NAMESPACE:{namespace}:PROFILE" , action=4 (UPDATE)
+  - Action code : 11402
+  - Returns : user profile
+  - Path's namespace :
+  - can be filled with publisher namespace in order to update publisher user profile
+  - can be filled with game namespace in order to update game user profile
+  - Language : allowed format: en, en-US
+  - Timezone : IANA time zone, e.g. Asia/Shanghai
 */
 func (a *Client) UpdateMyProfile(params *UpdateMyProfileParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateMyProfileOK, *UpdateMyProfileBadRequest, *UpdateMyProfileUnauthorized, *UpdateMyProfileForbidden, *UpdateMyProfileNotFound, error) {
 	// TODO: Validate the params before sending
@@ -1702,14 +1758,14 @@ Update my profile.
 Updates user profile in the target namespace (namespace in the path). If token's namespace doesn't match the target namespace, the service automatically maps the token's user ID into the user ID in the target namespace. The endpoint returns the updated user profile on a successful call.
 Other detail info:
 
-  * Required permission : resource= "NAMESPACE:{namespace}:PROFILE" , action=4 (UPDATE)
-  *  Action code : 11402
-  *  Returns : user profile
-  *  Path's namespace :
-    * can be filled with publisher namespace in order to update publisher user profile
-    * can be filled with game namespace in order to update game user profile
-  *  Language : allowed format: en, en-US
-  *  Timezone : IANA time zone, e.g. Asia/Shanghai
+  - Required permission : resource= "NAMESPACE:{namespace}:PROFILE" , action=4 (UPDATE)
+  - Action code : 11402
+  - Returns : user profile
+  - Path's namespace :
+  - can be filled with publisher namespace in order to update publisher user profile
+  - can be filled with game namespace in order to update game user profile
+  - Language : allowed format: en, en-US
+  - Timezone : IANA time zone, e.g. Asia/Shanghai
 */
 func (a *Client) UpdateMyProfileShort(params *UpdateMyProfileParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateMyProfileOK, error) {
 	// TODO: Validate the params before sending
@@ -1723,6 +1779,10 @@ func (a *Client) UpdateMyProfileShort(params *UpdateMyProfileParams, authInfo ru
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -1765,18 +1825,20 @@ Deprecated: 2022-08-10 - Use CreateMyProfileShort instead.
 
 CreateMyProfile create my profile
 Create my profile.
- Client with user token can create user profile in target namespace
+
+	Client with user token can create user profile in target namespace
+
 Other detail info:
 
-  * Required permission : resource= "NAMESPACE:{namespace}:PROFILE" , action=1 (CREATE)
-  *  Action code : 11401
-  *  Returns : Created user profile
-  *  Path's namespace :
-    * can be filled with publisher namespace in order to create publisher user profile
-    * can be filled with game namespace in order to create game user profile
-  *  Language : allowed format: en, en-US
-  *  Country : ISO3166-1 alpha-2 two letter, e.g. US
-  * Timezone : IANA time zone, e.g. Asia/Shanghai
+  - Required permission : resource= "NAMESPACE:{namespace}:PROFILE" , action=1 (CREATE)
+  - Action code : 11401
+  - Returns : Created user profile
+  - Path's namespace :
+  - can be filled with publisher namespace in order to create publisher user profile
+  - can be filled with game namespace in order to create game user profile
+  - Language : allowed format: en, en-US
+  - Country : ISO3166-1 alpha-2 two letter, e.g. US
+  - Timezone : IANA time zone, e.g. Asia/Shanghai
 */
 func (a *Client) CreateMyProfile(params *CreateMyProfileParams, authInfo runtime.ClientAuthInfoWriter) (*CreateMyProfileCreated, *CreateMyProfileBadRequest, *CreateMyProfileUnauthorized, *CreateMyProfileForbidden, *CreateMyProfileNotFound, *CreateMyProfileConflict, error) {
 	// TODO: Validate the params before sending
@@ -1837,18 +1899,20 @@ func (a *Client) CreateMyProfile(params *CreateMyProfileParams, authInfo runtime
 /*
 CreateMyProfileShort create my profile
 Create my profile.
- Client with user token can create user profile in target namespace
+
+	Client with user token can create user profile in target namespace
+
 Other detail info:
 
-  * Required permission : resource= "NAMESPACE:{namespace}:PROFILE" , action=1 (CREATE)
-  *  Action code : 11401
-  *  Returns : Created user profile
-  *  Path's namespace :
-    * can be filled with publisher namespace in order to create publisher user profile
-    * can be filled with game namespace in order to create game user profile
-  *  Language : allowed format: en, en-US
-  *  Country : ISO3166-1 alpha-2 two letter, e.g. US
-  * Timezone : IANA time zone, e.g. Asia/Shanghai
+  - Required permission : resource= "NAMESPACE:{namespace}:PROFILE" , action=1 (CREATE)
+  - Action code : 11401
+  - Returns : Created user profile
+  - Path's namespace :
+  - can be filled with publisher namespace in order to create publisher user profile
+  - can be filled with game namespace in order to create game user profile
+  - Language : allowed format: en, en-US
+  - Country : ISO3166-1 alpha-2 two letter, e.g. US
+  - Timezone : IANA time zone, e.g. Asia/Shanghai
 */
 func (a *Client) CreateMyProfileShort(params *CreateMyProfileParams, authInfo runtime.ClientAuthInfoWriter) (*CreateMyProfileCreated, error) {
 	// TODO: Validate the params before sending
@@ -1862,6 +1926,10 @@ func (a *Client) CreateMyProfileShort(params *CreateMyProfileParams, authInfo ru
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -1908,9 +1976,9 @@ GetMyPrivateCustomAttributesInfo get my private custom attributes
 Get my private custom attributes.
 Other detail info:
 
-  * Required permission : resource= "NAMESPACE:{namespace}:PROFILE" , action=2 (READ)
-  *  Returns : custom attributes
-  *  Action code : 11403
+  - Required permission : resource= "NAMESPACE:{namespace}:PROFILE" , action=2 (READ)
+  - Returns : custom attributes
+  - Action code : 11403
 */
 func (a *Client) GetMyPrivateCustomAttributesInfo(params *GetMyPrivateCustomAttributesInfoParams, authInfo runtime.ClientAuthInfoWriter) (*GetMyPrivateCustomAttributesInfoOK, *GetMyPrivateCustomAttributesInfoUnauthorized, *GetMyPrivateCustomAttributesInfoForbidden, *GetMyPrivateCustomAttributesInfoNotFound, error) {
 	// TODO: Validate the params before sending
@@ -1967,9 +2035,9 @@ GetMyPrivateCustomAttributesInfoShort get my private custom attributes
 Get my private custom attributes.
 Other detail info:
 
-  * Required permission : resource= "NAMESPACE:{namespace}:PROFILE" , action=2 (READ)
-  *  Returns : custom attributes
-  *  Action code : 11403
+  - Required permission : resource= "NAMESPACE:{namespace}:PROFILE" , action=2 (READ)
+  - Returns : custom attributes
+  - Action code : 11403
 */
 func (a *Client) GetMyPrivateCustomAttributesInfoShort(params *GetMyPrivateCustomAttributesInfoParams, authInfo runtime.ClientAuthInfoWriter) (*GetMyPrivateCustomAttributesInfoOK, error) {
 	// TODO: Validate the params before sending
@@ -1983,6 +2051,10 @@ func (a *Client) GetMyPrivateCustomAttributesInfoShort(params *GetMyPrivateCusto
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -2025,10 +2097,10 @@ UpdateMyPrivateCustomAttributesPartially update partially private custom attribu
 Update partially private custom attributes tied to me.
 Other detail info:
 
-  * Required permission : resource= "NAMESPACE:{namespace}:PROFILE" , action=4 (UPDATE)
-  *  Action code : 11402
-  *  Request body : allowed format: JSON object
-  *  Returns : Updated custom attributes
+  - Required permission : resource= "NAMESPACE:{namespace}:PROFILE" , action=4 (UPDATE)
+  - Action code : 11402
+  - Request body : allowed format: JSON object
+  - Returns : Updated custom attributes
 */
 func (a *Client) UpdateMyPrivateCustomAttributesPartially(params *UpdateMyPrivateCustomAttributesPartiallyParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateMyPrivateCustomAttributesPartiallyOK, *UpdateMyPrivateCustomAttributesPartiallyBadRequest, *UpdateMyPrivateCustomAttributesPartiallyUnauthorized, *UpdateMyPrivateCustomAttributesPartiallyForbidden, *UpdateMyPrivateCustomAttributesPartiallyNotFound, error) {
 	// TODO: Validate the params before sending
@@ -2088,10 +2160,10 @@ UpdateMyPrivateCustomAttributesPartiallyShort update partially private custom at
 Update partially private custom attributes tied to me.
 Other detail info:
 
-  * Required permission : resource= "NAMESPACE:{namespace}:PROFILE" , action=4 (UPDATE)
-  *  Action code : 11402
-  *  Request body : allowed format: JSON object
-  *  Returns : Updated custom attributes
+  - Required permission : resource= "NAMESPACE:{namespace}:PROFILE" , action=4 (UPDATE)
+  - Action code : 11402
+  - Request body : allowed format: JSON object
+  - Returns : Updated custom attributes
 */
 func (a *Client) UpdateMyPrivateCustomAttributesPartiallyShort(params *UpdateMyPrivateCustomAttributesPartiallyParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateMyPrivateCustomAttributesPartiallyOK, error) {
 	// TODO: Validate the params before sending
@@ -2105,6 +2177,10 @@ func (a *Client) UpdateMyPrivateCustomAttributesPartiallyShort(params *UpdateMyP
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -2149,9 +2225,9 @@ GetMyZipCode get my zip code
 Get my zip code.
 Other detail info:
 
-  * Required permission : resource= "NAMESPACE:{namespace}:PROFILE" , action=2 (READ)
-  *  Action code : 11407
-  *  Returns : user zip code
+  - Required permission : resource= "NAMESPACE:{namespace}:PROFILE" , action=2 (READ)
+  - Action code : 11407
+  - Returns : user zip code
 */
 func (a *Client) GetMyZipCode(params *GetMyZipCodeParams, authInfo runtime.ClientAuthInfoWriter) (*GetMyZipCodeOK, *GetMyZipCodeUnauthorized, *GetMyZipCodeForbidden, error) {
 	// TODO: Validate the params before sending
@@ -2205,9 +2281,9 @@ GetMyZipCodeShort get my zip code
 Get my zip code.
 Other detail info:
 
-  * Required permission : resource= "NAMESPACE:{namespace}:PROFILE" , action=2 (READ)
-  *  Action code : 11407
-  *  Returns : user zip code
+  - Required permission : resource= "NAMESPACE:{namespace}:PROFILE" , action=2 (READ)
+  - Action code : 11407
+  - Returns : user zip code
 */
 func (a *Client) GetMyZipCodeShort(params *GetMyZipCodeParams, authInfo runtime.ClientAuthInfoWriter) (*GetMyZipCodeOK, error) {
 	// TODO: Validate the params before sending
@@ -2221,6 +2297,10 @@ func (a *Client) GetMyZipCodeShort(params *GetMyZipCodeParams, authInfo runtime.
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -2261,9 +2341,9 @@ UpdateMyZipCode update my zip code
 Update my zip code.
 Other detail info:
 
-  * Required permission : resource= "NAMESPACE:{namespace}:PROFILE" , action=4 (UPDATE)
-  *  Action code : 11408
-  *  Returns : user zip code
+  - Required permission : resource= "NAMESPACE:{namespace}:PROFILE" , action=4 (UPDATE)
+  - Action code : 11408
+  - Returns : user zip code
 */
 func (a *Client) UpdateMyZipCode(params *UpdateMyZipCodeParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateMyZipCodeOK, *UpdateMyZipCodeBadRequest, *UpdateMyZipCodeUnauthorized, *UpdateMyZipCodeForbidden, error) {
 	// TODO: Validate the params before sending
@@ -2320,9 +2400,9 @@ UpdateMyZipCodeShort update my zip code
 Update my zip code.
 Other detail info:
 
-  * Required permission : resource= "NAMESPACE:{namespace}:PROFILE" , action=4 (UPDATE)
-  *  Action code : 11408
-  *  Returns : user zip code
+  - Required permission : resource= "NAMESPACE:{namespace}:PROFILE" , action=4 (UPDATE)
+  - Action code : 11408
+  - Returns : user zip code
 */
 func (a *Client) UpdateMyZipCodeShort(params *UpdateMyZipCodeParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateMyZipCodeOK, error) {
 	// TODO: Validate the params before sending
@@ -2336,6 +2416,10 @@ func (a *Client) UpdateMyZipCodeShort(params *UpdateMyZipCodeParams, authInfo ru
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -2378,9 +2462,9 @@ PublicGetUserProfileInfo get user profile
 Get user profile.
 Other detail info:
 
-  * Required permission : resource= "NAMESPACE:{namespace}:USER:{userId}:PROFILE" , action=2 (READ)
-  *  Action code : 11403
-  *  Returns : user profile
+  - Required permission : resource= "NAMESPACE:{namespace}:USER:{userId}:PROFILE" , action=2 (READ)
+  - Action code : 11403
+  - Returns : user profile
 */
 func (a *Client) PublicGetUserProfileInfo(params *PublicGetUserProfileInfoParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGetUserProfileInfoOK, *PublicGetUserProfileInfoBadRequest, *PublicGetUserProfileInfoUnauthorized, *PublicGetUserProfileInfoForbidden, *PublicGetUserProfileInfoNotFound, error) {
 	// TODO: Validate the params before sending
@@ -2440,9 +2524,9 @@ PublicGetUserProfileInfoShort get user profile
 Get user profile.
 Other detail info:
 
-  * Required permission : resource= "NAMESPACE:{namespace}:USER:{userId}:PROFILE" , action=2 (READ)
-  *  Action code : 11403
-  *  Returns : user profile
+  - Required permission : resource= "NAMESPACE:{namespace}:USER:{userId}:PROFILE" , action=2 (READ)
+  - Action code : 11403
+  - Returns : user profile
 */
 func (a *Client) PublicGetUserProfileInfoShort(params *PublicGetUserProfileInfoParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGetUserProfileInfoOK, error) {
 	// TODO: Validate the params before sending
@@ -2456,6 +2540,10 @@ func (a *Client) PublicGetUserProfileInfoShort(params *PublicGetUserProfileInfoP
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -2500,11 +2588,11 @@ PublicUpdateUserProfile update user profile
 Update user profile.
 Other detail info:
 
-  * Required permission : resource= "NAMESPACE:{namespace}:USER:{userId}:PROFILE" , action=4 (UPDATE)
-  *  Action code : 11402
-  *  Language : allowed format: en, en-US
-  *  Timezone : IANA time zone, e.g. Asia/Shanghai
-  *  Returns : Updated user profile
+  - Required permission : resource= "NAMESPACE:{namespace}:USER:{userId}:PROFILE" , action=4 (UPDATE)
+  - Action code : 11402
+  - Language : allowed format: en, en-US
+  - Timezone : IANA time zone, e.g. Asia/Shanghai
+  - Returns : Updated user profile
 */
 func (a *Client) PublicUpdateUserProfile(params *PublicUpdateUserProfileParams, authInfo runtime.ClientAuthInfoWriter) (*PublicUpdateUserProfileOK, *PublicUpdateUserProfileBadRequest, *PublicUpdateUserProfileUnauthorized, *PublicUpdateUserProfileForbidden, *PublicUpdateUserProfileNotFound, error) {
 	// TODO: Validate the params before sending
@@ -2564,11 +2652,11 @@ PublicUpdateUserProfileShort update user profile
 Update user profile.
 Other detail info:
 
-  * Required permission : resource= "NAMESPACE:{namespace}:USER:{userId}:PROFILE" , action=4 (UPDATE)
-  *  Action code : 11402
-  *  Language : allowed format: en, en-US
-  *  Timezone : IANA time zone, e.g. Asia/Shanghai
-  *  Returns : Updated user profile
+  - Required permission : resource= "NAMESPACE:{namespace}:USER:{userId}:PROFILE" , action=4 (UPDATE)
+  - Action code : 11402
+  - Language : allowed format: en, en-US
+  - Timezone : IANA time zone, e.g. Asia/Shanghai
+  - Returns : Updated user profile
 */
 func (a *Client) PublicUpdateUserProfileShort(params *PublicUpdateUserProfileParams, authInfo runtime.ClientAuthInfoWriter) (*PublicUpdateUserProfileOK, error) {
 	// TODO: Validate the params before sending
@@ -2582,6 +2670,10 @@ func (a *Client) PublicUpdateUserProfileShort(params *PublicUpdateUserProfilePar
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -2626,11 +2718,11 @@ PublicCreateUserProfile create user profile
 Create user profile.
 Other detail info:
 
-  * Required permission : resource= "NAMESPACE:{namespace}:USER:{userId}:PROFILE" , action=1 (CREATE)
-  *  Action code : 11401
-  *  Language : allowed format: en, en-US
-  *  Timezone : IANA time zone, e.g. Asia/Shanghai
-  *  Returns : Created user profile
+  - Required permission : resource= "NAMESPACE:{namespace}:USER:{userId}:PROFILE" , action=1 (CREATE)
+  - Action code : 11401
+  - Language : allowed format: en, en-US
+  - Timezone : IANA time zone, e.g. Asia/Shanghai
+  - Returns : Created user profile
 */
 func (a *Client) PublicCreateUserProfile(params *PublicCreateUserProfileParams, authInfo runtime.ClientAuthInfoWriter) (*PublicCreateUserProfileCreated, *PublicCreateUserProfileBadRequest, *PublicCreateUserProfileUnauthorized, *PublicCreateUserProfileForbidden, *PublicCreateUserProfileConflict, error) {
 	// TODO: Validate the params before sending
@@ -2690,11 +2782,11 @@ PublicCreateUserProfileShort create user profile
 Create user profile.
 Other detail info:
 
-  * Required permission : resource= "NAMESPACE:{namespace}:USER:{userId}:PROFILE" , action=1 (CREATE)
-  *  Action code : 11401
-  *  Language : allowed format: en, en-US
-  *  Timezone : IANA time zone, e.g. Asia/Shanghai
-  *  Returns : Created user profile
+  - Required permission : resource= "NAMESPACE:{namespace}:USER:{userId}:PROFILE" , action=1 (CREATE)
+  - Action code : 11401
+  - Language : allowed format: en, en-US
+  - Timezone : IANA time zone, e.g. Asia/Shanghai
+  - Returns : Created user profile
 */
 func (a *Client) PublicCreateUserProfileShort(params *PublicCreateUserProfileParams, authInfo runtime.ClientAuthInfoWriter) (*PublicCreateUserProfileCreated, error) {
 	// TODO: Validate the params before sending
@@ -2708,6 +2800,10 @@ func (a *Client) PublicCreateUserProfileShort(params *PublicCreateUserProfilePar
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -2752,8 +2848,8 @@ PublicGetCustomAttributesInfo get custom attributes info
 Get custom attributes info.
 Other detail info:
 
-  * Action code : 11404
-  *  Returns : user custom attributes
+  - Action code : 11404
+  - Returns : user custom attributes
 */
 func (a *Client) PublicGetCustomAttributesInfo(params *PublicGetCustomAttributesInfoParams) (*PublicGetCustomAttributesInfoOK, *PublicGetCustomAttributesInfoNotFound, error) {
 	// TODO: Validate the params before sending
@@ -2803,8 +2899,8 @@ PublicGetCustomAttributesInfoShort get custom attributes info
 Get custom attributes info.
 Other detail info:
 
-  * Action code : 11404
-  *  Returns : user custom attributes
+  - Action code : 11404
+  - Returns : user custom attributes
 */
 func (a *Client) PublicGetCustomAttributesInfoShort(params *PublicGetCustomAttributesInfoParams) (*PublicGetCustomAttributesInfoOK, error) {
 	// TODO: Validate the params before sending
@@ -2818,6 +2914,10 @@ func (a *Client) PublicGetCustomAttributesInfoShort(params *PublicGetCustomAttri
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -2855,10 +2955,10 @@ PublicUpdateCustomAttributesPartially update partially custom attributes tied to
 Update partially custom attributes tied to user id.
 Other detail info:
 
-  * Required permission : resource= "NAMESPACE:{namespace}:USER:{userId}:PROFILE" , action=4 (UPDATE)
-  *  Action code : 11402
-  *  Request body : allowed format: JSON object
-  *  Returns : Updated custom attributes
+  - Required permission : resource= "NAMESPACE:{namespace}:USER:{userId}:PROFILE" , action=4 (UPDATE)
+  - Action code : 11402
+  - Request body : allowed format: JSON object
+  - Returns : Updated custom attributes
 */
 func (a *Client) PublicUpdateCustomAttributesPartially(params *PublicUpdateCustomAttributesPartiallyParams, authInfo runtime.ClientAuthInfoWriter) (*PublicUpdateCustomAttributesPartiallyOK, *PublicUpdateCustomAttributesPartiallyBadRequest, *PublicUpdateCustomAttributesPartiallyUnauthorized, *PublicUpdateCustomAttributesPartiallyForbidden, *PublicUpdateCustomAttributesPartiallyNotFound, error) {
 	// TODO: Validate the params before sending
@@ -2918,10 +3018,10 @@ PublicUpdateCustomAttributesPartiallyShort update partially custom attributes ti
 Update partially custom attributes tied to user id.
 Other detail info:
 
-  * Required permission : resource= "NAMESPACE:{namespace}:USER:{userId}:PROFILE" , action=4 (UPDATE)
-  *  Action code : 11402
-  *  Request body : allowed format: JSON object
-  *  Returns : Updated custom attributes
+  - Required permission : resource= "NAMESPACE:{namespace}:USER:{userId}:PROFILE" , action=4 (UPDATE)
+  - Action code : 11402
+  - Request body : allowed format: JSON object
+  - Returns : Updated custom attributes
 */
 func (a *Client) PublicUpdateCustomAttributesPartiallyShort(params *PublicUpdateCustomAttributesPartiallyParams, authInfo runtime.ClientAuthInfoWriter) (*PublicUpdateCustomAttributesPartiallyOK, error) {
 	// TODO: Validate the params before sending
@@ -2935,6 +3035,10 @@ func (a *Client) PublicUpdateCustomAttributesPartiallyShort(params *PublicUpdate
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -2979,8 +3083,8 @@ PublicGetUserProfilePublicInfo get user profile public info
 Get user profile public info.
 Other detail info:
 
-  * Action code : 11404
-  *  Returns : user public profile
+  - Action code : 11404
+  - Returns : user public profile
 */
 func (a *Client) PublicGetUserProfilePublicInfo(params *PublicGetUserProfilePublicInfoParams) (*PublicGetUserProfilePublicInfoOK, *PublicGetUserProfilePublicInfoBadRequest, *PublicGetUserProfilePublicInfoNotFound, error) {
 	// TODO: Validate the params before sending
@@ -3033,8 +3137,8 @@ PublicGetUserProfilePublicInfoShort get user profile public info
 Get user profile public info.
 Other detail info:
 
-  * Action code : 11404
-  *  Returns : user public profile
+  - Action code : 11404
+  - Returns : user public profile
 */
 func (a *Client) PublicGetUserProfilePublicInfoShort(params *PublicGetUserProfilePublicInfoParams) (*PublicGetUserProfilePublicInfoOK, error) {
 	// TODO: Validate the params before sending
@@ -3048,6 +3152,10 @@ func (a *Client) PublicGetUserProfilePublicInfoShort(params *PublicGetUserProfil
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -3087,9 +3195,9 @@ PublicUpdateUserProfileStatus update user profile status
 Update user profile status.
 Other detail info:
 
-  * Required permission : resource= "NAMESPACE:{namespace}:USER:{userId}:PROFILE" , action=4 (UPDATE)
-  *  Action code : 11406
-  *  Returns : user profile
+  - Required permission : resource= "NAMESPACE:{namespace}:USER:{userId}:PROFILE" , action=4 (UPDATE)
+  - Action code : 11406
+  - Returns : user profile
 */
 func (a *Client) PublicUpdateUserProfileStatus(params *PublicUpdateUserProfileStatusParams, authInfo runtime.ClientAuthInfoWriter) (*PublicUpdateUserProfileStatusOK, *PublicUpdateUserProfileStatusBadRequest, *PublicUpdateUserProfileStatusUnauthorized, *PublicUpdateUserProfileStatusForbidden, *PublicUpdateUserProfileStatusNotFound, error) {
 	// TODO: Validate the params before sending
@@ -3149,9 +3257,9 @@ PublicUpdateUserProfileStatusShort update user profile status
 Update user profile status.
 Other detail info:
 
-  * Required permission : resource= "NAMESPACE:{namespace}:USER:{userId}:PROFILE" , action=4 (UPDATE)
-  *  Action code : 11406
-  *  Returns : user profile
+  - Required permission : resource= "NAMESPACE:{namespace}:USER:{userId}:PROFILE" , action=4 (UPDATE)
+  - Action code : 11406
+  - Returns : user profile
 */
 func (a *Client) PublicUpdateUserProfileStatusShort(params *PublicUpdateUserProfileStatusParams, authInfo runtime.ClientAuthInfoWriter) (*PublicUpdateUserProfileStatusOK, error) {
 	// TODO: Validate the params before sending
@@ -3165,6 +3273,10 @@ func (a *Client) PublicUpdateUserProfileStatusShort(params *PublicUpdateUserProf
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{

@@ -51,8 +51,8 @@ CreateConfig create a config
 Create a config.
 Other detail info:
 
-  * Required permission : resource= "ADMIN:NAMESPACE:{namespace}:BASIC:CONFIG" , action=1 (CREATE)
-  *  Returns : created config
+  - Required permission : resource= "ADMIN:NAMESPACE:{namespace}:BASIC:CONFIG" , action=1 (CREATE)
+  - Returns : created config
 */
 func (a *Client) CreateConfig(params *CreateConfigParams, authInfo runtime.ClientAuthInfoWriter) (*CreateConfigCreated, *CreateConfigBadRequest, *CreateConfigUnauthorized, *CreateConfigForbidden, *CreateConfigConflict, error) {
 	// TODO: Validate the params before sending
@@ -112,8 +112,8 @@ CreateConfigShort create a config
 Create a config.
 Other detail info:
 
-  * Required permission : resource= "ADMIN:NAMESPACE:{namespace}:BASIC:CONFIG" , action=1 (CREATE)
-  *  Returns : created config
+  - Required permission : resource= "ADMIN:NAMESPACE:{namespace}:BASIC:CONFIG" , action=1 (CREATE)
+  - Returns : created config
 */
 func (a *Client) CreateConfigShort(params *CreateConfigParams, authInfo runtime.ClientAuthInfoWriter) (*CreateConfigCreated, error) {
 	// TODO: Validate the params before sending
@@ -127,6 +127,10 @@ func (a *Client) CreateConfigShort(params *CreateConfigParams, authInfo runtime.
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -171,8 +175,8 @@ GetConfig1 get a config
 Get a config.
 Other detail info:
 
-  * Required permission : resource= "ADMIN:NAMESPACE:{namespace}:BASIC:CONFIG" , action=2 (READ)
-  *  Returns : config
+  - Required permission : resource= "ADMIN:NAMESPACE:{namespace}:BASIC:CONFIG" , action=2 (READ)
+  - Returns : config
 */
 func (a *Client) GetConfig1(params *GetConfig1Params, authInfo runtime.ClientAuthInfoWriter) (*GetConfig1OK, *GetConfig1BadRequest, *GetConfig1Unauthorized, *GetConfig1Forbidden, *GetConfig1NotFound, error) {
 	// TODO: Validate the params before sending
@@ -232,8 +236,8 @@ GetConfig1Short get a config
 Get a config.
 Other detail info:
 
-  * Required permission : resource= "ADMIN:NAMESPACE:{namespace}:BASIC:CONFIG" , action=2 (READ)
-  *  Returns : config
+  - Required permission : resource= "ADMIN:NAMESPACE:{namespace}:BASIC:CONFIG" , action=2 (READ)
+  - Returns : config
 */
 func (a *Client) GetConfig1Short(params *GetConfig1Params, authInfo runtime.ClientAuthInfoWriter) (*GetConfig1OK, error) {
 	// TODO: Validate the params before sending
@@ -247,6 +251,10 @@ func (a *Client) GetConfig1Short(params *GetConfig1Params, authInfo runtime.Clie
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -291,8 +299,8 @@ DeleteConfig1 delete a config
 Delete a config.
 Other detail info:
 
-  * Required permission : resource= "ADMIN:NAMESPACE:{namespace}:BASIC:CONFIG" , action=8 (DELETE)
-  *  Returns : created config
+  - Required permission : resource= "ADMIN:NAMESPACE:{namespace}:BASIC:CONFIG" , action=8 (DELETE)
+  - Returns : created config
 */
 func (a *Client) DeleteConfig1(params *DeleteConfig1Params, authInfo runtime.ClientAuthInfoWriter) (*DeleteConfig1NoContent, *DeleteConfig1BadRequest, *DeleteConfig1Unauthorized, *DeleteConfig1Forbidden, *DeleteConfig1NotFound, error) {
 	// TODO: Validate the params before sending
@@ -352,8 +360,8 @@ DeleteConfig1Short delete a config
 Delete a config.
 Other detail info:
 
-  * Required permission : resource= "ADMIN:NAMESPACE:{namespace}:BASIC:CONFIG" , action=8 (DELETE)
-  *  Returns : created config
+  - Required permission : resource= "ADMIN:NAMESPACE:{namespace}:BASIC:CONFIG" , action=8 (DELETE)
+  - Returns : created config
 */
 func (a *Client) DeleteConfig1Short(params *DeleteConfig1Params, authInfo runtime.ClientAuthInfoWriter) (*DeleteConfig1NoContent, error) {
 	// TODO: Validate the params before sending
@@ -367,6 +375,10 @@ func (a *Client) DeleteConfig1Short(params *DeleteConfig1Params, authInfo runtim
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -411,8 +423,8 @@ UpdateConfig1 update a config
 Update a config.
 Other detail info:
 
-  * Required permission : resource= "ADMIN:NAMESPACE:{namespace}:BASIC:CONFIG" , action=4 (UPDATE)
-  *  Returns : created config
+  - Required permission : resource= "ADMIN:NAMESPACE:{namespace}:BASIC:CONFIG" , action=4 (UPDATE)
+  - Returns : created config
 */
 func (a *Client) UpdateConfig1(params *UpdateConfig1Params, authInfo runtime.ClientAuthInfoWriter) (*UpdateConfig1OK, *UpdateConfig1BadRequest, *UpdateConfig1Unauthorized, *UpdateConfig1Forbidden, *UpdateConfig1NotFound, error) {
 	// TODO: Validate the params before sending
@@ -472,8 +484,8 @@ UpdateConfig1Short update a config
 Update a config.
 Other detail info:
 
-  * Required permission : resource= "ADMIN:NAMESPACE:{namespace}:BASIC:CONFIG" , action=4 (UPDATE)
-  *  Returns : created config
+  - Required permission : resource= "ADMIN:NAMESPACE:{namespace}:BASIC:CONFIG" , action=4 (UPDATE)
+  - Returns : created config
 */
 func (a *Client) UpdateConfig1Short(params *UpdateConfig1Params, authInfo runtime.ClientAuthInfoWriter) (*UpdateConfig1OK, error) {
 	// TODO: Validate the params before sending
@@ -487,6 +499,10 @@ func (a *Client) UpdateConfig1Short(params *UpdateConfig1Params, authInfo runtim
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -532,8 +548,8 @@ Get a publisher config.
 It will return a publisher namespace config of the given namespace and key.
 Other detail info:
 
-  * Required permission : resource= "ADMIN:NAMESPACE:{namespace}:BASIC:CONFIG" , action=2 (READ)
-  *  Returns : config
+  - Required permission : resource= "ADMIN:NAMESPACE:{namespace}:BASIC:CONFIG" , action=2 (READ)
+  - Returns : config
 */
 func (a *Client) GetPublisherConfig(params *GetPublisherConfigParams, authInfo runtime.ClientAuthInfoWriter) (*GetPublisherConfigOK, *GetPublisherConfigBadRequest, *GetPublisherConfigUnauthorized, *GetPublisherConfigForbidden, *GetPublisherConfigNotFound, error) {
 	// TODO: Validate the params before sending
@@ -594,8 +610,8 @@ Get a publisher config.
 It will return a publisher namespace config of the given namespace and key.
 Other detail info:
 
-  * Required permission : resource= "ADMIN:NAMESPACE:{namespace}:BASIC:CONFIG" , action=2 (READ)
-  *  Returns : config
+  - Required permission : resource= "ADMIN:NAMESPACE:{namespace}:BASIC:CONFIG" , action=2 (READ)
+  - Returns : config
 */
 func (a *Client) GetPublisherConfigShort(params *GetPublisherConfigParams, authInfo runtime.ClientAuthInfoWriter) (*GetPublisherConfigOK, error) {
 	// TODO: Validate the params before sending
@@ -609,6 +625,10 @@ func (a *Client) GetPublisherConfigShort(params *GetPublisherConfigParams, authI
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{

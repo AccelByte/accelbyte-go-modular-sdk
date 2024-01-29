@@ -55,7 +55,7 @@ RetrieveLocalizedPolicyVersions retrieve versions from country-specific policy
 Retrieve versions of a particular country-specific policy.
 Other detail info:
 
-  * Required permission : resource="ADMIN:NAMESPACE:*:LEGAL", action=2 (READ)
+  - Required permission : resource="ADMIN:NAMESPACE:*:LEGAL", action=2 (READ)
 */
 func (a *Client) RetrieveLocalizedPolicyVersions(params *RetrieveLocalizedPolicyVersionsParams, authInfo runtime.ClientAuthInfoWriter) (*RetrieveLocalizedPolicyVersionsOK, error) {
 	// TODO: Validate the params before sending
@@ -103,7 +103,7 @@ RetrieveLocalizedPolicyVersionsShort retrieve versions from country-specific pol
 Retrieve versions of a particular country-specific policy.
 Other detail info:
 
-  * Required permission : resource="ADMIN:NAMESPACE:*:LEGAL", action=2 (READ)
+  - Required permission : resource="ADMIN:NAMESPACE:*:LEGAL", action=2 (READ)
 */
 func (a *Client) RetrieveLocalizedPolicyVersionsShort(params *RetrieveLocalizedPolicyVersionsParams, authInfo runtime.ClientAuthInfoWriter) (*RetrieveLocalizedPolicyVersionsOK, error) {
 	// TODO: Validate the params before sending
@@ -117,6 +117,10 @@ func (a *Client) RetrieveLocalizedPolicyVersionsShort(params *RetrieveLocalizedP
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -153,7 +157,7 @@ CreateLocalizedPolicyVersion create a localized version from country-specific po
 Create a version of a particular country-specific policy.
 Other detail info:
 
-  * Required permission : resource="ADMIN:NAMESPACE:*:LEGAL", action=1 (CREATE)
+  - Required permission : resource="ADMIN:NAMESPACE:*:LEGAL", action=1 (CREATE)
 */
 func (a *Client) CreateLocalizedPolicyVersion(params *CreateLocalizedPolicyVersionParams, authInfo runtime.ClientAuthInfoWriter) (*CreateLocalizedPolicyVersionCreated, *CreateLocalizedPolicyVersionBadRequest, *CreateLocalizedPolicyVersionConflict, error) {
 	// TODO: Validate the params before sending
@@ -207,7 +211,7 @@ CreateLocalizedPolicyVersionShort create a localized version from country-specif
 Create a version of a particular country-specific policy.
 Other detail info:
 
-  * Required permission : resource="ADMIN:NAMESPACE:*:LEGAL", action=1 (CREATE)
+  - Required permission : resource="ADMIN:NAMESPACE:*:LEGAL", action=1 (CREATE)
 */
 func (a *Client) CreateLocalizedPolicyVersionShort(params *CreateLocalizedPolicyVersionParams, authInfo runtime.ClientAuthInfoWriter) (*CreateLocalizedPolicyVersionCreated, error) {
 	// TODO: Validate the params before sending
@@ -221,6 +225,10 @@ func (a *Client) CreateLocalizedPolicyVersionShort(params *CreateLocalizedPolicy
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -261,7 +269,7 @@ RetrieveSingleLocalizedPolicyVersion retrieve a localized version from country-s
 Retrieve a version of a particular country-specific policy.
 Other detail info:
 
-  * Required permission : resource="ADMIN:NAMESPACE:*:LEGAL", action=2 (READ)
+  - Required permission : resource="ADMIN:NAMESPACE:*:LEGAL", action=2 (READ)
 */
 func (a *Client) RetrieveSingleLocalizedPolicyVersion(params *RetrieveSingleLocalizedPolicyVersionParams, authInfo runtime.ClientAuthInfoWriter) (*RetrieveSingleLocalizedPolicyVersionOK, *RetrieveSingleLocalizedPolicyVersionNotFound, error) {
 	// TODO: Validate the params before sending
@@ -312,7 +320,7 @@ RetrieveSingleLocalizedPolicyVersionShort retrieve a localized version from coun
 Retrieve a version of a particular country-specific policy.
 Other detail info:
 
-  * Required permission : resource="ADMIN:NAMESPACE:*:LEGAL", action=2 (READ)
+  - Required permission : resource="ADMIN:NAMESPACE:*:LEGAL", action=2 (READ)
 */
 func (a *Client) RetrieveSingleLocalizedPolicyVersionShort(params *RetrieveSingleLocalizedPolicyVersionParams, authInfo runtime.ClientAuthInfoWriter) (*RetrieveSingleLocalizedPolicyVersionOK, error) {
 	// TODO: Validate the params before sending
@@ -326,6 +334,10 @@ func (a *Client) RetrieveSingleLocalizedPolicyVersionShort(params *RetrieveSingl
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -364,7 +376,7 @@ UpdateLocalizedPolicyVersion update a localized version from country-specific po
 Update a version of a particular country-specific policy.
 Other detail info:
 
-  * Required permission : resource="ADMIN:NAMESPACE:*:LEGAL", action=4 (UPDATE)
+  - Required permission : resource="ADMIN:NAMESPACE:*:LEGAL", action=4 (UPDATE)
 */
 func (a *Client) UpdateLocalizedPolicyVersion(params *UpdateLocalizedPolicyVersionParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateLocalizedPolicyVersionOK, *UpdateLocalizedPolicyVersionBadRequest, error) {
 	// TODO: Validate the params before sending
@@ -415,7 +427,7 @@ UpdateLocalizedPolicyVersionShort update a localized version from country-specif
 Update a version of a particular country-specific policy.
 Other detail info:
 
-  * Required permission : resource="ADMIN:NAMESPACE:*:LEGAL", action=4 (UPDATE)
+  - Required permission : resource="ADMIN:NAMESPACE:*:LEGAL", action=4 (UPDATE)
 */
 func (a *Client) UpdateLocalizedPolicyVersionShort(params *UpdateLocalizedPolicyVersionParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateLocalizedPolicyVersionOK, error) {
 	// TODO: Validate the params before sending
@@ -429,6 +441,10 @@ func (a *Client) UpdateLocalizedPolicyVersionShort(params *UpdateLocalizedPolicy
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -467,7 +483,7 @@ RequestPresignedURL request presigned url for upload document
 Request presigned URL for upload attachment for a particular localized version of base policy.
 Other detail info:
 
-  * Required permission : resource="ADMIN:NAMESPACE:*:LEGAL", action=1 (CREATE)
+  - Required permission : resource="ADMIN:NAMESPACE:*:LEGAL", action=1 (CREATE)
 */
 func (a *Client) RequestPresignedURL(params *RequestPresignedURLParams, authInfo runtime.ClientAuthInfoWriter) (*RequestPresignedURLCreated, *RequestPresignedURLBadRequest, error) {
 	// TODO: Validate the params before sending
@@ -518,7 +534,7 @@ RequestPresignedURLShort request presigned url for upload document
 Request presigned URL for upload attachment for a particular localized version of base policy.
 Other detail info:
 
-  * Required permission : resource="ADMIN:NAMESPACE:*:LEGAL", action=1 (CREATE)
+  - Required permission : resource="ADMIN:NAMESPACE:*:LEGAL", action=1 (CREATE)
 */
 func (a *Client) RequestPresignedURLShort(params *RequestPresignedURLParams, authInfo runtime.ClientAuthInfoWriter) (*RequestPresignedURLCreated, error) {
 	// TODO: Validate the params before sending
@@ -532,6 +548,10 @@ func (a *Client) RequestPresignedURLShort(params *RequestPresignedURLParams, aut
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -570,7 +590,7 @@ SetDefaultPolicy set default localized policy
 Update a localized version policy to be the default.
 Other detail info:
 
-  * Required permission : resource="ADMIN:NAMESPACE:*:LEGAL", action=4 (UPDATE)
+  - Required permission : resource="ADMIN:NAMESPACE:*:LEGAL", action=4 (UPDATE)
 */
 func (a *Client) SetDefaultPolicy(params *SetDefaultPolicyParams, authInfo runtime.ClientAuthInfoWriter) (*SetDefaultPolicyOK, *SetDefaultPolicyBadRequest, error) {
 	// TODO: Validate the params before sending
@@ -621,7 +641,7 @@ SetDefaultPolicyShort set default localized policy
 Update a localized version policy to be the default.
 Other detail info:
 
-  * Required permission : resource="ADMIN:NAMESPACE:*:LEGAL", action=4 (UPDATE)
+  - Required permission : resource="ADMIN:NAMESPACE:*:LEGAL", action=4 (UPDATE)
 */
 func (a *Client) SetDefaultPolicyShort(params *SetDefaultPolicyParams, authInfo runtime.ClientAuthInfoWriter) (*SetDefaultPolicyOK, error) {
 	// TODO: Validate the params before sending
@@ -635,6 +655,10 @@ func (a *Client) SetDefaultPolicyShort(params *SetDefaultPolicyParams, authInfo 
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -733,6 +757,10 @@ func (a *Client) RetrieveSingleLocalizedPolicyVersion2Short(params *RetrieveSing
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{

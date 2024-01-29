@@ -159,6 +159,10 @@ func (a *Client) AdminQueryGameSessionsShort(params *AdminQueryGameSessionsParam
 		params.SetHTTPClientTransport(params.RetryPolicy)
 	}
 
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
+	}
+
 	result, err := a.transport.Submit(&runtime.ClientOperation{
 		ID:                 "adminQueryGameSessions",
 		Method:             "GET",
@@ -295,6 +299,10 @@ func (a *Client) AdminQueryGameSessionsByAttributesShort(params *AdminQueryGameS
 		params.SetHTTPClientTransport(params.RetryPolicy)
 	}
 
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
+	}
+
 	result, err := a.transport.Submit(&runtime.ClientOperation{
 		ID:                 "adminQueryGameSessionsByAttributes",
 		Method:             "POST",
@@ -407,6 +415,10 @@ func (a *Client) AdminDeleteBulkGameSessionsShort(params *AdminDeleteBulkGameSes
 		params.SetHTTPClientTransport(params.RetryPolicy)
 	}
 
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
+	}
+
 	result, err := a.transport.Submit(&runtime.ClientOperation{
 		ID:                 "adminDeleteBulkGameSessions",
 		Method:             "DELETE",
@@ -517,6 +529,10 @@ func (a *Client) AdminSetDSReadyShort(params *AdminSetDSReadyParams, authInfo ru
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -632,6 +648,10 @@ func (a *Client) AdminUpdateGameSessionMemberShort(params *AdminUpdateGameSessio
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -806,6 +826,10 @@ func (a *Client) CreateGameSessionShort(params *CreateGameSessionParams, authInf
 		params.SetHTTPClientTransport(params.RetryPolicy)
 	}
 
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
+	}
+
 	result, err := a.transport.Submit(&runtime.ClientOperation{
 		ID:                 "createGameSession",
 		Method:             "POST",
@@ -942,6 +966,10 @@ func (a *Client) PublicQueryGameSessionsByAttributesShort(params *PublicQueryGam
 		params.SetHTTPClientTransport(params.RetryPolicy)
 	}
 
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
+	}
+
 	result, err := a.transport.Submit(&runtime.ClientOperation{
 		ID:                 "publicQueryGameSessionsByAttributes",
 		Method:             "POST",
@@ -1055,6 +1083,10 @@ func (a *Client) PublicSessionJoinCodeShort(params *PublicSessionJoinCodeParams,
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -1182,6 +1214,10 @@ func (a *Client) GetGameSessionByPodNameShort(params *GetGameSessionByPodNamePar
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -1313,6 +1349,10 @@ func (a *Client) GetGameSessionShort(params *GetGameSessionParams, authInfo runt
 		params.SetHTTPClientTransport(params.RetryPolicy)
 	}
 
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
+	}
+
 	result, err := a.transport.Submit(&runtime.ClientOperation{
 		ID:                 "getGameSession",
 		Method:             "GET",
@@ -1440,6 +1480,10 @@ func (a *Client) UpdateGameSessionShort(params *UpdateGameSessionParams, authInf
 		params.SetHTTPClientTransport(params.RetryPolicy)
 	}
 
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
+	}
+
 	result, err := a.transport.Submit(&runtime.ClientOperation{
 		ID:                 "updateGameSession",
 		Method:             "PUT",
@@ -1549,6 +1593,10 @@ func (a *Client) DeleteGameSessionShort(params *DeleteGameSessionParams, authInf
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -1664,6 +1712,10 @@ func (a *Client) PatchUpdateGameSessionShort(params *PatchUpdateGameSessionParam
 		params.SetHTTPClientTransport(params.RetryPolicy)
 	}
 
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
+	}
+
 	result, err := a.transport.Submit(&runtime.ClientOperation{
 		ID:                 "patchUpdateGameSession",
 		Method:             "PATCH",
@@ -1776,6 +1828,10 @@ func (a *Client) UpdateGameSessionBackfillTicketIDShort(params *UpdateGameSessio
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -1893,6 +1949,10 @@ func (a *Client) GameSessionGenerateCodeShort(params *GameSessionGenerateCodePar
 		params.SetHTTPClientTransport(params.RetryPolicy)
 	}
 
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
+	}
+
 	result, err := a.transport.Submit(&runtime.ClientOperation{
 		ID:                 "gameSessionGenerateCode",
 		Method:             "POST",
@@ -2008,6 +2068,10 @@ func (a *Client) PublicRevokeGameSessionCodeShort(params *PublicRevokeGameSessio
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -2137,6 +2201,10 @@ func (a *Client) PublicGameSessionInviteShort(params *PublicGameSessionInvitePar
 		params.SetHTTPClientTransport(params.RetryPolicy)
 	}
 
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
+	}
+
 	result, err := a.transport.Submit(&runtime.ClientOperation{
 		ID:                 "publicGameSessionInvite",
 		Method:             "POST",
@@ -2252,6 +2320,10 @@ func (a *Client) JoinGameSessionShort(params *JoinGameSessionParams, authInfo ru
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -2395,6 +2467,10 @@ func (a *Client) PublicPromoteGameSessionLeaderShort(params *PublicPromoteGameSe
 		params.SetHTTPClientTransport(params.RetryPolicy)
 	}
 
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
+	}
+
 	result, err := a.transport.Submit(&runtime.ClientOperation{
 		ID:                 "publicPromoteGameSessionLeader",
 		Method:             "POST",
@@ -2512,6 +2588,10 @@ func (a *Client) LeaveGameSessionShort(params *LeaveGameSessionParams, authInfo 
 		params.SetHTTPClientTransport(params.RetryPolicy)
 	}
 
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
+	}
+
 	result, err := a.transport.Submit(&runtime.ClientOperation{
 		ID:                 "leaveGameSession",
 		Method:             "DELETE",
@@ -2627,6 +2707,10 @@ func (a *Client) PublicGameSessionRejectShort(params *PublicGameSessionRejectPar
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -2783,6 +2867,10 @@ func (a *Client) GetSessionServerSecretShort(params *GetSessionServerSecretParam
 		params.SetHTTPClientTransport(params.RetryPolicy)
 	}
 
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
+	}
+
 	result, err := a.transport.Submit(&runtime.ClientOperation{
 		ID:                 "getSessionServerSecret",
 		Method:             "GET",
@@ -2893,6 +2981,10 @@ func (a *Client) AppendTeamGameSessionShort(params *AppendTeamGameSessionParams,
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -3016,6 +3108,10 @@ func (a *Client) PublicQueryMyGameSessionsShort(params *PublicQueryMyGameSession
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{

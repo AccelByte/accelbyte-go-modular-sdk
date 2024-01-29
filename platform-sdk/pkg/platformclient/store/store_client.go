@@ -73,8 +73,8 @@ This API is used to list stores in a namespace.
 
 Other detail info:
 
-  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:STORE", action=2 (READ)
-  *  Returns : the list of stores
+  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:STORE", action=2 (READ)
+  - Returns : the list of stores
 */
 func (a *Client) ListStores(params *ListStoresParams, authInfo runtime.ClientAuthInfoWriter) (*ListStoresOK, error) {
 	// TODO: Validate the params before sending
@@ -123,8 +123,8 @@ This API is used to list stores in a namespace.
 
 Other detail info:
 
-  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:STORE", action=2 (READ)
-  *  Returns : the list of stores
+  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:STORE", action=2 (READ)
+  - Returns : the list of stores
 */
 func (a *Client) ListStoresShort(params *ListStoresParams, authInfo runtime.ClientAuthInfoWriter) (*ListStoresOK, error) {
 	// TODO: Validate the params before sending
@@ -138,6 +138,10 @@ func (a *Client) ListStoresShort(params *ListStoresParams, authInfo runtime.Clie
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -175,8 +179,8 @@ This API is used to create a non published store in a namespace.
 
 Other detail info:
 
-  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:STORE", action=1 (CREATE)
-  *  Returns : created store data
+  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:STORE", action=1 (CREATE)
+  - Returns : created store data
 */
 func (a *Client) CreateStore(params *CreateStoreParams, authInfo runtime.ClientAuthInfoWriter) (*CreateStoreCreated, *CreateStoreConflict, *CreateStoreUnprocessableEntity, error) {
 	// TODO: Validate the params before sending
@@ -231,8 +235,8 @@ This API is used to create a non published store in a namespace.
 
 Other detail info:
 
-  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:STORE", action=1 (CREATE)
-  *  Returns : created store data
+  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:STORE", action=1 (CREATE)
+  - Returns : created store data
 */
 func (a *Client) CreateStoreShort(params *CreateStoreParams, authInfo runtime.ClientAuthInfoWriter) (*CreateStoreCreated, error) {
 	// TODO: Validate the params before sending
@@ -246,6 +250,10 @@ func (a *Client) CreateStoreShort(params *CreateStoreParams, authInfo runtime.Cl
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -288,7 +296,7 @@ This API is used to import a store.
 This api has been deprecated, pls use /v2/admin/namespaces/{namespace}/stores/import to import store.
 Other detail info:
 
-  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:STORE", action=4 (UPDATE)
+  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:STORE", action=4 (UPDATE)
 */
 func (a *Client) ImportStore(params *ImportStoreParams, authInfo runtime.ClientAuthInfoWriter) (*ImportStoreOK, *ImportStoreBadRequest, *ImportStoreNotFound, error) {
 	// TODO: Validate the params before sending
@@ -344,7 +352,7 @@ This API is used to import a store.
 This api has been deprecated, pls use /v2/admin/namespaces/{namespace}/stores/import to import store.
 Other detail info:
 
-  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:STORE", action=4 (UPDATE)
+  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:STORE", action=4 (UPDATE)
 */
 func (a *Client) ImportStoreShort(params *ImportStoreParams, authInfo runtime.ClientAuthInfoWriter) (*ImportStoreOK, error) {
 	// TODO: Validate the params before sending
@@ -358,6 +366,10 @@ func (a *Client) ImportStoreShort(params *ImportStoreParams, authInfo runtime.Cl
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -399,8 +411,8 @@ This API is used to get a published store basic info, exclude category and item 
 
 Other detail info:
 
-  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:STORE", action=2 (READ)
-  *  Returns : store data
+  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:STORE", action=2 (READ)
+  - Returns : store data
 */
 func (a *Client) GetPublishedStore(params *GetPublishedStoreParams, authInfo runtime.ClientAuthInfoWriter) (*GetPublishedStoreOK, *GetPublishedStoreNotFound, error) {
 	// TODO: Validate the params before sending
@@ -452,8 +464,8 @@ This API is used to get a published store basic info, exclude category and item 
 
 Other detail info:
 
-  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:STORE", action=2 (READ)
-  *  Returns : store data
+  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:STORE", action=2 (READ)
+  - Returns : store data
 */
 func (a *Client) GetPublishedStoreShort(params *GetPublishedStoreParams, authInfo runtime.ClientAuthInfoWriter) (*GetPublishedStoreOK, error) {
 	// TODO: Validate the params before sending
@@ -467,6 +479,10 @@ func (a *Client) GetPublishedStoreShort(params *GetPublishedStoreParams, authInf
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -504,11 +520,11 @@ Deprecated: 2022-08-10 - Use DeletePublishedStoreShort instead.
 DeletePublishedStore delete published store
 This API is used to delete published store including category and items before release to public.
 
- Warning: Please do not use this API once published to public user.
+	Warning: Please do not use this API once published to public user.
 
 Other detail info:
 
-  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:STORE", action=8 (DELETE)
+  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:STORE", action=8 (DELETE)
 */
 func (a *Client) DeletePublishedStore(params *DeletePublishedStoreParams, authInfo runtime.ClientAuthInfoWriter) (*DeletePublishedStoreOK, *DeletePublishedStoreNotFound, error) {
 	// TODO: Validate the params before sending
@@ -558,11 +574,11 @@ func (a *Client) DeletePublishedStore(params *DeletePublishedStoreParams, authIn
 DeletePublishedStoreShort delete published store
 This API is used to delete published store including category and items before release to public.
 
- Warning: Please do not use this API once published to public user.
+	Warning: Please do not use this API once published to public user.
 
 Other detail info:
 
-  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:STORE", action=8 (DELETE)
+  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:STORE", action=8 (DELETE)
 */
 func (a *Client) DeletePublishedStoreShort(params *DeletePublishedStoreParams, authInfo runtime.ClientAuthInfoWriter) (*DeletePublishedStoreOK, error) {
 	// TODO: Validate the params before sending
@@ -576,6 +592,10 @@ func (a *Client) DeletePublishedStoreShort(params *DeletePublishedStoreParams, a
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -615,8 +635,8 @@ This API is used to get a store's backup.
 
 Other detail info:
 
-  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:STORE", action=2 (READ)
-  *  Returns : store backup info
+  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:STORE", action=2 (READ)
+  - Returns : store backup info
 */
 func (a *Client) GetPublishedStoreBackup(params *GetPublishedStoreBackupParams, authInfo runtime.ClientAuthInfoWriter) (*GetPublishedStoreBackupOK, *GetPublishedStoreBackupNotFound, error) {
 	// TODO: Validate the params before sending
@@ -668,8 +688,8 @@ This API is used to get a store's backup.
 
 Other detail info:
 
-  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:STORE", action=2 (READ)
-  *  Returns : store backup info
+  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:STORE", action=2 (READ)
+  - Returns : store backup info
 */
 func (a *Client) GetPublishedStoreBackupShort(params *GetPublishedStoreBackupParams, authInfo runtime.ClientAuthInfoWriter) (*GetPublishedStoreBackupOK, error) {
 	// TODO: Validate the params before sending
@@ -683,6 +703,10 @@ func (a *Client) GetPublishedStoreBackupShort(params *GetPublishedStoreBackupPar
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -722,8 +746,8 @@ This API is used to rollback a published store.
 
 Other detail info:
 
-  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:STORE", action=4 (UPDATE)
-  *  Returns : updated store info
+  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:STORE", action=4 (UPDATE)
+  - Returns : updated store info
 */
 func (a *Client) RollbackPublishedStore(params *RollbackPublishedStoreParams, authInfo runtime.ClientAuthInfoWriter) (*RollbackPublishedStoreOK, *RollbackPublishedStoreNotFound, error) {
 	// TODO: Validate the params before sending
@@ -775,8 +799,8 @@ This API is used to rollback a published store.
 
 Other detail info:
 
-  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:STORE", action=4 (UPDATE)
-  *  Returns : updated store info
+  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:STORE", action=4 (UPDATE)
+  - Returns : updated store info
 */
 func (a *Client) RollbackPublishedStoreShort(params *RollbackPublishedStoreParams, authInfo runtime.ClientAuthInfoWriter) (*RollbackPublishedStoreOK, error) {
 	// TODO: Validate the params before sending
@@ -790,6 +814,10 @@ func (a *Client) RollbackPublishedStoreShort(params *RollbackPublishedStoreParam
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -829,8 +857,8 @@ This API is used to get a store.
 
 Other detail info:
 
-  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:STORE", action=2 (READ)
-  *  Returns : store data
+  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:STORE", action=2 (READ)
+  - Returns : store data
 */
 func (a *Client) GetStore(params *GetStoreParams, authInfo runtime.ClientAuthInfoWriter) (*GetStoreOK, *GetStoreNotFound, error) {
 	// TODO: Validate the params before sending
@@ -882,8 +910,8 @@ This API is used to get a store.
 
 Other detail info:
 
-  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:STORE", action=2 (READ)
-  *  Returns : store data
+  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:STORE", action=2 (READ)
+  - Returns : store data
 */
 func (a *Client) GetStoreShort(params *GetStoreParams, authInfo runtime.ClientAuthInfoWriter) (*GetStoreOK, error) {
 	// TODO: Validate the params before sending
@@ -897,6 +925,10 @@ func (a *Client) GetStoreShort(params *GetStoreParams, authInfo runtime.ClientAu
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -936,8 +968,8 @@ This API is used to Update a store basic info.
 
 Other detail info:
 
-  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:STORE", action=4 (UPDATE)
-  *  Returns : updated store data
+  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:STORE", action=4 (UPDATE)
+  - Returns : updated store data
 */
 func (a *Client) UpdateStore(params *UpdateStoreParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateStoreOK, *UpdateStoreNotFound, *UpdateStoreConflict, *UpdateStoreUnprocessableEntity, error) {
 	// TODO: Validate the params before sending
@@ -995,8 +1027,8 @@ This API is used to Update a store basic info.
 
 Other detail info:
 
-  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:STORE", action=4 (UPDATE)
-  *  Returns : updated store data
+  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:STORE", action=4 (UPDATE)
+  - Returns : updated store data
 */
 func (a *Client) UpdateStoreShort(params *UpdateStoreParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateStoreOK, error) {
 	// TODO: Validate the params before sending
@@ -1010,6 +1042,10 @@ func (a *Client) UpdateStoreShort(params *UpdateStoreParams, authInfo runtime.Cl
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -1052,8 +1088,8 @@ DeleteStore delete a store
 This API is used to delete a store. Only non published store can be deleted.
 Other detail info:
 
-  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:STORE", action=8 (DELETE)
-  *  Returns : store
+  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:STORE", action=8 (DELETE)
+  - Returns : store
 */
 func (a *Client) DeleteStore(params *DeleteStoreParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteStoreOK, *DeleteStoreNotFound, *DeleteStoreConflict, error) {
 	// TODO: Validate the params before sending
@@ -1107,8 +1143,8 @@ DeleteStoreShort delete a store
 This API is used to delete a store. Only non published store can be deleted.
 Other detail info:
 
-  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:STORE", action=8 (DELETE)
-  *  Returns : store
+  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:STORE", action=8 (DELETE)
+  - Returns : store
 */
 func (a *Client) DeleteStoreShort(params *DeleteStoreParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteStoreOK, error) {
 	// TODO: Validate the params before sending
@@ -1122,6 +1158,10 @@ func (a *Client) DeleteStoreShort(params *DeleteStoreParams, authInfo runtime.Cl
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -1163,8 +1203,8 @@ This API is used to clone a store. Usually clone a draft store to published stor
 
 Other detail info:
 
-  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:STORE", action=1 (CREATE)
-  *  Returns : clone store info
+  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:STORE", action=1 (CREATE)
+  - Returns : clone store info
 */
 func (a *Client) CloneStore(params *CloneStoreParams, authInfo runtime.ClientAuthInfoWriter) (*CloneStoreOK, *CloneStoreBadRequest, *CloneStoreNotFound, error) {
 	// TODO: Validate the params before sending
@@ -1219,8 +1259,8 @@ This API is used to clone a store. Usually clone a draft store to published stor
 
 Other detail info:
 
-  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:STORE", action=1 (CREATE)
-  *  Returns : clone store info
+  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:STORE", action=1 (CREATE)
+  - Returns : clone store info
 */
 func (a *Client) CloneStoreShort(params *CloneStoreParams, authInfo runtime.ClientAuthInfoWriter) (*CloneStoreOK, error) {
 	// TODO: Validate the params before sending
@@ -1234,6 +1274,10 @@ func (a *Client) CloneStoreShort(params *CloneStoreParams, authInfo runtime.Clie
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -1276,7 +1320,7 @@ This API is used to export a store.
 This api has been deprecated, pls use /v2/admin/namespaces/{namespace}/stores/export to export store.
 Other detail info:
 
-  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:STORE", action=2 (READ)
+  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:STORE", action=2 (READ)
 */
 func (a *Client) ExportStore(params *ExportStoreParams, authInfo runtime.ClientAuthInfoWriter, writer io.Writer) (*ExportStoreOK, *ExportStoreNotFound, error) {
 	// TODO: Validate the params before sending
@@ -1329,7 +1373,7 @@ This API is used to export a store.
 This api has been deprecated, pls use /v2/admin/namespaces/{namespace}/stores/export to export store.
 Other detail info:
 
-  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:STORE", action=2 (READ)
+  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:STORE", action=2 (READ)
 */
 func (a *Client) ExportStoreShort(params *ExportStoreParams, authInfo runtime.ClientAuthInfoWriter, writer io.Writer) (*ExportStoreOK, error) {
 	// TODO: Validate the params before sending
@@ -1343,6 +1387,10 @@ func (a *Client) ExportStoreShort(params *ExportStoreParams, authInfo runtime.Cl
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -1382,9 +1430,9 @@ This API is used to list all stores in a namespace.
 
 Other detail info:
 
-  * Optional permission : resource="PREVIEW", action=1(CREATE) (user with this permission can view draft store)
-  *  Optional permission : resource="SANDBOX", action=1(CREATE) (user with this permission can view draft store)
-  *  Returns : the list of stores
+  - Optional permission : resource="PREVIEW", action=1(CREATE) (user with this permission can view draft store)
+  - Optional permission : resource="SANDBOX", action=1(CREATE) (user with this permission can view draft store)
+  - Returns : the list of stores
 */
 func (a *Client) PublicListStores(params *PublicListStoresParams) (*PublicListStoresOK, error) {
 	// TODO: Validate the params before sending
@@ -1432,9 +1480,9 @@ This API is used to list all stores in a namespace.
 
 Other detail info:
 
-  * Optional permission : resource="PREVIEW", action=1(CREATE) (user with this permission can view draft store)
-  *  Optional permission : resource="SANDBOX", action=1(CREATE) (user with this permission can view draft store)
-  *  Returns : the list of stores
+  - Optional permission : resource="PREVIEW", action=1(CREATE) (user with this permission can view draft store)
+  - Optional permission : resource="SANDBOX", action=1(CREATE) (user with this permission can view draft store)
+  - Returns : the list of stores
 */
 func (a *Client) PublicListStoresShort(params *PublicListStoresParams) (*PublicListStoresOK, error) {
 	// TODO: Validate the params before sending
@@ -1448,6 +1496,10 @@ func (a *Client) PublicListStoresShort(params *PublicListStoresParams) (*PublicL
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -1484,7 +1536,7 @@ This API is used to import a store.
 
 Other detail info:
 
-  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:STORE", action=4 (UPDATE)
+  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:STORE", action=4 (UPDATE)
 */
 func (a *Client) ImportStore1(params *ImportStore1Params, authInfo runtime.ClientAuthInfoWriter) (*ImportStore1OK, *ImportStore1BadRequest, *ImportStore1NotFound, error) {
 	// TODO: Validate the params before sending
@@ -1539,7 +1591,7 @@ This API is used to import a store.
 
 Other detail info:
 
-  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:STORE", action=4 (UPDATE)
+  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:STORE", action=4 (UPDATE)
 */
 func (a *Client) ImportStore1Short(params *ImportStore1Params, authInfo runtime.ClientAuthInfoWriter) (*ImportStore1OK, error) {
 	// TODO: Validate the params before sending
@@ -1553,6 +1605,10 @@ func (a *Client) ImportStore1Short(params *ImportStore1Params, authInfo runtime.
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -1594,7 +1650,7 @@ This API is used to export a whole or partial store.
 
 Other detail info:
 
-  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:STORE", action=2 (READ)
+  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:STORE", action=2 (READ)
 */
 func (a *Client) ExportStore1(params *ExportStore1Params, authInfo runtime.ClientAuthInfoWriter, writer io.Writer) (*ExportStore1OK, *ExportStore1NotFound, error) {
 	// TODO: Validate the params before sending
@@ -1646,7 +1702,7 @@ This API is used to export a whole or partial store.
 
 Other detail info:
 
-  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:STORE", action=2 (READ)
+  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:STORE", action=2 (READ)
 */
 func (a *Client) ExportStore1Short(params *ExportStore1Params, authInfo runtime.ClientAuthInfoWriter, writer io.Writer) (*ExportStore1OK, error) {
 	// TODO: Validate the params before sending
@@ -1660,6 +1716,10 @@ func (a *Client) ExportStore1Short(params *ExportStore1Params, authInfo runtime.
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{

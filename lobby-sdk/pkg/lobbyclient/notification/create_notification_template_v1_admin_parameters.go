@@ -59,7 +59,8 @@ func NewCreateNotificationTemplateV1AdminParamsWithHTTPClient(client *http.Clien
 	}
 }
 
-/*CreateNotificationTemplateV1AdminParams contains all the parameters to send to the API endpoint
+/*
+CreateNotificationTemplateV1AdminParams contains all the parameters to send to the API endpoint
 for the create notification template v1 admin operation typically these are written to a http.Request
 */
 type CreateNotificationTemplateV1AdminParams struct {
@@ -78,6 +79,9 @@ type CreateNotificationTemplateV1AdminParams struct {
 	AuthInfoWriter runtime.ClientAuthInfoWriter
 	Context        context.Context
 	HTTPClient     *http.Client
+
+	// XFlightId is an optional parameter from this SDK
+	XFlightId *string
 }
 
 // WithTimeout adds the timeout to the create notification template v1 admin params
@@ -127,6 +131,15 @@ func (o *CreateNotificationTemplateV1AdminParams) SetHTTPClientTransport(roundTr
 	}
 }
 
+// SetFlightId adds the flightId as the header value for this specific endpoint
+func (o *CreateNotificationTemplateV1AdminParams) SetFlightId(flightId string) {
+	if o.XFlightId != nil {
+		o.XFlightId = &flightId
+	} else {
+		o.XFlightId = &utils.GetDefaultFlightID().Value
+	}
+}
+
 // WithBody adds the body to the create notification template v1 admin params
 func (o *CreateNotificationTemplateV1AdminParams) WithBody(body *lobbyclientmodels.ModelCreateTemplateRequest) *CreateNotificationTemplateV1AdminParams {
 	o.SetBody(body)
@@ -171,6 +184,16 @@ func (o *CreateNotificationTemplateV1AdminParams) WriteToRequest(r runtime.Clien
 	// setting the default header value
 	if err := r.SetHeaderParam("X-Amzn-Trace-Id", utils.AmazonTraceIDGen()); err != nil {
 		return err
+	}
+
+	if o.XFlightId == nil {
+		if err := r.SetHeaderParam("X-Flight-Id", utils.GetDefaultFlightID().Value); err != nil {
+			return err
+		}
+	} else {
+		if err := r.SetHeaderParam("X-Flight-Id", *o.XFlightId); err != nil {
+			return err
+		}
 	}
 
 	if len(res) > 0 {

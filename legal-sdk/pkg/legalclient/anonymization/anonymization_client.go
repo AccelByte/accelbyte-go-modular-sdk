@@ -41,7 +41,7 @@ Deprecated: 2022-08-10 - Use AnonymizeUserAgreementShort instead.
 
 AnonymizeUserAgreement anonymize user's agreement record
 This API will anonymize agreement record for specified user. Other detail info:
-      * Required permission : resource="ADMIN:NAMESPACE:*:LEGAL", action=8 (DELETE)
+  - Required permission : resource="ADMIN:NAMESPACE:*:LEGAL", action=8 (DELETE)
 */
 func (a *Client) AnonymizeUserAgreement(params *AnonymizeUserAgreementParams, authInfo runtime.ClientAuthInfoWriter) (*AnonymizeUserAgreementNoContent, *AnonymizeUserAgreementNotFound, error) {
 	// TODO: Validate the params before sending
@@ -90,7 +90,7 @@ func (a *Client) AnonymizeUserAgreement(params *AnonymizeUserAgreementParams, au
 /*
 AnonymizeUserAgreementShort anonymize user's agreement record
 This API will anonymize agreement record for specified user. Other detail info:
-      * Required permission : resource="ADMIN:NAMESPACE:*:LEGAL", action=8 (DELETE)
+  - Required permission : resource="ADMIN:NAMESPACE:*:LEGAL", action=8 (DELETE)
 */
 func (a *Client) AnonymizeUserAgreementShort(params *AnonymizeUserAgreementParams, authInfo runtime.ClientAuthInfoWriter) (*AnonymizeUserAgreementNoContent, error) {
 	// TODO: Validate the params before sending
@@ -104,6 +104,10 @@ func (a *Client) AnonymizeUserAgreementShort(params *AnonymizeUserAgreementParam
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{

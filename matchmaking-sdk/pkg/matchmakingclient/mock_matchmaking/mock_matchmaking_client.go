@@ -130,6 +130,10 @@ func (a *Client) CleanAllMocksShort(params *CleanAllMocksParams, authInfo runtim
 		params.SetHTTPClientTransport(params.RetryPolicy)
 	}
 
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
+	}
+
 	result, err := a.transport.Submit(&runtime.ClientOperation{
 		ID:                 "CleanAllMocks",
 		Method:             "DELETE",
@@ -247,6 +251,10 @@ func (a *Client) GetAllMockMatchesShort(params *GetAllMockMatchesParams, authInf
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -368,6 +376,10 @@ func (a *Client) GetMockMatchesByTimestampShort(params *GetMockMatchesByTimestam
 		params.SetHTTPClientTransport(params.RetryPolicy)
 	}
 
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
+	}
+
 	result, err := a.transport.Submit(&runtime.ClientOperation{
 		ID:                 "GetMockMatchesByTimestamp",
 		Method:             "POST",
@@ -485,6 +497,10 @@ func (a *Client) GetAllMockTicketsShort(params *GetAllMockTicketsParams, authInf
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -610,6 +626,10 @@ func (a *Client) CreateMockTicketsShort(params *CreateMockTicketsParams, authInf
 		params.SetHTTPClientTransport(params.RetryPolicy)
 	}
 
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
+	}
+
 	result, err := a.transport.Submit(&runtime.ClientOperation{
 		ID:                 "CreateMockTickets",
 		Method:             "POST",
@@ -731,6 +751,10 @@ func (a *Client) BulkCreateMockTicketsShort(params *BulkCreateMockTicketsParams,
 		params.SetHTTPClientTransport(params.RetryPolicy)
 	}
 
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
+	}
+
 	result, err := a.transport.Submit(&runtime.ClientOperation{
 		ID:                 "BulkCreateMockTickets",
 		Method:             "POST",
@@ -848,6 +872,10 @@ func (a *Client) GetMockTicketsByTimestampShort(params *GetMockTicketsByTimestam
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{

@@ -49,7 +49,7 @@ type ClientService interface {
 /*
 Deprecated: 2022-08-10 - Use PublicConsumeMyItemShort instead.
 
-PublicConsumeMyItem to consume item
+# PublicConsumeMyItem to consume item
 
 Consume user's own item.
 */
@@ -122,6 +122,10 @@ func (a *Client) PublicConsumeMyItemShort(params *PublicConsumeMyItemParams, aut
 		params.SetHTTPClientTransport(params.RetryPolicy)
 	}
 
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
+	}
+
 	result, err := a.transport.Submit(&runtime.ClientOperation{
 		ID:                 "PublicConsumeMyItem",
 		Method:             "POST",
@@ -158,7 +162,7 @@ func (a *Client) PublicConsumeMyItemShort(params *PublicConsumeMyItemParams, aut
 /*
 Deprecated: 2022-08-10 - Use PublicListItemsShort instead.
 
-PublicListItems to list all items
+# PublicListItems to list all items
 
 Listing all user's owned items in an inventory.
 The response body will be in the form of standard pagination.
@@ -230,6 +234,10 @@ func (a *Client) PublicListItemsShort(params *PublicListItemsParams, authInfo ru
 		params.SetHTTPClientTransport(params.RetryPolicy)
 	}
 
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
+	}
+
 	result, err := a.transport.Submit(&runtime.ClientOperation{
 		ID:                 "PublicListItems",
 		Method:             "GET",
@@ -264,7 +272,7 @@ func (a *Client) PublicListItemsShort(params *PublicListItemsParams, authInfo ru
 /*
 Deprecated: 2022-08-10 - Use PublicBulkUpdateMyItemsShort instead.
 
-PublicBulkUpdateMyItems to bulk update items
+# PublicBulkUpdateMyItems to bulk update items
 
 Bulk Updating user's own items.
 */
@@ -337,6 +345,10 @@ func (a *Client) PublicBulkUpdateMyItemsShort(params *PublicBulkUpdateMyItemsPar
 		params.SetHTTPClientTransport(params.RetryPolicy)
 	}
 
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
+	}
+
 	result, err := a.transport.Submit(&runtime.ClientOperation{
 		ID:                 "PublicBulkUpdateMyItems",
 		Method:             "PUT",
@@ -373,7 +385,7 @@ func (a *Client) PublicBulkUpdateMyItemsShort(params *PublicBulkUpdateMyItemsPar
 /*
 Deprecated: 2022-08-10 - Use PublicBulkRemoveMyItemsShort instead.
 
-PublicBulkRemoveMyItems to bulk remove items
+# PublicBulkRemoveMyItems to bulk remove items
 
 Bulk remove user's own items.
 */
@@ -446,6 +458,10 @@ func (a *Client) PublicBulkRemoveMyItemsShort(params *PublicBulkRemoveMyItemsPar
 		params.SetHTTPClientTransport(params.RetryPolicy)
 	}
 
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
+	}
+
 	result, err := a.transport.Submit(&runtime.ClientOperation{
 		ID:                 "PublicBulkRemoveMyItems",
 		Method:             "DELETE",
@@ -482,7 +498,7 @@ func (a *Client) PublicBulkRemoveMyItemsShort(params *PublicBulkRemoveMyItemsPar
 /*
 Deprecated: 2022-08-10 - Use PublicMoveMyItemsShort instead.
 
-PublicMoveMyItems to move items between my inventories
+# PublicMoveMyItems to move items between my inventories
 
 Move items between inventories that is owned by the same user.
 */
@@ -552,6 +568,10 @@ func (a *Client) PublicMoveMyItemsShort(params *PublicMoveMyItemsParams, authInf
 		params.SetHTTPClientTransport(params.RetryPolicy)
 	}
 
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
+	}
+
 	result, err := a.transport.Submit(&runtime.ClientOperation{
 		ID:                 "PublicMoveMyItems",
 		Method:             "POST",
@@ -586,7 +606,7 @@ func (a *Client) PublicMoveMyItemsShort(params *PublicMoveMyItemsParams, authInf
 /*
 Deprecated: 2022-08-10 - Use PublicGetItemShort instead.
 
-PublicGetItem to get an item
+# PublicGetItem to get an item
 
 Getting an user's owned item info.
 */
@@ -657,6 +677,10 @@ func (a *Client) PublicGetItemShort(params *PublicGetItemParams, authInfo runtim
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{

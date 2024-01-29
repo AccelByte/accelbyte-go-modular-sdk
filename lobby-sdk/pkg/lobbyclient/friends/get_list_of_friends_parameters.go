@@ -78,7 +78,8 @@ func NewGetListOfFriendsParamsWithHTTPClient(client *http.Client) *GetListOfFrie
 	}
 }
 
-/*GetListOfFriendsParams contains all the parameters to send to the API endpoint
+/*
+GetListOfFriendsParams contains all the parameters to send to the API endpoint
 for the get list of friends operation typically these are written to a http.Request
 */
 type GetListOfFriendsParams struct {
@@ -115,6 +116,9 @@ type GetListOfFriendsParams struct {
 	AuthInfoWriter runtime.ClientAuthInfoWriter
 	Context        context.Context
 	HTTPClient     *http.Client
+
+	// XFlightId is an optional parameter from this SDK
+	XFlightId *string
 }
 
 // WithTimeout adds the timeout to the get list of friends params
@@ -161,6 +165,15 @@ func (o *GetListOfFriendsParams) SetHTTPClientTransport(roundTripper http.RoundT
 		o.HTTPClient.Transport = roundTripper
 	} else {
 		o.HTTPClient = &http.Client{Transport: roundTripper}
+	}
+}
+
+// SetFlightId adds the flightId as the header value for this specific endpoint
+func (o *GetListOfFriendsParams) SetFlightId(flightId string) {
+	if o.XFlightId != nil {
+		o.XFlightId = &flightId
+	} else {
+		o.XFlightId = &utils.GetDefaultFlightID().Value
 	}
 }
 
@@ -288,6 +301,16 @@ func (o *GetListOfFriendsParams) WriteToRequest(r runtime.ClientRequest, reg str
 	// setting the default header value
 	if err := r.SetHeaderParam("X-Amzn-Trace-Id", utils.AmazonTraceIDGen()); err != nil {
 		return err
+	}
+
+	if o.XFlightId == nil {
+		if err := r.SetHeaderParam("X-Flight-Id", utils.GetDefaultFlightID().Value); err != nil {
+			return err
+		}
+	} else {
+		if err := r.SetHeaderParam("X-Flight-Id", *o.XFlightId); err != nil {
+			return err
+		}
 	}
 
 	if len(res) > 0 {

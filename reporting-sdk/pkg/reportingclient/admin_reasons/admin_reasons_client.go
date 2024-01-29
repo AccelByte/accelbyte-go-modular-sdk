@@ -128,6 +128,10 @@ func (a *Client) AdminListReasonGroupsShort(params *AdminListReasonGroupsParams,
 		params.SetHTTPClientTransport(params.RetryPolicy)
 	}
 
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
+	}
+
 	result, err := a.transport.Submit(&runtime.ClientOperation{
 		ID:                 "adminListReasonGroups",
 		Method:             "GET",
@@ -235,6 +239,10 @@ func (a *Client) CreateReasonGroupShort(params *CreateReasonGroupParams, authInf
 		params.SetHTTPClientTransport(params.RetryPolicy)
 	}
 
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
+	}
+
 	result, err := a.transport.Submit(&runtime.ClientOperation{
 		ID:                 "createReasonGroup",
 		Method:             "POST",
@@ -337,6 +345,10 @@ func (a *Client) GetReasonGroupShort(params *GetReasonGroupParams, authInfo runt
 		params.SetHTTPClientTransport(params.RetryPolicy)
 	}
 
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
+	}
+
 	result, err := a.transport.Submit(&runtime.ClientOperation{
 		ID:                 "getReasonGroup",
 		Method:             "GET",
@@ -434,6 +446,10 @@ func (a *Client) DeleteReasonGroupShort(params *DeleteReasonGroupParams, authInf
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -541,6 +557,10 @@ func (a *Client) UpdateReasonGroupShort(params *UpdateReasonGroupParams, authInf
 		params.SetHTTPClientTransport(params.RetryPolicy)
 	}
 
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
+	}
+
 	result, err := a.transport.Submit(&runtime.ClientOperation{
 		ID:                 "updateReasonGroup",
 		Method:             "PATCH",
@@ -643,6 +663,10 @@ func (a *Client) AdminGetReasonsShort(params *AdminGetReasonsParams, authInfo ru
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -750,6 +774,10 @@ func (a *Client) CreateReasonShort(params *CreateReasonParams, authInfo runtime.
 		params.SetHTTPClientTransport(params.RetryPolicy)
 	}
 
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
+	}
+
 	result, err := a.transport.Submit(&runtime.ClientOperation{
 		ID:                 "createReason",
 		Method:             "POST",
@@ -851,6 +879,10 @@ func (a *Client) AdminGetAllReasonsShort(params *AdminGetAllReasonsParams, authI
 		params.SetHTTPClientTransport(params.RetryPolicy)
 	}
 
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
+	}
+
 	result, err := a.transport.Submit(&runtime.ClientOperation{
 		ID:                 "adminGetAllReasons",
 		Method:             "GET",
@@ -949,6 +981,10 @@ func (a *Client) AdminGetUnusedReasonsShort(params *AdminGetUnusedReasonsParams,
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -1053,6 +1089,10 @@ func (a *Client) AdminGetReasonShort(params *AdminGetReasonParams, authInfo runt
 		params.SetHTTPClientTransport(params.RetryPolicy)
 	}
 
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
+	}
+
 	result, err := a.transport.Submit(&runtime.ClientOperation{
 		ID:                 "adminGetReason",
 		Method:             "GET",
@@ -1150,6 +1190,10 @@ func (a *Client) DeleteReasonShort(params *DeleteReasonParams, authInfo runtime.
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -1253,6 +1297,10 @@ func (a *Client) UpdateReasonShort(params *UpdateReasonParams, authInfo runtime.
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{

@@ -110,6 +110,10 @@ func (a *Client) AuthCheckShort(params *AuthCheckParams, authInfo runtime.Client
 		params.SetHTTPClientTransport(params.RetryPolicy)
 	}
 
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
+	}
+
 	result, err := a.transport.Submit(&runtime.ClientOperation{
 		ID:                 "AuthCheck",
 		Method:             "GET",

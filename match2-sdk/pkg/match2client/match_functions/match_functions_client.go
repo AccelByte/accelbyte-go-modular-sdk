@@ -116,6 +116,10 @@ func (a *Client) MatchFunctionListShort(params *MatchFunctionListParams, authInf
 		params.SetHTTPClientTransport(params.RetryPolicy)
 	}
 
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
+	}
+
 	result, err := a.transport.Submit(&runtime.ClientOperation{
 		ID:                 "MatchFunctionList",
 		Method:             "GET",
@@ -227,6 +231,10 @@ func (a *Client) CreateMatchFunctionShort(params *CreateMatchFunctionParams, aut
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -346,6 +354,10 @@ func (a *Client) UpdateMatchFunctionShort(params *UpdateMatchFunctionParams, aut
 		params.SetHTTPClientTransport(params.RetryPolicy)
 	}
 
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
+	}
+
 	result, err := a.transport.Submit(&runtime.ClientOperation{
 		ID:                 "UpdateMatchFunction",
 		Method:             "PUT",
@@ -458,6 +470,10 @@ func (a *Client) DeleteMatchFunctionShort(params *DeleteMatchFunctionParams, aut
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{

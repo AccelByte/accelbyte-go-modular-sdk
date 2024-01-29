@@ -57,7 +57,8 @@ func NewGetTimeZonesParamsWithHTTPClient(client *http.Client) *GetTimeZonesParam
 	}
 }
 
-/*GetTimeZonesParams contains all the parameters to send to the API endpoint
+/*
+GetTimeZonesParams contains all the parameters to send to the API endpoint
 for the get time zones operation typically these are written to a http.Request
 */
 type GetTimeZonesParams struct {
@@ -74,6 +75,9 @@ type GetTimeZonesParams struct {
 	AuthInfoWriter runtime.ClientAuthInfoWriter
 	Context        context.Context
 	HTTPClient     *http.Client
+
+	// XFlightId is an optional parameter from this SDK
+	XFlightId *string
 }
 
 // WithTimeout adds the timeout to the get time zones params
@@ -123,6 +127,15 @@ func (o *GetTimeZonesParams) SetHTTPClientTransport(roundTripper http.RoundTripp
 	}
 }
 
+// SetFlightId adds the flightId as the header value for this specific endpoint
+func (o *GetTimeZonesParams) SetFlightId(flightId string) {
+	if o.XFlightId != nil {
+		o.XFlightId = &flightId
+	} else {
+		o.XFlightId = &utils.GetDefaultFlightID().Value
+	}
+}
+
 // WithNamespace adds the namespace to the get time zones params
 func (o *GetTimeZonesParams) WithNamespace(namespace string) *GetTimeZonesParams {
 	o.SetNamespace(namespace)
@@ -150,6 +163,16 @@ func (o *GetTimeZonesParams) WriteToRequest(r runtime.ClientRequest, reg strfmt.
 	// setting the default header value
 	if err := r.SetHeaderParam("X-Amzn-Trace-Id", utils.AmazonTraceIDGen()); err != nil {
 		return err
+	}
+
+	if o.XFlightId == nil {
+		if err := r.SetHeaderParam("X-Flight-Id", utils.GetDefaultFlightID().Value); err != nil {
+			return err
+		}
+	} else {
+		if err := r.SetHeaderParam("X-Flight-Id", *o.XFlightId); err != nil {
+			return err
+		}
 	}
 
 	if len(res) > 0 {

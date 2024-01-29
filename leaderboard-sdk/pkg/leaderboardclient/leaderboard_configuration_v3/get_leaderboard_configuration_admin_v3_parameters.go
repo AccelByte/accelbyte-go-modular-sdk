@@ -57,7 +57,8 @@ func NewGetLeaderboardConfigurationAdminV3ParamsWithHTTPClient(client *http.Clie
 	}
 }
 
-/*GetLeaderboardConfigurationAdminV3Params contains all the parameters to send to the API endpoint
+/*
+GetLeaderboardConfigurationAdminV3Params contains all the parameters to send to the API endpoint
 for the get leaderboard configuration admin v3 operation typically these are written to a http.Request
 */
 type GetLeaderboardConfigurationAdminV3Params struct {
@@ -79,6 +80,9 @@ type GetLeaderboardConfigurationAdminV3Params struct {
 	AuthInfoWriter runtime.ClientAuthInfoWriter
 	Context        context.Context
 	HTTPClient     *http.Client
+
+	// XFlightId is an optional parameter from this SDK
+	XFlightId *string
 }
 
 // WithTimeout adds the timeout to the get leaderboard configuration admin v3 params
@@ -128,6 +132,15 @@ func (o *GetLeaderboardConfigurationAdminV3Params) SetHTTPClientTransport(roundT
 	}
 }
 
+// SetFlightId adds the flightId as the header value for this specific endpoint
+func (o *GetLeaderboardConfigurationAdminV3Params) SetFlightId(flightId string) {
+	if o.XFlightId != nil {
+		o.XFlightId = &flightId
+	} else {
+		o.XFlightId = &utils.GetDefaultFlightID().Value
+	}
+}
+
 // WithLeaderboardCode adds the leaderboardCode to the get leaderboard configuration admin v3 params
 func (o *GetLeaderboardConfigurationAdminV3Params) WithLeaderboardCode(leaderboardCode string) *GetLeaderboardConfigurationAdminV3Params {
 	o.SetLeaderboardCode(leaderboardCode)
@@ -171,6 +184,16 @@ func (o *GetLeaderboardConfigurationAdminV3Params) WriteToRequest(r runtime.Clie
 	// setting the default header value
 	if err := r.SetHeaderParam("X-Amzn-Trace-Id", utils.AmazonTraceIDGen()); err != nil {
 		return err
+	}
+
+	if o.XFlightId == nil {
+		if err := r.SetHeaderParam("X-Flight-Id", utils.GetDefaultFlightID().Value); err != nil {
+			return err
+		}
+	} else {
+		if err := r.SetHeaderParam("X-Flight-Id", *o.XFlightId); err != nil {
+			return err
+		}
 	}
 
 	if len(res) > 0 {

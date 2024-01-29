@@ -105,6 +105,10 @@ func (a *Client) ExportSeasonShort(params *ExportSeasonParams, authInfo runtime.
 		params.SetHTTPClientTransport(params.RetryPolicy)
 	}
 
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
+	}
+
 	result, err := a.transport.Submit(&runtime.ClientOperation{
 		ID:                 "exportSeason",
 		Method:             "GET",

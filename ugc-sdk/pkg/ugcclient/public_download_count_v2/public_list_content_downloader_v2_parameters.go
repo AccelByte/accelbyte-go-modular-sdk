@@ -86,7 +86,8 @@ func NewPublicListContentDownloaderV2ParamsWithHTTPClient(client *http.Client) *
 	}
 }
 
-/*PublicListContentDownloaderV2Params contains all the parameters to send to the API endpoint
+/*
+PublicListContentDownloaderV2Params contains all the parameters to send to the API endpoint
 for the public list content downloader v2 operation typically these are written to a http.Request
 */
 type PublicListContentDownloaderV2Params struct {
@@ -133,6 +134,9 @@ type PublicListContentDownloaderV2Params struct {
 	AuthInfoWriter runtime.ClientAuthInfoWriter
 	Context        context.Context
 	HTTPClient     *http.Client
+
+	// XFlightId is an optional parameter from this SDK
+	XFlightId *string
 }
 
 // WithTimeout adds the timeout to the public list content downloader v2 params
@@ -179,6 +183,15 @@ func (o *PublicListContentDownloaderV2Params) SetHTTPClientTransport(roundTrippe
 		o.HTTPClient.Transport = roundTripper
 	} else {
 		o.HTTPClient = &http.Client{Transport: roundTripper}
+	}
+}
+
+// SetFlightId adds the flightId as the header value for this specific endpoint
+func (o *PublicListContentDownloaderV2Params) SetFlightId(flightId string) {
+	if o.XFlightId != nil {
+		o.XFlightId = &flightId
+	} else {
+		o.XFlightId = &utils.GetDefaultFlightID().Value
 	}
 }
 
@@ -333,6 +346,16 @@ func (o *PublicListContentDownloaderV2Params) WriteToRequest(r runtime.ClientReq
 	// setting the default header value
 	if err := r.SetHeaderParam("X-Amzn-Trace-Id", utils.AmazonTraceIDGen()); err != nil {
 		return err
+	}
+
+	if o.XFlightId == nil {
+		if err := r.SetHeaderParam("X-Flight-Id", utils.GetDefaultFlightID().Value); err != nil {
+			return err
+		}
+	} else {
+		if err := r.SetHeaderParam("X-Flight-Id", *o.XFlightId); err != nil {
+			return err
+		}
 	}
 
 	if len(res) > 0 {

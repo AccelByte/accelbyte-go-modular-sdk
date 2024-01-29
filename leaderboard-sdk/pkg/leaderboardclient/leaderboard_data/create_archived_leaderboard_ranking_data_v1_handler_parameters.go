@@ -59,7 +59,8 @@ func NewCreateArchivedLeaderboardRankingDataV1HandlerParamsWithHTTPClient(client
 	}
 }
 
-/*CreateArchivedLeaderboardRankingDataV1HandlerParams contains all the parameters to send to the API endpoint
+/*
+CreateArchivedLeaderboardRankingDataV1HandlerParams contains all the parameters to send to the API endpoint
 for the create archived leaderboard ranking data v1 handler operation typically these are written to a http.Request
 */
 type CreateArchivedLeaderboardRankingDataV1HandlerParams struct {
@@ -78,6 +79,9 @@ type CreateArchivedLeaderboardRankingDataV1HandlerParams struct {
 	AuthInfoWriter runtime.ClientAuthInfoWriter
 	Context        context.Context
 	HTTPClient     *http.Client
+
+	// XFlightId is an optional parameter from this SDK
+	XFlightId *string
 }
 
 // WithTimeout adds the timeout to the create archived leaderboard ranking data v1 handler params
@@ -127,6 +131,15 @@ func (o *CreateArchivedLeaderboardRankingDataV1HandlerParams) SetHTTPClientTrans
 	}
 }
 
+// SetFlightId adds the flightId as the header value for this specific endpoint
+func (o *CreateArchivedLeaderboardRankingDataV1HandlerParams) SetFlightId(flightId string) {
+	if o.XFlightId != nil {
+		o.XFlightId = &flightId
+	} else {
+		o.XFlightId = &utils.GetDefaultFlightID().Value
+	}
+}
+
 // WithBody adds the body to the create archived leaderboard ranking data v1 handler params
 func (o *CreateArchivedLeaderboardRankingDataV1HandlerParams) WithBody(body *leaderboardclientmodels.ModelsArchiveLeaderboardReq) *CreateArchivedLeaderboardRankingDataV1HandlerParams {
 	o.SetBody(body)
@@ -171,6 +184,16 @@ func (o *CreateArchivedLeaderboardRankingDataV1HandlerParams) WriteToRequest(r r
 	// setting the default header value
 	if err := r.SetHeaderParam("X-Amzn-Trace-Id", utils.AmazonTraceIDGen()); err != nil {
 		return err
+	}
+
+	if o.XFlightId == nil {
+		if err := r.SetHeaderParam("X-Flight-Id", utils.GetDefaultFlightID().Value); err != nil {
+			return err
+		}
+	} else {
+		if err := r.SetHeaderParam("X-Flight-Id", *o.XFlightId); err != nil {
+			return err
+		}
 	}
 
 	if len(res) > 0 {

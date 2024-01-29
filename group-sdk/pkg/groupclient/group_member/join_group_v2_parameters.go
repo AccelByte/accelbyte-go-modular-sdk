@@ -57,7 +57,8 @@ func NewJoinGroupV2ParamsWithHTTPClient(client *http.Client) *JoinGroupV2Params 
 	}
 }
 
-/*JoinGroupV2Params contains all the parameters to send to the API endpoint
+/*
+JoinGroupV2Params contains all the parameters to send to the API endpoint
 for the join group v2 operation typically these are written to a http.Request
 */
 type JoinGroupV2Params struct {
@@ -79,6 +80,9 @@ type JoinGroupV2Params struct {
 	AuthInfoWriter runtime.ClientAuthInfoWriter
 	Context        context.Context
 	HTTPClient     *http.Client
+
+	// XFlightId is an optional parameter from this SDK
+	XFlightId *string
 }
 
 // WithTimeout adds the timeout to the join group v2 params
@@ -128,6 +132,15 @@ func (o *JoinGroupV2Params) SetHTTPClientTransport(roundTripper http.RoundTrippe
 	}
 }
 
+// SetFlightId adds the flightId as the header value for this specific endpoint
+func (o *JoinGroupV2Params) SetFlightId(flightId string) {
+	if o.XFlightId != nil {
+		o.XFlightId = &flightId
+	} else {
+		o.XFlightId = &utils.GetDefaultFlightID().Value
+	}
+}
+
 // WithGroupID adds the groupID to the join group v2 params
 func (o *JoinGroupV2Params) WithGroupID(groupID string) *JoinGroupV2Params {
 	o.SetGroupID(groupID)
@@ -171,6 +184,16 @@ func (o *JoinGroupV2Params) WriteToRequest(r runtime.ClientRequest, reg strfmt.R
 	// setting the default header value
 	if err := r.SetHeaderParam("X-Amzn-Trace-Id", utils.AmazonTraceIDGen()); err != nil {
 		return err
+	}
+
+	if o.XFlightId == nil {
+		if err := r.SetHeaderParam("X-Flight-Id", utils.GetDefaultFlightID().Value); err != nil {
+			return err
+		}
+	} else {
+		if err := r.SetHeaderParam("X-Flight-Id", *o.XFlightId); err != nil {
+			return err
+		}
 	}
 
 	if len(res) > 0 {

@@ -57,7 +57,8 @@ func NewAdminDeleteInboxCategoryParamsWithHTTPClient(client *http.Client) *Admin
 	}
 }
 
-/*AdminDeleteInboxCategoryParams contains all the parameters to send to the API endpoint
+/*
+AdminDeleteInboxCategoryParams contains all the parameters to send to the API endpoint
 for the admin delete inbox category operation typically these are written to a http.Request
 */
 type AdminDeleteInboxCategoryParams struct {
@@ -79,6 +80,9 @@ type AdminDeleteInboxCategoryParams struct {
 	AuthInfoWriter runtime.ClientAuthInfoWriter
 	Context        context.Context
 	HTTPClient     *http.Client
+
+	// XFlightId is an optional parameter from this SDK
+	XFlightId *string
 }
 
 // WithTimeout adds the timeout to the admin delete inbox category params
@@ -128,6 +132,15 @@ func (o *AdminDeleteInboxCategoryParams) SetHTTPClientTransport(roundTripper htt
 	}
 }
 
+// SetFlightId adds the flightId as the header value for this specific endpoint
+func (o *AdminDeleteInboxCategoryParams) SetFlightId(flightId string) {
+	if o.XFlightId != nil {
+		o.XFlightId = &flightId
+	} else {
+		o.XFlightId = &utils.GetDefaultFlightID().Value
+	}
+}
+
 // WithCategory adds the category to the admin delete inbox category params
 func (o *AdminDeleteInboxCategoryParams) WithCategory(category string) *AdminDeleteInboxCategoryParams {
 	o.SetCategory(category)
@@ -171,6 +184,16 @@ func (o *AdminDeleteInboxCategoryParams) WriteToRequest(r runtime.ClientRequest,
 	// setting the default header value
 	if err := r.SetHeaderParam("X-Amzn-Trace-Id", utils.AmazonTraceIDGen()); err != nil {
 		return err
+	}
+
+	if o.XFlightId == nil {
+		if err := r.SetHeaderParam("X-Flight-Id", utils.GetDefaultFlightID().Value); err != nil {
+			return err
+		}
+	} else {
+		if err := r.SetHeaderParam("X-Flight-Id", *o.XFlightId); err != nil {
+			return err
+		}
 	}
 
 	if len(res) > 0 {

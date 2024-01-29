@@ -57,7 +57,8 @@ func NewDeleteUserRankingByLeaderboardCodeAdminV1ParamsWithHTTPClient(client *ht
 	}
 }
 
-/*DeleteUserRankingByLeaderboardCodeAdminV1Params contains all the parameters to send to the API endpoint
+/*
+DeleteUserRankingByLeaderboardCodeAdminV1Params contains all the parameters to send to the API endpoint
 for the delete user ranking by leaderboard code admin v1 operation typically these are written to a http.Request
 */
 type DeleteUserRankingByLeaderboardCodeAdminV1Params struct {
@@ -79,6 +80,9 @@ type DeleteUserRankingByLeaderboardCodeAdminV1Params struct {
 	AuthInfoWriter runtime.ClientAuthInfoWriter
 	Context        context.Context
 	HTTPClient     *http.Client
+
+	// XFlightId is an optional parameter from this SDK
+	XFlightId *string
 }
 
 // WithTimeout adds the timeout to the delete user ranking by leaderboard code admin v1 params
@@ -128,6 +132,15 @@ func (o *DeleteUserRankingByLeaderboardCodeAdminV1Params) SetHTTPClientTransport
 	}
 }
 
+// SetFlightId adds the flightId as the header value for this specific endpoint
+func (o *DeleteUserRankingByLeaderboardCodeAdminV1Params) SetFlightId(flightId string) {
+	if o.XFlightId != nil {
+		o.XFlightId = &flightId
+	} else {
+		o.XFlightId = &utils.GetDefaultFlightID().Value
+	}
+}
+
 // WithLeaderboardCode adds the leaderboardCode to the delete user ranking by leaderboard code admin v1 params
 func (o *DeleteUserRankingByLeaderboardCodeAdminV1Params) WithLeaderboardCode(leaderboardCode string) *DeleteUserRankingByLeaderboardCodeAdminV1Params {
 	o.SetLeaderboardCode(leaderboardCode)
@@ -171,6 +184,16 @@ func (o *DeleteUserRankingByLeaderboardCodeAdminV1Params) WriteToRequest(r runti
 	// setting the default header value
 	if err := r.SetHeaderParam("X-Amzn-Trace-Id", utils.AmazonTraceIDGen()); err != nil {
 		return err
+	}
+
+	if o.XFlightId == nil {
+		if err := r.SetHeaderParam("X-Flight-Id", utils.GetDefaultFlightID().Value); err != nil {
+			return err
+		}
+	} else {
+		if err := r.SetHeaderParam("X-Flight-Id", *o.XFlightId); err != nil {
+			return err
+		}
 	}
 
 	if len(res) > 0 {

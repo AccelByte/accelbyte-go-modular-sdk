@@ -119,7 +119,6 @@ func (a *Client) AdminGetListDeletionDataRequest(params *AdminGetListDeletionDat
 /*
 AdminGetListDeletionDataRequestShort retrieve all user's account deletion requests in specified date
 
-
 Required permission `ADMIN:NAMESPACE:{namespace}:INFORMATION:USER[READ]` and scope `account`
 */
 func (a *Client) AdminGetListDeletionDataRequestShort(params *AdminGetListDeletionDataRequestParams, authInfo runtime.ClientAuthInfoWriter) (*AdminGetListDeletionDataRequestOK, error) {
@@ -134,6 +133,10 @@ func (a *Client) AdminGetListDeletionDataRequestShort(params *AdminGetListDeleti
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -176,8 +179,7 @@ func (a *Client) AdminGetListDeletionDataRequestShort(params *AdminGetListDeleti
 /*
 Deprecated: 2022-08-10 - Use AdminGetUserAccountDeletionRequestShort instead.
 
-AdminGetUserAccountDeletionRequest retrieve specific user's account deletion request
-
+# AdminGetUserAccountDeletionRequest retrieve specific user's account deletion request
 
 Required permission `ADMIN:NAMESPACE:{namespace}:INFORMATION:USER:{userId}[READ]` and scope `account`
 */
@@ -237,7 +239,6 @@ func (a *Client) AdminGetUserAccountDeletionRequest(params *AdminGetUserAccountD
 /*
 AdminGetUserAccountDeletionRequestShort retrieve specific user's account deletion request
 
-
 Required permission `ADMIN:NAMESPACE:{namespace}:INFORMATION:USER:{userId}[READ]` and scope `account`
 */
 func (a *Client) AdminGetUserAccountDeletionRequestShort(params *AdminGetUserAccountDeletionRequestParams, authInfo runtime.ClientAuthInfoWriter) (*AdminGetUserAccountDeletionRequestOK, error) {
@@ -252,6 +253,10 @@ func (a *Client) AdminGetUserAccountDeletionRequestShort(params *AdminGetUserAcc
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -292,8 +297,7 @@ func (a *Client) AdminGetUserAccountDeletionRequestShort(params *AdminGetUserAcc
 /*
 Deprecated: 2022-08-10 - Use AdminSubmitUserAccountDeletionRequestShort instead.
 
-AdminSubmitUserAccountDeletionRequest submit user's account deletion requests
-
+# AdminSubmitUserAccountDeletionRequest submit user's account deletion requests
 
 Required permission `ADMIN:NAMESPACE:{namespace}:INFORMATION:USER:{userId} [CREATE]` and scope `account`
 */
@@ -356,7 +360,6 @@ func (a *Client) AdminSubmitUserAccountDeletionRequest(params *AdminSubmitUserAc
 /*
 AdminSubmitUserAccountDeletionRequestShort submit user's account deletion requests
 
-
 Required permission `ADMIN:NAMESPACE:{namespace}:INFORMATION:USER:{userId} [CREATE]` and scope `account`
 */
 func (a *Client) AdminSubmitUserAccountDeletionRequestShort(params *AdminSubmitUserAccountDeletionRequestParams, authInfo runtime.ClientAuthInfoWriter) (*AdminSubmitUserAccountDeletionRequestCreated, error) {
@@ -371,6 +374,10 @@ func (a *Client) AdminSubmitUserAccountDeletionRequestShort(params *AdminSubmitU
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -413,8 +420,7 @@ func (a *Client) AdminSubmitUserAccountDeletionRequestShort(params *AdminSubmitU
 /*
 Deprecated: 2022-08-10 - Use AdminCancelUserAccountDeletionRequestShort instead.
 
-AdminCancelUserAccountDeletionRequest cancel user's account deletion request
-
+# AdminCancelUserAccountDeletionRequest cancel user's account deletion request
 
 Required permission `ADMIN:NAMESPACE:{namespace}:INFORMATION:USER:{userId} [DELETE]` and scope `account`
 */
@@ -477,7 +483,6 @@ func (a *Client) AdminCancelUserAccountDeletionRequest(params *AdminCancelUserAc
 /*
 AdminCancelUserAccountDeletionRequestShort cancel user's account deletion request
 
-
 Required permission `ADMIN:NAMESPACE:{namespace}:INFORMATION:USER:{userId} [DELETE]` and scope `account`
 */
 func (a *Client) AdminCancelUserAccountDeletionRequestShort(params *AdminCancelUserAccountDeletionRequestParams, authInfo runtime.ClientAuthInfoWriter) (*AdminCancelUserAccountDeletionRequestNoContent, error) {
@@ -492,6 +497,10 @@ func (a *Client) AdminCancelUserAccountDeletionRequestShort(params *AdminCancelU
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -534,8 +543,7 @@ func (a *Client) AdminCancelUserAccountDeletionRequestShort(params *AdminCancelU
 /*
 Deprecated: 2022-08-10 - Use PublicSubmitUserAccountDeletionRequestShort instead.
 
-PublicSubmitUserAccountDeletionRequest submit user's account deletion requests
-
+# PublicSubmitUserAccountDeletionRequest submit user's account deletion requests
 
 Requires valid user access token and password
 */
@@ -598,7 +606,6 @@ func (a *Client) PublicSubmitUserAccountDeletionRequest(params *PublicSubmitUser
 /*
 PublicSubmitUserAccountDeletionRequestShort submit user's account deletion requests
 
-
 Requires valid user access token and password
 */
 func (a *Client) PublicSubmitUserAccountDeletionRequestShort(params *PublicSubmitUserAccountDeletionRequestParams, authInfo runtime.ClientAuthInfoWriter) (*PublicSubmitUserAccountDeletionRequestCreated, error) {
@@ -613,6 +620,10 @@ func (a *Client) PublicSubmitUserAccountDeletionRequestShort(params *PublicSubmi
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -655,8 +666,7 @@ func (a *Client) PublicSubmitUserAccountDeletionRequestShort(params *PublicSubmi
 /*
 Deprecated: 2022-08-10 - Use PublicCancelUserAccountDeletionRequestShort instead.
 
-PublicCancelUserAccountDeletionRequest cancel user's account deletion request
-
+# PublicCancelUserAccountDeletionRequest cancel user's account deletion request
 
 Requires valid user access token
 */
@@ -716,7 +726,6 @@ func (a *Client) PublicCancelUserAccountDeletionRequest(params *PublicCancelUser
 /*
 PublicCancelUserAccountDeletionRequestShort cancel user's account deletion request
 
-
 Requires valid user access token
 */
 func (a *Client) PublicCancelUserAccountDeletionRequestShort(params *PublicCancelUserAccountDeletionRequestParams, authInfo runtime.ClientAuthInfoWriter) (*PublicCancelUserAccountDeletionRequestNoContent, error) {
@@ -731,6 +740,10 @@ func (a *Client) PublicCancelUserAccountDeletionRequestShort(params *PublicCance
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -771,8 +784,7 @@ func (a *Client) PublicCancelUserAccountDeletionRequestShort(params *PublicCance
 /*
 Deprecated: 2022-08-10 - Use PublicGetUserAccountDeletionStatusShort instead.
 
-PublicGetUserAccountDeletionStatus retrieve specific user's account deletion status
-
+# PublicGetUserAccountDeletionStatus retrieve specific user's account deletion status
 
 Requires valid user access token
 */
@@ -829,7 +841,6 @@ func (a *Client) PublicGetUserAccountDeletionStatus(params *PublicGetUserAccount
 /*
 PublicGetUserAccountDeletionStatusShort retrieve specific user's account deletion status
 
-
 Requires valid user access token
 */
 func (a *Client) PublicGetUserAccountDeletionStatusShort(params *PublicGetUserAccountDeletionStatusParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGetUserAccountDeletionStatusOK, error) {
@@ -844,6 +855,10 @@ func (a *Client) PublicGetUserAccountDeletionStatusShort(params *PublicGetUserAc
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -884,8 +899,7 @@ Deprecated: 2022-08-10 - Use PublicSubmitMyAccountDeletionRequestShort instead.
 
 PublicSubmitMyAccountDeletionRequest submit my account deletion requests.
 
-
-Requires valid user access token
+# Requires valid user access token
 
 This is for in-game only and require a valid platformId and platform token. If a full account is not logged by 3rd platform, then please use /gdpr/public/namespaces/{namespace}/users/{userId}/deletions
 */
@@ -948,8 +962,7 @@ func (a *Client) PublicSubmitMyAccountDeletionRequest(params *PublicSubmitMyAcco
 /*
 PublicSubmitMyAccountDeletionRequestShort submit my account deletion requests.
 
-
-Requires valid user access token
+# Requires valid user access token
 
 This is for in-game only and require a valid platformId and platform token. If a full account is not logged by 3rd platform, then please use /gdpr/public/namespaces/{namespace}/users/{userId}/deletions
 */
@@ -965,6 +978,10 @@ func (a *Client) PublicSubmitMyAccountDeletionRequestShort(params *PublicSubmitM
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -1007,8 +1024,7 @@ func (a *Client) PublicSubmitMyAccountDeletionRequestShort(params *PublicSubmitM
 /*
 Deprecated: 2022-08-10 - Use PublicCancelMyAccountDeletionRequestShort instead.
 
-PublicCancelMyAccountDeletionRequest cancel my account deletion request
-
+# PublicCancelMyAccountDeletionRequest cancel my account deletion request
 
 Requires valid user access token
 */
@@ -1068,7 +1084,6 @@ func (a *Client) PublicCancelMyAccountDeletionRequest(params *PublicCancelMyAcco
 /*
 PublicCancelMyAccountDeletionRequestShort cancel my account deletion request
 
-
 Requires valid user access token
 */
 func (a *Client) PublicCancelMyAccountDeletionRequestShort(params *PublicCancelMyAccountDeletionRequestParams, authInfo runtime.ClientAuthInfoWriter) (*PublicCancelMyAccountDeletionRequestNoContent, error) {
@@ -1083,6 +1098,10 @@ func (a *Client) PublicCancelMyAccountDeletionRequestShort(params *PublicCancelM
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -1123,8 +1142,7 @@ func (a *Client) PublicCancelMyAccountDeletionRequestShort(params *PublicCancelM
 /*
 Deprecated: 2022-08-10 - Use PublicGetMyAccountDeletionStatusShort instead.
 
-PublicGetMyAccountDeletionStatus retrieve my account deletion status
-
+# PublicGetMyAccountDeletionStatus retrieve my account deletion status
 
 Requires valid user access token
 */
@@ -1181,7 +1199,6 @@ func (a *Client) PublicGetMyAccountDeletionStatus(params *PublicGetMyAccountDele
 /*
 PublicGetMyAccountDeletionStatusShort retrieve my account deletion status
 
-
 Requires valid user access token
 */
 func (a *Client) PublicGetMyAccountDeletionStatusShort(params *PublicGetMyAccountDeletionStatusParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGetMyAccountDeletionStatusOK, error) {
@@ -1196,6 +1213,10 @@ func (a *Client) PublicGetMyAccountDeletionStatusShort(params *PublicGetMyAccoun
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{

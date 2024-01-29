@@ -57,7 +57,8 @@ func NewGetNamespacesGameTelemetryV1AdminNamespacesGetParamsWithHTTPClient(clien
 	}
 }
 
-/*GetNamespacesGameTelemetryV1AdminNamespacesGetParams contains all the parameters to send to the API endpoint
+/*
+GetNamespacesGameTelemetryV1AdminNamespacesGetParams contains all the parameters to send to the API endpoint
 for the get namespaces game telemetry v1 admin namespaces get operation typically these are written to a http.Request
 */
 type GetNamespacesGameTelemetryV1AdminNamespacesGetParams struct {
@@ -69,6 +70,9 @@ type GetNamespacesGameTelemetryV1AdminNamespacesGetParams struct {
 	AuthInfoWriter runtime.ClientAuthInfoWriter
 	Context        context.Context
 	HTTPClient     *http.Client
+
+	// XFlightId is an optional parameter from this SDK
+	XFlightId *string
 }
 
 // WithTimeout adds the timeout to the get namespaces game telemetry v1 admin namespaces get params
@@ -118,6 +122,15 @@ func (o *GetNamespacesGameTelemetryV1AdminNamespacesGetParams) SetHTTPClientTran
 	}
 }
 
+// SetFlightId adds the flightId as the header value for this specific endpoint
+func (o *GetNamespacesGameTelemetryV1AdminNamespacesGetParams) SetFlightId(flightId string) {
+	if o.XFlightId != nil {
+		o.XFlightId = &flightId
+	} else {
+		o.XFlightId = &utils.GetDefaultFlightID().Value
+	}
+}
+
 // WriteToRequest writes these params to a swagger request
 func (o *GetNamespacesGameTelemetryV1AdminNamespacesGetParams) WriteToRequest(r runtime.ClientRequest, reg strfmt.Registry) error {
 
@@ -129,6 +142,16 @@ func (o *GetNamespacesGameTelemetryV1AdminNamespacesGetParams) WriteToRequest(r 
 	// setting the default header value
 	if err := r.SetHeaderParam("X-Amzn-Trace-Id", utils.AmazonTraceIDGen()); err != nil {
 		return err
+	}
+
+	if o.XFlightId == nil {
+		if err := r.SetHeaderParam("X-Flight-Id", utils.GetDefaultFlightID().Value); err != nil {
+			return err
+		}
+	} else {
+		if err := r.SetHeaderParam("X-Flight-Id", *o.XFlightId); err != nil {
+			return err
+		}
 	}
 
 	if len(res) > 0 {

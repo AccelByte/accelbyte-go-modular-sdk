@@ -57,7 +57,8 @@ func NewGetSingleGroupAdminV1ParamsWithHTTPClient(client *http.Client) *GetSingl
 	}
 }
 
-/*GetSingleGroupAdminV1Params contains all the parameters to send to the API endpoint
+/*
+GetSingleGroupAdminV1Params contains all the parameters to send to the API endpoint
 for the get single group admin v1 operation typically these are written to a http.Request
 */
 type GetSingleGroupAdminV1Params struct {
@@ -79,6 +80,9 @@ type GetSingleGroupAdminV1Params struct {
 	AuthInfoWriter runtime.ClientAuthInfoWriter
 	Context        context.Context
 	HTTPClient     *http.Client
+
+	// XFlightId is an optional parameter from this SDK
+	XFlightId *string
 }
 
 // WithTimeout adds the timeout to the get single group admin v1 params
@@ -128,6 +132,15 @@ func (o *GetSingleGroupAdminV1Params) SetHTTPClientTransport(roundTripper http.R
 	}
 }
 
+// SetFlightId adds the flightId as the header value for this specific endpoint
+func (o *GetSingleGroupAdminV1Params) SetFlightId(flightId string) {
+	if o.XFlightId != nil {
+		o.XFlightId = &flightId
+	} else {
+		o.XFlightId = &utils.GetDefaultFlightID().Value
+	}
+}
+
 // WithGroupID adds the groupID to the get single group admin v1 params
 func (o *GetSingleGroupAdminV1Params) WithGroupID(groupID string) *GetSingleGroupAdminV1Params {
 	o.SetGroupID(groupID)
@@ -171,6 +184,16 @@ func (o *GetSingleGroupAdminV1Params) WriteToRequest(r runtime.ClientRequest, re
 	// setting the default header value
 	if err := r.SetHeaderParam("X-Amzn-Trace-Id", utils.AmazonTraceIDGen()); err != nil {
 		return err
+	}
+
+	if o.XFlightId == nil {
+		if err := r.SetHeaderParam("X-Flight-Id", utils.GetDefaultFlightID().Value); err != nil {
+			return err
+		}
+	} else {
+		if err := r.SetHeaderParam("X-Flight-Id", *o.XFlightId); err != nil {
+			return err
+		}
 	}
 
 	if len(res) > 0 {

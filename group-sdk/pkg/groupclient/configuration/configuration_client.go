@@ -56,13 +56,7 @@ Deprecated: 2022-08-10 - Use ListGroupConfigurationAdminV1Short instead.
 ListGroupConfigurationAdminV1 list group configuration
 Required permission 'ADMIN:NAMESPACE:{namespace}:GROUP:CONFIGURATION [READ]'
 
-
-
-
 This endpoint is used to get existing configuration. This Configuration is used as the main rule of the service. Each namespace will have its own configuration
-
-
-
 
 Action Code: 73101
 */
@@ -125,16 +119,9 @@ func (a *Client) ListGroupConfigurationAdminV1(params *ListGroupConfigurationAdm
 /*
 ListGroupConfigurationAdminV1Short list group configuration
 
-
 Required permission 'ADMIN:NAMESPACE:{namespace}:GROUP:CONFIGURATION [READ]'
 
-
-
-
 This endpoint is used to get existing configuration. This Configuration is used as the main rule of the service. Each namespace will have its own configuration
-
-
-
 
 Action Code: 73101
 */
@@ -150,6 +137,10 @@ func (a *Client) ListGroupConfigurationAdminV1Short(params *ListGroupConfigurati
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -192,42 +183,21 @@ func (a *Client) ListGroupConfigurationAdminV1Short(params *ListGroupConfigurati
 /*
 Deprecated: 2022-08-10 - Use CreateGroupConfigurationAdminV1Short instead.
 
-CreateGroupConfigurationAdminV1 create new configuration
-
+# CreateGroupConfigurationAdminV1 create new configuration
 
 Required permission 'ADMIN:NAMESPACE:{namespace}:GROUP:CONFIGURATION [CREATE]'
 
-
-
-
 This endpoint is used to create new configuration. Before creating the configuration, make sure that member role for admin and group member are already created before.
-
-
-
 
 For each of the global rule, it will be the rule detail that consists of these fields:
 
+  - ruleAttribute : attribute of the player that needs to be checked
 
+  - ruleCriteria : criteria of the value. The value will be in enum of EQUAL, MINIMUM, MAXIMUM
 
-
-
-
-  * ruleAttribute : attribute of the player that needs to be checked
-
-
-  * ruleCriteria : criteria of the value. The value will be in enum of EQUAL, MINIMUM, MAXIMUM
-
-
-  * ruleValue : value that needs to be checked
-
-
-
-
+  - ruleValue : value that needs to be checked
 
 Allowed Action can only be filled with any available action in the Group Service. For the configuration, the only value is "createGroup"
-
-
-
 
 Action Code: 73103
 */
@@ -290,40 +260,19 @@ func (a *Client) CreateGroupConfigurationAdminV1(params *CreateGroupConfiguratio
 /*
 CreateGroupConfigurationAdminV1Short create new configuration
 
-
 Required permission 'ADMIN:NAMESPACE:{namespace}:GROUP:CONFIGURATION [CREATE]'
-
-
-
 
 This endpoint is used to create new configuration. Before creating the configuration, make sure that member role for admin and group member are already created before.
 
-
-
-
 For each of the global rule, it will be the rule detail that consists of these fields:
 
+  - ruleAttribute : attribute of the player that needs to be checked
 
+  - ruleCriteria : criteria of the value. The value will be in enum of EQUAL, MINIMUM, MAXIMUM
 
-
-
-
-  * ruleAttribute : attribute of the player that needs to be checked
-
-
-  * ruleCriteria : criteria of the value. The value will be in enum of EQUAL, MINIMUM, MAXIMUM
-
-
-  * ruleValue : value that needs to be checked
-
-
-
-
+  - ruleValue : value that needs to be checked
 
 Allowed Action can only be filled with any available action in the Group Service. For the configuration, the only value is "createGroup"
-
-
-
 
 Action Code: 73103
 */
@@ -339,6 +288,10 @@ func (a *Client) CreateGroupConfigurationAdminV1Short(params *CreateGroupConfigu
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -381,42 +334,21 @@ func (a *Client) CreateGroupConfigurationAdminV1Short(params *CreateGroupConfigu
 /*
 Deprecated: 2022-08-10 - Use InitiateGroupConfigurationAdminV1Short instead.
 
-InitiateGroupConfigurationAdminV1 initiate configuration
-
+# InitiateGroupConfigurationAdminV1 initiate configuration
 
 Required permission 'ADMIN:NAMESPACE:{namespace}:GROUP:CONFIGURATION [CREATE]'
 
-
-
-
 This endpoint is used to initiate configuration. This endpoint will automatically create default configuration and member roles with default permission
-
-
-
 
 Default Permission for admin role will cover these permission:
 
+  - Permission to invite user to group
 
+  - Permission to accept or reject join request
 
+  - Permission to kick group member
 
-
-
-  * Permission to invite user to group
-
-
-  * Permission to accept or reject join request
-
-
-  * Permission to kick group member
-
-
-
-
-
-Default max member value will be 50 and global rules will be empty
-
-
-
+# Default max member value will be 50 and global rules will be empty
 
 Action Code: 73104
 */
@@ -476,40 +408,19 @@ func (a *Client) InitiateGroupConfigurationAdminV1(params *InitiateGroupConfigur
 /*
 InitiateGroupConfigurationAdminV1Short initiate configuration
 
-
 Required permission 'ADMIN:NAMESPACE:{namespace}:GROUP:CONFIGURATION [CREATE]'
-
-
-
 
 This endpoint is used to initiate configuration. This endpoint will automatically create default configuration and member roles with default permission
 
-
-
-
 Default Permission for admin role will cover these permission:
 
+  - Permission to invite user to group
 
+  - Permission to accept or reject join request
 
+  - Permission to kick group member
 
-
-
-  * Permission to invite user to group
-
-
-  * Permission to accept or reject join request
-
-
-  * Permission to kick group member
-
-
-
-
-
-Default max member value will be 50 and global rules will be empty
-
-
-
+# Default max member value will be 50 and global rules will be empty
 
 Action Code: 73104
 */
@@ -525,6 +436,10 @@ func (a *Client) InitiateGroupConfigurationAdminV1Short(params *InitiateGroupCon
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -565,18 +480,11 @@ func (a *Client) InitiateGroupConfigurationAdminV1Short(params *InitiateGroupCon
 /*
 Deprecated: 2022-08-10 - Use GetGroupConfigurationAdminV1Short instead.
 
-GetGroupConfigurationAdminV1 get existing configuration
-
+# GetGroupConfigurationAdminV1 get existing configuration
 
 Required permission 'ADMIN:NAMESPACE:{namespace}:GROUP:CONFIGURATION [READ]'
 
-
-
-
 This endpoint is used to get existing configuration. This Configuration is used as the main rule of the service. Each namespace will have its own configuration
-
-
-
 
 Action Code: 73101
 */
@@ -639,16 +547,9 @@ func (a *Client) GetGroupConfigurationAdminV1(params *GetGroupConfigurationAdmin
 /*
 GetGroupConfigurationAdminV1Short get existing configuration
 
-
 Required permission 'ADMIN:NAMESPACE:{namespace}:GROUP:CONFIGURATION [READ]'
 
-
-
-
 This endpoint is used to get existing configuration. This Configuration is used as the main rule of the service. Each namespace will have its own configuration
-
-
-
 
 Action Code: 73101
 */
@@ -664,6 +565,10 @@ func (a *Client) GetGroupConfigurationAdminV1Short(params *GetGroupConfiguration
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -706,18 +611,11 @@ func (a *Client) GetGroupConfigurationAdminV1Short(params *GetGroupConfiguration
 /*
 Deprecated: 2022-08-10 - Use DeleteGroupConfigurationV1Short instead.
 
-DeleteGroupConfigurationV1 delete group configuration
-
+# DeleteGroupConfigurationV1 delete group configuration
 
 Required permission 'ADMIN:NAMESPACE:{namespace}:GROUP:CONFIGURATION [DELETE]'
 
-
-
-
 This endpoint is used to delete group configuration. This Configuration is used as the main rule of the service. Each namespace will have its own configuration
-
-
-
 
 Action Code: 73101
 */
@@ -780,16 +678,9 @@ func (a *Client) DeleteGroupConfigurationV1(params *DeleteGroupConfigurationV1Pa
 /*
 DeleteGroupConfigurationV1Short delete group configuration
 
-
 Required permission 'ADMIN:NAMESPACE:{namespace}:GROUP:CONFIGURATION [DELETE]'
 
-
-
-
 This endpoint is used to delete group configuration. This Configuration is used as the main rule of the service. Each namespace will have its own configuration
-
-
-
 
 Action Code: 73101
 */
@@ -805,6 +696,10 @@ func (a *Client) DeleteGroupConfigurationV1Short(params *DeleteGroupConfiguratio
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -847,18 +742,11 @@ func (a *Client) DeleteGroupConfigurationV1Short(params *DeleteGroupConfiguratio
 /*
 Deprecated: 2022-08-10 - Use UpdateGroupConfigurationAdminV1Short instead.
 
-UpdateGroupConfigurationAdminV1 update existing configuration
-
+# UpdateGroupConfigurationAdminV1 update existing configuration
 
 Required permission 'ADMIN:NAMESPACE:{namespace}:GROUP:CONFIGURATION [UPDATE]'
 
-
-
-
 This endpoint is used to update existing configuration. groupAdminRoleId and groupMemberRoleId won't be able to be updated. User can try to change the member role permission instead for each of those member role
-
-
-
 
 Action Code: 73102
 */
@@ -921,16 +809,9 @@ func (a *Client) UpdateGroupConfigurationAdminV1(params *UpdateGroupConfiguratio
 /*
 UpdateGroupConfigurationAdminV1Short update existing configuration
 
-
 Required permission 'ADMIN:NAMESPACE:{namespace}:GROUP:CONFIGURATION [UPDATE]'
 
-
-
-
 This endpoint is used to update existing configuration. groupAdminRoleId and groupMemberRoleId won't be able to be updated. User can try to change the member role permission instead for each of those member role
-
-
-
 
 Action Code: 73102
 */
@@ -946,6 +827,10 @@ func (a *Client) UpdateGroupConfigurationAdminV1Short(params *UpdateGroupConfigu
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -988,18 +873,11 @@ func (a *Client) UpdateGroupConfigurationAdminV1Short(params *UpdateGroupConfigu
 /*
 Deprecated: 2022-08-10 - Use UpdateGroupConfigurationGlobalRuleAdminV1Short instead.
 
-UpdateGroupConfigurationGlobalRuleAdminV1 update existing configuration global rule
-
+# UpdateGroupConfigurationGlobalRuleAdminV1 update existing configuration global rule
 
 Required permission 'ADMIN:NAMESPACE:{namespace}:GROUP:CONFIGURATION [UPDATE]'
 
-
-
-
 This endpoint is used to update existing global rule configuration based on the allowed action. It will replace the permission with the request
-
-
-
 
 Action Code: 73106
 */
@@ -1062,16 +940,9 @@ func (a *Client) UpdateGroupConfigurationGlobalRuleAdminV1(params *UpdateGroupCo
 /*
 UpdateGroupConfigurationGlobalRuleAdminV1Short update existing configuration global rule
 
-
 Required permission 'ADMIN:NAMESPACE:{namespace}:GROUP:CONFIGURATION [UPDATE]'
 
-
-
-
 This endpoint is used to update existing global rule configuration based on the allowed action. It will replace the permission with the request
-
-
-
 
 Action Code: 73106
 */
@@ -1087,6 +958,10 @@ func (a *Client) UpdateGroupConfigurationGlobalRuleAdminV1Short(params *UpdateGr
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -1129,18 +1004,11 @@ func (a *Client) UpdateGroupConfigurationGlobalRuleAdminV1Short(params *UpdateGr
 /*
 Deprecated: 2022-08-10 - Use DeleteGroupConfigurationGlobalRuleAdminV1Short instead.
 
-DeleteGroupConfigurationGlobalRuleAdminV1 delete existing configuration global rule based on allowed action
-
+# DeleteGroupConfigurationGlobalRuleAdminV1 delete existing configuration global rule based on allowed action
 
 Required permission 'ADMIN:NAMESPACE:{namespace}:GROUP:CONFIGURATION [UPDATE]'
 
-
-
-
 This endpoint is used to delete existing global rule configuration based on the allowed action. It will not give any error if the allowed action is not existed in the global rule
-
-
-
 
 Action Code: 73105
 */
@@ -1203,16 +1071,9 @@ func (a *Client) DeleteGroupConfigurationGlobalRuleAdminV1(params *DeleteGroupCo
 /*
 DeleteGroupConfigurationGlobalRuleAdminV1Short delete existing configuration global rule based on allowed action
 
-
 Required permission 'ADMIN:NAMESPACE:{namespace}:GROUP:CONFIGURATION [UPDATE]'
 
-
-
-
 This endpoint is used to delete existing global rule configuration based on the allowed action. It will not give any error if the allowed action is not existed in the global rule
-
-
-
 
 Action Code: 73105
 */
@@ -1228,6 +1089,10 @@ func (a *Client) DeleteGroupConfigurationGlobalRuleAdminV1Short(params *DeleteGr
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{

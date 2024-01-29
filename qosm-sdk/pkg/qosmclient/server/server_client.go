@@ -119,6 +119,10 @@ func (a *Client) HeartbeatShort(params *HeartbeatParams, authInfo runtime.Client
 		params.SetHTTPClientTransport(params.RetryPolicy)
 	}
 
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
+	}
+
 	result, err := a.transport.Submit(&runtime.ClientOperation{
 		ID:                 "Heartbeat",
 		Method:             "POST",

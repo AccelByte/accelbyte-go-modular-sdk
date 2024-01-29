@@ -112,6 +112,10 @@ func (a *Client) PublicListContentLikeV2Short(params *PublicListContentLikeV2Par
 		params.SetHTTPClientTransport(params.RetryPolicy)
 	}
 
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
+	}
+
 	result, err := a.transport.Submit(&runtime.ClientOperation{
 		ID:                 "PublicListContentLikeV2",
 		Method:             "GET",
@@ -223,6 +227,10 @@ func (a *Client) UpdateContentLikeStatusV2Short(params *UpdateContentLikeStatusV
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{

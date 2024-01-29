@@ -121,6 +121,10 @@ func (a *Client) GetServerLogsShort(params *GetServerLogsParams, authInfo runtim
 		params.SetHTTPClientTransport(params.RetryPolicy)
 	}
 
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
+	}
+
 	result, err := a.transport.Submit(&runtime.ClientOperation{
 		ID:                 "getServerLogs",
 		Method:             "GET",

@@ -115,6 +115,10 @@ func (a *Client) AdminGetConfigsShort(params *AdminGetConfigsParams, authInfo ru
 		params.SetHTTPClientTransport(params.RetryPolicy)
 	}
 
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
+	}
+
 	result, err := a.transport.Submit(&runtime.ClientOperation{
 		ID:                 "AdminGetConfigs",
 		Method:             "GET",
@@ -231,6 +235,10 @@ func (a *Client) AdminUpdateConfigShort(params *AdminUpdateConfigParams, authInf
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{

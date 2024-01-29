@@ -59,7 +59,8 @@ func NewPublicUnbanTopicMembersParamsWithHTTPClient(client *http.Client) *Public
 	}
 }
 
-/*PublicUnbanTopicMembersParams contains all the parameters to send to the API endpoint
+/*
+PublicUnbanTopicMembersParams contains all the parameters to send to the API endpoint
 for the public unban topic members operation typically these are written to a http.Request
 */
 type PublicUnbanTopicMembersParams struct {
@@ -83,6 +84,9 @@ type PublicUnbanTopicMembersParams struct {
 	AuthInfoWriter runtime.ClientAuthInfoWriter
 	Context        context.Context
 	HTTPClient     *http.Client
+
+	// XFlightId is an optional parameter from this SDK
+	XFlightId *string
 }
 
 // WithTimeout adds the timeout to the public unban topic members params
@@ -129,6 +133,15 @@ func (o *PublicUnbanTopicMembersParams) SetHTTPClientTransport(roundTripper http
 		o.HTTPClient.Transport = roundTripper
 	} else {
 		o.HTTPClient = &http.Client{Transport: roundTripper}
+	}
+}
+
+// SetFlightId adds the flightId as the header value for this specific endpoint
+func (o *PublicUnbanTopicMembersParams) SetFlightId(flightId string) {
+	if o.XFlightId != nil {
+		o.XFlightId = &flightId
+	} else {
+		o.XFlightId = &utils.GetDefaultFlightID().Value
 	}
 }
 
@@ -192,6 +205,16 @@ func (o *PublicUnbanTopicMembersParams) WriteToRequest(r runtime.ClientRequest, 
 	// setting the default header value
 	if err := r.SetHeaderParam("X-Amzn-Trace-Id", utils.AmazonTraceIDGen()); err != nil {
 		return err
+	}
+
+	if o.XFlightId == nil {
+		if err := r.SetHeaderParam("X-Flight-Id", utils.GetDefaultFlightID().Value); err != nil {
+			return err
+		}
+	} else {
+		if err := r.SetHeaderParam("X-Flight-Id", *o.XFlightId); err != nil {
+			return err
+		}
 	}
 
 	if len(res) > 0 {

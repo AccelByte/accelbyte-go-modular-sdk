@@ -39,13 +39,9 @@ type ClientService interface {
 /*
 Deprecated: 2022-08-10 - Use AdminAnonymizeUserAchievementShort instead.
 
-AdminAnonymizeUserAchievement anonymize user's achievement
+# AdminAnonymizeUserAchievement anonymize user's achievement
 
-
-This API will delete specified user achievement
-
-
-
+# This API will delete specified user achievement
 
 Required permission
 `ADMIN:NAMESPACE:{namespace}:USER:{userId}:ANONYMIZATION [DELETE]`
@@ -100,11 +96,7 @@ func (a *Client) AdminAnonymizeUserAchievement(params *AdminAnonymizeUserAchieve
 /*
 AdminAnonymizeUserAchievementShort anonymize user's achievement
 
-
-This API will delete specified user achievement
-
-
-
+# This API will delete specified user achievement
 
 Required permission
 `ADMIN:NAMESPACE:{namespace}:USER:{userId}:ANONYMIZATION [DELETE]`
@@ -121,6 +113,10 @@ func (a *Client) AdminAnonymizeUserAchievementShort(params *AdminAnonymizeUserAc
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{

@@ -123,6 +123,10 @@ func (a *Client) AdminReadSessionStorageShort(params *AdminReadSessionStoragePar
 		params.SetHTTPClientTransport(params.RetryPolicy)
 	}
 
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
+	}
+
 	result, err := a.transport.Submit(&runtime.ClientOperation{
 		ID:                 "adminReadSessionStorage",
 		Method:             "GET",
@@ -237,6 +241,10 @@ func (a *Client) AdminDeleteUserSessionStorageShort(params *AdminDeleteUserSessi
 		params.SetHTTPClientTransport(params.RetryPolicy)
 	}
 
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
+	}
+
 	result, err := a.transport.Submit(&runtime.ClientOperation{
 		ID:                 "adminDeleteUserSessionStorage",
 		Method:             "DELETE",
@@ -349,6 +357,10 @@ func (a *Client) AdminReadUserSessionStorageShort(params *AdminReadUserSessionSt
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -484,6 +496,10 @@ func (a *Client) PublicUpdateInsertSessionStorageLeaderShort(params *PublicUpdat
 		params.SetHTTPClientTransport(params.RetryPolicy)
 	}
 
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
+	}
+
 	result, err := a.transport.Submit(&runtime.ClientOperation{
 		ID:                 "publicUpdateInsertSessionStorageLeader",
 		Method:             "PATCH",
@@ -617,6 +633,10 @@ func (a *Client) PublicUpdateInsertSessionStorageShort(params *PublicUpdateInser
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{

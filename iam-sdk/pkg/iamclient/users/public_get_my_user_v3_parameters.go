@@ -70,7 +70,8 @@ func NewPublicGetMyUserV3ParamsWithHTTPClient(client *http.Client) *PublicGetMyU
 	}
 }
 
-/*PublicGetMyUserV3Params contains all the parameters to send to the API endpoint
+/*
+PublicGetMyUserV3Params contains all the parameters to send to the API endpoint
 for the public get my user v3 operation typically these are written to a http.Request
 */
 type PublicGetMyUserV3Params struct {
@@ -87,6 +88,9 @@ type PublicGetMyUserV3Params struct {
 	AuthInfoWriter runtime.ClientAuthInfoWriter
 	Context        context.Context
 	HTTPClient     *http.Client
+
+	// XFlightId is an optional parameter from this SDK
+	XFlightId *string
 }
 
 // WithTimeout adds the timeout to the public get my user v3 params
@@ -136,6 +140,15 @@ func (o *PublicGetMyUserV3Params) SetHTTPClientTransport(roundTripper http.Round
 	}
 }
 
+// SetFlightId adds the flightId as the header value for this specific endpoint
+func (o *PublicGetMyUserV3Params) SetFlightId(flightId string) {
+	if o.XFlightId != nil {
+		o.XFlightId = &flightId
+	} else {
+		o.XFlightId = &utils.GetDefaultFlightID().Value
+	}
+}
+
 // WithIncludeAllPlatforms adds the includeAllPlatforms to the public get my user v3 params
 func (o *PublicGetMyUserV3Params) WithIncludeAllPlatforms(includeAllPlatforms *bool) *PublicGetMyUserV3Params {
 	o.SetIncludeAllPlatforms(includeAllPlatforms)
@@ -174,6 +187,16 @@ func (o *PublicGetMyUserV3Params) WriteToRequest(r runtime.ClientRequest, reg st
 	// setting the default header value
 	if err := r.SetHeaderParam("X-Amzn-Trace-Id", utils.AmazonTraceIDGen()); err != nil {
 		return err
+	}
+
+	if o.XFlightId == nil {
+		if err := r.SetHeaderParam("X-Flight-Id", utils.GetDefaultFlightID().Value); err != nil {
+			return err
+		}
+	} else {
+		if err := r.SetHeaderParam("X-Flight-Id", *o.XFlightId); err != nil {
+			return err
+		}
 	}
 
 	if len(res) > 0 {

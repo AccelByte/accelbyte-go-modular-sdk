@@ -132,6 +132,10 @@ func (a *Client) GetEventByNamespaceHandlerShort(params *GetEventByNamespaceHand
 		params.SetHTTPClientTransport(params.RetryPolicy)
 	}
 
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
+	}
+
 	result, err := a.transport.Submit(&runtime.ClientOperation{
 		ID:                 "GetEventByNamespaceHandler",
 		Method:             "GET",
@@ -244,6 +248,10 @@ func (a *Client) PostEventHandlerShort(params *PostEventHandlerParams, authInfo 
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -359,6 +367,10 @@ func (a *Client) GetEventByEventIDHandlerShort(params *GetEventByEventIDHandlerP
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -478,6 +490,10 @@ func (a *Client) GetEventByEventTypeHandlerShort(params *GetEventByEventTypeHand
 		params.SetHTTPClientTransport(params.RetryPolicy)
 	}
 
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
+	}
+
 	result, err := a.transport.Submit(&runtime.ClientOperation{
 		ID:                 "GetEventByEventTypeHandler",
 		Method:             "GET",
@@ -593,6 +609,10 @@ func (a *Client) GetEventByEventTypeAndEventIDHandlerShort(params *GetEventByEve
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -712,6 +732,10 @@ func (a *Client) GetEventByUserIDHandlerShort(params *GetEventByUserIDHandlerPar
 		params.SetHTTPClientTransport(params.RetryPolicy)
 	}
 
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
+	}
+
 	result, err := a.transport.Submit(&runtime.ClientOperation{
 		ID:                 "GetEventByUserIDHandler",
 		Method:             "GET",
@@ -827,6 +851,10 @@ func (a *Client) GetEventByUserIDAndEventIDHandlerShort(params *GetEventByUserID
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -946,6 +974,10 @@ func (a *Client) GetEventByUserIDAndEventTypeHandlerShort(params *GetEventByUser
 		params.SetHTTPClientTransport(params.RetryPolicy)
 	}
 
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
+	}
+
 	result, err := a.transport.Submit(&runtime.ClientOperation{
 		ID:                 "GetEventByUserIDAndEventTypeHandler",
 		Method:             "GET",
@@ -1061,6 +1093,10 @@ func (a *Client) GetEventByUserEventIDAndEventTypeHandlerShort(params *GetEventB
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{

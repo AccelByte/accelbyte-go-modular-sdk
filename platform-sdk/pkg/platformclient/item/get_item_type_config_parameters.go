@@ -57,7 +57,8 @@ func NewGetItemTypeConfigParamsWithHTTPClient(client *http.Client) *GetItemTypeC
 	}
 }
 
-/*GetItemTypeConfigParams contains all the parameters to send to the API endpoint
+/*
+GetItemTypeConfigParams contains all the parameters to send to the API endpoint
 for the get item type config operation typically these are written to a http.Request
 */
 type GetItemTypeConfigParams struct {
@@ -71,6 +72,9 @@ type GetItemTypeConfigParams struct {
 	AuthInfoWriter runtime.ClientAuthInfoWriter
 	Context        context.Context
 	HTTPClient     *http.Client
+
+	// XFlightId is an optional parameter from this SDK
+	XFlightId *string
 }
 
 // WithTimeout adds the timeout to the get item type config params
@@ -120,6 +124,15 @@ func (o *GetItemTypeConfigParams) SetHTTPClientTransport(roundTripper http.Round
 	}
 }
 
+// SetFlightId adds the flightId as the header value for this specific endpoint
+func (o *GetItemTypeConfigParams) SetFlightId(flightId string) {
+	if o.XFlightId != nil {
+		o.XFlightId = &flightId
+	} else {
+		o.XFlightId = &utils.GetDefaultFlightID().Value
+	}
+}
+
 // WithID adds the idVar to the get item type config params
 func (o *GetItemTypeConfigParams) WithID(idVar string) *GetItemTypeConfigParams {
 	o.SetID(idVar)
@@ -147,6 +160,16 @@ func (o *GetItemTypeConfigParams) WriteToRequest(r runtime.ClientRequest, reg st
 	// setting the default header value
 	if err := r.SetHeaderParam("X-Amzn-Trace-Id", utils.AmazonTraceIDGen()); err != nil {
 		return err
+	}
+
+	if o.XFlightId == nil {
+		if err := r.SetHeaderParam("X-Flight-Id", utils.GetDefaultFlightID().Value); err != nil {
+			return err
+		}
+	} else {
+		if err := r.SetHeaderParam("X-Flight-Id", *o.XFlightId); err != nil {
+			return err
+		}
 	}
 
 	if len(res) > 0 {

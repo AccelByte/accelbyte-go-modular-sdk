@@ -116,6 +116,10 @@ func (a *Client) AdminGetCountryListV3Short(params *AdminGetCountryListV3Params,
 		params.SetHTTPClientTransport(params.RetryPolicy)
 	}
 
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
+	}
+
 	result, err := a.transport.Submit(&runtime.ClientOperation{
 		ID:                 "AdminGetCountryListV3",
 		Method:             "GET",
@@ -221,6 +225,10 @@ func (a *Client) AdminGetCountryBlacklistV3Short(params *AdminGetCountryBlacklis
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -333,6 +341,10 @@ func (a *Client) AdminAddCountryBlacklistV3Short(params *AdminAddCountryBlacklis
 		params.SetHTTPClientTransport(params.RetryPolicy)
 	}
 
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
+	}
+
 	result, err := a.transport.Submit(&runtime.ClientOperation{
 		ID:                 "AdminAddCountryBlacklistV3",
 		Method:             "POST",
@@ -434,6 +446,10 @@ func (a *Client) PublicGetCountryListV3Short(params *PublicGetCountryListV3Param
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{

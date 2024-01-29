@@ -59,7 +59,8 @@ func NewBatchDownloadServerLogsParamsWithHTTPClient(client *http.Client) *BatchD
 	}
 }
 
-/*BatchDownloadServerLogsParams contains all the parameters to send to the API endpoint
+/*
+BatchDownloadServerLogsParams contains all the parameters to send to the API endpoint
 for the batch download server logs operation typically these are written to a http.Request
 */
 type BatchDownloadServerLogsParams struct {
@@ -73,6 +74,9 @@ type BatchDownloadServerLogsParams struct {
 	AuthInfoWriter runtime.ClientAuthInfoWriter
 	Context        context.Context
 	HTTPClient     *http.Client
+
+	// XFlightId is an optional parameter from this SDK
+	XFlightId *string
 }
 
 // WithTimeout adds the timeout to the batch download server logs params
@@ -122,6 +126,15 @@ func (o *BatchDownloadServerLogsParams) SetHTTPClientTransport(roundTripper http
 	}
 }
 
+// SetFlightId adds the flightId as the header value for this specific endpoint
+func (o *BatchDownloadServerLogsParams) SetFlightId(flightId string) {
+	if o.XFlightId != nil {
+		o.XFlightId = &flightId
+	} else {
+		o.XFlightId = &utils.GetDefaultFlightID().Value
+	}
+}
+
 // WithBody adds the body to the batch download server logs params
 func (o *BatchDownloadServerLogsParams) WithBody(body *dslogmanagerclientmodels.ModelsBatchDownloadLogsRequest) *BatchDownloadServerLogsParams {
 	o.SetBody(body)
@@ -150,6 +163,16 @@ func (o *BatchDownloadServerLogsParams) WriteToRequest(r runtime.ClientRequest, 
 	// setting the default header value
 	if err := r.SetHeaderParam("X-Amzn-Trace-Id", utils.AmazonTraceIDGen()); err != nil {
 		return err
+	}
+
+	if o.XFlightId == nil {
+		if err := r.SetHeaderParam("X-Flight-Id", utils.GetDefaultFlightID().Value); err != nil {
+			return err
+		}
+	} else {
+		if err := r.SetHeaderParam("X-Flight-Id", *o.XFlightId); err != nil {
+			return err
+		}
 	}
 
 	if len(res) > 0 {

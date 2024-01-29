@@ -57,7 +57,8 @@ func NewDisableCodeParamsWithHTTPClient(client *http.Client) *DisableCodeParams 
 	}
 }
 
-/*DisableCodeParams contains all the parameters to send to the API endpoint
+/*
+DisableCodeParams contains all the parameters to send to the API endpoint
 for the disable code operation typically these are written to a http.Request
 */
 type DisableCodeParams struct {
@@ -73,6 +74,9 @@ type DisableCodeParams struct {
 	AuthInfoWriter runtime.ClientAuthInfoWriter
 	Context        context.Context
 	HTTPClient     *http.Client
+
+	// XFlightId is an optional parameter from this SDK
+	XFlightId *string
 }
 
 // WithTimeout adds the timeout to the disable code params
@@ -122,6 +126,15 @@ func (o *DisableCodeParams) SetHTTPClientTransport(roundTripper http.RoundTrippe
 	}
 }
 
+// SetFlightId adds the flightId as the header value for this specific endpoint
+func (o *DisableCodeParams) SetFlightId(flightId string) {
+	if o.XFlightId != nil {
+		o.XFlightId = &flightId
+	} else {
+		o.XFlightId = &utils.GetDefaultFlightID().Value
+	}
+}
+
 // WithCode adds the code to the disable code params
 func (o *DisableCodeParams) WithCode(code string) *DisableCodeParams {
 	o.SetCode(code)
@@ -165,6 +178,16 @@ func (o *DisableCodeParams) WriteToRequest(r runtime.ClientRequest, reg strfmt.R
 	// setting the default header value
 	if err := r.SetHeaderParam("X-Amzn-Trace-Id", utils.AmazonTraceIDGen()); err != nil {
 		return err
+	}
+
+	if o.XFlightId == nil {
+		if err := r.SetHeaderParam("X-Flight-Id", utils.GetDefaultFlightID().Value); err != nil {
+			return err
+		}
+	} else {
+		if err := r.SetHeaderParam("X-Flight-Id", *o.XFlightId); err != nil {
+			return err
+		}
 	}
 
 	if len(res) > 0 {

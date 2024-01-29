@@ -59,7 +59,8 @@ func NewAdminUpdatePlatformCredentialsParamsWithHTTPClient(client *http.Client) 
 	}
 }
 
-/*AdminUpdatePlatformCredentialsParams contains all the parameters to send to the API endpoint
+/*
+AdminUpdatePlatformCredentialsParams contains all the parameters to send to the API endpoint
 for the admin update platform credentials operation typically these are written to a http.Request
 */
 type AdminUpdatePlatformCredentialsParams struct {
@@ -78,6 +79,9 @@ type AdminUpdatePlatformCredentialsParams struct {
 	AuthInfoWriter runtime.ClientAuthInfoWriter
 	Context        context.Context
 	HTTPClient     *http.Client
+
+	// XFlightId is an optional parameter from this SDK
+	XFlightId *string
 }
 
 // WithTimeout adds the timeout to the admin update platform credentials params
@@ -127,6 +131,15 @@ func (o *AdminUpdatePlatformCredentialsParams) SetHTTPClientTransport(roundTripp
 	}
 }
 
+// SetFlightId adds the flightId as the header value for this specific endpoint
+func (o *AdminUpdatePlatformCredentialsParams) SetFlightId(flightId string) {
+	if o.XFlightId != nil {
+		o.XFlightId = &flightId
+	} else {
+		o.XFlightId = &utils.GetDefaultFlightID().Value
+	}
+}
+
 // WithBody adds the body to the admin update platform credentials params
 func (o *AdminUpdatePlatformCredentialsParams) WithBody(body *sessionclientmodels.ApimodelsPutPlatformCredentialsRequest) *AdminUpdatePlatformCredentialsParams {
 	o.SetBody(body)
@@ -171,6 +184,16 @@ func (o *AdminUpdatePlatformCredentialsParams) WriteToRequest(r runtime.ClientRe
 	// setting the default header value
 	if err := r.SetHeaderParam("X-Amzn-Trace-Id", utils.AmazonTraceIDGen()); err != nil {
 		return err
+	}
+
+	if o.XFlightId == nil {
+		if err := r.SetHeaderParam("X-Flight-Id", utils.GetDefaultFlightID().Value); err != nil {
+			return err
+		}
+	} else {
+		if err := r.SetHeaderParam("X-Flight-Id", *o.XFlightId); err != nil {
+			return err
+		}
 	}
 
 	if len(res) > 0 {

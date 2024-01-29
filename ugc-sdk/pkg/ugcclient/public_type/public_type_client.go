@@ -110,6 +110,10 @@ func (a *Client) GetTypeShort(params *GetTypeParams, authInfo runtime.ClientAuth
 		params.SetHTTPClientTransport(params.RetryPolicy)
 	}
 
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
+	}
+
 	result, err := a.transport.Submit(&runtime.ClientOperation{
 		ID:                 "GetType",
 		Method:             "GET",

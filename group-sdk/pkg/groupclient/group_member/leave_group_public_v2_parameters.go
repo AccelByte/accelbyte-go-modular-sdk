@@ -57,7 +57,8 @@ func NewLeaveGroupPublicV2ParamsWithHTTPClient(client *http.Client) *LeaveGroupP
 	}
 }
 
-/*LeaveGroupPublicV2Params contains all the parameters to send to the API endpoint
+/*
+LeaveGroupPublicV2Params contains all the parameters to send to the API endpoint
 for the leave group public v2 operation typically these are written to a http.Request
 */
 type LeaveGroupPublicV2Params struct {
@@ -79,6 +80,9 @@ type LeaveGroupPublicV2Params struct {
 	AuthInfoWriter runtime.ClientAuthInfoWriter
 	Context        context.Context
 	HTTPClient     *http.Client
+
+	// XFlightId is an optional parameter from this SDK
+	XFlightId *string
 }
 
 // WithTimeout adds the timeout to the leave group public v2 params
@@ -128,6 +132,15 @@ func (o *LeaveGroupPublicV2Params) SetHTTPClientTransport(roundTripper http.Roun
 	}
 }
 
+// SetFlightId adds the flightId as the header value for this specific endpoint
+func (o *LeaveGroupPublicV2Params) SetFlightId(flightId string) {
+	if o.XFlightId != nil {
+		o.XFlightId = &flightId
+	} else {
+		o.XFlightId = &utils.GetDefaultFlightID().Value
+	}
+}
+
 // WithGroupID adds the groupID to the leave group public v2 params
 func (o *LeaveGroupPublicV2Params) WithGroupID(groupID string) *LeaveGroupPublicV2Params {
 	o.SetGroupID(groupID)
@@ -171,6 +184,16 @@ func (o *LeaveGroupPublicV2Params) WriteToRequest(r runtime.ClientRequest, reg s
 	// setting the default header value
 	if err := r.SetHeaderParam("X-Amzn-Trace-Id", utils.AmazonTraceIDGen()); err != nil {
 		return err
+	}
+
+	if o.XFlightId == nil {
+		if err := r.SetHeaderParam("X-Flight-Id", utils.GetDefaultFlightID().Value); err != nil {
+			return err
+		}
+	} else {
+		if err := r.SetHeaderParam("X-Flight-Id", *o.XFlightId); err != nil {
+			return err
+		}
 	}
 
 	if len(res) > 0 {

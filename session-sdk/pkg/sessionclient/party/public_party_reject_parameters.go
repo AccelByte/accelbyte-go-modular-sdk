@@ -57,7 +57,8 @@ func NewPublicPartyRejectParamsWithHTTPClient(client *http.Client) *PublicPartyR
 	}
 }
 
-/*PublicPartyRejectParams contains all the parameters to send to the API endpoint
+/*
+PublicPartyRejectParams contains all the parameters to send to the API endpoint
 for the public party reject operation typically these are written to a http.Request
 */
 type PublicPartyRejectParams struct {
@@ -79,6 +80,9 @@ type PublicPartyRejectParams struct {
 	AuthInfoWriter runtime.ClientAuthInfoWriter
 	Context        context.Context
 	HTTPClient     *http.Client
+
+	// XFlightId is an optional parameter from this SDK
+	XFlightId *string
 }
 
 // WithTimeout adds the timeout to the public party reject params
@@ -128,6 +132,15 @@ func (o *PublicPartyRejectParams) SetHTTPClientTransport(roundTripper http.Round
 	}
 }
 
+// SetFlightId adds the flightId as the header value for this specific endpoint
+func (o *PublicPartyRejectParams) SetFlightId(flightId string) {
+	if o.XFlightId != nil {
+		o.XFlightId = &flightId
+	} else {
+		o.XFlightId = &utils.GetDefaultFlightID().Value
+	}
+}
+
 // WithNamespace adds the namespace to the public party reject params
 func (o *PublicPartyRejectParams) WithNamespace(namespace string) *PublicPartyRejectParams {
 	o.SetNamespace(namespace)
@@ -171,6 +184,16 @@ func (o *PublicPartyRejectParams) WriteToRequest(r runtime.ClientRequest, reg st
 	// setting the default header value
 	if err := r.SetHeaderParam("X-Amzn-Trace-Id", utils.AmazonTraceIDGen()); err != nil {
 		return err
+	}
+
+	if o.XFlightId == nil {
+		if err := r.SetHeaderParam("X-Flight-Id", utils.GetDefaultFlightID().Value); err != nil {
+			return err
+		}
+	} else {
+		if err := r.SetHeaderParam("X-Flight-Id", *o.XFlightId); err != nil {
+			return err
+		}
 	}
 
 	if len(res) > 0 {

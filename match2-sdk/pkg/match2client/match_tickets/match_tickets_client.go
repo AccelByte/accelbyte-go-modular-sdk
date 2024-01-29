@@ -177,6 +177,10 @@ func (a *Client) CreateMatchTicketShort(params *CreateMatchTicketParams, authInf
 		params.SetHTTPClientTransport(params.RetryPolicy)
 	}
 
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
+	}
+
 	result, err := a.transport.Submit(&runtime.ClientOperation{
 		ID:                 "CreateMatchTicket",
 		Method:             "POST",
@@ -290,6 +294,10 @@ func (a *Client) GetMyMatchTicketsShort(params *GetMyMatchTicketsParams, authInf
 		params.SetHTTPClientTransport(params.RetryPolicy)
 	}
 
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
+	}
+
 	result, err := a.transport.Submit(&runtime.ClientOperation{
 		ID:                 "GetMyMatchTickets",
 		Method:             "GET",
@@ -398,6 +406,10 @@ func (a *Client) MatchTicketDetailsShort(params *MatchTicketDetailsParams, authI
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -510,6 +522,10 @@ func (a *Client) DeleteMatchTicketShort(params *DeleteMatchTicketParams, authInf
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{

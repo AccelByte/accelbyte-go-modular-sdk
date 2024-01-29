@@ -57,7 +57,8 @@ func NewDeleteStatCycleParamsWithHTTPClient(client *http.Client) *DeleteStatCycl
 	}
 }
 
-/*DeleteStatCycleParams contains all the parameters to send to the API endpoint
+/*
+DeleteStatCycleParams contains all the parameters to send to the API endpoint
 for the delete stat cycle operation typically these are written to a http.Request
 */
 type DeleteStatCycleParams struct {
@@ -79,6 +80,9 @@ type DeleteStatCycleParams struct {
 	AuthInfoWriter runtime.ClientAuthInfoWriter
 	Context        context.Context
 	HTTPClient     *http.Client
+
+	// XFlightId is an optional parameter from this SDK
+	XFlightId *string
 }
 
 // WithTimeout adds the timeout to the delete stat cycle params
@@ -128,6 +132,15 @@ func (o *DeleteStatCycleParams) SetHTTPClientTransport(roundTripper http.RoundTr
 	}
 }
 
+// SetFlightId adds the flightId as the header value for this specific endpoint
+func (o *DeleteStatCycleParams) SetFlightId(flightId string) {
+	if o.XFlightId != nil {
+		o.XFlightId = &flightId
+	} else {
+		o.XFlightId = &utils.GetDefaultFlightID().Value
+	}
+}
+
 // WithCycleID adds the cycleID to the delete stat cycle params
 func (o *DeleteStatCycleParams) WithCycleID(cycleID string) *DeleteStatCycleParams {
 	o.SetCycleID(cycleID)
@@ -171,6 +184,16 @@ func (o *DeleteStatCycleParams) WriteToRequest(r runtime.ClientRequest, reg strf
 	// setting the default header value
 	if err := r.SetHeaderParam("X-Amzn-Trace-Id", utils.AmazonTraceIDGen()); err != nil {
 		return err
+	}
+
+	if o.XFlightId == nil {
+		if err := r.SetHeaderParam("X-Flight-Id", utils.GetDefaultFlightID().Value); err != nil {
+			return err
+		}
+	} else {
+		if err := r.SetHeaderParam("X-Flight-Id", *o.XFlightId); err != nil {
+			return err
+		}
 	}
 
 	if len(res) > 0 {

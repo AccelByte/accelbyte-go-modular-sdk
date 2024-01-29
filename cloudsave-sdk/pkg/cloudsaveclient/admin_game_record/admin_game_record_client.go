@@ -121,6 +121,10 @@ func (a *Client) ListGameRecordsHandlerV1Short(params *ListGameRecordsHandlerV1P
 		params.SetHTTPClientTransport(params.RetryPolicy)
 	}
 
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
+	}
+
 	result, err := a.transport.Submit(&runtime.ClientOperation{
 		ID:                 "listGameRecordsHandlerV1",
 		Method:             "GET",
@@ -233,6 +237,10 @@ func (a *Client) AdminGetGameRecordHandlerV1Short(params *AdminGetGameRecordHand
 		params.SetHTTPClientTransport(params.RetryPolicy)
 	}
 
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
+	}
+
 	result, err := a.transport.Submit(&runtime.ClientOperation{
 		ID:                 "adminGetGameRecordHandlerV1",
 		Method:             "GET",
@@ -292,8 +300,6 @@ Example
 
 `{ "data2": "new value" }`
 
-
-
 ## Restriction
 This is the restriction of Key Naming for the record:
 1. Cannot use **"."** as the key name
@@ -302,7 +308,6 @@ This is the restriction of Key Naming for the record:
 - `{ "$data": "value" }`
 3. Cannot use empty string in key names
 - `{ "": "value" }`
-
 
 ## Record Metadata
 
@@ -402,8 +407,6 @@ Example
 
 `{ "data2": "new value" }`
 
-
-
 ## Restriction
 This is the restriction of Key Naming for the record:
 1. Cannot use **"."** as the key name
@@ -412,7 +415,6 @@ This is the restriction of Key Naming for the record:
 - `{ "$data": "value" }`
 3. Cannot use empty string in key names
 - `{ "": "value" }`
-
 
 ## Record Metadata
 
@@ -449,6 +451,10 @@ func (a *Client) AdminPutGameRecordHandlerV1Short(params *AdminPutGameRecordHand
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -509,7 +515,6 @@ Example 1
 
 `{ "data1": "value", "data2": "new value" }`
 
-
 Example 2
 - Existing JSON:
 
@@ -523,7 +528,6 @@ Example 2
 
 `{ "data1": { "data2": "value", "data3": "new value" }`
 
-
 ## Restriction
 This is the restriction of Key Naming for the record:
 1. Cannot use **"."** as the key name
@@ -532,7 +536,6 @@ This is the restriction of Key Naming for the record:
 - `{ "$data": "value" }`
 3. Cannot use empty string in key names
 - `{ "": "value" }`
-
 
 ## Record Metadata
 
@@ -631,7 +634,6 @@ Example 1
 
 `{ "data1": "value", "data2": "new value" }`
 
-
 Example 2
 - Existing JSON:
 
@@ -645,7 +647,6 @@ Example 2
 
 `{ "data1": { "data2": "value", "data3": "new value" }`
 
-
 ## Restriction
 This is the restriction of Key Naming for the record:
 1. Cannot use **"."** as the key name
@@ -654,7 +655,6 @@ This is the restriction of Key Naming for the record:
 - `{ "$data": "value" }`
 3. Cannot use empty string in key names
 - `{ "": "value" }`
-
 
 ## Record Metadata
 
@@ -691,6 +691,10 @@ func (a *Client) AdminPostGameRecordHandlerV1Short(params *AdminPostGameRecordHa
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -803,6 +807,10 @@ func (a *Client) AdminDeleteGameRecordHandlerV1Short(params *AdminDeleteGameReco
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{

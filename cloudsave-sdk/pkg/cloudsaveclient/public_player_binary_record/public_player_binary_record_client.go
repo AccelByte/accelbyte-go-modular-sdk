@@ -137,6 +137,10 @@ func (a *Client) BulkGetPlayerPublicBinaryRecordsV1Short(params *BulkGetPlayerPu
 		params.SetHTTPClientTransport(params.RetryPolicy)
 	}
 
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
+	}
+
 	result, err := a.transport.Submit(&runtime.ClientOperation{
 		ID:                 "bulkGetPlayerPublicBinaryRecordsV1",
 		Method:             "POST",
@@ -247,6 +251,10 @@ func (a *Client) ListMyBinaryRecordsV1Short(params *ListMyBinaryRecordsV1Params,
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -363,6 +371,10 @@ func (a *Client) BulkGetMyBinaryRecordV1Short(params *BulkGetMyBinaryRecordV1Par
 		params.SetHTTPClientTransport(params.RetryPolicy)
 	}
 
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
+	}
+
 	result, err := a.transport.Submit(&runtime.ClientOperation{
 		ID:                 "bulkGetMyBinaryRecordV1",
 		Method:             "POST",
@@ -411,7 +423,6 @@ Other detail info:
 2. begin and end with letters or numbers
 3. spaces are not allowed
 4. separators must not appears twice in a row
-
 
 Supported file types: jpeg, jpg, png, bmp, gif, mp3, webp, and bin.
 */
@@ -483,7 +494,6 @@ Other detail info:
 3. spaces are not allowed
 4. separators must not appears twice in a row
 
-
 Supported file types: jpeg, jpg, png, bmp, gif, mp3, webp, and bin.
 */
 func (a *Client) PostPlayerBinaryRecordV1Short(params *PostPlayerBinaryRecordV1Params, authInfo runtime.ClientAuthInfoWriter) (*PostPlayerBinaryRecordV1Created, error) {
@@ -498,6 +508,10 @@ func (a *Client) PostPlayerBinaryRecordV1Short(params *PostPlayerBinaryRecordV1P
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -614,6 +628,10 @@ func (a *Client) ListOtherPlayerPublicBinaryRecordsV1Short(params *ListOtherPlay
 		params.SetHTTPClientTransport(params.RetryPolicy)
 	}
 
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
+	}
+
 	result, err := a.transport.Submit(&runtime.ClientOperation{
 		ID:                 "listOtherPlayerPublicBinaryRecordsV1",
 		Method:             "GET",
@@ -726,6 +744,10 @@ func (a *Client) BulkGetOtherPlayerPublicBinaryRecordsV1Short(params *BulkGetOth
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -842,6 +864,10 @@ func (a *Client) GetPlayerBinaryRecordV1Short(params *GetPlayerBinaryRecordV1Par
 		params.SetHTTPClientTransport(params.RetryPolicy)
 	}
 
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
+	}
+
 	result, err := a.transport.Submit(&runtime.ClientOperation{
 		ID:                 "getPlayerBinaryRecordV1",
 		Method:             "GET",
@@ -955,6 +981,10 @@ func (a *Client) PutPlayerBinaryRecordV1Short(params *PutPlayerBinaryRecordV1Par
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -1074,6 +1104,10 @@ func (a *Client) DeletePlayerBinaryRecordV1Short(params *DeletePlayerBinaryRecor
 		params.SetHTTPClientTransport(params.RetryPolicy)
 	}
 
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
+	}
+
 	result, err := a.transport.Submit(&runtime.ClientOperation{
 		ID:                 "deletePlayerBinaryRecordV1",
 		Method:             "DELETE",
@@ -1189,6 +1223,10 @@ func (a *Client) PutPlayerBinaryRecorMetadataV1Short(params *PutPlayerBinaryReco
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -1316,6 +1354,10 @@ func (a *Client) PostPlayerBinaryPresignedURLV1Short(params *PostPlayerBinaryPre
 		params.SetHTTPClientTransport(params.RetryPolicy)
 	}
 
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
+	}
+
 	result, err := a.transport.Submit(&runtime.ClientOperation{
 		ID:                 "postPlayerBinaryPresignedURLV1",
 		Method:             "POST",
@@ -1430,6 +1472,10 @@ func (a *Client) GetPlayerPublicBinaryRecordsV1Short(params *GetPlayerPublicBina
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{

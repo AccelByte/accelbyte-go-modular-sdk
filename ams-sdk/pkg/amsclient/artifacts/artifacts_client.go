@@ -127,6 +127,10 @@ func (a *Client) ArtifactGetShort(params *ArtifactGetParams, authInfo runtime.Cl
 		params.SetHTTPClientTransport(params.RetryPolicy)
 	}
 
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
+	}
+
 	result, err := a.transport.Submit(&runtime.ClientOperation{
 		ID:                 "ArtifactGet",
 		Method:             "GET",
@@ -234,6 +238,10 @@ func (a *Client) ArtifactUsageGetShort(params *ArtifactUsageGetParams, authInfo 
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -347,6 +355,10 @@ func (a *Client) ArtifactDeleteShort(params *ArtifactDeleteParams, authInfo runt
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -466,6 +478,10 @@ func (a *Client) ArtifactGetURLShort(params *ArtifactGetURLParams, authInfo runt
 		params.SetHTTPClientTransport(params.RetryPolicy)
 	}
 
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
+	}
+
 	result, err := a.transport.Submit(&runtime.ClientOperation{
 		ID:                 "ArtifactGetURL",
 		Method:             "GET",
@@ -583,6 +599,10 @@ func (a *Client) FleetArtifactSamplingRulesGetShort(params *FleetArtifactSamplin
 		params.SetHTTPClientTransport(params.RetryPolicy)
 	}
 
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
+	}
+
 	result, err := a.transport.Submit(&runtime.ClientOperation{
 		ID:                 "FleetArtifactSamplingRulesGet",
 		Method:             "GET",
@@ -698,6 +718,10 @@ func (a *Client) FleetArtifactSamplingRulesSetShort(params *FleetArtifactSamplin
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{

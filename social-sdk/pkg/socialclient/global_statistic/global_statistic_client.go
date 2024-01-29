@@ -48,8 +48,8 @@ Deprecated: 2022-08-10 - Use GetGlobalStatItemsShort instead.
 GetGlobalStatItems list global statitems
 List global statItems by pagination.
 Other detail info:
-              *  Required permission : resource="ADMIN:NAMESPACE:{namespace}:STATITEM", action=2 (READ)
-              *  Returns : stat items
+  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:STATITEM", action=2 (READ)
+  - Returns : stat items
 */
 func (a *Client) GetGlobalStatItems(params *GetGlobalStatItemsParams, authInfo runtime.ClientAuthInfoWriter) (*GetGlobalStatItemsOK, *GetGlobalStatItemsUnauthorized, *GetGlobalStatItemsForbidden, *GetGlobalStatItemsInternalServerError, error) {
 	// TODO: Validate the params before sending
@@ -105,8 +105,8 @@ func (a *Client) GetGlobalStatItems(params *GetGlobalStatItemsParams, authInfo r
 GetGlobalStatItemsShort list global statitems
 List global statItems by pagination.
 Other detail info:
-              *  Required permission : resource="ADMIN:NAMESPACE:{namespace}:STATITEM", action=2 (READ)
-              *  Returns : stat items
+  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:STATITEM", action=2 (READ)
+  - Returns : stat items
 */
 func (a *Client) GetGlobalStatItemsShort(params *GetGlobalStatItemsParams, authInfo runtime.ClientAuthInfoWriter) (*GetGlobalStatItemsOK, error) {
 	// TODO: Validate the params before sending
@@ -120,6 +120,10 @@ func (a *Client) GetGlobalStatItemsShort(params *GetGlobalStatItemsParams, authI
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -161,8 +165,8 @@ Deprecated: 2022-08-10 - Use GetGlobalStatItemByStatCodeShort instead.
 GetGlobalStatItemByStatCode get global statitem by stat code
 Get global statItem by stat code.
 Other detail info:
-              *  Required permission : resource="ADMIN:NAMESPACE:{namespace}:STATITEM", action=2 (READ)
-              *  Returns : global stat item
+  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:STATITEM", action=2 (READ)
+  - Returns : global stat item
 */
 func (a *Client) GetGlobalStatItemByStatCode(params *GetGlobalStatItemByStatCodeParams, authInfo runtime.ClientAuthInfoWriter) (*GetGlobalStatItemByStatCodeOK, *GetGlobalStatItemByStatCodeUnauthorized, *GetGlobalStatItemByStatCodeForbidden, *GetGlobalStatItemByStatCodeNotFound, *GetGlobalStatItemByStatCodeInternalServerError, error) {
 	// TODO: Validate the params before sending
@@ -221,8 +225,8 @@ func (a *Client) GetGlobalStatItemByStatCode(params *GetGlobalStatItemByStatCode
 GetGlobalStatItemByStatCodeShort get global statitem by stat code
 Get global statItem by stat code.
 Other detail info:
-              *  Required permission : resource="ADMIN:NAMESPACE:{namespace}:STATITEM", action=2 (READ)
-              *  Returns : global stat item
+  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:STATITEM", action=2 (READ)
+  - Returns : global stat item
 */
 func (a *Client) GetGlobalStatItemByStatCodeShort(params *GetGlobalStatItemByStatCodeParams, authInfo runtime.ClientAuthInfoWriter) (*GetGlobalStatItemByStatCodeOK, error) {
 	// TODO: Validate the params before sending
@@ -236,6 +240,10 @@ func (a *Client) GetGlobalStatItemByStatCodeShort(params *GetGlobalStatItemBySta
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -279,8 +287,8 @@ Deprecated: 2022-08-10 - Use GetGlobalStatItems1Short instead.
 GetGlobalStatItems1 list global statitems
 List global statItems by pagination.
 Other detail info:
-              *  Required permission : resource="NAMESPACE:{namespace}:STATITEM", action=2 (READ)
-              *  Returns : stat items
+  - Required permission : resource="NAMESPACE:{namespace}:STATITEM", action=2 (READ)
+  - Returns : stat items
 */
 func (a *Client) GetGlobalStatItems1(params *GetGlobalStatItems1Params, authInfo runtime.ClientAuthInfoWriter) (*GetGlobalStatItems1OK, *GetGlobalStatItems1Unauthorized, *GetGlobalStatItems1Forbidden, *GetGlobalStatItems1InternalServerError, error) {
 	// TODO: Validate the params before sending
@@ -336,8 +344,8 @@ func (a *Client) GetGlobalStatItems1(params *GetGlobalStatItems1Params, authInfo
 GetGlobalStatItems1Short list global statitems
 List global statItems by pagination.
 Other detail info:
-              *  Required permission : resource="NAMESPACE:{namespace}:STATITEM", action=2 (READ)
-              *  Returns : stat items
+  - Required permission : resource="NAMESPACE:{namespace}:STATITEM", action=2 (READ)
+  - Returns : stat items
 */
 func (a *Client) GetGlobalStatItems1Short(params *GetGlobalStatItems1Params, authInfo runtime.ClientAuthInfoWriter) (*GetGlobalStatItems1OK, error) {
 	// TODO: Validate the params before sending
@@ -351,6 +359,10 @@ func (a *Client) GetGlobalStatItems1Short(params *GetGlobalStatItems1Params, aut
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -392,8 +404,8 @@ Deprecated: 2022-08-10 - Use GetGlobalStatItemByStatCode1Short instead.
 GetGlobalStatItemByStatCode1 get global statitem by stat code
 Get global statItem by stat code.
 Other detail info:
-              *  Required permission : resource="NAMESPACE:{namespace}:STATITEM", action=2 (READ)
-              *  Returns : global stat item
+  - Required permission : resource="NAMESPACE:{namespace}:STATITEM", action=2 (READ)
+  - Returns : global stat item
 */
 func (a *Client) GetGlobalStatItemByStatCode1(params *GetGlobalStatItemByStatCode1Params, authInfo runtime.ClientAuthInfoWriter) (*GetGlobalStatItemByStatCode1OK, *GetGlobalStatItemByStatCode1Unauthorized, *GetGlobalStatItemByStatCode1Forbidden, *GetGlobalStatItemByStatCode1NotFound, *GetGlobalStatItemByStatCode1InternalServerError, error) {
 	// TODO: Validate the params before sending
@@ -452,8 +464,8 @@ func (a *Client) GetGlobalStatItemByStatCode1(params *GetGlobalStatItemByStatCod
 GetGlobalStatItemByStatCode1Short get global statitem by stat code
 Get global statItem by stat code.
 Other detail info:
-              *  Required permission : resource="NAMESPACE:{namespace}:STATITEM", action=2 (READ)
-              *  Returns : global stat item
+  - Required permission : resource="NAMESPACE:{namespace}:STATITEM", action=2 (READ)
+  - Returns : global stat item
 */
 func (a *Client) GetGlobalStatItemByStatCode1Short(params *GetGlobalStatItemByStatCode1Params, authInfo runtime.ClientAuthInfoWriter) (*GetGlobalStatItemByStatCode1OK, error) {
 	// TODO: Validate the params before sending
@@ -467,6 +479,10 @@ func (a *Client) GetGlobalStatItemByStatCode1Short(params *GetGlobalStatItemBySt
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{

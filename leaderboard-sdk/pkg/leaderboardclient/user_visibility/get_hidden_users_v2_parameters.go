@@ -58,7 +58,8 @@ func NewGetHiddenUsersV2ParamsWithHTTPClient(client *http.Client) *GetHiddenUser
 	}
 }
 
-/*GetHiddenUsersV2Params contains all the parameters to send to the API endpoint
+/*
+GetHiddenUsersV2Params contains all the parameters to send to the API endpoint
 for the get hidden users v2 operation typically these are written to a http.Request
 */
 type GetHiddenUsersV2Params struct {
@@ -90,6 +91,9 @@ type GetHiddenUsersV2Params struct {
 	AuthInfoWriter runtime.ClientAuthInfoWriter
 	Context        context.Context
 	HTTPClient     *http.Client
+
+	// XFlightId is an optional parameter from this SDK
+	XFlightId *string
 }
 
 // WithTimeout adds the timeout to the get hidden users v2 params
@@ -136,6 +140,15 @@ func (o *GetHiddenUsersV2Params) SetHTTPClientTransport(roundTripper http.RoundT
 		o.HTTPClient.Transport = roundTripper
 	} else {
 		o.HTTPClient = &http.Client{Transport: roundTripper}
+	}
+}
+
+// SetFlightId adds the flightId as the header value for this specific endpoint
+func (o *GetHiddenUsersV2Params) SetFlightId(flightId string) {
+	if o.XFlightId != nil {
+		o.XFlightId = &flightId
+	} else {
+		o.XFlightId = &utils.GetDefaultFlightID().Value
 	}
 }
 
@@ -236,6 +249,16 @@ func (o *GetHiddenUsersV2Params) WriteToRequest(r runtime.ClientRequest, reg str
 	// setting the default header value
 	if err := r.SetHeaderParam("X-Amzn-Trace-Id", utils.AmazonTraceIDGen()); err != nil {
 		return err
+	}
+
+	if o.XFlightId == nil {
+		if err := r.SetHeaderParam("X-Flight-Id", utils.GetDefaultFlightID().Value); err != nil {
+			return err
+		}
+	} else {
+		if err := r.SetHeaderParam("X-Flight-Id", *o.XFlightId); err != nil {
+			return err
+		}
 	}
 
 	if len(res) > 0 {

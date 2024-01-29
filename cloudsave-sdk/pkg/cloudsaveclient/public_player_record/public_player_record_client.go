@@ -139,6 +139,10 @@ func (a *Client) BulkGetPlayerPublicRecordHandlerV1Short(params *BulkGetPlayerPu
 		params.SetHTTPClientTransport(params.RetryPolicy)
 	}
 
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
+	}
+
 	result, err := a.transport.Submit(&runtime.ClientOperation{
 		ID:                 "bulkGetPlayerPublicRecordHandlerV1",
 		Method:             "POST",
@@ -249,6 +253,10 @@ func (a *Client) RetrievePlayerRecordsShort(params *RetrievePlayerRecordsParams,
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -367,6 +375,10 @@ func (a *Client) GetPlayerRecordsBulkHandlerV1Short(params *GetPlayerRecordsBulk
 		params.SetHTTPClientTransport(params.RetryPolicy)
 	}
 
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
+	}
+
 	result, err := a.transport.Submit(&runtime.ClientOperation{
 		ID:                 "getPlayerRecordsBulkHandlerV1",
 		Method:             "POST",
@@ -407,7 +419,6 @@ Deprecated: 2022-08-10 - Use PublicDeletePlayerPublicRecordHandlerV1Short instea
 
 PublicDeletePlayerPublicRecordHandlerV1 delete player public record
 Delete player public record.
-
 
 ## Warning: This endpoint is going to deprecate
 
@@ -478,7 +489,6 @@ func (a *Client) PublicDeletePlayerPublicRecordHandlerV1(params *PublicDeletePla
 PublicDeletePlayerPublicRecordHandlerV1Short delete player public record
 Delete player public record.
 
-
 ## Warning: This endpoint is going to deprecate
 
 This endpoint is going to deprecate in the future please don't use it.
@@ -500,6 +510,10 @@ func (a *Client) PublicDeletePlayerPublicRecordHandlerV1Short(params *PublicDele
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -616,6 +630,10 @@ func (a *Client) GetOtherPlayerPublicRecordKeyHandlerV1Short(params *GetOtherPla
 		params.SetHTTPClientTransport(params.RetryPolicy)
 	}
 
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
+	}
+
 	result, err := a.transport.Submit(&runtime.ClientOperation{
 		ID:                 "getOtherPlayerPublicRecordKeyHandlerV1",
 		Method:             "GET",
@@ -730,6 +748,10 @@ func (a *Client) GetOtherPlayerPublicRecordHandlerV1Short(params *GetOtherPlayer
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -849,6 +871,10 @@ func (a *Client) GetPlayerRecordHandlerV1Short(params *GetPlayerRecordHandlerV1P
 		params.SetHTTPClientTransport(params.RetryPolicy)
 	}
 
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
+	}
+
 	result, err := a.transport.Submit(&runtime.ClientOperation{
 		ID:                 "getPlayerRecordHandlerV1",
 		Method:             "GET",
@@ -911,8 +937,6 @@ Example
 
 `{ "data2": "new value" }`
 
-
-
 ## Restriction
 This is the restriction of Key Naming for the record:
 1. Cannot use **"."** as the key name
@@ -921,7 +945,6 @@ This is the restriction of Key Naming for the record:
 - `{ "$data": "value" }`
 3. Cannot use empty string in key names
 - `{ "": "value" }`
-
 
 ## Record Metadata
 
@@ -1020,8 +1043,6 @@ Example
 
 `{ "data2": "new value" }`
 
-
-
 ## Restriction
 This is the restriction of Key Naming for the record:
 1. Cannot use **"."** as the key name
@@ -1030,7 +1051,6 @@ This is the restriction of Key Naming for the record:
 - `{ "$data": "value" }`
 3. Cannot use empty string in key names
 - `{ "": "value" }`
-
 
 ## Record Metadata
 
@@ -1065,6 +1085,10 @@ func (a *Client) PutPlayerRecordHandlerV1Short(params *PutPlayerRecordHandlerV1P
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -1126,7 +1150,6 @@ Example 1
 
 `{ "data1": "value", "data2": "new value" }`
 
-
 Example 2
 - Existing JSON:
 
@@ -1140,7 +1163,6 @@ Example 2
 
 `{ "data1": { "data2": "value", "data3": "new value" }`
 
-
 ## Restriction
 This is the restriction of Key Naming for the record:
 1. Cannot use **"."** as the key name
@@ -1149,7 +1171,6 @@ This is the restriction of Key Naming for the record:
 - `{ "$data": "value" }`
 3. Cannot use empty string in key names
 - `{ "": "value" }`
-
 
 ## Record Metadata
 
@@ -1247,7 +1268,6 @@ Example 1
 
 `{ "data1": "value", "data2": "new value" }`
 
-
 Example 2
 - Existing JSON:
 
@@ -1261,7 +1281,6 @@ Example 2
 
 `{ "data1": { "data2": "value", "data3": "new value" }`
 
-
 ## Restriction
 This is the restriction of Key Naming for the record:
 1. Cannot use **"."** as the key name
@@ -1270,7 +1289,6 @@ This is the restriction of Key Naming for the record:
 - `{ "$data": "value" }`
 3. Cannot use empty string in key names
 - `{ "": "value" }`
-
 
 ## Record Metadata
 
@@ -1305,6 +1323,10 @@ func (a *Client) PostPlayerRecordHandlerV1Short(params *PostPlayerRecordHandlerV
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -1419,6 +1441,10 @@ func (a *Client) DeletePlayerRecordHandlerV1Short(params *DeletePlayerRecordHand
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -1538,6 +1564,10 @@ func (a *Client) GetPlayerPublicRecordHandlerV1Short(params *GetPlayerPublicReco
 		params.SetHTTPClientTransport(params.RetryPolicy)
 	}
 
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
+	}
+
 	result, err := a.transport.Submit(&runtime.ClientOperation{
 		ID:                 "getPlayerPublicRecordHandlerV1",
 		Method:             "GET",
@@ -1599,8 +1629,6 @@ Example
 
 `{ "data2": "new value" }`
 
-
-
 ## Restriction
 This is the restriction of Key Naming for the record:
 1. Cannot use **"."** as the key name
@@ -1610,14 +1638,12 @@ This is the restriction of Key Naming for the record:
 3. Cannot use empty string in key names
 - `{ "": "value" }`
 
-
 ## Reserved Word
 
 Reserved Word List: **__META**
 
 The reserved word cannot be used as a field in record value,
 If still defining the field when creating or updating the record, it will be ignored.
-
 
 ## Warning: This endpoint is going to deprecate
 
@@ -1703,8 +1729,6 @@ Example
 
 `{ "data2": "new value" }`
 
-
-
 ## Restriction
 This is the restriction of Key Naming for the record:
 1. Cannot use **"."** as the key name
@@ -1714,14 +1738,12 @@ This is the restriction of Key Naming for the record:
 3. Cannot use empty string in key names
 - `{ "": "value" }`
 
-
 ## Reserved Word
 
 Reserved Word List: **__META**
 
 The reserved word cannot be used as a field in record value,
 If still defining the field when creating or updating the record, it will be ignored.
-
 
 ## Warning: This endpoint is going to deprecate
 
@@ -1744,6 +1766,10 @@ func (a *Client) PutPlayerPublicRecordHandlerV1Short(params *PutPlayerPublicReco
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -1804,7 +1830,6 @@ Example 1
 
 `{ "data1": "value", "data2": "new value" }`
 
-
 Example 2
 - Existing JSON:
 
@@ -1818,7 +1843,6 @@ Example 2
 
 `{ "data1": { "data2": "value", "data3": "new value" }`
 
-
 ## Restriction
 This is the restriction of Key Naming for the record:
 1. Cannot use **"."** as the key name
@@ -1828,14 +1852,12 @@ This is the restriction of Key Naming for the record:
 3. Cannot use empty string in key names
 - `{ "": "value" }`
 
-
 ## Reserved Word
 
 Reserved Word List: **__META**
 
 The reserved word cannot be used as a field in record value,
 If still defining the field when creating or updating the record, it will be ignored.
-
 
 ## Warning: This endpoint is going to deprecate
 
@@ -1920,7 +1942,6 @@ Example 1
 
 `{ "data1": "value", "data2": "new value" }`
 
-
 Example 2
 - Existing JSON:
 
@@ -1934,7 +1955,6 @@ Example 2
 
 `{ "data1": { "data2": "value", "data3": "new value" }`
 
-
 ## Restriction
 This is the restriction of Key Naming for the record:
 1. Cannot use **"."** as the key name
@@ -1944,14 +1964,12 @@ This is the restriction of Key Naming for the record:
 3. Cannot use empty string in key names
 - `{ "": "value" }`
 
-
 ## Reserved Word
 
 Reserved Word List: **__META**
 
 The reserved word cannot be used as a field in record value,
 If still defining the field when creating or updating the record, it will be ignored.
-
 
 ## Warning: This endpoint is going to deprecate
 
@@ -1974,6 +1992,10 @@ func (a *Client) PostPlayerPublicRecordHandlerV1Short(params *PostPlayerPublicRe
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{

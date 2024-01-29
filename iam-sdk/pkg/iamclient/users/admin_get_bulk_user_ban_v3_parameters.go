@@ -60,7 +60,8 @@ func NewAdminGetBulkUserBanV3ParamsWithHTTPClient(client *http.Client) *AdminGet
 	}
 }
 
-/*AdminGetBulkUserBanV3Params contains all the parameters to send to the API endpoint
+/*
+AdminGetBulkUserBanV3Params contains all the parameters to send to the API endpoint
 for the admin get bulk user ban v3 operation typically these are written to a http.Request
 */
 type AdminGetBulkUserBanV3Params struct {
@@ -89,6 +90,9 @@ type AdminGetBulkUserBanV3Params struct {
 	AuthInfoWriter runtime.ClientAuthInfoWriter
 	Context        context.Context
 	HTTPClient     *http.Client
+
+	// XFlightId is an optional parameter from this SDK
+	XFlightId *string
 }
 
 // WithTimeout adds the timeout to the admin get bulk user ban v3 params
@@ -135,6 +139,15 @@ func (o *AdminGetBulkUserBanV3Params) SetHTTPClientTransport(roundTripper http.R
 		o.HTTPClient.Transport = roundTripper
 	} else {
 		o.HTTPClient = &http.Client{Transport: roundTripper}
+	}
+}
+
+// SetFlightId adds the flightId as the header value for this specific endpoint
+func (o *AdminGetBulkUserBanV3Params) SetFlightId(flightId string) {
+	if o.XFlightId != nil {
+		o.XFlightId = &flightId
+	} else {
+		o.XFlightId = &utils.GetDefaultFlightID().Value
 	}
 }
 
@@ -236,6 +249,16 @@ func (o *AdminGetBulkUserBanV3Params) WriteToRequest(r runtime.ClientRequest, re
 	// setting the default header value
 	if err := r.SetHeaderParam("X-Amzn-Trace-Id", utils.AmazonTraceIDGen()); err != nil {
 		return err
+	}
+
+	if o.XFlightId == nil {
+		if err := r.SetHeaderParam("X-Flight-Id", utils.GetDefaultFlightID().Value); err != nil {
+			return err
+		}
+	} else {
+		if err := r.SetHeaderParam("X-Flight-Id", *o.XFlightId); err != nil {
+			return err
+		}
 	}
 
 	if len(res) > 0 {

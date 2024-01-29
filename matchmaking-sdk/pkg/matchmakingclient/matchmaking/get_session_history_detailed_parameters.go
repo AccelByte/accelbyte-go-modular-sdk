@@ -57,7 +57,8 @@ func NewGetSessionHistoryDetailedParamsWithHTTPClient(client *http.Client) *GetS
 	}
 }
 
-/*GetSessionHistoryDetailedParams contains all the parameters to send to the API endpoint
+/*
+GetSessionHistoryDetailedParams contains all the parameters to send to the API endpoint
 for the get session history detailed operation typically these are written to a http.Request
 */
 type GetSessionHistoryDetailedParams struct {
@@ -79,6 +80,9 @@ type GetSessionHistoryDetailedParams struct {
 	AuthInfoWriter runtime.ClientAuthInfoWriter
 	Context        context.Context
 	HTTPClient     *http.Client
+
+	// XFlightId is an optional parameter from this SDK
+	XFlightId *string
 }
 
 // WithTimeout adds the timeout to the get session history detailed params
@@ -128,6 +132,15 @@ func (o *GetSessionHistoryDetailedParams) SetHTTPClientTransport(roundTripper ht
 	}
 }
 
+// SetFlightId adds the flightId as the header value for this specific endpoint
+func (o *GetSessionHistoryDetailedParams) SetFlightId(flightId string) {
+	if o.XFlightId != nil {
+		o.XFlightId = &flightId
+	} else {
+		o.XFlightId = &utils.GetDefaultFlightID().Value
+	}
+}
+
 // WithMatchID adds the matchID to the get session history detailed params
 func (o *GetSessionHistoryDetailedParams) WithMatchID(matchID string) *GetSessionHistoryDetailedParams {
 	o.SetMatchID(matchID)
@@ -171,6 +184,16 @@ func (o *GetSessionHistoryDetailedParams) WriteToRequest(r runtime.ClientRequest
 	// setting the default header value
 	if err := r.SetHeaderParam("X-Amzn-Trace-Id", utils.AmazonTraceIDGen()); err != nil {
 		return err
+	}
+
+	if o.XFlightId == nil {
+		if err := r.SetHeaderParam("X-Flight-Id", utils.GetDefaultFlightID().Value); err != nil {
+			return err
+		}
+	} else {
+		if err := r.SetHeaderParam("X-Flight-Id", *o.XFlightId); err != nil {
+			return err
+		}
 	}
 
 	if len(res) > 0 {

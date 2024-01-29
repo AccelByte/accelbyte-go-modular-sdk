@@ -59,7 +59,8 @@ func NewShutdownServerParamsWithHTTPClient(client *http.Client) *ShutdownServerP
 	}
 }
 
-/*ShutdownServerParams contains all the parameters to send to the API endpoint
+/*
+ShutdownServerParams contains all the parameters to send to the API endpoint
 for the shutdown server operation typically these are written to a http.Request
 */
 type ShutdownServerParams struct {
@@ -78,6 +79,9 @@ type ShutdownServerParams struct {
 	AuthInfoWriter runtime.ClientAuthInfoWriter
 	Context        context.Context
 	HTTPClient     *http.Client
+
+	// XFlightId is an optional parameter from this SDK
+	XFlightId *string
 }
 
 // WithTimeout adds the timeout to the shutdown server params
@@ -127,6 +131,15 @@ func (o *ShutdownServerParams) SetHTTPClientTransport(roundTripper http.RoundTri
 	}
 }
 
+// SetFlightId adds the flightId as the header value for this specific endpoint
+func (o *ShutdownServerParams) SetFlightId(flightId string) {
+	if o.XFlightId != nil {
+		o.XFlightId = &flightId
+	} else {
+		o.XFlightId = &utils.GetDefaultFlightID().Value
+	}
+}
+
 // WithBody adds the body to the shutdown server params
 func (o *ShutdownServerParams) WithBody(body *dsmcclientmodels.ModelsShutdownServerRequest) *ShutdownServerParams {
 	o.SetBody(body)
@@ -171,6 +184,16 @@ func (o *ShutdownServerParams) WriteToRequest(r runtime.ClientRequest, reg strfm
 	// setting the default header value
 	if err := r.SetHeaderParam("X-Amzn-Trace-Id", utils.AmazonTraceIDGen()); err != nil {
 		return err
+	}
+
+	if o.XFlightId == nil {
+		if err := r.SetHeaderParam("X-Flight-Id", utils.GetDefaultFlightID().Value); err != nil {
+			return err
+		}
+	} else {
+		if err := r.SetHeaderParam("X-Flight-Id", *o.XFlightId); err != nil {
+			return err
+		}
 	}
 
 	if len(res) > 0 {

@@ -49,7 +49,7 @@ UpdatePolicyVersion1 update a version of policy
 Update a particular policy version.
 Other detail info:
 
-  * Required permission : resource="ADMIN:NAMESPACE:*:LEGAL", action=4 (UPDATE)
+  - Required permission : resource="ADMIN:NAMESPACE:*:LEGAL", action=4 (UPDATE)
 */
 func (a *Client) UpdatePolicyVersion1(params *UpdatePolicyVersion1Params, authInfo runtime.ClientAuthInfoWriter) (*UpdatePolicyVersion1OK, *UpdatePolicyVersion1BadRequest, *UpdatePolicyVersion1Conflict, error) {
 	// TODO: Validate the params before sending
@@ -103,7 +103,7 @@ UpdatePolicyVersion1Short update a version of policy
 Update a particular policy version.
 Other detail info:
 
-  * Required permission : resource="ADMIN:NAMESPACE:*:LEGAL", action=4 (UPDATE)
+  - Required permission : resource="ADMIN:NAMESPACE:*:LEGAL", action=4 (UPDATE)
 */
 func (a *Client) UpdatePolicyVersion1Short(params *UpdatePolicyVersion1Params, authInfo runtime.ClientAuthInfoWriter) (*UpdatePolicyVersion1OK, error) {
 	// TODO: Validate the params before sending
@@ -117,6 +117,10 @@ func (a *Client) UpdatePolicyVersion1Short(params *UpdatePolicyVersion1Params, a
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -157,7 +161,7 @@ PublishPolicyVersion1 manually publish a version from country-specific policy
 Manually publish a version of a particular country-specific policy.
 Other detail info:
 
-  * Required permission : resource="ADMIN:NAMESPACE:*:LEGAL", action=4 (UPDATE)
+  - Required permission : resource="ADMIN:NAMESPACE:*:LEGAL", action=4 (UPDATE)
 */
 func (a *Client) PublishPolicyVersion1(params *PublishPolicyVersion1Params, authInfo runtime.ClientAuthInfoWriter) (*PublishPolicyVersion1OK, *PublishPolicyVersion1BadRequest, *PublishPolicyVersion1Conflict, error) {
 	// TODO: Validate the params before sending
@@ -211,7 +215,7 @@ PublishPolicyVersion1Short manually publish a version from country-specific poli
 Manually publish a version of a particular country-specific policy.
 Other detail info:
 
-  * Required permission : resource="ADMIN:NAMESPACE:*:LEGAL", action=4 (UPDATE)
+  - Required permission : resource="ADMIN:NAMESPACE:*:LEGAL", action=4 (UPDATE)
 */
 func (a *Client) PublishPolicyVersion1Short(params *PublishPolicyVersion1Params, authInfo runtime.ClientAuthInfoWriter) (*PublishPolicyVersion1OK, error) {
 	// TODO: Validate the params before sending
@@ -225,6 +229,10 @@ func (a *Client) PublishPolicyVersion1Short(params *PublishPolicyVersion1Params,
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -265,7 +273,7 @@ RetrieveSinglePolicyVersion1 retrieve a version from country-specific policy
 Retrieve a version of a particular country specific policy. If version is not provided, the Legal Service will assume caller requesting all versions from country-specific policy.
 Other detail info:
 
-  * Required permission : resource="ADMIN:NAMESPACE:*:LEGAL", action=2 (READ)
+  - Required permission : resource="ADMIN:NAMESPACE:*:LEGAL", action=2 (READ)
 */
 func (a *Client) RetrieveSinglePolicyVersion1(params *RetrieveSinglePolicyVersion1Params, authInfo runtime.ClientAuthInfoWriter) (*RetrieveSinglePolicyVersion1OK, *RetrieveSinglePolicyVersion1NotFound, error) {
 	// TODO: Validate the params before sending
@@ -316,7 +324,7 @@ RetrieveSinglePolicyVersion1Short retrieve a version from country-specific polic
 Retrieve a version of a particular country specific policy. If version is not provided, the Legal Service will assume caller requesting all versions from country-specific policy.
 Other detail info:
 
-  * Required permission : resource="ADMIN:NAMESPACE:*:LEGAL", action=2 (READ)
+  - Required permission : resource="ADMIN:NAMESPACE:*:LEGAL", action=2 (READ)
 */
 func (a *Client) RetrieveSinglePolicyVersion1Short(params *RetrieveSinglePolicyVersion1Params, authInfo runtime.ClientAuthInfoWriter) (*RetrieveSinglePolicyVersion1OK, error) {
 	// TODO: Validate the params before sending
@@ -330,6 +338,10 @@ func (a *Client) RetrieveSinglePolicyVersion1Short(params *RetrieveSinglePolicyV
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -368,7 +380,7 @@ CreatePolicyVersion1 create a version from country-specific policy
 Create a version of a particular country-specific policy.
 Other detail info:
 
-  * Required permission : resource="ADMIN:NAMESPACE:*:LEGAL", action=1 (CREATE)
+  - Required permission : resource="ADMIN:NAMESPACE:*:LEGAL", action=1 (CREATE)
 */
 func (a *Client) CreatePolicyVersion1(params *CreatePolicyVersion1Params, authInfo runtime.ClientAuthInfoWriter) (*CreatePolicyVersion1Created, *CreatePolicyVersion1BadRequest, error) {
 	// TODO: Validate the params before sending
@@ -419,7 +431,7 @@ CreatePolicyVersion1Short create a version from country-specific policy
 Create a version of a particular country-specific policy.
 Other detail info:
 
-  * Required permission : resource="ADMIN:NAMESPACE:*:LEGAL", action=1 (CREATE)
+  - Required permission : resource="ADMIN:NAMESPACE:*:LEGAL", action=1 (CREATE)
 */
 func (a *Client) CreatePolicyVersion1Short(params *CreatePolicyVersion1Params, authInfo runtime.ClientAuthInfoWriter) (*CreatePolicyVersion1Created, error) {
 	// TODO: Validate the params before sending
@@ -433,6 +445,10 @@ func (a *Client) CreatePolicyVersion1Short(params *CreatePolicyVersion1Params, a
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{

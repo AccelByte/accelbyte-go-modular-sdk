@@ -137,6 +137,10 @@ func (a *Client) AdminGetInboxCategoriesShort(params *AdminGetInboxCategoriesPar
 		params.SetHTTPClientTransport(params.RetryPolicy)
 	}
 
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
+	}
+
 	result, err := a.transport.Submit(&runtime.ClientOperation{
 		ID:                 "adminGetInboxCategories",
 		Method:             "GET",
@@ -247,6 +251,10 @@ func (a *Client) AdminAddInboxCategoryShort(params *AdminAddInboxCategoryParams,
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -361,6 +369,10 @@ func (a *Client) AdminDeleteInboxCategoryShort(params *AdminDeleteInboxCategoryP
 		params.SetHTTPClientTransport(params.RetryPolicy)
 	}
 
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
+	}
+
 	result, err := a.transport.Submit(&runtime.ClientOperation{
 		ID:                 "adminDeleteInboxCategory",
 		Method:             "DELETE",
@@ -471,6 +483,10 @@ func (a *Client) AdminUpdateInboxCategoryShort(params *AdminUpdateInboxCategoryP
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -588,6 +604,10 @@ func (a *Client) AdminGetCategorySchemaShort(params *AdminGetCategorySchemaParam
 		params.SetHTTPClientTransport(params.RetryPolicy)
 	}
 
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
+	}
+
 	result, err := a.transport.Submit(&runtime.ClientOperation{
 		ID:                 "adminGetCategorySchema",
 		Method:             "GET",
@@ -702,6 +722,10 @@ func (a *Client) AdminDeleteInboxMessageShort(params *AdminDeleteInboxMessagePar
 		params.SetHTTPClientTransport(params.RetryPolicy)
 	}
 
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
+	}
+
 	result, err := a.transport.Submit(&runtime.ClientOperation{
 		ID:                 "adminDeleteInboxMessage",
 		Method:             "DELETE",
@@ -812,6 +836,10 @@ func (a *Client) AdminGetInboxMessagesShort(params *AdminGetInboxMessagesParams,
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -926,6 +954,10 @@ func (a *Client) AdminSaveInboxMessageShort(params *AdminSaveInboxMessageParams,
 		params.SetHTTPClientTransport(params.RetryPolicy)
 	}
 
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
+	}
+
 	result, err := a.transport.Submit(&runtime.ClientOperation{
 		ID:                 "adminSaveInboxMessage",
 		Method:             "POST",
@@ -1036,6 +1068,10 @@ func (a *Client) AdminUnsendInboxMessageShort(params *AdminUnsendInboxMessagePar
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -1150,6 +1186,10 @@ func (a *Client) AdminGetInboxUsersShort(params *AdminGetInboxUsersParams, authI
 		params.SetHTTPClientTransport(params.RetryPolicy)
 	}
 
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
+	}
+
 	result, err := a.transport.Submit(&runtime.ClientOperation{
 		ID:                 "adminGetInboxUsers",
 		Method:             "GET",
@@ -1260,6 +1300,10 @@ func (a *Client) AdminUpdateInboxMessageShort(params *AdminUpdateInboxMessagePar
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -1374,6 +1418,10 @@ func (a *Client) AdminSendInboxMessageShort(params *AdminSendInboxMessageParams,
 		params.SetHTTPClientTransport(params.RetryPolicy)
 	}
 
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
+	}
+
 	result, err := a.transport.Submit(&runtime.ClientOperation{
 		ID:                 "adminSendInboxMessage",
 		Method:             "POST",
@@ -1484,6 +1532,10 @@ func (a *Client) AdminGetInboxStatsShort(params *AdminGetInboxStatsParams, authI
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{

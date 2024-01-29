@@ -55,8 +55,8 @@ QueryFulfillmentHistories query fulfillment histories
 Query fulfillment histories in a namespace.
 Other detail info:
 
-  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:FULFILLMENT", action=2 (READ)
-  *  Returns : query fulfillment history
+  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:FULFILLMENT", action=2 (READ)
+  - Returns : query fulfillment history
 */
 func (a *Client) QueryFulfillmentHistories(params *QueryFulfillmentHistoriesParams, authInfo runtime.ClientAuthInfoWriter) (*QueryFulfillmentHistoriesOK, error) {
 	// TODO: Validate the params before sending
@@ -104,8 +104,8 @@ QueryFulfillmentHistoriesShort query fulfillment histories
 Query fulfillment histories in a namespace.
 Other detail info:
 
-  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:FULFILLMENT", action=2 (READ)
-  *  Returns : query fulfillment history
+  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:FULFILLMENT", action=2 (READ)
+  - Returns : query fulfillment history
 */
 func (a *Client) QueryFulfillmentHistoriesShort(params *QueryFulfillmentHistoriesParams, authInfo runtime.ClientAuthInfoWriter) (*QueryFulfillmentHistoriesOK, error) {
 	// TODO: Validate the params before sending
@@ -119,6 +119,10 @@ func (a *Client) QueryFulfillmentHistoriesShort(params *QueryFulfillmentHistorie
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -155,8 +159,8 @@ FulfillItem fulfill item
 Fulfill item.
 Other detail info:
 
-  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:USER:{userId}:FULFILLMENT", action=1 (CREATED)
-  *  Returns : fulfillment result
+  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:USER:{userId}:FULFILLMENT", action=1 (CREATED)
+  - Returns : fulfillment result
 */
 func (a *Client) FulfillItem(params *FulfillItemParams, authInfo runtime.ClientAuthInfoWriter) (*FulfillItemOK, *FulfillItemBadRequest, *FulfillItemNotFound, *FulfillItemConflict, error) {
 	// TODO: Validate the params before sending
@@ -213,8 +217,8 @@ FulfillItemShort fulfill item
 Fulfill item.
 Other detail info:
 
-  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:USER:{userId}:FULFILLMENT", action=1 (CREATED)
-  *  Returns : fulfillment result
+  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:USER:{userId}:FULFILLMENT", action=1 (CREATED)
+  - Returns : fulfillment result
 */
 func (a *Client) FulfillItemShort(params *FulfillItemParams, authInfo runtime.ClientAuthInfoWriter) (*FulfillItemOK, error) {
 	// TODO: Validate the params before sending
@@ -228,6 +232,10 @@ func (a *Client) FulfillItemShort(params *FulfillItemParams, authInfo runtime.Cl
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -270,8 +278,8 @@ RedeemCode redeem campaign code
 Redeem campaign code.
 Other detail info:
 
-  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:USER:{userId}:FULFILLMENT", action=1 (CREATED)
-  *  Returns : fulfillment result
+  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:USER:{userId}:FULFILLMENT", action=1 (CREATED)
+  - Returns : fulfillment result
 */
 func (a *Client) RedeemCode(params *RedeemCodeParams, authInfo runtime.ClientAuthInfoWriter) (*RedeemCodeOK, *RedeemCodeBadRequest, *RedeemCodeNotFound, *RedeemCodeConflict, error) {
 	// TODO: Validate the params before sending
@@ -328,8 +336,8 @@ RedeemCodeShort redeem campaign code
 Redeem campaign code.
 Other detail info:
 
-  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:USER:{userId}:FULFILLMENT", action=1 (CREATED)
-  *  Returns : fulfillment result
+  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:USER:{userId}:FULFILLMENT", action=1 (CREATED)
+  - Returns : fulfillment result
 */
 func (a *Client) RedeemCodeShort(params *RedeemCodeParams, authInfo runtime.ClientAuthInfoWriter) (*RedeemCodeOK, error) {
 	// TODO: Validate the params before sending
@@ -343,6 +351,10 @@ func (a *Client) RedeemCodeShort(params *RedeemCodeParams, authInfo runtime.Clie
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -385,8 +397,8 @@ PreCheckFulfillItem pre check fulfillment items
 Retrieve and check fulfillment items based on the provided request.
 Other detail info:
 
-  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:USER:{userId}:FULFILLMENT", action=READ
-  *  Returns : list of fulfillment items
+  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:USER:{userId}:FULFILLMENT", action=READ
+  - Returns : list of fulfillment items
 */
 func (a *Client) PreCheckFulfillItem(params *PreCheckFulfillItemParams, authInfo runtime.ClientAuthInfoWriter) (*PreCheckFulfillItemOK, *PreCheckFulfillItemBadRequest, *PreCheckFulfillItemNotFound, error) {
 	// TODO: Validate the params before sending
@@ -440,8 +452,8 @@ PreCheckFulfillItemShort pre check fulfillment items
 Retrieve and check fulfillment items based on the provided request.
 Other detail info:
 
-  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:USER:{userId}:FULFILLMENT", action=READ
-  *  Returns : list of fulfillment items
+  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:USER:{userId}:FULFILLMENT", action=READ
+  - Returns : list of fulfillment items
 */
 func (a *Client) PreCheckFulfillItemShort(params *PreCheckFulfillItemParams, authInfo runtime.ClientAuthInfoWriter) (*PreCheckFulfillItemOK, error) {
 	// TODO: Validate the params before sending
@@ -455,6 +467,10 @@ func (a *Client) PreCheckFulfillItemShort(params *PreCheckFulfillItemParams, aut
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -492,11 +508,13 @@ func (a *Client) PreCheckFulfillItemShort(params *PreCheckFulfillItemParams, aut
 Deprecated: 2022-08-10 - Use FulfillRewardsShort instead.
 
 FulfillRewards fulfill rewards without content
- [SERVICE COMMUNICATION ONLY] Fulfill rewards.
+
+	[SERVICE COMMUNICATION ONLY] Fulfill rewards.
+
 Other detail info:
 
-  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:USER:{userId}:FULFILLMENT", action=1 (CREATED)
-  *  Returns : fulfillment result
+  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:USER:{userId}:FULFILLMENT", action=1 (CREATED)
+  - Returns : fulfillment result
 */
 func (a *Client) FulfillRewards(params *FulfillRewardsParams, authInfo runtime.ClientAuthInfoWriter) (*FulfillRewardsNoContent, *FulfillRewardsBadRequest, *FulfillRewardsNotFound, *FulfillRewardsConflict, error) {
 	// TODO: Validate the params before sending
@@ -550,11 +568,13 @@ func (a *Client) FulfillRewards(params *FulfillRewardsParams, authInfo runtime.C
 
 /*
 FulfillRewardsShort fulfill rewards without content
- [SERVICE COMMUNICATION ONLY] Fulfill rewards.
+
+	[SERVICE COMMUNICATION ONLY] Fulfill rewards.
+
 Other detail info:
 
-  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:USER:{userId}:FULFILLMENT", action=1 (CREATED)
-  *  Returns : fulfillment result
+  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:USER:{userId}:FULFILLMENT", action=1 (CREATED)
+  - Returns : fulfillment result
 */
 func (a *Client) FulfillRewardsShort(params *FulfillRewardsParams, authInfo runtime.ClientAuthInfoWriter) (*FulfillRewardsNoContent, error) {
 	// TODO: Validate the params before sending
@@ -568,6 +588,10 @@ func (a *Client) FulfillRewardsShort(params *FulfillRewardsParams, authInfo runt
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -610,8 +634,8 @@ PublicRedeemCode redeem campaign code
 Redeem campaign code, this api have rate limit, default: only allow request once per user in 2 seconds
 Other detail info:
 
-  * Required permission : resource="NAMESPACE:{namespace}:USER:{userId}:FULFILLMENT", action=1 (CREATED)
-  *  Returns : fulfillment result
+  - Required permission : resource="NAMESPACE:{namespace}:USER:{userId}:FULFILLMENT", action=1 (CREATED)
+  - Returns : fulfillment result
 */
 func (a *Client) PublicRedeemCode(params *PublicRedeemCodeParams, authInfo runtime.ClientAuthInfoWriter) (*PublicRedeemCodeOK, *PublicRedeemCodeBadRequest, *PublicRedeemCodeNotFound, *PublicRedeemCodeConflict, *PublicRedeemCodeTooManyRequests, error) {
 	// TODO: Validate the params before sending
@@ -671,8 +695,8 @@ PublicRedeemCodeShort redeem campaign code
 Redeem campaign code, this api have rate limit, default: only allow request once per user in 2 seconds
 Other detail info:
 
-  * Required permission : resource="NAMESPACE:{namespace}:USER:{userId}:FULFILLMENT", action=1 (CREATED)
-  *  Returns : fulfillment result
+  - Required permission : resource="NAMESPACE:{namespace}:USER:{userId}:FULFILLMENT", action=1 (CREATED)
+  - Returns : fulfillment result
 */
 func (a *Client) PublicRedeemCodeShort(params *PublicRedeemCodeParams, authInfo runtime.ClientAuthInfoWriter) (*PublicRedeemCodeOK, error) {
 	// TODO: Validate the params before sending
@@ -686,6 +710,10 @@ func (a *Client) PublicRedeemCodeShort(params *PublicRedeemCodeParams, authInfo 
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -727,12 +755,14 @@ func (a *Client) PublicRedeemCodeShort(params *PublicRedeemCodeParams, authInfo 
 Deprecated: 2022-08-10 - Use FulfillRewardsV2Short instead.
 
 FulfillRewardsV2 fulfill rewards
- [SERVICE COMMUNICATION ONLY] Fulfill rewards.
+
+	[SERVICE COMMUNICATION ONLY] Fulfill rewards.
+
 Other detail info:
 
-  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:USER:{userId}:FULFILLMENT", action=1 (CREATED)
-  *  Returns : fulfillment result
-  *  rewards Item unsupported Type : SUBSCRIPTION
+  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:USER:{userId}:FULFILLMENT", action=1 (CREATED)
+  - Returns : fulfillment result
+  - rewards Item unsupported Type : SUBSCRIPTION
 */
 func (a *Client) FulfillRewardsV2(params *FulfillRewardsV2Params, authInfo runtime.ClientAuthInfoWriter) (*FulfillRewardsV2OK, *FulfillRewardsV2BadRequest, *FulfillRewardsV2NotFound, *FulfillRewardsV2Conflict, error) {
 	// TODO: Validate the params before sending
@@ -786,12 +816,14 @@ func (a *Client) FulfillRewardsV2(params *FulfillRewardsV2Params, authInfo runti
 
 /*
 FulfillRewardsV2Short fulfill rewards
- [SERVICE COMMUNICATION ONLY] Fulfill rewards.
+
+	[SERVICE COMMUNICATION ONLY] Fulfill rewards.
+
 Other detail info:
 
-  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:USER:{userId}:FULFILLMENT", action=1 (CREATED)
-  *  Returns : fulfillment result
-  *  rewards Item unsupported Type : SUBSCRIPTION
+  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:USER:{userId}:FULFILLMENT", action=1 (CREATED)
+  - Returns : fulfillment result
+  - rewards Item unsupported Type : SUBSCRIPTION
 */
 func (a *Client) FulfillRewardsV2Short(params *FulfillRewardsV2Params, authInfo runtime.ClientAuthInfoWriter) (*FulfillRewardsV2OK, error) {
 	// TODO: Validate the params before sending
@@ -805,6 +837,10 @@ func (a *Client) FulfillRewardsV2Short(params *FulfillRewardsV2Params, authInfo 
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{

@@ -71,7 +71,7 @@ GetDLCItemConfig get dlc item config
 Get DLC item config.
 Other detail info:
 
-  * Required permission : resource= "ADMIN:NAMESPACE:{namespace}:DLC:CONFIG" , action=2 (READ)
+  - Required permission : resource= "ADMIN:NAMESPACE:{namespace}:DLC:CONFIG" , action=2 (READ)
 */
 func (a *Client) GetDLCItemConfig(params *GetDLCItemConfigParams, authInfo runtime.ClientAuthInfoWriter) (*GetDLCItemConfigOK, *GetDLCItemConfigNotFound, error) {
 	// TODO: Validate the params before sending
@@ -122,7 +122,7 @@ GetDLCItemConfigShort get dlc item config
 Get DLC item config.
 Other detail info:
 
-  * Required permission : resource= "ADMIN:NAMESPACE:{namespace}:DLC:CONFIG" , action=2 (READ)
+  - Required permission : resource= "ADMIN:NAMESPACE:{namespace}:DLC:CONFIG" , action=2 (READ)
 */
 func (a *Client) GetDLCItemConfigShort(params *GetDLCItemConfigParams, authInfo runtime.ClientAuthInfoWriter) (*GetDLCItemConfigOK, error) {
 	// TODO: Validate the params before sending
@@ -136,6 +136,10 @@ func (a *Client) GetDLCItemConfigShort(params *GetDLCItemConfigParams, authInfo 
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -172,8 +176,8 @@ Deprecated: 2022-08-10 - Use UpdateDLCItemConfigShort instead.
 
 UpdateDLCItemConfig update dlc item config
 Update DLC item config. Other detail info:
-  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:DLC:CONFIG", action=4 (UPDATE)
-  *  Returns : updated DLC item config
+  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:DLC:CONFIG", action=4 (UPDATE)
+  - Returns : updated DLC item config
 */
 func (a *Client) UpdateDLCItemConfig(params *UpdateDLCItemConfigParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateDLCItemConfigOK, *UpdateDLCItemConfigBadRequest, *UpdateDLCItemConfigConflict, *UpdateDLCItemConfigUnprocessableEntity, error) {
 	// TODO: Validate the params before sending
@@ -228,8 +232,8 @@ func (a *Client) UpdateDLCItemConfig(params *UpdateDLCItemConfigParams, authInfo
 /*
 UpdateDLCItemConfigShort update dlc item config
 Update DLC item config. Other detail info:
-  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:DLC:CONFIG", action=4 (UPDATE)
-  *  Returns : updated DLC item config
+  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:DLC:CONFIG", action=4 (UPDATE)
+  - Returns : updated DLC item config
 */
 func (a *Client) UpdateDLCItemConfigShort(params *UpdateDLCItemConfigParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateDLCItemConfigOK, error) {
 	// TODO: Validate the params before sending
@@ -243,6 +247,10 @@ func (a *Client) UpdateDLCItemConfigShort(params *UpdateDLCItemConfigParams, aut
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -285,7 +293,7 @@ DeleteDLCItemConfig delete a dlc item config
 delete a DLC item config.
 Other detail info:
 
-  * Required permission : resource= "ADMIN:NAMESPACE:{namespace}:DLC:CONFIG" , action=8 (DELETE)
+  - Required permission : resource= "ADMIN:NAMESPACE:{namespace}:DLC:CONFIG" , action=8 (DELETE)
 */
 func (a *Client) DeleteDLCItemConfig(params *DeleteDLCItemConfigParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteDLCItemConfigNoContent, error) {
 	// TODO: Validate the params before sending
@@ -333,7 +341,7 @@ DeleteDLCItemConfigShort delete a dlc item config
 delete a DLC item config.
 Other detail info:
 
-  * Required permission : resource= "ADMIN:NAMESPACE:{namespace}:DLC:CONFIG" , action=8 (DELETE)
+  - Required permission : resource= "ADMIN:NAMESPACE:{namespace}:DLC:CONFIG" , action=8 (DELETE)
 */
 func (a *Client) DeleteDLCItemConfigShort(params *DeleteDLCItemConfigParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteDLCItemConfigNoContent, error) {
 	// TODO: Validate the params before sending
@@ -347,6 +355,10 @@ func (a *Client) DeleteDLCItemConfigShort(params *DeleteDLCItemConfigParams, aut
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -383,7 +395,7 @@ GetPlatformDLCConfig get platform dlc config
 Get Platform DLC config.
 Other detail info:
 
-  * Required permission : resource= "ADMIN:NAMESPACE:{namespace}:DLC:CONFIG" , action=2 (READ)
+  - Required permission : resource= "ADMIN:NAMESPACE:{namespace}:DLC:CONFIG" , action=2 (READ)
 */
 func (a *Client) GetPlatformDLCConfig(params *GetPlatformDLCConfigParams, authInfo runtime.ClientAuthInfoWriter) (*GetPlatformDLCConfigOK, *GetPlatformDLCConfigNotFound, error) {
 	// TODO: Validate the params before sending
@@ -434,7 +446,7 @@ GetPlatformDLCConfigShort get platform dlc config
 Get Platform DLC config.
 Other detail info:
 
-  * Required permission : resource= "ADMIN:NAMESPACE:{namespace}:DLC:CONFIG" , action=2 (READ)
+  - Required permission : resource= "ADMIN:NAMESPACE:{namespace}:DLC:CONFIG" , action=2 (READ)
 */
 func (a *Client) GetPlatformDLCConfigShort(params *GetPlatformDLCConfigParams, authInfo runtime.ClientAuthInfoWriter) (*GetPlatformDLCConfigOK, error) {
 	// TODO: Validate the params before sending
@@ -448,6 +460,10 @@ func (a *Client) GetPlatformDLCConfigShort(params *GetPlatformDLCConfigParams, a
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -484,26 +500,20 @@ Deprecated: 2022-08-10 - Use UpdatePlatformDLCConfigShort instead.
 
 UpdatePlatformDLCConfig update platform dlc config
 Update Platform DLC config. Other detail info:
-  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:DLC:CONFIG", action=4 (UPDATE)
-  *  Returns : updated Platform DLC config
-
-
+  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:DLC:CONFIG", action=4 (UPDATE)
+  - Returns : updated Platform DLC config
 
 ## Restrictions for platform dlc map
-
 
 1. Cannot use "." as the key name
 -
 
-
-    { "data.2": "value" }
-
+	{ "data.2": "value" }
 
 2. Cannot use "$" as the prefix in key names
 -
 
-
-    { "$data": "value" }
+	{ "$data": "value" }
 */
 func (a *Client) UpdatePlatformDLCConfig(params *UpdatePlatformDLCConfigParams, authInfo runtime.ClientAuthInfoWriter) (*UpdatePlatformDLCConfigOK, *UpdatePlatformDLCConfigUnprocessableEntity, error) {
 	// TODO: Validate the params before sending
@@ -553,26 +563,20 @@ func (a *Client) UpdatePlatformDLCConfig(params *UpdatePlatformDLCConfigParams, 
 UpdatePlatformDLCConfigShort update platform dlc config
 Update Platform DLC config. Other detail info:
 
-  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:DLC:CONFIG", action=4 (UPDATE)
-  *  Returns : updated Platform DLC config
-
-
+  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:DLC:CONFIG", action=4 (UPDATE)
+  - Returns : updated Platform DLC config
 
 ## Restrictions for platform dlc map
-
 
 1. Cannot use "." as the key name
 -
 
-
-    { "data.2": "value" }
-
+	{ "data.2": "value" }
 
 2. Cannot use "$" as the prefix in key names
 -
 
-
-    { "$data": "value" }
+	{ "$data": "value" }
 */
 func (a *Client) UpdatePlatformDLCConfigShort(params *UpdatePlatformDLCConfigParams, authInfo runtime.ClientAuthInfoWriter) (*UpdatePlatformDLCConfigOK, error) {
 	// TODO: Validate the params before sending
@@ -586,6 +590,10 @@ func (a *Client) UpdatePlatformDLCConfigShort(params *UpdatePlatformDLCConfigPar
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -624,7 +632,7 @@ DeletePlatformDLCConfig delete a platform dlc config
 delete a Platform DLC config.
 Other detail info:
 
-  * Required permission : resource= "ADMIN:NAMESPACE:{namespace}:DLC:CONFIG" , action=8 (DELETE)
+  - Required permission : resource= "ADMIN:NAMESPACE:{namespace}:DLC:CONFIG" , action=8 (DELETE)
 */
 func (a *Client) DeletePlatformDLCConfig(params *DeletePlatformDLCConfigParams, authInfo runtime.ClientAuthInfoWriter) (*DeletePlatformDLCConfigNoContent, error) {
 	// TODO: Validate the params before sending
@@ -672,7 +680,7 @@ DeletePlatformDLCConfigShort delete a platform dlc config
 delete a Platform DLC config.
 Other detail info:
 
-  * Required permission : resource= "ADMIN:NAMESPACE:{namespace}:DLC:CONFIG" , action=8 (DELETE)
+  - Required permission : resource= "ADMIN:NAMESPACE:{namespace}:DLC:CONFIG" , action=8 (DELETE)
 */
 func (a *Client) DeletePlatformDLCConfigShort(params *DeletePlatformDLCConfigParams, authInfo runtime.ClientAuthInfoWriter) (*DeletePlatformDLCConfigNoContent, error) {
 	// TODO: Validate the params before sending
@@ -686,6 +694,10 @@ func (a *Client) DeletePlatformDLCConfigShort(params *DeletePlatformDLCConfigPar
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -722,8 +734,8 @@ GetUserDLCByPlatform get user dlc by platform
 Get user dlc by platform.
 Other detail info:
 
-  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:USER:{userId}:IAP", action=2 (READ)
-  *  Returns : user dlc
+  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:USER:{userId}:IAP", action=2 (READ)
+  - Returns : user dlc
 */
 func (a *Client) GetUserDLCByPlatform(params *GetUserDLCByPlatformParams, authInfo runtime.ClientAuthInfoWriter) (*GetUserDLCByPlatformOK, error) {
 	// TODO: Validate the params before sending
@@ -771,8 +783,8 @@ GetUserDLCByPlatformShort get user dlc by platform
 Get user dlc by platform.
 Other detail info:
 
-  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:USER:{userId}:IAP", action=2 (READ)
-  *  Returns : user dlc
+  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:USER:{userId}:IAP", action=2 (READ)
+  - Returns : user dlc
 */
 func (a *Client) GetUserDLCByPlatformShort(params *GetUserDLCByPlatformParams, authInfo runtime.ClientAuthInfoWriter) (*GetUserDLCByPlatformOK, error) {
 	// TODO: Validate the params before sending
@@ -786,6 +798,10 @@ func (a *Client) GetUserDLCByPlatformShort(params *GetUserDLCByPlatformParams, a
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -822,8 +838,8 @@ GetUserDLC get user dlc records
 Get user dlc records.
 Other detail info:
 
-  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:USER:{userId}:IAP", action=2 (READ)
-  *  Returns : user dlc
+  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:USER:{userId}:IAP", action=2 (READ)
+  - Returns : user dlc
 */
 func (a *Client) GetUserDLC(params *GetUserDLCParams, authInfo runtime.ClientAuthInfoWriter) (*GetUserDLCOK, error) {
 	// TODO: Validate the params before sending
@@ -871,8 +887,8 @@ GetUserDLCShort get user dlc records
 Get user dlc records.
 Other detail info:
 
-  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:USER:{userId}:IAP", action=2 (READ)
-  *  Returns : user dlc
+  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:USER:{userId}:IAP", action=2 (READ)
+  - Returns : user dlc
 */
 func (a *Client) GetUserDLCShort(params *GetUserDLCParams, authInfo runtime.ClientAuthInfoWriter) (*GetUserDLCOK, error) {
 	// TODO: Validate the params before sending
@@ -886,6 +902,10 @@ func (a *Client) GetUserDLCShort(params *GetUserDLCParams, authInfo runtime.Clie
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -922,7 +942,7 @@ GeDLCDurableRewardShortMap get dlc durable reward simple map
 Get dlc reward simple map, only return the sku of durable item reward
 Other detail info:
 
-  * Required permission : Authorized user
+  - Required permission : Authorized user
 */
 func (a *Client) GeDLCDurableRewardShortMap(params *GeDLCDurableRewardShortMapParams, authInfo runtime.ClientAuthInfoWriter) (*GeDLCDurableRewardShortMapOK, *GeDLCDurableRewardShortMapNotFound, error) {
 	// TODO: Validate the params before sending
@@ -973,7 +993,7 @@ GeDLCDurableRewardShortMapShort get dlc durable reward simple map
 Get dlc reward simple map, only return the sku of durable item reward
 Other detail info:
 
-  * Required permission : Authorized user
+  - Required permission : Authorized user
 */
 func (a *Client) GeDLCDurableRewardShortMapShort(params *GeDLCDurableRewardShortMapParams, authInfo runtime.ClientAuthInfoWriter) (*GeDLCDurableRewardShortMapOK, error) {
 	// TODO: Validate the params before sending
@@ -987,6 +1007,10 @@ func (a *Client) GeDLCDurableRewardShortMapShort(params *GeDLCDurableRewardShort
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -1026,8 +1050,8 @@ Sync epic games dlc items.
 
 Other detail info:
 
-  * Required permission : resource=NAMESPACE:{namespace}:USER:{userId}:DLC, action=4 (UPDATE)
-  *  Returns :
+  - Required permission : resource=NAMESPACE:{namespace}:USER:{userId}:DLC, action=4 (UPDATE)
+  - Returns :
 */
 func (a *Client) SyncEpicGameDLC(params *SyncEpicGameDLCParams, authInfo runtime.ClientAuthInfoWriter) (*SyncEpicGameDLCNoContent, *SyncEpicGameDLCBadRequest, error) {
 	// TODO: Validate the params before sending
@@ -1079,8 +1103,8 @@ Sync epic games dlc items.
 
 Other detail info:
 
-  * Required permission : resource=NAMESPACE:{namespace}:USER:{userId}:DLC, action=4 (UPDATE)
-  *  Returns :
+  - Required permission : resource=NAMESPACE:{namespace}:USER:{userId}:DLC, action=4 (UPDATE)
+  - Returns :
 */
 func (a *Client) SyncEpicGameDLCShort(params *SyncEpicGameDLCParams, authInfo runtime.ClientAuthInfoWriter) (*SyncEpicGameDLCNoContent, error) {
 	// TODO: Validate the params before sending
@@ -1094,6 +1118,10 @@ func (a *Client) SyncEpicGameDLCShort(params *SyncEpicGameDLCParams, authInfo ru
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -1133,8 +1161,8 @@ Sync oculus dlc.
 
 Other detail info:
 
-  * Required permission : resource=NAMESPACE:{namespace}:USER:{userId}:DLC, action=4 (UPDATE)
-  *  Returns :
+  - Required permission : resource=NAMESPACE:{namespace}:USER:{userId}:DLC, action=4 (UPDATE)
+  - Returns :
 */
 func (a *Client) SyncOculusDLC(params *SyncOculusDLCParams, authInfo runtime.ClientAuthInfoWriter) (*SyncOculusDLCNoContent, *SyncOculusDLCBadRequest, error) {
 	// TODO: Validate the params before sending
@@ -1186,8 +1214,8 @@ Sync oculus dlc.
 
 Other detail info:
 
-  * Required permission : resource=NAMESPACE:{namespace}:USER:{userId}:DLC, action=4 (UPDATE)
-  *  Returns :
+  - Required permission : resource=NAMESPACE:{namespace}:USER:{userId}:DLC, action=4 (UPDATE)
+  - Returns :
 */
 func (a *Client) SyncOculusDLCShort(params *SyncOculusDLCParams, authInfo runtime.ClientAuthInfoWriter) (*SyncOculusDLCNoContent, error) {
 	// TODO: Validate the params before sending
@@ -1201,6 +1229,10 @@ func (a *Client) SyncOculusDLCShort(params *SyncOculusDLCParams, authInfo runtim
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -1240,8 +1272,8 @@ Synchronize with dlc entitlements in PSN Store.
 
 Other detail info:
 
-  * Required permission : resource=NAMESPACE:{namespace}:USER:{userId}:DLC, action=4 (UPDATE)
-  *  Returns : result of synchronization
+  - Required permission : resource=NAMESPACE:{namespace}:USER:{userId}:DLC, action=4 (UPDATE)
+  - Returns : result of synchronization
 */
 func (a *Client) PublicSyncPsnDLCInventory(params *PublicSyncPsnDLCInventoryParams, authInfo runtime.ClientAuthInfoWriter) (*PublicSyncPsnDLCInventoryNoContent, *PublicSyncPsnDLCInventoryBadRequest, error) {
 	// TODO: Validate the params before sending
@@ -1293,8 +1325,8 @@ Synchronize with dlc entitlements in PSN Store.
 
 Other detail info:
 
-  * Required permission : resource=NAMESPACE:{namespace}:USER:{userId}:DLC, action=4 (UPDATE)
-  *  Returns : result of synchronization
+  - Required permission : resource=NAMESPACE:{namespace}:USER:{userId}:DLC, action=4 (UPDATE)
+  - Returns : result of synchronization
 */
 func (a *Client) PublicSyncPsnDLCInventoryShort(params *PublicSyncPsnDLCInventoryParams, authInfo runtime.ClientAuthInfoWriter) (*PublicSyncPsnDLCInventoryNoContent, error) {
 	// TODO: Validate the params before sending
@@ -1308,6 +1340,10 @@ func (a *Client) PublicSyncPsnDLCInventoryShort(params *PublicSyncPsnDLCInventor
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -1347,8 +1383,8 @@ Synchronize with dlc entitlements in PSN Store with multiple service labels.
 
 Other detail info:
 
-  * Required permission : resource=NAMESPACE:{namespace}:USER:{userId}:DLC, action=4 (UPDATE)
-  *  Returns : result of synchronization
+  - Required permission : resource=NAMESPACE:{namespace}:USER:{userId}:DLC, action=4 (UPDATE)
+  - Returns : result of synchronization
 */
 func (a *Client) PublicSyncPsnDLCInventoryWithMultipleServiceLabels(params *PublicSyncPsnDLCInventoryWithMultipleServiceLabelsParams, authInfo runtime.ClientAuthInfoWriter) (*PublicSyncPsnDLCInventoryWithMultipleServiceLabelsNoContent, *PublicSyncPsnDLCInventoryWithMultipleServiceLabelsBadRequest, error) {
 	// TODO: Validate the params before sending
@@ -1400,8 +1436,8 @@ Synchronize with dlc entitlements in PSN Store with multiple service labels.
 
 Other detail info:
 
-  * Required permission : resource=NAMESPACE:{namespace}:USER:{userId}:DLC, action=4 (UPDATE)
-  *  Returns : result of synchronization
+  - Required permission : resource=NAMESPACE:{namespace}:USER:{userId}:DLC, action=4 (UPDATE)
+  - Returns : result of synchronization
 */
 func (a *Client) PublicSyncPsnDLCInventoryWithMultipleServiceLabelsShort(params *PublicSyncPsnDLCInventoryWithMultipleServiceLabelsParams, authInfo runtime.ClientAuthInfoWriter) (*PublicSyncPsnDLCInventoryWithMultipleServiceLabelsNoContent, error) {
 	// TODO: Validate the params before sending
@@ -1415,6 +1451,10 @@ func (a *Client) PublicSyncPsnDLCInventoryWithMultipleServiceLabelsShort(params 
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -1454,8 +1494,8 @@ Sync steam dlc.
 
 Other detail info:
 
-  * Required permission : resource=NAMESPACE:{namespace}:USER:{userId}:DLC, action=4 (UPDATE)
-  *  Returns :
+  - Required permission : resource=NAMESPACE:{namespace}:USER:{userId}:DLC, action=4 (UPDATE)
+  - Returns :
 */
 func (a *Client) SyncSteamDLC(params *SyncSteamDLCParams, authInfo runtime.ClientAuthInfoWriter) (*SyncSteamDLCNoContent, *SyncSteamDLCBadRequest, error) {
 	// TODO: Validate the params before sending
@@ -1507,8 +1547,8 @@ Sync steam dlc.
 
 Other detail info:
 
-  * Required permission : resource=NAMESPACE:{namespace}:USER:{userId}:DLC, action=4 (UPDATE)
-  *  Returns :
+  - Required permission : resource=NAMESPACE:{namespace}:USER:{userId}:DLC, action=4 (UPDATE)
+  - Returns :
 */
 func (a *Client) SyncSteamDLCShort(params *SyncSteamDLCParams, authInfo runtime.ClientAuthInfoWriter) (*SyncSteamDLCNoContent, error) {
 	// TODO: Validate the params before sending
@@ -1522,6 +1562,10 @@ func (a *Client) SyncSteamDLCShort(params *SyncSteamDLCParams, authInfo runtime.
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -1561,8 +1605,8 @@ Sync Xbox inventory's dlc items.
 
 Other detail info:
 
-  * Required permission : resource=NAMESPACE:{namespace}:USER:{userId}:DLC, action=4 (UPDATE)
-  *  Returns :
+  - Required permission : resource=NAMESPACE:{namespace}:USER:{userId}:DLC, action=4 (UPDATE)
+  - Returns :
 */
 func (a *Client) SyncXboxDLC(params *SyncXboxDLCParams, authInfo runtime.ClientAuthInfoWriter) (*SyncXboxDLCNoContent, *SyncXboxDLCBadRequest, error) {
 	// TODO: Validate the params before sending
@@ -1614,8 +1658,8 @@ Sync Xbox inventory's dlc items.
 
 Other detail info:
 
-  * Required permission : resource=NAMESPACE:{namespace}:USER:{userId}:DLC, action=4 (UPDATE)
-  *  Returns :
+  - Required permission : resource=NAMESPACE:{namespace}:USER:{userId}:DLC, action=4 (UPDATE)
+  - Returns :
 */
 func (a *Client) SyncXboxDLCShort(params *SyncXboxDLCParams, authInfo runtime.ClientAuthInfoWriter) (*SyncXboxDLCNoContent, error) {
 	// TODO: Validate the params before sending
@@ -1629,6 +1673,10 @@ func (a *Client) SyncXboxDLCShort(params *SyncXboxDLCParams, authInfo runtime.Cl
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{

@@ -57,7 +57,8 @@ func NewDeleteMatchFunctionParamsWithHTTPClient(client *http.Client) *DeleteMatc
 	}
 }
 
-/*DeleteMatchFunctionParams contains all the parameters to send to the API endpoint
+/*
+DeleteMatchFunctionParams contains all the parameters to send to the API endpoint
 for the delete match function operation typically these are written to a http.Request
 */
 type DeleteMatchFunctionParams struct {
@@ -79,6 +80,9 @@ type DeleteMatchFunctionParams struct {
 	AuthInfoWriter runtime.ClientAuthInfoWriter
 	Context        context.Context
 	HTTPClient     *http.Client
+
+	// XFlightId is an optional parameter from this SDK
+	XFlightId *string
 }
 
 // WithTimeout adds the timeout to the delete match function params
@@ -128,6 +132,15 @@ func (o *DeleteMatchFunctionParams) SetHTTPClientTransport(roundTripper http.Rou
 	}
 }
 
+// SetFlightId adds the flightId as the header value for this specific endpoint
+func (o *DeleteMatchFunctionParams) SetFlightId(flightId string) {
+	if o.XFlightId != nil {
+		o.XFlightId = &flightId
+	} else {
+		o.XFlightId = &utils.GetDefaultFlightID().Value
+	}
+}
+
 // WithName adds the name to the delete match function params
 func (o *DeleteMatchFunctionParams) WithName(name string) *DeleteMatchFunctionParams {
 	o.SetName(name)
@@ -171,6 +184,16 @@ func (o *DeleteMatchFunctionParams) WriteToRequest(r runtime.ClientRequest, reg 
 	// setting the default header value
 	if err := r.SetHeaderParam("X-Amzn-Trace-Id", utils.AmazonTraceIDGen()); err != nil {
 		return err
+	}
+
+	if o.XFlightId == nil {
+		if err := r.SetHeaderParam("X-Flight-Id", utils.GetDefaultFlightID().Value); err != nil {
+			return err
+		}
+	} else {
+		if err := r.SetHeaderParam("X-Flight-Id", *o.XFlightId); err != nil {
+			return err
+		}
 	}
 
 	if len(res) > 0 {

@@ -57,7 +57,8 @@ func NewGetRevocationListV3ParamsWithHTTPClient(client *http.Client) *GetRevocat
 	}
 }
 
-/*GetRevocationListV3Params contains all the parameters to send to the API endpoint
+/*
+GetRevocationListV3Params contains all the parameters to send to the API endpoint
 for the get revocation list v3 operation typically these are written to a http.Request
 */
 type GetRevocationListV3Params struct {
@@ -69,6 +70,9 @@ type GetRevocationListV3Params struct {
 	AuthInfoWriter runtime.ClientAuthInfoWriter
 	Context        context.Context
 	HTTPClient     *http.Client
+
+	// XFlightId is an optional parameter from this SDK
+	XFlightId *string
 }
 
 // WithTimeout adds the timeout to the get revocation list v3 params
@@ -118,6 +122,15 @@ func (o *GetRevocationListV3Params) SetHTTPClientTransport(roundTripper http.Rou
 	}
 }
 
+// SetFlightId adds the flightId as the header value for this specific endpoint
+func (o *GetRevocationListV3Params) SetFlightId(flightId string) {
+	if o.XFlightId != nil {
+		o.XFlightId = &flightId
+	} else {
+		o.XFlightId = &utils.GetDefaultFlightID().Value
+	}
+}
+
 // WriteToRequest writes these params to a swagger request
 func (o *GetRevocationListV3Params) WriteToRequest(r runtime.ClientRequest, reg strfmt.Registry) error {
 
@@ -129,6 +142,16 @@ func (o *GetRevocationListV3Params) WriteToRequest(r runtime.ClientRequest, reg 
 	// setting the default header value
 	if err := r.SetHeaderParam("X-Amzn-Trace-Id", utils.AmazonTraceIDGen()); err != nil {
 		return err
+	}
+
+	if o.XFlightId == nil {
+		if err := r.SetHeaderParam("X-Flight-Id", utils.GetDefaultFlightID().Value); err != nil {
+			return err
+		}
+	} else {
+		if err := r.SetHeaderParam("X-Flight-Id", *o.XFlightId); err != nil {
+			return err
+		}
 	}
 
 	if len(res) > 0 {

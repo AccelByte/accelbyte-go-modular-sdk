@@ -42,7 +42,7 @@ Deprecated: 2022-08-10 - Use CheckReadinessShort instead.
 CheckReadiness check legal data readiness
 Readiness status defined as at least one legal basePolicy is present and having active basePolicy.
 Other detail info:
-      * Required permission : resource="NAMESPACE:{namespace}:LEGAL", action=2 (READ)
+  - Required permission : resource="NAMESPACE:{namespace}:LEGAL", action=2 (READ)
 */
 func (a *Client) CheckReadiness(params *CheckReadinessParams, authInfo runtime.ClientAuthInfoWriter) (*CheckReadinessOK, error) {
 	// TODO: Validate the params before sending
@@ -89,7 +89,7 @@ func (a *Client) CheckReadiness(params *CheckReadinessParams, authInfo runtime.C
 CheckReadinessShort check legal data readiness
 Readiness status defined as at least one legal basePolicy is present and having active basePolicy.
 Other detail info:
-      * Required permission : resource="NAMESPACE:{namespace}:LEGAL", action=2 (READ)
+  - Required permission : resource="NAMESPACE:{namespace}:LEGAL", action=2 (READ)
 */
 func (a *Client) CheckReadinessShort(params *CheckReadinessParams, authInfo runtime.ClientAuthInfoWriter) (*CheckReadinessOK, error) {
 	// TODO: Validate the params before sending
@@ -103,6 +103,10 @@ func (a *Client) CheckReadinessShort(params *CheckReadinessParams, authInfo runt
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{

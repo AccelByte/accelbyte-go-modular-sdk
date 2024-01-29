@@ -57,7 +57,8 @@ func NewAdminGetCategorySchemaParamsWithHTTPClient(client *http.Client) *AdminGe
 	}
 }
 
-/*AdminGetCategorySchemaParams contains all the parameters to send to the API endpoint
+/*
+AdminGetCategorySchemaParams contains all the parameters to send to the API endpoint
 for the admin get category schema operation typically these are written to a http.Request
 */
 type AdminGetCategorySchemaParams struct {
@@ -79,6 +80,9 @@ type AdminGetCategorySchemaParams struct {
 	AuthInfoWriter runtime.ClientAuthInfoWriter
 	Context        context.Context
 	HTTPClient     *http.Client
+
+	// XFlightId is an optional parameter from this SDK
+	XFlightId *string
 }
 
 // WithTimeout adds the timeout to the admin get category schema params
@@ -128,6 +132,15 @@ func (o *AdminGetCategorySchemaParams) SetHTTPClientTransport(roundTripper http.
 	}
 }
 
+// SetFlightId adds the flightId as the header value for this specific endpoint
+func (o *AdminGetCategorySchemaParams) SetFlightId(flightId string) {
+	if o.XFlightId != nil {
+		o.XFlightId = &flightId
+	} else {
+		o.XFlightId = &utils.GetDefaultFlightID().Value
+	}
+}
+
 // WithCategory adds the category to the admin get category schema params
 func (o *AdminGetCategorySchemaParams) WithCategory(category string) *AdminGetCategorySchemaParams {
 	o.SetCategory(category)
@@ -171,6 +184,16 @@ func (o *AdminGetCategorySchemaParams) WriteToRequest(r runtime.ClientRequest, r
 	// setting the default header value
 	if err := r.SetHeaderParam("X-Amzn-Trace-Id", utils.AmazonTraceIDGen()); err != nil {
 		return err
+	}
+
+	if o.XFlightId == nil {
+		if err := r.SetHeaderParam("X-Flight-Id", utils.GetDefaultFlightID().Value); err != nil {
+			return err
+		}
+	} else {
+		if err := r.SetHeaderParam("X-Flight-Id", *o.XFlightId); err != nil {
+			return err
+		}
 	}
 
 	if len(res) > 0 {

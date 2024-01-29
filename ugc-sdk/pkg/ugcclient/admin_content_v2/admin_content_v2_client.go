@@ -156,6 +156,10 @@ func (a *Client) AdminGetContentByChannelIDV2Short(params *AdminGetContentByChan
 		params.SetHTTPClientTransport(params.RetryPolicy)
 	}
 
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
+	}
+
 	result, err := a.transport.Submit(&runtime.ClientOperation{
 		ID:                 "AdminGetContentByChannelIDV2",
 		Method:             "GET",
@@ -269,6 +273,10 @@ func (a *Client) AdminCreateContentV2Short(params *AdminCreateContentV2Params, a
 		params.SetHTTPClientTransport(params.RetryPolicy)
 	}
 
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
+	}
+
 	result, err := a.transport.Submit(&runtime.ClientOperation{
 		ID:                 "AdminCreateContentV2",
 		Method:             "POST",
@@ -378,6 +386,10 @@ func (a *Client) AdminDeleteOfficialContentV2Short(params *AdminDeleteOfficialCo
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -491,6 +503,10 @@ func (a *Client) AdminUpdateOfficialContentV2Short(params *AdminUpdateOfficialCo
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -612,6 +628,10 @@ func (a *Client) AdminUpdateOfficialContentFileLocationShort(params *AdminUpdate
 		params.SetHTTPClientTransport(params.RetryPolicy)
 	}
 
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
+	}
+
 	result, err := a.transport.Submit(&runtime.ClientOperation{
 		ID:                 "AdminUpdateOfficialContentFileLocation",
 		Method:             "PATCH",
@@ -726,6 +746,10 @@ func (a *Client) AdminGenerateOfficialContentUploadURLV2Short(params *AdminGener
 		params.SetHTTPClientTransport(params.RetryPolicy)
 	}
 
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
+	}
+
 	result, err := a.transport.Submit(&runtime.ClientOperation{
 		ID:                 "AdminGenerateOfficialContentUploadURLV2",
 		Method:             "PATCH",
@@ -764,7 +788,7 @@ func (a *Client) AdminGenerateOfficialContentUploadURLV2Short(params *AdminGener
 /*
 Deprecated: 2022-08-10 - Use AdminListContentV2Short instead.
 
-AdminListContentV2 list contents
+# AdminListContentV2 list contents
 
 Required permission ADMIN:NAMESPACE:{namespace}:USER:*:CONTENT [READ]
 For advance tag filtering supports & as AND operator and | as OR operator and parentheses () for priority. e.g:
@@ -780,7 +804,7 @@ The precedence of logical operator is AND > OR, so if no parentheses, AND logica
 Allowed character for operand: alphanumeric, underscore `_` and dash `-`
 Allowed character for operator: `&` `|` `(` `)`
 
- Please note that value of tags query param should be URL encoded
+	Please note that value of tags query param should be URL encoded
 */
 func (a *Client) AdminListContentV2(params *AdminListContentV2Params, authInfo runtime.ClientAuthInfoWriter) (*AdminListContentV2OK, *AdminListContentV2BadRequest, *AdminListContentV2Unauthorized, *AdminListContentV2InternalServerError, error) {
 	// TODO: Validate the params before sending
@@ -849,7 +873,7 @@ The precedence of logical operator is AND > OR, so if no parentheses, AND logica
 Allowed character for operand: alphanumeric, underscore `_` and dash `-`
 Allowed character for operator: `&` `|` `(` `)`
 
- Please note that value of tags query param should be URL encoded
+	Please note that value of tags query param should be URL encoded
 */
 func (a *Client) AdminListContentV2Short(params *AdminListContentV2Params, authInfo runtime.ClientAuthInfoWriter) (*AdminListContentV2OK, error) {
 	// TODO: Validate the params before sending
@@ -863,6 +887,10 @@ func (a *Client) AdminListContentV2Short(params *AdminListContentV2Params, authI
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -975,6 +1003,10 @@ func (a *Client) AdminBulkGetContentByIDsV2Short(params *AdminBulkGetContentByID
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -1091,6 +1123,10 @@ func (a *Client) AdminGetContentBulkByShareCodesV2Short(params *AdminGetContentB
 		params.SetHTTPClientTransport(params.RetryPolicy)
 	}
 
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
+	}
+
 	result, err := a.transport.Submit(&runtime.ClientOperation{
 		ID:                 "AdminGetContentBulkByShareCodesV2",
 		Method:             "POST",
@@ -1200,6 +1236,10 @@ func (a *Client) AdminGetContentByShareCodeV2Short(params *AdminGetContentByShar
 		params.SetHTTPClientTransport(params.RetryPolicy)
 	}
 
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
+	}
+
 	result, err := a.transport.Submit(&runtime.ClientOperation{
 		ID:                 "AdminGetContentByShareCodeV2",
 		Method:             "GET",
@@ -1305,6 +1345,10 @@ func (a *Client) AdminGetContentByContentIDV2Short(params *AdminGetContentByCont
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -1417,6 +1461,10 @@ func (a *Client) RollbackContentVersionV2Short(params *RollbackContentVersionV2P
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -1534,6 +1582,10 @@ func (a *Client) AdminUpdateScreenshotsV2Short(params *AdminUpdateScreenshotsV2P
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -1663,6 +1715,10 @@ func (a *Client) AdminUploadContentScreenshotV2Short(params *AdminUploadContentS
 		params.SetHTTPClientTransport(params.RetryPolicy)
 	}
 
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
+	}
+
 	result, err := a.transport.Submit(&runtime.ClientOperation{
 		ID:                 "AdminUploadContentScreenshotV2",
 		Method:             "POST",
@@ -1780,6 +1836,10 @@ func (a *Client) AdminDeleteContentScreenshotV2Short(params *AdminDeleteContentS
 		params.SetHTTPClientTransport(params.RetryPolicy)
 	}
 
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
+	}
+
 	result, err := a.transport.Submit(&runtime.ClientOperation{
 		ID:                 "AdminDeleteContentScreenshotV2",
 		Method:             "DELETE",
@@ -1891,6 +1951,10 @@ func (a *Client) ListContentVersionsV2Short(params *ListContentVersionsV2Params,
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -2019,6 +2083,10 @@ func (a *Client) AdminUpdateContentByShareCodeV2Short(params *AdminUpdateContent
 		params.SetHTTPClientTransport(params.RetryPolicy)
 	}
 
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
+	}
+
 	result, err := a.transport.Submit(&runtime.ClientOperation{
 		ID:                 "AdminUpdateContentByShareCodeV2",
 		Method:             "PUT",
@@ -2132,6 +2200,10 @@ func (a *Client) AdminDeleteContentByShareCodeV2Short(params *AdminDeleteContent
 		params.SetHTTPClientTransport(params.RetryPolicy)
 	}
 
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
+	}
+
 	result, err := a.transport.Submit(&runtime.ClientOperation{
 		ID:                 "AdminDeleteContentByShareCodeV2",
 		Method:             "DELETE",
@@ -2237,6 +2309,10 @@ func (a *Client) AdminDeleteUserContentV2Short(params *AdminDeleteUserContentV2P
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -2350,6 +2426,10 @@ func (a *Client) AdminUpdateUserContentV2Short(params *AdminUpdateUserContentV2P
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -2471,6 +2551,10 @@ func (a *Client) AdminUpdateUserContentFileLocationShort(params *AdminUpdateUser
 		params.SetHTTPClientTransport(params.RetryPolicy)
 	}
 
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
+	}
+
 	result, err := a.transport.Submit(&runtime.ClientOperation{
 		ID:                 "AdminUpdateUserContentFileLocation",
 		Method:             "PATCH",
@@ -2585,6 +2669,10 @@ func (a *Client) AdminGenerateUserContentUploadURLV2Short(params *AdminGenerateU
 		params.SetHTTPClientTransport(params.RetryPolicy)
 	}
 
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
+	}
+
 	result, err := a.transport.Submit(&runtime.ClientOperation{
 		ID:                 "AdminGenerateUserContentUploadURLV2",
 		Method:             "PATCH",
@@ -2692,6 +2780,10 @@ func (a *Client) AdminGetContentByUserIDV2Short(params *AdminGetContentByUserIDV
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -2805,6 +2897,10 @@ func (a *Client) AdminUpdateContentHideStatusV2Short(params *AdminUpdateContentH
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{

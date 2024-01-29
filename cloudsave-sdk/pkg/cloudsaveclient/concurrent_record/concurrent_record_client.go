@@ -64,8 +64,6 @@ Example
 
 `{ "data2": "new value" }`
 
-
-
 ## Restriction
 This is the restriction of Key Naming for the record:
 1. Cannot use **"."** as the key name
@@ -75,14 +73,12 @@ This is the restriction of Key Naming for the record:
 3. Cannot use empty string in key names
 - `{ "": "value" }`
 
-
 ## Reserved Word
 
 Reserved Word List: **__META**
 
 The reserved word cannot be used as a field in record value,
 If still defining the field when creating or updating the record, it will be ignored.
-
 
 ## Optimistic Concurrency Control
 
@@ -169,8 +165,6 @@ Example
 
 `{ "data2": "new value" }`
 
-
-
 ## Restriction
 This is the restriction of Key Naming for the record:
 1. Cannot use **"."** as the key name
@@ -180,14 +174,12 @@ This is the restriction of Key Naming for the record:
 3. Cannot use empty string in key names
 - `{ "": "value" }`
 
-
 ## Reserved Word
 
 Reserved Word List: **__META**
 
 The reserved word cannot be used as a field in record value,
 If still defining the field when creating or updating the record, it will be ignored.
-
 
 ## Optimistic Concurrency Control
 
@@ -208,6 +200,10 @@ func (a *Client) PutGameRecordConcurrentHandlerV1Short(params *PutGameRecordConc
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -271,8 +267,6 @@ Example
 
 `{ "data2": "new value" }`
 
-
-
 ## Restriction
 This is the restriction of Key Naming for the record:
 1. Cannot use **"."** as the key name
@@ -282,14 +276,12 @@ This is the restriction of Key Naming for the record:
 3. Cannot use empty string in key names
 - `{ "": "value" }`
 
-
 ## Reserved Word
 
 Reserved Word List: **__META**
 
 The reserved word cannot be used as a field in record value,
 If still defining the field when creating or updating the record, it will be ignored.
-
 
 ## Optimistic Concurrency Control
 
@@ -379,8 +371,6 @@ Example
 
 `{ "data2": "new value" }`
 
-
-
 ## Restriction
 This is the restriction of Key Naming for the record:
 1. Cannot use **"."** as the key name
@@ -390,14 +380,12 @@ This is the restriction of Key Naming for the record:
 3. Cannot use empty string in key names
 - `{ "": "value" }`
 
-
 ## Reserved Word
 
 Reserved Word List: **__META**
 
 The reserved word cannot be used as a field in record value,
 If still defining the field when creating or updating the record, it will be ignored.
-
 
 ## Optimistic Concurrency Control
 
@@ -418,6 +406,10 @@ func (a *Client) PutPlayerRecordConcurrentHandlerV1Short(params *PutPlayerRecord
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -483,8 +475,6 @@ Example
 
 `{ "data2": "new value" }`
 
-
-
 ## Restriction
 This is the restriction of Key Naming for the record:
 1. Cannot use **"."** as the key name
@@ -494,14 +484,12 @@ This is the restriction of Key Naming for the record:
 3. Cannot use empty string in key names
 - `{ "": "value" }`
 
-
 ## Reserved Word
 
 Reserved Word List: **__META**
 
 The reserved word cannot be used as a field in record value,
 If still defining the field when creating or updating the record, it will be ignored.
-
 
 ## Optimistic Concurrency Control
 
@@ -591,8 +579,6 @@ Example
 
 `{ "data2": "new value" }`
 
-
-
 ## Restriction
 This is the restriction of Key Naming for the record:
 1. Cannot use **"."** as the key name
@@ -602,14 +588,12 @@ This is the restriction of Key Naming for the record:
 3. Cannot use empty string in key names
 - `{ "": "value" }`
 
-
 ## Reserved Word
 
 Reserved Word List: **__META**
 
 The reserved word cannot be used as a field in record value,
 If still defining the field when creating or updating the record, it will be ignored.
-
 
 ## Optimistic Concurrency Control
 
@@ -630,6 +614,10 @@ func (a *Client) PutPlayerPublicRecordConcurrentHandlerV1Short(params *PutPlayer
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{

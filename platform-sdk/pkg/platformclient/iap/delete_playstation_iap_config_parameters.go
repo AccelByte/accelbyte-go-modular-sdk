@@ -57,7 +57,8 @@ func NewDeletePlaystationIAPConfigParamsWithHTTPClient(client *http.Client) *Del
 	}
 }
 
-/*DeletePlaystationIAPConfigParams contains all the parameters to send to the API endpoint
+/*
+DeletePlaystationIAPConfigParams contains all the parameters to send to the API endpoint
 for the delete playstation iap config operation typically these are written to a http.Request
 */
 type DeletePlaystationIAPConfigParams struct {
@@ -71,6 +72,9 @@ type DeletePlaystationIAPConfigParams struct {
 	AuthInfoWriter runtime.ClientAuthInfoWriter
 	Context        context.Context
 	HTTPClient     *http.Client
+
+	// XFlightId is an optional parameter from this SDK
+	XFlightId *string
 }
 
 // WithTimeout adds the timeout to the delete playstation iap config params
@@ -120,6 +124,15 @@ func (o *DeletePlaystationIAPConfigParams) SetHTTPClientTransport(roundTripper h
 	}
 }
 
+// SetFlightId adds the flightId as the header value for this specific endpoint
+func (o *DeletePlaystationIAPConfigParams) SetFlightId(flightId string) {
+	if o.XFlightId != nil {
+		o.XFlightId = &flightId
+	} else {
+		o.XFlightId = &utils.GetDefaultFlightID().Value
+	}
+}
+
 // WithNamespace adds the namespace to the delete playstation iap config params
 func (o *DeletePlaystationIAPConfigParams) WithNamespace(namespace string) *DeletePlaystationIAPConfigParams {
 	o.SetNamespace(namespace)
@@ -147,6 +160,16 @@ func (o *DeletePlaystationIAPConfigParams) WriteToRequest(r runtime.ClientReques
 	// setting the default header value
 	if err := r.SetHeaderParam("X-Amzn-Trace-Id", utils.AmazonTraceIDGen()); err != nil {
 		return err
+	}
+
+	if o.XFlightId == nil {
+		if err := r.SetHeaderParam("X-Flight-Id", utils.GetDefaultFlightID().Value); err != nil {
+			return err
+		}
+	} else {
+		if err := r.SetHeaderParam("X-Flight-Id", *o.XFlightId); err != nil {
+			return err
+		}
 	}
 
 	if len(res) > 0 {

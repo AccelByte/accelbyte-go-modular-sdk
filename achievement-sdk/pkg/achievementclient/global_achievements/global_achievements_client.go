@@ -55,17 +55,10 @@ Deprecated: 2022-08-10 - Use AdminListGlobalAchievementsShort instead.
 
 AdminListGlobalAchievements admin query global achievements [include achieved and in-progress]
 
-
 Required permission
 `ADMIN:NAMESPACE:{namespace}:ACHIEVEMENT [READ]` and scope `social`
 
-
-
-
 Note:
-
-
-
 
 Global achievement status value mean: `status = 1 (in progress)` and `status = 2 (unlocked)`
 */
@@ -122,17 +115,10 @@ func (a *Client) AdminListGlobalAchievements(params *AdminListGlobalAchievements
 /*
 AdminListGlobalAchievementsShort admin query global achievements [include achieved and in-progress]
 
-
 Required permission
 `ADMIN:NAMESPACE:{namespace}:ACHIEVEMENT [READ]` and scope `social`
 
-
-
-
 Note:
-
-
-
 
 Global achievement status value mean: `status = 1 (in progress)` and `status = 2 (unlocked)`
 */
@@ -148,6 +134,10 @@ func (a *Client) AdminListGlobalAchievementsShort(params *AdminListGlobalAchieve
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -186,8 +176,7 @@ func (a *Client) AdminListGlobalAchievementsShort(params *AdminListGlobalAchieve
 /*
 Deprecated: 2022-08-10 - Use AdminListGlobalAchievementContributorsShort instead.
 
-AdminListGlobalAchievementContributors admin list contributors of global achievement
-
+# AdminListGlobalAchievementContributors admin list contributors of global achievement
 
 Required permission
 `ADMIN:NAMESPACE:{namespace}:ACHIEVEMENT [READ]` and scope `social`
@@ -245,7 +234,6 @@ func (a *Client) AdminListGlobalAchievementContributors(params *AdminListGlobalA
 /*
 AdminListGlobalAchievementContributorsShort admin list contributors of global achievement
 
-
 Required permission
 `ADMIN:NAMESPACE:{namespace}:ACHIEVEMENT [READ]` and scope `social`
 */
@@ -261,6 +249,10 @@ func (a *Client) AdminListGlobalAchievementContributorsShort(params *AdminListGl
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -299,13 +291,9 @@ func (a *Client) AdminListGlobalAchievementContributorsShort(params *AdminListGl
 /*
 Deprecated: 2022-08-10 - Use ResetGlobalAchievementShort instead.
 
-ResetGlobalAchievement reset global achievement
-
+# ResetGlobalAchievement reset global achievement
 
 [TEST FACILITY ONLY]
-
-
-
 
 Required permission
 `ADMIN:NAMESPACE:{namespace}:ACHIEVEMENT [DELETE]` and scope `social`
@@ -363,11 +351,7 @@ func (a *Client) ResetGlobalAchievement(params *ResetGlobalAchievementParams, au
 /*
 ResetGlobalAchievementShort reset global achievement
 
-
 [TEST FACILITY ONLY]
-
-
-
 
 Required permission
 `ADMIN:NAMESPACE:{namespace}:ACHIEVEMENT [DELETE]` and scope `social`
@@ -384,6 +368,10 @@ func (a *Client) ResetGlobalAchievementShort(params *ResetGlobalAchievementParam
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -422,8 +410,7 @@ func (a *Client) ResetGlobalAchievementShort(params *ResetGlobalAchievementParam
 /*
 Deprecated: 2022-08-10 - Use AdminListUserContributionsShort instead.
 
-AdminListUserContributions admin list of global achievements that has been contributed by the user
-
+# AdminListUserContributions admin list of global achievements that has been contributed by the user
 
 Required permission
 `ADMIN:NAMESPACE:{namespace}:USER:{userId}:ACHIEVEMENT [READ]` and scope `social`
@@ -481,7 +468,6 @@ func (a *Client) AdminListUserContributions(params *AdminListUserContributionsPa
 /*
 AdminListUserContributionsShort admin list of global achievements that has been contributed by the user
 
-
 Required permission
 `ADMIN:NAMESPACE:{namespace}:USER:{userId}:ACHIEVEMENT [READ]` and scope `social`
 */
@@ -497,6 +483,10 @@ func (a *Client) AdminListUserContributionsShort(params *AdminListUserContributi
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -537,17 +527,10 @@ Deprecated: 2022-08-10 - Use PublicListGlobalAchievementsShort instead.
 
 PublicListGlobalAchievements query global achievements [include achieved and in-progress]
 
-
 Required permission
 `NAMESPACE:{namespace}:ACHIEVEMENT [READ]` and scope `social`
 
-
-
-
 Note:
-
-
-
 
 Global achievement status value mean: `status = 1 (in progress)` and `status = 2 (unlocked)`
 */
@@ -604,17 +587,10 @@ func (a *Client) PublicListGlobalAchievements(params *PublicListGlobalAchievemen
 /*
 PublicListGlobalAchievementsShort query global achievements [include achieved and in-progress]
 
-
 Required permission
 `NAMESPACE:{namespace}:ACHIEVEMENT [READ]` and scope `social`
 
-
-
-
 Note:
-
-
-
 
 Global achievement status value mean: `status = 1 (in progress)` and `status = 2 (unlocked)`
 */
@@ -630,6 +606,10 @@ func (a *Client) PublicListGlobalAchievementsShort(params *PublicListGlobalAchie
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -668,8 +648,7 @@ func (a *Client) PublicListGlobalAchievementsShort(params *PublicListGlobalAchie
 /*
 Deprecated: 2022-08-10 - Use ListGlobalAchievementContributorsShort instead.
 
-ListGlobalAchievementContributors list contributors of global achievement
-
+# ListGlobalAchievementContributors list contributors of global achievement
 
 Required permission
 `NAMESPACE:{namespace}:ACHIEVEMENT [READ]` and scope `social`
@@ -727,7 +706,6 @@ func (a *Client) ListGlobalAchievementContributors(params *ListGlobalAchievement
 /*
 ListGlobalAchievementContributorsShort list contributors of global achievement
 
-
 Required permission
 `NAMESPACE:{namespace}:ACHIEVEMENT [READ]` and scope `social`
 */
@@ -743,6 +721,10 @@ func (a *Client) ListGlobalAchievementContributorsShort(params *ListGlobalAchiev
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -781,8 +763,7 @@ func (a *Client) ListGlobalAchievementContributorsShort(params *ListGlobalAchiev
 /*
 Deprecated: 2022-08-10 - Use ListUserContributionsShort instead.
 
-ListUserContributions list of global achievements that has been contributed by the user
-
+# ListUserContributions list of global achievements that has been contributed by the user
 
 Required permission
 `NAMESPACE:{namespace}:USER:{userId}:ACHIEVEMENT [READ]` and scope `social`
@@ -840,7 +821,6 @@ func (a *Client) ListUserContributions(params *ListUserContributionsParams, auth
 /*
 ListUserContributionsShort list of global achievements that has been contributed by the user
 
-
 Required permission
 `NAMESPACE:{namespace}:USER:{userId}:ACHIEVEMENT [READ]` and scope `social`
 */
@@ -856,6 +836,10 @@ func (a *Client) ListUserContributionsShort(params *ListUserContributionsParams,
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -894,19 +878,12 @@ func (a *Client) ListUserContributionsShort(params *ListUserContributionsParams,
 /*
 Deprecated: 2022-08-10 - Use ClaimGlobalAchievementRewardShort instead.
 
-ClaimGlobalAchievementReward claim global achievement reward
-
+# ClaimGlobalAchievementReward claim global achievement reward
 
 Required permission
 `NAMESPACE:{namespace}:USER:{userId}:ACHIEVEMENT [READ]` and scope `social`
 
-
-
-
 Note:
-
-
-
 
 Global achievement should be unlocked to claim the reward. Only contributor of global achievement are eligible for rewards
 */
@@ -963,17 +940,10 @@ func (a *Client) ClaimGlobalAchievementReward(params *ClaimGlobalAchievementRewa
 /*
 ClaimGlobalAchievementRewardShort claim global achievement reward
 
-
 Required permission
 `NAMESPACE:{namespace}:USER:{userId}:ACHIEVEMENT [READ]` and scope `social`
 
-
-
-
 Note:
-
-
-
 
 Global achievement should be unlocked to claim the reward. Only contributor of global achievement are eligible for rewards
 */
@@ -989,6 +959,10 @@ func (a *Client) ClaimGlobalAchievementRewardShort(params *ClaimGlobalAchievemen
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{

@@ -59,7 +59,8 @@ func NewTestXsollaConfigParamsWithHTTPClient(client *http.Client) *TestXsollaCon
 	}
 }
 
-/*TestXsollaConfigParams contains all the parameters to send to the API endpoint
+/*
+TestXsollaConfigParams contains all the parameters to send to the API endpoint
 for the test xsolla config operation typically these are written to a http.Request
 */
 type TestXsollaConfigParams struct {
@@ -73,6 +74,9 @@ type TestXsollaConfigParams struct {
 	AuthInfoWriter runtime.ClientAuthInfoWriter
 	Context        context.Context
 	HTTPClient     *http.Client
+
+	// XFlightId is an optional parameter from this SDK
+	XFlightId *string
 }
 
 // WithTimeout adds the timeout to the test xsolla config params
@@ -122,6 +126,15 @@ func (o *TestXsollaConfigParams) SetHTTPClientTransport(roundTripper http.RoundT
 	}
 }
 
+// SetFlightId adds the flightId as the header value for this specific endpoint
+func (o *TestXsollaConfigParams) SetFlightId(flightId string) {
+	if o.XFlightId != nil {
+		o.XFlightId = &flightId
+	} else {
+		o.XFlightId = &utils.GetDefaultFlightID().Value
+	}
+}
+
 // WithBody adds the body to the test xsolla config params
 func (o *TestXsollaConfigParams) WithBody(body *platformclientmodels.XsollaConfig) *TestXsollaConfigParams {
 	o.SetBody(body)
@@ -150,6 +163,16 @@ func (o *TestXsollaConfigParams) WriteToRequest(r runtime.ClientRequest, reg str
 	// setting the default header value
 	if err := r.SetHeaderParam("X-Amzn-Trace-Id", utils.AmazonTraceIDGen()); err != nil {
 		return err
+	}
+
+	if o.XFlightId == nil {
+		if err := r.SetHeaderParam("X-Flight-Id", utils.GetDefaultFlightID().Value); err != nil {
+			return err
+		}
+	} else {
+		if err := r.SetHeaderParam("X-Flight-Id", *o.XFlightId); err != nil {
+			return err
+		}
 	}
 
 	if len(res) > 0 {

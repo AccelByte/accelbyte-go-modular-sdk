@@ -59,7 +59,8 @@ func NewCreateKeyGroupParamsWithHTTPClient(client *http.Client) *CreateKeyGroupP
 	}
 }
 
-/*CreateKeyGroupParams contains all the parameters to send to the API endpoint
+/*
+CreateKeyGroupParams contains all the parameters to send to the API endpoint
 for the create key group operation typically these are written to a http.Request
 */
 type CreateKeyGroupParams struct {
@@ -75,6 +76,9 @@ type CreateKeyGroupParams struct {
 	AuthInfoWriter runtime.ClientAuthInfoWriter
 	Context        context.Context
 	HTTPClient     *http.Client
+
+	// XFlightId is an optional parameter from this SDK
+	XFlightId *string
 }
 
 // WithTimeout adds the timeout to the create key group params
@@ -124,6 +128,15 @@ func (o *CreateKeyGroupParams) SetHTTPClientTransport(roundTripper http.RoundTri
 	}
 }
 
+// SetFlightId adds the flightId as the header value for this specific endpoint
+func (o *CreateKeyGroupParams) SetFlightId(flightId string) {
+	if o.XFlightId != nil {
+		o.XFlightId = &flightId
+	} else {
+		o.XFlightId = &utils.GetDefaultFlightID().Value
+	}
+}
+
 // WithBody adds the body to the create key group params
 func (o *CreateKeyGroupParams) WithBody(body *platformclientmodels.KeyGroupCreate) *CreateKeyGroupParams {
 	o.SetBody(body)
@@ -168,6 +181,16 @@ func (o *CreateKeyGroupParams) WriteToRequest(r runtime.ClientRequest, reg strfm
 	// setting the default header value
 	if err := r.SetHeaderParam("X-Amzn-Trace-Id", utils.AmazonTraceIDGen()); err != nil {
 		return err
+	}
+
+	if o.XFlightId == nil {
+		if err := r.SetHeaderParam("X-Flight-Id", utils.GetDefaultFlightID().Value); err != nil {
+			return err
+		}
+	} else {
+		if err := r.SetHeaderParam("X-Flight-Id", *o.XFlightId); err != nil {
+			return err
+		}
 	}
 
 	if len(res) > 0 {

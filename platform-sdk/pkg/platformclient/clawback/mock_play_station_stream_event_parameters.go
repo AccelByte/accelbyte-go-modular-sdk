@@ -59,7 +59,8 @@ func NewMockPlayStationStreamEventParamsWithHTTPClient(client *http.Client) *Moc
 	}
 }
 
-/*MockPlayStationStreamEventParams contains all the parameters to send to the API endpoint
+/*
+MockPlayStationStreamEventParams contains all the parameters to send to the API endpoint
 for the mock play station stream event operation typically these are written to a http.Request
 */
 type MockPlayStationStreamEventParams struct {
@@ -75,6 +76,9 @@ type MockPlayStationStreamEventParams struct {
 	AuthInfoWriter runtime.ClientAuthInfoWriter
 	Context        context.Context
 	HTTPClient     *http.Client
+
+	// XFlightId is an optional parameter from this SDK
+	XFlightId *string
 }
 
 // WithTimeout adds the timeout to the mock play station stream event params
@@ -124,6 +128,15 @@ func (o *MockPlayStationStreamEventParams) SetHTTPClientTransport(roundTripper h
 	}
 }
 
+// SetFlightId adds the flightId as the header value for this specific endpoint
+func (o *MockPlayStationStreamEventParams) SetFlightId(flightId string) {
+	if o.XFlightId != nil {
+		o.XFlightId = &flightId
+	} else {
+		o.XFlightId = &utils.GetDefaultFlightID().Value
+	}
+}
+
 // WithBody adds the body to the mock play station stream event params
 func (o *MockPlayStationStreamEventParams) WithBody(body *platformclientmodels.StreamEvent) *MockPlayStationStreamEventParams {
 	o.SetBody(body)
@@ -168,6 +181,16 @@ func (o *MockPlayStationStreamEventParams) WriteToRequest(r runtime.ClientReques
 	// setting the default header value
 	if err := r.SetHeaderParam("X-Amzn-Trace-Id", utils.AmazonTraceIDGen()); err != nil {
 		return err
+	}
+
+	if o.XFlightId == nil {
+		if err := r.SetHeaderParam("X-Flight-Id", utils.GetDefaultFlightID().Value); err != nil {
+			return err
+		}
+	} else {
+		if err := r.SetHeaderParam("X-Flight-Id", *o.XFlightId); err != nil {
+			return err
+		}
 	}
 
 	if len(res) > 0 {

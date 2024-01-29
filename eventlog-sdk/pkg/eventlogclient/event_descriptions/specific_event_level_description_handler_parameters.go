@@ -57,7 +57,8 @@ func NewSpecificEventLevelDescriptionHandlerParamsWithHTTPClient(client *http.Cl
 	}
 }
 
-/*SpecificEventLevelDescriptionHandlerParams contains all the parameters to send to the API endpoint
+/*
+SpecificEventLevelDescriptionHandlerParams contains all the parameters to send to the API endpoint
 for the specific event level description handler operation typically these are written to a http.Request
 */
 type SpecificEventLevelDescriptionHandlerParams struct {
@@ -74,6 +75,9 @@ type SpecificEventLevelDescriptionHandlerParams struct {
 	AuthInfoWriter runtime.ClientAuthInfoWriter
 	Context        context.Context
 	HTTPClient     *http.Client
+
+	// XFlightId is an optional parameter from this SDK
+	XFlightId *string
 }
 
 // WithTimeout adds the timeout to the specific event level description handler params
@@ -123,6 +127,15 @@ func (o *SpecificEventLevelDescriptionHandlerParams) SetHTTPClientTransport(roun
 	}
 }
 
+// SetFlightId adds the flightId as the header value for this specific endpoint
+func (o *SpecificEventLevelDescriptionHandlerParams) SetFlightId(flightId string) {
+	if o.XFlightId != nil {
+		o.XFlightId = &flightId
+	} else {
+		o.XFlightId = &utils.GetDefaultFlightID().Value
+	}
+}
+
 // WithEventLevels adds the eventLevels to the specific event level description handler params
 func (o *SpecificEventLevelDescriptionHandlerParams) WithEventLevels(eventLevels *string) *SpecificEventLevelDescriptionHandlerParams {
 	o.SetEventLevels(eventLevels)
@@ -161,6 +174,16 @@ func (o *SpecificEventLevelDescriptionHandlerParams) WriteToRequest(r runtime.Cl
 	// setting the default header value
 	if err := r.SetHeaderParam("X-Amzn-Trace-Id", utils.AmazonTraceIDGen()); err != nil {
 		return err
+	}
+
+	if o.XFlightId == nil {
+		if err := r.SetHeaderParam("X-Flight-Id", utils.GetDefaultFlightID().Value); err != nil {
+			return err
+		}
+	} else {
+		if err := r.SetHeaderParam("X-Flight-Id", *o.XFlightId); err != nil {
+			return err
+		}
 	}
 
 	if len(res) > 0 {

@@ -72,7 +72,8 @@ func NewPublicVerifyHeadlessAccountV3ParamsWithHTTPClient(client *http.Client) *
 	}
 }
 
-/*PublicVerifyHeadlessAccountV3Params contains all the parameters to send to the API endpoint
+/*
+PublicVerifyHeadlessAccountV3Params contains all the parameters to send to the API endpoint
 for the public verify headless account v3 operation typically these are written to a http.Request
 */
 type PublicVerifyHeadlessAccountV3Params struct {
@@ -96,6 +97,9 @@ type PublicVerifyHeadlessAccountV3Params struct {
 	AuthInfoWriter runtime.ClientAuthInfoWriter
 	Context        context.Context
 	HTTPClient     *http.Client
+
+	// XFlightId is an optional parameter from this SDK
+	XFlightId *string
 }
 
 // WithTimeout adds the timeout to the public verify headless account v3 params
@@ -142,6 +146,15 @@ func (o *PublicVerifyHeadlessAccountV3Params) SetHTTPClientTransport(roundTrippe
 		o.HTTPClient.Transport = roundTripper
 	} else {
 		o.HTTPClient = &http.Client{Transport: roundTripper}
+	}
+}
+
+// SetFlightId adds the flightId as the header value for this specific endpoint
+func (o *PublicVerifyHeadlessAccountV3Params) SetFlightId(flightId string) {
+	if o.XFlightId != nil {
+		o.XFlightId = &flightId
+	} else {
+		o.XFlightId = &utils.GetDefaultFlightID().Value
 	}
 }
 
@@ -216,6 +229,16 @@ func (o *PublicVerifyHeadlessAccountV3Params) WriteToRequest(r runtime.ClientReq
 	// setting the default header value
 	if err := r.SetHeaderParam("X-Amzn-Trace-Id", utils.AmazonTraceIDGen()); err != nil {
 		return err
+	}
+
+	if o.XFlightId == nil {
+		if err := r.SetHeaderParam("X-Flight-Id", utils.GetDefaultFlightID().Value); err != nil {
+			return err
+		}
+	} else {
+		if err := r.SetHeaderParam("X-Flight-Id", *o.XFlightId); err != nil {
+			return err
+		}
 	}
 
 	if len(res) > 0 {

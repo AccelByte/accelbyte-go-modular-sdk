@@ -53,7 +53,7 @@ RetrievePolicies retrieve policies by country
 Retrieve all active policies based on a country.
 Other detail info:
 
-  * Required permission : resource="ADMIN:NAMESPACE:*:LEGAL", action=2 (READ)
+  - Required permission : resource="ADMIN:NAMESPACE:*:LEGAL", action=2 (READ)
 */
 func (a *Client) RetrievePolicies(params *RetrievePoliciesParams, authInfo runtime.ClientAuthInfoWriter) (*RetrievePoliciesOK, error) {
 	// TODO: Validate the params before sending
@@ -101,7 +101,7 @@ RetrievePoliciesShort retrieve policies by country
 Retrieve all active policies based on a country.
 Other detail info:
 
-  * Required permission : resource="ADMIN:NAMESPACE:*:LEGAL", action=2 (READ)
+  - Required permission : resource="ADMIN:NAMESPACE:*:LEGAL", action=2 (READ)
 */
 func (a *Client) RetrievePoliciesShort(params *RetrievePoliciesParams, authInfo runtime.ClientAuthInfoWriter) (*RetrievePoliciesOK, error) {
 	// TODO: Validate the params before sending
@@ -115,6 +115,10 @@ func (a *Client) RetrievePoliciesShort(params *RetrievePoliciesParams, authInfo 
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -151,7 +155,7 @@ UpdatePolicy update country-specific policy
 Update country-specific policy.
 Other detail info:
 
-  * Required permission : resource="ADMIN:NAMESPACE:*:LEGAL", action=4 (UPDATE)
+  - Required permission : resource="ADMIN:NAMESPACE:*:LEGAL", action=4 (UPDATE)
 */
 func (a *Client) UpdatePolicy(params *UpdatePolicyParams, authInfo runtime.ClientAuthInfoWriter) (*UpdatePolicyOK, *UpdatePolicyBadRequest, error) {
 	// TODO: Validate the params before sending
@@ -202,7 +206,7 @@ UpdatePolicyShort update country-specific policy
 Update country-specific policy.
 Other detail info:
 
-  * Required permission : resource="ADMIN:NAMESPACE:*:LEGAL", action=4 (UPDATE)
+  - Required permission : resource="ADMIN:NAMESPACE:*:LEGAL", action=4 (UPDATE)
 */
 func (a *Client) UpdatePolicyShort(params *UpdatePolicyParams, authInfo runtime.ClientAuthInfoWriter) (*UpdatePolicyOK, error) {
 	// TODO: Validate the params before sending
@@ -216,6 +220,10 @@ func (a *Client) UpdatePolicyShort(params *UpdatePolicyParams, authInfo runtime.
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -254,7 +262,7 @@ SetDefaultPolicy2 set default policy
 Update a policy to be the default.
 Other detail info:
 
-  * Required permission : resource="ADMIN:NAMESPACE:*:LEGAL", action=4 (UPDATE)
+  - Required permission : resource="ADMIN:NAMESPACE:*:LEGAL", action=4 (UPDATE)
 */
 func (a *Client) SetDefaultPolicy2(params *SetDefaultPolicy2Params, authInfo runtime.ClientAuthInfoWriter) (*SetDefaultPolicy2OK, *SetDefaultPolicy2BadRequest, error) {
 	// TODO: Validate the params before sending
@@ -305,7 +313,7 @@ SetDefaultPolicy2Short set default policy
 Update a policy to be the default.
 Other detail info:
 
-  * Required permission : resource="ADMIN:NAMESPACE:*:LEGAL", action=4 (UPDATE)
+  - Required permission : resource="ADMIN:NAMESPACE:*:LEGAL", action=4 (UPDATE)
 */
 func (a *Client) SetDefaultPolicy2Short(params *SetDefaultPolicy2Params, authInfo runtime.ClientAuthInfoWriter) (*SetDefaultPolicy2OK, error) {
 	// TODO: Validate the params before sending
@@ -319,6 +327,10 @@ func (a *Client) SetDefaultPolicy2Short(params *SetDefaultPolicy2Params, authInf
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -357,9 +369,9 @@ RetrieveLatestPolicies retrieve latest policies by country
 Retrieve all active latest policies based on a country.
 Other detail info:
 
-  * Leave the policyType empty if you want to be responded with all policy type
-  *  Fill the tags if you want to filter the responded policy by tags
-  *  Fill the defaultOnEmpty with true if you want to be responded with default country-specific policy if your requested country is not exist
+  - Leave the policyType empty if you want to be responded with all policy type
+  - Fill the tags if you want to filter the responded policy by tags
+  - Fill the defaultOnEmpty with true if you want to be responded with default country-specific policy if your requested country is not exist
 */
 func (a *Client) RetrieveLatestPolicies(params *RetrieveLatestPoliciesParams) (*RetrieveLatestPoliciesOK, error) {
 	// TODO: Validate the params before sending
@@ -406,9 +418,9 @@ RetrieveLatestPoliciesShort retrieve latest policies by country
 Retrieve all active latest policies based on a country.
 Other detail info:
 
-  * Leave the policyType empty if you want to be responded with all policy type
-  *  Fill the tags if you want to filter the responded policy by tags
-  *  Fill the defaultOnEmpty with true if you want to be responded with default country-specific policy if your requested country is not exist
+  - Leave the policyType empty if you want to be responded with all policy type
+  - Fill the tags if you want to filter the responded policy by tags
+  - Fill the defaultOnEmpty with true if you want to be responded with default country-specific policy if your requested country is not exist
 */
 func (a *Client) RetrieveLatestPoliciesShort(params *RetrieveLatestPoliciesParams) (*RetrieveLatestPoliciesOK, error) {
 	// TODO: Validate the params before sending
@@ -422,6 +434,10 @@ func (a *Client) RetrieveLatestPoliciesShort(params *RetrieveLatestPoliciesParam
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -457,17 +473,17 @@ RetrieveLatestPoliciesPublic retrieve latest policies by namespace and country
 Retrieve all active latest policies based on a namespace and country. The country will be read from user token.
 Other detail info:
 
-  * Leave the policyType empty if you want to be responded with all policy type
-  *  Fill the tags if you want to filter the responded policy by tags
-  *  Fill the defaultOnEmpty with true if you want to be responded with default country-specific policy if your requested country is not exist
-  *  Fill the alwaysIncludeDefault with true if you want to be responded with always include default policy. If there are duplicate policies (default policies and country specific policies with same base policy) it'll include policy with same country code, for example:
-    * Document 1 (default): Region US (default), UA
-    * Document 2 (default): Region US (default)
-    * Document 3 (default): Region US (default)
-    * User: Region UA
-    * Query: alwaysIncludeDefault: true
-    * Response: Document 1 (UA), Document 2 (US), Document 3 (US)
-  *  Required permission: login user
+  - Leave the policyType empty if you want to be responded with all policy type
+  - Fill the tags if you want to filter the responded policy by tags
+  - Fill the defaultOnEmpty with true if you want to be responded with default country-specific policy if your requested country is not exist
+  - Fill the alwaysIncludeDefault with true if you want to be responded with always include default policy. If there are duplicate policies (default policies and country specific policies with same base policy) it'll include policy with same country code, for example:
+  - Document 1 (default): Region US (default), UA
+  - Document 2 (default): Region US (default)
+  - Document 3 (default): Region US (default)
+  - User: Region UA
+  - Query: alwaysIncludeDefault: true
+  - Response: Document 1 (UA), Document 2 (US), Document 3 (US)
+  - Required permission: login user
 */
 func (a *Client) RetrieveLatestPoliciesPublic(params *RetrieveLatestPoliciesPublicParams, authInfo runtime.ClientAuthInfoWriter) (*RetrieveLatestPoliciesPublicOK, *RetrieveLatestPoliciesPublicNotFound, error) {
 	// TODO: Validate the params before sending
@@ -518,17 +534,17 @@ RetrieveLatestPoliciesPublicShort retrieve latest policies by namespace and coun
 Retrieve all active latest policies based on a namespace and country. The country will be read from user token.
 Other detail info:
 
-  * Leave the policyType empty if you want to be responded with all policy type
-  *  Fill the tags if you want to filter the responded policy by tags
-  *  Fill the defaultOnEmpty with true if you want to be responded with default country-specific policy if your requested country is not exist
-  *  Fill the alwaysIncludeDefault with true if you want to be responded with always include default policy. If there are duplicate policies (default policies and country specific policies with same base policy) it'll include policy with same country code, for example:
-    * Document 1 (default): Region US (default), UA
-    * Document 2 (default): Region US (default)
-    * Document 3 (default): Region US (default)
-    * User: Region UA
-    * Query: alwaysIncludeDefault: true
-    * Response: Document 1 (UA), Document 2 (US), Document 3 (US)
-  *  Required permission: login user
+  - Leave the policyType empty if you want to be responded with all policy type
+  - Fill the tags if you want to filter the responded policy by tags
+  - Fill the defaultOnEmpty with true if you want to be responded with default country-specific policy if your requested country is not exist
+  - Fill the alwaysIncludeDefault with true if you want to be responded with always include default policy. If there are duplicate policies (default policies and country specific policies with same base policy) it'll include policy with same country code, for example:
+  - Document 1 (default): Region US (default), UA
+  - Document 2 (default): Region US (default)
+  - Document 3 (default): Region US (default)
+  - User: Region UA
+  - Query: alwaysIncludeDefault: true
+  - Response: Document 1 (UA), Document 2 (US), Document 3 (US)
+  - Required permission: login user
 */
 func (a *Client) RetrieveLatestPoliciesPublicShort(params *RetrieveLatestPoliciesPublicParams, authInfo runtime.ClientAuthInfoWriter) (*RetrieveLatestPoliciesPublicOK, error) {
 	// TODO: Validate the params before sending
@@ -542,6 +558,10 @@ func (a *Client) RetrieveLatestPoliciesPublicShort(params *RetrieveLatestPolicie
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -580,16 +600,16 @@ RetrieveLatestPoliciesByNamespaceAndCountryPublic retrieve latest policies by na
 Retrieve all active latest policies based on a namespace and country.
 Other detail info:
 
-  * Leave the policyType empty if you want to be responded with all policy type
-  *  Fill the tags if you want to filter the responded policy by tags
-  *  Fill the defaultOnEmpty with true if you want to be responded with default country-specific policy if your requested country is not exist
-  *  Fill the alwaysIncludeDefault with true if you want to be responded with always include default policy. If there are duplicate policies (default policies and country specific policies with same base policy) it'll include policy with same country code, for example:
-    * Document 1 (default): Region US (default), UA
-    * Document 2 (default): Region US (default)
-    * Document 3 (default): Region US (default)
-    * User: Region UA
-    * Query: alwaysIncludeDefault: true
-    * Response: Document 1 (UA), Document 2 (US), Document 3 (US)
+  - Leave the policyType empty if you want to be responded with all policy type
+  - Fill the tags if you want to filter the responded policy by tags
+  - Fill the defaultOnEmpty with true if you want to be responded with default country-specific policy if your requested country is not exist
+  - Fill the alwaysIncludeDefault with true if you want to be responded with always include default policy. If there are duplicate policies (default policies and country specific policies with same base policy) it'll include policy with same country code, for example:
+  - Document 1 (default): Region US (default), UA
+  - Document 2 (default): Region US (default)
+  - Document 3 (default): Region US (default)
+  - User: Region UA
+  - Query: alwaysIncludeDefault: true
+  - Response: Document 1 (UA), Document 2 (US), Document 3 (US)
 */
 func (a *Client) RetrieveLatestPoliciesByNamespaceAndCountryPublic(params *RetrieveLatestPoliciesByNamespaceAndCountryPublicParams) (*RetrieveLatestPoliciesByNamespaceAndCountryPublicOK, error) {
 	// TODO: Validate the params before sending
@@ -635,16 +655,16 @@ func (a *Client) RetrieveLatestPoliciesByNamespaceAndCountryPublic(params *Retri
 RetrieveLatestPoliciesByNamespaceAndCountryPublicShort retrieve latest policies by namespace and country
 Retrieve all active latest policies based on a namespace and country.
 Other detail info:
-    * Leave the policyType empty if you want to be responded with all policy type
-    *  Fill the tags if you want to filter the responded policy by tags
-    *  Fill the defaultOnEmpty with true if you want to be responded with default country-specific policy if your requested country is not exist
-    *  Fill the alwaysIncludeDefault with true if you want to be responded with always include default policy. If there are duplicate policies (default policies and country specific policies with same base policy) it'll include policy with same country code, for example:
-      * Document 1 (default): Region US (default), UA
-      * Document 2 (default): Region US (default)
-      * Document 3 (default): Region US (default)
-      * User: Region UA
-      * Query: alwaysIncludeDefault: true
-      * Response: Document 1 (UA), Document 2 (US), Document 3 (US)
+  - Leave the policyType empty if you want to be responded with all policy type
+  - Fill the tags if you want to filter the responded policy by tags
+  - Fill the defaultOnEmpty with true if you want to be responded with default country-specific policy if your requested country is not exist
+  - Fill the alwaysIncludeDefault with true if you want to be responded with always include default policy. If there are duplicate policies (default policies and country specific policies with same base policy) it'll include policy with same country code, for example:
+  - Document 1 (default): Region US (default), UA
+  - Document 2 (default): Region US (default)
+  - Document 3 (default): Region US (default)
+  - User: Region UA
+  - Query: alwaysIncludeDefault: true
+  - Response: Document 1 (UA), Document 2 (US), Document 3 (US)
 */
 func (a *Client) RetrieveLatestPoliciesByNamespaceAndCountryPublicShort(params *RetrieveLatestPoliciesByNamespaceAndCountryPublicParams) (*RetrieveLatestPoliciesByNamespaceAndCountryPublicOK, error) {
 	// TODO: Validate the params before sending
@@ -658,6 +678,10 @@ func (a *Client) RetrieveLatestPoliciesByNamespaceAndCountryPublicShort(params *
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{

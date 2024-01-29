@@ -106,28 +106,27 @@ type ClientService interface {
 Deprecated: 2022-08-10 - Use TestAdyenConfigShort instead.
 
 TestAdyenConfig test adyen configuration
- [Not Supported Yet In Starter] Test adyen configuration.
+
+	[Not Supported Yet In Starter] Test adyen configuration.
 
 #### Check List:
 
-  * apiKey
-  * merchantAccount
-
-
+  - apiKey
+  - merchantAccount
 
 #### Non-check list:
 
-  * notificationHmacKey
-  * notificationUsername
-  * notificationPassword
-  * liveEndpointUrlPrefix
-  * allowedPaymentMethods
-  * blockedPaymentMethods
-  * settings
+  - notificationHmacKey
+  - notificationUsername
+  - notificationPassword
+  - liveEndpointUrlPrefix
+  - allowedPaymentMethods
+  - blockedPaymentMethods
+  - settings
 
 Other detail info:
-  * Required permission : resource="ADMIN:PAYMENT:CONFIG", action=4 (UPDATE)
-  *  Returns : test adyen config
+  - Required permission : resource="ADMIN:PAYMENT:CONFIG", action=4 (UPDATE)
+  - Returns : test adyen config
 */
 func (a *Client) TestAdyenConfig(params *TestAdyenConfigParams, authInfo runtime.ClientAuthInfoWriter) (*TestAdyenConfigOK, error) {
 	// TODO: Validate the params before sending
@@ -172,28 +171,27 @@ func (a *Client) TestAdyenConfig(params *TestAdyenConfigParams, authInfo runtime
 
 /*
 TestAdyenConfigShort test adyen configuration
- [Not Supported Yet In Starter] Test adyen configuration.
+
+	[Not Supported Yet In Starter] Test adyen configuration.
 
 #### Check List:
 
-  * apiKey
-  * merchantAccount
-
-
+  - apiKey
+  - merchantAccount
 
 #### Non-check list:
 
-  * notificationHmacKey
-  * notificationUsername
-  * notificationPassword
-  * liveEndpointUrlPrefix
-  * allowedPaymentMethods
-  * blockedPaymentMethods
-  * settings
+  - notificationHmacKey
+  - notificationUsername
+  - notificationPassword
+  - liveEndpointUrlPrefix
+  - allowedPaymentMethods
+  - blockedPaymentMethods
+  - settings
 
 Other detail info:
-  * Required permission : resource="ADMIN:PAYMENT:CONFIG", action=4 (UPDATE)
-  *  Returns : test adyen config
+  - Required permission : resource="ADMIN:PAYMENT:CONFIG", action=4 (UPDATE)
+  - Returns : test adyen config
 */
 func (a *Client) TestAdyenConfigShort(params *TestAdyenConfigParams, authInfo runtime.ClientAuthInfoWriter) (*TestAdyenConfigOK, error) {
 	// TODO: Validate the params before sending
@@ -207,6 +205,10 @@ func (a *Client) TestAdyenConfigShort(params *TestAdyenConfigParams, authInfo ru
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -240,11 +242,13 @@ func (a *Client) TestAdyenConfigShort(params *TestAdyenConfigParams, authInfo ru
 Deprecated: 2022-08-10 - Use TestAliPayConfigShort instead.
 
 TestAliPayConfig test alipay configuration
- [Not Supported Yet In Starter] Test AliPay configuration.Reference: [Alipay Document](https://docs.open.alipay.com/270/alipay.trade.page.pay).
+
+	[Not Supported Yet In Starter] Test AliPay configuration.Reference: [Alipay Document](https://docs.open.alipay.com/270/alipay.trade.page.pay).
+
 Other detail info:
 
-  * Required permission : resource="ADMIN:PAYMENT:CONFIG", action=4 (UPDATE)
-  *  Returns : test result
+  - Required permission : resource="ADMIN:PAYMENT:CONFIG", action=4 (UPDATE)
+  - Returns : test result
 */
 func (a *Client) TestAliPayConfig(params *TestAliPayConfigParams, authInfo runtime.ClientAuthInfoWriter) (*TestAliPayConfigOK, error) {
 	// TODO: Validate the params before sending
@@ -289,11 +293,13 @@ func (a *Client) TestAliPayConfig(params *TestAliPayConfigParams, authInfo runti
 
 /*
 TestAliPayConfigShort test alipay configuration
- [Not Supported Yet In Starter] Test AliPay configuration.Reference: [Alipay Document](https://docs.open.alipay.com/270/alipay.trade.page.pay).
+
+	[Not Supported Yet In Starter] Test AliPay configuration.Reference: [Alipay Document](https://docs.open.alipay.com/270/alipay.trade.page.pay).
+
 Other detail info:
 
-  * Required permission : resource="ADMIN:PAYMENT:CONFIG", action=4 (UPDATE)
-  *  Returns : test result
+  - Required permission : resource="ADMIN:PAYMENT:CONFIG", action=4 (UPDATE)
+  - Returns : test result
 */
 func (a *Client) TestAliPayConfigShort(params *TestAliPayConfigParams, authInfo runtime.ClientAuthInfoWriter) (*TestAliPayConfigOK, error) {
 	// TODO: Validate the params before sending
@@ -307,6 +313,10 @@ func (a *Client) TestAliPayConfigShort(params *TestAliPayConfigParams, authInfo 
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -340,16 +350,17 @@ func (a *Client) TestAliPayConfigShort(params *TestAliPayConfigParams, authInfo 
 Deprecated: 2022-08-10 - Use TestCheckoutConfigShort instead.
 
 TestCheckoutConfig test checkout.com configuration
- [Not Supported Yet In Starter] Test checkout.com configuration.
+
+	[Not Supported Yet In Starter] Test checkout.com configuration.
 
 #### Check List:
 
-  * publicKey
-  * secretKey
+  - publicKey
+  - secretKey
 
 Other detail info:
-  * Required permission : resource="ADMIN:PAYMENT:CONFIG", action=4 (UPDATE)
-  *  Returns : test result
+  - Required permission : resource="ADMIN:PAYMENT:CONFIG", action=4 (UPDATE)
+  - Returns : test result
 */
 func (a *Client) TestCheckoutConfig(params *TestCheckoutConfigParams, authInfo runtime.ClientAuthInfoWriter) (*TestCheckoutConfigOK, error) {
 	// TODO: Validate the params before sending
@@ -394,16 +405,17 @@ func (a *Client) TestCheckoutConfig(params *TestCheckoutConfigParams, authInfo r
 
 /*
 TestCheckoutConfigShort test checkout.com configuration
- [Not Supported Yet In Starter] Test checkout.com configuration.
+
+	[Not Supported Yet In Starter] Test checkout.com configuration.
 
 #### Check List:
 
-  * publicKey
-  * secretKey
+  - publicKey
+  - secretKey
 
 Other detail info:
-  * Required permission : resource="ADMIN:PAYMENT:CONFIG", action=4 (UPDATE)
-  *  Returns : test result
+  - Required permission : resource="ADMIN:PAYMENT:CONFIG", action=4 (UPDATE)
+  - Returns : test result
 */
 func (a *Client) TestCheckoutConfigShort(params *TestCheckoutConfigParams, authInfo runtime.ClientAuthInfoWriter) (*TestCheckoutConfigOK, error) {
 	// TODO: Validate the params before sending
@@ -417,6 +429,10 @@ func (a *Client) TestCheckoutConfigShort(params *TestCheckoutConfigParams, authI
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -450,11 +466,13 @@ func (a *Client) TestCheckoutConfigShort(params *TestCheckoutConfigParams, authI
 Deprecated: 2022-08-10 - Use DebugMatchedPaymentMerchantConfigShort instead.
 
 DebugMatchedPaymentMerchantConfig debug matched payment merchant config(internal)
- [Not Supported Yet In Starter] Debug matched payment merchant config.
+
+	[Not Supported Yet In Starter] Debug matched payment merchant config.
+
 Other detail info:
 
-  * Required permission : resource="ADMIN:PAYMENT:CONFIG", action=2 (READ)
-  *  Returns : payment merchant config info
+  - Required permission : resource="ADMIN:PAYMENT:CONFIG", action=2 (READ)
+  - Returns : payment merchant config info
 */
 func (a *Client) DebugMatchedPaymentMerchantConfig(params *DebugMatchedPaymentMerchantConfigParams, authInfo runtime.ClientAuthInfoWriter) (*DebugMatchedPaymentMerchantConfigOK, *DebugMatchedPaymentMerchantConfigNotFound, error) {
 	// TODO: Validate the params before sending
@@ -502,11 +520,13 @@ func (a *Client) DebugMatchedPaymentMerchantConfig(params *DebugMatchedPaymentMe
 
 /*
 DebugMatchedPaymentMerchantConfigShort debug matched payment merchant config(internal)
- [Not Supported Yet In Starter] Debug matched payment merchant config.
+
+	[Not Supported Yet In Starter] Debug matched payment merchant config.
+
 Other detail info:
 
-  * Required permission : resource="ADMIN:PAYMENT:CONFIG", action=2 (READ)
-  *  Returns : payment merchant config info
+  - Required permission : resource="ADMIN:PAYMENT:CONFIG", action=2 (READ)
+  - Returns : payment merchant config info
 */
 func (a *Client) DebugMatchedPaymentMerchantConfigShort(params *DebugMatchedPaymentMerchantConfigParams, authInfo runtime.ClientAuthInfoWriter) (*DebugMatchedPaymentMerchantConfigOK, error) {
 	// TODO: Validate the params before sending
@@ -520,6 +540,10 @@ func (a *Client) DebugMatchedPaymentMerchantConfigShort(params *DebugMatchedPaym
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -555,22 +579,21 @@ func (a *Client) DebugMatchedPaymentMerchantConfigShort(params *DebugMatchedPaym
 Deprecated: 2022-08-10 - Use TestPayPalConfigShort instead.
 
 TestPayPalConfig test paypal configuration
- [Not Supported Yet In Starter] Test PayPal configuration.
+
+	[Not Supported Yet In Starter] Test PayPal configuration.
 
 #### Check List:
 
-  * clientID
-  * clientSecret
-
-
+  - clientID
+  - clientSecret
 
 #### Non-check list:
 
-  * webHookId
+  - webHookId
 
 Other detail info:
-  * Required permission : resource="ADMIN:PAYMENT:CONFIG", action=4 (UPDATE)
-  *  Returns : test result
+  - Required permission : resource="ADMIN:PAYMENT:CONFIG", action=4 (UPDATE)
+  - Returns : test result
 */
 func (a *Client) TestPayPalConfig(params *TestPayPalConfigParams, authInfo runtime.ClientAuthInfoWriter) (*TestPayPalConfigOK, error) {
 	// TODO: Validate the params before sending
@@ -615,22 +638,21 @@ func (a *Client) TestPayPalConfig(params *TestPayPalConfigParams, authInfo runti
 
 /*
 TestPayPalConfigShort test paypal configuration
- [Not Supported Yet In Starter] Test PayPal configuration.
+
+	[Not Supported Yet In Starter] Test PayPal configuration.
 
 #### Check List:
 
-  * clientID
-  * clientSecret
-
-
+  - clientID
+  - clientSecret
 
 #### Non-check list:
 
-  * webHookId
+  - webHookId
 
 Other detail info:
-  * Required permission : resource="ADMIN:PAYMENT:CONFIG", action=4 (UPDATE)
-  *  Returns : test result
+  - Required permission : resource="ADMIN:PAYMENT:CONFIG", action=4 (UPDATE)
+  - Returns : test result
 */
 func (a *Client) TestPayPalConfigShort(params *TestPayPalConfigParams, authInfo runtime.ClientAuthInfoWriter) (*TestPayPalConfigOK, error) {
 	// TODO: Validate the params before sending
@@ -644,6 +666,10 @@ func (a *Client) TestPayPalConfigShort(params *TestPayPalConfigParams, authInfo 
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -677,23 +703,22 @@ func (a *Client) TestPayPalConfigShort(params *TestPayPalConfigParams, authInfo 
 Deprecated: 2022-08-10 - Use TestStripeConfigShort instead.
 
 TestStripeConfig test stripe configuration
- [Not Supported Yet In Starter] Test stripe configuration.
+
+	[Not Supported Yet In Starter] Test stripe configuration.
 
 #### Check List:
 
-  * secretKey
-  * allowedPaymentMethodTypes
-
-
+  - secretKey
+  - allowedPaymentMethodTypes
 
 #### Non-check list:
 
-  * publishableKey
-  * webhookSecret
+  - publishableKey
+  - webhookSecret
 
 Other detail info:
-  * Required permission : resource="ADMIN:PAYMENT:CONFIG", action=4 (UPDATE)
-  *  Returns : test adyen config
+  - Required permission : resource="ADMIN:PAYMENT:CONFIG", action=4 (UPDATE)
+  - Returns : test adyen config
 */
 func (a *Client) TestStripeConfig(params *TestStripeConfigParams, authInfo runtime.ClientAuthInfoWriter) (*TestStripeConfigOK, error) {
 	// TODO: Validate the params before sending
@@ -738,23 +763,22 @@ func (a *Client) TestStripeConfig(params *TestStripeConfigParams, authInfo runti
 
 /*
 TestStripeConfigShort test stripe configuration
- [Not Supported Yet In Starter] Test stripe configuration.
+
+	[Not Supported Yet In Starter] Test stripe configuration.
 
 #### Check List:
 
-  * secretKey
-  * allowedPaymentMethodTypes
-
-
+  - secretKey
+  - allowedPaymentMethodTypes
 
 #### Non-check list:
 
-  * publishableKey
-  * webhookSecret
+  - publishableKey
+  - webhookSecret
 
 Other detail info:
-  * Required permission : resource="ADMIN:PAYMENT:CONFIG", action=4 (UPDATE)
-  *  Returns : test adyen config
+  - Required permission : resource="ADMIN:PAYMENT:CONFIG", action=4 (UPDATE)
+  - Returns : test adyen config
 */
 func (a *Client) TestStripeConfigShort(params *TestStripeConfigParams, authInfo runtime.ClientAuthInfoWriter) (*TestStripeConfigOK, error) {
 	// TODO: Validate the params before sending
@@ -768,6 +792,10 @@ func (a *Client) TestStripeConfigShort(params *TestStripeConfigParams, authInfo 
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -801,11 +829,13 @@ func (a *Client) TestStripeConfigShort(params *TestStripeConfigParams, authInfo 
 Deprecated: 2022-08-10 - Use TestWxPayConfigShort instead.
 
 TestWxPayConfig test wxpay configuration
- [Not Supported Yet In Starter] Test WxPay configuration. Reference: [WxPay Document](https://pay.weixin.qq.com/wiki/doc/api/native.php?chapter=9_1).
+
+	[Not Supported Yet In Starter] Test WxPay configuration. Reference: [WxPay Document](https://pay.weixin.qq.com/wiki/doc/api/native.php?chapter=9_1).
+
 Other detail info:
 
-  * Required permission : resource="ADMIN:PAYMENT:CONFIG", action=4 (UPDATE)
-  *  Returns : test WxPay config
+  - Required permission : resource="ADMIN:PAYMENT:CONFIG", action=4 (UPDATE)
+  - Returns : test WxPay config
 */
 func (a *Client) TestWxPayConfig(params *TestWxPayConfigParams, authInfo runtime.ClientAuthInfoWriter) (*TestWxPayConfigOK, error) {
 	// TODO: Validate the params before sending
@@ -850,11 +880,13 @@ func (a *Client) TestWxPayConfig(params *TestWxPayConfigParams, authInfo runtime
 
 /*
 TestWxPayConfigShort test wxpay configuration
- [Not Supported Yet In Starter] Test WxPay configuration. Reference: [WxPay Document](https://pay.weixin.qq.com/wiki/doc/api/native.php?chapter=9_1).
+
+	[Not Supported Yet In Starter] Test WxPay configuration. Reference: [WxPay Document](https://pay.weixin.qq.com/wiki/doc/api/native.php?chapter=9_1).
+
 Other detail info:
 
-  * Required permission : resource="ADMIN:PAYMENT:CONFIG", action=4 (UPDATE)
-  *  Returns : test WxPay config
+  - Required permission : resource="ADMIN:PAYMENT:CONFIG", action=4 (UPDATE)
+  - Returns : test WxPay config
 */
 func (a *Client) TestWxPayConfigShort(params *TestWxPayConfigParams, authInfo runtime.ClientAuthInfoWriter) (*TestWxPayConfigOK, error) {
 	// TODO: Validate the params before sending
@@ -868,6 +900,10 @@ func (a *Client) TestWxPayConfigShort(params *TestWxPayConfigParams, authInfo ru
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -901,23 +937,22 @@ func (a *Client) TestWxPayConfigShort(params *TestWxPayConfigParams, authInfo ru
 Deprecated: 2022-08-10 - Use TestXsollaConfigShort instead.
 
 TestXsollaConfig test xsolla configuration
- [Not Supported Yet In Starter] Check xsolla configuration, Reference: [Xsolla Document](https://developers.xsolla.com/?#simple-checkout).
+
+	[Not Supported Yet In Starter] Check xsolla configuration, Reference: [Xsolla Document](https://developers.xsolla.com/?#simple-checkout).
 
 #### Check List:
 
-  * merchantId
-  * projectId
-  * apiKey
-
-
+  - merchantId
+  - projectId
+  - apiKey
 
 #### Non-check list:
 
-  * projectSecretKey
+  - projectSecretKey
 
 Other detail info:
-  * Required permission : resource="ADMIN:PAYMENT:CONFIG", action=4 (UPDATE)
-  *  Returns : test result
+  - Required permission : resource="ADMIN:PAYMENT:CONFIG", action=4 (UPDATE)
+  - Returns : test result
 */
 func (a *Client) TestXsollaConfig(params *TestXsollaConfigParams, authInfo runtime.ClientAuthInfoWriter) (*TestXsollaConfigOK, error) {
 	// TODO: Validate the params before sending
@@ -962,23 +997,22 @@ func (a *Client) TestXsollaConfig(params *TestXsollaConfigParams, authInfo runti
 
 /*
 TestXsollaConfigShort test xsolla configuration
- [Not Supported Yet In Starter] Check xsolla configuration, Reference: [Xsolla Document](https://developers.xsolla.com/?#simple-checkout).
+
+	[Not Supported Yet In Starter] Check xsolla configuration, Reference: [Xsolla Document](https://developers.xsolla.com/?#simple-checkout).
 
 #### Check List:
 
-  * merchantId
-  * projectId
-  * apiKey
-
-
+  - merchantId
+  - projectId
+  - apiKey
 
 #### Non-check list:
 
-  * projectSecretKey
+  - projectSecretKey
 
 Other detail info:
-  * Required permission : resource="ADMIN:PAYMENT:CONFIG", action=4 (UPDATE)
-  *  Returns : test result
+  - Required permission : resource="ADMIN:PAYMENT:CONFIG", action=4 (UPDATE)
+  - Returns : test result
 */
 func (a *Client) TestXsollaConfigShort(params *TestXsollaConfigParams, authInfo runtime.ClientAuthInfoWriter) (*TestXsollaConfigOK, error) {
 	// TODO: Validate the params before sending
@@ -992,6 +1026,10 @@ func (a *Client) TestXsollaConfigShort(params *TestXsollaConfigParams, authInfo 
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -1025,11 +1063,13 @@ func (a *Client) TestXsollaConfigShort(params *TestXsollaConfigParams, authInfo 
 Deprecated: 2022-08-10 - Use GetPaymentMerchantConfigShort instead.
 
 GetPaymentMerchantConfig get payment merchant config
- [Not Supported Yet In Starter] Get payment merchant config by id.
+
+	[Not Supported Yet In Starter] Get payment merchant config by id.
+
 Other detail info:
 
-  * Required permission : resource="ADMIN:PAYMENT:CONFIG", action=2 (READ)
-  *  Returns : payment merchant config info
+  - Required permission : resource="ADMIN:PAYMENT:CONFIG", action=2 (READ)
+  - Returns : payment merchant config info
 */
 func (a *Client) GetPaymentMerchantConfig(params *GetPaymentMerchantConfigParams, authInfo runtime.ClientAuthInfoWriter) (*GetPaymentMerchantConfigOK, *GetPaymentMerchantConfigNotFound, error) {
 	// TODO: Validate the params before sending
@@ -1077,11 +1117,13 @@ func (a *Client) GetPaymentMerchantConfig(params *GetPaymentMerchantConfigParams
 
 /*
 GetPaymentMerchantConfigShort get payment merchant config
- [Not Supported Yet In Starter] Get payment merchant config by id.
+
+	[Not Supported Yet In Starter] Get payment merchant config by id.
+
 Other detail info:
 
-  * Required permission : resource="ADMIN:PAYMENT:CONFIG", action=2 (READ)
-  *  Returns : payment merchant config info
+  - Required permission : resource="ADMIN:PAYMENT:CONFIG", action=2 (READ)
+  - Returns : payment merchant config info
 */
 func (a *Client) GetPaymentMerchantConfigShort(params *GetPaymentMerchantConfigParams, authInfo runtime.ClientAuthInfoWriter) (*GetPaymentMerchantConfigOK, error) {
 	// TODO: Validate the params before sending
@@ -1095,6 +1137,10 @@ func (a *Client) GetPaymentMerchantConfigShort(params *GetPaymentMerchantConfigP
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -1130,11 +1176,13 @@ func (a *Client) GetPaymentMerchantConfigShort(params *GetPaymentMerchantConfigP
 Deprecated: 2022-08-10 - Use UpdateAdyenConfigShort instead.
 
 UpdateAdyenConfig update adyen config
- [Not Supported Yet In Starter] Update adyen config.
+
+	[Not Supported Yet In Starter] Update adyen config.
+
 Other detail info:
 
-  * Required permission : resource="ADMIN:PAYMENT:CONFIG", action=4 (UPDATE)
-  *  Returns : updated payment merchant config
+  - Required permission : resource="ADMIN:PAYMENT:CONFIG", action=4 (UPDATE)
+  - Returns : updated payment merchant config
 */
 func (a *Client) UpdateAdyenConfig(params *UpdateAdyenConfigParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateAdyenConfigOK, *UpdateAdyenConfigNotFound, error) {
 	// TODO: Validate the params before sending
@@ -1182,11 +1230,13 @@ func (a *Client) UpdateAdyenConfig(params *UpdateAdyenConfigParams, authInfo run
 
 /*
 UpdateAdyenConfigShort update adyen config
- [Not Supported Yet In Starter] Update adyen config.
+
+	[Not Supported Yet In Starter] Update adyen config.
+
 Other detail info:
 
-  * Required permission : resource="ADMIN:PAYMENT:CONFIG", action=4 (UPDATE)
-  *  Returns : updated payment merchant config
+  - Required permission : resource="ADMIN:PAYMENT:CONFIG", action=4 (UPDATE)
+  - Returns : updated payment merchant config
 */
 func (a *Client) UpdateAdyenConfigShort(params *UpdateAdyenConfigParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateAdyenConfigOK, error) {
 	// TODO: Validate the params before sending
@@ -1200,6 +1250,10 @@ func (a *Client) UpdateAdyenConfigShort(params *UpdateAdyenConfigParams, authInf
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -1235,10 +1289,11 @@ func (a *Client) UpdateAdyenConfigShort(params *UpdateAdyenConfigParams, authInf
 Deprecated: 2022-08-10 - Use TestAdyenConfigByIDShort instead.
 
 TestAdyenConfigByID test adyen configuration by id
- [Not Supported Yet In Starter] Test adyen configuration in payment merchant config. Other detail info:
 
-  * Required permission : resource="ADMIN:PAYMENT:CONFIG", action=2 (READ)
-  *  Returns : test adyen config
+	[Not Supported Yet In Starter] Test adyen configuration in payment merchant config. Other detail info:
+
+	 * Required permission : resource="ADMIN:PAYMENT:CONFIG", action=2 (READ)
+	 *  Returns : test adyen config
 */
 func (a *Client) TestAdyenConfigByID(params *TestAdyenConfigByIDParams, authInfo runtime.ClientAuthInfoWriter) (*TestAdyenConfigByIDOK, *TestAdyenConfigByIDNotFound, error) {
 	// TODO: Validate the params before sending
@@ -1286,10 +1341,11 @@ func (a *Client) TestAdyenConfigByID(params *TestAdyenConfigByIDParams, authInfo
 
 /*
 TestAdyenConfigByIDShort test adyen configuration by id
- [Not Supported Yet In Starter] Test adyen configuration in payment merchant config. Other detail info:
 
-  * Required permission : resource="ADMIN:PAYMENT:CONFIG", action=2 (READ)
-  *  Returns : test adyen config
+	[Not Supported Yet In Starter] Test adyen configuration in payment merchant config. Other detail info:
+
+	 * Required permission : resource="ADMIN:PAYMENT:CONFIG", action=2 (READ)
+	 *  Returns : test adyen config
 */
 func (a *Client) TestAdyenConfigByIDShort(params *TestAdyenConfigByIDParams, authInfo runtime.ClientAuthInfoWriter) (*TestAdyenConfigByIDOK, error) {
 	// TODO: Validate the params before sending
@@ -1303,6 +1359,10 @@ func (a *Client) TestAdyenConfigByIDShort(params *TestAdyenConfigByIDParams, aut
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -1338,11 +1398,13 @@ func (a *Client) TestAdyenConfigByIDShort(params *TestAdyenConfigByIDParams, aut
 Deprecated: 2022-08-10 - Use UpdateAliPayConfigShort instead.
 
 UpdateAliPayConfig update alipay configuration
- [Not Supported Yet In Starter] Update alipay configuration.
+
+	[Not Supported Yet In Starter] Update alipay configuration.
+
 Other detail info:
 
-  * Required permission : resource="ADMIN:PAYMENT:CONFIG", action=4 (UPDATE)
-  *  Returns : updated payment merchant config
+  - Required permission : resource="ADMIN:PAYMENT:CONFIG", action=4 (UPDATE)
+  - Returns : updated payment merchant config
 */
 func (a *Client) UpdateAliPayConfig(params *UpdateAliPayConfigParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateAliPayConfigOK, *UpdateAliPayConfigNotFound, error) {
 	// TODO: Validate the params before sending
@@ -1390,11 +1452,13 @@ func (a *Client) UpdateAliPayConfig(params *UpdateAliPayConfigParams, authInfo r
 
 /*
 UpdateAliPayConfigShort update alipay configuration
- [Not Supported Yet In Starter] Update alipay configuration.
+
+	[Not Supported Yet In Starter] Update alipay configuration.
+
 Other detail info:
 
-  * Required permission : resource="ADMIN:PAYMENT:CONFIG", action=4 (UPDATE)
-  *  Returns : updated payment merchant config
+  - Required permission : resource="ADMIN:PAYMENT:CONFIG", action=4 (UPDATE)
+  - Returns : updated payment merchant config
 */
 func (a *Client) UpdateAliPayConfigShort(params *UpdateAliPayConfigParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateAliPayConfigOK, error) {
 	// TODO: Validate the params before sending
@@ -1408,6 +1472,10 @@ func (a *Client) UpdateAliPayConfigShort(params *UpdateAliPayConfigParams, authI
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -1443,11 +1511,13 @@ func (a *Client) UpdateAliPayConfigShort(params *UpdateAliPayConfigParams, authI
 Deprecated: 2022-08-10 - Use TestAliPayConfigByIDShort instead.
 
 TestAliPayConfigByID test alipay configuration by id
- [Not Supported Yet In Starter] Test AliPay configuration in payment merchant config. Reference: [Alipay Document](https://docs.open.alipay.com/270/alipay.trade.page.pay).
+
+	[Not Supported Yet In Starter] Test AliPay configuration in payment merchant config. Reference: [Alipay Document](https://docs.open.alipay.com/270/alipay.trade.page.pay).
+
 Other detail info:
 
-  * Required permission : resource="ADMIN:PAYMENT:CONFIG", action=2 (READ)
-  *  Returns : test alipay config
+  - Required permission : resource="ADMIN:PAYMENT:CONFIG", action=2 (READ)
+  - Returns : test alipay config
 */
 func (a *Client) TestAliPayConfigByID(params *TestAliPayConfigByIDParams, authInfo runtime.ClientAuthInfoWriter) (*TestAliPayConfigByIDOK, *TestAliPayConfigByIDNotFound, error) {
 	// TODO: Validate the params before sending
@@ -1495,11 +1565,13 @@ func (a *Client) TestAliPayConfigByID(params *TestAliPayConfigByIDParams, authIn
 
 /*
 TestAliPayConfigByIDShort test alipay configuration by id
- [Not Supported Yet In Starter] Test AliPay configuration in payment merchant config. Reference: [Alipay Document](https://docs.open.alipay.com/270/alipay.trade.page.pay).
+
+	[Not Supported Yet In Starter] Test AliPay configuration in payment merchant config. Reference: [Alipay Document](https://docs.open.alipay.com/270/alipay.trade.page.pay).
+
 Other detail info:
 
-  * Required permission : resource="ADMIN:PAYMENT:CONFIG", action=2 (READ)
-  *  Returns : test alipay config
+  - Required permission : resource="ADMIN:PAYMENT:CONFIG", action=2 (READ)
+  - Returns : test alipay config
 */
 func (a *Client) TestAliPayConfigByIDShort(params *TestAliPayConfigByIDParams, authInfo runtime.ClientAuthInfoWriter) (*TestAliPayConfigByIDOK, error) {
 	// TODO: Validate the params before sending
@@ -1513,6 +1585,10 @@ func (a *Client) TestAliPayConfigByIDShort(params *TestAliPayConfigByIDParams, a
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -1548,11 +1624,13 @@ func (a *Client) TestAliPayConfigByIDShort(params *TestAliPayConfigByIDParams, a
 Deprecated: 2022-08-10 - Use UpdateCheckoutConfigShort instead.
 
 UpdateCheckoutConfig update checkout.com config
- [Not Supported Yet In Starter] Update checkout.com config.
+
+	[Not Supported Yet In Starter] Update checkout.com config.
+
 Other detail info:
 
-  * Required permission : resource="ADMIN:PAYMENT:CONFIG", action=4 (UPDATE)
-  *  Returns : updated payment merchant config
+  - Required permission : resource="ADMIN:PAYMENT:CONFIG", action=4 (UPDATE)
+  - Returns : updated payment merchant config
 */
 func (a *Client) UpdateCheckoutConfig(params *UpdateCheckoutConfigParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateCheckoutConfigOK, *UpdateCheckoutConfigNotFound, error) {
 	// TODO: Validate the params before sending
@@ -1600,11 +1678,13 @@ func (a *Client) UpdateCheckoutConfig(params *UpdateCheckoutConfigParams, authIn
 
 /*
 UpdateCheckoutConfigShort update checkout.com config
- [Not Supported Yet In Starter] Update checkout.com config.
+
+	[Not Supported Yet In Starter] Update checkout.com config.
+
 Other detail info:
 
-  * Required permission : resource="ADMIN:PAYMENT:CONFIG", action=4 (UPDATE)
-  *  Returns : updated payment merchant config
+  - Required permission : resource="ADMIN:PAYMENT:CONFIG", action=4 (UPDATE)
+  - Returns : updated payment merchant config
 */
 func (a *Client) UpdateCheckoutConfigShort(params *UpdateCheckoutConfigParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateCheckoutConfigOK, error) {
 	// TODO: Validate the params before sending
@@ -1618,6 +1698,10 @@ func (a *Client) UpdateCheckoutConfigShort(params *UpdateCheckoutConfigParams, a
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -1653,10 +1737,11 @@ func (a *Client) UpdateCheckoutConfigShort(params *UpdateCheckoutConfigParams, a
 Deprecated: 2022-08-10 - Use TestCheckoutConfigByIDShort instead.
 
 TestCheckoutConfigByID test checkout.com configuration by id
- [Not Supported Yet In Starter] Test checkout.com configuration in payment merchant config. Other detail info:
 
-  * Required permission : resource="ADMIN:PAYMENT:CONFIG", action=2 (READ)
-  *  Returns : test result
+	[Not Supported Yet In Starter] Test checkout.com configuration in payment merchant config. Other detail info:
+
+	 * Required permission : resource="ADMIN:PAYMENT:CONFIG", action=2 (READ)
+	 *  Returns : test result
 */
 func (a *Client) TestCheckoutConfigByID(params *TestCheckoutConfigByIDParams, authInfo runtime.ClientAuthInfoWriter) (*TestCheckoutConfigByIDOK, *TestCheckoutConfigByIDNotFound, error) {
 	// TODO: Validate the params before sending
@@ -1704,10 +1789,11 @@ func (a *Client) TestCheckoutConfigByID(params *TestCheckoutConfigByIDParams, au
 
 /*
 TestCheckoutConfigByIDShort test checkout.com configuration by id
- [Not Supported Yet In Starter] Test checkout.com configuration in payment merchant config. Other detail info:
 
-  * Required permission : resource="ADMIN:PAYMENT:CONFIG", action=2 (READ)
-  *  Returns : test result
+	[Not Supported Yet In Starter] Test checkout.com configuration in payment merchant config. Other detail info:
+
+	 * Required permission : resource="ADMIN:PAYMENT:CONFIG", action=2 (READ)
+	 *  Returns : test result
 */
 func (a *Client) TestCheckoutConfigByIDShort(params *TestCheckoutConfigByIDParams, authInfo runtime.ClientAuthInfoWriter) (*TestCheckoutConfigByIDOK, error) {
 	// TODO: Validate the params before sending
@@ -1721,6 +1807,10 @@ func (a *Client) TestCheckoutConfigByIDShort(params *TestCheckoutConfigByIDParam
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -1756,11 +1846,13 @@ func (a *Client) TestCheckoutConfigByIDShort(params *TestCheckoutConfigByIDParam
 Deprecated: 2022-08-10 - Use UpdatePayPalConfigShort instead.
 
 UpdatePayPalConfig update paypal config
- [Not Supported Yet In Starter] Update PayPal config.
+
+	[Not Supported Yet In Starter] Update PayPal config.
+
 Other detail info:
 
-  * Required permission : resource="ADMIN:PAYMENT:CONFIG", action=4 (UPDATE)
-  *  Returns : updated payment merchant config
+  - Required permission : resource="ADMIN:PAYMENT:CONFIG", action=4 (UPDATE)
+  - Returns : updated payment merchant config
 */
 func (a *Client) UpdatePayPalConfig(params *UpdatePayPalConfigParams, authInfo runtime.ClientAuthInfoWriter) (*UpdatePayPalConfigOK, *UpdatePayPalConfigNotFound, error) {
 	// TODO: Validate the params before sending
@@ -1808,11 +1900,13 @@ func (a *Client) UpdatePayPalConfig(params *UpdatePayPalConfigParams, authInfo r
 
 /*
 UpdatePayPalConfigShort update paypal config
- [Not Supported Yet In Starter] Update PayPal config.
+
+	[Not Supported Yet In Starter] Update PayPal config.
+
 Other detail info:
 
-  * Required permission : resource="ADMIN:PAYMENT:CONFIG", action=4 (UPDATE)
-  *  Returns : updated payment merchant config
+  - Required permission : resource="ADMIN:PAYMENT:CONFIG", action=4 (UPDATE)
+  - Returns : updated payment merchant config
 */
 func (a *Client) UpdatePayPalConfigShort(params *UpdatePayPalConfigParams, authInfo runtime.ClientAuthInfoWriter) (*UpdatePayPalConfigOK, error) {
 	// TODO: Validate the params before sending
@@ -1826,6 +1920,10 @@ func (a *Client) UpdatePayPalConfigShort(params *UpdatePayPalConfigParams, authI
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -1861,10 +1959,11 @@ func (a *Client) UpdatePayPalConfigShort(params *UpdatePayPalConfigParams, authI
 Deprecated: 2022-08-10 - Use TestPayPalConfigByIDShort instead.
 
 TestPayPalConfigByID test paypal configuration by id
- [Not Supported Yet In Starter] Test PayPal configuration in payment merchant config. Other detail info:
 
-  * Required permission : resource="ADMIN:PAYMENT:CONFIG", action=2 (READ)
-  *  Returns : test result
+	[Not Supported Yet In Starter] Test PayPal configuration in payment merchant config. Other detail info:
+
+	 * Required permission : resource="ADMIN:PAYMENT:CONFIG", action=2 (READ)
+	 *  Returns : test result
 */
 func (a *Client) TestPayPalConfigByID(params *TestPayPalConfigByIDParams, authInfo runtime.ClientAuthInfoWriter) (*TestPayPalConfigByIDOK, *TestPayPalConfigByIDNotFound, error) {
 	// TODO: Validate the params before sending
@@ -1912,10 +2011,11 @@ func (a *Client) TestPayPalConfigByID(params *TestPayPalConfigByIDParams, authIn
 
 /*
 TestPayPalConfigByIDShort test paypal configuration by id
- [Not Supported Yet In Starter] Test PayPal configuration in payment merchant config. Other detail info:
 
-  * Required permission : resource="ADMIN:PAYMENT:CONFIG", action=2 (READ)
-  *  Returns : test result
+	[Not Supported Yet In Starter] Test PayPal configuration in payment merchant config. Other detail info:
+
+	 * Required permission : resource="ADMIN:PAYMENT:CONFIG", action=2 (READ)
+	 *  Returns : test result
 */
 func (a *Client) TestPayPalConfigByIDShort(params *TestPayPalConfigByIDParams, authInfo runtime.ClientAuthInfoWriter) (*TestPayPalConfigByIDOK, error) {
 	// TODO: Validate the params before sending
@@ -1929,6 +2029,10 @@ func (a *Client) TestPayPalConfigByIDShort(params *TestPayPalConfigByIDParams, a
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -1964,11 +2068,13 @@ func (a *Client) TestPayPalConfigByIDShort(params *TestPayPalConfigByIDParams, a
 Deprecated: 2022-08-10 - Use UpdateStripeConfigShort instead.
 
 UpdateStripeConfig update stripe config
- [Not Supported Yet In Starter] Update stripe config.
+
+	[Not Supported Yet In Starter] Update stripe config.
+
 Other detail info:
 
-  * Required permission : resource="ADMIN:PAYMENT:CONFIG", action=4 (UPDATE)
-  *  Returns : updated payment merchant config
+  - Required permission : resource="ADMIN:PAYMENT:CONFIG", action=4 (UPDATE)
+  - Returns : updated payment merchant config
 */
 func (a *Client) UpdateStripeConfig(params *UpdateStripeConfigParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateStripeConfigOK, *UpdateStripeConfigNotFound, error) {
 	// TODO: Validate the params before sending
@@ -2016,11 +2122,13 @@ func (a *Client) UpdateStripeConfig(params *UpdateStripeConfigParams, authInfo r
 
 /*
 UpdateStripeConfigShort update stripe config
- [Not Supported Yet In Starter] Update stripe config.
+
+	[Not Supported Yet In Starter] Update stripe config.
+
 Other detail info:
 
-  * Required permission : resource="ADMIN:PAYMENT:CONFIG", action=4 (UPDATE)
-  *  Returns : updated payment merchant config
+  - Required permission : resource="ADMIN:PAYMENT:CONFIG", action=4 (UPDATE)
+  - Returns : updated payment merchant config
 */
 func (a *Client) UpdateStripeConfigShort(params *UpdateStripeConfigParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateStripeConfigOK, error) {
 	// TODO: Validate the params before sending
@@ -2034,6 +2142,10 @@ func (a *Client) UpdateStripeConfigShort(params *UpdateStripeConfigParams, authI
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -2069,10 +2181,11 @@ func (a *Client) UpdateStripeConfigShort(params *UpdateStripeConfigParams, authI
 Deprecated: 2022-08-10 - Use TestStripeConfigByIDShort instead.
 
 TestStripeConfigByID test stripe configuration by id
- [Not Supported Yet In Starter] Test stripe configuration in payment merchant config. Other detail info:
 
-  * Required permission : resource="ADMIN:PAYMENT:CONFIG", action=2 (READ)
-  *  Returns : test adyen config
+	[Not Supported Yet In Starter] Test stripe configuration in payment merchant config. Other detail info:
+
+	 * Required permission : resource="ADMIN:PAYMENT:CONFIG", action=2 (READ)
+	 *  Returns : test adyen config
 */
 func (a *Client) TestStripeConfigByID(params *TestStripeConfigByIDParams, authInfo runtime.ClientAuthInfoWriter) (*TestStripeConfigByIDOK, *TestStripeConfigByIDNotFound, error) {
 	// TODO: Validate the params before sending
@@ -2120,10 +2233,11 @@ func (a *Client) TestStripeConfigByID(params *TestStripeConfigByIDParams, authIn
 
 /*
 TestStripeConfigByIDShort test stripe configuration by id
- [Not Supported Yet In Starter] Test stripe configuration in payment merchant config. Other detail info:
 
-  * Required permission : resource="ADMIN:PAYMENT:CONFIG", action=2 (READ)
-  *  Returns : test adyen config
+	[Not Supported Yet In Starter] Test stripe configuration in payment merchant config. Other detail info:
+
+	 * Required permission : resource="ADMIN:PAYMENT:CONFIG", action=2 (READ)
+	 *  Returns : test adyen config
 */
 func (a *Client) TestStripeConfigByIDShort(params *TestStripeConfigByIDParams, authInfo runtime.ClientAuthInfoWriter) (*TestStripeConfigByIDOK, error) {
 	// TODO: Validate the params before sending
@@ -2137,6 +2251,10 @@ func (a *Client) TestStripeConfigByIDShort(params *TestStripeConfigByIDParams, a
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -2172,11 +2290,13 @@ func (a *Client) TestStripeConfigByIDShort(params *TestStripeConfigByIDParams, a
 Deprecated: 2022-08-10 - Use UpdateWxPayConfigShort instead.
 
 UpdateWxPayConfig update wxpay configuration
- [Not Supported Yet In Starter] Update wxpay configuration.
+
+	[Not Supported Yet In Starter] Update wxpay configuration.
+
 Other detail info:
 
-  * Required permission : resource="ADMIN:PAYMENT:CONFIG", action=4 (UPDATE)
-  *  Returns : updated payment merchant config
+  - Required permission : resource="ADMIN:PAYMENT:CONFIG", action=4 (UPDATE)
+  - Returns : updated payment merchant config
 */
 func (a *Client) UpdateWxPayConfig(params *UpdateWxPayConfigParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateWxPayConfigOK, *UpdateWxPayConfigNotFound, error) {
 	// TODO: Validate the params before sending
@@ -2224,11 +2344,13 @@ func (a *Client) UpdateWxPayConfig(params *UpdateWxPayConfigParams, authInfo run
 
 /*
 UpdateWxPayConfigShort update wxpay configuration
- [Not Supported Yet In Starter] Update wxpay configuration.
+
+	[Not Supported Yet In Starter] Update wxpay configuration.
+
 Other detail info:
 
-  * Required permission : resource="ADMIN:PAYMENT:CONFIG", action=4 (UPDATE)
-  *  Returns : updated payment merchant config
+  - Required permission : resource="ADMIN:PAYMENT:CONFIG", action=4 (UPDATE)
+  - Returns : updated payment merchant config
 */
 func (a *Client) UpdateWxPayConfigShort(params *UpdateWxPayConfigParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateWxPayConfigOK, error) {
 	// TODO: Validate the params before sending
@@ -2242,6 +2364,10 @@ func (a *Client) UpdateWxPayConfigShort(params *UpdateWxPayConfigParams, authInf
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -2277,11 +2403,13 @@ func (a *Client) UpdateWxPayConfigShort(params *UpdateWxPayConfigParams, authInf
 Deprecated: 2022-08-10 - Use UpdateWxPayConfigCertShort instead.
 
 UpdateWxPayConfigCert upload wxpay cert file
- [Not Supported Yet In Starter] Upload wxpay cert file.
+
+	[Not Supported Yet In Starter] Upload wxpay cert file.
+
 Other detail info:
 
-  * Required permission : resource="ADMIN:PAYMENT:CONFIG", action=4 (UPDATE)
-  *  Returns : updated payment merchant config
+  - Required permission : resource="ADMIN:PAYMENT:CONFIG", action=4 (UPDATE)
+  - Returns : updated payment merchant config
 */
 func (a *Client) UpdateWxPayConfigCert(params *UpdateWxPayConfigCertParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateWxPayConfigCertOK, *UpdateWxPayConfigCertNotFound, error) {
 	// TODO: Validate the params before sending
@@ -2329,11 +2457,13 @@ func (a *Client) UpdateWxPayConfigCert(params *UpdateWxPayConfigCertParams, auth
 
 /*
 UpdateWxPayConfigCertShort upload wxpay cert file
- [Not Supported Yet In Starter] Upload wxpay cert file.
+
+	[Not Supported Yet In Starter] Upload wxpay cert file.
+
 Other detail info:
 
-  * Required permission : resource="ADMIN:PAYMENT:CONFIG", action=4 (UPDATE)
-  *  Returns : updated payment merchant config
+  - Required permission : resource="ADMIN:PAYMENT:CONFIG", action=4 (UPDATE)
+  - Returns : updated payment merchant config
 */
 func (a *Client) UpdateWxPayConfigCertShort(params *UpdateWxPayConfigCertParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateWxPayConfigCertOK, error) {
 	// TODO: Validate the params before sending
@@ -2347,6 +2477,10 @@ func (a *Client) UpdateWxPayConfigCertShort(params *UpdateWxPayConfigCertParams,
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -2382,11 +2516,13 @@ func (a *Client) UpdateWxPayConfigCertShort(params *UpdateWxPayConfigCertParams,
 Deprecated: 2022-08-10 - Use TestWxPayConfigByIDShort instead.
 
 TestWxPayConfigByID test wxpay configuration by id
- [Not Supported Yet In Starter] Test WxPay configuration in payment merchant config. Reference: [WxPay Document](https://pay.weixin.qq.com/wiki/doc/api/native.php?chapter=9_1).
+
+	[Not Supported Yet In Starter] Test WxPay configuration in payment merchant config. Reference: [WxPay Document](https://pay.weixin.qq.com/wiki/doc/api/native.php?chapter=9_1).
+
 Other detail info:
 
-  * Required permission : resource="ADMIN:PAYMENT:CONFIG", action=2 (READ)
-  *  Returns : test WxPay config
+  - Required permission : resource="ADMIN:PAYMENT:CONFIG", action=2 (READ)
+  - Returns : test WxPay config
 */
 func (a *Client) TestWxPayConfigByID(params *TestWxPayConfigByIDParams, authInfo runtime.ClientAuthInfoWriter) (*TestWxPayConfigByIDOK, *TestWxPayConfigByIDNotFound, error) {
 	// TODO: Validate the params before sending
@@ -2434,11 +2570,13 @@ func (a *Client) TestWxPayConfigByID(params *TestWxPayConfigByIDParams, authInfo
 
 /*
 TestWxPayConfigByIDShort test wxpay configuration by id
- [Not Supported Yet In Starter] Test WxPay configuration in payment merchant config. Reference: [WxPay Document](https://pay.weixin.qq.com/wiki/doc/api/native.php?chapter=9_1).
+
+	[Not Supported Yet In Starter] Test WxPay configuration in payment merchant config. Reference: [WxPay Document](https://pay.weixin.qq.com/wiki/doc/api/native.php?chapter=9_1).
+
 Other detail info:
 
-  * Required permission : resource="ADMIN:PAYMENT:CONFIG", action=2 (READ)
-  *  Returns : test WxPay config
+  - Required permission : resource="ADMIN:PAYMENT:CONFIG", action=2 (READ)
+  - Returns : test WxPay config
 */
 func (a *Client) TestWxPayConfigByIDShort(params *TestWxPayConfigByIDParams, authInfo runtime.ClientAuthInfoWriter) (*TestWxPayConfigByIDOK, error) {
 	// TODO: Validate the params before sending
@@ -2452,6 +2590,10 @@ func (a *Client) TestWxPayConfigByIDShort(params *TestWxPayConfigByIDParams, aut
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -2487,11 +2629,13 @@ func (a *Client) TestWxPayConfigByIDShort(params *TestWxPayConfigByIDParams, aut
 Deprecated: 2022-08-10 - Use UpdateXsollaConfigShort instead.
 
 UpdateXsollaConfig update xsolla configuration
- [Not Supported Yet In Starter] Update xsolla configuration. Reference: [Xsolla Document](https://developers.xsolla.com/?#simple-checkout).
+
+	[Not Supported Yet In Starter] Update xsolla configuration. Reference: [Xsolla Document](https://developers.xsolla.com/?#simple-checkout).
+
 Other detail info:
 
-  * Required permission : resource="ADMIN:PAYMENT:CONFIG", action=4 (UPDATE)
-  *  Returns : updated payment merchant config
+  - Required permission : resource="ADMIN:PAYMENT:CONFIG", action=4 (UPDATE)
+  - Returns : updated payment merchant config
 */
 func (a *Client) UpdateXsollaConfig(params *UpdateXsollaConfigParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateXsollaConfigOK, *UpdateXsollaConfigNotFound, error) {
 	// TODO: Validate the params before sending
@@ -2539,11 +2683,13 @@ func (a *Client) UpdateXsollaConfig(params *UpdateXsollaConfigParams, authInfo r
 
 /*
 UpdateXsollaConfigShort update xsolla configuration
- [Not Supported Yet In Starter] Update xsolla configuration. Reference: [Xsolla Document](https://developers.xsolla.com/?#simple-checkout).
+
+	[Not Supported Yet In Starter] Update xsolla configuration. Reference: [Xsolla Document](https://developers.xsolla.com/?#simple-checkout).
+
 Other detail info:
 
-  * Required permission : resource="ADMIN:PAYMENT:CONFIG", action=4 (UPDATE)
-  *  Returns : updated payment merchant config
+  - Required permission : resource="ADMIN:PAYMENT:CONFIG", action=4 (UPDATE)
+  - Returns : updated payment merchant config
 */
 func (a *Client) UpdateXsollaConfigShort(params *UpdateXsollaConfigParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateXsollaConfigOK, error) {
 	// TODO: Validate the params before sending
@@ -2557,6 +2703,10 @@ func (a *Client) UpdateXsollaConfigShort(params *UpdateXsollaConfigParams, authI
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -2592,11 +2742,13 @@ func (a *Client) UpdateXsollaConfigShort(params *UpdateXsollaConfigParams, authI
 Deprecated: 2022-08-10 - Use TestXsollaConfigByIDShort instead.
 
 TestXsollaConfigByID test xsolla configuration by id
- [Not Supported Yet In Starter] Test xsolla configuration in payment merchant config. Reference: [Xsolla Document](https://developers.xsolla.com/?#simple-checkout).
+
+	[Not Supported Yet In Starter] Test xsolla configuration in payment merchant config. Reference: [Xsolla Document](https://developers.xsolla.com/?#simple-checkout).
+
 Other detail info:
 
-  * Required permission : resource="ADMIN:PAYMENT:CONFIG", action=2 (READ)
-  *  Returns : test xsolla config
+  - Required permission : resource="ADMIN:PAYMENT:CONFIG", action=2 (READ)
+  - Returns : test xsolla config
 */
 func (a *Client) TestXsollaConfigByID(params *TestXsollaConfigByIDParams, authInfo runtime.ClientAuthInfoWriter) (*TestXsollaConfigByIDOK, *TestXsollaConfigByIDNotFound, error) {
 	// TODO: Validate the params before sending
@@ -2644,11 +2796,13 @@ func (a *Client) TestXsollaConfigByID(params *TestXsollaConfigByIDParams, authIn
 
 /*
 TestXsollaConfigByIDShort test xsolla configuration by id
- [Not Supported Yet In Starter] Test xsolla configuration in payment merchant config. Reference: [Xsolla Document](https://developers.xsolla.com/?#simple-checkout).
+
+	[Not Supported Yet In Starter] Test xsolla configuration in payment merchant config. Reference: [Xsolla Document](https://developers.xsolla.com/?#simple-checkout).
+
 Other detail info:
 
-  * Required permission : resource="ADMIN:PAYMENT:CONFIG", action=2 (READ)
-  *  Returns : test xsolla config
+  - Required permission : resource="ADMIN:PAYMENT:CONFIG", action=2 (READ)
+  - Returns : test xsolla config
 */
 func (a *Client) TestXsollaConfigByIDShort(params *TestXsollaConfigByIDParams, authInfo runtime.ClientAuthInfoWriter) (*TestXsollaConfigByIDOK, error) {
 	// TODO: Validate the params before sending
@@ -2662,6 +2816,10 @@ func (a *Client) TestXsollaConfigByIDShort(params *TestXsollaConfigByIDParams, a
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -2697,11 +2855,13 @@ func (a *Client) TestXsollaConfigByIDShort(params *TestXsollaConfigByIDParams, a
 Deprecated: 2022-08-10 - Use UpdateXsollaUIConfigShort instead.
 
 UpdateXsollaUIConfig update xsolla ui configuration
- [Not Supported Yet In Starter] Update xsolla UI configuration.Reference: [Xsolla Document](https://developers.xsolla.com/api.html#ui-integrations).
+
+	[Not Supported Yet In Starter] Update xsolla UI configuration.Reference: [Xsolla Document](https://developers.xsolla.com/api.html#ui-integrations).
+
 Other detail info:
 
-  * Required permission : resource="ADMIN:PAYMENT:CONFIG", action=4 (UPDATE)
-  *  Returns : updated payment merchant config
+  - Required permission : resource="ADMIN:PAYMENT:CONFIG", action=4 (UPDATE)
+  - Returns : updated payment merchant config
 */
 func (a *Client) UpdateXsollaUIConfig(params *UpdateXsollaUIConfigParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateXsollaUIConfigOK, *UpdateXsollaUIConfigNotFound, error) {
 	// TODO: Validate the params before sending
@@ -2749,11 +2909,13 @@ func (a *Client) UpdateXsollaUIConfig(params *UpdateXsollaUIConfigParams, authIn
 
 /*
 UpdateXsollaUIConfigShort update xsolla ui configuration
- [Not Supported Yet In Starter] Update xsolla UI configuration.Reference: [Xsolla Document](https://developers.xsolla.com/api.html#ui-integrations).
+
+	[Not Supported Yet In Starter] Update xsolla UI configuration.Reference: [Xsolla Document](https://developers.xsolla.com/api.html#ui-integrations).
+
 Other detail info:
 
-  * Required permission : resource="ADMIN:PAYMENT:CONFIG", action=4 (UPDATE)
-  *  Returns : updated payment merchant config
+  - Required permission : resource="ADMIN:PAYMENT:CONFIG", action=4 (UPDATE)
+  - Returns : updated payment merchant config
 */
 func (a *Client) UpdateXsollaUIConfigShort(params *UpdateXsollaUIConfigParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateXsollaUIConfigOK, error) {
 	// TODO: Validate the params before sending
@@ -2767,6 +2929,10 @@ func (a *Client) UpdateXsollaUIConfigShort(params *UpdateXsollaUIConfigParams, a
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -2802,11 +2968,13 @@ func (a *Client) UpdateXsollaUIConfigShort(params *UpdateXsollaUIConfigParams, a
 Deprecated: 2022-08-10 - Use QueryPaymentProviderConfigShort instead.
 
 QueryPaymentProviderConfig query payment provider config
- [Not Supported Yet In Starter] Query payment provider config.
+
+	[Not Supported Yet In Starter] Query payment provider config.
+
 Other detail info:
 
-  * Required permission : resource="ADMIN:PAYMENT:CONFIG", action=2 (READ)
-  *  Returns : payment provider config list
+  - Required permission : resource="ADMIN:PAYMENT:CONFIG", action=2 (READ)
+  - Returns : payment provider config list
 */
 func (a *Client) QueryPaymentProviderConfig(params *QueryPaymentProviderConfigParams, authInfo runtime.ClientAuthInfoWriter) (*QueryPaymentProviderConfigOK, error) {
 	// TODO: Validate the params before sending
@@ -2851,11 +3019,13 @@ func (a *Client) QueryPaymentProviderConfig(params *QueryPaymentProviderConfigPa
 
 /*
 QueryPaymentProviderConfigShort query payment provider config
- [Not Supported Yet In Starter] Query payment provider config.
+
+	[Not Supported Yet In Starter] Query payment provider config.
+
 Other detail info:
 
-  * Required permission : resource="ADMIN:PAYMENT:CONFIG", action=2 (READ)
-  *  Returns : payment provider config list
+  - Required permission : resource="ADMIN:PAYMENT:CONFIG", action=2 (READ)
+  - Returns : payment provider config list
 */
 func (a *Client) QueryPaymentProviderConfigShort(params *QueryPaymentProviderConfigParams, authInfo runtime.ClientAuthInfoWriter) (*QueryPaymentProviderConfigOK, error) {
 	// TODO: Validate the params before sending
@@ -2869,6 +3039,10 @@ func (a *Client) QueryPaymentProviderConfigShort(params *QueryPaymentProviderCon
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -2902,32 +3076,31 @@ func (a *Client) QueryPaymentProviderConfigShort(params *QueryPaymentProviderCon
 Deprecated: 2022-08-10 - Use CreatePaymentProviderConfigShort instead.
 
 CreatePaymentProviderConfig create payment provider config
- [Not Supported Yet In Starter] Create payment provider config.
+
+	[Not Supported Yet In Starter] Create payment provider config.
 
 
 
-     Request Body Parameters:
+	    Request Body Parameters:
 
 
-     Parameter | Type   | Required | Description
-    -----------|--------|----------|-----------------------------------------------------------
-    namespace  | String | Yes      | namespace, * indicates all namespace
-    region     | String | Yes      | region, * indicates all regions
-    aggregate  | String | No       | aggregate payment provider, such as XSOLLA, ADYEN, STRIPE
-    specials   | List   | No       | special payment provider, such as ALIPAY, WXPAY
-
-
+	    Parameter | Type   | Required | Description
+	   -----------|--------|----------|-----------------------------------------------------------
+	   namespace  | String | Yes      | namespace, * indicates all namespace
+	   region     | String | Yes      | region, * indicates all regions
+	   aggregate  | String | No       | aggregate payment provider, such as XSOLLA, ADYEN, STRIPE
+	   specials   | List   | No       | special payment provider, such as ALIPAY, WXPAY
 
 payment provider applied has priority:
 
-  1. namespace and region match
-  2. namespace matches and region is *
-  3. region matches and namespace is *
-  4. namespace and region are *
+ 1. namespace and region match
+ 2. namespace matches and region is *
+ 3. region matches and namespace is *
+ 4. namespace and region are *
 
 Other detail info:
-  * Required permission : resource="ADMIN:PAYMENT:CONFIG", action=1 (CREATE)
-  *  Returns : payment provider config
+  - Required permission : resource="ADMIN:PAYMENT:CONFIG", action=1 (CREATE)
+  - Returns : payment provider config
 */
 func (a *Client) CreatePaymentProviderConfig(params *CreatePaymentProviderConfigParams, authInfo runtime.ClientAuthInfoWriter) (*CreatePaymentProviderConfigOK, *CreatePaymentProviderConfigBadRequest, *CreatePaymentProviderConfigConflict, *CreatePaymentProviderConfigUnprocessableEntity, error) {
 	// TODO: Validate the params before sending
@@ -2981,32 +3154,31 @@ func (a *Client) CreatePaymentProviderConfig(params *CreatePaymentProviderConfig
 
 /*
 CreatePaymentProviderConfigShort create payment provider config
- [Not Supported Yet In Starter] Create payment provider config.
+
+	[Not Supported Yet In Starter] Create payment provider config.
 
 
 
-     Request Body Parameters:
+	    Request Body Parameters:
 
 
-     Parameter | Type   | Required | Description
-    -----------|--------|----------|-----------------------------------------------------------
-    namespace  | String | Yes      | namespace, * indicates all namespace
-    region     | String | Yes      | region, * indicates all regions
-    aggregate  | String | No       | aggregate payment provider, such as XSOLLA, ADYEN, STRIPE
-    specials   | List   | No       | special payment provider, such as ALIPAY, WXPAY
-
-
+	    Parameter | Type   | Required | Description
+	   -----------|--------|----------|-----------------------------------------------------------
+	   namespace  | String | Yes      | namespace, * indicates all namespace
+	   region     | String | Yes      | region, * indicates all regions
+	   aggregate  | String | No       | aggregate payment provider, such as XSOLLA, ADYEN, STRIPE
+	   specials   | List   | No       | special payment provider, such as ALIPAY, WXPAY
 
 payment provider applied has priority:
 
-  1. namespace and region match
-  2. namespace matches and region is *
-  3. region matches and namespace is *
-  4. namespace and region are *
+ 1. namespace and region match
+ 2. namespace matches and region is *
+ 3. region matches and namespace is *
+ 4. namespace and region are *
 
 Other detail info:
-  * Required permission : resource="ADMIN:PAYMENT:CONFIG", action=1 (CREATE)
-  *  Returns : payment provider config
+  - Required permission : resource="ADMIN:PAYMENT:CONFIG", action=1 (CREATE)
+  - Returns : payment provider config
 */
 func (a *Client) CreatePaymentProviderConfigShort(params *CreatePaymentProviderConfigParams, authInfo runtime.ClientAuthInfoWriter) (*CreatePaymentProviderConfigOK, error) {
 	// TODO: Validate the params before sending
@@ -3020,6 +3192,10 @@ func (a *Client) CreatePaymentProviderConfigShort(params *CreatePaymentProviderC
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -3059,11 +3235,13 @@ func (a *Client) CreatePaymentProviderConfigShort(params *CreatePaymentProviderC
 Deprecated: 2022-08-10 - Use GetAggregatePaymentProvidersShort instead.
 
 GetAggregatePaymentProviders get aggregate payment providers
- [Not Supported Yet In Starter] Get aggregate payment providers, such as XSOLLA, ADYEN.
+
+	[Not Supported Yet In Starter] Get aggregate payment providers, such as XSOLLA, ADYEN.
+
 Other detail info:
 
-  * Required permission : resource="ADMIN:PAYMENT:CONFIG", action=2 (READ)
-  *  Returns : payment provider list
+  - Required permission : resource="ADMIN:PAYMENT:CONFIG", action=2 (READ)
+  - Returns : payment provider list
 */
 func (a *Client) GetAggregatePaymentProviders(params *GetAggregatePaymentProvidersParams, authInfo runtime.ClientAuthInfoWriter) (*GetAggregatePaymentProvidersOK, error) {
 	// TODO: Validate the params before sending
@@ -3108,11 +3286,13 @@ func (a *Client) GetAggregatePaymentProviders(params *GetAggregatePaymentProvide
 
 /*
 GetAggregatePaymentProvidersShort get aggregate payment providers
- [Not Supported Yet In Starter] Get aggregate payment providers, such as XSOLLA, ADYEN.
+
+	[Not Supported Yet In Starter] Get aggregate payment providers, such as XSOLLA, ADYEN.
+
 Other detail info:
 
-  * Required permission : resource="ADMIN:PAYMENT:CONFIG", action=2 (READ)
-  *  Returns : payment provider list
+  - Required permission : resource="ADMIN:PAYMENT:CONFIG", action=2 (READ)
+  - Returns : payment provider list
 */
 func (a *Client) GetAggregatePaymentProvidersShort(params *GetAggregatePaymentProvidersParams, authInfo runtime.ClientAuthInfoWriter) (*GetAggregatePaymentProvidersOK, error) {
 	// TODO: Validate the params before sending
@@ -3126,6 +3306,10 @@ func (a *Client) GetAggregatePaymentProvidersShort(params *GetAggregatePaymentPr
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -3159,11 +3343,13 @@ func (a *Client) GetAggregatePaymentProvidersShort(params *GetAggregatePaymentPr
 Deprecated: 2022-08-10 - Use DebugMatchedPaymentProviderConfigShort instead.
 
 DebugMatchedPaymentProviderConfig debug matched payment provider config(internal)
- [Not Supported Yet In Starter] Debug matched payment provider config.
+
+	[Not Supported Yet In Starter] Debug matched payment provider config.
+
 Other detail info:
 
-  * Required permission : resource="ADMIN:PAYMENT:CONFIG", action=2 (READ)
-  *  Returns : payment provider config
+  - Required permission : resource="ADMIN:PAYMENT:CONFIG", action=2 (READ)
+  - Returns : payment provider config
 */
 func (a *Client) DebugMatchedPaymentProviderConfig(params *DebugMatchedPaymentProviderConfigParams, authInfo runtime.ClientAuthInfoWriter) (*DebugMatchedPaymentProviderConfigOK, *DebugMatchedPaymentProviderConfigNotFound, error) {
 	// TODO: Validate the params before sending
@@ -3211,11 +3397,13 @@ func (a *Client) DebugMatchedPaymentProviderConfig(params *DebugMatchedPaymentPr
 
 /*
 DebugMatchedPaymentProviderConfigShort debug matched payment provider config(internal)
- [Not Supported Yet In Starter] Debug matched payment provider config.
+
+	[Not Supported Yet In Starter] Debug matched payment provider config.
+
 Other detail info:
 
-  * Required permission : resource="ADMIN:PAYMENT:CONFIG", action=2 (READ)
-  *  Returns : payment provider config
+  - Required permission : resource="ADMIN:PAYMENT:CONFIG", action=2 (READ)
+  - Returns : payment provider config
 */
 func (a *Client) DebugMatchedPaymentProviderConfigShort(params *DebugMatchedPaymentProviderConfigParams, authInfo runtime.ClientAuthInfoWriter) (*DebugMatchedPaymentProviderConfigOK, error) {
 	// TODO: Validate the params before sending
@@ -3229,6 +3417,10 @@ func (a *Client) DebugMatchedPaymentProviderConfigShort(params *DebugMatchedPaym
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -3264,11 +3456,13 @@ func (a *Client) DebugMatchedPaymentProviderConfigShort(params *DebugMatchedPaym
 Deprecated: 2022-08-10 - Use GetSpecialPaymentProvidersShort instead.
 
 GetSpecialPaymentProviders get special payment providers
- [Not Supported Yet In Starter] Get special payment providers, such as ALIPAY, WXPAY.
+
+	[Not Supported Yet In Starter] Get special payment providers, such as ALIPAY, WXPAY.
+
 Other detail info:
 
-  * Required permission : resource="ADMIN:PAYMENT:CONFIG", action=2 (READ)
-  *  Returns : payment provider list
+  - Required permission : resource="ADMIN:PAYMENT:CONFIG", action=2 (READ)
+  - Returns : payment provider list
 */
 func (a *Client) GetSpecialPaymentProviders(params *GetSpecialPaymentProvidersParams, authInfo runtime.ClientAuthInfoWriter) (*GetSpecialPaymentProvidersOK, error) {
 	// TODO: Validate the params before sending
@@ -3313,11 +3507,13 @@ func (a *Client) GetSpecialPaymentProviders(params *GetSpecialPaymentProvidersPa
 
 /*
 GetSpecialPaymentProvidersShort get special payment providers
- [Not Supported Yet In Starter] Get special payment providers, such as ALIPAY, WXPAY.
+
+	[Not Supported Yet In Starter] Get special payment providers, such as ALIPAY, WXPAY.
+
 Other detail info:
 
-  * Required permission : resource="ADMIN:PAYMENT:CONFIG", action=2 (READ)
-  *  Returns : payment provider list
+  - Required permission : resource="ADMIN:PAYMENT:CONFIG", action=2 (READ)
+  - Returns : payment provider list
 */
 func (a *Client) GetSpecialPaymentProvidersShort(params *GetSpecialPaymentProvidersParams, authInfo runtime.ClientAuthInfoWriter) (*GetSpecialPaymentProvidersOK, error) {
 	// TODO: Validate the params before sending
@@ -3331,6 +3527,10 @@ func (a *Client) GetSpecialPaymentProvidersShort(params *GetSpecialPaymentProvid
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -3364,32 +3564,31 @@ func (a *Client) GetSpecialPaymentProvidersShort(params *GetSpecialPaymentProvid
 Deprecated: 2022-08-10 - Use UpdatePaymentProviderConfigShort instead.
 
 UpdatePaymentProviderConfig update payment provider config
- [Not Supported Yet In Starter] Update payment provider config.
+
+	[Not Supported Yet In Starter] Update payment provider config.
 
 
 
-     Request Body Parameters:
+	    Request Body Parameters:
 
 
-     Parameter | Type   | Required | Description
-    -----------|--------|----------|-----------------------------------------------------------
-    namespace  | String | Yes      | namespace, * indicates all namespace
-    region     | String | Yes      | region, * indicates all regions
-    aggregate  | String | No       | aggregate payment provider, such as XSOLLA, ADYEN, STRIPE
-    specials   | List   | No       | special payment provider, such as ALIPAY, WXPAY
-
-
+	    Parameter | Type   | Required | Description
+	   -----------|--------|----------|-----------------------------------------------------------
+	   namespace  | String | Yes      | namespace, * indicates all namespace
+	   region     | String | Yes      | region, * indicates all regions
+	   aggregate  | String | No       | aggregate payment provider, such as XSOLLA, ADYEN, STRIPE
+	   specials   | List   | No       | special payment provider, such as ALIPAY, WXPAY
 
 payment provider applied has priority:
 
-  1. namespace and region match
-  2. namespace matches and region is *
-  3. region matches and namespace is *
-  4. namespace and region are *
+ 1. namespace and region match
+ 2. namespace matches and region is *
+ 3. region matches and namespace is *
+ 4. namespace and region are *
 
 Other detail info:
-  * Required permission : resource="ADMIN:PAYMENT:CONFIG", action=4 (UPDATE)
-  *  Returns : payment provider config
+  - Required permission : resource="ADMIN:PAYMENT:CONFIG", action=4 (UPDATE)
+  - Returns : payment provider config
 */
 func (a *Client) UpdatePaymentProviderConfig(params *UpdatePaymentProviderConfigParams, authInfo runtime.ClientAuthInfoWriter) (*UpdatePaymentProviderConfigOK, *UpdatePaymentProviderConfigBadRequest, *UpdatePaymentProviderConfigNotFound, *UpdatePaymentProviderConfigConflict, *UpdatePaymentProviderConfigUnprocessableEntity, error) {
 	// TODO: Validate the params before sending
@@ -3446,32 +3645,31 @@ func (a *Client) UpdatePaymentProviderConfig(params *UpdatePaymentProviderConfig
 
 /*
 UpdatePaymentProviderConfigShort update payment provider config
- [Not Supported Yet In Starter] Update payment provider config.
+
+	[Not Supported Yet In Starter] Update payment provider config.
 
 
 
-     Request Body Parameters:
+	    Request Body Parameters:
 
 
-     Parameter | Type   | Required | Description
-    -----------|--------|----------|-----------------------------------------------------------
-    namespace  | String | Yes      | namespace, * indicates all namespace
-    region     | String | Yes      | region, * indicates all regions
-    aggregate  | String | No       | aggregate payment provider, such as XSOLLA, ADYEN, STRIPE
-    specials   | List   | No       | special payment provider, such as ALIPAY, WXPAY
-
-
+	    Parameter | Type   | Required | Description
+	   -----------|--------|----------|-----------------------------------------------------------
+	   namespace  | String | Yes      | namespace, * indicates all namespace
+	   region     | String | Yes      | region, * indicates all regions
+	   aggregate  | String | No       | aggregate payment provider, such as XSOLLA, ADYEN, STRIPE
+	   specials   | List   | No       | special payment provider, such as ALIPAY, WXPAY
 
 payment provider applied has priority:
 
-  1. namespace and region match
-  2. namespace matches and region is *
-  3. region matches and namespace is *
-  4. namespace and region are *
+ 1. namespace and region match
+ 2. namespace matches and region is *
+ 3. region matches and namespace is *
+ 4. namespace and region are *
 
 Other detail info:
-  * Required permission : resource="ADMIN:PAYMENT:CONFIG", action=4 (UPDATE)
-  *  Returns : payment provider config
+  - Required permission : resource="ADMIN:PAYMENT:CONFIG", action=4 (UPDATE)
+  - Returns : payment provider config
 */
 func (a *Client) UpdatePaymentProviderConfigShort(params *UpdatePaymentProviderConfigParams, authInfo runtime.ClientAuthInfoWriter) (*UpdatePaymentProviderConfigOK, error) {
 	// TODO: Validate the params before sending
@@ -3485,6 +3683,10 @@ func (a *Client) UpdatePaymentProviderConfigShort(params *UpdatePaymentProviderC
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -3526,11 +3728,13 @@ func (a *Client) UpdatePaymentProviderConfigShort(params *UpdatePaymentProviderC
 Deprecated: 2022-08-10 - Use DeletePaymentProviderConfigShort instead.
 
 DeletePaymentProviderConfig delete payment provider config
- [Not Supported Yet In Starter] Delete payment provider config.
+
+	[Not Supported Yet In Starter] Delete payment provider config.
+
 Other detail info:
 
-  * Required permission : resource="ADMIN:PAYMENT:CONFIG", action=8 (DELETE)
-  *  Returns : payment provider config
+  - Required permission : resource="ADMIN:PAYMENT:CONFIG", action=8 (DELETE)
+  - Returns : payment provider config
 */
 func (a *Client) DeletePaymentProviderConfig(params *DeletePaymentProviderConfigParams, authInfo runtime.ClientAuthInfoWriter) (*DeletePaymentProviderConfigNoContent, *DeletePaymentProviderConfigNotFound, error) {
 	// TODO: Validate the params before sending
@@ -3578,11 +3782,13 @@ func (a *Client) DeletePaymentProviderConfig(params *DeletePaymentProviderConfig
 
 /*
 DeletePaymentProviderConfigShort delete payment provider config
- [Not Supported Yet In Starter] Delete payment provider config.
+
+	[Not Supported Yet In Starter] Delete payment provider config.
+
 Other detail info:
 
-  * Required permission : resource="ADMIN:PAYMENT:CONFIG", action=8 (DELETE)
-  *  Returns : payment provider config
+  - Required permission : resource="ADMIN:PAYMENT:CONFIG", action=8 (DELETE)
+  - Returns : payment provider config
 */
 func (a *Client) DeletePaymentProviderConfigShort(params *DeletePaymentProviderConfigParams, authInfo runtime.ClientAuthInfoWriter) (*DeletePaymentProviderConfigNoContent, error) {
 	// TODO: Validate the params before sending
@@ -3596,6 +3802,10 @@ func (a *Client) DeletePaymentProviderConfigShort(params *DeletePaymentProviderC
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -3631,11 +3841,13 @@ func (a *Client) DeletePaymentProviderConfigShort(params *DeletePaymentProviderC
 Deprecated: 2022-08-10 - Use GetPaymentTaxConfigShort instead.
 
 GetPaymentTaxConfig get payment global tax config
- [Not Supported Yet In Starter] Get payment global tax config.
+
+	[Not Supported Yet In Starter] Get payment global tax config.
+
 Other detail info:
 
-  * Required permission : resource="ADMIN:PAYMENT:CONFIG", action=2 (READ)
-  *  Returns : payment provider list
+  - Required permission : resource="ADMIN:PAYMENT:CONFIG", action=2 (READ)
+  - Returns : payment provider list
 */
 func (a *Client) GetPaymentTaxConfig(params *GetPaymentTaxConfigParams, authInfo runtime.ClientAuthInfoWriter) (*GetPaymentTaxConfigOK, error) {
 	// TODO: Validate the params before sending
@@ -3680,11 +3892,13 @@ func (a *Client) GetPaymentTaxConfig(params *GetPaymentTaxConfigParams, authInfo
 
 /*
 GetPaymentTaxConfigShort get payment global tax config
- [Not Supported Yet In Starter] Get payment global tax config.
+
+	[Not Supported Yet In Starter] Get payment global tax config.
+
 Other detail info:
 
-  * Required permission : resource="ADMIN:PAYMENT:CONFIG", action=2 (READ)
-  *  Returns : payment provider list
+  - Required permission : resource="ADMIN:PAYMENT:CONFIG", action=2 (READ)
+  - Returns : payment provider list
 */
 func (a *Client) GetPaymentTaxConfigShort(params *GetPaymentTaxConfigParams, authInfo runtime.ClientAuthInfoWriter) (*GetPaymentTaxConfigOK, error) {
 	// TODO: Validate the params before sending
@@ -3698,6 +3912,10 @@ func (a *Client) GetPaymentTaxConfigShort(params *GetPaymentTaxConfigParams, aut
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -3731,25 +3949,24 @@ func (a *Client) GetPaymentTaxConfigShort(params *GetPaymentTaxConfigParams, aut
 Deprecated: 2022-08-10 - Use UpdatePaymentTaxConfigShort instead.
 
 UpdatePaymentTaxConfig update payment global tax config
- [Not Supported Yet In Starter] Update payment tax config.
+
+	[Not Supported Yet In Starter] Update payment tax config.
 
 
 
-     Request Body Parameters:
+	    Request Body Parameters:
 
 
-     Parameter                | Type    | Required | Description
-    --------------------------|---------|----------|---------------------------------------------------------------------
-    taxJarEnabled             | Boolean | false
-    taxJarApiToken            | String  | false    | required, when taxJarEnabled is true and there is no existing token
-    sandboxTaxJarApiToken     | String  | false    | optional
-    taxJarProductCodesMapping | Map     | No       | key is item type(APP                                                |COINS |INGAMEITEM |BUNDLE |CODE |SUBSCRIPTION) and value is product tax code: https://developers.taxjar.com/api/reference/?ruby#get-list-tax-categories
-
-
+	    Parameter                | Type    | Required | Description
+	   --------------------------|---------|----------|---------------------------------------------------------------------
+	   taxJarEnabled             | Boolean | false
+	   taxJarApiToken            | String  | false    | required, when taxJarEnabled is true and there is no existing token
+	   sandboxTaxJarApiToken     | String  | false    | optional
+	   taxJarProductCodesMapping | Map     | No       | key is item type(APP                                                |COINS |INGAMEITEM |BUNDLE |CODE |SUBSCRIPTION) and value is product tax code: https://developers.taxjar.com/api/reference/?ruby#get-list-tax-categories
 
 Other detail info:
-  * Required permission : resource="ADMIN:PAYMENT:CONFIG", action=4 (UPDATE)
-  *  Returns : payment global tax config
+  - Required permission : resource="ADMIN:PAYMENT:CONFIG", action=4 (UPDATE)
+  - Returns : payment global tax config
 */
 func (a *Client) UpdatePaymentTaxConfig(params *UpdatePaymentTaxConfigParams, authInfo runtime.ClientAuthInfoWriter) (*UpdatePaymentTaxConfigOK, *UpdatePaymentTaxConfigBadRequest, *UpdatePaymentTaxConfigUnprocessableEntity, error) {
 	// TODO: Validate the params before sending
@@ -3800,25 +4017,24 @@ func (a *Client) UpdatePaymentTaxConfig(params *UpdatePaymentTaxConfigParams, au
 
 /*
 UpdatePaymentTaxConfigShort update payment global tax config
- [Not Supported Yet In Starter] Update payment tax config.
+
+	[Not Supported Yet In Starter] Update payment tax config.
 
 
 
-     Request Body Parameters:
+	    Request Body Parameters:
 
 
-     Parameter                | Type    | Required | Description
-    --------------------------|---------|----------|---------------------------------------------------------------------
-    taxJarEnabled             | Boolean | false
-    taxJarApiToken            | String  | false    | required, when taxJarEnabled is true and there is no existing token
-    sandboxTaxJarApiToken     | String  | false    | optional
-    taxJarProductCodesMapping | Map     | No       | key is item type(APP                                                |COINS |INGAMEITEM |BUNDLE |CODE |SUBSCRIPTION) and value is product tax code: https://developers.taxjar.com/api/reference/?ruby#get-list-tax-categories
-
-
+	    Parameter                | Type    | Required | Description
+	   --------------------------|---------|----------|---------------------------------------------------------------------
+	   taxJarEnabled             | Boolean | false
+	   taxJarApiToken            | String  | false    | required, when taxJarEnabled is true and there is no existing token
+	   sandboxTaxJarApiToken     | String  | false    | optional
+	   taxJarProductCodesMapping | Map     | No       | key is item type(APP                                                |COINS |INGAMEITEM |BUNDLE |CODE |SUBSCRIPTION) and value is product tax code: https://developers.taxjar.com/api/reference/?ruby#get-list-tax-categories
 
 Other detail info:
-  * Required permission : resource="ADMIN:PAYMENT:CONFIG", action=4 (UPDATE)
-  *  Returns : payment global tax config
+  - Required permission : resource="ADMIN:PAYMENT:CONFIG", action=4 (UPDATE)
+  - Returns : payment global tax config
 */
 func (a *Client) UpdatePaymentTaxConfigShort(params *UpdatePaymentTaxConfigParams, authInfo runtime.ClientAuthInfoWriter) (*UpdatePaymentTaxConfigOK, error) {
 	// TODO: Validate the params before sending
@@ -3832,6 +4048,10 @@ func (a *Client) UpdatePaymentTaxConfigShort(params *UpdatePaymentTaxConfigParam
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{

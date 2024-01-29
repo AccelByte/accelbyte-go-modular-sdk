@@ -117,6 +117,10 @@ func (a *Client) FleetServerHistoryShort(params *FleetServerHistoryParams, authI
 		params.SetHTTPClientTransport(params.RetryPolicy)
 	}
 
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
+	}
+
 	result, err := a.transport.Submit(&runtime.ClientOperation{
 		ID:                 "FleetServerHistory",
 		Method:             "GET",
@@ -229,6 +233,10 @@ func (a *Client) FleetServerInfoShort(params *FleetServerInfoParams, authInfo ru
 		params.SetHTTPClientTransport(params.RetryPolicy)
 	}
 
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
+	}
+
 	result, err := a.transport.Submit(&runtime.ClientOperation{
 		ID:                 "FleetServerInfo",
 		Method:             "GET",
@@ -339,6 +347,10 @@ func (a *Client) ServerHistoryShort(params *ServerHistoryParams, authInfo runtim
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{

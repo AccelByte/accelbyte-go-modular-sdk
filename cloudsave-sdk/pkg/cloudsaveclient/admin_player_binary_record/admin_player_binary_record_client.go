@@ -125,6 +125,10 @@ func (a *Client) AdminListPlayerBinaryRecordsV1Short(params *AdminListPlayerBina
 		params.SetHTTPClientTransport(params.RetryPolicy)
 	}
 
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
+	}
+
 	result, err := a.transport.Submit(&runtime.ClientOperation{
 		ID:                 "adminListPlayerBinaryRecordsV1",
 		Method:             "GET",
@@ -173,7 +177,6 @@ Other detail info:
 2. begin and end with letters or numbers
 3. spaces are not allowed
 4. separators must not appears twice in a row
-
 
 Supported file types: jpeg, jpg, png, bmp, gif, mp3, webp, and bin.
 */
@@ -245,7 +248,6 @@ Other detail info:
 3. spaces are not allowed
 4. separators must not appears twice in a row
 
-
 Supported file types: jpeg, jpg, png, bmp, gif, mp3, webp, and bin.
 */
 func (a *Client) AdminPostPlayerBinaryRecordV1Short(params *AdminPostPlayerBinaryRecordV1Params, authInfo runtime.ClientAuthInfoWriter) (*AdminPostPlayerBinaryRecordV1Created, error) {
@@ -260,6 +262,10 @@ func (a *Client) AdminPostPlayerBinaryRecordV1Short(params *AdminPostPlayerBinar
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -374,6 +380,10 @@ func (a *Client) AdminGetPlayerBinaryRecordV1Short(params *AdminGetPlayerBinaryR
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -491,6 +501,10 @@ func (a *Client) AdminPutPlayerBinaryRecordV1Short(params *AdminPutPlayerBinaryR
 		params.SetHTTPClientTransport(params.RetryPolicy)
 	}
 
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
+	}
+
 	result, err := a.transport.Submit(&runtime.ClientOperation{
 		ID:                 "adminPutPlayerBinaryRecordV1",
 		Method:             "PUT",
@@ -603,6 +617,10 @@ func (a *Client) AdminDeletePlayerBinaryRecordV1Short(params *AdminDeletePlayerB
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -718,6 +736,10 @@ func (a *Client) AdminPutPlayerBinaryRecorMetadataV1Short(params *AdminPutPlayer
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -843,6 +865,10 @@ func (a *Client) AdminPostPlayerBinaryPresignedURLV1Short(params *AdminPostPlaye
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{

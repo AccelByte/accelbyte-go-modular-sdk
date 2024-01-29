@@ -57,7 +57,8 @@ func NewGetClientParamsWithHTTPClient(client *http.Client) *GetClientParams {
 	}
 }
 
-/*GetClientParams contains all the parameters to send to the API endpoint
+/*
+GetClientParams contains all the parameters to send to the API endpoint
 for the get client operation typically these are written to a http.Request
 */
 type GetClientParams struct {
@@ -74,6 +75,9 @@ type GetClientParams struct {
 	AuthInfoWriter runtime.ClientAuthInfoWriter
 	Context        context.Context
 	HTTPClient     *http.Client
+
+	// XFlightId is an optional parameter from this SDK
+	XFlightId *string
 }
 
 // WithTimeout adds the timeout to the get client params
@@ -123,6 +127,15 @@ func (o *GetClientParams) SetHTTPClientTransport(roundTripper http.RoundTripper)
 	}
 }
 
+// SetFlightId adds the flightId as the header value for this specific endpoint
+func (o *GetClientParams) SetFlightId(flightId string) {
+	if o.XFlightId != nil {
+		o.XFlightId = &flightId
+	} else {
+		o.XFlightId = &utils.GetDefaultFlightID().Value
+	}
+}
+
 // WithClientID adds the clientID to the get client params
 func (o *GetClientParams) WithClientID(clientID string) *GetClientParams {
 	o.SetClientID(clientID)
@@ -150,6 +163,16 @@ func (o *GetClientParams) WriteToRequest(r runtime.ClientRequest, reg strfmt.Reg
 	// setting the default header value
 	if err := r.SetHeaderParam("X-Amzn-Trace-Id", utils.AmazonTraceIDGen()); err != nil {
 		return err
+	}
+
+	if o.XFlightId == nil {
+		if err := r.SetHeaderParam("X-Flight-Id", utils.GetDefaultFlightID().Value); err != nil {
+			return err
+		}
+	} else {
+		if err := r.SetHeaderParam("X-Flight-Id", *o.XFlightId); err != nil {
+			return err
+		}
 	}
 
 	if len(res) > 0 {

@@ -115,6 +115,10 @@ func (a *Client) PublicAddDownloadCountV2Short(params *PublicAddDownloadCountV2P
 		params.SetHTTPClientTransport(params.RetryPolicy)
 	}
 
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
+	}
+
 	result, err := a.transport.Submit(&runtime.ClientOperation{
 		ID:                 "PublicAddDownloadCountV2",
 		Method:             "POST",
@@ -222,6 +226,10 @@ func (a *Client) PublicListContentDownloaderV2Short(params *PublicListContentDow
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{

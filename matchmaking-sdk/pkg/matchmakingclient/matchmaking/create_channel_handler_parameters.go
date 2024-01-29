@@ -59,7 +59,8 @@ func NewCreateChannelHandlerParamsWithHTTPClient(client *http.Client) *CreateCha
 	}
 }
 
-/*CreateChannelHandlerParams contains all the parameters to send to the API endpoint
+/*
+CreateChannelHandlerParams contains all the parameters to send to the API endpoint
 for the create channel handler operation typically these are written to a http.Request
 */
 type CreateChannelHandlerParams struct {
@@ -78,6 +79,9 @@ type CreateChannelHandlerParams struct {
 	AuthInfoWriter runtime.ClientAuthInfoWriter
 	Context        context.Context
 	HTTPClient     *http.Client
+
+	// XFlightId is an optional parameter from this SDK
+	XFlightId *string
 }
 
 // WithTimeout adds the timeout to the create channel handler params
@@ -127,6 +131,15 @@ func (o *CreateChannelHandlerParams) SetHTTPClientTransport(roundTripper http.Ro
 	}
 }
 
+// SetFlightId adds the flightId as the header value for this specific endpoint
+func (o *CreateChannelHandlerParams) SetFlightId(flightId string) {
+	if o.XFlightId != nil {
+		o.XFlightId = &flightId
+	} else {
+		o.XFlightId = &utils.GetDefaultFlightID().Value
+	}
+}
+
 // WithBody adds the body to the create channel handler params
 func (o *CreateChannelHandlerParams) WithBody(body *matchmakingclientmodels.ModelsChannelRequest) *CreateChannelHandlerParams {
 	o.SetBody(body)
@@ -171,6 +184,16 @@ func (o *CreateChannelHandlerParams) WriteToRequest(r runtime.ClientRequest, reg
 	// setting the default header value
 	if err := r.SetHeaderParam("X-Amzn-Trace-Id", utils.AmazonTraceIDGen()); err != nil {
 		return err
+	}
+
+	if o.XFlightId == nil {
+		if err := r.SetHeaderParam("X-Flight-Id", utils.GetDefaultFlightID().Value); err != nil {
+			return err
+		}
+	} else {
+		if err := r.SetHeaderParam("X-Flight-Id", *o.XFlightId); err != nil {
+			return err
+		}
 	}
 
 	if len(res) > 0 {

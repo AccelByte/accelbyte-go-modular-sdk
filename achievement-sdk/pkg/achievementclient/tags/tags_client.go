@@ -41,8 +41,7 @@ type ClientService interface {
 /*
 Deprecated: 2022-08-10 - Use AdminListTagsShort instead.
 
-AdminListTags query tags
-
+# AdminListTags query tags
 
 Required permission
 `ADMIN:NAMESPACE:{namespace}:ACHIEVEMENT [READ]` and scope `social`
@@ -103,7 +102,6 @@ func (a *Client) AdminListTags(params *AdminListTagsParams, authInfo runtime.Cli
 /*
 AdminListTagsShort query tags
 
-
 Required permission
 `ADMIN:NAMESPACE:{namespace}:ACHIEVEMENT [READ]` and scope `social`
 */
@@ -119,6 +117,10 @@ func (a *Client) AdminListTagsShort(params *AdminListTagsParams, authInfo runtim
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -159,8 +161,7 @@ func (a *Client) AdminListTagsShort(params *AdminListTagsParams, authInfo runtim
 /*
 Deprecated: 2022-08-10 - Use PublicListTagsShort instead.
 
-PublicListTags query tags
-
+# PublicListTags query tags
 
 Required permission
 `NAMESPACE:{namespace}:ACHIEVEMENT [READ]` and scope `social`
@@ -221,7 +222,6 @@ func (a *Client) PublicListTags(params *PublicListTagsParams, authInfo runtime.C
 /*
 PublicListTagsShort query tags
 
-
 Required permission
 `NAMESPACE:{namespace}:ACHIEVEMENT [READ]` and scope `social`
 */
@@ -237,6 +237,10 @@ func (a *Client) PublicListTagsShort(params *PublicListTagsParams, authInfo runt
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{

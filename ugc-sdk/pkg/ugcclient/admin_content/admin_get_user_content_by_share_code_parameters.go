@@ -57,7 +57,8 @@ func NewAdminGetUserContentByShareCodeParamsWithHTTPClient(client *http.Client) 
 	}
 }
 
-/*AdminGetUserContentByShareCodeParams contains all the parameters to send to the API endpoint
+/*
+AdminGetUserContentByShareCodeParams contains all the parameters to send to the API endpoint
 for the admin get user content by share code operation typically these are written to a http.Request
 */
 type AdminGetUserContentByShareCodeParams struct {
@@ -79,6 +80,9 @@ type AdminGetUserContentByShareCodeParams struct {
 	AuthInfoWriter runtime.ClientAuthInfoWriter
 	Context        context.Context
 	HTTPClient     *http.Client
+
+	// XFlightId is an optional parameter from this SDK
+	XFlightId *string
 }
 
 // WithTimeout adds the timeout to the admin get user content by share code params
@@ -128,6 +132,15 @@ func (o *AdminGetUserContentByShareCodeParams) SetHTTPClientTransport(roundTripp
 	}
 }
 
+// SetFlightId adds the flightId as the header value for this specific endpoint
+func (o *AdminGetUserContentByShareCodeParams) SetFlightId(flightId string) {
+	if o.XFlightId != nil {
+		o.XFlightId = &flightId
+	} else {
+		o.XFlightId = &utils.GetDefaultFlightID().Value
+	}
+}
+
 // WithNamespace adds the namespace to the admin get user content by share code params
 func (o *AdminGetUserContentByShareCodeParams) WithNamespace(namespace string) *AdminGetUserContentByShareCodeParams {
 	o.SetNamespace(namespace)
@@ -171,6 +184,16 @@ func (o *AdminGetUserContentByShareCodeParams) WriteToRequest(r runtime.ClientRe
 	// setting the default header value
 	if err := r.SetHeaderParam("X-Amzn-Trace-Id", utils.AmazonTraceIDGen()); err != nil {
 		return err
+	}
+
+	if o.XFlightId == nil {
+		if err := r.SetHeaderParam("X-Flight-Id", utils.GetDefaultFlightID().Value); err != nil {
+			return err
+		}
+	} else {
+		if err := r.SetHeaderParam("X-Flight-Id", *o.XFlightId); err != nil {
+			return err
+		}
 	}
 
 	if len(res) > 0 {

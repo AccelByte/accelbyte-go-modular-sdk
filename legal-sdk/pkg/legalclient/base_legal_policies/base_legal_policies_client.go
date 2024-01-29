@@ -53,7 +53,7 @@ RetrieveAllLegalPolicies retrieve all base legal policy
 Retrieve all base policies.
 Other detail info:
 
-  * Required permission : resource="ADMIN:NAMESPACE:*:LEGAL", action=2 (READ)
+  - Required permission : resource="ADMIN:NAMESPACE:*:LEGAL", action=2 (READ)
 */
 func (a *Client) RetrieveAllLegalPolicies(params *RetrieveAllLegalPoliciesParams, authInfo runtime.ClientAuthInfoWriter) (*RetrieveAllLegalPoliciesOK, error) {
 	// TODO: Validate the params before sending
@@ -101,7 +101,7 @@ RetrieveAllLegalPoliciesShort retrieve all base legal policy
 Retrieve all base policies.
 Other detail info:
 
-  * Required permission : resource="ADMIN:NAMESPACE:*:LEGAL", action=2 (READ)
+  - Required permission : resource="ADMIN:NAMESPACE:*:LEGAL", action=2 (READ)
 */
 func (a *Client) RetrieveAllLegalPoliciesShort(params *RetrieveAllLegalPoliciesParams, authInfo runtime.ClientAuthInfoWriter) (*RetrieveAllLegalPoliciesOK, error) {
 	// TODO: Validate the params before sending
@@ -115,6 +115,10 @@ func (a *Client) RetrieveAllLegalPoliciesShort(params *RetrieveAllLegalPoliciesP
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -151,7 +155,7 @@ CreatePolicy create a base legal policy
 Create a legal policy.
 Other detail info:
 
-  * Required permission : resource="ADMIN:NAMESPACE:*:LEGAL", action=1 (CREATE)
+  - Required permission : resource="ADMIN:NAMESPACE:*:LEGAL", action=1 (CREATE)
 */
 func (a *Client) CreatePolicy(params *CreatePolicyParams, authInfo runtime.ClientAuthInfoWriter) (*CreatePolicyCreated, *CreatePolicyBadRequest, *CreatePolicyNotFound, *CreatePolicyUnprocessableEntity, error) {
 	// TODO: Validate the params before sending
@@ -208,7 +212,7 @@ CreatePolicyShort create a base legal policy
 Create a legal policy.
 Other detail info:
 
-  * Required permission : resource="ADMIN:NAMESPACE:*:LEGAL", action=1 (CREATE)
+  - Required permission : resource="ADMIN:NAMESPACE:*:LEGAL", action=1 (CREATE)
 */
 func (a *Client) CreatePolicyShort(params *CreatePolicyParams, authInfo runtime.ClientAuthInfoWriter) (*CreatePolicyCreated, error) {
 	// TODO: Validate the params before sending
@@ -222,6 +226,10 @@ func (a *Client) CreatePolicyShort(params *CreatePolicyParams, authInfo runtime.
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -264,7 +272,7 @@ RetrieveSinglePolicy retrieve a base legal policy
 Retrieve a base policy.
 Other detail info:
 
-  * Required permission : resource="ADMIN:NAMESPACE:*:LEGAL", action=2 (READ)
+  - Required permission : resource="ADMIN:NAMESPACE:*:LEGAL", action=2 (READ)
 */
 func (a *Client) RetrieveSinglePolicy(params *RetrieveSinglePolicyParams, authInfo runtime.ClientAuthInfoWriter) (*RetrieveSinglePolicyOK, *RetrieveSinglePolicyNotFound, error) {
 	// TODO: Validate the params before sending
@@ -315,7 +323,7 @@ RetrieveSinglePolicyShort retrieve a base legal policy
 Retrieve a base policy.
 Other detail info:
 
-  * Required permission : resource="ADMIN:NAMESPACE:*:LEGAL", action=2 (READ)
+  - Required permission : resource="ADMIN:NAMESPACE:*:LEGAL", action=2 (READ)
 */
 func (a *Client) RetrieveSinglePolicyShort(params *RetrieveSinglePolicyParams, authInfo runtime.ClientAuthInfoWriter) (*RetrieveSinglePolicyOK, error) {
 	// TODO: Validate the params before sending
@@ -329,6 +337,10 @@ func (a *Client) RetrieveSinglePolicyShort(params *RetrieveSinglePolicyParams, a
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -367,7 +379,7 @@ PartialUpdatePolicy update base legal policy
 Update an existing base policy.
 Other detail info:
 
-  * Required permission : resource="ADMIN:NAMESPACE:*:LEGAL", action=4 (UPDATE)
+  - Required permission : resource="ADMIN:NAMESPACE:*:LEGAL", action=4 (UPDATE)
 */
 func (a *Client) PartialUpdatePolicy(params *PartialUpdatePolicyParams, authInfo runtime.ClientAuthInfoWriter) (*PartialUpdatePolicyOK, *PartialUpdatePolicyBadRequest, *PartialUpdatePolicyNotFound, error) {
 	// TODO: Validate the params before sending
@@ -421,7 +433,7 @@ PartialUpdatePolicyShort update base legal policy
 Update an existing base policy.
 Other detail info:
 
-  * Required permission : resource="ADMIN:NAMESPACE:*:LEGAL", action=4 (UPDATE)
+  - Required permission : resource="ADMIN:NAMESPACE:*:LEGAL", action=4 (UPDATE)
 */
 func (a *Client) PartialUpdatePolicyShort(params *PartialUpdatePolicyParams, authInfo runtime.ClientAuthInfoWriter) (*PartialUpdatePolicyOK, error) {
 	// TODO: Validate the params before sending
@@ -435,6 +447,10 @@ func (a *Client) PartialUpdatePolicyShort(params *PartialUpdatePolicyParams, aut
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -475,7 +491,7 @@ RetrievePolicyCountry retrieve a base legal policy based on a particular country
 Retrieve a Base Legal Policy based on a Particular Country.
 Other detail info:
 
-  * Required permission : resource="ADMIN:NAMESPACE:*:LEGAL", action=2 (READ)
+  - Required permission : resource="ADMIN:NAMESPACE:*:LEGAL", action=2 (READ)
 */
 func (a *Client) RetrievePolicyCountry(params *RetrievePolicyCountryParams, authInfo runtime.ClientAuthInfoWriter) (*RetrievePolicyCountryOK, *RetrievePolicyCountryNotFound, error) {
 	// TODO: Validate the params before sending
@@ -526,7 +542,7 @@ RetrievePolicyCountryShort retrieve a base legal policy based on a particular co
 Retrieve a Base Legal Policy based on a Particular Country.
 Other detail info:
 
-  * Required permission : resource="ADMIN:NAMESPACE:*:LEGAL", action=2 (READ)
+  - Required permission : resource="ADMIN:NAMESPACE:*:LEGAL", action=2 (READ)
 */
 func (a *Client) RetrievePolicyCountryShort(params *RetrievePolicyCountryParams, authInfo runtime.ClientAuthInfoWriter) (*RetrievePolicyCountryOK, error) {
 	// TODO: Validate the params before sending
@@ -540,6 +556,10 @@ func (a *Client) RetrievePolicyCountryShort(params *RetrievePolicyCountryParams,
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -578,7 +598,7 @@ RetrieveAllPolicyTypes retrieve all policy type
 Retrieve all supported policy types.
 Other detail info:
 
-  * Required permission : resource="ADMIN:NAMESPACE:*:LEGAL", action=2 (READ)
+  - Required permission : resource="ADMIN:NAMESPACE:*:LEGAL", action=2 (READ)
 */
 func (a *Client) RetrieveAllPolicyTypes(params *RetrieveAllPolicyTypesParams, authInfo runtime.ClientAuthInfoWriter) (*RetrieveAllPolicyTypesOK, error) {
 	// TODO: Validate the params before sending
@@ -626,7 +646,7 @@ RetrieveAllPolicyTypesShort retrieve all policy type
 Retrieve all supported policy types.
 Other detail info:
 
-  * Required permission : resource="ADMIN:NAMESPACE:*:LEGAL", action=2 (READ)
+  - Required permission : resource="ADMIN:NAMESPACE:*:LEGAL", action=2 (READ)
 */
 func (a *Client) RetrieveAllPolicyTypesShort(params *RetrieveAllPolicyTypesParams, authInfo runtime.ClientAuthInfoWriter) (*RetrieveAllPolicyTypesOK, error) {
 	// TODO: Validate the params before sending
@@ -640,6 +660,10 @@ func (a *Client) RetrieveAllPolicyTypesShort(params *RetrieveAllPolicyTypesParam
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{

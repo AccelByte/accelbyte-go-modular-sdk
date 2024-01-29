@@ -57,7 +57,8 @@ func NewUpdateMyPrivateCustomAttributesPartiallyParamsWithHTTPClient(client *htt
 	}
 }
 
-/*UpdateMyPrivateCustomAttributesPartiallyParams contains all the parameters to send to the API endpoint
+/*
+UpdateMyPrivateCustomAttributesPartiallyParams contains all the parameters to send to the API endpoint
 for the update my private custom attributes partially operation typically these are written to a http.Request
 */
 type UpdateMyPrivateCustomAttributesPartiallyParams struct {
@@ -76,6 +77,9 @@ type UpdateMyPrivateCustomAttributesPartiallyParams struct {
 	AuthInfoWriter runtime.ClientAuthInfoWriter
 	Context        context.Context
 	HTTPClient     *http.Client
+
+	// XFlightId is an optional parameter from this SDK
+	XFlightId *string
 }
 
 // WithTimeout adds the timeout to the update my private custom attributes partially params
@@ -125,6 +129,15 @@ func (o *UpdateMyPrivateCustomAttributesPartiallyParams) SetHTTPClientTransport(
 	}
 }
 
+// SetFlightId adds the flightId as the header value for this specific endpoint
+func (o *UpdateMyPrivateCustomAttributesPartiallyParams) SetFlightId(flightId string) {
+	if o.XFlightId != nil {
+		o.XFlightId = &flightId
+	} else {
+		o.XFlightId = &utils.GetDefaultFlightID().Value
+	}
+}
+
 // WithBody adds the body to the update my private custom attributes partially params
 func (o *UpdateMyPrivateCustomAttributesPartiallyParams) WithBody(body map[string]interface{}) *UpdateMyPrivateCustomAttributesPartiallyParams {
 	o.SetBody(body)
@@ -169,6 +182,16 @@ func (o *UpdateMyPrivateCustomAttributesPartiallyParams) WriteToRequest(r runtim
 	// setting the default header value
 	if err := r.SetHeaderParam("X-Amzn-Trace-Id", utils.AmazonTraceIDGen()); err != nil {
 		return err
+	}
+
+	if o.XFlightId == nil {
+		if err := r.SetHeaderParam("X-Flight-Id", utils.GetDefaultFlightID().Value); err != nil {
+			return err
+		}
+	} else {
+		if err := r.SetHeaderParam("X-Flight-Id", *o.XFlightId); err != nil {
+			return err
+		}
 	}
 
 	if len(res) > 0 {

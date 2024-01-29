@@ -57,7 +57,8 @@ func NewPublicGetPartyParamsWithHTTPClient(client *http.Client) *PublicGetPartyP
 	}
 }
 
-/*PublicGetPartyParams contains all the parameters to send to the API endpoint
+/*
+PublicGetPartyParams contains all the parameters to send to the API endpoint
 for the public get party operation typically these are written to a http.Request
 */
 type PublicGetPartyParams struct {
@@ -79,6 +80,9 @@ type PublicGetPartyParams struct {
 	AuthInfoWriter runtime.ClientAuthInfoWriter
 	Context        context.Context
 	HTTPClient     *http.Client
+
+	// XFlightId is an optional parameter from this SDK
+	XFlightId *string
 }
 
 // WithTimeout adds the timeout to the public get party params
@@ -128,6 +132,15 @@ func (o *PublicGetPartyParams) SetHTTPClientTransport(roundTripper http.RoundTri
 	}
 }
 
+// SetFlightId adds the flightId as the header value for this specific endpoint
+func (o *PublicGetPartyParams) SetFlightId(flightId string) {
+	if o.XFlightId != nil {
+		o.XFlightId = &flightId
+	} else {
+		o.XFlightId = &utils.GetDefaultFlightID().Value
+	}
+}
+
 // WithNamespace adds the namespace to the public get party params
 func (o *PublicGetPartyParams) WithNamespace(namespace string) *PublicGetPartyParams {
 	o.SetNamespace(namespace)
@@ -171,6 +184,16 @@ func (o *PublicGetPartyParams) WriteToRequest(r runtime.ClientRequest, reg strfm
 	// setting the default header value
 	if err := r.SetHeaderParam("X-Amzn-Trace-Id", utils.AmazonTraceIDGen()); err != nil {
 		return err
+	}
+
+	if o.XFlightId == nil {
+		if err := r.SetHeaderParam("X-Flight-Id", utils.GetDefaultFlightID().Value); err != nil {
+			return err
+		}
+	} else {
+		if err := r.SetHeaderParam("X-Flight-Id", *o.XFlightId); err != nil {
+			return err
+		}
 	}
 
 	if len(res) > 0 {

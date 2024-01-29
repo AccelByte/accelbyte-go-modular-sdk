@@ -137,6 +137,10 @@ func (a *Client) AdminListAdminGameRecordV1Short(params *AdminListAdminGameRecor
 		params.SetHTTPClientTransport(params.RetryPolicy)
 	}
 
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
+	}
+
 	result, err := a.transport.Submit(&runtime.ClientOperation{
 		ID:                 "adminListAdminGameRecordV1",
 		Method:             "GET",
@@ -250,6 +254,10 @@ func (a *Client) AdminBulkGetAdminGameRecordV1Short(params *AdminBulkGetAdminGam
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -366,6 +374,10 @@ func (a *Client) AdminGetAdminGameRecordV1Short(params *AdminGetAdminGameRecordV
 		params.SetHTTPClientTransport(params.RetryPolicy)
 	}
 
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
+	}
+
 	result, err := a.transport.Submit(&runtime.ClientOperation{
 		ID:                 "adminGetAdminGameRecordV1",
 		Method:             "GET",
@@ -423,8 +435,6 @@ Example
 - Result:
 
 `{ "data2": "new value" }`
-
-
 
 ## Restriction
 This is the restriction of Key Naming for the record:
@@ -509,8 +519,6 @@ Example
 
 `{ "data2": "new value" }`
 
-
-
 ## Restriction
 This is the restriction of Key Naming for the record:
 1. Cannot use **"."** as the key name
@@ -532,6 +540,10 @@ func (a *Client) AdminPutAdminGameRecordV1Short(params *AdminPutAdminGameRecordV
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -592,7 +604,6 @@ Example 1
 
 `{ "data1": "value", "data2": "new value" }`
 
-
 Example 2
 - Existing JSON:
 
@@ -605,7 +616,6 @@ Example 2
 - Result:
 
 `{ "data1": { "data2": "value", "data3": "new value" }`
-
 
 ## Restriction
 This is the restriction of Key Naming for the record:
@@ -690,7 +700,6 @@ Example 1
 
 `{ "data1": "value", "data2": "new value" }`
 
-
 Example 2
 - Existing JSON:
 
@@ -703,7 +712,6 @@ Example 2
 - Result:
 
 `{ "data1": { "data2": "value", "data3": "new value" }`
-
 
 ## Restriction
 This is the restriction of Key Naming for the record:
@@ -726,6 +734,10 @@ func (a *Client) AdminPostAdminGameRecordV1Short(params *AdminPostAdminGameRecor
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -838,6 +850,10 @@ func (a *Client) AdminDeleteAdminGameRecordV1Short(params *AdminDeleteAdminGameR
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -955,6 +971,10 @@ func (a *Client) BulkGetAdminPlayerRecordByUserIdsV1Short(params *BulkGetAdminPl
 		params.SetHTTPClientTransport(params.RetryPolicy)
 	}
 
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
+	}
+
 	result, err := a.transport.Submit(&runtime.ClientOperation{
 		ID:                 "bulkGetAdminPlayerRecordByUserIdsV1",
 		Method:             "POST",
@@ -1067,6 +1087,10 @@ func (a *Client) AdminListAdminUserRecordsV1Short(params *AdminListAdminUserReco
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -1184,6 +1208,10 @@ func (a *Client) AdminBulkGetAdminPlayerRecordV1Short(params *AdminBulkGetAdminP
 		params.SetHTTPClientTransport(params.RetryPolicy)
 	}
 
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
+	}
+
 	result, err := a.transport.Submit(&runtime.ClientOperation{
 		ID:                 "adminBulkGetAdminPlayerRecordV1",
 		Method:             "POST",
@@ -1298,6 +1326,10 @@ func (a *Client) AdminGetAdminPlayerRecordV1Short(params *AdminGetAdminPlayerRec
 		params.SetHTTPClientTransport(params.RetryPolicy)
 	}
 
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
+	}
+
 	result, err := a.transport.Submit(&runtime.ClientOperation{
 		ID:                 "adminGetAdminPlayerRecordV1",
 		Method:             "GET",
@@ -1356,8 +1388,6 @@ Example
 - Result:
 
 `{ "data2": "new value" }`
-
-
 
 ## Restriction
 This is the restriction of Key Naming for the record:
@@ -1443,8 +1473,6 @@ Example
 
 `{ "data2": "new value" }`
 
-
-
 ## Restriction
 This is the restriction of Key Naming for the record:
 1. Cannot use **"."** as the key name
@@ -1466,6 +1494,10 @@ func (a *Client) AdminPutAdminPlayerRecordV1Short(params *AdminPutAdminPlayerRec
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -1526,7 +1558,6 @@ Example 1
 
 `{ "data1": "value", "data2": "new value" }`
 
-
 Example 2
 - Existing JSON:
 
@@ -1539,7 +1570,6 @@ Example 2
 - Result:
 
 `{ "data1": { "data2": "value", "data3": "new value" }`
-
 
 ## Restriction
 This is the restriction of Key Naming for the record:
@@ -1624,7 +1654,6 @@ Example 1
 
 `{ "data1": "value", "data2": "new value" }`
 
-
 Example 2
 - Existing JSON:
 
@@ -1637,7 +1666,6 @@ Example 2
 - Result:
 
 `{ "data1": { "data2": "value", "data3": "new value" }`
-
 
 ## Restriction
 This is the restriction of Key Naming for the record:
@@ -1660,6 +1688,10 @@ func (a *Client) AdminPostPlayerAdminRecordV1Short(params *AdminPostPlayerAdminR
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -1772,6 +1804,10 @@ func (a *Client) AdminDeleteAdminPlayerRecordV1Short(params *AdminDeleteAdminPla
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{

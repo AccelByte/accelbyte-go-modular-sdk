@@ -57,7 +57,8 @@ func NewPublicRevokePartyCodeParamsWithHTTPClient(client *http.Client) *PublicRe
 	}
 }
 
-/*PublicRevokePartyCodeParams contains all the parameters to send to the API endpoint
+/*
+PublicRevokePartyCodeParams contains all the parameters to send to the API endpoint
 for the public revoke party code operation typically these are written to a http.Request
 */
 type PublicRevokePartyCodeParams struct {
@@ -79,6 +80,9 @@ type PublicRevokePartyCodeParams struct {
 	AuthInfoWriter runtime.ClientAuthInfoWriter
 	Context        context.Context
 	HTTPClient     *http.Client
+
+	// XFlightId is an optional parameter from this SDK
+	XFlightId *string
 }
 
 // WithTimeout adds the timeout to the public revoke party code params
@@ -128,6 +132,15 @@ func (o *PublicRevokePartyCodeParams) SetHTTPClientTransport(roundTripper http.R
 	}
 }
 
+// SetFlightId adds the flightId as the header value for this specific endpoint
+func (o *PublicRevokePartyCodeParams) SetFlightId(flightId string) {
+	if o.XFlightId != nil {
+		o.XFlightId = &flightId
+	} else {
+		o.XFlightId = &utils.GetDefaultFlightID().Value
+	}
+}
+
 // WithNamespace adds the namespace to the public revoke party code params
 func (o *PublicRevokePartyCodeParams) WithNamespace(namespace string) *PublicRevokePartyCodeParams {
 	o.SetNamespace(namespace)
@@ -171,6 +184,16 @@ func (o *PublicRevokePartyCodeParams) WriteToRequest(r runtime.ClientRequest, re
 	// setting the default header value
 	if err := r.SetHeaderParam("X-Amzn-Trace-Id", utils.AmazonTraceIDGen()); err != nil {
 		return err
+	}
+
+	if o.XFlightId == nil {
+		if err := r.SetHeaderParam("X-Flight-Id", utils.GetDefaultFlightID().Value); err != nil {
+			return err
+		}
+	} else {
+		if err := r.SetHeaderParam("X-Flight-Id", *o.XFlightId); err != nil {
+			return err
+		}
 	}
 
 	if len(res) > 0 {

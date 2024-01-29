@@ -48,27 +48,21 @@ This API is used to create a chained operations
 
 Other detail info:
 
-  * Required permission : resource=ADMIN:NAMESPACE:{namespace}:TRADE, action=1 (CREATE)
-  *  Returns : chain action history
-  *  FULFILL_ITEM operation supported item type : INGAMEITEM,LOOTBOX,OPTIONBOX
-
-
+  - Required permission : resource=ADMIN:NAMESPACE:{namespace}:TRADE, action=1 (CREATE)
+  - Returns : chain action history
+  - FULFILL_ITEM operation supported item type : INGAMEITEM,LOOTBOX,OPTIONBOX
 
 ## Restrictions for metadata
-
 
 1. Cannot use "." as the key name
 -
 
-
-    { "data.2": "value" }
-
+	{ "data.2": "value" }
 
 2. Cannot use "$" as the prefix in key names
 -
 
-
-    { "$data": "value" }
+	{ "$data": "value" }
 */
 func (a *Client) Commit(params *CommitParams, authInfo runtime.ClientAuthInfoWriter) (*CommitOK, error) {
 	// TODO: Validate the params before sending
@@ -117,27 +111,21 @@ This API is used to create a chained operations
 
 Other detail info:
 
-  * Required permission : resource=ADMIN:NAMESPACE:{namespace}:TRADE, action=1 (CREATE)
-  *  Returns : chain action history
-  *  FULFILL_ITEM operation supported item type : INGAMEITEM,LOOTBOX,OPTIONBOX
-
-
+  - Required permission : resource=ADMIN:NAMESPACE:{namespace}:TRADE, action=1 (CREATE)
+  - Returns : chain action history
+  - FULFILL_ITEM operation supported item type : INGAMEITEM,LOOTBOX,OPTIONBOX
 
 ## Restrictions for metadata
-
 
 1. Cannot use "." as the key name
 -
 
-
-    { "data.2": "value" }
-
+	{ "data.2": "value" }
 
 2. Cannot use "$" as the prefix in key names
 -
 
-
-    { "$data": "value" }
+	{ "$data": "value" }
 */
 func (a *Client) CommitShort(params *CommitParams, authInfo runtime.ClientAuthInfoWriter) (*CommitOK, error) {
 	// TODO: Validate the params before sending
@@ -151,6 +139,10 @@ func (a *Client) CommitShort(params *CommitParams, authInfo runtime.ClientAuthIn
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -188,8 +180,8 @@ This API is used to fetch trade history based on the provided criteria
 
 Other detail info:
 
-  * Required permission : resource=ADMIN:NAMESPACE:{namespace}:TRADE, action=2 (REDA)
-  *  Returns : trade history list based on criteria
+  - Required permission : resource=ADMIN:NAMESPACE:{namespace}:TRADE, action=2 (REDA)
+  - Returns : trade history list based on criteria
 */
 func (a *Client) GetTradeHistoryByCriteria(params *GetTradeHistoryByCriteriaParams, authInfo runtime.ClientAuthInfoWriter) (*GetTradeHistoryByCriteriaOK, error) {
 	// TODO: Validate the params before sending
@@ -238,8 +230,8 @@ This API is used to fetch trade history based on the provided criteria
 
 Other detail info:
 
-  * Required permission : resource=ADMIN:NAMESPACE:{namespace}:TRADE, action=2 (REDA)
-  *  Returns : trade history list based on criteria
+  - Required permission : resource=ADMIN:NAMESPACE:{namespace}:TRADE, action=2 (REDA)
+  - Returns : trade history list based on criteria
 */
 func (a *Client) GetTradeHistoryByCriteriaShort(params *GetTradeHistoryByCriteriaParams, authInfo runtime.ClientAuthInfoWriter) (*GetTradeHistoryByCriteriaOK, error) {
 	// TODO: Validate the params before sending
@@ -253,6 +245,10 @@ func (a *Client) GetTradeHistoryByCriteriaShort(params *GetTradeHistoryByCriteri
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -290,8 +286,8 @@ This API is used to fetch a specific trade history using transaction ID
 
 Other detail info:
 
-  * Required permission : resource=ADMIN:NAMESPACE:{namespace}:TRADE, action=2 (REDA)
-  *  Returns : trade history based on transaction ID
+  - Required permission : resource=ADMIN:NAMESPACE:{namespace}:TRADE, action=2 (REDA)
+  - Returns : trade history based on transaction ID
 */
 func (a *Client) GetTradeHistoryByTransactionID(params *GetTradeHistoryByTransactionIDParams, authInfo runtime.ClientAuthInfoWriter) (*GetTradeHistoryByTransactionIDOK, error) {
 	// TODO: Validate the params before sending
@@ -340,8 +336,8 @@ This API is used to fetch a specific trade history using transaction ID
 
 Other detail info:
 
-  * Required permission : resource=ADMIN:NAMESPACE:{namespace}:TRADE, action=2 (REDA)
-  *  Returns : trade history based on transaction ID
+  - Required permission : resource=ADMIN:NAMESPACE:{namespace}:TRADE, action=2 (REDA)
+  - Returns : trade history based on transaction ID
 */
 func (a *Client) GetTradeHistoryByTransactionIDShort(params *GetTradeHistoryByTransactionIDParams, authInfo runtime.ClientAuthInfoWriter) (*GetTradeHistoryByTransactionIDOK, error) {
 	// TODO: Validate the params before sending
@@ -355,6 +351,10 @@ func (a *Client) GetTradeHistoryByTransactionIDShort(params *GetTradeHistoryByTr
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{

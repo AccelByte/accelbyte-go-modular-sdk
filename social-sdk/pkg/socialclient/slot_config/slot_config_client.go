@@ -52,12 +52,11 @@ Deprecated: 2022-08-10 - Use GetNamespaceSlotConfigShort instead.
 GetNamespaceSlotConfig returns a namespace slot configuration
 ## The endpoint is going to be deprecated
 
-
 Get slot configuration for a given namespace. In case slot configuration is not set, the default will be returned.
 Other detail info:
 
-  *  Required permission : resource="ADMIN:NAMESPACE:{namespace}:SLOTCONFIG", action=2 (READ)
-  *  Returns : namespace slot config info
+  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:SLOTCONFIG", action=2 (READ)
+  - Returns : namespace slot config info
 */
 func (a *Client) GetNamespaceSlotConfig(params *GetNamespaceSlotConfigParams, authInfo runtime.ClientAuthInfoWriter) (*GetNamespaceSlotConfigOK, error) {
 	// TODO: Validate the params before sending
@@ -103,15 +102,13 @@ func (a *Client) GetNamespaceSlotConfig(params *GetNamespaceSlotConfigParams, au
 /*
 GetNamespaceSlotConfigShort returns a namespace slot configuration
 
-
 ## The endpoint is going to be deprecated
-
 
 Get slot configuration for a given namespace. In case slot configuration is not set, the default will be returned.
 Other detail info:
 
-  *  Required permission : resource="ADMIN:NAMESPACE:{namespace}:SLOTCONFIG", action=2 (READ)
-  *  Returns : namespace slot config info
+  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:SLOTCONFIG", action=2 (READ)
+  - Returns : namespace slot config info
 */
 func (a *Client) GetNamespaceSlotConfigShort(params *GetNamespaceSlotConfigParams, authInfo runtime.ClientAuthInfoWriter) (*GetNamespaceSlotConfigOK, error) {
 	// TODO: Validate the params before sending
@@ -125,6 +122,10 @@ func (a *Client) GetNamespaceSlotConfigShort(params *GetNamespaceSlotConfigParam
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -157,17 +158,15 @@ func (a *Client) GetNamespaceSlotConfigShort(params *GetNamespaceSlotConfigParam
 /*
 Deprecated: 2022-08-10 - Use UpdateNamespaceSlotConfigShort instead.
 
-UpdateNamespaceSlotConfig update a namespace slot configuration
-
+# UpdateNamespaceSlotConfig update a namespace slot configuration
 
 ## The endpoint is going to be deprecated
-
 
 Update a slot namespace configuration.
 Other detail info:
 
-  *  Required permission : resource="ADMIN:NAMESPACE:{namespace}:SLOTCONFIG", action=4 (UPDATE)
-  *  Returns : updated namespace slot config
+  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:SLOTCONFIG", action=4 (UPDATE)
+  - Returns : updated namespace slot config
 */
 func (a *Client) UpdateNamespaceSlotConfig(params *UpdateNamespaceSlotConfigParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateNamespaceSlotConfigOK, error) {
 	// TODO: Validate the params before sending
@@ -213,15 +212,13 @@ func (a *Client) UpdateNamespaceSlotConfig(params *UpdateNamespaceSlotConfigPara
 /*
 UpdateNamespaceSlotConfigShort update a namespace slot configuration
 
-
 ## The endpoint is going to be deprecated
-
 
 Update a slot namespace configuration.
 Other detail info:
 
-  *  Required permission : resource="ADMIN:NAMESPACE:{namespace}:SLOTCONFIG", action=4 (UPDATE)
-  *  Returns : updated namespace slot config
+  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:SLOTCONFIG", action=4 (UPDATE)
+  - Returns : updated namespace slot config
 */
 func (a *Client) UpdateNamespaceSlotConfigShort(params *UpdateNamespaceSlotConfigParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateNamespaceSlotConfigOK, error) {
 	// TODO: Validate the params before sending
@@ -235,6 +232,10 @@ func (a *Client) UpdateNamespaceSlotConfigShort(params *UpdateNamespaceSlotConfi
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -267,16 +268,14 @@ func (a *Client) UpdateNamespaceSlotConfigShort(params *UpdateNamespaceSlotConfi
 /*
 Deprecated: 2022-08-10 - Use DeleteNamespaceSlotConfigShort instead.
 
-DeleteNamespaceSlotConfig deletes a namespace slot configuration
-
+# DeleteNamespaceSlotConfig deletes a namespace slot configuration
 
 ## The endpoint is going to be deprecated
-
 
 Deletes a namespace slot configuration, the configuration will be default after delete.
 Other detail info:
 
-  *  Required permission : resource="ADMIN:NAMESPACE:{namespace}:SLOTCONFIG", action=8 (DELETE)
+  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:SLOTCONFIG", action=8 (DELETE)
 */
 func (a *Client) DeleteNamespaceSlotConfig(params *DeleteNamespaceSlotConfigParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteNamespaceSlotConfigNoContent, error) {
 	// TODO: Validate the params before sending
@@ -322,14 +321,12 @@ func (a *Client) DeleteNamespaceSlotConfig(params *DeleteNamespaceSlotConfigPara
 /*
 DeleteNamespaceSlotConfigShort deletes a namespace slot configuration
 
-
 ## The endpoint is going to be deprecated
-
 
 Deletes a namespace slot configuration, the configuration will be default after delete.
 Other detail info:
 
-  *  Required permission : resource="ADMIN:NAMESPACE:{namespace}:SLOTCONFIG", action=8 (DELETE)
+  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:SLOTCONFIG", action=8 (DELETE)
 */
 func (a *Client) DeleteNamespaceSlotConfigShort(params *DeleteNamespaceSlotConfigParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteNamespaceSlotConfigNoContent, error) {
 	// TODO: Validate the params before sending
@@ -343,6 +340,10 @@ func (a *Client) DeleteNamespaceSlotConfigShort(params *DeleteNamespaceSlotConfi
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -375,17 +376,15 @@ func (a *Client) DeleteNamespaceSlotConfigShort(params *DeleteNamespaceSlotConfi
 /*
 Deprecated: 2022-08-10 - Use GetUserSlotConfigShort instead.
 
-GetUserSlotConfig returns a user slot configuration
-
+# GetUserSlotConfig returns a user slot configuration
 
 ## The endpoint is going to be deprecated
-
 
 Get a user slot configuration in given namespace. In case the user slot configuration is not set, the namespace configuration will be returned.
 Other detail info:
 
-  * Required permission: resource="ADMIN:NAMESPACE:{namespace}:USER:{userId}:SLOTCONFIG", action=2 (READ)
-  * Returns: slot config info
+  - Required permission: resource="ADMIN:NAMESPACE:{namespace}:USER:{userId}:SLOTCONFIG", action=2 (READ)
+  - Returns: slot config info
 */
 func (a *Client) GetUserSlotConfig(params *GetUserSlotConfigParams, authInfo runtime.ClientAuthInfoWriter) (*GetUserSlotConfigOK, error) {
 	// TODO: Validate the params before sending
@@ -431,14 +430,12 @@ func (a *Client) GetUserSlotConfig(params *GetUserSlotConfigParams, authInfo run
 /*
 GetUserSlotConfigShort returns a user slot configuration
 
-
 ## The endpoint is going to be deprecated
-
 
 Get a user slot configuration in given namespace. In case the user slot configuration is not set, the namespace configuration will be returned.
 Other detail info:
-    * Required permission: resource="ADMIN:NAMESPACE:{namespace}:USER:{userId}:SLOTCONFIG", action=2 (READ)
-    * Returns: slot config info
+  - Required permission: resource="ADMIN:NAMESPACE:{namespace}:USER:{userId}:SLOTCONFIG", action=2 (READ)
+  - Returns: slot config info
 */
 func (a *Client) GetUserSlotConfigShort(params *GetUserSlotConfigParams, authInfo runtime.ClientAuthInfoWriter) (*GetUserSlotConfigOK, error) {
 	// TODO: Validate the params before sending
@@ -452,6 +449,10 @@ func (a *Client) GetUserSlotConfigShort(params *GetUserSlotConfigParams, authInf
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -484,16 +485,14 @@ func (a *Client) GetUserSlotConfigShort(params *GetUserSlotConfigParams, authInf
 /*
 Deprecated: 2022-08-10 - Use UpdateUserSlotConfigShort instead.
 
-UpdateUserSlotConfig update a user slot configuration
-
+# UpdateUserSlotConfig update a user slot configuration
 
 ## The endpoint is going to be deprecated
 
-
 Update a user slot configuration in given namespace.
 Other detail info:
-      *  Required permission : resource="ADMIN:NAMESPACE:{namespace}:USER:{userId}:SLOTCONFIG", action=4 (UPDATE)
-      *  Returns : updated slot config
+  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:USER:{userId}:SLOTCONFIG", action=4 (UPDATE)
+  - Returns : updated slot config
 */
 func (a *Client) UpdateUserSlotConfig(params *UpdateUserSlotConfigParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateUserSlotConfigOK, error) {
 	// TODO: Validate the params before sending
@@ -539,14 +538,12 @@ func (a *Client) UpdateUserSlotConfig(params *UpdateUserSlotConfigParams, authIn
 /*
 UpdateUserSlotConfigShort update a user slot configuration
 
-
 ## The endpoint is going to be deprecated
-
 
 Update a user slot configuration in given namespace.
 Other detail info:
-        *  Required permission : resource="ADMIN:NAMESPACE:{namespace}:USER:{userId}:SLOTCONFIG", action=4 (UPDATE)
-        *  Returns : updated slot config
+  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:USER:{userId}:SLOTCONFIG", action=4 (UPDATE)
+  - Returns : updated slot config
 */
 func (a *Client) UpdateUserSlotConfigShort(params *UpdateUserSlotConfigParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateUserSlotConfigOK, error) {
 	// TODO: Validate the params before sending
@@ -560,6 +557,10 @@ func (a *Client) UpdateUserSlotConfigShort(params *UpdateUserSlotConfigParams, a
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -592,15 +593,13 @@ func (a *Client) UpdateUserSlotConfigShort(params *UpdateUserSlotConfigParams, a
 /*
 Deprecated: 2022-08-10 - Use DeleteUserSlotConfigShort instead.
 
-DeleteUserSlotConfig deletes a user slot configuration
-
+# DeleteUserSlotConfig deletes a user slot configuration
 
 ## The endpoint is going to be deprecated
 
-
 Deletes a user slot configuration in given namespace, the namespace slot configuration will be returned after delete.
 Other detail info:
-          *  Required permission : resource="ADMIN:NAMESPACE:{namespace}:USER:{userId}:SLOTCONFIG", action=8 (DELETE)
+  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:USER:{userId}:SLOTCONFIG", action=8 (DELETE)
 */
 func (a *Client) DeleteUserSlotConfig(params *DeleteUserSlotConfigParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteUserSlotConfigNoContent, error) {
 	// TODO: Validate the params before sending
@@ -646,13 +645,11 @@ func (a *Client) DeleteUserSlotConfig(params *DeleteUserSlotConfigParams, authIn
 /*
 DeleteUserSlotConfigShort deletes a user slot configuration
 
-
 ## The endpoint is going to be deprecated
-
 
 Deletes a user slot configuration in given namespace, the namespace slot configuration will be returned after delete.
 Other detail info:
-            *  Required permission : resource="ADMIN:NAMESPACE:{namespace}:USER:{userId}:SLOTCONFIG", action=8 (DELETE)
+  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:USER:{userId}:SLOTCONFIG", action=8 (DELETE)
 */
 func (a *Client) DeleteUserSlotConfigShort(params *DeleteUserSlotConfigParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteUserSlotConfigNoContent, error) {
 	// TODO: Validate the params before sending
@@ -666,6 +663,10 @@ func (a *Client) DeleteUserSlotConfigShort(params *DeleteUserSlotConfigParams, a
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{

@@ -125,6 +125,10 @@ func (a *Client) ListGameBinaryRecordsV1Short(params *ListGameBinaryRecordsV1Par
 		params.SetHTTPClientTransport(params.RetryPolicy)
 	}
 
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
+	}
+
 	result, err := a.transport.Submit(&runtime.ClientOperation{
 		ID:                 "listGameBinaryRecordsV1",
 		Method:             "GET",
@@ -173,7 +177,6 @@ Other detail info:
 2. begin and end with letters or numbers
 3. spaces are not allowed
 4. separators must not appears twice in a row
-
 
 Supported file types: jpeg, jpg, png, bmp, gif, mp3, webp, and bin.
 */
@@ -245,7 +248,6 @@ Other detail info:
 3. spaces are not allowed
 4. separators must not appears twice in a row
 
-
 Supported file types: jpeg, jpg, png, bmp, gif, mp3, webp, and bin.
 */
 func (a *Client) PostGameBinaryRecordV1Short(params *PostGameBinaryRecordV1Params, authInfo runtime.ClientAuthInfoWriter) (*PostGameBinaryRecordV1Created, error) {
@@ -260,6 +262,10 @@ func (a *Client) PostGameBinaryRecordV1Short(params *PostGameBinaryRecordV1Param
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -376,6 +382,10 @@ func (a *Client) BulkGetGameBinaryRecordV1Short(params *BulkGetGameBinaryRecordV
 		params.SetHTTPClientTransport(params.RetryPolicy)
 	}
 
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
+	}
+
 	result, err := a.transport.Submit(&runtime.ClientOperation{
 		ID:                 "bulkGetGameBinaryRecordV1",
 		Method:             "POST",
@@ -486,6 +496,10 @@ func (a *Client) GetGameBinaryRecordV1Short(params *GetGameBinaryRecordV1Params,
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -603,6 +617,10 @@ func (a *Client) PutGameBinaryRecordV1Short(params *PutGameBinaryRecordV1Params,
 		params.SetHTTPClientTransport(params.RetryPolicy)
 	}
 
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
+	}
+
 	result, err := a.transport.Submit(&runtime.ClientOperation{
 		ID:                 "putGameBinaryRecordV1",
 		Method:             "PUT",
@@ -718,6 +736,10 @@ func (a *Client) DeleteGameBinaryRecordV1Short(params *DeleteGameBinaryRecordV1P
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -843,6 +865,10 @@ func (a *Client) PostGameBinaryPresignedURLV1Short(params *PostGameBinaryPresign
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{

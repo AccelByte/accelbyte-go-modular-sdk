@@ -59,7 +59,8 @@ func NewAdminAddRoleMembersV3ParamsWithHTTPClient(client *http.Client) *AdminAdd
 	}
 }
 
-/*AdminAddRoleMembersV3Params contains all the parameters to send to the API endpoint
+/*
+AdminAddRoleMembersV3Params contains all the parameters to send to the API endpoint
 for the admin add role members v3 operation typically these are written to a http.Request
 */
 type AdminAddRoleMembersV3Params struct {
@@ -78,6 +79,9 @@ type AdminAddRoleMembersV3Params struct {
 	AuthInfoWriter runtime.ClientAuthInfoWriter
 	Context        context.Context
 	HTTPClient     *http.Client
+
+	// XFlightId is an optional parameter from this SDK
+	XFlightId *string
 }
 
 // WithTimeout adds the timeout to the admin add role members v3 params
@@ -127,6 +131,15 @@ func (o *AdminAddRoleMembersV3Params) SetHTTPClientTransport(roundTripper http.R
 	}
 }
 
+// SetFlightId adds the flightId as the header value for this specific endpoint
+func (o *AdminAddRoleMembersV3Params) SetFlightId(flightId string) {
+	if o.XFlightId != nil {
+		o.XFlightId = &flightId
+	} else {
+		o.XFlightId = &utils.GetDefaultFlightID().Value
+	}
+}
+
 // WithBody adds the body to the admin add role members v3 params
 func (o *AdminAddRoleMembersV3Params) WithBody(body *iamclientmodels.ModelRoleMembersRequestV3) *AdminAddRoleMembersV3Params {
 	o.SetBody(body)
@@ -171,6 +184,16 @@ func (o *AdminAddRoleMembersV3Params) WriteToRequest(r runtime.ClientRequest, re
 	// setting the default header value
 	if err := r.SetHeaderParam("X-Amzn-Trace-Id", utils.AmazonTraceIDGen()); err != nil {
 		return err
+	}
+
+	if o.XFlightId == nil {
+		if err := r.SetHeaderParam("X-Flight-Id", utils.GetDefaultFlightID().Value); err != nil {
+			return err
+		}
+	} else {
+		if err := r.SetHeaderParam("X-Flight-Id", *o.XFlightId); err != nil {
+			return err
+		}
 	}
 
 	if len(res) > 0 {

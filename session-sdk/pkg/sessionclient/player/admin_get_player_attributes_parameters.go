@@ -57,7 +57,8 @@ func NewAdminGetPlayerAttributesParamsWithHTTPClient(client *http.Client) *Admin
 	}
 }
 
-/*AdminGetPlayerAttributesParams contains all the parameters to send to the API endpoint
+/*
+AdminGetPlayerAttributesParams contains all the parameters to send to the API endpoint
 for the admin get player attributes operation typically these are written to a http.Request
 */
 type AdminGetPlayerAttributesParams struct {
@@ -79,6 +80,9 @@ type AdminGetPlayerAttributesParams struct {
 	AuthInfoWriter runtime.ClientAuthInfoWriter
 	Context        context.Context
 	HTTPClient     *http.Client
+
+	// XFlightId is an optional parameter from this SDK
+	XFlightId *string
 }
 
 // WithTimeout adds the timeout to the admin get player attributes params
@@ -128,6 +132,15 @@ func (o *AdminGetPlayerAttributesParams) SetHTTPClientTransport(roundTripper htt
 	}
 }
 
+// SetFlightId adds the flightId as the header value for this specific endpoint
+func (o *AdminGetPlayerAttributesParams) SetFlightId(flightId string) {
+	if o.XFlightId != nil {
+		o.XFlightId = &flightId
+	} else {
+		o.XFlightId = &utils.GetDefaultFlightID().Value
+	}
+}
+
 // WithNamespace adds the namespace to the admin get player attributes params
 func (o *AdminGetPlayerAttributesParams) WithNamespace(namespace string) *AdminGetPlayerAttributesParams {
 	o.SetNamespace(namespace)
@@ -171,6 +184,16 @@ func (o *AdminGetPlayerAttributesParams) WriteToRequest(r runtime.ClientRequest,
 	// setting the default header value
 	if err := r.SetHeaderParam("X-Amzn-Trace-Id", utils.AmazonTraceIDGen()); err != nil {
 		return err
+	}
+
+	if o.XFlightId == nil {
+		if err := r.SetHeaderParam("X-Flight-Id", utils.GetDefaultFlightID().Value); err != nil {
+			return err
+		}
+	} else {
+		if err := r.SetHeaderParam("X-Flight-Id", *o.XFlightId); err != nil {
+			return err
+		}
 	}
 
 	if len(res) > 0 {

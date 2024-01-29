@@ -59,7 +59,8 @@ func NewAdminSubmitReportParamsWithHTTPClient(client *http.Client) *AdminSubmitR
 	}
 }
 
-/*AdminSubmitReportParams contains all the parameters to send to the API endpoint
+/*
+AdminSubmitReportParams contains all the parameters to send to the API endpoint
 for the admin submit report operation typically these are written to a http.Request
 */
 type AdminSubmitReportParams struct {
@@ -75,6 +76,9 @@ type AdminSubmitReportParams struct {
 	AuthInfoWriter runtime.ClientAuthInfoWriter
 	Context        context.Context
 	HTTPClient     *http.Client
+
+	// XFlightId is an optional parameter from this SDK
+	XFlightId *string
 }
 
 // WithTimeout adds the timeout to the admin submit report params
@@ -124,6 +128,15 @@ func (o *AdminSubmitReportParams) SetHTTPClientTransport(roundTripper http.Round
 	}
 }
 
+// SetFlightId adds the flightId as the header value for this specific endpoint
+func (o *AdminSubmitReportParams) SetFlightId(flightId string) {
+	if o.XFlightId != nil {
+		o.XFlightId = &flightId
+	} else {
+		o.XFlightId = &utils.GetDefaultFlightID().Value
+	}
+}
+
 // WithBody adds the body to the admin submit report params
 func (o *AdminSubmitReportParams) WithBody(body *reportingclientmodels.RestapiSubmitReportRequest) *AdminSubmitReportParams {
 	o.SetBody(body)
@@ -168,6 +181,16 @@ func (o *AdminSubmitReportParams) WriteToRequest(r runtime.ClientRequest, reg st
 	// setting the default header value
 	if err := r.SetHeaderParam("X-Amzn-Trace-Id", utils.AmazonTraceIDGen()); err != nil {
 		return err
+	}
+
+	if o.XFlightId == nil {
+		if err := r.SetHeaderParam("X-Flight-Id", utils.GetDefaultFlightID().Value); err != nil {
+			return err
+		}
+	} else {
+		if err := r.SetHeaderParam("X-Flight-Id", *o.XFlightId); err != nil {
+			return err
+		}
 	}
 
 	if len(res) > 0 {

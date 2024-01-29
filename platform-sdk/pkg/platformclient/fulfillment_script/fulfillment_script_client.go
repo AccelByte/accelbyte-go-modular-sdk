@@ -51,7 +51,7 @@ ListFulfillmentScripts list all fulfillment scripts
 [Not Supported Yet In Starter] List all fulfillment scripts.
 Other detail info:
 
-  * Required permission : resource="ADMIN:FULFILLMENT", action=2 (READ)
+  - Required permission : resource="ADMIN:FULFILLMENT", action=2 (READ)
 */
 func (a *Client) ListFulfillmentScripts(params *ListFulfillmentScriptsParams, authInfo runtime.ClientAuthInfoWriter) (*ListFulfillmentScriptsOK, error) {
 	// TODO: Validate the params before sending
@@ -96,10 +96,12 @@ func (a *Client) ListFulfillmentScripts(params *ListFulfillmentScriptsParams, au
 
 /*
 ListFulfillmentScriptsShort list all fulfillment scripts
- [Not Supported Yet In Starter] List all fulfillment scripts.
+
+	[Not Supported Yet In Starter] List all fulfillment scripts.
+
 Other detail info:
 
-  * Required permission : resource="ADMIN:FULFILLMENT", action=2 (READ)
+  - Required permission : resource="ADMIN:FULFILLMENT", action=2 (READ)
 */
 func (a *Client) ListFulfillmentScriptsShort(params *ListFulfillmentScriptsParams, authInfo runtime.ClientAuthInfoWriter) (*ListFulfillmentScriptsOK, error) {
 	// TODO: Validate the params before sending
@@ -113,6 +115,10 @@ func (a *Client) ListFulfillmentScriptsShort(params *ListFulfillmentScriptsParam
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -146,11 +152,13 @@ func (a *Client) ListFulfillmentScriptsShort(params *ListFulfillmentScriptsParam
 Deprecated: 2022-08-10 - Use GetFulfillmentScriptShort instead.
 
 GetFulfillmentScript get fulfillment script by id
- [Not Supported Yet In Starter] Get fulfillment script by id.
+
+	[Not Supported Yet In Starter] Get fulfillment script by id.
+
 Other detail info:
 
-  * Required permission : resource="ADMIN:FULFILLMENT", action=2 (READ)
-  *  Returns : get fulfillment script
+  - Required permission : resource="ADMIN:FULFILLMENT", action=2 (READ)
+  - Returns : get fulfillment script
 */
 func (a *Client) GetFulfillmentScript(params *GetFulfillmentScriptParams, authInfo runtime.ClientAuthInfoWriter) (*GetFulfillmentScriptOK, *GetFulfillmentScriptNotFound, error) {
 	// TODO: Validate the params before sending
@@ -198,11 +206,13 @@ func (a *Client) GetFulfillmentScript(params *GetFulfillmentScriptParams, authIn
 
 /*
 GetFulfillmentScriptShort get fulfillment script by id
- [Not Supported Yet In Starter] Get fulfillment script by id.
+
+	[Not Supported Yet In Starter] Get fulfillment script by id.
+
 Other detail info:
 
-  * Required permission : resource="ADMIN:FULFILLMENT", action=2 (READ)
-  *  Returns : get fulfillment script
+  - Required permission : resource="ADMIN:FULFILLMENT", action=2 (READ)
+  - Returns : get fulfillment script
 */
 func (a *Client) GetFulfillmentScriptShort(params *GetFulfillmentScriptParams, authInfo runtime.ClientAuthInfoWriter) (*GetFulfillmentScriptOK, error) {
 	// TODO: Validate the params before sending
@@ -216,6 +226,10 @@ func (a *Client) GetFulfillmentScriptShort(params *GetFulfillmentScriptParams, a
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -251,10 +265,12 @@ func (a *Client) GetFulfillmentScriptShort(params *GetFulfillmentScriptParams, a
 Deprecated: 2022-08-10 - Use CreateFulfillmentScriptShort instead.
 
 CreateFulfillmentScript create fulfillment script
- [Not Supported Yet In Starter] Create fulfillment script.
+
+	[Not Supported Yet In Starter] Create fulfillment script.
+
 Other detail info:
 
-  * Required permission : resource="ADMIN:FULFILLMENT", action=1 (CREATE)
+  - Required permission : resource="ADMIN:FULFILLMENT", action=1 (CREATE)
 
 Fulfillment scripts are used for adding custom fulfillment logic based on ITEM_TYPE : [MEDIA,INGAMEITEM] for now, and the custom scripts only cover grantDays.
 Example for grantDays:
@@ -306,10 +322,12 @@ func (a *Client) CreateFulfillmentScript(params *CreateFulfillmentScriptParams, 
 
 /*
 CreateFulfillmentScriptShort create fulfillment script
- [Not Supported Yet In Starter] Create fulfillment script.
+
+	[Not Supported Yet In Starter] Create fulfillment script.
+
 Other detail info:
 
-  * Required permission : resource="ADMIN:FULFILLMENT", action=1 (CREATE)
+  - Required permission : resource="ADMIN:FULFILLMENT", action=1 (CREATE)
 
 Fulfillment scripts are used for adding custom fulfillment logic based on ITEM_TYPE : [MEDIA,INGAMEITEM] for now, and the custom scripts only cover grantDays.
 Example for grantDays:
@@ -327,6 +345,10 @@ func (a *Client) CreateFulfillmentScriptShort(params *CreateFulfillmentScriptPar
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -362,10 +384,12 @@ func (a *Client) CreateFulfillmentScriptShort(params *CreateFulfillmentScriptPar
 Deprecated: 2022-08-10 - Use DeleteFulfillmentScriptShort instead.
 
 DeleteFulfillmentScript delete fulfillment script
- [Not Supported Yet In Starter] Delete fulfillment script.
+
+	[Not Supported Yet In Starter] Delete fulfillment script.
+
 Other detail info:
 
-  * Required permission : resource="ADMIN:FULFILLMENT", action=8 (DELETE)
+  - Required permission : resource="ADMIN:FULFILLMENT", action=8 (DELETE)
 */
 func (a *Client) DeleteFulfillmentScript(params *DeleteFulfillmentScriptParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteFulfillmentScriptNoContent, error) {
 	// TODO: Validate the params before sending
@@ -410,10 +434,12 @@ func (a *Client) DeleteFulfillmentScript(params *DeleteFulfillmentScriptParams, 
 
 /*
 DeleteFulfillmentScriptShort delete fulfillment script
- [Not Supported Yet In Starter] Delete fulfillment script.
+
+	[Not Supported Yet In Starter] Delete fulfillment script.
+
 Other detail info:
 
-  * Required permission : resource="ADMIN:FULFILLMENT", action=8 (DELETE)
+  - Required permission : resource="ADMIN:FULFILLMENT", action=8 (DELETE)
 */
 func (a *Client) DeleteFulfillmentScriptShort(params *DeleteFulfillmentScriptParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteFulfillmentScriptNoContent, error) {
 	// TODO: Validate the params before sending
@@ -427,6 +453,10 @@ func (a *Client) DeleteFulfillmentScriptShort(params *DeleteFulfillmentScriptPar
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -460,10 +490,12 @@ func (a *Client) DeleteFulfillmentScriptShort(params *DeleteFulfillmentScriptPar
 Deprecated: 2022-08-10 - Use UpdateFulfillmentScriptShort instead.
 
 UpdateFulfillmentScript update fulfillment script
- [Not Supported Yet In Starter] Update fulfillment script.
+
+	[Not Supported Yet In Starter] Update fulfillment script.
+
 Other detail info:
 
-  * Required permission : resource="ADMIN:FULFILLMENT", action=4 (UPDATE)
+  - Required permission : resource="ADMIN:FULFILLMENT", action=4 (UPDATE)
 */
 func (a *Client) UpdateFulfillmentScript(params *UpdateFulfillmentScriptParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateFulfillmentScriptOK, *UpdateFulfillmentScriptBadRequest, error) {
 	// TODO: Validate the params before sending
@@ -511,10 +543,12 @@ func (a *Client) UpdateFulfillmentScript(params *UpdateFulfillmentScriptParams, 
 
 /*
 UpdateFulfillmentScriptShort update fulfillment script
- [Not Supported Yet In Starter] Update fulfillment script.
+
+	[Not Supported Yet In Starter] Update fulfillment script.
+
 Other detail info:
 
-  * Required permission : resource="ADMIN:FULFILLMENT", action=4 (UPDATE)
+  - Required permission : resource="ADMIN:FULFILLMENT", action=4 (UPDATE)
 */
 func (a *Client) UpdateFulfillmentScriptShort(params *UpdateFulfillmentScriptParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateFulfillmentScriptOK, error) {
 	// TODO: Validate the params before sending
@@ -528,6 +562,10 @@ func (a *Client) UpdateFulfillmentScriptShort(params *UpdateFulfillmentScriptPar
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{

@@ -57,7 +57,8 @@ func NewRemovePlayerFromSessionParamsWithHTTPClient(client *http.Client) *Remove
 	}
 }
 
-/*RemovePlayerFromSessionParams contains all the parameters to send to the API endpoint
+/*
+RemovePlayerFromSessionParams contains all the parameters to send to the API endpoint
 for the remove player from session operation typically these are written to a http.Request
 */
 type RemovePlayerFromSessionParams struct {
@@ -84,6 +85,9 @@ type RemovePlayerFromSessionParams struct {
 	AuthInfoWriter runtime.ClientAuthInfoWriter
 	Context        context.Context
 	HTTPClient     *http.Client
+
+	// XFlightId is an optional parameter from this SDK
+	XFlightId *string
 }
 
 // WithTimeout adds the timeout to the remove player from session params
@@ -130,6 +134,15 @@ func (o *RemovePlayerFromSessionParams) SetHTTPClientTransport(roundTripper http
 		o.HTTPClient.Transport = roundTripper
 	} else {
 		o.HTTPClient = &http.Client{Transport: roundTripper}
+	}
+}
+
+// SetFlightId adds the flightId as the header value for this specific endpoint
+func (o *RemovePlayerFromSessionParams) SetFlightId(flightId string) {
+	if o.XFlightId != nil {
+		o.XFlightId = &flightId
+	} else {
+		o.XFlightId = &utils.GetDefaultFlightID().Value
 	}
 }
 
@@ -192,6 +205,16 @@ func (o *RemovePlayerFromSessionParams) WriteToRequest(r runtime.ClientRequest, 
 	// setting the default header value
 	if err := r.SetHeaderParam("X-Amzn-Trace-Id", utils.AmazonTraceIDGen()); err != nil {
 		return err
+	}
+
+	if o.XFlightId == nil {
+		if err := r.SetHeaderParam("X-Flight-Id", utils.GetDefaultFlightID().Value); err != nil {
+			return err
+		}
+	} else {
+		if err := r.SetHeaderParam("X-Flight-Id", *o.XFlightId); err != nil {
+			return err
+		}
 	}
 
 	if len(res) > 0 {

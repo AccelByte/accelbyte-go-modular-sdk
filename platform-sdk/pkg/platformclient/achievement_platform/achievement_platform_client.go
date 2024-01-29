@@ -48,7 +48,7 @@ This API is used to unlock steam achievement.
 
 Other detail info:
 
-  * Required permission : resource=ADMIN:NAMESPACE:{namespace}:USER:{userId}:ACHIEVEMENT, action=4 (UPDATE)
+  - Required permission : resource=ADMIN:NAMESPACE:{namespace}:USER:{userId}:ACHIEVEMENT, action=4 (UPDATE)
 */
 func (a *Client) UnlockSteamUserAchievement(params *UnlockSteamUserAchievementParams, authInfo runtime.ClientAuthInfoWriter) (*UnlockSteamUserAchievementNoContent, *UnlockSteamUserAchievementBadRequest, *UnlockSteamUserAchievementNotFound, error) {
 	// TODO: Validate the params before sending
@@ -103,7 +103,7 @@ This API is used to unlock steam achievement.
 
 Other detail info:
 
-  * Required permission : resource=ADMIN:NAMESPACE:{namespace}:USER:{userId}:ACHIEVEMENT, action=4 (UPDATE)
+  - Required permission : resource=ADMIN:NAMESPACE:{namespace}:USER:{userId}:ACHIEVEMENT, action=4 (UPDATE)
 */
 func (a *Client) UnlockSteamUserAchievementShort(params *UnlockSteamUserAchievementParams, authInfo runtime.ClientAuthInfoWriter) (*UnlockSteamUserAchievementNoContent, error) {
 	// TODO: Validate the params before sending
@@ -117,6 +117,10 @@ func (a *Client) UnlockSteamUserAchievementShort(params *UnlockSteamUserAchievem
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -158,7 +162,7 @@ This API is used to get xbox live user achievements(Only for test).
 
 Other detail info:
 
-  * Required permission : resource=ADMIN:NAMESPACE:{namespace}:USER:{userId}:ACHIEVEMENT, action=2 (READ)
+  - Required permission : resource=ADMIN:NAMESPACE:{namespace}:USER:{userId}:ACHIEVEMENT, action=2 (READ)
 */
 func (a *Client) GetXblUserAchievements(params *GetXblUserAchievementsParams, authInfo runtime.ClientAuthInfoWriter) (*GetXblUserAchievementsOK, *GetXblUserAchievementsBadRequest, error) {
 	// TODO: Validate the params before sending
@@ -210,7 +214,7 @@ This API is used to get xbox live user achievements(Only for test).
 
 Other detail info:
 
-  * Required permission : resource=ADMIN:NAMESPACE:{namespace}:USER:{userId}:ACHIEVEMENT, action=2 (READ)
+  - Required permission : resource=ADMIN:NAMESPACE:{namespace}:USER:{userId}:ACHIEVEMENT, action=2 (READ)
 */
 func (a *Client) GetXblUserAchievementsShort(params *GetXblUserAchievementsParams, authInfo runtime.ClientAuthInfoWriter) (*GetXblUserAchievementsOK, error) {
 	// TODO: Validate the params before sending
@@ -224,6 +228,10 @@ func (a *Client) GetXblUserAchievementsShort(params *GetXblUserAchievementsParam
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
@@ -263,7 +271,7 @@ This API is used to update xbox live achievements.
 
 Other detail info:
 
-  * Required permission : resource=ADMIN:NAMESPACE:{namespace}:USER:{userId}:ACHIEVEMENT, action=4 (UPDATE)
+  - Required permission : resource=ADMIN:NAMESPACE:{namespace}:USER:{userId}:ACHIEVEMENT, action=4 (UPDATE)
 */
 func (a *Client) UpdateXblUserAchievement(params *UpdateXblUserAchievementParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateXblUserAchievementNoContent, *UpdateXblUserAchievementBadRequest, error) {
 	// TODO: Validate the params before sending
@@ -315,7 +323,7 @@ This API is used to update xbox live achievements.
 
 Other detail info:
 
-  * Required permission : resource=ADMIN:NAMESPACE:{namespace}:USER:{userId}:ACHIEVEMENT, action=4 (UPDATE)
+  - Required permission : resource=ADMIN:NAMESPACE:{namespace}:USER:{userId}:ACHIEVEMENT, action=4 (UPDATE)
 */
 func (a *Client) UpdateXblUserAchievementShort(params *UpdateXblUserAchievementParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateXblUserAchievementNoContent, error) {
 	// TODO: Validate the params before sending
@@ -329,6 +337,10 @@ func (a *Client) UpdateXblUserAchievementShort(params *UpdateXblUserAchievementP
 
 	if params.RetryPolicy != nil {
 		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{

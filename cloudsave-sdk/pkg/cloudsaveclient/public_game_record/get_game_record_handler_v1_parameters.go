@@ -57,7 +57,8 @@ func NewGetGameRecordHandlerV1ParamsWithHTTPClient(client *http.Client) *GetGame
 	}
 }
 
-/*GetGameRecordHandlerV1Params contains all the parameters to send to the API endpoint
+/*
+GetGameRecordHandlerV1Params contains all the parameters to send to the API endpoint
 for the get game record handler v1 operation typically these are written to a http.Request
 */
 type GetGameRecordHandlerV1Params struct {
@@ -79,6 +80,9 @@ type GetGameRecordHandlerV1Params struct {
 	AuthInfoWriter runtime.ClientAuthInfoWriter
 	Context        context.Context
 	HTTPClient     *http.Client
+
+	// XFlightId is an optional parameter from this SDK
+	XFlightId *string
 }
 
 // WithTimeout adds the timeout to the get game record handler v1 params
@@ -128,6 +132,15 @@ func (o *GetGameRecordHandlerV1Params) SetHTTPClientTransport(roundTripper http.
 	}
 }
 
+// SetFlightId adds the flightId as the header value for this specific endpoint
+func (o *GetGameRecordHandlerV1Params) SetFlightId(flightId string) {
+	if o.XFlightId != nil {
+		o.XFlightId = &flightId
+	} else {
+		o.XFlightId = &utils.GetDefaultFlightID().Value
+	}
+}
+
 // WithKey adds the key to the get game record handler v1 params
 func (o *GetGameRecordHandlerV1Params) WithKey(key string) *GetGameRecordHandlerV1Params {
 	o.SetKey(key)
@@ -171,6 +184,16 @@ func (o *GetGameRecordHandlerV1Params) WriteToRequest(r runtime.ClientRequest, r
 	// setting the default header value
 	if err := r.SetHeaderParam("X-Amzn-Trace-Id", utils.AmazonTraceIDGen()); err != nil {
 		return err
+	}
+
+	if o.XFlightId == nil {
+		if err := r.SetHeaderParam("X-Flight-Id", utils.GetDefaultFlightID().Value); err != nil {
+			return err
+		}
+	} else {
+		if err := r.SetHeaderParam("X-Flight-Id", *o.XFlightId); err != nil {
+			return err
+		}
 	}
 
 	if len(res) > 0 {
