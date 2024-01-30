@@ -57,8 +57,7 @@ func NewAdminDeleteConfigurationTemplateV1ParamsWithHTTPClient(client *http.Clie
 	}
 }
 
-/*
-AdminDeleteConfigurationTemplateV1Params contains all the parameters to send to the API endpoint
+/*AdminDeleteConfigurationTemplateV1Params contains all the parameters to send to the API endpoint
 for the admin delete configuration template v1 operation typically these are written to a http.Request
 */
 type AdminDeleteConfigurationTemplateV1Params struct {

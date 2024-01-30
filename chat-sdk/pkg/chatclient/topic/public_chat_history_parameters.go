@@ -58,8 +58,7 @@ func NewPublicChatHistoryParamsWithHTTPClient(client *http.Client) *PublicChatHi
 	}
 }
 
-/*
-PublicChatHistoryParams contains all the parameters to send to the API endpoint
+/*PublicChatHistoryParams contains all the parameters to send to the API endpoint
 for the public chat history operation typically these are written to a http.Request
 */
 type PublicChatHistoryParams struct {

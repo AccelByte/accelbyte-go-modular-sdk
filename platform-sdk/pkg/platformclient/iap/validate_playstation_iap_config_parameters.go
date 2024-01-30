@@ -59,8 +59,7 @@ func NewValidatePlaystationIAPConfigParamsWithHTTPClient(client *http.Client) *V
 	}
 }
 
-/*
-ValidatePlaystationIAPConfigParams contains all the parameters to send to the API endpoint
+/*ValidatePlaystationIAPConfigParams contains all the parameters to send to the API endpoint
 for the validate playstation iap config operation typically these are written to a http.Request
 */
 type ValidatePlaystationIAPConfigParams struct {

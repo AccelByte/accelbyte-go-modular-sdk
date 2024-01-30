@@ -59,8 +59,7 @@ func NewUpdateTwitchIAPConfigParamsWithHTTPClient(client *http.Client) *UpdateTw
 	}
 }
 
-/*
-UpdateTwitchIAPConfigParams contains all the parameters to send to the API endpoint
+/*UpdateTwitchIAPConfigParams contains all the parameters to send to the API endpoint
 for the update twitch iap config operation typically these are written to a http.Request
 */
 type UpdateTwitchIAPConfigParams struct {

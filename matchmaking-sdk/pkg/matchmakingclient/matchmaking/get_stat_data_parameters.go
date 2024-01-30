@@ -57,8 +57,7 @@ func NewGetStatDataParamsWithHTTPClient(client *http.Client) *GetStatDataParams 
 	}
 }
 
-/*
-GetStatDataParams contains all the parameters to send to the API endpoint
+/*GetStatDataParams contains all the parameters to send to the API endpoint
 for the get stat data operation typically these are written to a http.Request
 */
 type GetStatDataParams struct {

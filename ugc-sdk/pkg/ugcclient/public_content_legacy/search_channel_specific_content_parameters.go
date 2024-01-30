@@ -78,8 +78,7 @@ func NewSearchChannelSpecificContentParamsWithHTTPClient(client *http.Client) *S
 	}
 }
 
-/*
-SearchChannelSpecificContentParams contains all the parameters to send to the API endpoint
+/*SearchChannelSpecificContentParams contains all the parameters to send to the API endpoint
 for the search channel specific content operation typically these are written to a http.Request
 */
 type SearchChannelSpecificContentParams struct {

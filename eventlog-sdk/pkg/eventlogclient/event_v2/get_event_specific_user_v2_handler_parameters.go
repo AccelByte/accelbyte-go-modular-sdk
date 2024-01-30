@@ -58,8 +58,7 @@ func NewGetEventSpecificUserV2HandlerParamsWithHTTPClient(client *http.Client) *
 	}
 }
 
-/*
-GetEventSpecificUserV2HandlerParams contains all the parameters to send to the API endpoint
+/*GetEventSpecificUserV2HandlerParams contains all the parameters to send to the API endpoint
 for the get event specific user v2 handler operation typically these are written to a http.Request
 */
 type GetEventSpecificUserV2HandlerParams struct {

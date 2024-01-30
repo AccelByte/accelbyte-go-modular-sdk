@@ -59,8 +59,7 @@ func NewAdminSetProfanityRuleForNamespaceParamsWithHTTPClient(client *http.Clien
 	}
 }
 
-/*
-AdminSetProfanityRuleForNamespaceParams contains all the parameters to send to the API endpoint
+/*AdminSetProfanityRuleForNamespaceParams contains all the parameters to send to the API endpoint
 for the admin set profanity rule for namespace operation typically these are written to a http.Request
 */
 type AdminSetProfanityRuleForNamespaceParams struct {

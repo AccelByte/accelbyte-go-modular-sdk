@@ -70,8 +70,7 @@ func NewPublishPolicyVersion1ParamsWithHTTPClient(client *http.Client) *PublishP
 	}
 }
 
-/*
-PublishPolicyVersion1Params contains all the parameters to send to the API endpoint
+/*PublishPolicyVersion1Params contains all the parameters to send to the API endpoint
 for the publish policy version 1 operation typically these are written to a http.Request
 */
 type PublishPolicyVersion1Params struct {

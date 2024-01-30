@@ -57,8 +57,7 @@ func NewUpdateCustomAttributesPartiallyParamsWithHTTPClient(client *http.Client)
 	}
 }
 
-/*
-UpdateCustomAttributesPartiallyParams contains all the parameters to send to the API endpoint
+/*UpdateCustomAttributesPartiallyParams contains all the parameters to send to the API endpoint
 for the update custom attributes partially operation typically these are written to a http.Request
 */
 type UpdateCustomAttributesPartiallyParams struct {

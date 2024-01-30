@@ -59,8 +59,7 @@ func NewDeleteMemberRolePublicV1ParamsWithHTTPClient(client *http.Client) *Delet
 	}
 }
 
-/*
-DeleteMemberRolePublicV1Params contains all the parameters to send to the API endpoint
+/*DeleteMemberRolePublicV1Params contains all the parameters to send to the API endpoint
 for the delete member role public v1 operation typically these are written to a http.Request
 */
 type DeleteMemberRolePublicV1Params struct {

@@ -49,9 +49,9 @@ GeneratedUploadURL generate upload url
 Generate an upload URL. It's valid for 10 minutes.
 Other detail info:
 
-  - Required permission : resource = "ADMIN:NAMESPACE:{namespace}:FILEUPLOAD" , action=1 (CREATE)
-  - Action code : 11101
-  - Returns : URL data
+  * Required permission : resource = "ADMIN:NAMESPACE:{namespace}:FILEUPLOAD" , action=1 (CREATE)
+  *  Action code : 11101
+  *  Returns : URL data
 */
 func (a *Client) GeneratedUploadURL(params *GeneratedUploadURLParams, authInfo runtime.ClientAuthInfoWriter) (*GeneratedUploadURLOK, *GeneratedUploadURLBadRequest, *GeneratedUploadURLUnauthorized, *GeneratedUploadURLForbidden, *GeneratedUploadURLInternalServerError, error) {
 	// TODO: Validate the params before sending
@@ -111,9 +111,9 @@ GeneratedUploadURLShort generate upload url
 Generate an upload URL. It's valid for 10 minutes.
 Other detail info:
 
-  - Required permission : resource = "ADMIN:NAMESPACE:{namespace}:FILEUPLOAD" , action=1 (CREATE)
-  - Action code : 11101
-  - Returns : URL data
+  * Required permission : resource = "ADMIN:NAMESPACE:{namespace}:FILEUPLOAD" , action=1 (CREATE)
+  *  Action code : 11101
+  *  Returns : URL data
 */
 func (a *Client) GeneratedUploadURLShort(params *GeneratedUploadURLParams, authInfo runtime.ClientAuthInfoWriter) (*GeneratedUploadURLOK, error) {
 	// TODO: Validate the params before sending
@@ -175,11 +175,11 @@ GeneratedUserUploadContentURL generate upload url for user content
 Generate an upload URL for user content. It's valid for 10 minutes.
 Other detail info:
 
-  - Required permission : resource = "ADMIN:NAMESPACE:{namespace}:USER:{userId}:FILEUPLOAD" , action=1 (CREATE)
-  - Action code : 11102
-  - Default maximum file count per user : 10 files
-  - Default maximum file size per user : 104857600 bytes
-  - Returns : URL data
+  * Required permission : resource = "ADMIN:NAMESPACE:{namespace}:USER:{userId}:FILEUPLOAD" , action=1 (CREATE)
+  *  Action code : 11102
+  *  Default maximum file count per user : 10 files
+  *  Default maximum file size per user : 104857600 bytes
+  *  Returns : URL data
 */
 func (a *Client) GeneratedUserUploadContentURL(params *GeneratedUserUploadContentURLParams, authInfo runtime.ClientAuthInfoWriter) (*GeneratedUserUploadContentURLOK, *GeneratedUserUploadContentURLBadRequest, *GeneratedUserUploadContentURLUnauthorized, *GeneratedUserUploadContentURLForbidden, *GeneratedUserUploadContentURLConflict, *GeneratedUserUploadContentURLInternalServerError, error) {
 	// TODO: Validate the params before sending
@@ -242,11 +242,11 @@ GeneratedUserUploadContentURLShort generate upload url for user content
 Generate an upload URL for user content. It's valid for 10 minutes.
 Other detail info:
 
-  - Required permission : resource = "ADMIN:NAMESPACE:{namespace}:USER:{userId}:FILEUPLOAD" , action=1 (CREATE)
-  - Action code : 11102
-  - Default maximum file count per user : 10 files
-  - Default maximum file size per user : 104857600 bytes
-  - Returns : URL data
+  * Required permission : resource = "ADMIN:NAMESPACE:{namespace}:USER:{userId}:FILEUPLOAD" , action=1 (CREATE)
+  *  Action code : 11102
+  *  Default maximum file count per user : 10 files
+  *  Default maximum file size per user : 104857600 bytes
+  *  Returns : URL data
 */
 func (a *Client) GeneratedUserUploadContentURLShort(params *GeneratedUserUploadContentURLParams, authInfo runtime.ClientAuthInfoWriter) (*GeneratedUserUploadContentURLOK, error) {
 	// TODO: Validate the params before sending
@@ -310,9 +310,9 @@ PublicGeneratedUploadURL generate upload url
 Generate an upload URL. It's valid for 10 minutes.
 Other detail info:
 
-  - Required permission : resource = "NAMESPACE:{namespace}:FILEUPLOAD" , action=1 (CREATE)
-  - Action code : 11101
-  - Returns : URL data
+  * Required permission : resource = "NAMESPACE:{namespace}:FILEUPLOAD" , action=1 (CREATE)
+  *  Action code : 11101
+  *  Returns : URL data
 */
 func (a *Client) PublicGeneratedUploadURL(params *PublicGeneratedUploadURLParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGeneratedUploadURLOK, *PublicGeneratedUploadURLBadRequest, *PublicGeneratedUploadURLUnauthorized, *PublicGeneratedUploadURLForbidden, *PublicGeneratedUploadURLInternalServerError, error) {
 	// TODO: Validate the params before sending
@@ -372,9 +372,9 @@ PublicGeneratedUploadURLShort generate upload url
 Generate an upload URL. It's valid for 10 minutes.
 Other detail info:
 
-  - Required permission : resource = "NAMESPACE:{namespace}:FILEUPLOAD" , action=1 (CREATE)
-  - Action code : 11101
-  - Returns : URL data
+  * Required permission : resource = "NAMESPACE:{namespace}:FILEUPLOAD" , action=1 (CREATE)
+  *  Action code : 11101
+  *  Returns : URL data
 */
 func (a *Client) PublicGeneratedUploadURLShort(params *PublicGeneratedUploadURLParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGeneratedUploadURLOK, error) {
 	// TODO: Validate the params before sending
@@ -438,11 +438,11 @@ There are 2 kinds of storage limitation per user : maximum file count and maximu
 The threshold of those limitations is different between upload category that is used.
 Other detail info:
 
-  - Required permission : resource = "NAMESPACE:{namespace}:USER:{userId}:FILEUPLOAD" , action=1 (CREATE)
-  - Action code : 11102
-  - Default maximum file count per user : 10 files
-  - Default maximum file size per user : 104857600 bytes
-  - Returns : URL data
+  * Required permission : resource = "NAMESPACE:{namespace}:USER:{userId}:FILEUPLOAD" , action=1 (CREATE)
+  *  Action code : 11102
+  *  Default maximum file count per user : 10 files
+  *  Default maximum file size per user : 104857600 bytes
+  *  Returns : URL data
 */
 func (a *Client) PublicGeneratedUserUploadContentURL(params *PublicGeneratedUserUploadContentURLParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGeneratedUserUploadContentURLOK, *PublicGeneratedUserUploadContentURLBadRequest, *PublicGeneratedUserUploadContentURLUnauthorized, *PublicGeneratedUserUploadContentURLForbidden, *PublicGeneratedUserUploadContentURLConflict, *PublicGeneratedUserUploadContentURLInternalServerError, error) {
 	// TODO: Validate the params before sending
@@ -507,11 +507,11 @@ There are 2 kinds of storage limitation per user : maximum file count and maximu
 The threshold of those limitations is different between upload category that is used.
 Other detail info:
 
-  - Required permission : resource = "NAMESPACE:{namespace}:USER:{userId}:FILEUPLOAD" , action=1 (CREATE)
-  - Action code : 11102
-  - Default maximum file count per user : 10 files
-  - Default maximum file size per user : 104857600 bytes
-  - Returns : URL data
+  * Required permission : resource = "NAMESPACE:{namespace}:USER:{userId}:FILEUPLOAD" , action=1 (CREATE)
+  *  Action code : 11102
+  *  Default maximum file count per user : 10 files
+  *  Default maximum file size per user : 104857600 bytes
+  *  Returns : URL data
 */
 func (a *Client) PublicGeneratedUserUploadContentURLShort(params *PublicGeneratedUserUploadContentURLParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGeneratedUserUploadContentURLOK, error) {
 	// TODO: Validate the params before sending

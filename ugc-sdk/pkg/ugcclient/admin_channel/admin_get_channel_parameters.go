@@ -78,8 +78,7 @@ func NewAdminGetChannelParamsWithHTTPClient(client *http.Client) *AdminGetChanne
 	}
 }
 
-/*
-AdminGetChannelParams contains all the parameters to send to the API endpoint
+/*AdminGetChannelParams contains all the parameters to send to the API endpoint
 for the admin get channel operation typically these are written to a http.Request
 */
 type AdminGetChannelParams struct {

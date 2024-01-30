@@ -57,8 +57,7 @@ func NewFleetArtifactSamplingRulesGetParamsWithHTTPClient(client *http.Client) *
 	}
 }
 
-/*
-FleetArtifactSamplingRulesGetParams contains all the parameters to send to the API endpoint
+/*FleetArtifactSamplingRulesGetParams contains all the parameters to send to the API endpoint
 for the fleet artifact sampling rules get operation typically these are written to a http.Request
 */
 type FleetArtifactSamplingRulesGetParams struct {

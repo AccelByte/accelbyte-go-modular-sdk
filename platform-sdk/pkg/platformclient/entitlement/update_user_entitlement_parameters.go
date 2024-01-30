@@ -59,8 +59,7 @@ func NewUpdateUserEntitlementParamsWithHTTPClient(client *http.Client) *UpdateUs
 	}
 }
 
-/*
-UpdateUserEntitlementParams contains all the parameters to send to the API endpoint
+/*UpdateUserEntitlementParams contains all the parameters to send to the API endpoint
 for the update user entitlement operation typically these are written to a http.Request
 */
 type UpdateUserEntitlementParams struct {

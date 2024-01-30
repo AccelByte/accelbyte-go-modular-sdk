@@ -59,8 +59,7 @@ func NewCreateArchivedLeaderboardRankingDataV1HandlerParamsWithHTTPClient(client
 	}
 }
 
-/*
-CreateArchivedLeaderboardRankingDataV1HandlerParams contains all the parameters to send to the API endpoint
+/*CreateArchivedLeaderboardRankingDataV1HandlerParams contains all the parameters to send to the API endpoint
 for the create archived leaderboard ranking data v1 handler operation typically these are written to a http.Request
 */
 type CreateArchivedLeaderboardRankingDataV1HandlerParams struct {

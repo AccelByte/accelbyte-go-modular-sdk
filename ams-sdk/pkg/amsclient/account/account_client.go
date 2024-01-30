@@ -397,7 +397,7 @@ Deprecated: 2022-08-10 - Use AdminAccountLinkTokenPostShort instead.
 AdminAccountLinkTokenPost link an account to a namespace
 This route will attempt to register the account to namespace linkage in AMS and requires a valid account link token. This route fails if an account is already linked
 
-# AdminAccountLink
+AdminAccountLink
 
 Required Permission: ADMIN:NAMESPACE:{namespace}:ARMADA:ACCOUNT [CREATE]
 */
@@ -455,7 +455,7 @@ func (a *Client) AdminAccountLinkTokenPost(params *AdminAccountLinkTokenPostPara
 AdminAccountLinkTokenPostShort link an account to a namespace
 This route will attempt to register the account to namespace linkage in AMS and requires a valid account link token. This route fails if an account is already linked
 
-# AdminAccountLink
+AdminAccountLink
 
 Required Permission: ADMIN:NAMESPACE:{namespace}:ARMADA:ACCOUNT [CREATE]
 */

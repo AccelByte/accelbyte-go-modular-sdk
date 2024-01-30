@@ -57,8 +57,7 @@ func NewGetAllMockTicketsParamsWithHTTPClient(client *http.Client) *GetAllMockTi
 	}
 }
 
-/*
-GetAllMockTicketsParams contains all the parameters to send to the API endpoint
+/*GetAllMockTicketsParams contains all the parameters to send to the API endpoint
 for the get all mock tickets operation typically these are written to a http.Request
 */
 type GetAllMockTicketsParams struct {

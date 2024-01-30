@@ -510,7 +510,7 @@ GetAdminUsersByRoleID get admin users by roleid
 - **Note:**
 difference in V3 response, format difference: Pascal case => Camel case
 
-# This endpoint search admin users which have the roleId
+This endpoint search admin users which have the roleId
 
 Notes : this endpoint only accept admin role. Admin Role is role which have admin status and members.
 Use endpoint [GET] /roles/{roleId}/admin to check the role status
@@ -579,7 +579,7 @@ GetAdminUsersByRoleIDShort get admin users by roleid
 - **Note:**
 difference in V3 response, format difference: Pascal case => Camel case
 
-# This endpoint search admin users which have the roleId
+This endpoint search admin users which have the roleId
 
 Notes : this endpoint only accept admin role. Admin Role is role which have admin status and members.
 Use endpoint [GET] /roles/{roleId}/admin to check the role status
@@ -3830,7 +3830,7 @@ GetUserJusticePlatformAccount get the justice linked accounts on the designated 
 ### Endpoint migration guide
 - **Substitute endpoint: _/iam/v3/admin/namespaces/{namespace}/users/{userId}/platforms/justice/{targetNamespace} [GET]_**
 
-# This endpoint requires the client access token as the bearer token
+This endpoint requires the client access token as the bearer token
 
 The endpoint returns user Justice platform account linked with the given user. If the user Justice platform account doesn't exist in the designated namespace, the endpoint is going to *create and return the new Justice platform account.*
 The newly user Justice platform account is going to be forced to perform token grant through the given user and can't perform password update
@@ -3894,7 +3894,7 @@ GetUserJusticePlatformAccountShort get the justice linked accounts on the design
 ### Endpoint migration guide
 - **Substitute endpoint: _/iam/v3/admin/namespaces/{namespace}/users/{userId}/platforms/justice/{targetNamespace} [GET]_**
 
-# This endpoint requires the client access token as the bearer token
+This endpoint requires the client access token as the bearer token
 
 The endpoint returns user Justice platform account linked with the given user. If the user Justice platform account doesn't exist in the designated namespace, the endpoint is going to *create and return the new Justice platform account.*
 The newly user Justice platform account is going to be forced to perform token grant through the given user and can't perform password update
@@ -9292,7 +9292,7 @@ Deprecated: 2022-08-10 - Use AdminGetUserByPlatformUserIDV3Short instead.
 AdminGetUserByPlatformUserIDV3 admin get user by platform user id
 Get User By Platform User ID
 
-# This endpoint return user information by given platform ID and platform user ID
+This endpoint return user information by given platform ID and platform user ID
 
 **nintendo platform user ID**: NSA ID need to be appended with Environment ID using colon as separator. e.g kmzwa8awaa:dd1
 */
@@ -9353,7 +9353,7 @@ func (a *Client) AdminGetUserByPlatformUserIDV3(params *AdminGetUserByPlatformUs
 AdminGetUserByPlatformUserIDV3Short admin get user by platform user id
 Get User By Platform User ID
 
-# This endpoint return user information by given platform ID and platform user ID
+This endpoint return user information by given platform ID and platform user ID
 
 **nintendo platform user ID**: NSA ID need to be appended with Environment ID using colon as separator. e.g kmzwa8awaa:dd1
 */

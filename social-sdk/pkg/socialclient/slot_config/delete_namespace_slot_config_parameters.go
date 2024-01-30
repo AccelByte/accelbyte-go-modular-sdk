@@ -57,8 +57,7 @@ func NewDeleteNamespaceSlotConfigParamsWithHTTPClient(client *http.Client) *Dele
 	}
 }
 
-/*
-DeleteNamespaceSlotConfigParams contains all the parameters to send to the API endpoint
+/*DeleteNamespaceSlotConfigParams contains all the parameters to send to the API endpoint
 for the delete namespace slot config operation typically these are written to a http.Request
 */
 type DeleteNamespaceSlotConfigParams struct {

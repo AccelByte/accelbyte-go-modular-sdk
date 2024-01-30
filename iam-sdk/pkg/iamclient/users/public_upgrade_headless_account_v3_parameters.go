@@ -59,8 +59,7 @@ func NewPublicUpgradeHeadlessAccountV3ParamsWithHTTPClient(client *http.Client) 
 	}
 }
 
-/*
-PublicUpgradeHeadlessAccountV3Params contains all the parameters to send to the API endpoint
+/*PublicUpgradeHeadlessAccountV3Params contains all the parameters to send to the API endpoint
 for the public upgrade headless account v3 operation typically these are written to a http.Request
 */
 type PublicUpgradeHeadlessAccountV3Params struct {

@@ -86,8 +86,7 @@ func NewListUserContributionsParamsWithHTTPClient(client *http.Client) *ListUser
 	}
 }
 
-/*
-ListUserContributionsParams contains all the parameters to send to the API endpoint
+/*ListUserContributionsParams contains all the parameters to send to the API endpoint
 for the list user contributions operation typically these are written to a http.Request
 */
 type ListUserContributionsParams struct {

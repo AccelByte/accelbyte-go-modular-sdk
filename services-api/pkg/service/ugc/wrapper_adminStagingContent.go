@@ -22,6 +22,14 @@ type AdminStagingContentService struct {
 	Client           *ugcclient.JusticeUgcService
 	ConfigRepository repository.ConfigRepository
 	TokenRepository  repository.TokenRepository
+
+	FlightIdRepository *utils.FlightIdContainer
+}
+
+var tempFlightIdAdminStagingContent *string
+
+func (aaa *AdminStagingContentService) UpdateFlightId(flightId string) {
+	tempFlightIdAdminStagingContent = &flightId
 }
 
 func (aaa *AdminStagingContentService) GetAuthSession() auth.Session {
@@ -155,6 +163,11 @@ func (aaa *AdminStagingContentService) AdminListStagingContentsShort(input *admi
 			RetryCodes: utils.RetryCodes,
 		}
 	}
+	if tempFlightIdAdminStagingContent != nil {
+		input.XFlightId = tempFlightIdAdminStagingContent
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	}
 
 	ok, err := aaa.Client.AdminStagingContent.AdminListStagingContentsShort(input, authInfoWriter)
 	if err != nil {
@@ -179,6 +192,11 @@ func (aaa *AdminStagingContentService) AdminGetStagingContentByIDShort(input *ad
 			Transport:  aaa.Client.Runtime.Transport,
 			RetryCodes: utils.RetryCodes,
 		}
+	}
+	if tempFlightIdAdminStagingContent != nil {
+		input.XFlightId = tempFlightIdAdminStagingContent
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.AdminStagingContent.AdminGetStagingContentByIDShort(input, authInfoWriter)
@@ -205,6 +223,11 @@ func (aaa *AdminStagingContentService) AdminApproveStagingContentShort(input *ad
 			RetryCodes: utils.RetryCodes,
 		}
 	}
+	if tempFlightIdAdminStagingContent != nil {
+		input.XFlightId = tempFlightIdAdminStagingContent
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	}
 
 	ok, err := aaa.Client.AdminStagingContent.AdminApproveStagingContentShort(input, authInfoWriter)
 	if err != nil {
@@ -229,6 +252,11 @@ func (aaa *AdminStagingContentService) AdminListUserStagingContentsShort(input *
 			Transport:  aaa.Client.Runtime.Transport,
 			RetryCodes: utils.RetryCodes,
 		}
+	}
+	if tempFlightIdAdminStagingContent != nil {
+		input.XFlightId = tempFlightIdAdminStagingContent
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.AdminStagingContent.AdminListUserStagingContentsShort(input, authInfoWriter)

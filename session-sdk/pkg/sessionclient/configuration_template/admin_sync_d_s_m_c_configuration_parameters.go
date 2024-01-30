@@ -57,8 +57,7 @@ func NewAdminSyncDSMCConfigurationParamsWithHTTPClient(client *http.Client) *Adm
 	}
 }
 
-/*
-AdminSyncDSMCConfigurationParams contains all the parameters to send to the API endpoint
+/*AdminSyncDSMCConfigurationParams contains all the parameters to send to the API endpoint
 for the admin sync dsmc configuration operation typically these are written to a http.Request
 */
 type AdminSyncDSMCConfigurationParams struct {

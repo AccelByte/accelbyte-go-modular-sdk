@@ -57,8 +57,7 @@ func NewDeleteConfig1ParamsWithHTTPClient(client *http.Client) *DeleteConfig1Par
 	}
 }
 
-/*
-DeleteConfig1Params contains all the parameters to send to the API endpoint
+/*DeleteConfig1Params contains all the parameters to send to the API endpoint
 for the delete config 1 operation typically these are written to a http.Request
 */
 type DeleteConfig1Params struct {

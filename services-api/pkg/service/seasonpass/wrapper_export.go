@@ -23,6 +23,14 @@ type ExportService struct {
 	Client           *seasonpassclient.JusticeSeasonpassService
 	ConfigRepository repository.ConfigRepository
 	TokenRepository  repository.TokenRepository
+
+	FlightIdRepository *utils.FlightIdContainer
+}
+
+var tempFlightIdExport *string
+
+func (aaa *ExportService) UpdateFlightId(flightId string) {
+	tempFlightIdExport = &flightId
 }
 
 func (aaa *ExportService) GetAuthSession() auth.Session {
@@ -65,6 +73,11 @@ func (aaa *ExportService) ExportSeasonShort(input *export.ExportSeasonParams, wr
 			Transport:  aaa.Client.Runtime.Transport,
 			RetryCodes: utils.RetryCodes,
 		}
+	}
+	if tempFlightIdExport != nil {
+		input.XFlightId = tempFlightIdExport
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.Export.ExportSeasonShort(input, authInfoWriter, writer)

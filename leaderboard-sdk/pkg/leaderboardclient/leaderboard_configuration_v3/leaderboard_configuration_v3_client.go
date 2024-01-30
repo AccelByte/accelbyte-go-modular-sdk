@@ -55,9 +55,13 @@ type ClientService interface {
 /*
 Deprecated: 2022-08-10 - Use GetLeaderboardConfigurationsAdminV3Short instead.
 
-# GetLeaderboardConfigurationsAdminV3 list all leaderboards by given namespace
+GetLeaderboardConfigurationsAdminV3 list all leaderboards by given namespace
+
 
 Required permission 'ADMIN:NAMESPACE:{namespace}:LEADERBOARD [READ]'
+
+
+
 
 This endpoint return all leaderboard configurations
 */
@@ -117,7 +121,11 @@ func (a *Client) GetLeaderboardConfigurationsAdminV3(params *GetLeaderboardConfi
 /*
 GetLeaderboardConfigurationsAdminV3Short list all leaderboards by given namespace
 
+
 Required permission 'ADMIN:NAMESPACE:{namespace}:LEADERBOARD [READ]'
+
+
+
 
 This endpoint return all leaderboard configurations
 */
@@ -177,37 +185,38 @@ func (a *Client) GetLeaderboardConfigurationsAdminV3Short(params *GetLeaderboard
 /*
 Deprecated: 2022-08-10 - Use CreateLeaderboardConfigurationAdminV3Short instead.
 
-# CreateLeaderboardConfigurationAdminV3 create new leaderboard
+CreateLeaderboardConfigurationAdminV3 create new leaderboard
+
 
 Required permission 'ADMIN:NAMESPACE:{namespace}:LEADERBOARD [CREATE]'
 
-	Fields :
+ Fields :
 
 
 
 
-	 * leaderboardCode: unique leaderboard config code must be lowercase and maximum length is 48 characters. (required).
+  * leaderboardCode: unique leaderboard config code must be lowercase and maximum length is 48 characters. (required).
 
 
-	 * name: leaderboard name, maximum length for leaderboard name is 128 characters. (required).
+  * name: leaderboard name, maximum length for leaderboard name is 128 characters. (required).
 
 
-	 * description: leaderboard description, maximum length for leaderboard description is 2048 characters. (optional).
+  * description: leaderboard description, maximum length for leaderboard description is 2048 characters. (optional).
 
 
-	 * iconURL: leaderboard icon image url. (optional).
+  * iconURL: leaderboard icon image url. (optional).
 
 
-	 * allTime: if true, all time leaderboard will be created. (required).
+  * allTime: if true, all time leaderboard will be created. (required).
 
 
-	 * descending: leaderboard order. If true, the points will be sorted in descending order. (required).
+  * descending: leaderboard order. If true, the points will be sorted in descending order. (required).
 
 
-	 * statCode: Stat Code is related with statistic code in statistic service. (required).
+  * statCode: Stat Code is related with statistic code in statistic service. (required).
 
 
-	 * cycleIds: Statistic cycle ids that will be tracked in the leaderboard. (required).
+  * cycleIds: Statistic cycle ids that will be tracked in the leaderboard. (required).
 */
 func (a *Client) CreateLeaderboardConfigurationAdminV3(params *CreateLeaderboardConfigurationAdminV3Params, authInfo runtime.ClientAuthInfoWriter) (*CreateLeaderboardConfigurationAdminV3Created, *CreateLeaderboardConfigurationAdminV3BadRequest, *CreateLeaderboardConfigurationAdminV3Unauthorized, *CreateLeaderboardConfigurationAdminV3Forbidden, *CreateLeaderboardConfigurationAdminV3Conflict, *CreateLeaderboardConfigurationAdminV3InternalServerError, error) {
 	// TODO: Validate the params before sending
@@ -268,35 +277,36 @@ func (a *Client) CreateLeaderboardConfigurationAdminV3(params *CreateLeaderboard
 /*
 CreateLeaderboardConfigurationAdminV3Short create new leaderboard
 
+
 Required permission 'ADMIN:NAMESPACE:{namespace}:LEADERBOARD [CREATE]'
 
-	Fields :
+ Fields :
 
 
 
 
-	 * leaderboardCode: unique leaderboard config code must be lowercase and maximum length is 48 characters. (required).
+  * leaderboardCode: unique leaderboard config code must be lowercase and maximum length is 48 characters. (required).
 
 
-	 * name: leaderboard name, maximum length for leaderboard name is 128 characters. (required).
+  * name: leaderboard name, maximum length for leaderboard name is 128 characters. (required).
 
 
-	 * description: leaderboard description, maximum length for leaderboard description is 2048 characters. (optional).
+  * description: leaderboard description, maximum length for leaderboard description is 2048 characters. (optional).
 
 
-	 * iconURL: leaderboard icon image url. (optional).
+  * iconURL: leaderboard icon image url. (optional).
 
 
-	 * allTime: if true, all time leaderboard will be created. (required).
+  * allTime: if true, all time leaderboard will be created. (required).
 
 
-	 * descending: leaderboard order. If true, the points will be sorted in descending order. (required).
+  * descending: leaderboard order. If true, the points will be sorted in descending order. (required).
 
 
-	 * statCode: Stat Code is related with statistic code in statistic service. (required).
+  * statCode: Stat Code is related with statistic code in statistic service. (required).
 
 
-	 * cycleIds: Statistic cycle ids that will be tracked in the leaderboard. (required).
+  * cycleIds: Statistic cycle ids that will be tracked in the leaderboard. (required).
 */
 func (a *Client) CreateLeaderboardConfigurationAdminV3Short(params *CreateLeaderboardConfigurationAdminV3Params, authInfo runtime.ClientAuthInfoWriter) (*CreateLeaderboardConfigurationAdminV3Created, error) {
 	// TODO: Validate the params before sending
@@ -358,7 +368,11 @@ Deprecated: 2022-08-10 - Use DeleteBulkLeaderboardConfigurationAdminV3Short inst
 
 DeleteBulkLeaderboardConfigurationAdminV3 delete bulk leaderboards. response body will contains failed leaderboard with the reason why it's failed to delete
 
+
 Required permission 'ADMIN:NAMESPACE:{namespace}:LEADERBOARD [DELETE]'
+
+
+
 
 This endpoint delete multiple leaderboards configuration in one request
 */
@@ -418,7 +432,11 @@ func (a *Client) DeleteBulkLeaderboardConfigurationAdminV3(params *DeleteBulkLea
 /*
 DeleteBulkLeaderboardConfigurationAdminV3Short delete bulk leaderboards. response body will contains failed leaderboard with the reason why it's failed to delete
 
+
 Required permission 'ADMIN:NAMESPACE:{namespace}:LEADERBOARD [DELETE]'
+
+
+
 
 This endpoint delete multiple leaderboards configuration in one request
 */
@@ -478,9 +496,13 @@ func (a *Client) DeleteBulkLeaderboardConfigurationAdminV3Short(params *DeleteBu
 /*
 Deprecated: 2022-08-10 - Use GetLeaderboardConfigurationAdminV3Short instead.
 
-# GetLeaderboardConfigurationAdminV3 get leaderboard by leaderboardcode
+GetLeaderboardConfigurationAdminV3 get leaderboard by leaderboardcode
+
 
 Required permission 'ADMIN:NAMESPACE:{namespace}:LEADERBOARD [READ]'
+
+
+
 
 This endpoint returns a leaderboard configuration
 */
@@ -543,7 +565,11 @@ func (a *Client) GetLeaderboardConfigurationAdminV3(params *GetLeaderboardConfig
 /*
 GetLeaderboardConfigurationAdminV3Short get leaderboard by leaderboardcode
 
+
 Required permission 'ADMIN:NAMESPACE:{namespace}:LEADERBOARD [READ]'
+
+
+
 
 This endpoint returns a leaderboard configuration
 */
@@ -605,37 +631,38 @@ func (a *Client) GetLeaderboardConfigurationAdminV3Short(params *GetLeaderboardC
 /*
 Deprecated: 2022-08-10 - Use UpdateLeaderboardConfigurationAdminV3Short instead.
 
-# UpdateLeaderboardConfigurationAdminV3 update leaderboard by leaderboardcode
+UpdateLeaderboardConfigurationAdminV3 update leaderboard by leaderboardcode
+
 
 Required permission 'ADMIN:NAMESPACE:{namespace}:LEADERBOARD [UPDATE]'
 
-	Fields :
+ Fields :
 
 
 
 
-	 * leaderboardCode: unique leaderboard config code must be lowercase and maximum length is 48 characters. (required).
+  * leaderboardCode: unique leaderboard config code must be lowercase and maximum length is 48 characters. (required).
 
 
-	 * name: leaderboard name, maximum length for leaderboard name is 128 characters. (required).
+  * name: leaderboard name, maximum length for leaderboard name is 128 characters. (required).
 
 
-	 * description: leaderboard description, maximum length for leaderboard description is 2048 characters. (optional).
+  * description: leaderboard description, maximum length for leaderboard description is 2048 characters. (optional).
 
 
-	 * iconURL: leaderboard icon image url. (optional).
+  * iconURL: leaderboard icon image url. (optional).
 
 
-	 * allTime: if true, all time leaderboard will be created. (required).
+  * allTime: if true, all time leaderboard will be created. (required).
 
 
-	 * descending: leaderboard order. If true, the points will be sorted in descending order. (required).
+  * descending: leaderboard order. If true, the points will be sorted in descending order. (required).
 
 
-	 * statCode: Stat Code is related with statistic code in statistic service. (required).
+  * statCode: Stat Code is related with statistic code in statistic service. (required).
 
 
-	 * cycleIds: Statistic cycle ids that will be tracked in the leaderboard. (required).
+  * cycleIds: Statistic cycle ids that will be tracked in the leaderboard. (required).
 */
 func (a *Client) UpdateLeaderboardConfigurationAdminV3(params *UpdateLeaderboardConfigurationAdminV3Params, authInfo runtime.ClientAuthInfoWriter) (*UpdateLeaderboardConfigurationAdminV3OK, *UpdateLeaderboardConfigurationAdminV3BadRequest, *UpdateLeaderboardConfigurationAdminV3Unauthorized, *UpdateLeaderboardConfigurationAdminV3Forbidden, *UpdateLeaderboardConfigurationAdminV3NotFound, *UpdateLeaderboardConfigurationAdminV3InternalServerError, error) {
 	// TODO: Validate the params before sending
@@ -696,35 +723,36 @@ func (a *Client) UpdateLeaderboardConfigurationAdminV3(params *UpdateLeaderboard
 /*
 UpdateLeaderboardConfigurationAdminV3Short update leaderboard by leaderboardcode
 
+
 Required permission 'ADMIN:NAMESPACE:{namespace}:LEADERBOARD [UPDATE]'
 
-	Fields :
+ Fields :
 
 
 
 
-	 * leaderboardCode: unique leaderboard config code must be lowercase and maximum length is 48 characters. (required).
+  * leaderboardCode: unique leaderboard config code must be lowercase and maximum length is 48 characters. (required).
 
 
-	 * name: leaderboard name, maximum length for leaderboard name is 128 characters. (required).
+  * name: leaderboard name, maximum length for leaderboard name is 128 characters. (required).
 
 
-	 * description: leaderboard description, maximum length for leaderboard description is 2048 characters. (optional).
+  * description: leaderboard description, maximum length for leaderboard description is 2048 characters. (optional).
 
 
-	 * iconURL: leaderboard icon image url. (optional).
+  * iconURL: leaderboard icon image url. (optional).
 
 
-	 * allTime: if true, all time leaderboard will be created. (required).
+  * allTime: if true, all time leaderboard will be created. (required).
 
 
-	 * descending: leaderboard order. If true, the points will be sorted in descending order. (required).
+  * descending: leaderboard order. If true, the points will be sorted in descending order. (required).
 
 
-	 * statCode: Stat Code is related with statistic code in statistic service. (required).
+  * statCode: Stat Code is related with statistic code in statistic service. (required).
 
 
-	 * cycleIds: Statistic cycle ids that will be tracked in the leaderboard. (required).
+  * cycleIds: Statistic cycle ids that will be tracked in the leaderboard. (required).
 */
 func (a *Client) UpdateLeaderboardConfigurationAdminV3Short(params *UpdateLeaderboardConfigurationAdminV3Params, authInfo runtime.ClientAuthInfoWriter) (*UpdateLeaderboardConfigurationAdminV3OK, error) {
 	// TODO: Validate the params before sending
@@ -784,9 +812,13 @@ func (a *Client) UpdateLeaderboardConfigurationAdminV3Short(params *UpdateLeader
 /*
 Deprecated: 2022-08-10 - Use DeleteLeaderboardConfigurationAdminV3Short instead.
 
-# DeleteLeaderboardConfigurationAdminV3 delete leaderboard by leaderboardcode
+DeleteLeaderboardConfigurationAdminV3 delete leaderboard by leaderboardcode
+
 
 Required permission 'ADMIN:NAMESPACE:{namespace}:LEADERBOARD [DELETE]'
+
+
+
 
 This endpoint delete a leaderboard configuration
 */
@@ -849,7 +881,11 @@ func (a *Client) DeleteLeaderboardConfigurationAdminV3(params *DeleteLeaderboard
 /*
 DeleteLeaderboardConfigurationAdminV3Short delete leaderboard by leaderboardcode
 
+
 Required permission 'ADMIN:NAMESPACE:{namespace}:LEADERBOARD [DELETE]'
+
+
+
 
 This endpoint delete a leaderboard configuration
 */
@@ -911,13 +947,23 @@ func (a *Client) DeleteLeaderboardConfigurationAdminV3Short(params *DeleteLeader
 /*
 Deprecated: 2022-08-10 - Use HardDeleteLeaderboardAdminV3Short instead.
 
-# HardDeleteLeaderboardAdminV3 hard delete leaderboard config and data by leaderboard code
+HardDeleteLeaderboardAdminV3 hard delete leaderboard config and data by leaderboard code
+
 
 [Test Facility Only]
 
+
+
+
 Required permission 'ADMIN:NAMESPACE:{namespace}:LEADERBOARD [DELETE]'
 
-# This endpoint will delete leaderboard configuration and its data
+
+
+
+This endpoint will delete leaderboard configuration and its data
+
+
+
 
 Note: this endpoint only works on development environment, you might want to use archive endpoint instead hard delete.
 */
@@ -980,11 +1026,21 @@ func (a *Client) HardDeleteLeaderboardAdminV3(params *HardDeleteLeaderboardAdmin
 /*
 HardDeleteLeaderboardAdminV3Short hard delete leaderboard config and data by leaderboard code
 
-	[Test Facility Only]
+
+ [Test Facility Only]
+
+
+
 
 Required permission 'ADMIN:NAMESPACE:{namespace}:LEADERBOARD [DELETE]'
 
-# This endpoint will delete leaderboard configuration and its data
+
+
+
+This endpoint will delete leaderboard configuration and its data
+
+
+
 
 Note: this endpoint only works on development environment, you might want to use archive endpoint instead hard delete.
 */
@@ -1046,7 +1102,8 @@ func (a *Client) HardDeleteLeaderboardAdminV3Short(params *HardDeleteLeaderboard
 /*
 Deprecated: 2022-08-10 - Use GetLeaderboardConfigurationsPublicV3Short instead.
 
-# GetLeaderboardConfigurationsPublicV3 list all leaderboards by given namespace
+GetLeaderboardConfigurationsPublicV3 list all leaderboards by given namespace
+
 
 This endpoint return all leaderboard configurations
 */
@@ -1106,6 +1163,7 @@ func (a *Client) GetLeaderboardConfigurationsPublicV3(params *GetLeaderboardConf
 /*
 GetLeaderboardConfigurationsPublicV3Short list all leaderboards by given namespace
 
+
 This endpoint return all leaderboard configurations
 */
 func (a *Client) GetLeaderboardConfigurationsPublicV3Short(params *GetLeaderboardConfigurationsPublicV3Params, authInfo runtime.ClientAuthInfoWriter) (*GetLeaderboardConfigurationsPublicV3OK, error) {
@@ -1164,7 +1222,8 @@ func (a *Client) GetLeaderboardConfigurationsPublicV3Short(params *GetLeaderboar
 /*
 Deprecated: 2022-08-10 - Use GetLeaderboardConfigurationPublicV3Short instead.
 
-# GetLeaderboardConfigurationPublicV3 get leaderboard by leaderboardcode
+GetLeaderboardConfigurationPublicV3 get leaderboard by leaderboardcode
+
 
 This endpoint returns a leaderboard configuration
 */
@@ -1226,6 +1285,7 @@ func (a *Client) GetLeaderboardConfigurationPublicV3(params *GetLeaderboardConfi
 
 /*
 GetLeaderboardConfigurationPublicV3Short get leaderboard by leaderboardcode
+
 
 This endpoint returns a leaderboard configuration
 */

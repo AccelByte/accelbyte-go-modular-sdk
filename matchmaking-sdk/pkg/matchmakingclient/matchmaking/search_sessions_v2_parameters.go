@@ -58,8 +58,7 @@ func NewSearchSessionsV2ParamsWithHTTPClient(client *http.Client) *SearchSession
 	}
 }
 
-/*
-SearchSessionsV2Params contains all the parameters to send to the API endpoint
+/*SearchSessionsV2Params contains all the parameters to send to the API endpoint
 for the search sessions v2 operation typically these are written to a http.Request
 */
 type SearchSessionsV2Params struct {

@@ -59,8 +59,7 @@ func NewPublicValidateItemPurchaseConditionParamsWithHTTPClient(client *http.Cli
 	}
 }
 
-/*
-PublicValidateItemPurchaseConditionParams contains all the parameters to send to the API endpoint
+/*PublicValidateItemPurchaseConditionParams contains all the parameters to send to the API endpoint
 for the public validate item purchase condition operation typically these are written to a http.Request
 */
 type PublicValidateItemPurchaseConditionParams struct {

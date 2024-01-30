@@ -59,8 +59,7 @@ func NewCloneSeasonParamsWithHTTPClient(client *http.Client) *CloneSeasonParams 
 	}
 }
 
-/*
-CloneSeasonParams contains all the parameters to send to the API endpoint
+/*CloneSeasonParams contains all the parameters to send to the API endpoint
 for the clone season operation typically these are written to a http.Request
 */
 type CloneSeasonParams struct {

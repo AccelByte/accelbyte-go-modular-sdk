@@ -59,8 +59,7 @@ func NewSyncTwitchDropsEntitlement1ParamsWithHTTPClient(client *http.Client) *Sy
 	}
 }
 
-/*
-SyncTwitchDropsEntitlement1Params contains all the parameters to send to the API endpoint
+/*SyncTwitchDropsEntitlement1Params contains all the parameters to send to the API endpoint
 for the sync twitch drops entitlement 1 operation typically these are written to a http.Request
 */
 type SyncTwitchDropsEntitlement1Params struct {

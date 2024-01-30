@@ -58,8 +58,7 @@ func NewExistsAnyPassByPassCodesParamsWithHTTPClient(client *http.Client) *Exist
 	}
 }
 
-/*
-ExistsAnyPassByPassCodesParams contains all the parameters to send to the API endpoint
+/*ExistsAnyPassByPassCodesParams contains all the parameters to send to the API endpoint
 for the exists any pass by pass codes operation typically these are written to a http.Request
 */
 type ExistsAnyPassByPassCodesParams struct {

@@ -58,8 +58,7 @@ func NewAdminSearchSessionsV2ParamsWithHTTPClient(client *http.Client) *AdminSea
 	}
 }
 
-/*
-AdminSearchSessionsV2Params contains all the parameters to send to the API endpoint
+/*AdminSearchSessionsV2Params contains all the parameters to send to the API endpoint
 for the admin search sessions v2 operation typically these are written to a http.Request
 */
 type AdminSearchSessionsV2Params struct {

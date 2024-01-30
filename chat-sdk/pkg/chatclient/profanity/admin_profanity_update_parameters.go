@@ -59,8 +59,7 @@ func NewAdminProfanityUpdateParamsWithHTTPClient(client *http.Client) *AdminProf
 	}
 }
 
-/*
-AdminProfanityUpdateParams contains all the parameters to send to the API endpoint
+/*AdminProfanityUpdateParams contains all the parameters to send to the API endpoint
 for the admin profanity update operation typically these are written to a http.Request
 */
 type AdminProfanityUpdateParams struct {

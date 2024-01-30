@@ -58,8 +58,7 @@ func NewAdminDeleteInboxMessageParamsWithHTTPClient(client *http.Client) *AdminD
 	}
 }
 
-/*
-AdminDeleteInboxMessageParams contains all the parameters to send to the API endpoint
+/*AdminDeleteInboxMessageParams contains all the parameters to send to the API endpoint
 for the admin delete inbox message operation typically these are written to a http.Request
 */
 type AdminDeleteInboxMessageParams struct {

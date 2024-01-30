@@ -57,8 +57,7 @@ func NewDeleteMatchTicketParamsWithHTTPClient(client *http.Client) *DeleteMatchT
 	}
 }
 
-/*
-DeleteMatchTicketParams contains all the parameters to send to the API endpoint
+/*DeleteMatchTicketParams contains all the parameters to send to the API endpoint
 for the delete match ticket operation typically these are written to a http.Request
 */
 type DeleteMatchTicketParams struct {

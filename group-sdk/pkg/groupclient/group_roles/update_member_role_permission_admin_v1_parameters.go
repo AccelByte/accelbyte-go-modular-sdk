@@ -59,8 +59,7 @@ func NewUpdateMemberRolePermissionAdminV1ParamsWithHTTPClient(client *http.Clien
 	}
 }
 
-/*
-UpdateMemberRolePermissionAdminV1Params contains all the parameters to send to the API endpoint
+/*UpdateMemberRolePermissionAdminV1Params contains all the parameters to send to the API endpoint
 for the update member role permission admin v1 operation typically these are written to a http.Request
 */
 type UpdateMemberRolePermissionAdminV1Params struct {

@@ -57,8 +57,7 @@ func NewPurgeExpiredSectionParamsWithHTTPClient(client *http.Client) *PurgeExpir
 	}
 }
 
-/*
-PurgeExpiredSectionParams contains all the parameters to send to the API endpoint
+/*PurgeExpiredSectionParams contains all the parameters to send to the API endpoint
 for the purge expired section operation typically these are written to a http.Request
 */
 type PurgeExpiredSectionParams struct {

@@ -57,8 +57,7 @@ func NewServerHistoryParamsWithHTTPClient(client *http.Client) *ServerHistoryPar
 	}
 }
 
-/*
-ServerHistoryParams contains all the parameters to send to the API endpoint
+/*ServerHistoryParams contains all the parameters to send to the API endpoint
 for the server history operation typically these are written to a http.Request
 */
 type ServerHistoryParams struct {

@@ -59,8 +59,7 @@ func NewCreateKeyGroupParamsWithHTTPClient(client *http.Client) *CreateKeyGroupP
 	}
 }
 
-/*
-CreateKeyGroupParams contains all the parameters to send to the API endpoint
+/*CreateKeyGroupParams contains all the parameters to send to the API endpoint
 for the create key group operation typically these are written to a http.Request
 */
 type CreateKeyGroupParams struct {

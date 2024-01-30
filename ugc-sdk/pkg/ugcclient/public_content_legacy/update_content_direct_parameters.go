@@ -59,8 +59,7 @@ func NewUpdateContentDirectParamsWithHTTPClient(client *http.Client) *UpdateCont
 	}
 }
 
-/*
-UpdateContentDirectParams contains all the parameters to send to the API endpoint
+/*UpdateContentDirectParams contains all the parameters to send to the API endpoint
 for the update content direct operation typically these are written to a http.Request
 */
 type UpdateContentDirectParams struct {

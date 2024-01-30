@@ -58,8 +58,7 @@ func NewGetUserGroupInformationPublicV2ParamsWithHTTPClient(client *http.Client)
 	}
 }
 
-/*
-GetUserGroupInformationPublicV2Params contains all the parameters to send to the API endpoint
+/*GetUserGroupInformationPublicV2Params contains all the parameters to send to the API endpoint
 for the get user group information public v2 operation typically these are written to a http.Request
 */
 type GetUserGroupInformationPublicV2Params struct {

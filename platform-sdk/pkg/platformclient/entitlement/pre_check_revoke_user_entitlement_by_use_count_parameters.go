@@ -58,8 +58,7 @@ func NewPreCheckRevokeUserEntitlementByUseCountParamsWithHTTPClient(client *http
 	}
 }
 
-/*
-PreCheckRevokeUserEntitlementByUseCountParams contains all the parameters to send to the API endpoint
+/*PreCheckRevokeUserEntitlementByUseCountParams contains all the parameters to send to the API endpoint
 for the pre check revoke user entitlement by use count operation typically these are written to a http.Request
 */
 type PreCheckRevokeUserEntitlementByUseCountParams struct {

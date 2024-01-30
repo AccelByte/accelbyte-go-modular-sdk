@@ -57,8 +57,7 @@ func NewGetTotalActiveSessionParamsWithHTTPClient(client *http.Client) *GetTotal
 	}
 }
 
-/*
-GetTotalActiveSessionParams contains all the parameters to send to the API endpoint
+/*GetTotalActiveSessionParams contains all the parameters to send to the API endpoint
 for the get total active session operation typically these are written to a http.Request
 */
 type GetTotalActiveSessionParams struct {

@@ -79,7 +79,8 @@ type ClientService interface {
 /*
 Deprecated: 2022-08-10 - Use AdminGetArchivedLeaderboardRankingDataV1HandlerShort instead.
 
-# AdminGetArchivedLeaderboardRankingDataV1Handler admin get signed url for archive all time leaderboard ranking data
+AdminGetArchivedLeaderboardRankingDataV1Handler admin get signed url for archive all time leaderboard ranking data
+
 
 Admin Get signed url in an all time leaderboard that archived. Notes: This will be a bulk endpoint to get sign url
 */
@@ -142,6 +143,7 @@ func (a *Client) AdminGetArchivedLeaderboardRankingDataV1Handler(params *AdminGe
 /*
 AdminGetArchivedLeaderboardRankingDataV1HandlerShort admin get signed url for archive all time leaderboard ranking data
 
+
 Admin Get signed url in an all time leaderboard that archived. Notes: This will be a bulk endpoint to get sign url
 */
 func (a *Client) AdminGetArchivedLeaderboardRankingDataV1HandlerShort(params *AdminGetArchivedLeaderboardRankingDataV1HandlerParams, authInfo runtime.ClientAuthInfoWriter) (*AdminGetArchivedLeaderboardRankingDataV1HandlerOK, error) {
@@ -202,9 +204,13 @@ func (a *Client) AdminGetArchivedLeaderboardRankingDataV1HandlerShort(params *Ad
 /*
 Deprecated: 2022-08-10 - Use CreateArchivedLeaderboardRankingDataV1HandlerShort instead.
 
-# CreateArchivedLeaderboardRankingDataV1Handler archive a leadeboard data ranking
+CreateArchivedLeaderboardRankingDataV1Handler archive a leadeboard data ranking
+
 
 Required permission 'ADMIN:NAMESPACE:{namespace}:LEADERBOARD [CREATE]'
+
+
+
 
 Archive leaderboard ranking data for specified leaderboard codes. NOTE: This will remove all data of the leaderboard on every slug,
 remove the leaderboard code on stat mapping, and remove the leaderboard on the queue reset. This will be a bulk endpoint
@@ -268,7 +274,11 @@ func (a *Client) CreateArchivedLeaderboardRankingDataV1Handler(params *CreateArc
 /*
 CreateArchivedLeaderboardRankingDataV1HandlerShort archive a leadeboard data ranking
 
+
 Required permission 'ADMIN:NAMESPACE:{namespace}:LEADERBOARD [CREATE]'
+
+
+
 
 Archive leaderboard ranking data for specified leaderboard codes. NOTE: This will remove all data of the leaderboard on every slug,
 remove the leaderboard code on stat mapping, and remove the leaderboard on the queue reset. This will be a bulk endpoint
@@ -331,9 +341,13 @@ func (a *Client) CreateArchivedLeaderboardRankingDataV1HandlerShort(params *Crea
 /*
 Deprecated: 2022-08-10 - Use GetAllTimeLeaderboardRankingAdminV1Short instead.
 
-# GetAllTimeLeaderboardRankingAdminV1 get all time leaderboard ranking data
+GetAllTimeLeaderboardRankingAdminV1 get all time leaderboard ranking data
+
 
 Required permission 'ADMIN:NAMESPACE:{namespace}:LEADERBOARD [READ]'
+
+
+
 
 Get rankings in an all time leaderboard.
 */
@@ -396,7 +410,11 @@ func (a *Client) GetAllTimeLeaderboardRankingAdminV1(params *GetAllTimeLeaderboa
 /*
 GetAllTimeLeaderboardRankingAdminV1Short get all time leaderboard ranking data
 
+
 Required permission 'ADMIN:NAMESPACE:{namespace}:LEADERBOARD [READ]'
+
+
+
 
 Get rankings in an all time leaderboard.
 */
@@ -458,9 +476,13 @@ func (a *Client) GetAllTimeLeaderboardRankingAdminV1Short(params *GetAllTimeLead
 /*
 Deprecated: 2022-08-10 - Use GetCurrentMonthLeaderboardRankingAdminV1Short instead.
 
-# GetCurrentMonthLeaderboardRankingAdminV1 get current month leaderboard ranking data
+GetCurrentMonthLeaderboardRankingAdminV1 get current month leaderboard ranking data
+
 
 Required permission 'ADMIN:NAMESPACE:{namespace}:LEADERBOARD [READ]'
+
+
+
 
 Get rankings in current month leaderboard.
 */
@@ -523,7 +545,11 @@ func (a *Client) GetCurrentMonthLeaderboardRankingAdminV1(params *GetCurrentMont
 /*
 GetCurrentMonthLeaderboardRankingAdminV1Short get current month leaderboard ranking data
 
+
 Required permission 'ADMIN:NAMESPACE:{namespace}:LEADERBOARD [READ]'
+
+
+
 
 Get rankings in current month leaderboard.
 */
@@ -585,13 +611,23 @@ func (a *Client) GetCurrentMonthLeaderboardRankingAdminV1Short(params *GetCurren
 /*
 Deprecated: 2022-08-10 - Use DeleteUserRankingByLeaderboardCodeAdminV1Short instead.
 
-# DeleteUserRankingByLeaderboardCodeAdminV1 delete all user ranking by leaderboard code
+DeleteUserRankingByLeaderboardCodeAdminV1 delete all user ranking by leaderboard code
+
 
 [Test Facility Only]
 
+
+
+
 Required permission 'ADMIN:NAMESPACE:{namespace}:LEADERBOARD [DELETE]'
 
-# This endpoint will delete user ranking by leaderboard code
+
+
+
+This endpoint will delete user ranking by leaderboard code
+
+
+
 
 Note: this endpoint only works on development environment.
 */
@@ -651,11 +687,21 @@ func (a *Client) DeleteUserRankingByLeaderboardCodeAdminV1(params *DeleteUserRan
 /*
 DeleteUserRankingByLeaderboardCodeAdminV1Short delete all user ranking by leaderboard code
 
-	[Test Facility Only]
+
+ [Test Facility Only]
+
+
+
 
 Required permission 'ADMIN:NAMESPACE:{namespace}:LEADERBOARD [DELETE]'
 
-# This endpoint will delete user ranking by leaderboard code
+
+
+
+This endpoint will delete user ranking by leaderboard code
+
+
+
 
 Note: this endpoint only works on development environment.
 */
@@ -715,9 +761,13 @@ func (a *Client) DeleteUserRankingByLeaderboardCodeAdminV1Short(params *DeleteUs
 /*
 Deprecated: 2022-08-10 - Use GetCurrentSeasonLeaderboardRankingAdminV1Short instead.
 
-# GetCurrentSeasonLeaderboardRankingAdminV1 get current season leaderboard ranking data
+GetCurrentSeasonLeaderboardRankingAdminV1 get current season leaderboard ranking data
+
 
 Required permission 'ADMIN:NAMESPACE:{namespace}:LEADERBOARD [READ]'
+
+
+
 
 Get rankings in current season leaderboard.
 */
@@ -780,7 +830,11 @@ func (a *Client) GetCurrentSeasonLeaderboardRankingAdminV1(params *GetCurrentSea
 /*
 GetCurrentSeasonLeaderboardRankingAdminV1Short get current season leaderboard ranking data
 
+
 Required permission 'ADMIN:NAMESPACE:{namespace}:LEADERBOARD [READ]'
+
+
+
 
 Get rankings in current season leaderboard.
 */
@@ -842,9 +896,13 @@ func (a *Client) GetCurrentSeasonLeaderboardRankingAdminV1Short(params *GetCurre
 /*
 Deprecated: 2022-08-10 - Use GetTodayLeaderboardRankingAdminV1Short instead.
 
-# GetTodayLeaderboardRankingAdminV1 get today leaderboard ranking data
+GetTodayLeaderboardRankingAdminV1 get today leaderboard ranking data
+
 
 Required permission 'ADMIN:NAMESPACE:{namespace}:LEADERBOARD [READ]'
+
+
+
 
 Get rankings in today leaderboard.
 */
@@ -907,7 +965,11 @@ func (a *Client) GetTodayLeaderboardRankingAdminV1(params *GetTodayLeaderboardRa
 /*
 GetTodayLeaderboardRankingAdminV1Short get today leaderboard ranking data
 
+
 Required permission 'ADMIN:NAMESPACE:{namespace}:LEADERBOARD [READ]'
+
+
+
 
 Get rankings in today leaderboard.
 */
@@ -969,9 +1031,13 @@ func (a *Client) GetTodayLeaderboardRankingAdminV1Short(params *GetTodayLeaderbo
 /*
 Deprecated: 2022-08-10 - Use GetUserRankingAdminV1Short instead.
 
-# GetUserRankingAdminV1 get user ranking
+GetUserRankingAdminV1 get user ranking
+
 
 Required permission 'ADMIN:NAMESPACE:{namespace}:LEADERBOARD [READ]'
+
+
+
 
 Get user ranking in leaderboard
 */
@@ -1031,7 +1097,11 @@ func (a *Client) GetUserRankingAdminV1(params *GetUserRankingAdminV1Params, auth
 /*
 GetUserRankingAdminV1Short get user ranking
 
+
 Required permission 'ADMIN:NAMESPACE:{namespace}:LEADERBOARD [READ]'
+
+
+
 
 Get user ranking in leaderboard
 */
@@ -1091,15 +1161,25 @@ func (a *Client) GetUserRankingAdminV1Short(params *GetUserRankingAdminV1Params,
 /*
 Deprecated: 2022-08-10 - Use UpdateUserPointAdminV1Short instead.
 
-# UpdateUserPointAdminV1 update user point
+UpdateUserPointAdminV1 update user point
+
 
 Update user point in a leaderboard. This endpoint uses for test utility only.
 
+
+
+
 Other detail info:
 
-  - Required permission: resource="ADMIN:NAMESPACE:{namespace}:USER:(userId):LEADERBOARD", action=4 (UPDATE)
 
-  - Returns: user ranking
+
+
+
+
+  * Required permission: resource="ADMIN:NAMESPACE:{namespace}:USER:(userId):LEADERBOARD", action=4 (UPDATE)
+
+
+  * Returns: user ranking
 */
 func (a *Client) UpdateUserPointAdminV1(params *UpdateUserPointAdminV1Params, authInfo runtime.ClientAuthInfoWriter) (*UpdateUserPointAdminV1OK, *UpdateUserPointAdminV1BadRequest, *UpdateUserPointAdminV1Unauthorized, *UpdateUserPointAdminV1Forbidden, *UpdateUserPointAdminV1NotFound, *UpdateUserPointAdminV1InternalServerError, error) {
 	// TODO: Validate the params before sending
@@ -1160,13 +1240,23 @@ func (a *Client) UpdateUserPointAdminV1(params *UpdateUserPointAdminV1Params, au
 /*
 UpdateUserPointAdminV1Short update user point
 
+
 Update user point in a leaderboard. This endpoint uses for test utility only.
+
+
+
 
 Other detail info:
 
-  - Required permission: resource="ADMIN:NAMESPACE:{namespace}:USER:(userId):LEADERBOARD", action=4 (UPDATE)
 
-  - Returns: user ranking
+
+
+
+
+  * Required permission: resource="ADMIN:NAMESPACE:{namespace}:USER:(userId):LEADERBOARD", action=4 (UPDATE)
+
+
+  * Returns: user ranking
 */
 func (a *Client) UpdateUserPointAdminV1Short(params *UpdateUserPointAdminV1Params, authInfo runtime.ClientAuthInfoWriter) (*UpdateUserPointAdminV1OK, error) {
 	// TODO: Validate the params before sending
@@ -1352,9 +1442,13 @@ func (a *Client) DeleteUserRankingAdminV1Short(params *DeleteUserRankingAdminV1P
 /*
 Deprecated: 2022-08-10 - Use GetCurrentWeekLeaderboardRankingAdminV1Short instead.
 
-# GetCurrentWeekLeaderboardRankingAdminV1 get current week leaderboard ranking data
+GetCurrentWeekLeaderboardRankingAdminV1 get current week leaderboard ranking data
+
 
 Required permission 'ADMIN:NAMESPACE:{namespace}:LEADERBOARD [READ]'
+
+
+
 
 Get rankings in current week leaderboard.
 */
@@ -1417,7 +1511,11 @@ func (a *Client) GetCurrentWeekLeaderboardRankingAdminV1(params *GetCurrentWeekL
 /*
 GetCurrentWeekLeaderboardRankingAdminV1Short get current week leaderboard ranking data
 
+
 Required permission 'ADMIN:NAMESPACE:{namespace}:LEADERBOARD [READ]'
+
+
+
 
 Get rankings in current week leaderboard.
 */
@@ -1601,7 +1699,8 @@ func (a *Client) DeleteUserRankingsAdminV1Short(params *DeleteUserRankingsAdminV
 /*
 Deprecated: 2022-08-10 - Use GetAllTimeLeaderboardRankingPublicV1Short instead.
 
-# GetAllTimeLeaderboardRankingPublicV1 get all time leaderboard ranking data
+GetAllTimeLeaderboardRankingPublicV1 get all time leaderboard ranking data
+
 
 Get rankings in an all time leaderboard.
 */
@@ -1657,6 +1756,7 @@ func (a *Client) GetAllTimeLeaderboardRankingPublicV1(params *GetAllTimeLeaderbo
 
 /*
 GetAllTimeLeaderboardRankingPublicV1Short get all time leaderboard ranking data
+
 
 Get rankings in an all time leaderboard.
 */
@@ -1714,7 +1814,8 @@ func (a *Client) GetAllTimeLeaderboardRankingPublicV1Short(params *GetAllTimeLea
 /*
 Deprecated: 2022-08-10 - Use GetArchivedLeaderboardRankingDataV1HandlerShort instead.
 
-# GetArchivedLeaderboardRankingDataV1Handler get signed url for archive all time leaderboard ranking data
+GetArchivedLeaderboardRankingDataV1Handler get signed url for archive all time leaderboard ranking data
+
 
 Get signed url in an all time leaderboard that archived. NOTE: This will be a bulk endpoint to get sign url
 */
@@ -1777,6 +1878,7 @@ func (a *Client) GetArchivedLeaderboardRankingDataV1Handler(params *GetArchivedL
 /*
 GetArchivedLeaderboardRankingDataV1HandlerShort get signed url for archive all time leaderboard ranking data
 
+
 Get signed url in an all time leaderboard that archived. NOTE: This will be a bulk endpoint to get sign url
 */
 func (a *Client) GetArchivedLeaderboardRankingDataV1HandlerShort(params *GetArchivedLeaderboardRankingDataV1HandlerParams, authInfo runtime.ClientAuthInfoWriter) (*GetArchivedLeaderboardRankingDataV1HandlerOK, error) {
@@ -1837,7 +1939,8 @@ func (a *Client) GetArchivedLeaderboardRankingDataV1HandlerShort(params *GetArch
 /*
 Deprecated: 2022-08-10 - Use GetCurrentMonthLeaderboardRankingPublicV1Short instead.
 
-# GetCurrentMonthLeaderboardRankingPublicV1 get current month leaderboard ranking data
+GetCurrentMonthLeaderboardRankingPublicV1 get current month leaderboard ranking data
+
 
 Get rankings in current month leaderboard.
 */
@@ -1893,6 +1996,7 @@ func (a *Client) GetCurrentMonthLeaderboardRankingPublicV1(params *GetCurrentMon
 
 /*
 GetCurrentMonthLeaderboardRankingPublicV1Short get current month leaderboard ranking data
+
 
 Get rankings in current month leaderboard.
 */
@@ -1950,7 +2054,8 @@ func (a *Client) GetCurrentMonthLeaderboardRankingPublicV1Short(params *GetCurre
 /*
 Deprecated: 2022-08-10 - Use GetCurrentSeasonLeaderboardRankingPublicV1Short instead.
 
-# GetCurrentSeasonLeaderboardRankingPublicV1 get current season leaderboard ranking data
+GetCurrentSeasonLeaderboardRankingPublicV1 get current season leaderboard ranking data
+
 
 Get rankings in current season leaderboard.
 */
@@ -2006,6 +2111,7 @@ func (a *Client) GetCurrentSeasonLeaderboardRankingPublicV1(params *GetCurrentSe
 
 /*
 GetCurrentSeasonLeaderboardRankingPublicV1Short get current season leaderboard ranking data
+
 
 Get rankings in current season leaderboard.
 */
@@ -2063,7 +2169,8 @@ func (a *Client) GetCurrentSeasonLeaderboardRankingPublicV1Short(params *GetCurr
 /*
 Deprecated: 2022-08-10 - Use GetTodayLeaderboardRankingPublicV1Short instead.
 
-# GetTodayLeaderboardRankingPublicV1 get today leaderboard ranking data
+GetTodayLeaderboardRankingPublicV1 get today leaderboard ranking data
+
 
 Get rankings in today leaderboard.
 */
@@ -2119,6 +2226,7 @@ func (a *Client) GetTodayLeaderboardRankingPublicV1(params *GetTodayLeaderboardR
 
 /*
 GetTodayLeaderboardRankingPublicV1Short get today leaderboard ranking data
+
 
 Get rankings in today leaderboard.
 */
@@ -2176,7 +2284,8 @@ func (a *Client) GetTodayLeaderboardRankingPublicV1Short(params *GetTodayLeaderb
 /*
 Deprecated: 2022-08-10 - Use GetUserRankingPublicV1Short instead.
 
-# GetUserRankingPublicV1 get user ranking
+GetUserRankingPublicV1 get user ranking
+
 
 Get user ranking in leaderboard
 */
@@ -2235,6 +2344,7 @@ func (a *Client) GetUserRankingPublicV1(params *GetUserRankingPublicV1Params, au
 
 /*
 GetUserRankingPublicV1Short get user ranking
+
 
 Get user ranking in leaderboard
 */
@@ -2420,7 +2530,8 @@ func (a *Client) DeleteUserRankingPublicV1Short(params *DeleteUserRankingPublicV
 /*
 Deprecated: 2022-08-10 - Use GetCurrentWeekLeaderboardRankingPublicV1Short instead.
 
-# GetCurrentWeekLeaderboardRankingPublicV1 get current week leaderboard ranking data
+GetCurrentWeekLeaderboardRankingPublicV1 get current week leaderboard ranking data
+
 
 Get rankings in current week leaderboard.
 */
@@ -2476,6 +2587,7 @@ func (a *Client) GetCurrentWeekLeaderboardRankingPublicV1(params *GetCurrentWeek
 
 /*
 GetCurrentWeekLeaderboardRankingPublicV1Short get current week leaderboard ranking data
+
 
 Get rankings in current week leaderboard.
 */

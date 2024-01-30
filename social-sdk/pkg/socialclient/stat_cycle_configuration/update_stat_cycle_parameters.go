@@ -59,8 +59,7 @@ func NewUpdateStatCycleParamsWithHTTPClient(client *http.Client) *UpdateStatCycl
 	}
 }
 
-/*
-UpdateStatCycleParams contains all the parameters to send to the API endpoint
+/*UpdateStatCycleParams contains all the parameters to send to the API endpoint
 for the update stat cycle operation typically these are written to a http.Request
 */
 type UpdateStatCycleParams struct {

@@ -72,8 +72,7 @@ func NewTestPayPalConfigParamsWithHTTPClient(client *http.Client) *TestPayPalCon
 	}
 }
 
-/*
-TestPayPalConfigParams contains all the parameters to send to the API endpoint
+/*TestPayPalConfigParams contains all the parameters to send to the API endpoint
 for the test pay pal config operation typically these are written to a http.Request
 */
 type TestPayPalConfigParams struct {

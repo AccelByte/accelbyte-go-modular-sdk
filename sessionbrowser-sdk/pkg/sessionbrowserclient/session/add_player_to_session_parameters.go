@@ -59,8 +59,7 @@ func NewAddPlayerToSessionParamsWithHTTPClient(client *http.Client) *AddPlayerTo
 	}
 }
 
-/*
-AddPlayerToSessionParams contains all the parameters to send to the API endpoint
+/*AddPlayerToSessionParams contains all the parameters to send to the API endpoint
 for the add player to session operation typically these are written to a http.Request
 */
 type AddPlayerToSessionParams struct {

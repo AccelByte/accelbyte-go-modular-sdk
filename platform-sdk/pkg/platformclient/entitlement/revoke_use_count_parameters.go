@@ -59,8 +59,7 @@ func NewRevokeUseCountParamsWithHTTPClient(client *http.Client) *RevokeUseCountP
 	}
 }
 
-/*
-RevokeUseCountParams contains all the parameters to send to the API endpoint
+/*RevokeUseCountParams contains all the parameters to send to the API endpoint
 for the revoke use count operation typically these are written to a http.Request
 */
 type RevokeUseCountParams struct {

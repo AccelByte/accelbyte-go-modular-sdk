@@ -48,7 +48,7 @@ ListTerminatedServers retrieve all terminated servers
 ```
 Required permission: ADMIN:NAMESPACE:{namespace}:DSLM:SERVER [READ]
 
-# This endpoint used to retrieve terminated servers in a namespace
+This endpoint used to retrieve terminated servers in a namespace
 
 The namespace filter is will give result exact namespace response
 ```
@@ -108,7 +108,7 @@ ListTerminatedServersShort retrieve all terminated servers
 ```
 Required permission: ADMIN:NAMESPACE:{namespace}:DSLM:SERVER [READ]
 
-# This endpoint used to retrieve terminated servers in a namespace
+This endpoint used to retrieve terminated servers in a namespace
 
 The namespace filter is will give result exact namespace response
 ```

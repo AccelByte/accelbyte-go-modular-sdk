@@ -58,8 +58,7 @@ func NewGetTemplateSlugLocalizationsTemplateV1AdminParamsWithHTTPClient(client *
 	}
 }
 
-/*
-GetTemplateSlugLocalizationsTemplateV1AdminParams contains all the parameters to send to the API endpoint
+/*GetTemplateSlugLocalizationsTemplateV1AdminParams contains all the parameters to send to the API endpoint
 for the get template slug localizations template v1 admin operation typically these are written to a http.Request
 */
 type GetTemplateSlugLocalizationsTemplateV1AdminParams struct {

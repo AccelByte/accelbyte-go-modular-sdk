@@ -59,8 +59,7 @@ func NewBulkCreateMockTicketsParamsWithHTTPClient(client *http.Client) *BulkCrea
 	}
 }
 
-/*
-BulkCreateMockTicketsParams contains all the parameters to send to the API endpoint
+/*BulkCreateMockTicketsParams contains all the parameters to send to the API endpoint
 for the bulk create mock tickets operation typically these are written to a http.Request
 */
 type BulkCreateMockTicketsParams struct {

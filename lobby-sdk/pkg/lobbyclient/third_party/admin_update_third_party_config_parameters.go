@@ -59,8 +59,7 @@ func NewAdminUpdateThirdPartyConfigParamsWithHTTPClient(client *http.Client) *Ad
 	}
 }
 
-/*
-AdminUpdateThirdPartyConfigParams contains all the parameters to send to the API endpoint
+/*AdminUpdateThirdPartyConfigParams contains all the parameters to send to the API endpoint
 for the admin update third party config operation typically these are written to a http.Request
 */
 type AdminUpdateThirdPartyConfigParams struct {

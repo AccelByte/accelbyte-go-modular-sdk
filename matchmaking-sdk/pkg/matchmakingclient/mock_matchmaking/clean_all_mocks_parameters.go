@@ -57,8 +57,7 @@ func NewCleanAllMocksParamsWithHTTPClient(client *http.Client) *CleanAllMocksPar
 	}
 }
 
-/*
-CleanAllMocksParams contains all the parameters to send to the API endpoint
+/*CleanAllMocksParams contains all the parameters to send to the API endpoint
 for the clean all mocks operation typically these are written to a http.Request
 */
 type CleanAllMocksParams struct {

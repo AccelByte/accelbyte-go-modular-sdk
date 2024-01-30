@@ -59,8 +59,7 @@ func NewCreateImageParamsWithHTTPClient(client *http.Client) *CreateImageParams 
 	}
 }
 
-/*
-CreateImageParams contains all the parameters to send to the API endpoint
+/*CreateImageParams contains all the parameters to send to the API endpoint
 for the create image operation typically these are written to a http.Request
 */
 type CreateImageParams struct {

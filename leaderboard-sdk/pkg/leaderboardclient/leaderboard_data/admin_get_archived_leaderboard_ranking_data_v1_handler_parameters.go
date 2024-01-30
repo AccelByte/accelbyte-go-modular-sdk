@@ -57,8 +57,7 @@ func NewAdminGetArchivedLeaderboardRankingDataV1HandlerParamsWithHTTPClient(clie
 	}
 }
 
-/*
-AdminGetArchivedLeaderboardRankingDataV1HandlerParams contains all the parameters to send to the API endpoint
+/*AdminGetArchivedLeaderboardRankingDataV1HandlerParams contains all the parameters to send to the API endpoint
 for the admin get archived leaderboard ranking data v1 handler operation typically these are written to a http.Request
 */
 type AdminGetArchivedLeaderboardRankingDataV1HandlerParams struct {

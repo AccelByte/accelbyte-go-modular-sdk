@@ -59,8 +59,7 @@ func NewApplyUserRedemptionParamsWithHTTPClient(client *http.Client) *ApplyUserR
 	}
 }
 
-/*
-ApplyUserRedemptionParams contains all the parameters to send to the API endpoint
+/*ApplyUserRedemptionParams contains all the parameters to send to the API endpoint
 for the apply user redemption operation typically these are written to a http.Request
 */
 type ApplyUserRedemptionParams struct {

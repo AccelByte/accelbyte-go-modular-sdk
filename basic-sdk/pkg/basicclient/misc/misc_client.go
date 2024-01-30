@@ -63,9 +63,9 @@ GetCountries list countries
 List countries.
 Other detail info:
 
-  - Required permission : login user
-  - Action code : 11204
-  - Returns : country code list
+  * Required permission : login user
+  *  Action code : 11204
+  *  Returns : country code list
 */
 func (a *Client) GetCountries(params *GetCountriesParams, authInfo runtime.ClientAuthInfoWriter) (*GetCountriesOK, *GetCountriesBadRequest, *GetCountriesUnauthorized, error) {
 	// TODO: Validate the params before sending
@@ -119,9 +119,9 @@ GetCountriesShort list countries
 List countries.
 Other detail info:
 
-  - Required permission : login user
-  - Action code : 11204
-  - Returns : country code list
+  * Required permission : login user
+  *  Action code : 11204
+  *  Returns : country code list
 */
 func (a *Client) GetCountriesShort(params *GetCountriesParams, authInfo runtime.ClientAuthInfoWriter) (*GetCountriesOK, error) {
 	// TODO: Validate the params before sending
@@ -179,9 +179,9 @@ GetCountryGroups list country groups
 List country groups. Will return all available country groups if the query param is not specified
 Other detail info:
 
-  - Required permission : resource = "ADMIN:NAMESPACE:{namespace}:MISC" , action=2 (READ)
-  - Action code : 11203
-  - Returns : list of country groups
+  * Required permission : resource = "ADMIN:NAMESPACE:{namespace}:MISC" , action=2 (READ)
+  *  Action code : 11203
+  *  Returns : list of country groups
 */
 func (a *Client) GetCountryGroups(params *GetCountryGroupsParams, authInfo runtime.ClientAuthInfoWriter) (*GetCountryGroupsOK, *GetCountryGroupsBadRequest, *GetCountryGroupsUnauthorized, *GetCountryGroupsForbidden, *GetCountryGroupsNotFound, error) {
 	// TODO: Validate the params before sending
@@ -241,9 +241,9 @@ GetCountryGroupsShort list country groups
 List country groups. Will return all available country groups if the query param is not specified
 Other detail info:
 
-  - Required permission : resource = "ADMIN:NAMESPACE:{namespace}:MISC" , action=2 (READ)
-  - Action code : 11203
-  - Returns : list of country groups
+  * Required permission : resource = "ADMIN:NAMESPACE:{namespace}:MISC" , action=2 (READ)
+  *  Action code : 11203
+  *  Returns : list of country groups
 */
 func (a *Client) GetCountryGroupsShort(params *GetCountryGroupsParams, authInfo runtime.ClientAuthInfoWriter) (*GetCountryGroupsOK, error) {
 	// TODO: Validate the params before sending
@@ -306,9 +306,9 @@ Add a country groups
 Country code must follow ISO3166-1 alpha-2.
 Other detail info:
 
-  - Required permission : resource = "ADMIN:NAMESPACE:{namespace}:MISC" , action=1 (CREATE)
-  - Action code : 11201
-  - Returns : newly created country group
+  * Required permission : resource = "ADMIN:NAMESPACE:{namespace}:MISC" , action=1 (CREATE)
+  *  Action code : 11201
+  *  Returns : newly created country group
 */
 func (a *Client) AddCountryGroup(params *AddCountryGroupParams, authInfo runtime.ClientAuthInfoWriter) (*AddCountryGroupCreated, *AddCountryGroupBadRequest, *AddCountryGroupUnauthorized, *AddCountryGroupForbidden, *AddCountryGroupConflict, error) {
 	// TODO: Validate the params before sending
@@ -369,9 +369,9 @@ Add a country groups
 Country code must follow ISO3166-1 alpha-2.
 Other detail info:
 
-  - Required permission : resource = "ADMIN:NAMESPACE:{namespace}:MISC" , action=1 (CREATE)
-  - Action code : 11201
-  - Returns : newly created country group
+  * Required permission : resource = "ADMIN:NAMESPACE:{namespace}:MISC" , action=1 (CREATE)
+  *  Action code : 11201
+  *  Returns : newly created country group
 */
 func (a *Client) AddCountryGroupShort(params *AddCountryGroupParams, authInfo runtime.ClientAuthInfoWriter) (*AddCountryGroupCreated, error) {
 	// TODO: Validate the params before sending
@@ -436,9 +436,9 @@ Valid update behaviour :
 - To update countries only, do not include countryGroupName key or just specify it with blank value.
 Other detail info:
 
-  - Required permission : resource = "ADMIN:NAMESPACE:{namespace}:MISC" , action=4 (UPDATE)
-  - Action code : 11202
-  - Returns : updated country group
+  * Required permission : resource = "ADMIN:NAMESPACE:{namespace}:MISC" , action=4 (UPDATE)
+  *  Action code : 11202
+  *  Returns : updated country group
 */
 func (a *Client) UpdateCountryGroup(params *UpdateCountryGroupParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateCountryGroupOK, *UpdateCountryGroupBadRequest, *UpdateCountryGroupUnauthorized, *UpdateCountryGroupForbidden, *UpdateCountryGroupNotFound, error) {
 	// TODO: Validate the params before sending
@@ -501,9 +501,9 @@ Valid update behaviour :
 - To update countries only, do not include countryGroupName key or just specify it with blank value.
 Other detail info:
 
-  - Required permission : resource = "ADMIN:NAMESPACE:{namespace}:MISC" , action=4 (UPDATE)
-  - Action code : 11202
-  - Returns : updated country group
+  * Required permission : resource = "ADMIN:NAMESPACE:{namespace}:MISC" , action=4 (UPDATE)
+  *  Action code : 11202
+  *  Returns : updated country group
 */
 func (a *Client) UpdateCountryGroupShort(params *UpdateCountryGroupParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateCountryGroupOK, error) {
 	// TODO: Validate the params before sending
@@ -565,7 +565,7 @@ DeleteCountryGroup delete a country group
 Delete a country groups by its country group code. This endpoint usually used for testing purpose to cleanup test data.
 Other detail info:
 
-  - Required permission : resource = "ADMIN:NAMESPACE:{namespace}:MISC" , action=8 (DELETE)
+  * Required permission : resource = "ADMIN:NAMESPACE:{namespace}:MISC" , action=8 (DELETE)
 */
 func (a *Client) DeleteCountryGroup(params *DeleteCountryGroupParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteCountryGroupOK, *DeleteCountryGroupBadRequest, *DeleteCountryGroupUnauthorized, *DeleteCountryGroupForbidden, *DeleteCountryGroupNotFound, error) {
 	// TODO: Validate the params before sending
@@ -625,7 +625,7 @@ DeleteCountryGroupShort delete a country group
 Delete a country groups by its country group code. This endpoint usually used for testing purpose to cleanup test data.
 Other detail info:
 
-  - Required permission : resource = "ADMIN:NAMESPACE:{namespace}:MISC" , action=8 (DELETE)
+  * Required permission : resource = "ADMIN:NAMESPACE:{namespace}:MISC" , action=8 (DELETE)
 */
 func (a *Client) DeleteCountryGroupShort(params *DeleteCountryGroupParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteCountryGroupOK, error) {
 	// TODO: Validate the params before sending
@@ -687,9 +687,9 @@ GetLanguages list languages.
 List languages.
 Other detail info:
 
-  - Required permission : login user
-  - Action code : 11206
-  - Returns : language list
+  * Required permission : login user
+  *  Action code : 11206
+  *  Returns : language list
 */
 func (a *Client) GetLanguages(params *GetLanguagesParams, authInfo runtime.ClientAuthInfoWriter) (*GetLanguagesOK, *GetLanguagesBadRequest, *GetLanguagesUnauthorized, error) {
 	// TODO: Validate the params before sending
@@ -743,9 +743,9 @@ GetLanguagesShort list languages.
 List languages.
 Other detail info:
 
-  - Required permission : login user
-  - Action code : 11206
-  - Returns : language list
+  * Required permission : login user
+  *  Action code : 11206
+  *  Returns : language list
 */
 func (a *Client) GetLanguagesShort(params *GetLanguagesParams, authInfo runtime.ClientAuthInfoWriter) (*GetLanguagesOK, error) {
 	// TODO: Validate the params before sending
@@ -803,9 +803,9 @@ GetTimeZones list time zones
 List time zones.
 Other detail info:
 
-  - Required permission : login user
-  - Action code : 11205
-  - Returns : time zones
+  * Required permission : login user
+  *  Action code : 11205
+  *  Returns : time zones
 */
 func (a *Client) GetTimeZones(params *GetTimeZonesParams, authInfo runtime.ClientAuthInfoWriter) (*GetTimeZonesOK, *GetTimeZonesBadRequest, *GetTimeZonesUnauthorized, error) {
 	// TODO: Validate the params before sending
@@ -859,9 +859,9 @@ GetTimeZonesShort list time zones
 List time zones.
 Other detail info:
 
-  - Required permission : login user
-  - Action code : 11205
-  - Returns : time zones
+  * Required permission : login user
+  *  Action code : 11205
+  *  Returns : time zones
 */
 func (a *Client) GetTimeZonesShort(params *GetTimeZonesParams, authInfo runtime.ClientAuthInfoWriter) (*GetTimeZonesOK, error) {
 	// TODO: Validate the params before sending
@@ -1013,7 +1013,7 @@ PublicGetCountries list countries
 List countries.
 Other detail info:
 
-  - Returns : country code list
+  * Returns : country code list
 */
 func (a *Client) PublicGetCountries(params *PublicGetCountriesParams) (*PublicGetCountriesOK, *PublicGetCountriesBadRequest, error) {
 	// TODO: Validate the params before sending
@@ -1063,7 +1063,7 @@ PublicGetCountriesShort list countries
 List countries.
 Other detail info:
 
-  - Returns : country code list
+  * Returns : country code list
 */
 func (a *Client) PublicGetCountriesShort(params *PublicGetCountriesParams) (*PublicGetCountriesOK, error) {
 	// TODO: Validate the params before sending
@@ -1118,7 +1118,7 @@ PublicGetLanguages list languages.
 List languages.
 Other detail info:
 
-  - Returns : language list
+  * Returns : language list
 */
 func (a *Client) PublicGetLanguages(params *PublicGetLanguagesParams) (*PublicGetLanguagesOK, *PublicGetLanguagesBadRequest, error) {
 	// TODO: Validate the params before sending
@@ -1168,7 +1168,7 @@ PublicGetLanguagesShort list languages.
 List languages.
 Other detail info:
 
-  - Returns : language list
+  * Returns : language list
 */
 func (a *Client) PublicGetLanguagesShort(params *PublicGetLanguagesParams) (*PublicGetLanguagesOK, error) {
 	// TODO: Validate the params before sending
@@ -1223,7 +1223,7 @@ PublicGetTimeZones list time zones
 List time zones.
 Other detail info:
 
-  - Returns : time zones
+  * Returns : time zones
 */
 func (a *Client) PublicGetTimeZones(params *PublicGetTimeZonesParams) (*PublicGetTimeZonesOK, *PublicGetTimeZonesBadRequest, error) {
 	// TODO: Validate the params before sending
@@ -1273,7 +1273,7 @@ PublicGetTimeZonesShort list time zones
 List time zones.
 Other detail info:
 
-  - Returns : time zones
+  * Returns : time zones
 */
 func (a *Client) PublicGetTimeZonesShort(params *PublicGetTimeZonesParams) (*PublicGetTimeZonesOK, error) {
 	// TODO: Validate the params before sending

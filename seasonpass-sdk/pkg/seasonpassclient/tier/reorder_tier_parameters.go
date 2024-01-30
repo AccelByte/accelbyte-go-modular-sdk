@@ -59,8 +59,7 @@ func NewReorderTierParamsWithHTTPClient(client *http.Client) *ReorderTierParams 
 	}
 }
 
-/*
-ReorderTierParams contains all the parameters to send to the API endpoint
+/*ReorderTierParams contains all the parameters to send to the API endpoint
 for the reorder tier operation typically these are written to a http.Request
 */
 type ReorderTierParams struct {

@@ -86,8 +86,7 @@ func NewGetServerLogsParamsWithHTTPClient(client *http.Client) *GetServerLogsPar
 	}
 }
 
-/*
-GetServerLogsParams contains all the parameters to send to the API endpoint
+/*GetServerLogsParams contains all the parameters to send to the API endpoint
 for the get server logs operation typically these are written to a http.Request
 */
 type GetServerLogsParams struct {

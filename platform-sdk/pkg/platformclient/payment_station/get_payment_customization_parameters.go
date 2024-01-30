@@ -82,8 +82,7 @@ func NewGetPaymentCustomizationParamsWithHTTPClient(client *http.Client) *GetPay
 	}
 }
 
-/*
-GetPaymentCustomizationParams contains all the parameters to send to the API endpoint
+/*GetPaymentCustomizationParams contains all the parameters to send to the API endpoint
 for the get payment customization operation typically these are written to a http.Request
 */
 type GetPaymentCustomizationParams struct {

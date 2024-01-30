@@ -107,8 +107,7 @@ func NewListImagesClientParamsWithHTTPClient(client *http.Client) *ListImagesCli
 	}
 }
 
-/*
-ListImagesClientParams contains all the parameters to send to the API endpoint
+/*ListImagesClientParams contains all the parameters to send to the API endpoint
 for the list images client operation typically these are written to a http.Request
 */
 type ListImagesClientParams struct {

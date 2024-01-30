@@ -59,8 +59,7 @@ func NewUpdateXsollaUIConfigParamsWithHTTPClient(client *http.Client) *UpdateXso
 	}
 }
 
-/*
-UpdateXsollaUIConfigParams contains all the parameters to send to the API endpoint
+/*UpdateXsollaUIConfigParams contains all the parameters to send to the API endpoint
 for the update xsolla ui config operation typically these are written to a http.Request
 */
 type UpdateXsollaUIConfigParams struct {

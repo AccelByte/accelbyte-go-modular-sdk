@@ -57,8 +57,7 @@ func NewGetRegisteredEventsByEventTypeHandlerParamsWithHTTPClient(client *http.C
 	}
 }
 
-/*
-GetRegisteredEventsByEventTypeHandlerParams contains all the parameters to send to the API endpoint
+/*GetRegisteredEventsByEventTypeHandlerParams contains all the parameters to send to the API endpoint
 for the get registered events by event type handler operation typically these are written to a http.Request
 */
 type GetRegisteredEventsByEventTypeHandlerParams struct {

@@ -59,8 +59,7 @@ func NewStoreMatchResultsParamsWithHTTPClient(client *http.Client) *StoreMatchRe
 	}
 }
 
-/*
-StoreMatchResultsParams contains all the parameters to send to the API endpoint
+/*StoreMatchResultsParams contains all the parameters to send to the API endpoint
 for the store match results operation typically these are written to a http.Request
 */
 type StoreMatchResultsParams struct {

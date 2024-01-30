@@ -57,8 +57,7 @@ func NewGetGameBinaryRecordV1ParamsWithHTTPClient(client *http.Client) *GetGameB
 	}
 }
 
-/*
-GetGameBinaryRecordV1Params contains all the parameters to send to the API endpoint
+/*GetGameBinaryRecordV1Params contains all the parameters to send to the API endpoint
 for the get game binary record v1 operation typically these are written to a http.Request
 */
 type GetGameBinaryRecordV1Params struct {

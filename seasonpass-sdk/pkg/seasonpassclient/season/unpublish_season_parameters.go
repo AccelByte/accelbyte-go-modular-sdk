@@ -70,8 +70,7 @@ func NewUnpublishSeasonParamsWithHTTPClient(client *http.Client) *UnpublishSeaso
 	}
 }
 
-/*
-UnpublishSeasonParams contains all the parameters to send to the API endpoint
+/*UnpublishSeasonParams contains all the parameters to send to the API endpoint
 for the unpublish season operation typically these are written to a http.Request
 */
 type UnpublishSeasonParams struct {

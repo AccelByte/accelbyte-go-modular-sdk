@@ -59,8 +59,7 @@ func NewCreateDeploymentOverrideParamsWithHTTPClient(client *http.Client) *Creat
 	}
 }
 
-/*
-CreateDeploymentOverrideParams contains all the parameters to send to the API endpoint
+/*CreateDeploymentOverrideParams contains all the parameters to send to the API endpoint
 for the create deployment override operation typically these are written to a http.Request
 */
 type CreateDeploymentOverrideParams struct {

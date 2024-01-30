@@ -57,8 +57,7 @@ func NewPublicQueryMyGameSessionsParamsWithHTTPClient(client *http.Client) *Publ
 	}
 }
 
-/*
-PublicQueryMyGameSessionsParams contains all the parameters to send to the API endpoint
+/*PublicQueryMyGameSessionsParams contains all the parameters to send to the API endpoint
 for the public query my game sessions operation typically these are written to a http.Request
 */
 type PublicQueryMyGameSessionsParams struct {

@@ -78,8 +78,7 @@ func NewGetUserIncomingFriendsWithTimeParamsWithHTTPClient(client *http.Client) 
 	}
 }
 
-/*
-GetUserIncomingFriendsWithTimeParams contains all the parameters to send to the API endpoint
+/*GetUserIncomingFriendsWithTimeParams contains all the parameters to send to the API endpoint
 for the get user incoming friends with time operation typically these are written to a http.Request
 */
 type GetUserIncomingFriendsWithTimeParams struct {

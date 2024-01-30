@@ -57,8 +57,7 @@ func NewPublicGetPaymentAccountsParamsWithHTTPClient(client *http.Client) *Publi
 	}
 }
 
-/*
-PublicGetPaymentAccountsParams contains all the parameters to send to the API endpoint
+/*PublicGetPaymentAccountsParams contains all the parameters to send to the API endpoint
 for the public get payment accounts operation typically these are written to a http.Request
 */
 type PublicGetPaymentAccountsParams struct {

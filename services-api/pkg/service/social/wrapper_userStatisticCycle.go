@@ -22,6 +22,14 @@ type UserStatisticCycleService struct {
 	Client           *socialclient.JusticeSocialService
 	ConfigRepository repository.ConfigRepository
 	TokenRepository  repository.TokenRepository
+
+	FlightIdRepository *utils.FlightIdContainer
+}
+
+var tempFlightIdUserStatisticCycle *string
+
+func (aaa *UserStatisticCycleService) UpdateFlightId(flightId string) {
+	tempFlightIdUserStatisticCycle = &flightId
 }
 
 func (aaa *UserStatisticCycleService) GetAuthSession() auth.Session {
@@ -135,6 +143,11 @@ func (aaa *UserStatisticCycleService) GetUserStatCycleItemsShort(input *user_sta
 			RetryCodes: utils.RetryCodes,
 		}
 	}
+	if tempFlightIdUserStatisticCycle != nil {
+		input.XFlightId = tempFlightIdUserStatisticCycle
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	}
 
 	ok, err := aaa.Client.UserStatisticCycle.GetUserStatCycleItemsShort(input, authInfoWriter)
 	if err != nil {
@@ -160,6 +173,11 @@ func (aaa *UserStatisticCycleService) PublicListMyStatCycleItemsShort(input *use
 			RetryCodes: utils.RetryCodes,
 		}
 	}
+	if tempFlightIdUserStatisticCycle != nil {
+		input.XFlightId = tempFlightIdUserStatisticCycle
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	}
 
 	ok, err := aaa.Client.UserStatisticCycle.PublicListMyStatCycleItemsShort(input, authInfoWriter)
 	if err != nil {
@@ -184,6 +202,11 @@ func (aaa *UserStatisticCycleService) GetUserStatCycleItems1Short(input *user_st
 			Transport:  aaa.Client.Runtime.Transport,
 			RetryCodes: utils.RetryCodes,
 		}
+	}
+	if tempFlightIdUserStatisticCycle != nil {
+		input.XFlightId = tempFlightIdUserStatisticCycle
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.UserStatisticCycle.GetUserStatCycleItems1Short(input, authInfoWriter)

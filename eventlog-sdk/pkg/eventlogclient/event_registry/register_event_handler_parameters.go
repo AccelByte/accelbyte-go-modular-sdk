@@ -59,8 +59,7 @@ func NewRegisterEventHandlerParamsWithHTTPClient(client *http.Client) *RegisterE
 	}
 }
 
-/*
-RegisterEventHandlerParams contains all the parameters to send to the API endpoint
+/*RegisterEventHandlerParams contains all the parameters to send to the API endpoint
 for the register event handler operation typically these are written to a http.Request
 */
 type RegisterEventHandlerParams struct {

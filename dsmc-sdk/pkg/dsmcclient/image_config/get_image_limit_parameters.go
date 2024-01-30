@@ -57,8 +57,7 @@ func NewGetImageLimitParamsWithHTTPClient(client *http.Client) *GetImageLimitPar
 	}
 }
 
-/*
-GetImageLimitParams contains all the parameters to send to the API endpoint
+/*GetImageLimitParams contains all the parameters to send to the API endpoint
 for the get image limit operation typically these are written to a http.Request
 */
 type GetImageLimitParams struct {

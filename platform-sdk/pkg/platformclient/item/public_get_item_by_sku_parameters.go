@@ -70,8 +70,7 @@ func NewPublicGetItemBySkuParamsWithHTTPClient(client *http.Client) *PublicGetIt
 	}
 }
 
-/*
-PublicGetItemBySkuParams contains all the parameters to send to the API endpoint
+/*PublicGetItemBySkuParams contains all the parameters to send to the API endpoint
 for the public get item by sku operation typically these are written to a http.Request
 */
 type PublicGetItemBySkuParams struct {

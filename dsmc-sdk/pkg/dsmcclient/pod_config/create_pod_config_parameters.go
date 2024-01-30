@@ -59,8 +59,7 @@ func NewCreatePodConfigParamsWithHTTPClient(client *http.Client) *CreatePodConfi
 	}
 }
 
-/*
-CreatePodConfigParams contains all the parameters to send to the API endpoint
+/*CreatePodConfigParams contains all the parameters to send to the API endpoint
 for the create pod config operation typically these are written to a http.Request
 */
 type CreatePodConfigParams struct {

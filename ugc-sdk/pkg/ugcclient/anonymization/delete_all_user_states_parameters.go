@@ -57,8 +57,7 @@ func NewDeleteAllUserStatesParamsWithHTTPClient(client *http.Client) *DeleteAllU
 	}
 }
 
-/*
-DeleteAllUserStatesParams contains all the parameters to send to the API endpoint
+/*DeleteAllUserStatesParams contains all the parameters to send to the API endpoint
 for the delete all user states operation typically these are written to a http.Request
 */
 type DeleteAllUserStatesParams struct {

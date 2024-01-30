@@ -57,8 +57,7 @@ func NewGetItemTypeConfigParamsWithHTTPClient(client *http.Client) *GetItemTypeC
 	}
 }
 
-/*
-GetItemTypeConfigParams contains all the parameters to send to the API endpoint
+/*GetItemTypeConfigParams contains all the parameters to send to the API endpoint
 for the get item type config operation typically these are written to a http.Request
 */
 type GetItemTypeConfigParams struct {

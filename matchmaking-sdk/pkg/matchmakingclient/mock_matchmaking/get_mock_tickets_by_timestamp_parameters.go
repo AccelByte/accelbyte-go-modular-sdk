@@ -59,8 +59,7 @@ func NewGetMockTicketsByTimestampParamsWithHTTPClient(client *http.Client) *GetM
 	}
 }
 
-/*
-GetMockTicketsByTimestampParams contains all the parameters to send to the API endpoint
+/*GetMockTicketsByTimestampParams contains all the parameters to send to the API endpoint
 for the get mock tickets by timestamp operation typically these are written to a http.Request
 */
 type GetMockTicketsByTimestampParams struct {

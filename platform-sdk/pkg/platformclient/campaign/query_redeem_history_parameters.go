@@ -78,8 +78,7 @@ func NewQueryRedeemHistoryParamsWithHTTPClient(client *http.Client) *QueryRedeem
 	}
 }
 
-/*
-QueryRedeemHistoryParams contains all the parameters to send to the API endpoint
+/*QueryRedeemHistoryParams contains all the parameters to send to the API endpoint
 for the query redeem history operation typically these are written to a http.Request
 */
 type QueryRedeemHistoryParams struct {

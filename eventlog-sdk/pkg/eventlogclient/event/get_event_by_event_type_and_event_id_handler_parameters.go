@@ -58,8 +58,7 @@ func NewGetEventByEventTypeAndEventIDHandlerParamsWithHTTPClient(client *http.Cl
 	}
 }
 
-/*
-GetEventByEventTypeAndEventIDHandlerParams contains all the parameters to send to the API endpoint
+/*GetEventByEventTypeAndEventIDHandlerParams contains all the parameters to send to the API endpoint
 for the get event by event type and event id handler operation typically these are written to a http.Request
 */
 type GetEventByEventTypeAndEventIDHandlerParams struct {

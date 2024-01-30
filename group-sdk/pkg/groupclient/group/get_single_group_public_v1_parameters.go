@@ -57,8 +57,7 @@ func NewGetSingleGroupPublicV1ParamsWithHTTPClient(client *http.Client) *GetSing
 	}
 }
 
-/*
-GetSingleGroupPublicV1Params contains all the parameters to send to the API endpoint
+/*GetSingleGroupPublicV1Params contains all the parameters to send to the API endpoint
 for the get single group public v1 operation typically these are written to a http.Request
 */
 type GetSingleGroupPublicV1Params struct {

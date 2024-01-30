@@ -59,8 +59,7 @@ func NewPublicMoveMyItemsParamsWithHTTPClient(client *http.Client) *PublicMoveMy
 	}
 }
 
-/*
-PublicMoveMyItemsParams contains all the parameters to send to the API endpoint
+/*PublicMoveMyItemsParams contains all the parameters to send to the API endpoint
 for the public move my items operation typically these are written to a http.Request
 */
 type PublicMoveMyItemsParams struct {

@@ -63,8 +63,7 @@ func NewPublicDeletePaymentAccountParamsWithHTTPClient(client *http.Client) *Pub
 	}
 }
 
-/*
-PublicDeletePaymentAccountParams contains all the parameters to send to the API endpoint
+/*PublicDeletePaymentAccountParams contains all the parameters to send to the API endpoint
 for the public delete payment account operation typically these are written to a http.Request
 */
 type PublicDeletePaymentAccountParams struct {

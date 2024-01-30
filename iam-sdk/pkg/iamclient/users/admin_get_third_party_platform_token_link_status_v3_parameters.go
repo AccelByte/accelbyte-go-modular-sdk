@@ -57,8 +57,7 @@ func NewAdminGetThirdPartyPlatformTokenLinkStatusV3ParamsWithHTTPClient(client *
 	}
 }
 
-/*
-AdminGetThirdPartyPlatformTokenLinkStatusV3Params contains all the parameters to send to the API endpoint
+/*AdminGetThirdPartyPlatformTokenLinkStatusV3Params contains all the parameters to send to the API endpoint
 for the admin get third party platform token link status v3 operation typically these are written to a http.Request
 */
 type AdminGetThirdPartyPlatformTokenLinkStatusV3Params struct {

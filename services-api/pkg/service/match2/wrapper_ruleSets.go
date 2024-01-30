@@ -22,6 +22,14 @@ type RuleSetsService struct {
 	Client           *match2client.JusticeMatch2Service
 	ConfigRepository repository.ConfigRepository
 	TokenRepository  repository.TokenRepository
+
+	FlightIdRepository *utils.FlightIdContainer
+}
+
+var tempFlightIdRuleSets *string
+
+func (aaa *RuleSetsService) UpdateFlightId(flightId string) {
+	tempFlightIdRuleSets = &flightId
 }
 
 func (aaa *RuleSetsService) GetAuthSession() auth.Session {
@@ -178,6 +186,11 @@ func (aaa *RuleSetsService) RuleSetListShort(input *rule_sets.RuleSetListParams)
 			RetryCodes: utils.RetryCodes,
 		}
 	}
+	if tempFlightIdRuleSets != nil {
+		input.XFlightId = tempFlightIdRuleSets
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	}
 
 	ok, err := aaa.Client.RuleSets.RuleSetListShort(input, authInfoWriter)
 	if err != nil {
@@ -202,6 +215,11 @@ func (aaa *RuleSetsService) CreateRuleSetShort(input *rule_sets.CreateRuleSetPar
 			Transport:  aaa.Client.Runtime.Transport,
 			RetryCodes: utils.RetryCodes,
 		}
+	}
+	if tempFlightIdRuleSets != nil {
+		input.XFlightId = tempFlightIdRuleSets
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
 	}
 
 	_, err := aaa.Client.RuleSets.CreateRuleSetShort(input, authInfoWriter)
@@ -228,6 +246,11 @@ func (aaa *RuleSetsService) RuleSetDetailsShort(input *rule_sets.RuleSetDetailsP
 			RetryCodes: utils.RetryCodes,
 		}
 	}
+	if tempFlightIdRuleSets != nil {
+		input.XFlightId = tempFlightIdRuleSets
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	}
 
 	ok, err := aaa.Client.RuleSets.RuleSetDetailsShort(input, authInfoWriter)
 	if err != nil {
@@ -253,6 +276,11 @@ func (aaa *RuleSetsService) UpdateRuleSetShort(input *rule_sets.UpdateRuleSetPar
 			RetryCodes: utils.RetryCodes,
 		}
 	}
+	if tempFlightIdRuleSets != nil {
+		input.XFlightId = tempFlightIdRuleSets
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	}
 
 	ok, err := aaa.Client.RuleSets.UpdateRuleSetShort(input, authInfoWriter)
 	if err != nil {
@@ -277,6 +305,11 @@ func (aaa *RuleSetsService) DeleteRuleSetShort(input *rule_sets.DeleteRuleSetPar
 			Transport:  aaa.Client.Runtime.Transport,
 			RetryCodes: utils.RetryCodes,
 		}
+	}
+	if tempFlightIdRuleSets != nil {
+		input.XFlightId = tempFlightIdRuleSets
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
 	}
 
 	_, err := aaa.Client.RuleSets.DeleteRuleSetShort(input, authInfoWriter)

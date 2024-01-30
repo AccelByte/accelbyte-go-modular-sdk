@@ -59,8 +59,7 @@ func NewSetUserVisibilityStatusV2ParamsWithHTTPClient(client *http.Client) *SetU
 	}
 }
 
-/*
-SetUserVisibilityStatusV2Params contains all the parameters to send to the API endpoint
+/*SetUserVisibilityStatusV2Params contains all the parameters to send to the API endpoint
 for the set user visibility status v2 operation typically these are written to a http.Request
 */
 type SetUserVisibilityStatusV2Params struct {

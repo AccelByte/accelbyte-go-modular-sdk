@@ -59,8 +59,7 @@ func NewAppendTeamGameSessionParamsWithHTTPClient(client *http.Client) *AppendTe
 	}
 }
 
-/*
-AppendTeamGameSessionParams contains all the parameters to send to the API endpoint
+/*AppendTeamGameSessionParams contains all the parameters to send to the API endpoint
 for the append team game session operation typically these are written to a http.Request
 */
 type AppendTeamGameSessionParams struct {

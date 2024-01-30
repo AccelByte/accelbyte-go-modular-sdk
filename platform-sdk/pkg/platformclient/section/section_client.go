@@ -56,8 +56,8 @@ This API is used to query sections.
 
 Other detail info:
 
-  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:STORE", action=2 (READ)
-  - Returns : paginated sections
+  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:STORE", action=2 (READ)
+  *  Returns : paginated sections
 */
 func (a *Client) QuerySections(params *QuerySectionsParams, authInfo runtime.ClientAuthInfoWriter) (*QuerySectionsOK, *QuerySectionsNotFound, *QuerySectionsUnprocessableEntity, error) {
 	// TODO: Validate the params before sending
@@ -112,8 +112,8 @@ This API is used to query sections.
 
 Other detail info:
 
-  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:STORE", action=2 (READ)
-  - Returns : paginated sections
+  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:STORE", action=2 (READ)
+  *  Returns : paginated sections
 */
 func (a *Client) QuerySectionsShort(params *QuerySectionsParams, authInfo runtime.ClientAuthInfoWriter) (*QuerySectionsOK, error) {
 	// TODO: Validate the params before sending
@@ -172,20 +172,26 @@ This API is used to create a section.
 
 Other detail info:
 
-  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:STORE", action=1 (CREATE)
-  - Returns : created a section
+  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:STORE", action=1 (CREATE)
+  *  Returns : created a section
+
+
 
 ## Restrictions for section extension and localization extension
+
 
 1. Cannot use "." as the key name
 -
 
-	{ "data.2": "value" }
+
+    { "data.2": "value" }
+
 
 2. Cannot use "$" as the prefix in key names
 -
 
-	{ "$data": "value" }
+
+    { "$data": "value" }
 */
 func (a *Client) CreateSection(params *CreateSectionParams, authInfo runtime.ClientAuthInfoWriter) (*CreateSectionCreated, *CreateSectionBadRequest, *CreateSectionNotFound, *CreateSectionConflict, *CreateSectionUnprocessableEntity, error) {
 	// TODO: Validate the params before sending
@@ -246,20 +252,26 @@ This API is used to create a section.
 
 Other detail info:
 
-  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:STORE", action=1 (CREATE)
-  - Returns : created a section
+  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:STORE", action=1 (CREATE)
+  *  Returns : created a section
+
+
 
 ## Restrictions for section extension and localization extension
+
 
 1. Cannot use "." as the key name
 -
 
-	{ "data.2": "value" }
+
+    { "data.2": "value" }
+
 
 2. Cannot use "$" as the prefix in key names
 -
 
-	{ "$data": "value" }
+
+    { "$data": "value" }
 */
 func (a *Client) CreateSectionShort(params *CreateSectionParams, authInfo runtime.ClientAuthInfoWriter) (*CreateSectionCreated, error) {
 	// TODO: Validate the params before sending
@@ -322,7 +334,7 @@ This API is used to purge expired section.
 
 Other detail info:
 
-  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:STORE", action=8 (DELETE)
+  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:STORE", action=8 (DELETE)
 */
 func (a *Client) PurgeExpiredSection(params *PurgeExpiredSectionParams, authInfo runtime.ClientAuthInfoWriter) (*PurgeExpiredSectionNoContent, *PurgeExpiredSectionNotFound, error) {
 	// TODO: Validate the params before sending
@@ -374,7 +386,7 @@ This API is used to purge expired section.
 
 Other detail info:
 
-  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:STORE", action=8 (DELETE)
+  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:STORE", action=8 (DELETE)
 */
 func (a *Client) PurgeExpiredSectionShort(params *PurgeExpiredSectionParams, authInfo runtime.ClientAuthInfoWriter) (*PurgeExpiredSectionNoContent, error) {
 	// TODO: Validate the params before sending
@@ -431,8 +443,8 @@ This API is used to get a section.
 
 Other detail info:
 
-  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:STORE", action=2 (READ)
-  - Returns : section data
+  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:STORE", action=2 (READ)
+  *  Returns : section data
 */
 func (a *Client) GetSection(params *GetSectionParams, authInfo runtime.ClientAuthInfoWriter) (*GetSectionOK, *GetSectionNotFound, error) {
 	// TODO: Validate the params before sending
@@ -484,8 +496,8 @@ This API is used to get a section.
 
 Other detail info:
 
-  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:STORE", action=2 (READ)
-  - Returns : section data
+  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:STORE", action=2 (READ)
+  *  Returns : section data
 */
 func (a *Client) GetSectionShort(params *GetSectionParams, authInfo runtime.ClientAuthInfoWriter) (*GetSectionOK, error) {
 	// TODO: Validate the params before sending
@@ -542,20 +554,26 @@ This API is used to update s section.
 
 Other detail info:
 
-  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:STORE", action=4 (UPDATE)
-  - Returns : updated section data
+  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:STORE", action=4 (UPDATE)
+  *  Returns : updated section data
+
+
 
 ## Restrictions for section extension and localization extension
+
 
 1. Cannot use "." as the key name
 -
 
-	{ "data.2": "value" }
+
+    { "data.2": "value" }
+
 
 2. Cannot use "$" as the prefix in key names
 -
 
-	{ "$data": "value" }
+
+    { "$data": "value" }
 */
 func (a *Client) UpdateSection(params *UpdateSectionParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateSectionOK, *UpdateSectionBadRequest, *UpdateSectionNotFound, *UpdateSectionConflict, *UpdateSectionUnprocessableEntity, error) {
 	// TODO: Validate the params before sending
@@ -616,20 +634,26 @@ This API is used to update s section.
 
 Other detail info:
 
-  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:STORE", action=4 (UPDATE)
-  - Returns : updated section data
+  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:STORE", action=4 (UPDATE)
+  *  Returns : updated section data
+
+
 
 ## Restrictions for section extension and localization extension
+
 
 1. Cannot use "." as the key name
 -
 
-	{ "data.2": "value" }
+
+    { "data.2": "value" }
+
 
 2. Cannot use "$" as the prefix in key names
 -
 
-	{ "$data": "value" }
+
+    { "$data": "value" }
 */
 func (a *Client) UpdateSectionShort(params *UpdateSectionParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateSectionOK, error) {
 	// TODO: Validate the params before sending
@@ -692,7 +716,7 @@ This API is used to delete s section.
 
 Other detail info:
 
-  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:STORE", action=8 (DELETE)
+  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:STORE", action=8 (DELETE)
 */
 func (a *Client) DeleteSection(params *DeleteSectionParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteSectionNoContent, *DeleteSectionNotFound, *DeleteSectionConflict, error) {
 	// TODO: Validate the params before sending
@@ -747,7 +771,7 @@ This API is used to delete s section.
 
 Other detail info:
 
-  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:STORE", action=8 (DELETE)
+  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:STORE", action=8 (DELETE)
 */
 func (a *Client) DeleteSectionShort(params *DeleteSectionParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteSectionNoContent, error) {
 	// TODO: Validate the params before sending
@@ -806,10 +830,10 @@ This API is used to list active section contents.
 
 Other detail info:
 
-  - Required permission : resource=NAMESPACE:{namespace}:USER:{userId}:STORE, action=2 (READ)
-  - Optional permission : resource="PREVIEW", action=1(CREATE) (user with this permission can view draft store sections)
-  - Optional permission : resource="SANDBOX", action=1(CREATE) (user with this permission can view draft store sections)
-  - Returns : active section contents
+  * Required permission : resource=NAMESPACE:{namespace}:USER:{userId}:STORE, action=2 (READ)
+  *  Optional permission : resource="PREVIEW", action=1(CREATE) (user with this permission can view draft store sections)
+  *  Optional permission : resource="SANDBOX", action=1(CREATE) (user with this permission can view draft store sections)
+  *  Returns : active section contents
 */
 func (a *Client) PublicListActiveSections(params *PublicListActiveSectionsParams, authInfo runtime.ClientAuthInfoWriter) (*PublicListActiveSectionsOK, *PublicListActiveSectionsNotFound, error) {
 	// TODO: Validate the params before sending
@@ -861,10 +885,10 @@ This API is used to list active section contents.
 
 Other detail info:
 
-  - Required permission : resource=NAMESPACE:{namespace}:USER:{userId}:STORE, action=2 (READ)
-  - Optional permission : resource="PREVIEW", action=1(CREATE) (user with this permission can view draft store sections)
-  - Optional permission : resource="SANDBOX", action=1(CREATE) (user with this permission can view draft store sections)
-  - Returns : active section contents
+  * Required permission : resource=NAMESPACE:{namespace}:USER:{userId}:STORE, action=2 (READ)
+  *  Optional permission : resource="PREVIEW", action=1(CREATE) (user with this permission can view draft store sections)
+  *  Optional permission : resource="SANDBOX", action=1(CREATE) (user with this permission can view draft store sections)
+  *  Returns : active section contents
 */
 func (a *Client) PublicListActiveSectionsShort(params *PublicListActiveSectionsParams, authInfo runtime.ClientAuthInfoWriter) (*PublicListActiveSectionsOK, error) {
 	// TODO: Validate the params before sending

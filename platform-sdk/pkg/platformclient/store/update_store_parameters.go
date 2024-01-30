@@ -59,8 +59,7 @@ func NewUpdateStoreParamsWithHTTPClient(client *http.Client) *UpdateStoreParams 
 	}
 }
 
-/*
-UpdateStoreParams contains all the parameters to send to the API endpoint
+/*UpdateStoreParams contains all the parameters to send to the API endpoint
 for the update store operation typically these are written to a http.Request
 */
 type UpdateStoreParams struct {

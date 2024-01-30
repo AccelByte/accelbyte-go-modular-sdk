@@ -47,7 +47,7 @@ type ClientService interface {
 /*
 Deprecated: 2022-08-10 - Use AdminListInventoriesShort instead.
 
-# AdminListInventories to list all inventories
+AdminListInventories to list all inventories
 
 Listing all inventories in a namespace.
 The response body will be in the form of standard pagination.
@@ -161,7 +161,7 @@ func (a *Client) AdminListInventoriesShort(params *AdminListInventoriesParams, a
 /*
 Deprecated: 2022-08-10 - Use AdminCreateInventoryShort instead.
 
-# AdminCreateInventory to create inventory
+AdminCreateInventory to create inventory
 
 Creating an inventory.
 The inventory configuration must exists otherwise it will fail.
@@ -279,7 +279,7 @@ func (a *Client) AdminCreateInventoryShort(params *AdminCreateInventoryParams, a
 /*
 Deprecated: 2022-08-10 - Use AdminGetInventoryShort instead.
 
-# AdminGetInventory to get an inventory
+AdminGetInventory to get an inventory
 
 Getting an inventory info.
 
@@ -396,7 +396,7 @@ func (a *Client) AdminGetInventoryShort(params *AdminGetInventoryParams, authInf
 /*
 Deprecated: 2022-08-10 - Use AdminUpdateInventoryShort instead.
 
-# AdminUpdateInventory to update inventory
+AdminUpdateInventory to update inventory
 
 Updating an inventory.
 Positive value will increase MaxSlots from existing value
@@ -519,7 +519,7 @@ func (a *Client) AdminUpdateInventoryShort(params *AdminUpdateInventoryParams, a
 /*
 Deprecated: 2022-08-10 - Use DeleteInventoryShort instead.
 
-# DeleteInventory to delete inventory
+DeleteInventory to delete inventory
 
 Deleting an inventory.
 If an inventory still has items, it cannot be deleted.

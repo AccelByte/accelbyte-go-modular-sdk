@@ -59,8 +59,7 @@ func NewPublicSetPartyLimitV1ParamsWithHTTPClient(client *http.Client) *PublicSe
 	}
 }
 
-/*
-PublicSetPartyLimitV1Params contains all the parameters to send to the API endpoint
+/*PublicSetPartyLimitV1Params contains all the parameters to send to the API endpoint
 for the public set party limit v1 operation typically these are written to a http.Request
 */
 type PublicSetPartyLimitV1Params struct {

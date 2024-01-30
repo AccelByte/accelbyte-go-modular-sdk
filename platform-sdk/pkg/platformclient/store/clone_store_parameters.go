@@ -57,8 +57,7 @@ func NewCloneStoreParamsWithHTTPClient(client *http.Client) *CloneStoreParams {
 	}
 }
 
-/*
-CloneStoreParams contains all the parameters to send to the API endpoint
+/*CloneStoreParams contains all the parameters to send to the API endpoint
 for the clone store operation typically these are written to a http.Request
 */
 type CloneStoreParams struct {

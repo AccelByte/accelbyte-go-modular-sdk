@@ -58,8 +58,7 @@ func NewGetGroupListAdminV1ParamsWithHTTPClient(client *http.Client) *GetGroupLi
 	}
 }
 
-/*
-GetGroupListAdminV1Params contains all the parameters to send to the API endpoint
+/*GetGroupListAdminV1Params contains all the parameters to send to the API endpoint
 for the get group list admin v1 operation typically these are written to a http.Request
 */
 type GetGroupListAdminV1Params struct {

@@ -86,8 +86,7 @@ func NewQueryEntitlements1ParamsWithHTTPClient(client *http.Client) *QueryEntitl
 	}
 }
 
-/*
-QueryEntitlements1Params contains all the parameters to send to the API endpoint
+/*QueryEntitlements1Params contains all the parameters to send to the API endpoint
 for the query entitlements 1 operation typically these are written to a http.Request
 */
 type QueryEntitlements1Params struct {

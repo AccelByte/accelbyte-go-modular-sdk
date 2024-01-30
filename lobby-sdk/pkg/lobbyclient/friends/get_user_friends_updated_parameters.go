@@ -78,8 +78,7 @@ func NewGetUserFriendsUpdatedParamsWithHTTPClient(client *http.Client) *GetUserF
 	}
 }
 
-/*
-GetUserFriendsUpdatedParams contains all the parameters to send to the API endpoint
+/*GetUserFriendsUpdatedParams contains all the parameters to send to the API endpoint
 for the get user friends updated operation typically these are written to a http.Request
 */
 type GetUserFriendsUpdatedParams struct {

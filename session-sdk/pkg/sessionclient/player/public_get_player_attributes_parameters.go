@@ -57,8 +57,7 @@ func NewPublicGetPlayerAttributesParamsWithHTTPClient(client *http.Client) *Publ
 	}
 }
 
-/*
-PublicGetPlayerAttributesParams contains all the parameters to send to the API endpoint
+/*PublicGetPlayerAttributesParams contains all the parameters to send to the API endpoint
 for the public get player attributes operation typically these are written to a http.Request
 */
 type PublicGetPlayerAttributesParams struct {

@@ -57,8 +57,7 @@ func NewRevokeUserEntitlementParamsWithHTTPClient(client *http.Client) *RevokeUs
 	}
 }
 
-/*
-RevokeUserEntitlementParams contains all the parameters to send to the API endpoint
+/*RevokeUserEntitlementParams contains all the parameters to send to the API endpoint
 for the revoke user entitlement operation typically these are written to a http.Request
 */
 type RevokeUserEntitlementParams struct {

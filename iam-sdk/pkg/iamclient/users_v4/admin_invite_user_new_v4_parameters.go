@@ -59,8 +59,7 @@ func NewAdminInviteUserNewV4ParamsWithHTTPClient(client *http.Client) *AdminInvi
 	}
 }
 
-/*
-AdminInviteUserNewV4Params contains all the parameters to send to the API endpoint
+/*AdminInviteUserNewV4Params contains all the parameters to send to the API endpoint
 for the admin invite user new v4 operation typically these are written to a http.Request
 */
 type AdminInviteUserNewV4Params struct {

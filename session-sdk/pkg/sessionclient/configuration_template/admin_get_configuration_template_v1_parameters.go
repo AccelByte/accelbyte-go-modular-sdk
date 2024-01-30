@@ -57,8 +57,7 @@ func NewAdminGetConfigurationTemplateV1ParamsWithHTTPClient(client *http.Client)
 	}
 }
 
-/*
-AdminGetConfigurationTemplateV1Params contains all the parameters to send to the API endpoint
+/*AdminGetConfigurationTemplateV1Params contains all the parameters to send to the API endpoint
 for the admin get configuration template v1 operation typically these are written to a http.Request
 */
 type AdminGetConfigurationTemplateV1Params struct {

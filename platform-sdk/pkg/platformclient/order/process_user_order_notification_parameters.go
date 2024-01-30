@@ -59,8 +59,7 @@ func NewProcessUserOrderNotificationParamsWithHTTPClient(client *http.Client) *P
 	}
 }
 
-/*
-ProcessUserOrderNotificationParams contains all the parameters to send to the API endpoint
+/*ProcessUserOrderNotificationParams contains all the parameters to send to the API endpoint
 for the process user order notification operation typically these are written to a http.Request
 */
 type ProcessUserOrderNotificationParams struct {

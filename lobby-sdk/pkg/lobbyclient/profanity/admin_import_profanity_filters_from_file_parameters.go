@@ -57,8 +57,7 @@ func NewAdminImportProfanityFiltersFromFileParamsWithHTTPClient(client *http.Cli
 	}
 }
 
-/*
-AdminImportProfanityFiltersFromFileParams contains all the parameters to send to the API endpoint
+/*AdminImportProfanityFiltersFromFileParams contains all the parameters to send to the API endpoint
 for the admin import profanity filters from file operation typically these are written to a http.Request
 */
 type AdminImportProfanityFiltersFromFileParams struct {

@@ -59,8 +59,7 @@ func NewUpdateItemPurchaseConditionParamsWithHTTPClient(client *http.Client) *Up
 	}
 }
 
-/*
-UpdateItemPurchaseConditionParams contains all the parameters to send to the API endpoint
+/*UpdateItemPurchaseConditionParams contains all the parameters to send to the API endpoint
 for the update item purchase condition operation typically these are written to a http.Request
 */
 type UpdateItemPurchaseConditionParams struct {

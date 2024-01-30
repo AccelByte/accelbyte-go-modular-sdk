@@ -59,8 +59,7 @@ func NewUnlockSteamUserAchievementParamsWithHTTPClient(client *http.Client) *Unl
 	}
 }
 
-/*
-UnlockSteamUserAchievementParams contains all the parameters to send to the API endpoint
+/*UnlockSteamUserAchievementParams contains all the parameters to send to the API endpoint
 for the unlock steam user achievement operation typically these are written to a http.Request
 */
 type UnlockSteamUserAchievementParams struct {

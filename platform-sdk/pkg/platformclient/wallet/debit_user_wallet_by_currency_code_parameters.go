@@ -59,8 +59,7 @@ func NewDebitUserWalletByCurrencyCodeParamsWithHTTPClient(client *http.Client) *
 	}
 }
 
-/*
-DebitUserWalletByCurrencyCodeParams contains all the parameters to send to the API endpoint
+/*DebitUserWalletByCurrencyCodeParams contains all the parameters to send to the API endpoint
 for the debit user wallet by currency code operation typically these are written to a http.Request
 */
 type DebitUserWalletByCurrencyCodeParams struct {

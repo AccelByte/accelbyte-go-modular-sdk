@@ -57,8 +57,7 @@ func NewEnableUserEntitlementParamsWithHTTPClient(client *http.Client) *EnableUs
 	}
 }
 
-/*
-EnableUserEntitlementParams contains all the parameters to send to the API endpoint
+/*EnableUserEntitlementParams contains all the parameters to send to the API endpoint
 for the enable user entitlement operation typically these are written to a http.Request
 */
 type EnableUserEntitlementParams struct {

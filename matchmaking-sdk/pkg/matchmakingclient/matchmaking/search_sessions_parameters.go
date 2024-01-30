@@ -58,8 +58,7 @@ func NewSearchSessionsParamsWithHTTPClient(client *http.Client) *SearchSessionsP
 	}
 }
 
-/*
-SearchSessionsParams contains all the parameters to send to the API endpoint
+/*SearchSessionsParams contains all the parameters to send to the API endpoint
 for the search sessions operation typically these are written to a http.Request
 */
 type SearchSessionsParams struct {

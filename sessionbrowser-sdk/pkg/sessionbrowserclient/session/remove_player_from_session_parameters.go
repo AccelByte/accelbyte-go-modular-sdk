@@ -57,8 +57,7 @@ func NewRemovePlayerFromSessionParamsWithHTTPClient(client *http.Client) *Remove
 	}
 }
 
-/*
-RemovePlayerFromSessionParams contains all the parameters to send to the API endpoint
+/*RemovePlayerFromSessionParams contains all the parameters to send to the API endpoint
 for the remove player from session operation typically these are written to a http.Request
 */
 type RemovePlayerFromSessionParams struct {

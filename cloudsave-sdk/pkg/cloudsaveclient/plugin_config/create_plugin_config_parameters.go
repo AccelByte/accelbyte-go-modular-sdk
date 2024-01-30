@@ -59,8 +59,7 @@ func NewCreatePluginConfigParamsWithHTTPClient(client *http.Client) *CreatePlugi
 	}
 }
 
-/*
-CreatePluginConfigParams contains all the parameters to send to the API endpoint
+/*CreatePluginConfigParams contains all the parameters to send to the API endpoint
 for the create plugin config operation typically these are written to a http.Request
 */
 type CreatePluginConfigParams struct {

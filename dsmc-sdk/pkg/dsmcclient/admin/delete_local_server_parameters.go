@@ -57,8 +57,7 @@ func NewDeleteLocalServerParamsWithHTTPClient(client *http.Client) *DeleteLocalS
 	}
 }
 
-/*
-DeleteLocalServerParams contains all the parameters to send to the API endpoint
+/*DeleteLocalServerParams contains all the parameters to send to the API endpoint
 for the delete local server operation typically these are written to a http.Request
 */
 type DeleteLocalServerParams struct {

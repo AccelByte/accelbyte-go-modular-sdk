@@ -59,8 +59,7 @@ func NewPublicUpdateAttributeParamsWithHTTPClient(client *http.Client) *PublicUp
 	}
 }
 
-/*
-PublicUpdateAttributeParams contains all the parameters to send to the API endpoint
+/*PublicUpdateAttributeParams contains all the parameters to send to the API endpoint
 for the public update attribute operation typically these are written to a http.Request
 */
 type PublicUpdateAttributeParams struct {

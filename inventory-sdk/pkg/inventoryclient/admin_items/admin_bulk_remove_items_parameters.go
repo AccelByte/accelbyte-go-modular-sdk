@@ -59,8 +59,7 @@ func NewAdminBulkRemoveItemsParamsWithHTTPClient(client *http.Client) *AdminBulk
 	}
 }
 
-/*
-AdminBulkRemoveItemsParams contains all the parameters to send to the API endpoint
+/*AdminBulkRemoveItemsParams contains all the parameters to send to the API endpoint
 for the admin bulk remove items operation typically these are written to a http.Request
 */
 type AdminBulkRemoveItemsParams struct {

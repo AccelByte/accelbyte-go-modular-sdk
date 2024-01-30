@@ -59,8 +59,7 @@ func NewUpdateEventRegistryHandlerParamsWithHTTPClient(client *http.Client) *Upd
 	}
 }
 
-/*
-UpdateEventRegistryHandlerParams contains all the parameters to send to the API endpoint
+/*UpdateEventRegistryHandlerParams contains all the parameters to send to the API endpoint
 for the update event registry handler operation typically these are written to a http.Request
 */
 type UpdateEventRegistryHandlerParams struct {

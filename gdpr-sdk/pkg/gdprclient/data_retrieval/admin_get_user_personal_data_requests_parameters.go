@@ -58,8 +58,7 @@ func NewAdminGetUserPersonalDataRequestsParamsWithHTTPClient(client *http.Client
 	}
 }
 
-/*
-AdminGetUserPersonalDataRequestsParams contains all the parameters to send to the API endpoint
+/*AdminGetUserPersonalDataRequestsParams contains all the parameters to send to the API endpoint
 for the admin get user personal data requests operation typically these are written to a http.Request
 */
 type AdminGetUserPersonalDataRequestsParams struct {

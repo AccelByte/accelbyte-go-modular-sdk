@@ -57,8 +57,7 @@ func NewGetLootBoxPluginConfigParamsWithHTTPClient(client *http.Client) *GetLoot
 	}
 }
 
-/*
-GetLootBoxPluginConfigParams contains all the parameters to send to the API endpoint
+/*GetLootBoxPluginConfigParams contains all the parameters to send to the API endpoint
 for the get loot box plugin config operation typically these are written to a http.Request
 */
 type GetLootBoxPluginConfigParams struct {

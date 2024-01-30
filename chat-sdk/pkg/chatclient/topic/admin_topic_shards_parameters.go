@@ -57,8 +57,7 @@ func NewAdminTopicShardsParamsWithHTTPClient(client *http.Client) *AdminTopicSha
 	}
 }
 
-/*
-AdminTopicShardsParams contains all the parameters to send to the API endpoint
+/*AdminTopicShardsParams contains all the parameters to send to the API endpoint
 for the admin topic shards operation typically these are written to a http.Request
 */
 type AdminTopicShardsParams struct {

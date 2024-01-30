@@ -78,8 +78,7 @@ func NewAdminGetTypeParamsWithHTTPClient(client *http.Client) *AdminGetTypeParam
 	}
 }
 
-/*
-AdminGetTypeParams contains all the parameters to send to the API endpoint
+/*AdminGetTypeParams contains all the parameters to send to the API endpoint
 for the admin get type operation typically these are written to a http.Request
 */
 type AdminGetTypeParams struct {

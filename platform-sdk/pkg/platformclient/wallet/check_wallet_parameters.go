@@ -72,8 +72,7 @@ func NewCheckWalletParamsWithHTTPClient(client *http.Client) *CheckWalletParams 
 	}
 }
 
-/*
-CheckWalletParams contains all the parameters to send to the API endpoint
+/*CheckWalletParams contains all the parameters to send to the API endpoint
 for the check wallet operation typically these are written to a http.Request
 */
 type CheckWalletParams struct {

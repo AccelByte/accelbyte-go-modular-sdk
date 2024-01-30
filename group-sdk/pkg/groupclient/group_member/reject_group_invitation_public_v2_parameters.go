@@ -57,8 +57,7 @@ func NewRejectGroupInvitationPublicV2ParamsWithHTTPClient(client *http.Client) *
 	}
 }
 
-/*
-RejectGroupInvitationPublicV2Params contains all the parameters to send to the API endpoint
+/*RejectGroupInvitationPublicV2Params contains all the parameters to send to the API endpoint
 for the reject group invitation public v2 operation typically these are written to a http.Request
 */
 type RejectGroupInvitationPublicV2Params struct {

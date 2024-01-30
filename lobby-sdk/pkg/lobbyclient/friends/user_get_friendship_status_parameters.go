@@ -57,8 +57,7 @@ func NewUserGetFriendshipStatusParamsWithHTTPClient(client *http.Client) *UserGe
 	}
 }
 
-/*
-UserGetFriendshipStatusParams contains all the parameters to send to the API endpoint
+/*UserGetFriendshipStatusParams contains all the parameters to send to the API endpoint
 for the user get friendship status operation typically these are written to a http.Request
 */
 type UserGetFriendshipStatusParams struct {

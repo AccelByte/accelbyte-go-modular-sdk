@@ -59,8 +59,7 @@ func NewSetServerAliasParamsWithHTTPClient(client *http.Client) *SetServerAliasP
 	}
 }
 
-/*
-SetServerAliasParams contains all the parameters to send to the API endpoint
+/*SetServerAliasParams contains all the parameters to send to the API endpoint
 for the set server alias operation typically these are written to a http.Request
 */
 type SetServerAliasParams struct {

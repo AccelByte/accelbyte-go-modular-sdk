@@ -59,8 +59,7 @@ func NewUpdateGroupParamsWithHTTPClient(client *http.Client) *UpdateGroupParams 
 	}
 }
 
-/*
-UpdateGroupParams contains all the parameters to send to the API endpoint
+/*UpdateGroupParams contains all the parameters to send to the API endpoint
 for the update group operation typically these are written to a http.Request
 */
 type UpdateGroupParams struct {

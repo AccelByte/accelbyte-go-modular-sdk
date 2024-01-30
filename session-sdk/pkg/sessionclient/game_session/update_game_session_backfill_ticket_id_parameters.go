@@ -59,8 +59,7 @@ func NewUpdateGameSessionBackfillTicketIDParamsWithHTTPClient(client *http.Clien
 	}
 }
 
-/*
-UpdateGameSessionBackfillTicketIDParams contains all the parameters to send to the API endpoint
+/*UpdateGameSessionBackfillTicketIDParams contains all the parameters to send to the API endpoint
 for the update game session backfill ticket id operation typically these are written to a http.Request
 */
 type UpdateGameSessionBackfillTicketIDParams struct {

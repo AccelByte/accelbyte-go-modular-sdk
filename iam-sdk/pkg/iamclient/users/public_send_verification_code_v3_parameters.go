@@ -59,8 +59,7 @@ func NewPublicSendVerificationCodeV3ParamsWithHTTPClient(client *http.Client) *P
 	}
 }
 
-/*
-PublicSendVerificationCodeV3Params contains all the parameters to send to the API endpoint
+/*PublicSendVerificationCodeV3Params contains all the parameters to send to the API endpoint
 for the public send verification code v3 operation typically these are written to a http.Request
 */
 type PublicSendVerificationCodeV3Params struct {

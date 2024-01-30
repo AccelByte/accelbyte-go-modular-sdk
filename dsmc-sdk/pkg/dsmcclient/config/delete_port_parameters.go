@@ -57,8 +57,7 @@ func NewDeletePortParamsWithHTTPClient(client *http.Client) *DeletePortParams {
 	}
 }
 
-/*
-DeletePortParams contains all the parameters to send to the API endpoint
+/*DeletePortParams contains all the parameters to send to the API endpoint
 for the delete port operation typically these are written to a http.Request
 */
 type DeletePortParams struct {

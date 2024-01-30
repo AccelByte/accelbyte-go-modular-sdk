@@ -59,8 +59,7 @@ func NewPublicGetBulkPlayerCurrentPlatformParamsWithHTTPClient(client *http.Clie
 	}
 }
 
-/*
-PublicGetBulkPlayerCurrentPlatformParams contains all the parameters to send to the API endpoint
+/*PublicGetBulkPlayerCurrentPlatformParams contains all the parameters to send to the API endpoint
 for the public get bulk player current platform operation typically these are written to a http.Request
 */
 type PublicGetBulkPlayerCurrentPlatformParams struct {

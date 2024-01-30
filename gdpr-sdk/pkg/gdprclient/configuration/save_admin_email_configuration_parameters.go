@@ -57,8 +57,7 @@ func NewSaveAdminEmailConfigurationParamsWithHTTPClient(client *http.Client) *Sa
 	}
 }
 
-/*
-SaveAdminEmailConfigurationParams contains all the parameters to send to the API endpoint
+/*SaveAdminEmailConfigurationParams contains all the parameters to send to the API endpoint
 for the save admin email configuration operation typically these are written to a http.Request
 */
 type SaveAdminEmailConfigurationParams struct {

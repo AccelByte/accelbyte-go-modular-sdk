@@ -57,8 +57,7 @@ func NewAdminDeletePlayerBinaryRecordV1ParamsWithHTTPClient(client *http.Client)
 	}
 }
 
-/*
-AdminDeletePlayerBinaryRecordV1Params contains all the parameters to send to the API endpoint
+/*AdminDeletePlayerBinaryRecordV1Params contains all the parameters to send to the API endpoint
 for the admin delete player binary record v1 operation typically these are written to a http.Request
 */
 type AdminDeletePlayerBinaryRecordV1Params struct {

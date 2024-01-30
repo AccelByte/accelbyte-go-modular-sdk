@@ -57,8 +57,7 @@ func NewGetSessionServerSecretParamsWithHTTPClient(client *http.Client) *GetSess
 	}
 }
 
-/*
-GetSessionServerSecretParams contains all the parameters to send to the API endpoint
+/*GetSessionServerSecretParams contains all the parameters to send to the API endpoint
 for the get session server secret operation typically these are written to a http.Request
 */
 type GetSessionServerSecretParams struct {

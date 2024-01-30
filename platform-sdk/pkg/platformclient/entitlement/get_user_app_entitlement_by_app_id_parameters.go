@@ -70,8 +70,7 @@ func NewGetUserAppEntitlementByAppIDParamsWithHTTPClient(client *http.Client) *G
 	}
 }
 
-/*
-GetUserAppEntitlementByAppIDParams contains all the parameters to send to the API endpoint
+/*GetUserAppEntitlementByAppIDParams contains all the parameters to send to the API endpoint
 for the get user app entitlement by app id operation typically these are written to a http.Request
 */
 type GetUserAppEntitlementByAppIDParams struct {

@@ -78,8 +78,7 @@ func NewGetActiveCustomGameSessionsParamsWithHTTPClient(client *http.Client) *Ge
 	}
 }
 
-/*
-GetActiveCustomGameSessionsParams contains all the parameters to send to the API endpoint
+/*GetActiveCustomGameSessionsParams contains all the parameters to send to the API endpoint
 for the get active custom game sessions operation typically these are written to a http.Request
 */
 type GetActiveCustomGameSessionsParams struct {

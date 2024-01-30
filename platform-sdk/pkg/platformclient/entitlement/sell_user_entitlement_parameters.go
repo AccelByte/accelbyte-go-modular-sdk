@@ -59,8 +59,7 @@ func NewSellUserEntitlementParamsWithHTTPClient(client *http.Client) *SellUserEn
 	}
 }
 
-/*
-SellUserEntitlementParams contains all the parameters to send to the API endpoint
+/*SellUserEntitlementParams contains all the parameters to send to the API endpoint
 for the sell user entitlement operation typically these are written to a http.Request
 */
 type SellUserEntitlementParams struct {

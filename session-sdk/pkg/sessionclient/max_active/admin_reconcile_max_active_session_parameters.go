@@ -59,8 +59,7 @@ func NewAdminReconcileMaxActiveSessionParamsWithHTTPClient(client *http.Client) 
 	}
 }
 
-/*
-AdminReconcileMaxActiveSessionParams contains all the parameters to send to the API endpoint
+/*AdminReconcileMaxActiveSessionParams contains all the parameters to send to the API endpoint
 for the admin reconcile max active session operation typically these are written to a http.Request
 */
 type AdminReconcileMaxActiveSessionParams struct {

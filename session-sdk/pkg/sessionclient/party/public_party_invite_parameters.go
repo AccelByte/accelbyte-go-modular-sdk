@@ -59,8 +59,7 @@ func NewPublicPartyInviteParamsWithHTTPClient(client *http.Client) *PublicPartyI
 	}
 }
 
-/*
-PublicPartyInviteParams contains all the parameters to send to the API endpoint
+/*PublicPartyInviteParams contains all the parameters to send to the API endpoint
 for the public party invite operation typically these are written to a http.Request
 */
 type PublicPartyInviteParams struct {

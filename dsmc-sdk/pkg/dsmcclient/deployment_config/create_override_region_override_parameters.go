@@ -59,8 +59,7 @@ func NewCreateOverrideRegionOverrideParamsWithHTTPClient(client *http.Client) *C
 	}
 }
 
-/*
-CreateOverrideRegionOverrideParams contains all the parameters to send to the API endpoint
+/*CreateOverrideRegionOverrideParams contains all the parameters to send to the API endpoint
 for the create override region override operation typically these are written to a http.Request
 */
 type CreateOverrideRegionOverrideParams struct {

@@ -94,8 +94,7 @@ func NewQueryUserEntitlementsByAppTypeParamsWithHTTPClient(client *http.Client) 
 	}
 }
 
-/*
-QueryUserEntitlementsByAppTypeParams contains all the parameters to send to the API endpoint
+/*QueryUserEntitlementsByAppTypeParams contains all the parameters to send to the API endpoint
 for the query user entitlements by app type operation typically these are written to a http.Request
 */
 type QueryUserEntitlementsByAppTypeParams struct {

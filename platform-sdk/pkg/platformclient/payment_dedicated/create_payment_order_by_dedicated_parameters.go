@@ -59,8 +59,7 @@ func NewCreatePaymentOrderByDedicatedParamsWithHTTPClient(client *http.Client) *
 	}
 }
 
-/*
-CreatePaymentOrderByDedicatedParams contains all the parameters to send to the API endpoint
+/*CreatePaymentOrderByDedicatedParams contains all the parameters to send to the API endpoint
 for the create payment order by dedicated operation typically these are written to a http.Request
 */
 type CreatePaymentOrderByDedicatedParams struct {

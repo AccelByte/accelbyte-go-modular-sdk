@@ -57,8 +57,7 @@ func NewExportRewardsParamsWithHTTPClient(client *http.Client) *ExportRewardsPar
 	}
 }
 
-/*
-ExportRewardsParams contains all the parameters to send to the API endpoint
+/*ExportRewardsParams contains all the parameters to send to the API endpoint
 for the export rewards operation typically these are written to a http.Request
 */
 type ExportRewardsParams struct {

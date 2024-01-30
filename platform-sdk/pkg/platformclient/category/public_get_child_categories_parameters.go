@@ -57,8 +57,7 @@ func NewPublicGetChildCategoriesParamsWithHTTPClient(client *http.Client) *Publi
 	}
 }
 
-/*
-PublicGetChildCategoriesParams contains all the parameters to send to the API endpoint
+/*PublicGetChildCategoriesParams contains all the parameters to send to the API endpoint
 for the public get child categories operation typically these are written to a http.Request
 */
 type PublicGetChildCategoriesParams struct {

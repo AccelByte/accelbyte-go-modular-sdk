@@ -59,8 +59,7 @@ func NewCreateNewGroupPublicV1ParamsWithHTTPClient(client *http.Client) *CreateN
 	}
 }
 
-/*
-CreateNewGroupPublicV1Params contains all the parameters to send to the API endpoint
+/*CreateNewGroupPublicV1Params contains all the parameters to send to the API endpoint
 for the create new group public v1 operation typically these are written to a http.Request
 */
 type CreateNewGroupPublicV1Params struct {

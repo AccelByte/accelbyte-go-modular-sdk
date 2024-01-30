@@ -57,8 +57,7 @@ func NewPublicGetUserAppEntitlementByAppIDParamsWithHTTPClient(client *http.Clie
 	}
 }
 
-/*
-PublicGetUserAppEntitlementByAppIDParams contains all the parameters to send to the API endpoint
+/*PublicGetUserAppEntitlementByAppIDParams contains all the parameters to send to the API endpoint
 for the public get user app entitlement by app id operation typically these are written to a http.Request
 */
 type PublicGetUserAppEntitlementByAppIDParams struct {

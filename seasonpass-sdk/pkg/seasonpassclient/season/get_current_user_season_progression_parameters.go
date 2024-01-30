@@ -57,8 +57,7 @@ func NewGetCurrentUserSeasonProgressionParamsWithHTTPClient(client *http.Client)
 	}
 }
 
-/*
-GetCurrentUserSeasonProgressionParams contains all the parameters to send to the API endpoint
+/*GetCurrentUserSeasonProgressionParams contains all the parameters to send to the API endpoint
 for the get current user season progression operation typically these are written to a http.Request
 */
 type GetCurrentUserSeasonProgressionParams struct {

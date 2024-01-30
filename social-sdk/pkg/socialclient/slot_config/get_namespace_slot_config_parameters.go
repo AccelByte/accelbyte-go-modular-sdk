@@ -57,8 +57,7 @@ func NewGetNamespaceSlotConfigParamsWithHTTPClient(client *http.Client) *GetName
 	}
 }
 
-/*
-GetNamespaceSlotConfigParams contains all the parameters to send to the API endpoint
+/*GetNamespaceSlotConfigParams contains all the parameters to send to the API endpoint
 for the get namespace slot config operation typically these are written to a http.Request
 */
 type GetNamespaceSlotConfigParams struct {

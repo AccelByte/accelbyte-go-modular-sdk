@@ -70,8 +70,7 @@ func NewAdminGetCountryListV3ParamsWithHTTPClient(client *http.Client) *AdminGet
 	}
 }
 
-/*
-AdminGetCountryListV3Params contains all the parameters to send to the API endpoint
+/*AdminGetCountryListV3Params contains all the parameters to send to the API endpoint
 for the admin get country list v3 operation typically these are written to a http.Request
 */
 type AdminGetCountryListV3Params struct {

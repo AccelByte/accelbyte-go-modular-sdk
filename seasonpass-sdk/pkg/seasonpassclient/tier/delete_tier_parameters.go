@@ -57,8 +57,7 @@ func NewDeleteTierParamsWithHTTPClient(client *http.Client) *DeleteTierParams {
 	}
 }
 
-/*
-DeleteTierParams contains all the parameters to send to the API endpoint
+/*DeleteTierParams contains all the parameters to send to the API endpoint
 for the delete tier operation typically these are written to a http.Request
 */
 type DeleteTierParams struct {

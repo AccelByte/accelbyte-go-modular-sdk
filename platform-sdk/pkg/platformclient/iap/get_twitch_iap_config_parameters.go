@@ -57,8 +57,7 @@ func NewGetTwitchIAPConfigParamsWithHTTPClient(client *http.Client) *GetTwitchIA
 	}
 }
 
-/*
-GetTwitchIAPConfigParams contains all the parameters to send to the API endpoint
+/*GetTwitchIAPConfigParams contains all the parameters to send to the API endpoint
 for the get twitch iap config operation typically these are written to a http.Request
 */
 type GetTwitchIAPConfigParams struct {

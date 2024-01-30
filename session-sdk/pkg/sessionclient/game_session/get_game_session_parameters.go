@@ -57,8 +57,7 @@ func NewGetGameSessionParamsWithHTTPClient(client *http.Client) *GetGameSessionP
 	}
 }
 
-/*
-GetGameSessionParams contains all the parameters to send to the API endpoint
+/*GetGameSessionParams contains all the parameters to send to the API endpoint
 for the get game session operation typically these are written to a http.Request
 */
 type GetGameSessionParams struct {

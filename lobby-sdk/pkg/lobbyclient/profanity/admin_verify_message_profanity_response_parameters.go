@@ -59,8 +59,7 @@ func NewAdminVerifyMessageProfanityResponseParamsWithHTTPClient(client *http.Cli
 	}
 }
 
-/*
-AdminVerifyMessageProfanityResponseParams contains all the parameters to send to the API endpoint
+/*AdminVerifyMessageProfanityResponseParams contains all the parameters to send to the API endpoint
 for the admin verify message profanity response operation typically these are written to a http.Request
 */
 type AdminVerifyMessageProfanityResponseParams struct {

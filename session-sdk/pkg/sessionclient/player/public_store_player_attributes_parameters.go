@@ -59,8 +59,7 @@ func NewPublicStorePlayerAttributesParamsWithHTTPClient(client *http.Client) *Pu
 	}
 }
 
-/*
-PublicStorePlayerAttributesParams contains all the parameters to send to the API endpoint
+/*PublicStorePlayerAttributesParams contains all the parameters to send to the API endpoint
 for the public store player attributes operation typically these are written to a http.Request
 */
 type PublicStorePlayerAttributesParams struct {

@@ -57,8 +57,7 @@ func NewGetSessionHistoryDetailedParamsWithHTTPClient(client *http.Client) *GetS
 	}
 }
 
-/*
-GetSessionHistoryDetailedParams contains all the parameters to send to the API endpoint
+/*GetSessionHistoryDetailedParams contains all the parameters to send to the API endpoint
 for the get session history detailed operation typically these are written to a http.Request
 */
 type GetSessionHistoryDetailedParams struct {

@@ -57,8 +57,7 @@ func NewEnvironmentVariableListParamsWithHTTPClient(client *http.Client) *Enviro
 	}
 }
 
-/*
-EnvironmentVariableListParams contains all the parameters to send to the API endpoint
+/*EnvironmentVariableListParams contains all the parameters to send to the API endpoint
 for the environment variable list operation typically these are written to a http.Request
 */
 type EnvironmentVariableListParams struct {

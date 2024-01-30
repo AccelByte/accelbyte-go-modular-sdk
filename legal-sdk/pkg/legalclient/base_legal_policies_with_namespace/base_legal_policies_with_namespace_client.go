@@ -53,7 +53,7 @@ RetrieveAllLegalPoliciesByNamespace retrieve all base legal policy in the namesp
 Retrieve all base policies in the namespace.
 Other detail info:
 
-  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:LEGAL", action=2 (READ)
+  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:LEGAL", action=2 (READ)
 */
 func (a *Client) RetrieveAllLegalPoliciesByNamespace(params *RetrieveAllLegalPoliciesByNamespaceParams, authInfo runtime.ClientAuthInfoWriter) (*RetrieveAllLegalPoliciesByNamespaceOK, error) {
 	// TODO: Validate the params before sending
@@ -101,7 +101,7 @@ RetrieveAllLegalPoliciesByNamespaceShort retrieve all base legal policy in the n
 Retrieve all base policies in the namespace.
 Other detail info:
 
-  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:LEGAL", action=2 (READ)
+  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:LEGAL", action=2 (READ)
 */
 func (a *Client) RetrieveAllLegalPoliciesByNamespaceShort(params *RetrieveAllLegalPoliciesByNamespaceParams, authInfo runtime.ClientAuthInfoWriter) (*RetrieveAllLegalPoliciesByNamespaceOK, error) {
 	// TODO: Validate the params before sending
@@ -155,7 +155,7 @@ CreatePolicy1 create a base legal policy
 Create a legal policy.
 Other detail info:
 
-  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:LEGAL", action=1 (CREATE)
+  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:LEGAL", action=1 (CREATE)
 */
 func (a *Client) CreatePolicy1(params *CreatePolicy1Params, authInfo runtime.ClientAuthInfoWriter) (*CreatePolicy1Created, *CreatePolicy1BadRequest, *CreatePolicy1Conflict, *CreatePolicy1UnprocessableEntity, error) {
 	// TODO: Validate the params before sending
@@ -212,7 +212,7 @@ CreatePolicy1Short create a base legal policy
 Create a legal policy.
 Other detail info:
 
-  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:LEGAL", action=1 (CREATE)
+  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:LEGAL", action=1 (CREATE)
 */
 func (a *Client) CreatePolicy1Short(params *CreatePolicy1Params, authInfo runtime.ClientAuthInfoWriter) (*CreatePolicy1Created, error) {
 	// TODO: Validate the params before sending
@@ -272,7 +272,7 @@ RetrieveSinglePolicy1 retrieve a base legal policy
 Retrieve a base policy.
 Other detail info:
 
-  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:LEGAL", action=2 (READ)
+  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:LEGAL", action=2 (READ)
 */
 func (a *Client) RetrieveSinglePolicy1(params *RetrieveSinglePolicy1Params, authInfo runtime.ClientAuthInfoWriter) (*RetrieveSinglePolicy1OK, *RetrieveSinglePolicy1NotFound, error) {
 	// TODO: Validate the params before sending
@@ -323,7 +323,7 @@ RetrieveSinglePolicy1Short retrieve a base legal policy
 Retrieve a base policy.
 Other detail info:
 
-  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:LEGAL", action=2 (READ)
+  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:LEGAL", action=2 (READ)
 */
 func (a *Client) RetrieveSinglePolicy1Short(params *RetrieveSinglePolicy1Params, authInfo runtime.ClientAuthInfoWriter) (*RetrieveSinglePolicy1OK, error) {
 	// TODO: Validate the params before sending
@@ -379,7 +379,7 @@ PartialUpdatePolicy1 update base legal policy
 Update an existing base policy.
 Other detail info:
 
-  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:LEGAL", action=4 (UPDATE)
+  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:LEGAL", action=4 (UPDATE)
 */
 func (a *Client) PartialUpdatePolicy1(params *PartialUpdatePolicy1Params, authInfo runtime.ClientAuthInfoWriter) (*PartialUpdatePolicy1OK, *PartialUpdatePolicy1BadRequest, error) {
 	// TODO: Validate the params before sending
@@ -430,7 +430,7 @@ PartialUpdatePolicy1Short update base legal policy
 Update an existing base policy.
 Other detail info:
 
-  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:LEGAL", action=4 (UPDATE)
+  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:LEGAL", action=4 (UPDATE)
 */
 func (a *Client) PartialUpdatePolicy1Short(params *PartialUpdatePolicy1Params, authInfo runtime.ClientAuthInfoWriter) (*PartialUpdatePolicy1OK, error) {
 	// TODO: Validate the params before sending
@@ -486,7 +486,7 @@ RetrievePolicyCountry1 retrieve a base legal policy based on a particular countr
 Retrieve a Base Legal Policy based on a Particular Country.
 Other detail info:
 
-  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:LEGAL", action=2 (READ)
+  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:LEGAL", action=2 (READ)
 */
 func (a *Client) RetrievePolicyCountry1(params *RetrievePolicyCountry1Params, authInfo runtime.ClientAuthInfoWriter) (*RetrievePolicyCountry1OK, *RetrievePolicyCountry1NotFound, error) {
 	// TODO: Validate the params before sending
@@ -537,7 +537,7 @@ RetrievePolicyCountry1Short retrieve a base legal policy based on a particular c
 Retrieve a Base Legal Policy based on a Particular Country.
 Other detail info:
 
-  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:LEGAL", action=2 (READ)
+  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:LEGAL", action=2 (READ)
 */
 func (a *Client) RetrievePolicyCountry1Short(params *RetrievePolicyCountry1Params, authInfo runtime.ClientAuthInfoWriter) (*RetrievePolicyCountry1OK, error) {
 	// TODO: Validate the params before sending
@@ -593,7 +593,7 @@ RetrieveAllPolicyTypes1 retrieve all policy type
 Retrieve all supported policy types.
 Other detail info:
 
-  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:LEGAL", action=2 (READ)
+  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:LEGAL", action=2 (READ)
 */
 func (a *Client) RetrieveAllPolicyTypes1(params *RetrieveAllPolicyTypes1Params, authInfo runtime.ClientAuthInfoWriter) (*RetrieveAllPolicyTypes1OK, error) {
 	// TODO: Validate the params before sending
@@ -641,7 +641,7 @@ RetrieveAllPolicyTypes1Short retrieve all policy type
 Retrieve all supported policy types.
 Other detail info:
 
-  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:LEGAL", action=2 (READ)
+  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:LEGAL", action=2 (READ)
 */
 func (a *Client) RetrieveAllPolicyTypes1Short(params *RetrieveAllPolicyTypes1Params, authInfo runtime.ClientAuthInfoWriter) (*RetrieveAllPolicyTypes1OK, error) {
 	// TODO: Validate the params before sending

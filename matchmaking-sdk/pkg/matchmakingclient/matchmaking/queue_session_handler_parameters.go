@@ -59,8 +59,7 @@ func NewQueueSessionHandlerParamsWithHTTPClient(client *http.Client) *QueueSessi
 	}
 }
 
-/*
-QueueSessionHandlerParams contains all the parameters to send to the API endpoint
+/*QueueSessionHandlerParams contains all the parameters to send to the API endpoint
 for the queue session handler operation typically these are written to a http.Request
 */
 type QueueSessionHandlerParams struct {

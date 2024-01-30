@@ -57,8 +57,7 @@ func NewDeletePublishedStoreParamsWithHTTPClient(client *http.Client) *DeletePub
 	}
 }
 
-/*
-DeletePublishedStoreParams contains all the parameters to send to the API endpoint
+/*DeletePublishedStoreParams contains all the parameters to send to the API endpoint
 for the delete published store operation typically these are written to a http.Request
 */
 type DeletePublishedStoreParams struct {

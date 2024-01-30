@@ -59,8 +59,7 @@ func NewCreateCampaignParamsWithHTTPClient(client *http.Client) *CreateCampaignP
 	}
 }
 
-/*
-CreateCampaignParams contains all the parameters to send to the API endpoint
+/*CreateCampaignParams contains all the parameters to send to the API endpoint
 for the create campaign operation typically these are written to a http.Request
 */
 type CreateCampaignParams struct {

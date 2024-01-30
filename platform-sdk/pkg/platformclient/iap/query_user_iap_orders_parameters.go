@@ -98,8 +98,7 @@ func NewQueryUserIAPOrdersParamsWithHTTPClient(client *http.Client) *QueryUserIA
 	}
 }
 
-/*
-QueryUserIAPOrdersParams contains all the parameters to send to the API endpoint
+/*QueryUserIAPOrdersParams contains all the parameters to send to the API endpoint
 for the query user iap orders operation typically these are written to a http.Request
 */
 type QueryUserIAPOrdersParams struct {

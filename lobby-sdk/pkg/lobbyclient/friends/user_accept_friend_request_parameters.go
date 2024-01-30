@@ -59,8 +59,7 @@ func NewUserAcceptFriendRequestParamsWithHTTPClient(client *http.Client) *UserAc
 	}
 }
 
-/*
-UserAcceptFriendRequestParams contains all the parameters to send to the API endpoint
+/*UserAcceptFriendRequestParams contains all the parameters to send to the API endpoint
 for the user accept friend request operation typically these are written to a http.Request
 */
 type UserAcceptFriendRequestParams struct {

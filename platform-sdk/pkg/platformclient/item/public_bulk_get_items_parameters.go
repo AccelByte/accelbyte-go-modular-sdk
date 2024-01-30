@@ -70,8 +70,7 @@ func NewPublicBulkGetItemsParamsWithHTTPClient(client *http.Client) *PublicBulkG
 	}
 }
 
-/*
-PublicBulkGetItemsParams contains all the parameters to send to the API endpoint
+/*PublicBulkGetItemsParams contains all the parameters to send to the API endpoint
 for the public bulk get items operation typically these are written to a http.Request
 */
 type PublicBulkGetItemsParams struct {

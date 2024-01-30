@@ -39,7 +39,7 @@ type ClientService interface {
 /*
 Deprecated: 2022-08-10 - Use PublicListInventoriesShort instead.
 
-# PublicListInventories to list all my inventories
+PublicListInventories to list all my inventories
 
 Listing all my inventories in a namespace.
 The response body will be in the form of standard pagination.

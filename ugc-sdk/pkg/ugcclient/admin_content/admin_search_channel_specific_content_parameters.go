@@ -78,8 +78,7 @@ func NewAdminSearchChannelSpecificContentParamsWithHTTPClient(client *http.Clien
 	}
 }
 
-/*
-AdminSearchChannelSpecificContentParams contains all the parameters to send to the API endpoint
+/*AdminSearchChannelSpecificContentParams contains all the parameters to send to the API endpoint
 for the admin search channel specific content operation typically these are written to a http.Request
 */
 type AdminSearchChannelSpecificContentParams struct {

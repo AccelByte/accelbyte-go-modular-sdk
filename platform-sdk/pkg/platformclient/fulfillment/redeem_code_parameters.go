@@ -59,8 +59,7 @@ func NewRedeemCodeParamsWithHTTPClient(client *http.Client) *RedeemCodeParams {
 	}
 }
 
-/*
-RedeemCodeParams contains all the parameters to send to the API endpoint
+/*RedeemCodeParams contains all the parameters to send to the API endpoint
 for the redeem code operation typically these are written to a http.Request
 */
 type RedeemCodeParams struct {

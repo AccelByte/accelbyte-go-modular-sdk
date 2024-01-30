@@ -58,8 +58,7 @@ func NewGetUserLoginHistoriesParamsWithHTTPClient(client *http.Client) *GetUserL
 	}
 }
 
-/*
-GetUserLoginHistoriesParams contains all the parameters to send to the API endpoint
+/*GetUserLoginHistoriesParams contains all the parameters to send to the API endpoint
 for the get user login histories operation typically these are written to a http.Request
 */
 type GetUserLoginHistoriesParams struct {

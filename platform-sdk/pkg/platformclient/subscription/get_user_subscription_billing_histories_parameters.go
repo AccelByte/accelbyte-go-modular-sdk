@@ -86,8 +86,7 @@ func NewGetUserSubscriptionBillingHistoriesParamsWithHTTPClient(client *http.Cli
 	}
 }
 
-/*
-GetUserSubscriptionBillingHistoriesParams contains all the parameters to send to the API endpoint
+/*GetUserSubscriptionBillingHistoriesParams contains all the parameters to send to the API endpoint
 for the get user subscription billing histories operation typically these are written to a http.Request
 */
 type GetUserSubscriptionBillingHistoriesParams struct {

@@ -57,8 +57,7 @@ func NewAdminDeleteConfigurationAlertV1ParamsWithHTTPClient(client *http.Client)
 	}
 }
 
-/*
-AdminDeleteConfigurationAlertV1Params contains all the parameters to send to the API endpoint
+/*AdminDeleteConfigurationAlertV1Params contains all the parameters to send to the API endpoint
 for the admin delete configuration alert v1 operation typically these are written to a http.Request
 */
 type AdminDeleteConfigurationAlertV1Params struct {

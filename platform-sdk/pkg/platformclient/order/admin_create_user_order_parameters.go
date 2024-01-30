@@ -59,8 +59,7 @@ func NewAdminCreateUserOrderParamsWithHTTPClient(client *http.Client) *AdminCrea
 	}
 }
 
-/*
-AdminCreateUserOrderParams contains all the parameters to send to the API endpoint
+/*AdminCreateUserOrderParams contains all the parameters to send to the API endpoint
 for the admin create user order operation typically these are written to a http.Request
 */
 type AdminCreateUserOrderParams struct {

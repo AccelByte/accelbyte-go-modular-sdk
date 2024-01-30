@@ -59,8 +59,7 @@ func NewUpdateMyProfileParamsWithHTTPClient(client *http.Client) *UpdateMyProfil
 	}
 }
 
-/*
-UpdateMyProfileParams contains all the parameters to send to the API endpoint
+/*UpdateMyProfileParams contains all the parameters to send to the API endpoint
 for the update my profile operation typically these are written to a http.Request
 */
 type UpdateMyProfileParams struct {

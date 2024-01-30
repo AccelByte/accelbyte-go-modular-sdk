@@ -93,8 +93,7 @@ func NewQueryWalletsParamsWithHTTPClient(client *http.Client) *QueryWalletsParam
 	}
 }
 
-/*
-QueryWalletsParams contains all the parameters to send to the API endpoint
+/*QueryWalletsParams contains all the parameters to send to the API endpoint
 for the query wallets operation typically these are written to a http.Request
 */
 type QueryWalletsParams struct {

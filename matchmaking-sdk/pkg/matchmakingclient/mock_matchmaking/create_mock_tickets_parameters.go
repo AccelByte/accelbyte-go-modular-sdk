@@ -59,8 +59,7 @@ func NewCreateMockTicketsParamsWithHTTPClient(client *http.Client) *CreateMockTi
 	}
 }
 
-/*
-CreateMockTicketsParams contains all the parameters to send to the API endpoint
+/*CreateMockTicketsParams contains all the parameters to send to the API endpoint
 for the create mock tickets operation typically these are written to a http.Request
 */
 type CreateMockTicketsParams struct {

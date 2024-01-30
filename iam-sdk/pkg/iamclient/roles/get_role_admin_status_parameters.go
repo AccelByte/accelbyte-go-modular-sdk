@@ -57,8 +57,7 @@ func NewGetRoleAdminStatusParamsWithHTTPClient(client *http.Client) *GetRoleAdmi
 	}
 }
 
-/*
-GetRoleAdminStatusParams contains all the parameters to send to the API endpoint
+/*GetRoleAdminStatusParams contains all the parameters to send to the API endpoint
 for the get role admin status operation typically these are written to a http.Request
 */
 type GetRoleAdminStatusParams struct {

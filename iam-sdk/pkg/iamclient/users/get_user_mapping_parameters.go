@@ -57,8 +57,7 @@ func NewGetUserMappingParamsWithHTTPClient(client *http.Client) *GetUserMappingP
 	}
 }
 
-/*
-GetUserMappingParams contains all the parameters to send to the API endpoint
+/*GetUserMappingParams contains all the parameters to send to the API endpoint
 for the get user mapping operation typically these are written to a http.Request
 */
 type GetUserMappingParams struct {

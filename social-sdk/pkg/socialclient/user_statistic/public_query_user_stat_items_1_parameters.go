@@ -58,8 +58,7 @@ func NewPublicQueryUserStatItems1ParamsWithHTTPClient(client *http.Client) *Publ
 	}
 }
 
-/*
-PublicQueryUserStatItems1Params contains all the parameters to send to the API endpoint
+/*PublicQueryUserStatItems1Params contains all the parameters to send to the API endpoint
 for the public query user stat items 1 operation typically these are written to a http.Request
 */
 type PublicQueryUserStatItems1Params struct {

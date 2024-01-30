@@ -788,7 +788,7 @@ func (a *Client) AdminGenerateOfficialContentUploadURLV2Short(params *AdminGener
 /*
 Deprecated: 2022-08-10 - Use AdminListContentV2Short instead.
 
-# AdminListContentV2 list contents
+AdminListContentV2 list contents
 
 Required permission ADMIN:NAMESPACE:{namespace}:USER:*:CONTENT [READ]
 For advance tag filtering supports & as AND operator and | as OR operator and parentheses () for priority. e.g:
@@ -804,7 +804,7 @@ The precedence of logical operator is AND > OR, so if no parentheses, AND logica
 Allowed character for operand: alphanumeric, underscore `_` and dash `-`
 Allowed character for operator: `&` `|` `(` `)`
 
-	Please note that value of tags query param should be URL encoded
+ Please note that value of tags query param should be URL encoded
 */
 func (a *Client) AdminListContentV2(params *AdminListContentV2Params, authInfo runtime.ClientAuthInfoWriter) (*AdminListContentV2OK, *AdminListContentV2BadRequest, *AdminListContentV2Unauthorized, *AdminListContentV2InternalServerError, error) {
 	// TODO: Validate the params before sending
@@ -873,7 +873,7 @@ The precedence of logical operator is AND > OR, so if no parentheses, AND logica
 Allowed character for operand: alphanumeric, underscore `_` and dash `-`
 Allowed character for operator: `&` `|` `(` `)`
 
-	Please note that value of tags query param should be URL encoded
+ Please note that value of tags query param should be URL encoded
 */
 func (a *Client) AdminListContentV2Short(params *AdminListContentV2Params, authInfo runtime.ClientAuthInfoWriter) (*AdminListContentV2OK, error) {
 	// TODO: Validate the params before sending

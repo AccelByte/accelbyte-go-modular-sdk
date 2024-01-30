@@ -78,8 +78,7 @@ func NewAdminQuerySessionParamsWithHTTPClient(client *http.Client) *AdminQuerySe
 	}
 }
 
-/*
-AdminQuerySessionParams contains all the parameters to send to the API endpoint
+/*AdminQuerySessionParams contains all the parameters to send to the API endpoint
 for the admin query session operation typically these are written to a http.Request
 */
 type AdminQuerySessionParams struct {

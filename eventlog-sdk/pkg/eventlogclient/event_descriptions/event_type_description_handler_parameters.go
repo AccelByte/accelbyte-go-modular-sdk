@@ -57,8 +57,7 @@ func NewEventTypeDescriptionHandlerParamsWithHTTPClient(client *http.Client) *Ev
 	}
 }
 
-/*
-EventTypeDescriptionHandlerParams contains all the parameters to send to the API endpoint
+/*EventTypeDescriptionHandlerParams contains all the parameters to send to the API endpoint
 for the event type description handler operation typically these are written to a http.Request
 */
 type EventTypeDescriptionHandlerParams struct {

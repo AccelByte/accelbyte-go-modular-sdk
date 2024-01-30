@@ -57,8 +57,7 @@ func NewPublicGetCreatorParamsWithHTTPClient(client *http.Client) *PublicGetCrea
 	}
 }
 
-/*
-PublicGetCreatorParams contains all the parameters to send to the API endpoint
+/*PublicGetCreatorParams contains all the parameters to send to the API endpoint
 for the public get creator operation typically these are written to a http.Request
 */
 type PublicGetCreatorParams struct {

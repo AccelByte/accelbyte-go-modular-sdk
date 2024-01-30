@@ -57,8 +57,7 @@ func NewAdminGetDeviceTypesV4ParamsWithHTTPClient(client *http.Client) *AdminGet
 	}
 }
 
-/*
-AdminGetDeviceTypesV4Params contains all the parameters to send to the API endpoint
+/*AdminGetDeviceTypesV4Params contains all the parameters to send to the API endpoint
 for the admin get device types v4 operation typically these are written to a http.Request
 */
 type AdminGetDeviceTypesV4Params struct {

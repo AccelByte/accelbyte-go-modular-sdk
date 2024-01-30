@@ -57,8 +57,7 @@ func NewDeleteCategoryParamsWithHTTPClient(client *http.Client) *DeleteCategoryP
 	}
 }
 
-/*
-DeleteCategoryParams contains all the parameters to send to the API endpoint
+/*DeleteCategoryParams contains all the parameters to send to the API endpoint
 for the delete category operation typically these are written to a http.Request
 */
 type DeleteCategoryParams struct {

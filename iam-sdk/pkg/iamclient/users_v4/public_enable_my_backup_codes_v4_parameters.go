@@ -57,8 +57,7 @@ func NewPublicEnableMyBackupCodesV4ParamsWithHTTPClient(client *http.Client) *Pu
 	}
 }
 
-/*
-PublicEnableMyBackupCodesV4Params contains all the parameters to send to the API endpoint
+/*PublicEnableMyBackupCodesV4Params contains all the parameters to send to the API endpoint
 for the public enable my backup codes v4 operation typically these are written to a http.Request
 */
 type PublicEnableMyBackupCodesV4Params struct {

@@ -57,8 +57,7 @@ func NewPublicRevokeGameSessionCodeParamsWithHTTPClient(client *http.Client) *Pu
 	}
 }
 
-/*
-PublicRevokeGameSessionCodeParams contains all the parameters to send to the API endpoint
+/*PublicRevokeGameSessionCodeParams contains all the parameters to send to the API endpoint
 for the public revoke game session code operation typically these are written to a http.Request
 */
 type PublicRevokeGameSessionCodeParams struct {

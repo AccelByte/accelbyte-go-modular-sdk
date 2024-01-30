@@ -58,8 +58,7 @@ func NewGetAllTimeLeaderboardRankingAdminV1ParamsWithHTTPClient(client *http.Cli
 	}
 }
 
-/*
-GetAllTimeLeaderboardRankingAdminV1Params contains all the parameters to send to the API endpoint
+/*GetAllTimeLeaderboardRankingAdminV1Params contains all the parameters to send to the API endpoint
 for the get all time leaderboard ranking admin v1 operation typically these are written to a http.Request
 */
 type GetAllTimeLeaderboardRankingAdminV1Params struct {

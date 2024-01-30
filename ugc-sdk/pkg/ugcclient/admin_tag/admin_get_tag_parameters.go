@@ -78,8 +78,7 @@ func NewAdminGetTagParamsWithHTTPClient(client *http.Client) *AdminGetTagParams 
 	}
 }
 
-/*
-AdminGetTagParams contains all the parameters to send to the API endpoint
+/*AdminGetTagParams contains all the parameters to send to the API endpoint
 for the admin get tag operation typically these are written to a http.Request
 */
 type AdminGetTagParams struct {

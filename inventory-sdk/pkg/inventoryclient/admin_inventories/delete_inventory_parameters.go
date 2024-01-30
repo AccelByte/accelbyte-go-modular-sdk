@@ -59,8 +59,7 @@ func NewDeleteInventoryParamsWithHTTPClient(client *http.Client) *DeleteInventor
 	}
 }
 
-/*
-DeleteInventoryParams contains all the parameters to send to the API endpoint
+/*DeleteInventoryParams contains all the parameters to send to the API endpoint
 for the delete inventory operation typically these are written to a http.Request
 */
 type DeleteInventoryParams struct {

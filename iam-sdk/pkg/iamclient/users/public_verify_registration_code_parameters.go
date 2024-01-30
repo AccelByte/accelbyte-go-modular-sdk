@@ -59,8 +59,7 @@ func NewPublicVerifyRegistrationCodeParamsWithHTTPClient(client *http.Client) *P
 	}
 }
 
-/*
-PublicVerifyRegistrationCodeParams contains all the parameters to send to the API endpoint
+/*PublicVerifyRegistrationCodeParams contains all the parameters to send to the API endpoint
 for the public verify registration code operation typically these are written to a http.Request
 */
 type PublicVerifyRegistrationCodeParams struct {

@@ -59,8 +59,7 @@ func NewUpdateGroupCustomAttributesPublicV2ParamsWithHTTPClient(client *http.Cli
 	}
 }
 
-/*
-UpdateGroupCustomAttributesPublicV2Params contains all the parameters to send to the API endpoint
+/*UpdateGroupCustomAttributesPublicV2Params contains all the parameters to send to the API endpoint
 for the update group custom attributes public v2 operation typically these are written to a http.Request
 */
 type UpdateGroupCustomAttributesPublicV2Params struct {

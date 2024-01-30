@@ -57,8 +57,7 @@ func NewDeleteMatchFunctionParamsWithHTTPClient(client *http.Client) *DeleteMatc
 	}
 }
 
-/*
-DeleteMatchFunctionParams contains all the parameters to send to the API endpoint
+/*DeleteMatchFunctionParams contains all the parameters to send to the API endpoint
 for the delete match function operation typically these are written to a http.Request
 */
 type DeleteMatchFunctionParams struct {

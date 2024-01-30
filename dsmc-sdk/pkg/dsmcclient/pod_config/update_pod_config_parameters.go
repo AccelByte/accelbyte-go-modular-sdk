@@ -59,8 +59,7 @@ func NewUpdatePodConfigParamsWithHTTPClient(client *http.Client) *UpdatePodConfi
 	}
 }
 
-/*
-UpdatePodConfigParams contains all the parameters to send to the API endpoint
+/*UpdatePodConfigParams contains all the parameters to send to the API endpoint
 for the update pod config operation typically these are written to a http.Request
 */
 type UpdatePodConfigParams struct {

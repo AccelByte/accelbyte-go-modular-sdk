@@ -87,11 +87,18 @@ type ClientService interface {
 /*
 Deprecated: 2022-08-10 - Use GetGroupMembersListAdminV1Short instead.
 
-# GetGroupMembersListAdminV1 get list of group members
+GetGroupMembersListAdminV1 get list of group members
+
 
 Required permission ADMIN:NAMESPACE:{namespace}:GROUP:MEMBER [READ]
 
+
+
+
 This endpoint is used to get list of group members.
+
+
+
 
 Action Code: 73410
 */
@@ -154,9 +161,16 @@ func (a *Client) GetGroupMembersListAdminV1(params *GetGroupMembersListAdminV1Pa
 /*
 GetGroupMembersListAdminV1Short get list of group members
 
+
 Required permission ADMIN:NAMESPACE:{namespace}:GROUP:MEMBER [READ]
 
+
+
+
 This endpoint is used to get list of group members.
+
+
+
 
 Action Code: 73410
 */
@@ -218,19 +232,38 @@ func (a *Client) GetGroupMembersListAdminV1Short(params *GetGroupMembersListAdmi
 /*
 Deprecated: 2022-08-10 - Use AcceptGroupInvitationPublicV1Short instead.
 
-# AcceptGroupInvitationPublicV1 accept group invitation
+AcceptGroupInvitationPublicV1 accept group invitation
 
-# Required valid user authentication
+
+Required valid user authentication
+
+
+
 
 This endpoint is used to accept group invitation.
 
+
+
+
 Accept group invitation. If specific user is not invited in the specific group ID, it will show the the error to show if the user is not invited yet.
 
-# This endpoint will also check if the user who access this endpoint is already joined to specific group
+
+
+
+This endpoint will also check if the user who access this endpoint is already joined to specific group
+
+
+
 
 Accessing this endpoint will make all requests (invite / join request) will be deleted for the user who access this endpoint
 
+
+
+
 Existing members will receive notification of newly accepted member.
+
+
+
 
 Action Code: 73401
 */
@@ -296,17 +329,36 @@ func (a *Client) AcceptGroupInvitationPublicV1(params *AcceptGroupInvitationPubl
 /*
 AcceptGroupInvitationPublicV1Short accept group invitation
 
-# Required valid user authentication
+
+Required valid user authentication
+
+
+
 
 This endpoint is used to accept group invitation.
 
+
+
+
 Accept group invitation. If specific user is not invited in the specific group ID, it will show the the error to show if the user is not invited yet.
 
-# This endpoint will also check if the user who access this endpoint is already joined to specific group
+
+
+
+This endpoint will also check if the user who access this endpoint is already joined to specific group
+
+
+
 
 Accessing this endpoint will make all requests (invite / join request) will be deleted for the user who access this endpoint
 
+
+
+
 Existing members will receive notification of newly accepted member.
+
+
+
 
 Action Code: 73401
 */
@@ -370,13 +422,23 @@ func (a *Client) AcceptGroupInvitationPublicV1Short(params *AcceptGroupInvitatio
 /*
 Deprecated: 2022-08-10 - Use RejectGroupInvitationPublicV1Short instead.
 
-# RejectGroupInvitationPublicV1 reject group invitation
+RejectGroupInvitationPublicV1 reject group invitation
 
-# Required valid user authentication
+
+Required valid user authentication
+
+
+
 
 This endpoint is used to reject group invitation.
 
+
+
+
 Reject group invitation. If specific user is not invited in the specific group ID, it will show the the error to show if the user is not invited yet.
+
+
+
 
 Action Code: 73402
 */
@@ -442,11 +504,21 @@ func (a *Client) RejectGroupInvitationPublicV1(params *RejectGroupInvitationPubl
 /*
 RejectGroupInvitationPublicV1Short reject group invitation
 
-# Required valid user authentication
+
+Required valid user authentication
+
+
+
 
 This endpoint is used to reject group invitation.
 
+
+
+
 Reject group invitation. If specific user is not invited in the specific group ID, it will show the the error to show if the user is not invited yet.
+
+
+
 
 Action Code: 73402
 */
@@ -510,23 +582,47 @@ func (a *Client) RejectGroupInvitationPublicV1Short(params *RejectGroupInvitatio
 /*
 Deprecated: 2022-08-10 - Use JoinGroupV1Short instead.
 
-# JoinGroupV1 join to group
+JoinGroupV1 join to group
 
-# Required valid user authentication
 
-# This endpoint is used to join as group member
+Required valid user authentication
+
+
+
+
+This endpoint is used to join as group member
+
+
+
 
 Join to the group. This endpoint will check the the the type of the group based on the groupID.
 
+
+
+
 Additional Information:
 
-  - User cannot join to the group with PRIVATE type
 
-  - Joining PUBLIC group type will create join request and need approval from the privileged group member to accept the request to become the member
 
-  - Joining OPEN group type will make this user become member of that group immediately
 
-# This endpoint will return status field to give information whether the user is JOINED or REQUESTED to join to the specific group
+
+
+  * User cannot join to the group with PRIVATE type
+
+
+  * Joining PUBLIC group type will create join request and need approval from the privileged group member to accept the request to become the member
+
+
+  * Joining OPEN group type will make this user become member of that group immediately
+
+
+
+
+
+This endpoint will return status field to give information whether the user is JOINED or REQUESTED to join to the specific group
+
+
+
 
 Action Code: 73403
 */
@@ -589,21 +685,45 @@ func (a *Client) JoinGroupV1(params *JoinGroupV1Params, authInfo runtime.ClientA
 /*
 JoinGroupV1Short join to group
 
-# Required valid user authentication
 
-# This endpoint is used to join as group member
+Required valid user authentication
+
+
+
+
+This endpoint is used to join as group member
+
+
+
 
 Join to the group. This endpoint will check the the the type of the group based on the groupID.
 
+
+
+
 Additional Information:
 
-  - User cannot join to the group with PRIVATE type
 
-  - Joining PUBLIC group type will create join request and need approval from the privileged group member to accept the request to become the member
 
-  - Joining OPEN group type will make this user become member of that group immediately
 
-# This endpoint will return status field to give information whether the user is JOINED or REQUESTED to join to the specific group
+
+
+  * User cannot join to the group with PRIVATE type
+
+
+  * Joining PUBLIC group type will create join request and need approval from the privileged group member to accept the request to become the member
+
+
+  * Joining OPEN group type will make this user become member of that group immediately
+
+
+
+
+
+This endpoint will return status field to give information whether the user is JOINED or REQUESTED to join to the specific group
+
+
+
 
 Action Code: 73403
 */
@@ -665,11 +785,18 @@ func (a *Client) JoinGroupV1Short(params *JoinGroupV1Params, authInfo runtime.Cl
 /*
 Deprecated: 2022-08-10 - Use CancelGroupJoinRequestV1Short instead.
 
-# CancelGroupJoinRequestV1 cancel request to join group
+CancelGroupJoinRequestV1 cancel request to join group
 
-# Requires valid user authentication
+
+Requires valid user authentication
+
+
+
 
 This endpoint allows user to cancel request to join specific group.
+
+
+
 
 Action Code: 73411
 */
@@ -732,9 +859,16 @@ func (a *Client) CancelGroupJoinRequestV1(params *CancelGroupJoinRequestV1Params
 /*
 CancelGroupJoinRequestV1Short cancel request to join group
 
-# Requires valid user authentication
+
+Requires valid user authentication
+
+
+
 
 This endpoint allows user to cancel request to join specific group.
+
+
+
 
 Action Code: 73411
 */
@@ -796,11 +930,18 @@ func (a *Client) CancelGroupJoinRequestV1Short(params *CancelGroupJoinRequestV1P
 /*
 Deprecated: 2022-08-10 - Use GetGroupMembersListPublicV1Short instead.
 
-# GetGroupMembersListPublicV1 get list of group members
+GetGroupMembersListPublicV1 get list of group members
 
-# Required valid user authentication
+
+Required valid user authentication
+
+
+
 
 This endpoint is used to get list of group members.
+
+
+
 
 Action Code: 73410
 */
@@ -863,9 +1004,16 @@ func (a *Client) GetGroupMembersListPublicV1(params *GetGroupMembersListPublicV1
 /*
 GetGroupMembersListPublicV1Short get list of group members
 
-# Required valid user authentication
+
+Required valid user authentication
+
+
+
 
 This endpoint is used to get list of group members.
+
+
+
 
 Action Code: 73410
 */
@@ -927,13 +1075,23 @@ func (a *Client) GetGroupMembersListPublicV1Short(params *GetGroupMembersListPub
 /*
 Deprecated: 2022-08-10 - Use LeaveGroupPublicV1Short instead.
 
-# LeaveGroupPublicV1 leave group
+LeaveGroupPublicV1 leave group
 
-# Required valid user authentication
+
+Required valid user authentication
+
+
+
 
 This endpoint is used to leave from group.
 
+
+
+
 leave from group. Admin is not allowed to leave the group. This endpoint will also give response if the user does not belong to any group.
+
+
+
 
 Action Code: 73404
 */
@@ -996,11 +1154,21 @@ func (a *Client) LeaveGroupPublicV1(params *LeaveGroupPublicV1Params, authInfo r
 /*
 LeaveGroupPublicV1Short leave group
 
-# Required valid user authentication
+
+Required valid user authentication
+
+
+
 
 This endpoint is used to leave from group.
 
+
+
+
 leave from group. Admin is not allowed to leave the group. This endpoint will also give response if the user does not belong to any group.
+
+
+
 
 Action Code: 73404
 */
@@ -1062,21 +1230,42 @@ func (a *Client) LeaveGroupPublicV1Short(params *LeaveGroupPublicV1Params, authI
 /*
 Deprecated: 2022-08-10 - Use GetUserGroupInformationPublicV1Short instead.
 
-# GetUserGroupInformationPublicV1 get user group information
+GetUserGroupInformationPublicV1 get user group information
 
-# Required valid user authentication
+
+Required valid user authentication
+
+
+
 
 This endpoint is used to get user group information.
 
+
+
+
 Get user group information. If user does not belong to any group, it will return warning to give information about it
+
+
+
 
 Group Member Status:
 
-  - JOIN : status of user requested to join group
 
-  - INVITE: status of user invited to a group
 
-  - JOINED: status of user already joined to a group
+
+
+
+  * JOIN : status of user requested to join group
+
+
+  * INVITE: status of user invited to a group
+
+
+  * JOINED: status of user already joined to a group
+
+
+
+
 
 Action Code: 73405
 */
@@ -1139,19 +1328,40 @@ func (a *Client) GetUserGroupInformationPublicV1(params *GetUserGroupInformation
 /*
 GetUserGroupInformationPublicV1Short get user group information
 
-# Required valid user authentication
+
+Required valid user authentication
+
+
+
 
 This endpoint is used to get user group information.
 
+
+
+
 Get user group information. If user does not belong to any group, it will return warning to give information about it
+
+
+
 
 Group Member Status:
 
-  - JOIN : status of user requested to join group
 
-  - INVITE: status of user invited to a group
 
-  - JOINED: status of user already joined to a group
+
+
+
+  * JOIN : status of user requested to join group
+
+
+  * INVITE: status of user invited to a group
+
+
+  * JOINED: status of user already joined to a group
+
+
+
+
 
 Action Code: 73405
 */
@@ -1213,25 +1423,55 @@ func (a *Client) GetUserGroupInformationPublicV1Short(params *GetUserGroupInform
 /*
 Deprecated: 2022-08-10 - Use InviteGroupPublicV1Short instead.
 
-# InviteGroupPublicV1 invite user to group
+InviteGroupPublicV1 invite user to group
 
-# Required valid user authentication
+
+Required valid user authentication
+
+
+
 
 Required Member Role Permission: "GROUP:INVITE [CREATE]"
 
+
+
+
 This endpoint is used to invite specific user to the group.
+
+
+
 
 invite specific user to the group. If specific user is already have the join request to the group, this endpoint will notify if this user already have join request that needs to be accepted / rejected
 
+
+
+
 Invited user will receive notification through lobby.
+
+
+
 
 Action Code: 73406
 
+
+
+
+
+
 memberRolePermissions example value :
+
+
+
 
 "action": 1
 
+
+
+
 "resourceName": "GROUP:INVITE"
+
+
+
 
 The invited user will have a permission to invite another user to the group
 */
@@ -1297,23 +1537,53 @@ func (a *Client) InviteGroupPublicV1(params *InviteGroupPublicV1Params, authInfo
 /*
 InviteGroupPublicV1Short invite user to group
 
-# Required valid user authentication
+
+Required valid user authentication
+
+
+
 
 Required Member Role Permission: "GROUP:INVITE [CREATE]"
 
+
+
+
 This endpoint is used to invite specific user to the group.
+
+
+
 
 invite specific user to the group. If specific user is already have the join request to the group, this endpoint will notify if this user already have join request that needs to be accepted / rejected
 
+
+
+
 Invited user will receive notification through lobby.
+
+
+
 
 Action Code: 73406
 
+
+
+
+
+
 memberRolePermissions example value :
+
+
+
 
 "action": 1
 
+
+
+
 "resourceName": "GROUP:INVITE"
+
+
+
 
 The invited user will have a permission to invite another user to the group
 */
@@ -1377,17 +1647,33 @@ func (a *Client) InviteGroupPublicV1Short(params *InviteGroupPublicV1Params, aut
 /*
 Deprecated: 2022-08-10 - Use AcceptGroupJoinRequestPublicV1Short instead.
 
-# AcceptGroupJoinRequestPublicV1 accept group join request
+AcceptGroupJoinRequestPublicV1 accept group join request
 
-# Required valid user authentication
+
+Required valid user authentication
+
+
+
 
 Required Member Role Permission: "GROUP:JOIN [CREATE]"
 
+
+
+
 This endpoint is used to accept group join request.
+
+
+
 
 Accept group join request. If specific user is not asked to join the specific group ID, it will show the the error to show if the user is not asked to join yet.
 
-# This endpoint will also check if the specific user is already joined to specific group
+
+
+
+This endpoint will also check if the specific user is already joined to specific group
+
+
+
 
 Action Code: 73407
 */
@@ -1453,15 +1739,31 @@ func (a *Client) AcceptGroupJoinRequestPublicV1(params *AcceptGroupJoinRequestPu
 /*
 AcceptGroupJoinRequestPublicV1Short accept group join request
 
-# Required valid user authentication
+
+Required valid user authentication
+
+
+
 
 Required Member Role Permission: "GROUP:JOIN [CREATE]"
 
+
+
+
 This endpoint is used to accept group join request.
+
+
+
 
 Accept group join request. If specific user is not asked to join the specific group ID, it will show the the error to show if the user is not asked to join yet.
 
-# This endpoint will also check if the specific user is already joined to specific group
+
+
+
+This endpoint will also check if the specific user is already joined to specific group
+
+
+
 
 Action Code: 73407
 */
@@ -1525,17 +1827,33 @@ func (a *Client) AcceptGroupJoinRequestPublicV1Short(params *AcceptGroupJoinRequ
 /*
 Deprecated: 2022-08-10 - Use RejectGroupJoinRequestPublicV1Short instead.
 
-# RejectGroupJoinRequestPublicV1 reject group join request
+RejectGroupJoinRequestPublicV1 reject group join request
 
-# Required valid user authentication
+
+Required valid user authentication
+
+
+
 
 Required Member Role Permission: "GROUP:JOIN [CREATE]"
 
+
+
+
 This endpoint is used to reject group join request.
+
+
+
 
 Reject group join request. If specific user is not asked to join the specific group ID, it will show the the error to show if the user is not asked to join yet.
 
-# This endpoint will also check if the specific user is already joined to specific group
+
+
+
+This endpoint will also check if the specific user is already joined to specific group
+
+
+
 
 Action Code: 73408
 */
@@ -1601,15 +1919,31 @@ func (a *Client) RejectGroupJoinRequestPublicV1(params *RejectGroupJoinRequestPu
 /*
 RejectGroupJoinRequestPublicV1Short reject group join request
 
-# Required valid user authentication
+
+Required valid user authentication
+
+
+
 
 Required Member Role Permission: "GROUP:JOIN [CREATE]"
 
+
+
+
 This endpoint is used to reject group join request.
+
+
+
 
 Reject group join request. If specific user is not asked to join the specific group ID, it will show the the error to show if the user is not asked to join yet.
 
-# This endpoint will also check if the specific user is already joined to specific group
+
+
+
+This endpoint will also check if the specific user is already joined to specific group
+
+
+
 
 Action Code: 73408
 */
@@ -1673,15 +2007,28 @@ func (a *Client) RejectGroupJoinRequestPublicV1Short(params *RejectGroupJoinRequ
 /*
 Deprecated: 2022-08-10 - Use KickGroupMemberPublicV1Short instead.
 
-# KickGroupMemberPublicV1 kick group member
+KickGroupMemberPublicV1 kick group member
 
-# Required valid user authentication
+
+Required valid user authentication
+
+
+
 
 Required Member Role Permission: "GROUP:KICK [CREATE]"
 
+
+
+
 This endpoint is used to kick group member.
 
+
+
+
 Kick group member. This endpoint will check the member and group information, and also the role permission of the the user who accesses this endpoint
+
+
+
 
 Action Code: 73409
 */
@@ -1744,13 +2091,26 @@ func (a *Client) KickGroupMemberPublicV1(params *KickGroupMemberPublicV1Params, 
 /*
 KickGroupMemberPublicV1Short kick group member
 
-# Required valid user authentication
+
+Required valid user authentication
+
+
+
 
 Required Member Role Permission: "GROUP:KICK [CREATE]"
 
+
+
+
 This endpoint is used to kick group member.
 
+
+
+
 Kick group member. This endpoint will check the member and group information, and also the role permission of the the user who accesses this endpoint
+
+
+
 
 Action Code: 73409
 */
@@ -1812,17 +2172,32 @@ func (a *Client) KickGroupMemberPublicV1Short(params *KickGroupMemberPublicV1Par
 /*
 Deprecated: 2022-08-10 - Use GetUserJoinedGroupInformationPublicV2Short instead.
 
-# GetUserJoinedGroupInformationPublicV2 get user joined group information
+GetUserJoinedGroupInformationPublicV2 get user joined group information
 
-# Required valid user authentication
+
+Required valid user authentication
+
+
+
 
 This endpoint is used to get user joined group information.
 
+
+
+
 Get user group joined information. If user does not belong to any group, it will return warning to give information about it
+
+
+
 
 Group Member Status:
 
-  - JOINED: status of user already joined to a group
+
+
+
+
+
+  * JOINED: status of user already joined to a group
 */
 func (a *Client) GetUserJoinedGroupInformationPublicV2(params *GetUserJoinedGroupInformationPublicV2Params, authInfo runtime.ClientAuthInfoWriter) (*GetUserJoinedGroupInformationPublicV2OK, *GetUserJoinedGroupInformationPublicV2BadRequest, *GetUserJoinedGroupInformationPublicV2Unauthorized, *GetUserJoinedGroupInformationPublicV2Forbidden, *GetUserJoinedGroupInformationPublicV2NotFound, *GetUserJoinedGroupInformationPublicV2InternalServerError, error) {
 	// TODO: Validate the params before sending
@@ -1883,15 +2258,30 @@ func (a *Client) GetUserJoinedGroupInformationPublicV2(params *GetUserJoinedGrou
 /*
 GetUserJoinedGroupInformationPublicV2Short get user joined group information
 
-# Required valid user authentication
+
+Required valid user authentication
+
+
+
 
 This endpoint is used to get user joined group information.
 
+
+
+
 Get user group joined information. If user does not belong to any group, it will return warning to give information about it
+
+
+
 
 Group Member Status:
 
-  - JOINED: status of user already joined to a group
+
+
+
+
+
+  * JOINED: status of user already joined to a group
 */
 func (a *Client) GetUserJoinedGroupInformationPublicV2Short(params *GetUserJoinedGroupInformationPublicV2Params, authInfo runtime.ClientAuthInfoWriter) (*GetUserJoinedGroupInformationPublicV2OK, error) {
 	// TODO: Validate the params before sending
@@ -1951,9 +2341,13 @@ func (a *Client) GetUserJoinedGroupInformationPublicV2Short(params *GetUserJoine
 /*
 Deprecated: 2022-08-10 - Use AdminGetUserGroupStatusInformationV2Short instead.
 
-# AdminGetUserGroupStatusInformationV2 user group status information
+AdminGetUserGroupStatusInformationV2 user group status information
+
 
 Required Permission: "ADMIN:NAMESPACE:{namespace}:GROUP:MEMBER [READ]"
+
+
+
 
 This endpoint is used to get user group status information.
 */
@@ -2013,7 +2407,11 @@ func (a *Client) AdminGetUserGroupStatusInformationV2(params *AdminGetUserGroupS
 /*
 AdminGetUserGroupStatusInformationV2Short user group status information
 
+
 Required Permission: "ADMIN:NAMESPACE:{namespace}:GROUP:MEMBER [READ]"
+
+
+
 
 This endpoint is used to get user group status information.
 */
@@ -2073,19 +2471,38 @@ func (a *Client) AdminGetUserGroupStatusInformationV2Short(params *AdminGetUserG
 /*
 Deprecated: 2022-08-10 - Use AcceptGroupInvitationPublicV2Short instead.
 
-# AcceptGroupInvitationPublicV2 accept group invitation
+AcceptGroupInvitationPublicV2 accept group invitation
 
-# Required valid user authentication
+
+Required valid user authentication
+
+
+
 
 This endpoint is used to accept group invitation.
 
+
+
+
 Accept group invitation. If specific user is not invited in the specific group ID, it will show the the error to show if the user is not invited yet.
 
-# This endpoint will also check if the user who access this endpoint is already joined to specific group
+
+
+
+This endpoint will also check if the user who access this endpoint is already joined to specific group
+
+
+
 
 Accessing this endpoint will make all requests (invite / join request) will be deleted for the user who access this endpoint
 
+
+
+
 Existing members will receive notification of newly accepted member.
+
+
+
 
 Action Code: 73401
 */
@@ -2151,17 +2568,36 @@ func (a *Client) AcceptGroupInvitationPublicV2(params *AcceptGroupInvitationPubl
 /*
 AcceptGroupInvitationPublicV2Short accept group invitation
 
-# Required valid user authentication
+
+Required valid user authentication
+
+
+
 
 This endpoint is used to accept group invitation.
 
+
+
+
 Accept group invitation. If specific user is not invited in the specific group ID, it will show the the error to show if the user is not invited yet.
 
-# This endpoint will also check if the user who access this endpoint is already joined to specific group
+
+
+
+This endpoint will also check if the user who access this endpoint is already joined to specific group
+
+
+
 
 Accessing this endpoint will make all requests (invite / join request) will be deleted for the user who access this endpoint
 
+
+
+
 Existing members will receive notification of newly accepted member.
+
+
+
 
 Action Code: 73401
 */
@@ -2225,13 +2661,23 @@ func (a *Client) AcceptGroupInvitationPublicV2Short(params *AcceptGroupInvitatio
 /*
 Deprecated: 2022-08-10 - Use RejectGroupInvitationPublicV2Short instead.
 
-# RejectGroupInvitationPublicV2 reject group invitation
+RejectGroupInvitationPublicV2 reject group invitation
 
-# Required valid user authentication
+
+Required valid user authentication
+
+
+
 
 This endpoint is used to reject group invitation.
 
+
+
+
 Reject group invitation. If specific user is not invited in the specific group ID, it will show the the error to show if the user is not invited yet.
+
+
+
 
 Action Code: 73402
 */
@@ -2297,11 +2743,21 @@ func (a *Client) RejectGroupInvitationPublicV2(params *RejectGroupInvitationPubl
 /*
 RejectGroupInvitationPublicV2Short reject group invitation
 
-# Required valid user authentication
+
+Required valid user authentication
+
+
+
 
 This endpoint is used to reject group invitation.
 
+
+
+
 Reject group invitation. If specific user is not invited in the specific group ID, it will show the the error to show if the user is not invited yet.
+
+
+
 
 Action Code: 73402
 */
@@ -2365,23 +2821,47 @@ func (a *Client) RejectGroupInvitationPublicV2Short(params *RejectGroupInvitatio
 /*
 Deprecated: 2022-08-10 - Use JoinGroupV2Short instead.
 
-# JoinGroupV2 join to group
+JoinGroupV2 join to group
 
-# Required valid user authentication
 
-# This endpoint is used to join as group member
+Required valid user authentication
+
+
+
+
+This endpoint is used to join as group member
+
+
+
 
 Join to the group. This endpoint will check the the the type of the group based on the groupID.
 
+
+
+
 Additional Information:
 
-  - User cannot join to the group with PRIVATE type
 
-  - Joining PUBLIC group type will create join request and need approval from the privileged group member to accept the request to become the member
 
-  - Joining OPEN group type will make this user become member of that group immediately
 
-# This endpoint will return status field to give information whether the user is JOINED or REQUESTED to join to the specific group
+
+
+  * User cannot join to the group with PRIVATE type
+
+
+  * Joining PUBLIC group type will create join request and need approval from the privileged group member to accept the request to become the member
+
+
+  * Joining OPEN group type will make this user become member of that group immediately
+
+
+
+
+
+This endpoint will return status field to give information whether the user is JOINED or REQUESTED to join to the specific group
+
+
+
 
 Action Code: 73403
 */
@@ -2444,21 +2924,45 @@ func (a *Client) JoinGroupV2(params *JoinGroupV2Params, authInfo runtime.ClientA
 /*
 JoinGroupV2Short join to group
 
-# Required valid user authentication
 
-# This endpoint is used to join as group member
+Required valid user authentication
+
+
+
+
+This endpoint is used to join as group member
+
+
+
 
 Join to the group. This endpoint will check the the the type of the group based on the groupID.
 
+
+
+
 Additional Information:
 
-  - User cannot join to the group with PRIVATE type
 
-  - Joining PUBLIC group type will create join request and need approval from the privileged group member to accept the request to become the member
 
-  - Joining OPEN group type will make this user become member of that group immediately
 
-# This endpoint will return status field to give information whether the user is JOINED or REQUESTED to join to the specific group
+
+
+  * User cannot join to the group with PRIVATE type
+
+
+  * Joining PUBLIC group type will create join request and need approval from the privileged group member to accept the request to become the member
+
+
+  * Joining OPEN group type will make this user become member of that group immediately
+
+
+
+
+
+This endpoint will return status field to give information whether the user is JOINED or REQUESTED to join to the specific group
+
+
+
 
 Action Code: 73403
 */
@@ -2520,13 +3024,23 @@ func (a *Client) JoinGroupV2Short(params *JoinGroupV2Params, authInfo runtime.Cl
 /*
 Deprecated: 2022-08-10 - Use LeaveGroupPublicV2Short instead.
 
-# LeaveGroupPublicV2 leave group
+LeaveGroupPublicV2 leave group
 
-# Required valid user authentication
+
+Required valid user authentication
+
+
+
 
 This endpoint is used to leave from group.
 
+
+
+
 leave from group. Admin is not allowed to leave the group. This endpoint will also give response if the user does not belong to any group.
+
+
+
 
 Action Code: 73404
 */
@@ -2589,11 +3103,21 @@ func (a *Client) LeaveGroupPublicV2(params *LeaveGroupPublicV2Params, authInfo r
 /*
 LeaveGroupPublicV2Short leave group
 
-# Required valid user authentication
+
+Required valid user authentication
+
+
+
 
 This endpoint is used to leave from group.
 
+
+
+
 leave from group. Admin is not allowed to leave the group. This endpoint will also give response if the user does not belong to any group.
+
+
+
 
 Action Code: 73404
 */
@@ -2655,17 +3179,36 @@ func (a *Client) LeaveGroupPublicV2Short(params *LeaveGroupPublicV2Params, authI
 /*
 Deprecated: 2022-08-10 - Use GetUserGroupInformationPublicV2Short instead.
 
-# GetUserGroupInformationPublicV2 get user joined group information
+GetUserGroupInformationPublicV2 get user joined group information
 
-# Required valid user authentication
+
+Required valid user authentication
+
+
+
 
 This endpoint is used to get user joined group information.
 
+
+
+
 Get user group joined information. If user does not belong to any group, it will return warning to give information about it
+
+
+
 
 Group Member Status:
 
-  - JOINED: status of user already joined to a group
+
+
+
+
+
+  * JOINED: status of user already joined to a group
+
+
+
+
 
 Action Code: 73405
 */
@@ -2728,15 +3271,34 @@ func (a *Client) GetUserGroupInformationPublicV2(params *GetUserGroupInformation
 /*
 GetUserGroupInformationPublicV2Short get user joined group information
 
-# Required valid user authentication
+
+Required valid user authentication
+
+
+
 
 This endpoint is used to get user joined group information.
 
+
+
+
 Get user group joined information. If user does not belong to any group, it will return warning to give information about it
+
+
+
 
 Group Member Status:
 
-  - JOINED: status of user already joined to a group
+
+
+
+
+
+  * JOINED: status of user already joined to a group
+
+
+
+
 
 Action Code: 73405
 */
@@ -2798,25 +3360,55 @@ func (a *Client) GetUserGroupInformationPublicV2Short(params *GetUserGroupInform
 /*
 Deprecated: 2022-08-10 - Use InviteGroupPublicV2Short instead.
 
-# InviteGroupPublicV2 invite user to group
+InviteGroupPublicV2 invite user to group
 
-# Required valid user authentication
+
+Required valid user authentication
+
+
+
 
 Required Member Role Permission: "GROUP:INVITE [CREATE]"
 
+
+
+
 This endpoint is used to invite specific user to the group.
+
+
+
 
 invite specific user to the group. If specific user is already have the join request to the group, this endpoint will notify if this user already have join request that needs to be accepted / rejected
 
+
+
+
 Invited user will receive notification through lobby.
+
+
+
 
 Action Code: 73406
 
+
+
+
+
+
 memberRolePermissions example value :
+
+
+
 
 "action": 1
 
+
+
+
 "resourceName": "GROUP:INVITE"
+
+
+
 
 The invited user will have a permission to invite another user to the group
 */
@@ -2882,23 +3474,53 @@ func (a *Client) InviteGroupPublicV2(params *InviteGroupPublicV2Params, authInfo
 /*
 InviteGroupPublicV2Short invite user to group
 
-# Required valid user authentication
+
+Required valid user authentication
+
+
+
 
 Required Member Role Permission: "GROUP:INVITE [CREATE]"
 
+
+
+
 This endpoint is used to invite specific user to the group.
+
+
+
 
 invite specific user to the group. If specific user is already have the join request to the group, this endpoint will notify if this user already have join request that needs to be accepted / rejected
 
+
+
+
 Invited user will receive notification through lobby.
+
+
+
 
 Action Code: 73406
 
+
+
+
+
+
 memberRolePermissions example value :
+
+
+
 
 "action": 1
 
+
+
+
 "resourceName": "GROUP:INVITE"
+
+
+
 
 The invited user will have a permission to invite another user to the group
 */
@@ -2962,15 +3584,28 @@ func (a *Client) InviteGroupPublicV2Short(params *InviteGroupPublicV2Params, aut
 /*
 Deprecated: 2022-08-10 - Use CancelInvitationGroupMemberV2Short instead.
 
-# CancelInvitationGroupMemberV2 cancel invitation group member
+CancelInvitationGroupMemberV2 cancel invitation group member
 
-# Required valid user authentication
+
+Required valid user authentication
+
+
+
 
 Required Member Role Permission: "GROUP:INVITE [DELETE]"
 
+
+
+
 This endpoint is used to cancel invitation group member.
 
+
+
+
 cancel invitation group member. This endpoint will cancel invitation to specific user, and also the role permission of the the user who accesses this endpoint
+
+
+
 
 Action Code: 73409
 */
@@ -3033,13 +3668,26 @@ func (a *Client) CancelInvitationGroupMemberV2(params *CancelInvitationGroupMemb
 /*
 CancelInvitationGroupMemberV2Short cancel invitation group member
 
-# Required valid user authentication
+
+Required valid user authentication
+
+
+
 
 Required Member Role Permission: "GROUP:INVITE [DELETE]"
 
+
+
+
 This endpoint is used to cancel invitation group member.
 
+
+
+
 cancel invitation group member. This endpoint will cancel invitation to specific user, and also the role permission of the the user who accesses this endpoint
+
+
+
 
 Action Code: 73409
 */
@@ -3101,17 +3749,33 @@ func (a *Client) CancelInvitationGroupMemberV2Short(params *CancelInvitationGrou
 /*
 Deprecated: 2022-08-10 - Use AcceptGroupJoinRequestPublicV2Short instead.
 
-# AcceptGroupJoinRequestPublicV2 accept group join request
+AcceptGroupJoinRequestPublicV2 accept group join request
 
-# Required valid user authentication
+
+Required valid user authentication
+
+
+
 
 Required Member Role Permission: "GROUP:JOIN [CREATE]"
 
+
+
+
 This endpoint is used to accept group join request.
+
+
+
 
 Accept group join request. If specific user is not asked to join the specific group ID, it will show the the error to show if the user is not asked to join yet.
 
-# This endpoint will also check if the specific user is already joined to specific group
+
+
+
+This endpoint will also check if the specific user is already joined to specific group
+
+
+
 
 Action Code: 73407
 */
@@ -3177,15 +3841,31 @@ func (a *Client) AcceptGroupJoinRequestPublicV2(params *AcceptGroupJoinRequestPu
 /*
 AcceptGroupJoinRequestPublicV2Short accept group join request
 
-# Required valid user authentication
+
+Required valid user authentication
+
+
+
 
 Required Member Role Permission: "GROUP:JOIN [CREATE]"
 
+
+
+
 This endpoint is used to accept group join request.
+
+
+
 
 Accept group join request. If specific user is not asked to join the specific group ID, it will show the the error to show if the user is not asked to join yet.
 
-# This endpoint will also check if the specific user is already joined to specific group
+
+
+
+This endpoint will also check if the specific user is already joined to specific group
+
+
+
 
 Action Code: 73407
 */
@@ -3249,17 +3929,33 @@ func (a *Client) AcceptGroupJoinRequestPublicV2Short(params *AcceptGroupJoinRequ
 /*
 Deprecated: 2022-08-10 - Use RejectGroupJoinRequestPublicV2Short instead.
 
-# RejectGroupJoinRequestPublicV2 reject group join request
+RejectGroupJoinRequestPublicV2 reject group join request
 
-# Required valid user authentication
+
+Required valid user authentication
+
+
+
 
 Required Member Role Permission: "GROUP:JOIN [CREATE]"
 
+
+
+
 This endpoint is used to reject group join request.
+
+
+
 
 Reject group join request. If specific user is not asked to join the specific group ID, it will show the the error to show if the user is not asked to join yet.
 
-# This endpoint will also check if the specific user is already joined to specific group
+
+
+
+This endpoint will also check if the specific user is already joined to specific group
+
+
+
 
 Action Code: 73408
 */
@@ -3325,15 +4021,31 @@ func (a *Client) RejectGroupJoinRequestPublicV2(params *RejectGroupJoinRequestPu
 /*
 RejectGroupJoinRequestPublicV2Short reject group join request
 
-# Required valid user authentication
+
+Required valid user authentication
+
+
+
 
 Required Member Role Permission: "GROUP:JOIN [CREATE]"
 
+
+
+
 This endpoint is used to reject group join request.
+
+
+
 
 Reject group join request. If specific user is not asked to join the specific group ID, it will show the the error to show if the user is not asked to join yet.
 
-# This endpoint will also check if the specific user is already joined to specific group
+
+
+
+This endpoint will also check if the specific user is already joined to specific group
+
+
+
 
 Action Code: 73408
 */
@@ -3397,15 +4109,28 @@ func (a *Client) RejectGroupJoinRequestPublicV2Short(params *RejectGroupJoinRequ
 /*
 Deprecated: 2022-08-10 - Use KickGroupMemberPublicV2Short instead.
 
-# KickGroupMemberPublicV2 kick group member
+KickGroupMemberPublicV2 kick group member
 
-# Required valid user authentication
+
+Required valid user authentication
+
+
+
 
 Required Member Role Permission: "GROUP:KICK [CREATE]"
 
+
+
+
 This endpoint is used to kick group member.
 
+
+
+
 Kick group member. This endpoint will check the member and group information, and also the role permission of the the user who accesses this endpoint
+
+
+
 
 Action Code: 73409
 */
@@ -3468,13 +4193,26 @@ func (a *Client) KickGroupMemberPublicV2(params *KickGroupMemberPublicV2Params, 
 /*
 KickGroupMemberPublicV2Short kick group member
 
-# Required valid user authentication
+
+Required valid user authentication
+
+
+
 
 Required Member Role Permission: "GROUP:KICK [CREATE]"
 
+
+
+
 This endpoint is used to kick group member.
 
+
+
+
 Kick group member. This endpoint will check the member and group information, and also the role permission of the the user who accesses this endpoint
+
+
+
 
 Action Code: 73409
 */
@@ -3536,15 +4274,28 @@ func (a *Client) KickGroupMemberPublicV2Short(params *KickGroupMemberPublicV2Par
 /*
 Deprecated: 2022-08-10 - Use GetUserGroupStatusInformationV2Short instead.
 
-# GetUserGroupStatusInformationV2 user group status information
+GetUserGroupStatusInformationV2 user group status information
 
-# Required valid user authentication
+
+Required valid user authentication
+
+
+
 
 Required Member Role Permission: "GROUP [READ]"
 
+
+
+
 This endpoint is used to get user group status information.
 
+
+
+
 get user group status information. This endpoint will check the member and group information, and also the role permission of the the user who accesses this endpoint
+
+
+
 
 Action Code: 73409
 */
@@ -3604,13 +4355,26 @@ func (a *Client) GetUserGroupStatusInformationV2(params *GetUserGroupStatusInfor
 /*
 GetUserGroupStatusInformationV2Short user group status information
 
-# Required valid user authentication
+
+Required valid user authentication
+
+
+
 
 Required Member Role Permission: "GROUP [READ]"
 
+
+
+
 This endpoint is used to get user group status information.
 
+
+
+
 get user group status information. This endpoint will check the member and group information, and also the role permission of the the user who accesses this endpoint
+
+
+
 
 Action Code: 73409
 */

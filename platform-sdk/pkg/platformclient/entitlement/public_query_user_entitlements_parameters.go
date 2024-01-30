@@ -97,8 +97,7 @@ func NewPublicQueryUserEntitlementsParamsWithHTTPClient(client *http.Client) *Pu
 	}
 }
 
-/*
-PublicQueryUserEntitlementsParams contains all the parameters to send to the API endpoint
+/*PublicQueryUserEntitlementsParams contains all the parameters to send to the API endpoint
 for the public query user entitlements operation typically these are written to a http.Request
 */
 type PublicQueryUserEntitlementsParams struct {

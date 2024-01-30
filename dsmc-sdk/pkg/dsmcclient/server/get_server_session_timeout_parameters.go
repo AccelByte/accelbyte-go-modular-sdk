@@ -57,8 +57,7 @@ func NewGetServerSessionTimeoutParamsWithHTTPClient(client *http.Client) *GetSer
 	}
 }
 
-/*
-GetServerSessionTimeoutParams contains all the parameters to send to the API endpoint
+/*GetServerSessionTimeoutParams contains all the parameters to send to the API endpoint
 for the get server session timeout operation typically these are written to a http.Request
 */
 type GetServerSessionTimeoutParams struct {

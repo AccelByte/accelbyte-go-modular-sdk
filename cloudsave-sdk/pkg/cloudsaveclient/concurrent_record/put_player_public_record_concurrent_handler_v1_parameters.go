@@ -60,8 +60,7 @@ func NewPutPlayerPublicRecordConcurrentHandlerV1ParamsWithHTTPClient(client *htt
 	}
 }
 
-/*
-PutPlayerPublicRecordConcurrentHandlerV1Params contains all the parameters to send to the API endpoint
+/*PutPlayerPublicRecordConcurrentHandlerV1Params contains all the parameters to send to the API endpoint
 for the put player public record concurrent handler v1 operation typically these are written to a http.Request
 */
 type PutPlayerPublicRecordConcurrentHandlerV1Params struct {

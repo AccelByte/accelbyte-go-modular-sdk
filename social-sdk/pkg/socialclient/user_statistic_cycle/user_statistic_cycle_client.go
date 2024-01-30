@@ -46,8 +46,8 @@ Deprecated: 2022-08-10 - Use GetUserStatCycleItemsShort instead.
 GetUserStatCycleItems list user's statcycleitems by statcycle
 List user's statCycleItems by statCycle.
 Other detail info:
-  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:USER:{userId}:STATITEM", action=2 (READ)
-  - Returns : stat cycle items
+                  *  Required permission : resource="ADMIN:NAMESPACE:{namespace}:USER:{userId}:STATITEM", action=2 (READ)
+                  *  Returns : stat cycle items
 */
 func (a *Client) GetUserStatCycleItems(params *GetUserStatCycleItemsParams, authInfo runtime.ClientAuthInfoWriter) (*GetUserStatCycleItemsOK, *GetUserStatCycleItemsUnauthorized, *GetUserStatCycleItemsForbidden, *GetUserStatCycleItemsNotFound, *GetUserStatCycleItemsUnprocessableEntity, *GetUserStatCycleItemsInternalServerError, error) {
 	// TODO: Validate the params before sending
@@ -109,8 +109,8 @@ func (a *Client) GetUserStatCycleItems(params *GetUserStatCycleItemsParams, auth
 GetUserStatCycleItemsShort list user's statcycleitems by statcycle
 List user's statCycleItems by statCycle.
 Other detail info:
-  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:USER:{userId}:STATITEM", action=2 (READ)
-  - Returns : stat cycle items
+                  *  Required permission : resource="ADMIN:NAMESPACE:{namespace}:USER:{userId}:STATITEM", action=2 (READ)
+                  *  Returns : stat cycle items
 */
 func (a *Client) GetUserStatCycleItemsShort(params *GetUserStatCycleItemsParams, authInfo runtime.ClientAuthInfoWriter) (*GetUserStatCycleItemsOK, error) {
 	// TODO: Validate the params before sending
@@ -173,8 +173,8 @@ Deprecated: 2022-08-10 - Use PublicListMyStatCycleItemsShort instead.
 PublicListMyStatCycleItems list user's statcycleitems by statcycle
 List user's statCycleItems by statCycle.
 Other detail info:
-  - Required permission : resource="NAMESPACE:{namespace}:USER:{userId}:STATITEM", action=2 (READ)
-  - Returns : stat cycle items
+                  *  Required permission : resource="NAMESPACE:{namespace}:USER:{userId}:STATITEM", action=2 (READ)
+                  *  Returns : stat cycle items
 */
 func (a *Client) PublicListMyStatCycleItems(params *PublicListMyStatCycleItemsParams, authInfo runtime.ClientAuthInfoWriter) (*PublicListMyStatCycleItemsOK, *PublicListMyStatCycleItemsUnauthorized, *PublicListMyStatCycleItemsForbidden, *PublicListMyStatCycleItemsNotFound, *PublicListMyStatCycleItemsUnprocessableEntity, *PublicListMyStatCycleItemsInternalServerError, error) {
 	// TODO: Validate the params before sending
@@ -236,8 +236,8 @@ func (a *Client) PublicListMyStatCycleItems(params *PublicListMyStatCycleItemsPa
 PublicListMyStatCycleItemsShort list user's statcycleitems by statcycle
 List user's statCycleItems by statCycle.
 Other detail info:
-  - Required permission : resource="NAMESPACE:{namespace}:USER:{userId}:STATITEM", action=2 (READ)
-  - Returns : stat cycle items
+                  *  Required permission : resource="NAMESPACE:{namespace}:USER:{userId}:STATITEM", action=2 (READ)
+                  *  Returns : stat cycle items
 */
 func (a *Client) PublicListMyStatCycleItemsShort(params *PublicListMyStatCycleItemsParams, authInfo runtime.ClientAuthInfoWriter) (*PublicListMyStatCycleItemsOK, error) {
 	// TODO: Validate the params before sending
@@ -300,8 +300,8 @@ Deprecated: 2022-08-10 - Use GetUserStatCycleItems1Short instead.
 GetUserStatCycleItems1 list user's statcycleitems by statcycle
 List user's statCycleItems by statCycle.
 Other detail info:
-  - Required permission : resource="NAMESPACE:{namespace}:USER:{userId}:STATITEM", action=2 (READ)
-  - Returns : stat cycle items
+                  *  Required permission : resource="NAMESPACE:{namespace}:USER:{userId}:STATITEM", action=2 (READ)
+                  *  Returns : stat cycle items
 */
 func (a *Client) GetUserStatCycleItems1(params *GetUserStatCycleItems1Params, authInfo runtime.ClientAuthInfoWriter) (*GetUserStatCycleItems1OK, *GetUserStatCycleItems1Unauthorized, *GetUserStatCycleItems1Forbidden, *GetUserStatCycleItems1NotFound, *GetUserStatCycleItems1UnprocessableEntity, *GetUserStatCycleItems1InternalServerError, error) {
 	// TODO: Validate the params before sending
@@ -363,8 +363,8 @@ func (a *Client) GetUserStatCycleItems1(params *GetUserStatCycleItems1Params, au
 GetUserStatCycleItems1Short list user's statcycleitems by statcycle
 List user's statCycleItems by statCycle.
 Other detail info:
-  - Required permission : resource="NAMESPACE:{namespace}:USER:{userId}:STATITEM", action=2 (READ)
-  - Returns : stat cycle items
+                  *  Required permission : resource="NAMESPACE:{namespace}:USER:{userId}:STATITEM", action=2 (READ)
+                  *  Returns : stat cycle items
 */
 func (a *Client) GetUserStatCycleItems1Short(params *GetUserStatCycleItems1Params, authInfo runtime.ClientAuthInfoWriter) (*GetUserStatCycleItems1OK, error) {
 	// TODO: Validate the params before sending

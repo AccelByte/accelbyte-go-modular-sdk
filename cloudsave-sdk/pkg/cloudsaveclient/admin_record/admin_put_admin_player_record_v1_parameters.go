@@ -59,8 +59,7 @@ func NewAdminPutAdminPlayerRecordV1ParamsWithHTTPClient(client *http.Client) *Ad
 	}
 }
 
-/*
-AdminPutAdminPlayerRecordV1Params contains all the parameters to send to the API endpoint
+/*AdminPutAdminPlayerRecordV1Params contains all the parameters to send to the API endpoint
 for the admin put admin player record v1 operation typically these are written to a http.Request
 */
 type AdminPutAdminPlayerRecordV1Params struct {

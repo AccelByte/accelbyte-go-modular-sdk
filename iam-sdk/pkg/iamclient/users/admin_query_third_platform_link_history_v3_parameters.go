@@ -58,8 +58,7 @@ func NewAdminQueryThirdPlatformLinkHistoryV3ParamsWithHTTPClient(client *http.Cl
 	}
 }
 
-/*
-AdminQueryThirdPlatformLinkHistoryV3Params contains all the parameters to send to the API endpoint
+/*AdminQueryThirdPlatformLinkHistoryV3Params contains all the parameters to send to the API endpoint
 for the admin query third platform link history v3 operation typically these are written to a http.Request
 */
 type AdminQueryThirdPlatformLinkHistoryV3Params struct {

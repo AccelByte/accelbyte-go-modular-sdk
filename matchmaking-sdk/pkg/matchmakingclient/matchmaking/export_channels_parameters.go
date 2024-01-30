@@ -57,8 +57,7 @@ func NewExportChannelsParamsWithHTTPClient(client *http.Client) *ExportChannelsP
 	}
 }
 
-/*
-ExportChannelsParams contains all the parameters to send to the API endpoint
+/*ExportChannelsParams contains all the parameters to send to the API endpoint
 for the export channels operation typically these are written to a http.Request
 */
 type ExportChannelsParams struct {

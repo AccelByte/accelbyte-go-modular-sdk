@@ -110,8 +110,7 @@ func NewQueryUncategorizedItemsParamsWithHTTPClient(client *http.Client) *QueryU
 	}
 }
 
-/*
-QueryUncategorizedItemsParams contains all the parameters to send to the API endpoint
+/*QueryUncategorizedItemsParams contains all the parameters to send to the API endpoint
 for the query uncategorized items operation typically these are written to a http.Request
 */
 type QueryUncategorizedItemsParams struct {

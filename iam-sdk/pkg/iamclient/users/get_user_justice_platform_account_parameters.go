@@ -57,8 +57,7 @@ func NewGetUserJusticePlatformAccountParamsWithHTTPClient(client *http.Client) *
 	}
 }
 
-/*
-GetUserJusticePlatformAccountParams contains all the parameters to send to the API endpoint
+/*GetUserJusticePlatformAccountParams contains all the parameters to send to the API endpoint
 for the get user justice platform account operation typically these are written to a http.Request
 */
 type GetUserJusticePlatformAccountParams struct {

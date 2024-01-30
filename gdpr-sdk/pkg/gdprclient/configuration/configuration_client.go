@@ -54,6 +54,7 @@ Deprecated: 2022-08-10 - Use GetAdminEmailConfigurationShort instead.
 GetAdminEmailConfiguration get admin email addresses configuration
 Get list of admin email address configuration.
 
+
 Required permission `ADMIN:NAMESPACE:{namespace}:EMAIL:CONFIGURATION [READ]` and scope `account`
 */
 func (a *Client) GetAdminEmailConfiguration(params *GetAdminEmailConfigurationParams, authInfo runtime.ClientAuthInfoWriter) (*GetAdminEmailConfigurationOK, *GetAdminEmailConfigurationUnauthorized, *GetAdminEmailConfigurationInternalServerError, error) {
@@ -106,6 +107,7 @@ func (a *Client) GetAdminEmailConfiguration(params *GetAdminEmailConfigurationPa
 /*
 GetAdminEmailConfigurationShort get admin email addresses configuration
 Get list of admin email address configuration.
+
 
 Required permission `ADMIN:NAMESPACE:{namespace}:EMAIL:CONFIGURATION [READ]` and scope `account`
 */
@@ -279,6 +281,7 @@ Deprecated: 2022-08-10 - Use SaveAdminEmailConfigurationShort instead.
 SaveAdminEmailConfiguration add admin email address configuration
 Add admin email address for receiving personal data request notification.
 
+
 Required permission `ADMIN:NAMESPACE:{namespace}:EMAIL:CONFIGURATION [CREATE]` and scope `account`
 */
 func (a *Client) SaveAdminEmailConfiguration(params *SaveAdminEmailConfigurationParams, authInfo runtime.ClientAuthInfoWriter) (*SaveAdminEmailConfigurationNoContent, *SaveAdminEmailConfigurationBadRequest, *SaveAdminEmailConfigurationUnauthorized, *SaveAdminEmailConfigurationInternalServerError, error) {
@@ -334,6 +337,7 @@ func (a *Client) SaveAdminEmailConfiguration(params *SaveAdminEmailConfiguration
 /*
 SaveAdminEmailConfigurationShort add admin email address configuration
 Add admin email address for receiving personal data request notification.
+
 
 Required permission `ADMIN:NAMESPACE:{namespace}:EMAIL:CONFIGURATION [CREATE]` and scope `account`
 */
@@ -393,6 +397,7 @@ Deprecated: 2022-08-10 - Use DeleteAdminEmailConfigurationShort instead.
 
 DeleteAdminEmailConfiguration delete admin emails configurations
 Delete a list of admin email addresses to stop receiving personal data request notification.
+
 
 Required permission `ADMIN:NAMESPACE:{namespace}:EMAIL:CONFIGURATION [DELETE]` and scope `account`
 */
@@ -455,6 +460,7 @@ func (a *Client) DeleteAdminEmailConfiguration(params *DeleteAdminEmailConfigura
 /*
 DeleteAdminEmailConfigurationShort delete admin emails configurations
 Delete a list of admin email addresses to stop receiving personal data request notification.
+
 
 Required permission `ADMIN:NAMESPACE:{namespace}:EMAIL:CONFIGURATION [DELETE]` and scope `account`
 */
@@ -519,6 +525,7 @@ Deprecated: 2022-08-10 - Use AdminGetServicesConfigurationShort instead.
 AdminGetServicesConfiguration get registered services configuration
 Get Registered Services Configuration.
 
+
 Required permission `ADMIN:NAMESPACE:{namespace}:GDPR:CONFIGURATION [READ]` and scope `account`
 */
 func (a *Client) AdminGetServicesConfiguration(params *AdminGetServicesConfigurationParams, authInfo runtime.ClientAuthInfoWriter) (*AdminGetServicesConfigurationOK, *AdminGetServicesConfigurationUnauthorized, *AdminGetServicesConfigurationNotFound, *AdminGetServicesConfigurationInternalServerError, error) {
@@ -574,6 +581,7 @@ func (a *Client) AdminGetServicesConfiguration(params *AdminGetServicesConfigura
 /*
 AdminGetServicesConfigurationShort get registered services configuration
 Get Registered Services Configuration.
+
 
 Required permission `ADMIN:NAMESPACE:{namespace}:GDPR:CONFIGURATION [READ]` and scope `account`
 */
@@ -634,6 +642,7 @@ Deprecated: 2022-08-10 - Use AdminUpdateServicesConfigurationShort instead.
 AdminUpdateServicesConfiguration update registered services configuration
 Update Registered Services Configuration.
 
+
 Required permission `ADMIN:NAMESPACE:{namespace}:GDPR:CONFIGURATION [UPDATE]` and scope `account`
 */
 func (a *Client) AdminUpdateServicesConfiguration(params *AdminUpdateServicesConfigurationParams, authInfo runtime.ClientAuthInfoWriter) (*AdminUpdateServicesConfigurationOK, *AdminUpdateServicesConfigurationBadRequest, *AdminUpdateServicesConfigurationUnauthorized, *AdminUpdateServicesConfigurationInternalServerError, error) {
@@ -689,6 +698,7 @@ func (a *Client) AdminUpdateServicesConfiguration(params *AdminUpdateServicesCon
 /*
 AdminUpdateServicesConfigurationShort update registered services configuration
 Update Registered Services Configuration.
+
 
 Required permission `ADMIN:NAMESPACE:{namespace}:GDPR:CONFIGURATION [UPDATE]` and scope `account`
 */
@@ -747,10 +757,9 @@ func (a *Client) AdminUpdateServicesConfigurationShort(params *AdminUpdateServic
 Deprecated: 2022-08-10 - Use AdminResetServicesConfigurationShort instead.
 
 AdminResetServicesConfiguration reset registered services configuration
-
-	[TEST FACILITY ONLY]
-
+ [TEST FACILITY ONLY]
 Reset Registered Services Configuration to use the default configuration.
+
 
 Required permission `ADMIN:NAMESPACE:{namespace}:GDPR:CONFIGURATION [DELETE]` and scope `account`
 */
@@ -803,10 +812,9 @@ func (a *Client) AdminResetServicesConfiguration(params *AdminResetServicesConfi
 
 /*
 AdminResetServicesConfigurationShort reset registered services configuration
-
-	[TEST FACILITY ONLY]
-
+ [TEST FACILITY ONLY]
 Reset Registered Services Configuration to use the default configuration.
+
 
 Required permission `ADMIN:NAMESPACE:{namespace}:GDPR:CONFIGURATION [DELETE]` and scope `account`
 */

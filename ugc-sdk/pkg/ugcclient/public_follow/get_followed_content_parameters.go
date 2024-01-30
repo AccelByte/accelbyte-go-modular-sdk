@@ -78,8 +78,7 @@ func NewGetFollowedContentParamsWithHTTPClient(client *http.Client) *GetFollowed
 	}
 }
 
-/*
-GetFollowedContentParams contains all the parameters to send to the API endpoint
+/*GetFollowedContentParams contains all the parameters to send to the API endpoint
 for the get followed content operation typically these are written to a http.Request
 */
 type GetFollowedContentParams struct {

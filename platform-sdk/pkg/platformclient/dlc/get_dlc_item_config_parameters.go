@@ -57,8 +57,7 @@ func NewGetDLCItemConfigParamsWithHTTPClient(client *http.Client) *GetDLCItemCon
 	}
 }
 
-/*
-GetDLCItemConfigParams contains all the parameters to send to the API endpoint
+/*GetDLCItemConfigParams contains all the parameters to send to the API endpoint
 for the get dlc item config operation typically these are written to a http.Request
 */
 type GetDLCItemConfigParams struct {

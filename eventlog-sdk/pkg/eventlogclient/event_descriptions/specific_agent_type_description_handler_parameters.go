@@ -57,8 +57,7 @@ func NewSpecificAgentTypeDescriptionHandlerParamsWithHTTPClient(client *http.Cli
 	}
 }
 
-/*
-SpecificAgentTypeDescriptionHandlerParams contains all the parameters to send to the API endpoint
+/*SpecificAgentTypeDescriptionHandlerParams contains all the parameters to send to the API endpoint
 for the specific agent type description handler operation typically these are written to a http.Request
 */
 type SpecificAgentTypeDescriptionHandlerParams struct {

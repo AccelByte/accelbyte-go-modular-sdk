@@ -45,7 +45,7 @@ UpdatePolicy1 update country-specific policy
 Update country-specific policy.
 Other detail info:
 
-  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:LEGAL", action=4 (UPDATE)
+  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:LEGAL", action=4 (UPDATE)
 */
 func (a *Client) UpdatePolicy1(params *UpdatePolicy1Params, authInfo runtime.ClientAuthInfoWriter) (*UpdatePolicy1OK, *UpdatePolicy1BadRequest, error) {
 	// TODO: Validate the params before sending
@@ -96,7 +96,7 @@ UpdatePolicy1Short update country-specific policy
 Update country-specific policy.
 Other detail info:
 
-  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:LEGAL", action=4 (UPDATE)
+  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:LEGAL", action=4 (UPDATE)
 */
 func (a *Client) UpdatePolicy1Short(params *UpdatePolicy1Params, authInfo runtime.ClientAuthInfoWriter) (*UpdatePolicy1OK, error) {
 	// TODO: Validate the params before sending
@@ -152,7 +152,7 @@ SetDefaultPolicy3 set default policy
 Update a policy to be the default.
 Other detail info:
 
-  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:LEGAL", action=4 (UPDATE)
+  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:LEGAL", action=4 (UPDATE)
 */
 func (a *Client) SetDefaultPolicy3(params *SetDefaultPolicy3Params, authInfo runtime.ClientAuthInfoWriter) (*SetDefaultPolicy3OK, *SetDefaultPolicy3BadRequest, error) {
 	// TODO: Validate the params before sending
@@ -203,7 +203,7 @@ SetDefaultPolicy3Short set default policy
 Update a policy to be the default.
 Other detail info:
 
-  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:LEGAL", action=4 (UPDATE)
+  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:LEGAL", action=4 (UPDATE)
 */
 func (a *Client) SetDefaultPolicy3Short(params *SetDefaultPolicy3Params, authInfo runtime.ClientAuthInfoWriter) (*SetDefaultPolicy3OK, error) {
 	// TODO: Validate the params before sending

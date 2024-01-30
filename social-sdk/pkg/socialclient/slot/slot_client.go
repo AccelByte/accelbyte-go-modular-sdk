@@ -54,14 +54,16 @@ type ClientService interface {
 /*
 Deprecated: 2022-08-10 - Use GetUserNamespaceSlotsShort instead.
 
-# GetUserNamespaceSlots returns list of slots for given user
+GetUserNamespaceSlots returns list of slots for given user
+
 
 ## The endpoint is going to be deprecated
 
+
 Get slots for a given user.
 Other detail info:
-  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:USER:{userId}:SLOTDATA", action=2 (READ)
-  - Returns : list of slots
+              *  Required permission : resource="ADMIN:NAMESPACE:{namespace}:USER:{userId}:SLOTDATA", action=2 (READ)
+              *  Returns : list of slots
 */
 func (a *Client) GetUserNamespaceSlots(params *GetUserNamespaceSlotsParams, authInfo runtime.ClientAuthInfoWriter) (*GetUserNamespaceSlotsOK, error) {
 	// TODO: Validate the params before sending
@@ -107,12 +109,14 @@ func (a *Client) GetUserNamespaceSlots(params *GetUserNamespaceSlotsParams, auth
 /*
 GetUserNamespaceSlotsShort returns list of slots for given user
 
+
 ## The endpoint is going to be deprecated
+
 
 Get slots for a given user.
 Other detail info:
-  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:USER:{userId}:SLOTDATA", action=2 (READ)
-  - Returns : list of slots
+              *  Required permission : resource="ADMIN:NAMESPACE:{namespace}:USER:{userId}:SLOTDATA", action=2 (READ)
+              *  Returns : list of slots
 */
 func (a *Client) GetUserNamespaceSlotsShort(params *GetUserNamespaceSlotsParams, authInfo runtime.ClientAuthInfoWriter) (*GetUserNamespaceSlotsOK, error) {
 	// TODO: Validate the params before sending
@@ -162,14 +166,16 @@ func (a *Client) GetUserNamespaceSlotsShort(params *GetUserNamespaceSlotsParams,
 /*
 Deprecated: 2022-08-10 - Use GetSlotDataShort instead.
 
-# GetSlotData returns slot data
+GetSlotData returns slot data
+
 
 ## The endpoint is going to be deprecated
 
+
 Get slot data.
 Other detail info:
-  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:USER:{userId}:SLOTDATA", action=2 (READ)
-  - Returns : slot data
+              *  Required permission : resource="ADMIN:NAMESPACE:{namespace}:USER:{userId}:SLOTDATA", action=2 (READ)
+              *  Returns : slot data
 */
 func (a *Client) GetSlotData(params *GetSlotDataParams, authInfo runtime.ClientAuthInfoWriter, writer io.Writer) (*GetSlotDataOK, *GetSlotDataNotFound, error) {
 	// TODO: Validate the params before sending
@@ -218,12 +224,14 @@ func (a *Client) GetSlotData(params *GetSlotDataParams, authInfo runtime.ClientA
 /*
 GetSlotDataShort returns slot data
 
+
 ## The endpoint is going to be deprecated
+
 
 Get slot data.
 Other detail info:
-  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:USER:{userId}:SLOTDATA", action=2 (READ)
-  - Returns : slot data
+              *  Required permission : resource="ADMIN:NAMESPACE:{namespace}:USER:{userId}:SLOTDATA", action=2 (READ)
+              *  Returns : slot data
 */
 func (a *Client) GetSlotDataShort(params *GetSlotDataParams, authInfo runtime.ClientAuthInfoWriter, writer io.Writer) (*GetSlotDataOK, error) {
 	// TODO: Validate the params before sending
@@ -275,14 +283,16 @@ func (a *Client) GetSlotDataShort(params *GetSlotDataParams, authInfo runtime.Cl
 /*
 Deprecated: 2022-08-10 - Use PublicGetUserNamespaceSlotsShort instead.
 
-# PublicGetUserNamespaceSlots returns slots for given user
+PublicGetUserNamespaceSlots returns slots for given user
+
 
 ## The endpoint is going to be deprecated
 
+
 Get list of slots for a given user in namespace.
 Other detail info:
-  - Required permission : resource="NAMESPACE:{namespace}:USER:{userId}:SLOTDATA", action=2 (READ)
-  - Returns : list of slots
+              *  Required permission : resource="NAMESPACE:{namespace}:USER:{userId}:SLOTDATA", action=2 (READ)
+              *  Returns : list of slots
 */
 func (a *Client) PublicGetUserNamespaceSlots(params *PublicGetUserNamespaceSlotsParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGetUserNamespaceSlotsOK, error) {
 	// TODO: Validate the params before sending
@@ -328,12 +338,14 @@ func (a *Client) PublicGetUserNamespaceSlots(params *PublicGetUserNamespaceSlots
 /*
 PublicGetUserNamespaceSlotsShort returns slots for given user
 
+
 ## The endpoint is going to be deprecated
+
 
 Get list of slots for a given user in namespace.
 Other detail info:
-  - Required permission : resource="NAMESPACE:{namespace}:USER:{userId}:SLOTDATA", action=2 (READ)
-  - Returns : list of slots
+              *  Required permission : resource="NAMESPACE:{namespace}:USER:{userId}:SLOTDATA", action=2 (READ)
+              *  Returns : list of slots
 */
 func (a *Client) PublicGetUserNamespaceSlotsShort(params *PublicGetUserNamespaceSlotsParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGetUserNamespaceSlotsOK, error) {
 	// TODO: Validate the params before sending
@@ -383,14 +395,16 @@ func (a *Client) PublicGetUserNamespaceSlotsShort(params *PublicGetUserNamespace
 /*
 Deprecated: 2022-08-10 - Use PublicCreateUserNamespaceSlotShort instead.
 
-# PublicCreateUserNamespaceSlot creates a slot
+PublicCreateUserNamespaceSlot creates a slot
+
 
 ## The endpoint is going to be deprecated
 
+
 Creates a slot.
 Other detail info:
-  - Required permission : resource="NAMESPACE:{namespace}:USER:{userId}:SLOTDATA", action=1 (CREATE)
-  - Returns : created slot info
+              *  Required permission : resource="NAMESPACE:{namespace}:USER:{userId}:SLOTDATA", action=1 (CREATE)
+              *  Returns : created slot info
 */
 func (a *Client) PublicCreateUserNamespaceSlot(params *PublicCreateUserNamespaceSlotParams, authInfo runtime.ClientAuthInfoWriter) (*PublicCreateUserNamespaceSlotCreated, *PublicCreateUserNamespaceSlotBadRequest, *PublicCreateUserNamespaceSlotConflict, error) {
 	// TODO: Validate the params before sending
@@ -442,12 +456,14 @@ func (a *Client) PublicCreateUserNamespaceSlot(params *PublicCreateUserNamespace
 /*
 PublicCreateUserNamespaceSlotShort creates a slot
 
+
 ## The endpoint is going to be deprecated
+
 
 Creates a slot.
 Other detail info:
-  - Required permission : resource="NAMESPACE:{namespace}:USER:{userId}:SLOTDATA", action=1 (CREATE)
-  - Returns : created slot info
+              *  Required permission : resource="NAMESPACE:{namespace}:USER:{userId}:SLOTDATA", action=1 (CREATE)
+              *  Returns : created slot info
 */
 func (a *Client) PublicCreateUserNamespaceSlotShort(params *PublicCreateUserNamespaceSlotParams, authInfo runtime.ClientAuthInfoWriter) (*PublicCreateUserNamespaceSlotCreated, error) {
 	// TODO: Validate the params before sending
@@ -501,14 +517,16 @@ func (a *Client) PublicCreateUserNamespaceSlotShort(params *PublicCreateUserName
 /*
 Deprecated: 2022-08-10 - Use PublicGetSlotDataShort instead.
 
-# PublicGetSlotData returns slot data
+PublicGetSlotData returns slot data
+
 
 ## The endpoint is going to be deprecated
 
+
 Get slot data.
 Other detail info:
-  - Required permission : resource="NAMESPACE:{namespace}:USER:{userId}:SLOTDATA", action=2 (READ)
-  - Returns : slot data
+              *  Required permission : resource="NAMESPACE:{namespace}:USER:{userId}:SLOTDATA", action=2 (READ)
+              *  Returns : slot data
 */
 func (a *Client) PublicGetSlotData(params *PublicGetSlotDataParams, authInfo runtime.ClientAuthInfoWriter, writer io.Writer) (*PublicGetSlotDataOK, *PublicGetSlotDataNotFound, error) {
 	// TODO: Validate the params before sending
@@ -557,12 +575,14 @@ func (a *Client) PublicGetSlotData(params *PublicGetSlotDataParams, authInfo run
 /*
 PublicGetSlotDataShort returns slot data
 
+
 ## The endpoint is going to be deprecated
+
 
 Get slot data.
 Other detail info:
-  - Required permission : resource="NAMESPACE:{namespace}:USER:{userId}:SLOTDATA", action=2 (READ)
-  - Returns : slot data
+              *  Required permission : resource="NAMESPACE:{namespace}:USER:{userId}:SLOTDATA", action=2 (READ)
+              *  Returns : slot data
 */
 func (a *Client) PublicGetSlotDataShort(params *PublicGetSlotDataParams, authInfo runtime.ClientAuthInfoWriter, writer io.Writer) (*PublicGetSlotDataOK, error) {
 	// TODO: Validate the params before sending
@@ -614,14 +634,16 @@ func (a *Client) PublicGetSlotDataShort(params *PublicGetSlotDataParams, authInf
 /*
 Deprecated: 2022-08-10 - Use PublicUpdateUserNamespaceSlotShort instead.
 
-# PublicUpdateUserNamespaceSlot updates a slot
+PublicUpdateUserNamespaceSlot updates a slot
+
 
 ## The endpoint is going to be deprecated
 
+
 Updates a slot.
 Other detail info:
-  - Required permission : resource="NAMESPACE:{namespace}:USER:{userId}:SLOTDATA", action=4 (UPDATE)
-  - Returns : updated slot
+              *  Required permission : resource="NAMESPACE:{namespace}:USER:{userId}:SLOTDATA", action=4 (UPDATE)
+              *  Returns : updated slot
 */
 func (a *Client) PublicUpdateUserNamespaceSlot(params *PublicUpdateUserNamespaceSlotParams, authInfo runtime.ClientAuthInfoWriter) (*PublicUpdateUserNamespaceSlotOK, *PublicUpdateUserNamespaceSlotBadRequest, *PublicUpdateUserNamespaceSlotNotFound, error) {
 	// TODO: Validate the params before sending
@@ -673,12 +695,14 @@ func (a *Client) PublicUpdateUserNamespaceSlot(params *PublicUpdateUserNamespace
 /*
 PublicUpdateUserNamespaceSlotShort updates a slot
 
+
 ## The endpoint is going to be deprecated
+
 
 Updates a slot.
 Other detail info:
-  - Required permission : resource="NAMESPACE:{namespace}:USER:{userId}:SLOTDATA", action=4 (UPDATE)
-  - Returns : updated slot
+              *  Required permission : resource="NAMESPACE:{namespace}:USER:{userId}:SLOTDATA", action=4 (UPDATE)
+              *  Returns : updated slot
 */
 func (a *Client) PublicUpdateUserNamespaceSlotShort(params *PublicUpdateUserNamespaceSlotParams, authInfo runtime.ClientAuthInfoWriter) (*PublicUpdateUserNamespaceSlotOK, error) {
 	// TODO: Validate the params before sending
@@ -732,13 +756,15 @@ func (a *Client) PublicUpdateUserNamespaceSlotShort(params *PublicUpdateUserName
 /*
 Deprecated: 2022-08-10 - Use PublicDeleteUserNamespaceSlotShort instead.
 
-# PublicDeleteUserNamespaceSlot deletes the slot
+PublicDeleteUserNamespaceSlot deletes the slot
+
 
 ## The endpoint is going to be deprecated
 
+
 Deletes the slot.
 Other detail info:
-  - Required permission : resource="NAMESPACE:{namespace}:USER:{userId}:SLOTDATA", action=8 (DELETE)
+              *  Required permission : resource="NAMESPACE:{namespace}:USER:{userId}:SLOTDATA", action=8 (DELETE)
 */
 func (a *Client) PublicDeleteUserNamespaceSlot(params *PublicDeleteUserNamespaceSlotParams, authInfo runtime.ClientAuthInfoWriter) (*PublicDeleteUserNamespaceSlotNoContent, *PublicDeleteUserNamespaceSlotNotFound, error) {
 	// TODO: Validate the params before sending
@@ -787,11 +813,13 @@ func (a *Client) PublicDeleteUserNamespaceSlot(params *PublicDeleteUserNamespace
 /*
 PublicDeleteUserNamespaceSlotShort deletes the slot
 
+
 ## The endpoint is going to be deprecated
+
 
 Deletes the slot.
 Other detail info:
-  - Required permission : resource="NAMESPACE:{namespace}:USER:{userId}:SLOTDATA", action=8 (DELETE)
+              *  Required permission : resource="NAMESPACE:{namespace}:USER:{userId}:SLOTDATA", action=8 (DELETE)
 */
 func (a *Client) PublicDeleteUserNamespaceSlotShort(params *PublicDeleteUserNamespaceSlotParams, authInfo runtime.ClientAuthInfoWriter) (*PublicDeleteUserNamespaceSlotNoContent, error) {
 	// TODO: Validate the params before sending
@@ -843,14 +871,16 @@ func (a *Client) PublicDeleteUserNamespaceSlotShort(params *PublicDeleteUserName
 /*
 Deprecated: 2022-08-10 - Use PublicUpdateUserNamespaceSlotMetadataShort instead.
 
-# PublicUpdateUserNamespaceSlotMetadata updates the slot metadata
+PublicUpdateUserNamespaceSlotMetadata updates the slot metadata
+
 
 ## The endpoint is going to be deprecated
 
+
 Updates the slot metadata.
 Other detail info:
-  - Required permission : resource="NAMESPACE:{namespace}:USER:{userId}:SLOTDATA", action=4 (UPDATE)
-  - Returns : updated slot
+              *  Required permission : resource="NAMESPACE:{namespace}:USER:{userId}:SLOTDATA", action=4 (UPDATE)
+              *  Returns : updated slot
 */
 func (a *Client) PublicUpdateUserNamespaceSlotMetadata(params *PublicUpdateUserNamespaceSlotMetadataParams, authInfo runtime.ClientAuthInfoWriter) (*PublicUpdateUserNamespaceSlotMetadataOK, *PublicUpdateUserNamespaceSlotMetadataNotFound, error) {
 	// TODO: Validate the params before sending
@@ -899,12 +929,14 @@ func (a *Client) PublicUpdateUserNamespaceSlotMetadata(params *PublicUpdateUserN
 /*
 PublicUpdateUserNamespaceSlotMetadataShort updates the slot metadata
 
+
 ## The endpoint is going to be deprecated
+
 
 Updates the slot metadata.
 Other detail info:
-  - Required permission : resource="NAMESPACE:{namespace}:USER:{userId}:SLOTDATA", action=4 (UPDATE)
-  - Returns : updated slot
+              *  Required permission : resource="NAMESPACE:{namespace}:USER:{userId}:SLOTDATA", action=4 (UPDATE)
+              *  Returns : updated slot
 */
 func (a *Client) PublicUpdateUserNamespaceSlotMetadataShort(params *PublicUpdateUserNamespaceSlotMetadataParams, authInfo runtime.ClientAuthInfoWriter) (*PublicUpdateUserNamespaceSlotMetadataOK, error) {
 	// TODO: Validate the params before sending

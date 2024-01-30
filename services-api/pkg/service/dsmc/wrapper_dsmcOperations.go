@@ -22,6 +22,14 @@ type DsmcOperationsService struct {
 	Client           *dsmcclient.JusticeDsmcService
 	ConfigRepository repository.ConfigRepository
 	TokenRepository  repository.TokenRepository
+
+	FlightIdRepository *utils.FlightIdContainer
+}
+
+var tempFlightIdDsmcOperations *string
+
+func (aaa *DsmcOperationsService) UpdateFlightId(flightId string) {
+	tempFlightIdDsmcOperations = &flightId
 }
 
 func (aaa *DsmcOperationsService) GetAuthSession() auth.Session {
@@ -64,6 +72,11 @@ func (aaa *DsmcOperationsService) PublicGetMessagesShort(input *dsmc_operations.
 			Transport:  aaa.Client.Runtime.Transport,
 			RetryCodes: utils.RetryCodes,
 		}
+	}
+	if tempFlightIdDsmcOperations != nil {
+		input.XFlightId = tempFlightIdDsmcOperations
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.DsmcOperations.PublicGetMessagesShort(input, authInfoWriter)

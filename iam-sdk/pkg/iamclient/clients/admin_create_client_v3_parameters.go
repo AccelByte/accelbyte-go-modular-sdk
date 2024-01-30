@@ -59,8 +59,7 @@ func NewAdminCreateClientV3ParamsWithHTTPClient(client *http.Client) *AdminCreat
 	}
 }
 
-/*
-AdminCreateClientV3Params contains all the parameters to send to the API endpoint
+/*AdminCreateClientV3Params contains all the parameters to send to the API endpoint
 for the admin create client v3 operation typically these are written to a http.Request
 */
 type AdminCreateClientV3Params struct {

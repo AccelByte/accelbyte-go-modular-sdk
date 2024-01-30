@@ -57,8 +57,7 @@ func NewAcceptVersionedPolicyParamsWithHTTPClient(client *http.Client) *AcceptVe
 	}
 }
 
-/*
-AcceptVersionedPolicyParams contains all the parameters to send to the API endpoint
+/*AcceptVersionedPolicyParams contains all the parameters to send to the API endpoint
 for the accept versioned policy operation typically these are written to a http.Request
 */
 type AcceptVersionedPolicyParams struct {

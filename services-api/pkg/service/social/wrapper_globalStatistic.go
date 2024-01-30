@@ -22,6 +22,14 @@ type GlobalStatisticService struct {
 	Client           *socialclient.JusticeSocialService
 	ConfigRepository repository.ConfigRepository
 	TokenRepository  repository.TokenRepository
+
+	FlightIdRepository *utils.FlightIdContainer
+}
+
+var tempFlightIdGlobalStatistic *string
+
+func (aaa *GlobalStatisticService) UpdateFlightId(flightId string) {
+	tempFlightIdGlobalStatistic = &flightId
 }
 
 func (aaa *GlobalStatisticService) GetAuthSession() auth.Session {
@@ -146,6 +154,11 @@ func (aaa *GlobalStatisticService) GetGlobalStatItemsShort(input *global_statist
 			RetryCodes: utils.RetryCodes,
 		}
 	}
+	if tempFlightIdGlobalStatistic != nil {
+		input.XFlightId = tempFlightIdGlobalStatistic
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	}
 
 	ok, err := aaa.Client.GlobalStatistic.GetGlobalStatItemsShort(input, authInfoWriter)
 	if err != nil {
@@ -170,6 +183,11 @@ func (aaa *GlobalStatisticService) GetGlobalStatItemByStatCodeShort(input *globa
 			Transport:  aaa.Client.Runtime.Transport,
 			RetryCodes: utils.RetryCodes,
 		}
+	}
+	if tempFlightIdGlobalStatistic != nil {
+		input.XFlightId = tempFlightIdGlobalStatistic
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.GlobalStatistic.GetGlobalStatItemByStatCodeShort(input, authInfoWriter)
@@ -196,6 +214,11 @@ func (aaa *GlobalStatisticService) GetGlobalStatItems1Short(input *global_statis
 			RetryCodes: utils.RetryCodes,
 		}
 	}
+	if tempFlightIdGlobalStatistic != nil {
+		input.XFlightId = tempFlightIdGlobalStatistic
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	}
 
 	ok, err := aaa.Client.GlobalStatistic.GetGlobalStatItems1Short(input, authInfoWriter)
 	if err != nil {
@@ -220,6 +243,11 @@ func (aaa *GlobalStatisticService) GetGlobalStatItemByStatCode1Short(input *glob
 			Transport:  aaa.Client.Runtime.Transport,
 			RetryCodes: utils.RetryCodes,
 		}
+	}
+	if tempFlightIdGlobalStatistic != nil {
+		input.XFlightId = tempFlightIdGlobalStatistic
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.GlobalStatistic.GetGlobalStatItemByStatCode1Short(input, authInfoWriter)

@@ -59,8 +59,7 @@ func NewBatchDownloadServerLogsParamsWithHTTPClient(client *http.Client) *BatchD
 	}
 }
 
-/*
-BatchDownloadServerLogsParams contains all the parameters to send to the API endpoint
+/*BatchDownloadServerLogsParams contains all the parameters to send to the API endpoint
 for the batch download server logs operation typically these are written to a http.Request
 */
 type BatchDownloadServerLogsParams struct {

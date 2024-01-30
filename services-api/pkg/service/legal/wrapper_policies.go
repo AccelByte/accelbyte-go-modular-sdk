@@ -22,6 +22,14 @@ type PoliciesService struct {
 	Client           *legalclient.JusticeLegalService
 	ConfigRepository repository.ConfigRepository
 	TokenRepository  repository.TokenRepository
+
+	FlightIdRepository *utils.FlightIdContainer
+}
+
+var tempFlightIdPolicies *string
+
+func (aaa *PoliciesService) UpdateFlightId(flightId string) {
+	tempFlightIdPolicies = &flightId
 }
 
 func (aaa *PoliciesService) GetAuthSession() auth.Session {
@@ -133,6 +141,11 @@ func (aaa *PoliciesService) RetrievePoliciesShort(input *policies.RetrievePolici
 			RetryCodes: utils.RetryCodes,
 		}
 	}
+	if tempFlightIdPolicies != nil {
+		input.XFlightId = tempFlightIdPolicies
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	}
 
 	ok, err := aaa.Client.Policies.RetrievePoliciesShort(input, authInfoWriter)
 	if err != nil {
@@ -157,6 +170,11 @@ func (aaa *PoliciesService) UpdatePolicyShort(input *policies.UpdatePolicyParams
 			Transport:  aaa.Client.Runtime.Transport,
 			RetryCodes: utils.RetryCodes,
 		}
+	}
+	if tempFlightIdPolicies != nil {
+		input.XFlightId = tempFlightIdPolicies
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
 	}
 
 	_, err := aaa.Client.Policies.UpdatePolicyShort(input, authInfoWriter)
@@ -183,6 +201,11 @@ func (aaa *PoliciesService) SetDefaultPolicy2Short(input *policies.SetDefaultPol
 			RetryCodes: utils.RetryCodes,
 		}
 	}
+	if tempFlightIdPolicies != nil {
+		input.XFlightId = tempFlightIdPolicies
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	}
 
 	_, err := aaa.Client.Policies.SetDefaultPolicy2Short(input, authInfoWriter)
 	if err != nil {
@@ -200,6 +223,11 @@ func (aaa *PoliciesService) RetrieveLatestPoliciesShort(input *policies.Retrieve
 			Transport:  aaa.Client.Runtime.Transport,
 			RetryCodes: utils.RetryCodes,
 		}
+	}
+	if tempFlightIdPolicies != nil {
+		input.XFlightId = tempFlightIdPolicies
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.Policies.RetrieveLatestPoliciesShort(input)
@@ -226,6 +254,11 @@ func (aaa *PoliciesService) RetrieveLatestPoliciesPublicShort(input *policies.Re
 			RetryCodes: utils.RetryCodes,
 		}
 	}
+	if tempFlightIdPolicies != nil {
+		input.XFlightId = tempFlightIdPolicies
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	}
 
 	ok, err := aaa.Client.Policies.RetrieveLatestPoliciesPublicShort(input, authInfoWriter)
 	if err != nil {
@@ -243,6 +276,11 @@ func (aaa *PoliciesService) RetrieveLatestPoliciesByNamespaceAndCountryPublicSho
 			Transport:  aaa.Client.Runtime.Transport,
 			RetryCodes: utils.RetryCodes,
 		}
+	}
+	if tempFlightIdPolicies != nil {
+		input.XFlightId = tempFlightIdPolicies
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.Policies.RetrieveLatestPoliciesByNamespaceAndCountryPublicShort(input)

@@ -39,9 +39,13 @@ type ClientService interface {
 /*
 Deprecated: 2022-08-10 - Use AdminAnonymizeUserLeaderboardAdminV1Short instead.
 
-# AdminAnonymizeUserLeaderboardAdminV1 anonymize user's leaderboard
+AdminAnonymizeUserLeaderboardAdminV1 anonymize user's leaderboard
 
-# This API will delete specified user leaderboard
+
+This API will delete specified user leaderboard
+
+
+
 
 Required permission
 `ADMIN:NAMESPACE:{namespace}:USER:{userId}:ANONYMIZATION [DELETE]`
@@ -102,7 +106,11 @@ func (a *Client) AdminAnonymizeUserLeaderboardAdminV1(params *AdminAnonymizeUser
 /*
 AdminAnonymizeUserLeaderboardAdminV1Short anonymize user's leaderboard
 
-# This API will delete specified user leaderboard
+
+This API will delete specified user leaderboard
+
+
+
 
 Required permission
 `ADMIN:NAMESPACE:{namespace}:USER:{userId}:ANONYMIZATION [DELETE]`

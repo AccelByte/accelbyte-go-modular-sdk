@@ -57,8 +57,7 @@ func NewAdminRetrieveEligibilitiesParamsWithHTTPClient(client *http.Client) *Adm
 	}
 }
 
-/*
-AdminRetrieveEligibilitiesParams contains all the parameters to send to the API endpoint
+/*AdminRetrieveEligibilitiesParams contains all the parameters to send to the API endpoint
 for the admin retrieve eligibilities operation typically these are written to a http.Request
 */
 type AdminRetrieveEligibilitiesParams struct {

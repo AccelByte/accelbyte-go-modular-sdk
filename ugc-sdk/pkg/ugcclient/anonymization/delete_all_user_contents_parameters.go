@@ -57,8 +57,7 @@ func NewDeleteAllUserContentsParamsWithHTTPClient(client *http.Client) *DeleteAl
 	}
 }
 
-/*
-DeleteAllUserContentsParams contains all the parameters to send to the API endpoint
+/*DeleteAllUserContentsParams contains all the parameters to send to the API endpoint
 for the delete all user contents operation typically these are written to a http.Request
 */
 type DeleteAllUserContentsParams struct {

@@ -57,8 +57,7 @@ func NewCancelGroupJoinRequestV1ParamsWithHTTPClient(client *http.Client) *Cance
 	}
 }
 
-/*
-CancelGroupJoinRequestV1Params contains all the parameters to send to the API endpoint
+/*CancelGroupJoinRequestV1Params contains all the parameters to send to the API endpoint
 for the cancel group join request v1 operation typically these are written to a http.Request
 */
 type CancelGroupJoinRequestV1Params struct {

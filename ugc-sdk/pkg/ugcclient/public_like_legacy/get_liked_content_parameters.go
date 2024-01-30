@@ -78,8 +78,7 @@ func NewGetLikedContentParamsWithHTTPClient(client *http.Client) *GetLikedConten
 	}
 }
 
-/*
-GetLikedContentParams contains all the parameters to send to the API endpoint
+/*GetLikedContentParams contains all the parameters to send to the API endpoint
 for the get liked content operation typically these are written to a http.Request
 */
 type GetLikedContentParams struct {

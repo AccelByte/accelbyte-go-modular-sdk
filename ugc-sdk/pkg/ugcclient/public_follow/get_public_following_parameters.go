@@ -78,8 +78,7 @@ func NewGetPublicFollowingParamsWithHTTPClient(client *http.Client) *GetPublicFo
 	}
 }
 
-/*
-GetPublicFollowingParams contains all the parameters to send to the API endpoint
+/*GetPublicFollowingParams contains all the parameters to send to the API endpoint
 for the get public following operation typically these are written to a http.Request
 */
 type GetPublicFollowingParams struct {

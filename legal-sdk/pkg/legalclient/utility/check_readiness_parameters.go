@@ -57,8 +57,7 @@ func NewCheckReadinessParamsWithHTTPClient(client *http.Client) *CheckReadinessP
 	}
 }
 
-/*
-CheckReadinessParams contains all the parameters to send to the API endpoint
+/*CheckReadinessParams contains all the parameters to send to the API endpoint
 for the check readiness operation typically these are written to a http.Request
 */
 type CheckReadinessParams struct {

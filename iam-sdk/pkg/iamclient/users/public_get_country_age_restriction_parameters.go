@@ -57,8 +57,7 @@ func NewPublicGetCountryAgeRestrictionParamsWithHTTPClient(client *http.Client) 
 	}
 }
 
-/*
-PublicGetCountryAgeRestrictionParams contains all the parameters to send to the API endpoint
+/*PublicGetCountryAgeRestrictionParams contains all the parameters to send to the API endpoint
 for the public get country age restriction operation typically these are written to a http.Request
 */
 type PublicGetCountryAgeRestrictionParams struct {

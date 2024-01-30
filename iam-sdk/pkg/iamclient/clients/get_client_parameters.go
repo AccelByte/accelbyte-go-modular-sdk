@@ -57,8 +57,7 @@ func NewGetClientParamsWithHTTPClient(client *http.Client) *GetClientParams {
 	}
 }
 
-/*
-GetClientParams contains all the parameters to send to the API endpoint
+/*GetClientParams contains all the parameters to send to the API endpoint
 for the get client operation typically these are written to a http.Request
 */
 type GetClientParams struct {

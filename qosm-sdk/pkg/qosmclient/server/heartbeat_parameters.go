@@ -59,8 +59,7 @@ func NewHeartbeatParamsWithHTTPClient(client *http.Client) *HeartbeatParams {
 	}
 }
 
-/*
-HeartbeatParams contains all the parameters to send to the API endpoint
+/*HeartbeatParams contains all the parameters to send to the API endpoint
 for the heartbeat operation typically these are written to a http.Request
 */
 type HeartbeatParams struct {

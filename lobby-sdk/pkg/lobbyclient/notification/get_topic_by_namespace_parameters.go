@@ -58,8 +58,7 @@ func NewGetTopicByNamespaceParamsWithHTTPClient(client *http.Client) *GetTopicBy
 	}
 }
 
-/*
-GetTopicByNamespaceParams contains all the parameters to send to the API endpoint
+/*GetTopicByNamespaceParams contains all the parameters to send to the API endpoint
 for the get topic by namespace operation typically these are written to a http.Request
 */
 type GetTopicByNamespaceParams struct {

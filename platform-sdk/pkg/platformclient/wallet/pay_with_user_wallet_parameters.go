@@ -59,8 +59,7 @@ func NewPayWithUserWalletParamsWithHTTPClient(client *http.Client) *PayWithUserW
 	}
 }
 
-/*
-PayWithUserWalletParams contains all the parameters to send to the API endpoint
+/*PayWithUserWalletParams contains all the parameters to send to the API endpoint
 for the pay with user wallet operation typically these are written to a http.Request
 */
 type PayWithUserWalletParams struct {

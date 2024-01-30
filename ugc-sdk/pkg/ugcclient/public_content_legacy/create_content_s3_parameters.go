@@ -59,8 +59,7 @@ func NewCreateContentS3ParamsWithHTTPClient(client *http.Client) *CreateContentS
 	}
 }
 
-/*
-CreateContentS3Params contains all the parameters to send to the API endpoint
+/*CreateContentS3Params contains all the parameters to send to the API endpoint
 for the create content s3 operation typically these are written to a http.Request
 */
 type CreateContentS3Params struct {

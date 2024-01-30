@@ -58,8 +58,7 @@ func NewGetUserActivitiesHandlerParamsWithHTTPClient(client *http.Client) *GetUs
 	}
 }
 
-/*
-GetUserActivitiesHandlerParams contains all the parameters to send to the API endpoint
+/*GetUserActivitiesHandlerParams contains all the parameters to send to the API endpoint
 for the get user activities handler operation typically these are written to a http.Request
 */
 type GetUserActivitiesHandlerParams struct {

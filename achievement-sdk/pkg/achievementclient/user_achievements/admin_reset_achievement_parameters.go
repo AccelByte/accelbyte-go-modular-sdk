@@ -57,8 +57,7 @@ func NewAdminResetAchievementParamsWithHTTPClient(client *http.Client) *AdminRes
 	}
 }
 
-/*
-AdminResetAchievementParams contains all the parameters to send to the API endpoint
+/*AdminResetAchievementParams contains all the parameters to send to the API endpoint
 for the admin reset achievement operation typically these are written to a http.Request
 */
 type AdminResetAchievementParams struct {

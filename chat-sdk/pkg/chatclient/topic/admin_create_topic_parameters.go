@@ -59,8 +59,7 @@ func NewAdminCreateTopicParamsWithHTTPClient(client *http.Client) *AdminCreateTo
 	}
 }
 
-/*
-AdminCreateTopicParams contains all the parameters to send to the API endpoint
+/*AdminCreateTopicParams contains all the parameters to send to the API endpoint
 for the admin create topic operation typically these are written to a http.Request
 */
 type AdminCreateTopicParams struct {

@@ -57,8 +57,7 @@ func NewAdminProfanityExportParamsWithHTTPClient(client *http.Client) *AdminProf
 	}
 }
 
-/*
-AdminProfanityExportParams contains all the parameters to send to the API endpoint
+/*AdminProfanityExportParams contains all the parameters to send to the API endpoint
 for the admin profanity export operation typically these are written to a http.Request
 */
 type AdminProfanityExportParams struct {

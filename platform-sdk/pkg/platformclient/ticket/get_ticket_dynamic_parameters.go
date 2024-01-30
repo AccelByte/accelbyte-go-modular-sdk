@@ -57,8 +57,7 @@ func NewGetTicketDynamicParamsWithHTTPClient(client *http.Client) *GetTicketDyna
 	}
 }
 
-/*
-GetTicketDynamicParams contains all the parameters to send to the API endpoint
+/*GetTicketDynamicParams contains all the parameters to send to the API endpoint
 for the get ticket dynamic operation typically these are written to a http.Request
 */
 type GetTicketDynamicParams struct {

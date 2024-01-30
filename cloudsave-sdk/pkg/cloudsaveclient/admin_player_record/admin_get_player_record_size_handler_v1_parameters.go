@@ -57,8 +57,7 @@ func NewAdminGetPlayerRecordSizeHandlerV1ParamsWithHTTPClient(client *http.Clien
 	}
 }
 
-/*
-AdminGetPlayerRecordSizeHandlerV1Params contains all the parameters to send to the API endpoint
+/*AdminGetPlayerRecordSizeHandlerV1Params contains all the parameters to send to the API endpoint
 for the admin get player record size handler v1 operation typically these are written to a http.Request
 */
 type AdminGetPlayerRecordSizeHandlerV1Params struct {

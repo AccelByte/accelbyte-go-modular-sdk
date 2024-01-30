@@ -22,6 +22,14 @@ type AdminTagsService struct {
 	Client           *inventoryclient.JusticeInventoryService
 	ConfigRepository repository.ConfigRepository
 	TokenRepository  repository.TokenRepository
+
+	FlightIdRepository *utils.FlightIdContainer
+}
+
+var tempFlightIdAdminTags *string
+
+func (aaa *AdminTagsService) UpdateFlightId(flightId string) {
+	tempFlightIdAdminTags = &flightId
 }
 
 func (aaa *AdminTagsService) GetAuthSession() auth.Session {
@@ -111,6 +119,11 @@ func (aaa *AdminTagsService) AdminListTagsShort(input *admin_tags.AdminListTagsP
 			RetryCodes: utils.RetryCodes,
 		}
 	}
+	if tempFlightIdAdminTags != nil {
+		input.XFlightId = tempFlightIdAdminTags
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	}
 
 	ok, err := aaa.Client.AdminTags.AdminListTagsShort(input, authInfoWriter)
 	if err != nil {
@@ -136,6 +149,11 @@ func (aaa *AdminTagsService) AdminCreateTagShort(input *admin_tags.AdminCreateTa
 			RetryCodes: utils.RetryCodes,
 		}
 	}
+	if tempFlightIdAdminTags != nil {
+		input.XFlightId = tempFlightIdAdminTags
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	}
 
 	created, err := aaa.Client.AdminTags.AdminCreateTagShort(input, authInfoWriter)
 	if err != nil {
@@ -160,6 +178,11 @@ func (aaa *AdminTagsService) AdminDeleteTagShort(input *admin_tags.AdminDeleteTa
 			Transport:  aaa.Client.Runtime.Transport,
 			RetryCodes: utils.RetryCodes,
 		}
+	}
+	if tempFlightIdAdminTags != nil {
+		input.XFlightId = tempFlightIdAdminTags
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
 	}
 
 	_, err := aaa.Client.AdminTags.AdminDeleteTagShort(input, authInfoWriter)

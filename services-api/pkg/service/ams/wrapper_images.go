@@ -22,6 +22,14 @@ type ImagesService struct {
 	Client           *amsclient.JusticeAmsService
 	ConfigRepository repository.ConfigRepository
 	TokenRepository  repository.TokenRepository
+
+	FlightIdRepository *utils.FlightIdContainer
+}
+
+var tempFlightIdImages *string
+
+func (aaa *ImagesService) UpdateFlightId(flightId string) {
+	tempFlightIdImages = &flightId
 }
 
 func (aaa *ImagesService) GetAuthSession() auth.Session {
@@ -126,6 +134,11 @@ func (aaa *ImagesService) ImageListShort(input *images.ImageListParams) (*amscli
 			RetryCodes: utils.RetryCodes,
 		}
 	}
+	if tempFlightIdImages != nil {
+		input.XFlightId = tempFlightIdImages
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	}
 
 	ok, err := aaa.Client.Images.ImageListShort(input, authInfoWriter)
 	if err != nil {
@@ -151,6 +164,11 @@ func (aaa *ImagesService) ImageGetShort(input *images.ImageGetParams) (*amsclien
 			RetryCodes: utils.RetryCodes,
 		}
 	}
+	if tempFlightIdImages != nil {
+		input.XFlightId = tempFlightIdImages
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	}
 
 	ok, err := aaa.Client.Images.ImageGetShort(input, authInfoWriter)
 	if err != nil {
@@ -175,6 +193,11 @@ func (aaa *ImagesService) ImagePatchShort(input *images.ImagePatchParams) (*amsc
 			Transport:  aaa.Client.Runtime.Transport,
 			RetryCodes: utils.RetryCodes,
 		}
+	}
+	if tempFlightIdImages != nil {
+		input.XFlightId = tempFlightIdImages
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.Images.ImagePatchShort(input, authInfoWriter)

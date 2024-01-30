@@ -22,6 +22,14 @@ type AdminService struct {
 	Client           *lobbyclient.JusticeLobbyService
 	ConfigRepository repository.ConfigRepository
 	TokenRepository  repository.TokenRepository
+
+	FlightIdRepository *utils.FlightIdContainer
+}
+
+var tempFlightIdAdmin *string
+
+func (aaa *AdminService) UpdateFlightId(flightId string) {
+	tempFlightIdAdmin = &flightId
 }
 
 func (aaa *AdminService) GetAuthSession() auth.Session {
@@ -377,6 +385,11 @@ func (aaa *AdminService) AdminGetGlobalConfigShort(input *admin.AdminGetGlobalCo
 			RetryCodes: utils.RetryCodes,
 		}
 	}
+	if tempFlightIdAdmin != nil {
+		input.XFlightId = tempFlightIdAdmin
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	}
 
 	ok, err := aaa.Client.Admin.AdminGetGlobalConfigShort(input, authInfoWriter)
 	if err != nil {
@@ -401,6 +414,11 @@ func (aaa *AdminService) AdminUpdateGlobalConfigShort(input *admin.AdminUpdateGl
 			Transport:  aaa.Client.Runtime.Transport,
 			RetryCodes: utils.RetryCodes,
 		}
+	}
+	if tempFlightIdAdmin != nil {
+		input.XFlightId = tempFlightIdAdmin
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.Admin.AdminUpdateGlobalConfigShort(input, authInfoWriter)
@@ -427,6 +445,11 @@ func (aaa *AdminService) AdminDeleteGlobalConfigShort(input *admin.AdminDeleteGl
 			RetryCodes: utils.RetryCodes,
 		}
 	}
+	if tempFlightIdAdmin != nil {
+		input.XFlightId = tempFlightIdAdmin
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	}
 
 	noContent, err := aaa.Client.Admin.AdminDeleteGlobalConfigShort(input, authInfoWriter)
 	if err != nil {
@@ -451,6 +474,11 @@ func (aaa *AdminService) FreeFormNotificationShort(input *admin.FreeFormNotifica
 			Transport:  aaa.Client.Runtime.Transport,
 			RetryCodes: utils.RetryCodes,
 		}
+	}
+	if tempFlightIdAdmin != nil {
+		input.XFlightId = tempFlightIdAdmin
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
 	}
 
 	_, err := aaa.Client.Admin.FreeFormNotificationShort(input, authInfoWriter)
@@ -477,6 +505,11 @@ func (aaa *AdminService) NotificationWithTemplateShort(input *admin.Notification
 			RetryCodes: utils.RetryCodes,
 		}
 	}
+	if tempFlightIdAdmin != nil {
+		input.XFlightId = tempFlightIdAdmin
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	}
 
 	_, err := aaa.Client.Admin.NotificationWithTemplateShort(input, authInfoWriter)
 	if err != nil {
@@ -501,6 +534,11 @@ func (aaa *AdminService) GetGameTemplateShort(input *admin.GetGameTemplateParams
 			Transport:  aaa.Client.Runtime.Transport,
 			RetryCodes: utils.RetryCodes,
 		}
+	}
+	if tempFlightIdAdmin != nil {
+		input.XFlightId = tempFlightIdAdmin
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.Admin.GetGameTemplateShort(input, authInfoWriter)
@@ -527,6 +565,11 @@ func (aaa *AdminService) CreateTemplateShort(input *admin.CreateTemplateParams) 
 			RetryCodes: utils.RetryCodes,
 		}
 	}
+	if tempFlightIdAdmin != nil {
+		input.XFlightId = tempFlightIdAdmin
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	}
 
 	_, err := aaa.Client.Admin.CreateTemplateShort(input, authInfoWriter)
 	if err != nil {
@@ -551,6 +594,11 @@ func (aaa *AdminService) GetSlugTemplateShort(input *admin.GetSlugTemplateParams
 			Transport:  aaa.Client.Runtime.Transport,
 			RetryCodes: utils.RetryCodes,
 		}
+	}
+	if tempFlightIdAdmin != nil {
+		input.XFlightId = tempFlightIdAdmin
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.Admin.GetSlugTemplateShort(input, authInfoWriter)
@@ -577,6 +625,11 @@ func (aaa *AdminService) DeleteTemplateSlugShort(input *admin.DeleteTemplateSlug
 			RetryCodes: utils.RetryCodes,
 		}
 	}
+	if tempFlightIdAdmin != nil {
+		input.XFlightId = tempFlightIdAdmin
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	}
 
 	_, err := aaa.Client.Admin.DeleteTemplateSlugShort(input, authInfoWriter)
 	if err != nil {
@@ -601,6 +654,11 @@ func (aaa *AdminService) GetLocalizationTemplateShort(input *admin.GetLocalizati
 			Transport:  aaa.Client.Runtime.Transport,
 			RetryCodes: utils.RetryCodes,
 		}
+	}
+	if tempFlightIdAdmin != nil {
+		input.XFlightId = tempFlightIdAdmin
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.Admin.GetLocalizationTemplateShort(input, authInfoWriter)
@@ -627,6 +685,11 @@ func (aaa *AdminService) UpdateLocalizationTemplateShort(input *admin.UpdateLoca
 			RetryCodes: utils.RetryCodes,
 		}
 	}
+	if tempFlightIdAdmin != nil {
+		input.XFlightId = tempFlightIdAdmin
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	}
 
 	_, err := aaa.Client.Admin.UpdateLocalizationTemplateShort(input, authInfoWriter)
 	if err != nil {
@@ -652,6 +715,11 @@ func (aaa *AdminService) DeleteTemplateLocalizationShort(input *admin.DeleteTemp
 			RetryCodes: utils.RetryCodes,
 		}
 	}
+	if tempFlightIdAdmin != nil {
+		input.XFlightId = tempFlightIdAdmin
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	}
 
 	_, err := aaa.Client.Admin.DeleteTemplateLocalizationShort(input, authInfoWriter)
 	if err != nil {
@@ -676,6 +744,11 @@ func (aaa *AdminService) PublishTemplateShort(input *admin.PublishTemplateParams
 			Transport:  aaa.Client.Runtime.Transport,
 			RetryCodes: utils.RetryCodes,
 		}
+	}
+	if tempFlightIdAdmin != nil {
+		input.XFlightId = tempFlightIdAdmin
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
 	}
 
 	_, err := aaa.Client.Admin.PublishTemplateShort(input, authInfoWriter)

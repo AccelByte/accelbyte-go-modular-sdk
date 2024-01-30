@@ -58,8 +58,7 @@ func NewListGroupConfigurationAdminV1ParamsWithHTTPClient(client *http.Client) *
 	}
 }
 
-/*
-ListGroupConfigurationAdminV1Params contains all the parameters to send to the API endpoint
+/*ListGroupConfigurationAdminV1Params contains all the parameters to send to the API endpoint
 for the list group configuration admin v1 operation typically these are written to a http.Request
 */
 type ListGroupConfigurationAdminV1Params struct {

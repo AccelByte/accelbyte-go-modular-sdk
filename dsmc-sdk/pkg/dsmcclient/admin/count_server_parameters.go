@@ -57,8 +57,7 @@ func NewCountServerParamsWithHTTPClient(client *http.Client) *CountServerParams 
 	}
 }
 
-/*
-CountServerParams contains all the parameters to send to the API endpoint
+/*CountServerParams contains all the parameters to send to the API endpoint
 for the count server operation typically these are written to a http.Request
 */
 type CountServerParams struct {

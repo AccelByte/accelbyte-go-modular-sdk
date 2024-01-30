@@ -57,8 +57,7 @@ func NewPublicCancelUserOrderParamsWithHTTPClient(client *http.Client) *PublicCa
 	}
 }
 
-/*
-PublicCancelUserOrderParams contains all the parameters to send to the API endpoint
+/*PublicCancelUserOrderParams contains all the parameters to send to the API endpoint
 for the public cancel user order operation typically these are written to a http.Request
 */
 type PublicCancelUserOrderParams struct {

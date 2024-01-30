@@ -58,8 +58,7 @@ func NewGetPublicEditHistoryParamsWithHTTPClient(client *http.Client) *GetPublic
 	}
 }
 
-/*
-GetPublicEditHistoryParams contains all the parameters to send to the API endpoint
+/*GetPublicEditHistoryParams contains all the parameters to send to the API endpoint
 for the get public edit history operation typically these are written to a http.Request
 */
 type GetPublicEditHistoryParams struct {

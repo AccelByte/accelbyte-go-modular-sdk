@@ -57,8 +57,7 @@ func NewGetAvailablePredicateTypesParamsWithHTTPClient(client *http.Client) *Get
 	}
 }
 
-/*
-GetAvailablePredicateTypesParams contains all the parameters to send to the API endpoint
+/*GetAvailablePredicateTypesParams contains all the parameters to send to the API endpoint
 for the get available predicate types operation typically these are written to a http.Request
 */
 type GetAvailablePredicateTypesParams struct {

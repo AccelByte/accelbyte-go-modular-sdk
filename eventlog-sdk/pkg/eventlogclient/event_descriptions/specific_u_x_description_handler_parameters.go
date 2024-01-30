@@ -57,8 +57,7 @@ func NewSpecificUXDescriptionHandlerParamsWithHTTPClient(client *http.Client) *S
 	}
 }
 
-/*
-SpecificUXDescriptionHandlerParams contains all the parameters to send to the API endpoint
+/*SpecificUXDescriptionHandlerParams contains all the parameters to send to the API endpoint
 for the specific ux description handler operation typically these are written to a http.Request
 */
 type SpecificUXDescriptionHandlerParams struct {

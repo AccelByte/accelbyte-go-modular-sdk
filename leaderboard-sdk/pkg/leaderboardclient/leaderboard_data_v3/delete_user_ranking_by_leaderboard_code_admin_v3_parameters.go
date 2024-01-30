@@ -57,8 +57,7 @@ func NewDeleteUserRankingByLeaderboardCodeAdminV3ParamsWithHTTPClient(client *ht
 	}
 }
 
-/*
-DeleteUserRankingByLeaderboardCodeAdminV3Params contains all the parameters to send to the API endpoint
+/*DeleteUserRankingByLeaderboardCodeAdminV3Params contains all the parameters to send to the API endpoint
 for the delete user ranking by leaderboard code admin v3 operation typically these are written to a http.Request
 */
 type DeleteUserRankingByLeaderboardCodeAdminV3Params struct {

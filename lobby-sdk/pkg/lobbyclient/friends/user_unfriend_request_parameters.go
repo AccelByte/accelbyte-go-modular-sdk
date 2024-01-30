@@ -59,8 +59,7 @@ func NewUserUnfriendRequestParamsWithHTTPClient(client *http.Client) *UserUnfrie
 	}
 }
 
-/*
-UserUnfriendRequestParams contains all the parameters to send to the API endpoint
+/*UserUnfriendRequestParams contains all the parameters to send to the API endpoint
 for the user unfriend request operation typically these are written to a http.Request
 */
 type UserUnfriendRequestParams struct {

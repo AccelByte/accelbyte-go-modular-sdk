@@ -59,8 +59,7 @@ func NewPublicPromoteGameSessionLeaderParamsWithHTTPClient(client *http.Client) 
 	}
 }
 
-/*
-PublicPromoteGameSessionLeaderParams contains all the parameters to send to the API endpoint
+/*PublicPromoteGameSessionLeaderParams contains all the parameters to send to the API endpoint
 for the public promote game session leader operation typically these are written to a http.Request
 */
 type PublicPromoteGameSessionLeaderParams struct {

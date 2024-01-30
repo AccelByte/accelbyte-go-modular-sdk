@@ -22,6 +22,14 @@ type UserActionService struct {
 	Client           *basicclient.JusticeBasicService
 	ConfigRepository repository.ConfigRepository
 	TokenRepository  repository.TokenRepository
+
+	FlightIdRepository *utils.FlightIdContainer
+}
+
+var tempFlightIdUserAction *string
+
+func (aaa *UserActionService) UpdateFlightId(flightId string) {
+	tempFlightIdUserAction = &flightId
 }
 
 func (aaa *UserActionService) GetAuthSession() auth.Session {
@@ -212,6 +220,11 @@ func (aaa *UserActionService) GetActionsShort(input *user_action.GetActionsParam
 			RetryCodes: utils.RetryCodes,
 		}
 	}
+	if tempFlightIdUserAction != nil {
+		input.XFlightId = tempFlightIdUserAction
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	}
 
 	ok, err := aaa.Client.UserAction.GetActionsShort(input, authInfoWriter)
 	if err != nil {
@@ -236,6 +249,11 @@ func (aaa *UserActionService) BanUsersShort(input *user_action.BanUsersParams) e
 			Transport:  aaa.Client.Runtime.Transport,
 			RetryCodes: utils.RetryCodes,
 		}
+	}
+	if tempFlightIdUserAction != nil {
+		input.XFlightId = tempFlightIdUserAction
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
 	}
 
 	_, err := aaa.Client.UserAction.BanUsersShort(input, authInfoWriter)
@@ -262,6 +280,11 @@ func (aaa *UserActionService) GetBannedUsersShort(input *user_action.GetBannedUs
 			RetryCodes: utils.RetryCodes,
 		}
 	}
+	if tempFlightIdUserAction != nil {
+		input.XFlightId = tempFlightIdUserAction
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	}
 
 	ok, err := aaa.Client.UserAction.GetBannedUsersShort(input, authInfoWriter)
 	if err != nil {
@@ -286,6 +309,11 @@ func (aaa *UserActionService) ReportUserShort(input *user_action.ReportUserParam
 			Transport:  aaa.Client.Runtime.Transport,
 			RetryCodes: utils.RetryCodes,
 		}
+	}
+	if tempFlightIdUserAction != nil {
+		input.XFlightId = tempFlightIdUserAction
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
 	}
 
 	_, err := aaa.Client.UserAction.ReportUserShort(input, authInfoWriter)
@@ -312,6 +340,11 @@ func (aaa *UserActionService) GetUserStatusShort(input *user_action.GetUserStatu
 			RetryCodes: utils.RetryCodes,
 		}
 	}
+	if tempFlightIdUserAction != nil {
+		input.XFlightId = tempFlightIdUserAction
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	}
 
 	ok, err := aaa.Client.UserAction.GetUserStatusShort(input, authInfoWriter)
 	if err != nil {
@@ -337,6 +370,11 @@ func (aaa *UserActionService) UnBanUsersShort(input *user_action.UnBanUsersParam
 			RetryCodes: utils.RetryCodes,
 		}
 	}
+	if tempFlightIdUserAction != nil {
+		input.XFlightId = tempFlightIdUserAction
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	}
 
 	_, err := aaa.Client.UserAction.UnBanUsersShort(input, authInfoWriter)
 	if err != nil {
@@ -361,6 +399,11 @@ func (aaa *UserActionService) PublicReportUserShort(input *user_action.PublicRep
 			Transport:  aaa.Client.Runtime.Transport,
 			RetryCodes: utils.RetryCodes,
 		}
+	}
+	if tempFlightIdUserAction != nil {
+		input.XFlightId = tempFlightIdUserAction
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
 	}
 
 	_, err := aaa.Client.UserAction.PublicReportUserShort(input, authInfoWriter)

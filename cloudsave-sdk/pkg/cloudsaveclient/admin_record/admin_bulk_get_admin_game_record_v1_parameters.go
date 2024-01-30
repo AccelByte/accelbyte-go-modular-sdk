@@ -59,8 +59,7 @@ func NewAdminBulkGetAdminGameRecordV1ParamsWithHTTPClient(client *http.Client) *
 	}
 }
 
-/*
-AdminBulkGetAdminGameRecordV1Params contains all the parameters to send to the API endpoint
+/*AdminBulkGetAdminGameRecordV1Params contains all the parameters to send to the API endpoint
 for the admin bulk get admin game record v1 operation typically these are written to a http.Request
 */
 type AdminBulkGetAdminGameRecordV1Params struct {

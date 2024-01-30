@@ -118,6 +118,7 @@ func (a *Client) AdminListAchievements(params *AdminListAchievementsParams, auth
 /*
 AdminListAchievementsShort query achievements
 
+
 Required permission
 `ADMIN:NAMESPACE:{namespace}:ACHIEVEMENT [READ]` and scope `social`
 */
@@ -177,10 +178,12 @@ func (a *Client) AdminListAchievementsShort(params *AdminListAchievementsParams,
 /*
 Deprecated: 2022-08-10 - Use AdminCreateNewAchievementShort instead.
 
-# AdminCreateNewAchievement create new achievement
+AdminCreateNewAchievement create new achievement
+
 
 Required permission
 `ADMIN:NAMESPACE:{namespace}:ACHIEVEMENT [CREATE]` and scope `social`
+
 
 Other detail info:
 - achievementCode: Human readable unique code to indentify the achievement. Must be lowercase
@@ -251,8 +254,10 @@ func (a *Client) AdminCreateNewAchievement(params *AdminCreateNewAchievementPara
 /*
 AdminCreateNewAchievementShort create new achievement
 
+
 Required permission
 `ADMIN:NAMESPACE:{namespace}:ACHIEVEMENT [CREATE]` and scope `social`
+
 
 Other detail info:
 - achievementCode: Human readable unique code to indentify the achievement. Must be lowercase
@@ -323,7 +328,9 @@ func (a *Client) AdminCreateNewAchievementShort(params *AdminCreateNewAchievemen
 /*
 Deprecated: 2022-08-10 - Use ExportAchievementsShort instead.
 
-# ExportAchievements export achievements configuration into a json file
+ExportAchievements export achievements configuration into a json file
+
+
 
 Required permission `ADMIN:NAMESPACE:{namespace}:ACHIEVEMENT [READ]`
 
@@ -383,6 +390,8 @@ func (a *Client) ExportAchievements(params *ExportAchievementsParams, authInfo r
 
 /*
 ExportAchievementsShort export achievements configuration into a json file
+
+
 
 Required permission `ADMIN:NAMESPACE:{namespace}:ACHIEVEMENT [READ]`
 
@@ -444,7 +453,7 @@ func (a *Client) ExportAchievementsShort(params *ExportAchievementsParams, authI
 /*
 Deprecated: 2022-08-10 - Use ImportAchievementsShort instead.
 
-# ImportAchievements import achievements from file
+ImportAchievements import achievements from file
 
 Required permission ADMIN:NAMESPACE:{namespace}:ACHIEVEMENT [UPDATE]
 
@@ -576,7 +585,8 @@ func (a *Client) ImportAchievementsShort(params *ImportAchievementsParams, authI
 /*
 Deprecated: 2022-08-10 - Use AdminGetAchievementShort instead.
 
-# AdminGetAchievement get an achievement
+AdminGetAchievement get an achievement
+
 
 Required permission
 `ADMIN:NAMESPACE:{namespace}:ACHIEVEMENT [READ]` and scope `social`
@@ -637,6 +647,7 @@ func (a *Client) AdminGetAchievement(params *AdminGetAchievementParams, authInfo
 /*
 AdminGetAchievementShort get an achievement
 
+
 Required permission
 `ADMIN:NAMESPACE:{namespace}:ACHIEVEMENT [READ]` and scope `social`
 */
@@ -696,7 +707,8 @@ func (a *Client) AdminGetAchievementShort(params *AdminGetAchievementParams, aut
 /*
 Deprecated: 2022-08-10 - Use AdminUpdateAchievementShort instead.
 
-# AdminUpdateAchievement update an achievement
+AdminUpdateAchievement update an achievement
+
 
 Required permission
 `ADMIN:NAMESPACE:{namespace}:ACHIEVEMENT [UPDATE]` and scope `social`
@@ -757,6 +769,7 @@ func (a *Client) AdminUpdateAchievement(params *AdminUpdateAchievementParams, au
 /*
 AdminUpdateAchievementShort update an achievement
 
+
 Required permission
 `ADMIN:NAMESPACE:{namespace}:ACHIEVEMENT [UPDATE]` and scope `social`
 */
@@ -816,7 +829,8 @@ func (a *Client) AdminUpdateAchievementShort(params *AdminUpdateAchievementParam
 /*
 Deprecated: 2022-08-10 - Use AdminDeleteAchievementShort instead.
 
-# AdminDeleteAchievement delete an achievement
+AdminDeleteAchievement delete an achievement
+
 
 Required permission
 `ADMIN:NAMESPACE:{namespace}:ACHIEVEMENT [DELETE]` and scope `social`
@@ -877,6 +891,7 @@ func (a *Client) AdminDeleteAchievement(params *AdminDeleteAchievementParams, au
 /*
 AdminDeleteAchievementShort delete an achievement
 
+
 Required permission
 `ADMIN:NAMESPACE:{namespace}:ACHIEVEMENT [DELETE]` and scope `social`
 */
@@ -936,7 +951,8 @@ func (a *Client) AdminDeleteAchievementShort(params *AdminDeleteAchievementParam
 /*
 Deprecated: 2022-08-10 - Use AdminUpdateAchievementListOrderShort instead.
 
-# AdminUpdateAchievementListOrder update achievements listorder
+AdminUpdateAchievementListOrder update achievements listorder
+
 
 Required permission
 `ADMIN:NAMESPACE:{namespace}:ACHIEVEMENT [UPDATE]` and scope `social`
@@ -997,6 +1013,7 @@ func (a *Client) AdminUpdateAchievementListOrder(params *AdminUpdateAchievementL
 /*
 AdminUpdateAchievementListOrderShort update achievements listorder
 
+
 Required permission
 `ADMIN:NAMESPACE:{namespace}:ACHIEVEMENT [UPDATE]` and scope `social`
 */
@@ -1056,7 +1073,8 @@ func (a *Client) AdminUpdateAchievementListOrderShort(params *AdminUpdateAchieve
 /*
 Deprecated: 2022-08-10 - Use PublicListAchievementsShort instead.
 
-# PublicListAchievements query achievements
+PublicListAchievements query achievements
+
 
 Required permission
 `NAMESPACE:{namespace}:ACHIEVEMENT [READ]` and scope `social`
@@ -1117,6 +1135,7 @@ func (a *Client) PublicListAchievements(params *PublicListAchievementsParams, au
 /*
 PublicListAchievementsShort query achievements
 
+
 Required permission
 `NAMESPACE:{namespace}:ACHIEVEMENT [READ]` and scope `social`
 */
@@ -1176,7 +1195,8 @@ func (a *Client) PublicListAchievementsShort(params *PublicListAchievementsParam
 /*
 Deprecated: 2022-08-10 - Use PublicGetAchievementShort instead.
 
-# PublicGetAchievement get an achievement
+PublicGetAchievement get an achievement
+
 
 Required permission
 `NAMESPACE:{namespace}:ACHIEVEMENT [READ]` and scope `social`
@@ -1236,6 +1256,7 @@ func (a *Client) PublicGetAchievement(params *PublicGetAchievementParams, authIn
 
 /*
 PublicGetAchievementShort get an achievement
+
 
 Required permission
 `NAMESPACE:{namespace}:ACHIEVEMENT [READ]` and scope `social`

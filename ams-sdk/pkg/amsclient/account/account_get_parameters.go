@@ -57,8 +57,7 @@ func NewAccountGetParamsWithHTTPClient(client *http.Client) *AccountGetParams {
 	}
 }
 
-/*
-AccountGetParams contains all the parameters to send to the API endpoint
+/*AccountGetParams contains all the parameters to send to the API endpoint
 for the account get operation typically these are written to a http.Request
 */
 type AccountGetParams struct {

@@ -57,8 +57,7 @@ func NewPublicAddDownloadCountV2ParamsWithHTTPClient(client *http.Client) *Publi
 	}
 }
 
-/*
-PublicAddDownloadCountV2Params contains all the parameters to send to the API endpoint
+/*PublicAddDownloadCountV2Params contains all the parameters to send to the API endpoint
 for the public add download count v2 operation typically these are written to a http.Request
 */
 type PublicAddDownloadCountV2Params struct {

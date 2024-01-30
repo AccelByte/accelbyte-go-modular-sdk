@@ -70,8 +70,7 @@ func NewBulkGetLocaleItemsParamsWithHTTPClient(client *http.Client) *BulkGetLoca
 	}
 }
 
-/*
-BulkGetLocaleItemsParams contains all the parameters to send to the API endpoint
+/*BulkGetLocaleItemsParams contains all the parameters to send to the API endpoint
 for the bulk get locale items operation typically these are written to a http.Request
 */
 type BulkGetLocaleItemsParams struct {

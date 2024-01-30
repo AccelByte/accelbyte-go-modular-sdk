@@ -57,8 +57,7 @@ func NewPublicValidateUserByUserIDAndPasswordV3ParamsWithHTTPClient(client *http
 	}
 }
 
-/*
-PublicValidateUserByUserIDAndPasswordV3Params contains all the parameters to send to the API endpoint
+/*PublicValidateUserByUserIDAndPasswordV3Params contains all the parameters to send to the API endpoint
 for the public validate user by user id and password v3 operation typically these are written to a http.Request
 */
 type PublicValidateUserByUserIDAndPasswordV3Params struct {

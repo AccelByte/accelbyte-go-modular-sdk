@@ -86,8 +86,7 @@ func NewRetrieveAllUsersByPolicyVersion1ParamsWithHTTPClient(client *http.Client
 	}
 }
 
-/*
-RetrieveAllUsersByPolicyVersion1Params contains all the parameters to send to the API endpoint
+/*RetrieveAllUsersByPolicyVersion1Params contains all the parameters to send to the API endpoint
 for the retrieve all users by policy version 1 operation typically these are written to a http.Request
 */
 type RetrieveAllUsersByPolicyVersion1Params struct {

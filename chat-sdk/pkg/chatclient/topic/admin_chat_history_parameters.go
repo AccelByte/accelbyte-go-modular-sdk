@@ -58,8 +58,7 @@ func NewAdminChatHistoryParamsWithHTTPClient(client *http.Client) *AdminChatHist
 	}
 }
 
-/*
-AdminChatHistoryParams contains all the parameters to send to the API endpoint
+/*AdminChatHistoryParams contains all the parameters to send to the API endpoint
 for the admin chat history operation typically these are written to a http.Request
 */
 type AdminChatHistoryParams struct {

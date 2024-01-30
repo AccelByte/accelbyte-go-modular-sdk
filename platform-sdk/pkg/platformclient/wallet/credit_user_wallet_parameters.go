@@ -59,8 +59,7 @@ func NewCreditUserWalletParamsWithHTTPClient(client *http.Client) *CreditUserWal
 	}
 }
 
-/*
-CreditUserWalletParams contains all the parameters to send to the API endpoint
+/*CreditUserWalletParams contains all the parameters to send to the API endpoint
 for the credit user wallet operation typically these are written to a http.Request
 */
 type CreditUserWalletParams struct {

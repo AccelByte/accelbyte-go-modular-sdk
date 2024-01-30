@@ -42,13 +42,11 @@ type ClientService interface {
 Deprecated: 2022-08-10 - Use GetPaymentCallbackConfigShort instead.
 
 GetPaymentCallbackConfig get payment callback configuration
-
-	[Not Supported Yet In Starter] Get payment callback configuration.
-
+ [Not Supported Yet In Starter] Get payment callback configuration.
 Other detail info:
 
-  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:PAYMENT:CONFIG", action=2 (READ)
-  - Returns : Payment callback config
+  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:PAYMENT:CONFIG", action=2 (READ)
+  *  Returns : Payment callback config
 */
 func (a *Client) GetPaymentCallbackConfig(params *GetPaymentCallbackConfigParams, authInfo runtime.ClientAuthInfoWriter) (*GetPaymentCallbackConfigOK, *GetPaymentCallbackConfigNotFound, error) {
 	// TODO: Validate the params before sending
@@ -96,13 +94,11 @@ func (a *Client) GetPaymentCallbackConfig(params *GetPaymentCallbackConfigParams
 
 /*
 GetPaymentCallbackConfigShort get payment callback configuration
-
-	[Not Supported Yet In Starter] Get payment callback configuration.
-
+ [Not Supported Yet In Starter] Get payment callback configuration.
 Other detail info:
 
-  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:PAYMENT:CONFIG", action=2 (READ)
-  - Returns : Payment callback config
+  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:PAYMENT:CONFIG", action=2 (READ)
+  *  Returns : Payment callback config
 */
 func (a *Client) GetPaymentCallbackConfigShort(params *GetPaymentCallbackConfigParams, authInfo runtime.ClientAuthInfoWriter) (*GetPaymentCallbackConfigOK, error) {
 	// TODO: Validate the params before sending
@@ -155,13 +151,11 @@ func (a *Client) GetPaymentCallbackConfigShort(params *GetPaymentCallbackConfigP
 Deprecated: 2022-08-10 - Use UpdatePaymentCallbackConfigShort instead.
 
 UpdatePaymentCallbackConfig update payment callback configuration
-
-	[Not Supported Yet In Starter] Update payment callback configuration.
-
+ [Not Supported Yet In Starter] Update payment callback configuration.
 Other detail info:
 
-  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:PAYMENT:CONFIG", action=4 (UPDATE)
-  - Returns : Payment callback config
+  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:PAYMENT:CONFIG", action=4 (UPDATE)
+  *  Returns : Payment callback config
 */
 func (a *Client) UpdatePaymentCallbackConfig(params *UpdatePaymentCallbackConfigParams, authInfo runtime.ClientAuthInfoWriter) (*UpdatePaymentCallbackConfigOK, error) {
 	// TODO: Validate the params before sending
@@ -206,13 +200,11 @@ func (a *Client) UpdatePaymentCallbackConfig(params *UpdatePaymentCallbackConfig
 
 /*
 UpdatePaymentCallbackConfigShort update payment callback configuration
-
-	[Not Supported Yet In Starter] Update payment callback configuration.
-
+ [Not Supported Yet In Starter] Update payment callback configuration.
 Other detail info:
 
-  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:PAYMENT:CONFIG", action=4 (UPDATE)
-  - Returns : Payment callback config
+  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:PAYMENT:CONFIG", action=4 (UPDATE)
+  *  Returns : Payment callback config
 */
 func (a *Client) UpdatePaymentCallbackConfigShort(params *UpdatePaymentCallbackConfigParams, authInfo runtime.ClientAuthInfoWriter) (*UpdatePaymentCallbackConfigOK, error) {
 	// TODO: Validate the params before sending

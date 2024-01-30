@@ -57,8 +57,7 @@ func NewGetLowestInstanceSpecParamsWithHTTPClient(client *http.Client) *GetLowes
 	}
 }
 
-/*
-GetLowestInstanceSpecParams contains all the parameters to send to the API endpoint
+/*GetLowestInstanceSpecParams contains all the parameters to send to the API endpoint
 for the get lowest instance spec operation typically these are written to a http.Request
 */
 type GetLowestInstanceSpecParams struct {

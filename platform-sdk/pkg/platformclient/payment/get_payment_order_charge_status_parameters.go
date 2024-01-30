@@ -57,8 +57,7 @@ func NewGetPaymentOrderChargeStatusParamsWithHTTPClient(client *http.Client) *Ge
 	}
 }
 
-/*
-GetPaymentOrderChargeStatusParams contains all the parameters to send to the API endpoint
+/*GetPaymentOrderChargeStatusParams contains all the parameters to send to the API endpoint
 for the get payment order charge status operation typically these are written to a http.Request
 */
 type GetPaymentOrderChargeStatusParams struct {

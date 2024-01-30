@@ -57,8 +57,7 @@ func NewGetUserOrderGrantParamsWithHTTPClient(client *http.Client) *GetUserOrder
 	}
 }
 
-/*
-GetUserOrderGrantParams contains all the parameters to send to the API endpoint
+/*GetUserOrderGrantParams contains all the parameters to send to the API endpoint
 for the get user order grant operation typically these are written to a http.Request
 */
 type GetUserOrderGrantParams struct {

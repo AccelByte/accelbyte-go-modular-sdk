@@ -57,8 +57,7 @@ func NewDeletePodConfigParamsWithHTTPClient(client *http.Client) *DeletePodConfi
 	}
 }
 
-/*
-DeletePodConfigParams contains all the parameters to send to the API endpoint
+/*DeletePodConfigParams contains all the parameters to send to the API endpoint
 for the delete pod config operation typically these are written to a http.Request
 */
 type DeletePodConfigParams struct {

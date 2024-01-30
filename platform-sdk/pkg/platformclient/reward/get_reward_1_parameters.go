@@ -57,8 +57,7 @@ func NewGetReward1ParamsWithHTTPClient(client *http.Client) *GetReward1Params {
 	}
 }
 
-/*
-GetReward1Params contains all the parameters to send to the API endpoint
+/*GetReward1Params contains all the parameters to send to the API endpoint
 for the get reward 1 operation typically these are written to a http.Request
 */
 type GetReward1Params struct {

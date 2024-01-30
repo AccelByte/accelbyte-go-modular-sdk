@@ -70,8 +70,7 @@ func NewRetireSeasonParamsWithHTTPClient(client *http.Client) *RetireSeasonParam
 	}
 }
 
-/*
-RetireSeasonParams contains all the parameters to send to the API endpoint
+/*RetireSeasonParams contains all the parameters to send to the API endpoint
 for the retire season operation typically these are written to a http.Request
 */
 type RetireSeasonParams struct {

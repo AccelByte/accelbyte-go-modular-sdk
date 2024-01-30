@@ -59,8 +59,7 @@ func NewPublicUpdatePartyParamsWithHTTPClient(client *http.Client) *PublicUpdate
 	}
 }
 
-/*
-PublicUpdatePartyParams contains all the parameters to send to the API endpoint
+/*PublicUpdatePartyParams contains all the parameters to send to the API endpoint
 for the public update party operation typically these are written to a http.Request
 */
 type PublicUpdatePartyParams struct {

@@ -57,8 +57,7 @@ func NewUnregisterEventIDHandlerParamsWithHTTPClient(client *http.Client) *Unreg
 	}
 }
 
-/*
-UnregisterEventIDHandlerParams contains all the parameters to send to the API endpoint
+/*UnregisterEventIDHandlerParams contains all the parameters to send to the API endpoint
 for the unregister event id handler operation typically these are written to a http.Request
 */
 type UnregisterEventIDHandlerParams struct {

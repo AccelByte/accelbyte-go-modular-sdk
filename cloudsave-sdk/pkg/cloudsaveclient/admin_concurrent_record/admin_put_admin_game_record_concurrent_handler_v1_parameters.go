@@ -59,8 +59,7 @@ func NewAdminPutAdminGameRecordConcurrentHandlerV1ParamsWithHTTPClient(client *h
 	}
 }
 
-/*
-AdminPutAdminGameRecordConcurrentHandlerV1Params contains all the parameters to send to the API endpoint
+/*AdminPutAdminGameRecordConcurrentHandlerV1Params contains all the parameters to send to the API endpoint
 for the admin put admin game record concurrent handler v1 operation typically these are written to a http.Request
 */
 type AdminPutAdminGameRecordConcurrentHandlerV1Params struct {

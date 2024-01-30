@@ -57,8 +57,7 @@ func NewPublicGetUserByUserIDV3ParamsWithHTTPClient(client *http.Client) *Public
 	}
 }
 
-/*
-PublicGetUserByUserIDV3Params contains all the parameters to send to the API endpoint
+/*PublicGetUserByUserIDV3Params contains all the parameters to send to the API endpoint
 for the public get user by user id v3 operation typically these are written to a http.Request
 */
 type PublicGetUserByUserIDV3Params struct {

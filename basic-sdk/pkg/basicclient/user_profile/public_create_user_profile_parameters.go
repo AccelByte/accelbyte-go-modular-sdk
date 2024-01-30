@@ -59,8 +59,7 @@ func NewPublicCreateUserProfileParamsWithHTTPClient(client *http.Client) *Public
 	}
 }
 
-/*
-PublicCreateUserProfileParams contains all the parameters to send to the API endpoint
+/*PublicCreateUserProfileParams contains all the parameters to send to the API endpoint
 for the public create user profile operation typically these are written to a http.Request
 */
 type PublicCreateUserProfileParams struct {

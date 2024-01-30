@@ -70,8 +70,7 @@ func NewTestAliPayConfigByIDParamsWithHTTPClient(client *http.Client) *TestAliPa
 	}
 }
 
-/*
-TestAliPayConfigByIDParams contains all the parameters to send to the API endpoint
+/*TestAliPayConfigByIDParams contains all the parameters to send to the API endpoint
 for the test ali pay config by id operation typically these are written to a http.Request
 */
 type TestAliPayConfigByIDParams struct {

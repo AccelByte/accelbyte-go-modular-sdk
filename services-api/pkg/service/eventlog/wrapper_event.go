@@ -22,6 +22,14 @@ type EventService struct {
 	Client           *eventlogclient.JusticeEventlogService
 	ConfigRepository repository.ConfigRepository
 	TokenRepository  repository.TokenRepository
+
+	FlightIdRepository *utils.FlightIdContainer
+}
+
+var tempFlightIdEvent *string
+
+func (aaa *EventService) UpdateFlightId(flightId string) {
+	tempFlightIdEvent = &flightId
 }
 
 func (aaa *EventService) GetAuthSession() auth.Session {
@@ -306,6 +314,11 @@ func (aaa *EventService) GetEventByNamespaceHandlerShort(input *event.GetEventBy
 			RetryCodes: utils.RetryCodes,
 		}
 	}
+	if tempFlightIdEvent != nil {
+		input.XFlightId = tempFlightIdEvent
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	}
 
 	ok, err := aaa.Client.Event.GetEventByNamespaceHandlerShort(input, authInfoWriter)
 	if err != nil {
@@ -330,6 +343,11 @@ func (aaa *EventService) PostEventHandlerShort(input *event.PostEventHandlerPara
 			Transport:  aaa.Client.Runtime.Transport,
 			RetryCodes: utils.RetryCodes,
 		}
+	}
+	if tempFlightIdEvent != nil {
+		input.XFlightId = tempFlightIdEvent
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
 	}
 
 	_, err := aaa.Client.Event.PostEventHandlerShort(input, authInfoWriter)
@@ -356,6 +374,11 @@ func (aaa *EventService) GetEventByEventIDHandlerShort(input *event.GetEventByEv
 			RetryCodes: utils.RetryCodes,
 		}
 	}
+	if tempFlightIdEvent != nil {
+		input.XFlightId = tempFlightIdEvent
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	}
 
 	ok, err := aaa.Client.Event.GetEventByEventIDHandlerShort(input, authInfoWriter)
 	if err != nil {
@@ -380,6 +403,11 @@ func (aaa *EventService) GetEventByEventTypeHandlerShort(input *event.GetEventBy
 			Transport:  aaa.Client.Runtime.Transport,
 			RetryCodes: utils.RetryCodes,
 		}
+	}
+	if tempFlightIdEvent != nil {
+		input.XFlightId = tempFlightIdEvent
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.Event.GetEventByEventTypeHandlerShort(input, authInfoWriter)
@@ -406,6 +434,11 @@ func (aaa *EventService) GetEventByEventTypeAndEventIDHandlerShort(input *event.
 			RetryCodes: utils.RetryCodes,
 		}
 	}
+	if tempFlightIdEvent != nil {
+		input.XFlightId = tempFlightIdEvent
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	}
 
 	ok, err := aaa.Client.Event.GetEventByEventTypeAndEventIDHandlerShort(input, authInfoWriter)
 	if err != nil {
@@ -430,6 +463,11 @@ func (aaa *EventService) GetEventByUserIDHandlerShort(input *event.GetEventByUse
 			Transport:  aaa.Client.Runtime.Transport,
 			RetryCodes: utils.RetryCodes,
 		}
+	}
+	if tempFlightIdEvent != nil {
+		input.XFlightId = tempFlightIdEvent
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.Event.GetEventByUserIDHandlerShort(input, authInfoWriter)
@@ -456,6 +494,11 @@ func (aaa *EventService) GetEventByUserIDAndEventIDHandlerShort(input *event.Get
 			RetryCodes: utils.RetryCodes,
 		}
 	}
+	if tempFlightIdEvent != nil {
+		input.XFlightId = tempFlightIdEvent
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	}
 
 	ok, err := aaa.Client.Event.GetEventByUserIDAndEventIDHandlerShort(input, authInfoWriter)
 	if err != nil {
@@ -481,6 +524,11 @@ func (aaa *EventService) GetEventByUserIDAndEventTypeHandlerShort(input *event.G
 			RetryCodes: utils.RetryCodes,
 		}
 	}
+	if tempFlightIdEvent != nil {
+		input.XFlightId = tempFlightIdEvent
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	}
 
 	ok, err := aaa.Client.Event.GetEventByUserIDAndEventTypeHandlerShort(input, authInfoWriter)
 	if err != nil {
@@ -505,6 +553,11 @@ func (aaa *EventService) GetEventByUserEventIDAndEventTypeHandlerShort(input *ev
 			Transport:  aaa.Client.Runtime.Transport,
 			RetryCodes: utils.RetryCodes,
 		}
+	}
+	if tempFlightIdEvent != nil {
+		input.XFlightId = tempFlightIdEvent
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.Event.GetEventByUserEventIDAndEventTypeHandlerShort(input, authInfoWriter)

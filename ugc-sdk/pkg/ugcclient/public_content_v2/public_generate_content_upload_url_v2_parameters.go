@@ -59,8 +59,7 @@ func NewPublicGenerateContentUploadURLV2ParamsWithHTTPClient(client *http.Client
 	}
 }
 
-/*
-PublicGenerateContentUploadURLV2Params contains all the parameters to send to the API endpoint
+/*PublicGenerateContentUploadURLV2Params contains all the parameters to send to the API endpoint
 for the public generate content upload urlv2 operation typically these are written to a http.Request
 */
 type PublicGenerateContentUploadURLV2Params struct {

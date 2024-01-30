@@ -57,8 +57,7 @@ func NewDisableUserEntitlementParamsWithHTTPClient(client *http.Client) *Disable
 	}
 }
 
-/*
-DisableUserEntitlementParams contains all the parameters to send to the API endpoint
+/*DisableUserEntitlementParams contains all the parameters to send to the API endpoint
 for the disable user entitlement operation typically these are written to a http.Request
 */
 type DisableUserEntitlementParams struct {

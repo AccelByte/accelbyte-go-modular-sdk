@@ -57,8 +57,7 @@ func NewPublicGetAllMatchmakingChannelParamsWithHTTPClient(client *http.Client) 
 	}
 }
 
-/*
-PublicGetAllMatchmakingChannelParams contains all the parameters to send to the API endpoint
+/*PublicGetAllMatchmakingChannelParams contains all the parameters to send to the API endpoint
 for the public get all matchmaking channel operation typically these are written to a http.Request
 */
 type PublicGetAllMatchmakingChannelParams struct {

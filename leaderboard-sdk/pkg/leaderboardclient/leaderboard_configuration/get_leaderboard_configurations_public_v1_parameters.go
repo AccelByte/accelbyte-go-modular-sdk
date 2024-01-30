@@ -58,8 +58,7 @@ func NewGetLeaderboardConfigurationsPublicV1ParamsWithHTTPClient(client *http.Cl
 	}
 }
 
-/*
-GetLeaderboardConfigurationsPublicV1Params contains all the parameters to send to the API endpoint
+/*GetLeaderboardConfigurationsPublicV1Params contains all the parameters to send to the API endpoint
 for the get leaderboard configurations public v1 operation typically these are written to a http.Request
 */
 type GetLeaderboardConfigurationsPublicV1Params struct {

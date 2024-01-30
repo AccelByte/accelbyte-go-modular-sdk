@@ -57,8 +57,7 @@ func NewPublicPartyLeaveParamsWithHTTPClient(client *http.Client) *PublicPartyLe
 	}
 }
 
-/*
-PublicPartyLeaveParams contains all the parameters to send to the API endpoint
+/*PublicPartyLeaveParams contains all the parameters to send to the API endpoint
 for the public party leave operation typically these are written to a http.Request
 */
 type PublicPartyLeaveParams struct {

@@ -59,8 +59,7 @@ func NewAdminGenerateOfficialContentUploadURLV2ParamsWithHTTPClient(client *http
 	}
 }
 
-/*
-AdminGenerateOfficialContentUploadURLV2Params contains all the parameters to send to the API endpoint
+/*AdminGenerateOfficialContentUploadURLV2Params contains all the parameters to send to the API endpoint
 for the admin generate official content upload urlv2 operation typically these are written to a http.Request
 */
 type AdminGenerateOfficialContentUploadURLV2Params struct {

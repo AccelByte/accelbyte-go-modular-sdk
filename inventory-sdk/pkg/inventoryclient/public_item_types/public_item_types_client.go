@@ -39,7 +39,7 @@ type ClientService interface {
 /*
 Deprecated: 2022-08-10 - Use PublicListItemTypesShort instead.
 
-# PublicListItemTypes to list item types
+PublicListItemTypes to list item types
 
 This endpoint will list all item types in a namespace.
 The response body will be in the form of standard pagination.

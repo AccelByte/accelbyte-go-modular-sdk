@@ -59,8 +59,7 @@ func NewBulkGetUserSeasonProgressionParamsWithHTTPClient(client *http.Client) *B
 	}
 }
 
-/*
-BulkGetUserSeasonProgressionParams contains all the parameters to send to the API endpoint
+/*BulkGetUserSeasonProgressionParams contains all the parameters to send to the API endpoint
 for the bulk get user season progression operation typically these are written to a http.Request
 */
 type BulkGetUserSeasonProgressionParams struct {

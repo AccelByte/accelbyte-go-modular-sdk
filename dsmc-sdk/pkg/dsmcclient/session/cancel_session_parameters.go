@@ -57,8 +57,7 @@ func NewCancelSessionParamsWithHTTPClient(client *http.Client) *CancelSessionPar
 	}
 }
 
-/*
-CancelSessionParams contains all the parameters to send to the API endpoint
+/*CancelSessionParams contains all the parameters to send to the API endpoint
 for the cancel session operation typically these are written to a http.Request
 */
 type CancelSessionParams struct {

@@ -80,8 +80,7 @@ func NewUpdatePayPalConfigParamsWithHTTPClient(client *http.Client) *UpdatePayPa
 	}
 }
 
-/*
-UpdatePayPalConfigParams contains all the parameters to send to the API endpoint
+/*UpdatePayPalConfigParams contains all the parameters to send to the API endpoint
 for the update pay pal config operation typically these are written to a http.Request
 */
 type UpdatePayPalConfigParams struct {

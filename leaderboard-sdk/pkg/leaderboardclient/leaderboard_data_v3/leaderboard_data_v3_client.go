@@ -57,9 +57,13 @@ type ClientService interface {
 /*
 Deprecated: 2022-08-10 - Use GetAllTimeLeaderboardRankingAdminV3Short instead.
 
-# GetAllTimeLeaderboardRankingAdminV3 get all time leaderboard ranking data
+GetAllTimeLeaderboardRankingAdminV3 get all time leaderboard ranking data
+
 
 Required permission 'ADMIN:NAMESPACE:{namespace}:LEADERBOARD [READ]'
+
+
+
 
 Get rankings in an all time leaderboard.
 */
@@ -122,7 +126,11 @@ func (a *Client) GetAllTimeLeaderboardRankingAdminV3(params *GetAllTimeLeaderboa
 /*
 GetAllTimeLeaderboardRankingAdminV3Short get all time leaderboard ranking data
 
+
 Required permission 'ADMIN:NAMESPACE:{namespace}:LEADERBOARD [READ]'
+
+
+
 
 Get rankings in an all time leaderboard.
 */
@@ -184,9 +192,13 @@ func (a *Client) GetAllTimeLeaderboardRankingAdminV3Short(params *GetAllTimeLead
 /*
 Deprecated: 2022-08-10 - Use GetCurrentCycleLeaderboardRankingAdminV3Short instead.
 
-# GetCurrentCycleLeaderboardRankingAdminV3 get cycle leaderboard ranking data
+GetCurrentCycleLeaderboardRankingAdminV3 get cycle leaderboard ranking data
+
 
 Required permission 'ADMIN:NAMESPACE:{namespace}:LEADERBOARD [READ]'
+
+
+
 
 Get rankings in cycle leaderboard.
 */
@@ -249,7 +261,11 @@ func (a *Client) GetCurrentCycleLeaderboardRankingAdminV3(params *GetCurrentCycl
 /*
 GetCurrentCycleLeaderboardRankingAdminV3Short get cycle leaderboard ranking data
 
+
 Required permission 'ADMIN:NAMESPACE:{namespace}:LEADERBOARD [READ]'
+
+
+
 
 Get rankings in cycle leaderboard.
 */
@@ -311,13 +327,23 @@ func (a *Client) GetCurrentCycleLeaderboardRankingAdminV3Short(params *GetCurren
 /*
 Deprecated: 2022-08-10 - Use DeleteUserRankingByLeaderboardCodeAdminV3Short instead.
 
-# DeleteUserRankingByLeaderboardCodeAdminV3 delete all user ranking by leaderboard code
+DeleteUserRankingByLeaderboardCodeAdminV3 delete all user ranking by leaderboard code
+
 
 [Test Facility Only]
 
+
+
+
 Required permission 'ADMIN:NAMESPACE:{namespace}:LEADERBOARD [DELETE]'
 
-# This endpoint will delete user ranking by leaderboard code
+
+
+
+This endpoint will delete user ranking by leaderboard code
+
+
+
 
 Note: this endpoint only works on development environment.
 */
@@ -377,11 +403,21 @@ func (a *Client) DeleteUserRankingByLeaderboardCodeAdminV3(params *DeleteUserRan
 /*
 DeleteUserRankingByLeaderboardCodeAdminV3Short delete all user ranking by leaderboard code
 
-	[Test Facility Only]
+
+ [Test Facility Only]
+
+
+
 
 Required permission 'ADMIN:NAMESPACE:{namespace}:LEADERBOARD [DELETE]'
 
-# This endpoint will delete user ranking by leaderboard code
+
+
+
+This endpoint will delete user ranking by leaderboard code
+
+
+
 
 Note: this endpoint only works on development environment.
 */
@@ -441,9 +477,13 @@ func (a *Client) DeleteUserRankingByLeaderboardCodeAdminV3Short(params *DeleteUs
 /*
 Deprecated: 2022-08-10 - Use GetUserRankingAdminV3Short instead.
 
-# GetUserRankingAdminV3 get user ranking
+GetUserRankingAdminV3 get user ranking
+
 
 Required permission 'ADMIN:NAMESPACE:{namespace}:LEADERBOARD [READ]'
+
+
+
 
 Get user ranking in leaderboard
 */
@@ -503,7 +543,11 @@ func (a *Client) GetUserRankingAdminV3(params *GetUserRankingAdminV3Params, auth
 /*
 GetUserRankingAdminV3Short get user ranking
 
+
 Required permission 'ADMIN:NAMESPACE:{namespace}:LEADERBOARD [READ]'
+
+
+
 
 Get user ranking in leaderboard
 */
@@ -811,7 +855,8 @@ func (a *Client) DeleteUserRankingsAdminV3Short(params *DeleteUserRankingsAdminV
 /*
 Deprecated: 2022-08-10 - Use GetAllTimeLeaderboardRankingPublicV3Short instead.
 
-# GetAllTimeLeaderboardRankingPublicV3 get all time leaderboard ranking data
+GetAllTimeLeaderboardRankingPublicV3 get all time leaderboard ranking data
+
 
 Get rankings in an all time leaderboard.
 */
@@ -867,6 +912,7 @@ func (a *Client) GetAllTimeLeaderboardRankingPublicV3(params *GetAllTimeLeaderbo
 
 /*
 GetAllTimeLeaderboardRankingPublicV3Short get all time leaderboard ranking data
+
 
 Get rankings in an all time leaderboard.
 */
@@ -924,7 +970,8 @@ func (a *Client) GetAllTimeLeaderboardRankingPublicV3Short(params *GetAllTimeLea
 /*
 Deprecated: 2022-08-10 - Use GetCurrentCycleLeaderboardRankingPublicV3Short instead.
 
-# GetCurrentCycleLeaderboardRankingPublicV3 get cycle leaderboard ranking data
+GetCurrentCycleLeaderboardRankingPublicV3 get cycle leaderboard ranking data
+
 
 Get rankings in cycle leaderboard.
 */
@@ -980,6 +1027,7 @@ func (a *Client) GetCurrentCycleLeaderboardRankingPublicV3(params *GetCurrentCyc
 
 /*
 GetCurrentCycleLeaderboardRankingPublicV3Short get cycle leaderboard ranking data
+
 
 Get rankings in cycle leaderboard.
 */
@@ -1037,7 +1085,8 @@ func (a *Client) GetCurrentCycleLeaderboardRankingPublicV3Short(params *GetCurre
 /*
 Deprecated: 2022-08-10 - Use BulkGetUsersRankingPublicV3Short instead.
 
-# BulkGetUsersRankingPublicV3 bulk get users ranking
+BulkGetUsersRankingPublicV3 bulk get users ranking
+
 
 Bulk get users ranking in leaderboard, max allowed 20 userIDs at a time.
 */
@@ -1097,6 +1146,7 @@ func (a *Client) BulkGetUsersRankingPublicV3(params *BulkGetUsersRankingPublicV3
 /*
 BulkGetUsersRankingPublicV3Short bulk get users ranking
 
+
 Bulk get users ranking in leaderboard, max allowed 20 userIDs at a time.
 */
 func (a *Client) BulkGetUsersRankingPublicV3Short(params *BulkGetUsersRankingPublicV3Params, authInfo runtime.ClientAuthInfoWriter) (*BulkGetUsersRankingPublicV3OK, error) {
@@ -1155,7 +1205,8 @@ func (a *Client) BulkGetUsersRankingPublicV3Short(params *BulkGetUsersRankingPub
 /*
 Deprecated: 2022-08-10 - Use GetUserRankingPublicV3Short instead.
 
-# GetUserRankingPublicV3 get user ranking
+GetUserRankingPublicV3 get user ranking
+
 
 Get user ranking in leaderboard
 */
@@ -1214,6 +1265,7 @@ func (a *Client) GetUserRankingPublicV3(params *GetUserRankingPublicV3Params, au
 
 /*
 GetUserRankingPublicV3Short get user ranking
+
 
 Get user ranking in leaderboard
 */

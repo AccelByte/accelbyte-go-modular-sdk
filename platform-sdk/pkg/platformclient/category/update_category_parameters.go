@@ -59,8 +59,7 @@ func NewUpdateCategoryParamsWithHTTPClient(client *http.Client) *UpdateCategoryP
 	}
 }
 
-/*
-UpdateCategoryParams contains all the parameters to send to the API endpoint
+/*UpdateCategoryParams contains all the parameters to send to the API endpoint
 for the update category operation typically these are written to a http.Request
 */
 type UpdateCategoryParams struct {

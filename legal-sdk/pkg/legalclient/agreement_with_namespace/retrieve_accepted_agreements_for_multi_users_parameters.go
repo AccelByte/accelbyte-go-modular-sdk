@@ -59,8 +59,7 @@ func NewRetrieveAcceptedAgreementsForMultiUsersParamsWithHTTPClient(client *http
 	}
 }
 
-/*
-RetrieveAcceptedAgreementsForMultiUsersParams contains all the parameters to send to the API endpoint
+/*RetrieveAcceptedAgreementsForMultiUsersParams contains all the parameters to send to the API endpoint
 for the retrieve accepted agreements for multi users operation typically these are written to a http.Request
 */
 type RetrieveAcceptedAgreementsForMultiUsersParams struct {

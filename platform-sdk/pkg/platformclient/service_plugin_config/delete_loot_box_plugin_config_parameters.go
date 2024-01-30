@@ -57,8 +57,7 @@ func NewDeleteLootBoxPluginConfigParamsWithHTTPClient(client *http.Client) *Dele
 	}
 }
 
-/*
-DeleteLootBoxPluginConfigParams contains all the parameters to send to the API endpoint
+/*DeleteLootBoxPluginConfigParams contains all the parameters to send to the API endpoint
 for the delete loot box plugin config operation typically these are written to a http.Request
 */
 type DeleteLootBoxPluginConfigParams struct {

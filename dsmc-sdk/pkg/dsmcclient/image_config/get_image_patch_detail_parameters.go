@@ -57,8 +57,7 @@ func NewGetImagePatchDetailParamsWithHTTPClient(client *http.Client) *GetImagePa
 	}
 }
 
-/*
-GetImagePatchDetailParams contains all the parameters to send to the API endpoint
+/*GetImagePatchDetailParams contains all the parameters to send to the API endpoint
 for the get image patch detail operation typically these are written to a http.Request
 */
 type GetImagePatchDetailParams struct {

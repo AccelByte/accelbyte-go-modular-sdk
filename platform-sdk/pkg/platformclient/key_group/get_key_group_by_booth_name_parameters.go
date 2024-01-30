@@ -57,8 +57,7 @@ func NewGetKeyGroupByBoothNameParamsWithHTTPClient(client *http.Client) *GetKeyG
 	}
 }
 
-/*
-GetKeyGroupByBoothNameParams contains all the parameters to send to the API endpoint
+/*GetKeyGroupByBoothNameParams contains all the parameters to send to the API endpoint
 for the get key group by booth name operation typically these are written to a http.Request
 */
 type GetKeyGroupByBoothNameParams struct {

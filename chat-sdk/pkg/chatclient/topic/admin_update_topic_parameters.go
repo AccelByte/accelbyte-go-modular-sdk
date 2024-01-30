@@ -59,8 +59,7 @@ func NewAdminUpdateTopicParamsWithHTTPClient(client *http.Client) *AdminUpdateTo
 	}
 }
 
-/*
-AdminUpdateTopicParams contains all the parameters to send to the API endpoint
+/*AdminUpdateTopicParams contains all the parameters to send to the API endpoint
 for the admin update topic operation typically these are written to a http.Request
 */
 type AdminUpdateTopicParams struct {

@@ -57,8 +57,7 @@ func NewAdminRequestDataRetrievalParamsWithHTTPClient(client *http.Client) *Admi
 	}
 }
 
-/*
-AdminRequestDataRetrievalParams contains all the parameters to send to the API endpoint
+/*AdminRequestDataRetrievalParams contains all the parameters to send to the API endpoint
 for the admin request data retrieval operation typically these are written to a http.Request
 */
 type AdminRequestDataRetrievalParams struct {

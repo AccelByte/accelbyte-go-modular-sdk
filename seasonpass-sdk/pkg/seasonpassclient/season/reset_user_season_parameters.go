@@ -57,8 +57,7 @@ func NewResetUserSeasonParamsWithHTTPClient(client *http.Client) *ResetUserSeaso
 	}
 }
 
-/*
-ResetUserSeasonParams contains all the parameters to send to the API endpoint
+/*ResetUserSeasonParams contains all the parameters to send to the API endpoint
 for the reset user season operation typically these are written to a http.Request
 */
 type ResetUserSeasonParams struct {

@@ -57,8 +57,7 @@ func NewPublicGetUnpaidPaymentOrderParamsWithHTTPClient(client *http.Client) *Pu
 	}
 }
 
-/*
-PublicGetUnpaidPaymentOrderParams contains all the parameters to send to the API endpoint
+/*PublicGetUnpaidPaymentOrderParams contains all the parameters to send to the API endpoint
 for the public get unpaid payment order operation typically these are written to a http.Request
 */
 type PublicGetUnpaidPaymentOrderParams struct {

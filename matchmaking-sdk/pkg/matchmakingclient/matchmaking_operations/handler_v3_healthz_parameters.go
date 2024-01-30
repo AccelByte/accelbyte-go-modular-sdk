@@ -57,8 +57,7 @@ func NewHandlerV3HealthzParamsWithHTTPClient(client *http.Client) *HandlerV3Heal
 	}
 }
 
-/*
-HandlerV3HealthzParams contains all the parameters to send to the API endpoint
+/*HandlerV3HealthzParams contains all the parameters to send to the API endpoint
 for the handler v3 healthz operation typically these are written to a http.Request
 */
 type HandlerV3HealthzParams struct {

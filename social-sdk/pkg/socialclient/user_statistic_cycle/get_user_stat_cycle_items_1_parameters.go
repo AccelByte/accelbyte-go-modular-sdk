@@ -78,8 +78,7 @@ func NewGetUserStatCycleItems1ParamsWithHTTPClient(client *http.Client) *GetUser
 	}
 }
 
-/*
-GetUserStatCycleItems1Params contains all the parameters to send to the API endpoint
+/*GetUserStatCycleItems1Params contains all the parameters to send to the API endpoint
 for the get user stat cycle items 1 operation typically these are written to a http.Request
 */
 type GetUserStatCycleItems1Params struct {

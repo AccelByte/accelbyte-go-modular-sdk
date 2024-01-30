@@ -57,8 +57,7 @@ func NewAnonymizeUserAgreementParamsWithHTTPClient(client *http.Client) *Anonymi
 	}
 }
 
-/*
-AnonymizeUserAgreementParams contains all the parameters to send to the API endpoint
+/*AnonymizeUserAgreementParams contains all the parameters to send to the API endpoint
 for the anonymize user agreement operation typically these are written to a http.Request
 */
 type AnonymizeUserAgreementParams struct {

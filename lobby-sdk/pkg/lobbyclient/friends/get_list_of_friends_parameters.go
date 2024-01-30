@@ -78,8 +78,7 @@ func NewGetListOfFriendsParamsWithHTTPClient(client *http.Client) *GetListOfFrie
 	}
 }
 
-/*
-GetListOfFriendsParams contains all the parameters to send to the API endpoint
+/*GetListOfFriendsParams contains all the parameters to send to the API endpoint
 for the get list of friends operation typically these are written to a http.Request
 */
 type GetListOfFriendsParams struct {

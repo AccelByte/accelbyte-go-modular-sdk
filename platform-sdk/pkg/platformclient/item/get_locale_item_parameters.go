@@ -78,8 +78,7 @@ func NewGetLocaleItemParamsWithHTTPClient(client *http.Client) *GetLocaleItemPar
 	}
 }
 
-/*
-GetLocaleItemParams contains all the parameters to send to the API endpoint
+/*GetLocaleItemParams contains all the parameters to send to the API endpoint
 for the get locale item operation typically these are written to a http.Request
 */
 type GetLocaleItemParams struct {

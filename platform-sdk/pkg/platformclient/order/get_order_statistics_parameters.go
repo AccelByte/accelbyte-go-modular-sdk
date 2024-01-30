@@ -57,8 +57,7 @@ func NewGetOrderStatisticsParamsWithHTTPClient(client *http.Client) *GetOrderSta
 	}
 }
 
-/*
-GetOrderStatisticsParams contains all the parameters to send to the API endpoint
+/*GetOrderStatisticsParams contains all the parameters to send to the API endpoint
 for the get order statistics operation typically these are written to a http.Request
 */
 type GetOrderStatisticsParams struct {

@@ -59,8 +59,7 @@ func NewPublicGetContentBulkByShareCodesV2ParamsWithHTTPClient(client *http.Clie
 	}
 }
 
-/*
-PublicGetContentBulkByShareCodesV2Params contains all the parameters to send to the API endpoint
+/*PublicGetContentBulkByShareCodesV2Params contains all the parameters to send to the API endpoint
 for the public get content bulk by share codes v2 operation typically these are written to a http.Request
 */
 type PublicGetContentBulkByShareCodesV2Params struct {

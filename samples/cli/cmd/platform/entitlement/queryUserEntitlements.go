@@ -30,6 +30,7 @@ var QueryUserEntitlementsCmd = &cobra.Command{
 		userId, _ := cmd.Flags().GetString("userId")
 		activeOnly, _ := cmd.Flags().GetBool("activeOnly")
 		appType, _ := cmd.Flags().GetString("appType")
+		collectionId, _ := cmd.Flags().GetString("collectionId")
 		entitlementClazz, _ := cmd.Flags().GetString("entitlementClazz")
 		entitlementName, _ := cmd.Flags().GetString("entitlementName")
 		featuresString := cmd.Flag("features").Value.String()
@@ -53,6 +54,7 @@ var QueryUserEntitlementsCmd = &cobra.Command{
 			UserID:           userId,
 			ActiveOnly:       &activeOnly,
 			AppType:          &appType,
+			CollectionID:     &collectionId,
 			EntitlementClazz: &entitlementClazz,
 			EntitlementName:  &entitlementName,
 			Features:         features,
@@ -82,6 +84,7 @@ func init() {
 	_ = QueryUserEntitlementsCmd.MarkFlagRequired("userId")
 	QueryUserEntitlementsCmd.Flags().Bool("activeOnly", false, "Active only")
 	QueryUserEntitlementsCmd.Flags().String("appType", "", "App type")
+	QueryUserEntitlementsCmd.Flags().String("collectionId", "", "Collection id")
 	QueryUserEntitlementsCmd.Flags().String("entitlementClazz", "", "Entitlement clazz")
 	QueryUserEntitlementsCmd.Flags().String("entitlementName", "", "Entitlement name")
 	QueryUserEntitlementsCmd.Flags().String("features", "", "Features")

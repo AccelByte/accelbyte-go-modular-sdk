@@ -57,8 +57,7 @@ func NewUpdateWxPayConfigCertParamsWithHTTPClient(client *http.Client) *UpdateWx
 	}
 }
 
-/*
-UpdateWxPayConfigCertParams contains all the parameters to send to the API endpoint
+/*UpdateWxPayConfigCertParams contains all the parameters to send to the API endpoint
 for the update wx pay config cert operation typically these are written to a http.Request
 */
 type UpdateWxPayConfigCertParams struct {

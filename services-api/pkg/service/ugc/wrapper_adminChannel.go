@@ -22,6 +22,14 @@ type AdminChannelService struct {
 	Client           *ugcclient.JusticeUgcService
 	ConfigRepository repository.ConfigRepository
 	TokenRepository  repository.TokenRepository
+
+	FlightIdRepository *utils.FlightIdContainer
+}
+
+var tempFlightIdAdminChannel *string
+
+func (aaa *AdminChannelService) UpdateFlightId(flightId string) {
+	tempFlightIdAdminChannel = &flightId
 }
 
 func (aaa *AdminChannelService) GetAuthSession() auth.Session {
@@ -218,6 +226,11 @@ func (aaa *AdminChannelService) SingleAdminGetChannelShort(input *admin_channel.
 			RetryCodes: utils.RetryCodes,
 		}
 	}
+	if tempFlightIdAdminChannel != nil {
+		input.XFlightId = tempFlightIdAdminChannel
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	}
 
 	ok, err := aaa.Client.AdminChannel.SingleAdminGetChannelShort(input, authInfoWriter)
 	if err != nil {
@@ -242,6 +255,11 @@ func (aaa *AdminChannelService) AdminCreateChannelShort(input *admin_channel.Adm
 			Transport:  aaa.Client.Runtime.Transport,
 			RetryCodes: utils.RetryCodes,
 		}
+	}
+	if tempFlightIdAdminChannel != nil {
+		input.XFlightId = tempFlightIdAdminChannel
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
 	}
 
 	created, err := aaa.Client.AdminChannel.AdminCreateChannelShort(input, authInfoWriter)
@@ -268,6 +286,11 @@ func (aaa *AdminChannelService) SingleAdminUpdateChannelShort(input *admin_chann
 			RetryCodes: utils.RetryCodes,
 		}
 	}
+	if tempFlightIdAdminChannel != nil {
+		input.XFlightId = tempFlightIdAdminChannel
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	}
 
 	ok, err := aaa.Client.AdminChannel.SingleAdminUpdateChannelShort(input, authInfoWriter)
 	if err != nil {
@@ -292,6 +315,11 @@ func (aaa *AdminChannelService) SingleAdminDeleteChannelShort(input *admin_chann
 			Transport:  aaa.Client.Runtime.Transport,
 			RetryCodes: utils.RetryCodes,
 		}
+	}
+	if tempFlightIdAdminChannel != nil {
+		input.XFlightId = tempFlightIdAdminChannel
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
 	}
 
 	_, err := aaa.Client.AdminChannel.SingleAdminDeleteChannelShort(input, authInfoWriter)
@@ -318,6 +346,11 @@ func (aaa *AdminChannelService) AdminGetChannelShort(input *admin_channel.AdminG
 			RetryCodes: utils.RetryCodes,
 		}
 	}
+	if tempFlightIdAdminChannel != nil {
+		input.XFlightId = tempFlightIdAdminChannel
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	}
 
 	ok, err := aaa.Client.AdminChannel.AdminGetChannelShort(input, authInfoWriter)
 	if err != nil {
@@ -343,6 +376,11 @@ func (aaa *AdminChannelService) AdminUpdateChannelShort(input *admin_channel.Adm
 			RetryCodes: utils.RetryCodes,
 		}
 	}
+	if tempFlightIdAdminChannel != nil {
+		input.XFlightId = tempFlightIdAdminChannel
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	}
 
 	ok, err := aaa.Client.AdminChannel.AdminUpdateChannelShort(input, authInfoWriter)
 	if err != nil {
@@ -367,6 +405,11 @@ func (aaa *AdminChannelService) AdminDeleteChannelShort(input *admin_channel.Adm
 			Transport:  aaa.Client.Runtime.Transport,
 			RetryCodes: utils.RetryCodes,
 		}
+	}
+	if tempFlightIdAdminChannel != nil {
+		input.XFlightId = tempFlightIdAdminChannel
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
 	}
 
 	_, err := aaa.Client.AdminChannel.AdminDeleteChannelShort(input, authInfoWriter)

@@ -57,8 +57,7 @@ func NewAddDownloadCountParamsWithHTTPClient(client *http.Client) *AddDownloadCo
 	}
 }
 
-/*
-AddDownloadCountParams contains all the parameters to send to the API endpoint
+/*AddDownloadCountParams contains all the parameters to send to the API endpoint
 for the add download count operation typically these are written to a http.Request
 */
 type AddDownloadCountParams struct {

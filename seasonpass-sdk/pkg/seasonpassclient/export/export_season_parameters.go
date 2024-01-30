@@ -57,8 +57,7 @@ func NewExportSeasonParamsWithHTTPClient(client *http.Client) *ExportSeasonParam
 	}
 }
 
-/*
-ExportSeasonParams contains all the parameters to send to the API endpoint
+/*ExportSeasonParams contains all the parameters to send to the API endpoint
 for the export season operation typically these are written to a http.Request
 */
 type ExportSeasonParams struct {

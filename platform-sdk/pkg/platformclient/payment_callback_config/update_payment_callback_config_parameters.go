@@ -59,8 +59,7 @@ func NewUpdatePaymentCallbackConfigParamsWithHTTPClient(client *http.Client) *Up
 	}
 }
 
-/*
-UpdatePaymentCallbackConfigParams contains all the parameters to send to the API endpoint
+/*UpdatePaymentCallbackConfigParams contains all the parameters to send to the API endpoint
 for the update payment callback config operation typically these are written to a http.Request
 */
 type UpdatePaymentCallbackConfigParams struct {

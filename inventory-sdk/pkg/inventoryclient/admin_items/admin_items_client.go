@@ -51,7 +51,7 @@ type ClientService interface {
 /*
 Deprecated: 2022-08-10 - Use AdminListItemsShort instead.
 
-# AdminListItems to list all items
+AdminListItems to list all items
 
 Listing all items in an inventory.
 The response body will be in the form of standard pagination.
@@ -165,7 +165,7 @@ func (a *Client) AdminListItemsShort(params *AdminListItemsParams, authInfo runt
 /*
 Deprecated: 2022-08-10 - Use AdminGetInventoryItemShort instead.
 
-# AdminGetInventoryItem to get an item
+AdminGetInventoryItem to get an item
 
 Getting an item info.
 
@@ -282,9 +282,9 @@ func (a *Client) AdminGetInventoryItemShort(params *AdminGetInventoryItemParams,
 /*
 Deprecated: 2022-08-10 - Use AdminConsumeUserItemShort instead.
 
-# AdminConsumeUserItem to consume item
+AdminConsumeUserItem to consume item
 
-# Consume user's own item
+Consume user's own item
 
 Permission: ADMIN:NAMESPACE:{namespace}:USER:{userId}:INVENTORY:ITEM [UPDATE]
 */
@@ -341,7 +341,7 @@ func (a *Client) AdminConsumeUserItem(params *AdminConsumeUserItemParams, authIn
 /*
 AdminConsumeUserItemShort to consume item
 
-# Consume user's own item
+Consume user's own item
 
 Permission: ADMIN:NAMESPACE:{namespace}:USER:{userId}:INVENTORY:ITEM [UPDATE]
 */
@@ -399,7 +399,7 @@ func (a *Client) AdminConsumeUserItemShort(params *AdminConsumeUserItemParams, a
 /*
 Deprecated: 2022-08-10 - Use AdminBulkUpdateMyItemsShort instead.
 
-# AdminBulkUpdateMyItems to bulk update items
+AdminBulkUpdateMyItems to bulk update items
 
 Bulk Updating user's own items.
 Tags will be auto-created.
@@ -518,7 +518,7 @@ func (a *Client) AdminBulkUpdateMyItemsShort(params *AdminBulkUpdateMyItemsParam
 /*
 Deprecated: 2022-08-10 - Use AdminSaveItemToInventoryShort instead.
 
-# AdminSaveItemToInventory to save item to specific inventory
+AdminSaveItemToInventory to save item to specific inventory
 
 Saving an item to specific inventory.
 The item will be saved in specific user's inventory,
@@ -644,7 +644,7 @@ func (a *Client) AdminSaveItemToInventoryShort(params *AdminSaveItemToInventoryP
 /*
 Deprecated: 2022-08-10 - Use AdminBulkRemoveItemsShort instead.
 
-# AdminBulkRemoveItems to bulk remove items
+AdminBulkRemoveItems to bulk remove items
 
 Bulk remove user's own items'.
 
@@ -761,7 +761,7 @@ func (a *Client) AdminBulkRemoveItemsShort(params *AdminBulkRemoveItemsParams, a
 /*
 Deprecated: 2022-08-10 - Use AdminSaveItemShort instead.
 
-# AdminSaveItem to save item
+AdminSaveItem to save item
 
 Saving an item.
 The item will be saved in user's inventory,

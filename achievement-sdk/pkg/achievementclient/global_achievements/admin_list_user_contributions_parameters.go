@@ -86,8 +86,7 @@ func NewAdminListUserContributionsParamsWithHTTPClient(client *http.Client) *Adm
 	}
 }
 
-/*
-AdminListUserContributionsParams contains all the parameters to send to the API endpoint
+/*AdminListUserContributionsParams contains all the parameters to send to the API endpoint
 for the admin list user contributions operation typically these are written to a http.Request
 */
 type AdminListUserContributionsParams struct {

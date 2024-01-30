@@ -57,8 +57,7 @@ func NewAdminGetInboxCategoriesParamsWithHTTPClient(client *http.Client) *AdminG
 	}
 }
 
-/*
-AdminGetInboxCategoriesParams contains all the parameters to send to the API endpoint
+/*AdminGetInboxCategoriesParams contains all the parameters to send to the API endpoint
 for the admin get inbox categories operation typically these are written to a http.Request
 */
 type AdminGetInboxCategoriesParams struct {

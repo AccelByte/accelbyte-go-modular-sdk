@@ -57,8 +57,7 @@ func NewAdminGetAdminPlayerRecordV1ParamsWithHTTPClient(client *http.Client) *Ad
 	}
 }
 
-/*
-AdminGetAdminPlayerRecordV1Params contains all the parameters to send to the API endpoint
+/*AdminGetAdminPlayerRecordV1Params contains all the parameters to send to the API endpoint
 for the admin get admin player record v1 operation typically these are written to a http.Request
 */
 type AdminGetAdminPlayerRecordV1Params struct {

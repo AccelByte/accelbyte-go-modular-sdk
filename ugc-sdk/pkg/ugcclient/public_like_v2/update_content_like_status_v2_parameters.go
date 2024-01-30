@@ -59,8 +59,7 @@ func NewUpdateContentLikeStatusV2ParamsWithHTTPClient(client *http.Client) *Upda
 	}
 }
 
-/*
-UpdateContentLikeStatusV2Params contains all the parameters to send to the API endpoint
+/*UpdateContentLikeStatusV2Params contains all the parameters to send to the API endpoint
 for the update content like status v2 operation typically these are written to a http.Request
 */
 type UpdateContentLikeStatusV2Params struct {

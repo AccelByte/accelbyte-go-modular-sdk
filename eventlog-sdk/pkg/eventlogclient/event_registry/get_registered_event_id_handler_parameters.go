@@ -57,8 +57,7 @@ func NewGetRegisteredEventIDHandlerParamsWithHTTPClient(client *http.Client) *Ge
 	}
 }
 
-/*
-GetRegisteredEventIDHandlerParams contains all the parameters to send to the API endpoint
+/*GetRegisteredEventIDHandlerParams contains all the parameters to send to the API endpoint
 for the get registered event id handler operation typically these are written to a http.Request
 */
 type GetRegisteredEventIDHandlerParams struct {

@@ -22,6 +22,14 @@ type ThirdPartyCredentialService struct {
 	Client           *iamclient.JusticeIamService
 	ConfigRepository repository.ConfigRepository
 	TokenRepository  repository.TokenRepository
+
+	FlightIdRepository *utils.FlightIdContainer
+}
+
+var tempFlightIdThirdPartyCredential *string
+
+func (aaa *ThirdPartyCredentialService) UpdateFlightId(flightId string) {
+	tempFlightIdThirdPartyCredential = &flightId
 }
 
 func (aaa *ThirdPartyCredentialService) GetAuthSession() auth.Session {
@@ -311,6 +319,11 @@ func (aaa *ThirdPartyCredentialService) RetrieveAllThirdPartyLoginPlatformCreden
 			RetryCodes: utils.RetryCodes,
 		}
 	}
+	if tempFlightIdThirdPartyCredential != nil {
+		input.XFlightId = tempFlightIdThirdPartyCredential
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	}
 
 	ok, err := aaa.Client.ThirdPartyCredential.RetrieveAllThirdPartyLoginPlatformCredentialV3Short(input, authInfoWriter)
 	if err != nil {
@@ -335,6 +348,11 @@ func (aaa *ThirdPartyCredentialService) RetrieveAllActiveThirdPartyLoginPlatform
 			Transport:  aaa.Client.Runtime.Transport,
 			RetryCodes: utils.RetryCodes,
 		}
+	}
+	if tempFlightIdThirdPartyCredential != nil {
+		input.XFlightId = tempFlightIdThirdPartyCredential
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.ThirdPartyCredential.RetrieveAllActiveThirdPartyLoginPlatformCredentialV3Short(input, authInfoWriter)
@@ -361,6 +379,11 @@ func (aaa *ThirdPartyCredentialService) RetrieveThirdPartyLoginPlatformCredentia
 			RetryCodes: utils.RetryCodes,
 		}
 	}
+	if tempFlightIdThirdPartyCredential != nil {
+		input.XFlightId = tempFlightIdThirdPartyCredential
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	}
 
 	ok, err := aaa.Client.ThirdPartyCredential.RetrieveThirdPartyLoginPlatformCredentialV3Short(input, authInfoWriter)
 	if err != nil {
@@ -385,6 +408,11 @@ func (aaa *ThirdPartyCredentialService) AddThirdPartyLoginPlatformCredentialV3Sh
 			Transport:  aaa.Client.Runtime.Transport,
 			RetryCodes: utils.RetryCodes,
 		}
+	}
+	if tempFlightIdThirdPartyCredential != nil {
+		input.XFlightId = tempFlightIdThirdPartyCredential
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
 	}
 
 	created, err := aaa.Client.ThirdPartyCredential.AddThirdPartyLoginPlatformCredentialV3Short(input, authInfoWriter)
@@ -411,6 +439,11 @@ func (aaa *ThirdPartyCredentialService) DeleteThirdPartyLoginPlatformCredentialV
 			RetryCodes: utils.RetryCodes,
 		}
 	}
+	if tempFlightIdThirdPartyCredential != nil {
+		input.XFlightId = tempFlightIdThirdPartyCredential
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	}
 
 	_, err := aaa.Client.ThirdPartyCredential.DeleteThirdPartyLoginPlatformCredentialV3Short(input, authInfoWriter)
 	if err != nil {
@@ -435,6 +468,11 @@ func (aaa *ThirdPartyCredentialService) UpdateThirdPartyLoginPlatformCredentialV
 			Transport:  aaa.Client.Runtime.Transport,
 			RetryCodes: utils.RetryCodes,
 		}
+	}
+	if tempFlightIdThirdPartyCredential != nil {
+		input.XFlightId = tempFlightIdThirdPartyCredential
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.ThirdPartyCredential.UpdateThirdPartyLoginPlatformCredentialV3Short(input, authInfoWriter)
@@ -461,6 +499,11 @@ func (aaa *ThirdPartyCredentialService) UpdateThirdPartyLoginPlatformDomainV3Sho
 			RetryCodes: utils.RetryCodes,
 		}
 	}
+	if tempFlightIdThirdPartyCredential != nil {
+		input.XFlightId = tempFlightIdThirdPartyCredential
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	}
 
 	ok, err := aaa.Client.ThirdPartyCredential.UpdateThirdPartyLoginPlatformDomainV3Short(input, authInfoWriter)
 	if err != nil {
@@ -485,6 +528,11 @@ func (aaa *ThirdPartyCredentialService) DeleteThirdPartyLoginPlatformDomainV3Sho
 			Transport:  aaa.Client.Runtime.Transport,
 			RetryCodes: utils.RetryCodes,
 		}
+	}
+	if tempFlightIdThirdPartyCredential != nil {
+		input.XFlightId = tempFlightIdThirdPartyCredential
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
 	}
 
 	_, err := aaa.Client.ThirdPartyCredential.DeleteThirdPartyLoginPlatformDomainV3Short(input, authInfoWriter)
@@ -511,6 +559,11 @@ func (aaa *ThirdPartyCredentialService) RetrieveAllActiveThirdPartyLoginPlatform
 			RetryCodes: utils.RetryCodes,
 		}
 	}
+	if tempFlightIdThirdPartyCredential != nil {
+		input.XFlightId = tempFlightIdThirdPartyCredential
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	}
 
 	ok, err := aaa.Client.ThirdPartyCredential.RetrieveAllActiveThirdPartyLoginPlatformCredentialPublicV3Short(input, authInfoWriter)
 	if err != nil {
@@ -535,6 +588,11 @@ func (aaa *ThirdPartyCredentialService) RetrieveActiveOIDCClientsPublicV3Short(i
 			Transport:  aaa.Client.Runtime.Transport,
 			RetryCodes: utils.RetryCodes,
 		}
+	}
+	if tempFlightIdThirdPartyCredential != nil {
+		input.XFlightId = tempFlightIdThirdPartyCredential
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.ThirdPartyCredential.RetrieveActiveOIDCClientsPublicV3Short(input, authInfoWriter)

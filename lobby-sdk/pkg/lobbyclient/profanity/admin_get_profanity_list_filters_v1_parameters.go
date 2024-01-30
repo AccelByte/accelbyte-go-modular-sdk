@@ -57,8 +57,7 @@ func NewAdminGetProfanityListFiltersV1ParamsWithHTTPClient(client *http.Client) 
 	}
 }
 
-/*
-AdminGetProfanityListFiltersV1Params contains all the parameters to send to the API endpoint
+/*AdminGetProfanityListFiltersV1Params contains all the parameters to send to the API endpoint
 for the admin get profanity list filters v1 operation typically these are written to a http.Request
 */
 type AdminGetProfanityListFiltersV1Params struct {

@@ -59,8 +59,7 @@ func NewUserRequestFriendParamsWithHTTPClient(client *http.Client) *UserRequestF
 	}
 }
 
-/*
-UserRequestFriendParams contains all the parameters to send to the API endpoint
+/*UserRequestFriendParams contains all the parameters to send to the API endpoint
 for the user request friend operation typically these are written to a http.Request
 */
 type UserRequestFriendParams struct {

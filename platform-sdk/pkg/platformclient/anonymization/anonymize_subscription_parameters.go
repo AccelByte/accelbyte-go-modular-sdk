@@ -57,8 +57,7 @@ func NewAnonymizeSubscriptionParamsWithHTTPClient(client *http.Client) *Anonymiz
 	}
 }
 
-/*
-AnonymizeSubscriptionParams contains all the parameters to send to the API endpoint
+/*AnonymizeSubscriptionParams contains all the parameters to send to the API endpoint
 for the anonymize subscription operation typically these are written to a http.Request
 */
 type AnonymizeSubscriptionParams struct {

@@ -59,8 +59,7 @@ func NewDeleteRewardConditionRecordParamsWithHTTPClient(client *http.Client) *De
 	}
 }
 
-/*
-DeleteRewardConditionRecordParams contains all the parameters to send to the API endpoint
+/*DeleteRewardConditionRecordParams contains all the parameters to send to the API endpoint
 for the delete reward condition record operation typically these are written to a http.Request
 */
 type DeleteRewardConditionRecordParams struct {

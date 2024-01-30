@@ -55,7 +55,7 @@ GetActions get configured actions
 Get configured actions.
 Other detail info:
 
-  - Required permission : resource= "ADMIN:NAMESPACE:{namespace}:ACTION" , action=2 (READ)
+  * Required permission : resource= "ADMIN:NAMESPACE:{namespace}:ACTION" , action=2 (READ)
 */
 func (a *Client) GetActions(params *GetActionsParams, authInfo runtime.ClientAuthInfoWriter) (*GetActionsOK, *GetActionsBadRequest, *GetActionsNotFound, *GetActionsInternalServerError, error) {
 	// TODO: Validate the params before sending
@@ -112,7 +112,7 @@ GetActionsShort get configured actions
 Get configured actions.
 Other detail info:
 
-  - Required permission : resource= "ADMIN:NAMESPACE:{namespace}:ACTION" , action=2 (READ)
+  * Required permission : resource= "ADMIN:NAMESPACE:{namespace}:ACTION" , action=2 (READ)
 */
 func (a *Client) GetActionsShort(params *GetActionsParams, authInfo runtime.ClientAuthInfoWriter) (*GetActionsOK, error) {
 	// TODO: Validate the params before sending
@@ -172,7 +172,7 @@ BanUsers ban user(temporarily or permanently)
 Ban user.
 actionId: 1 means permanent ban, actionId: 10 means Temporary ban.Other detail info:
 
-  - Required permission : resource= "ADMIN:NAMESPACE:{namespace}:ACTION" , action=4 (UPDATE)
+  * Required permission : resource= "ADMIN:NAMESPACE:{namespace}:ACTION" , action=4 (UPDATE)
 */
 func (a *Client) BanUsers(params *BanUsersParams, authInfo runtime.ClientAuthInfoWriter) (*BanUsersOK, *BanUsersBadRequest, *BanUsersNotFound, *BanUsersUnprocessableEntity, *BanUsersInternalServerError, error) {
 	// TODO: Validate the params before sending
@@ -232,7 +232,7 @@ BanUsersShort ban user(temporarily or permanently)
 Ban user.
 actionId: 1 means permanent ban, actionId: 10 means Temporary ban.Other detail info:
 
-  - Required permission : resource= "ADMIN:NAMESPACE:{namespace}:ACTION" , action=4 (UPDATE)
+  * Required permission : resource= "ADMIN:NAMESPACE:{namespace}:ACTION" , action=4 (UPDATE)
 */
 func (a *Client) BanUsersShort(params *BanUsersParams, authInfo runtime.ClientAuthInfoWriter) (*BanUsersOK, error) {
 	// TODO: Validate the params before sending
@@ -294,7 +294,7 @@ GetBannedUsers get banned user
 Get banned status.
 Unbanned users will not return, for example: request has 8 userIds, only 5 of then were banned, then the api will these 5 user status.Other detail info:
 
-  - Required permission : resource= "ADMIN:NAMESPACE:{namespace}:ACTION" , action=2 (READ)
+  * Required permission : resource= "ADMIN:NAMESPACE:{namespace}:ACTION" , action=2 (READ)
 */
 func (a *Client) GetBannedUsers(params *GetBannedUsersParams, authInfo runtime.ClientAuthInfoWriter) (*GetBannedUsersOK, *GetBannedUsersBadRequest, *GetBannedUsersNotFound, *GetBannedUsersUnprocessableEntity, *GetBannedUsersInternalServerError, error) {
 	// TODO: Validate the params before sending
@@ -354,7 +354,7 @@ GetBannedUsersShort get banned user
 Get banned status.
 Unbanned users will not return, for example: request has 8 userIds, only 5 of then were banned, then the api will these 5 user status.Other detail info:
 
-  - Required permission : resource= "ADMIN:NAMESPACE:{namespace}:ACTION" , action=2 (READ)
+  * Required permission : resource= "ADMIN:NAMESPACE:{namespace}:ACTION" , action=2 (READ)
 */
 func (a *Client) GetBannedUsersShort(params *GetBannedUsersParams, authInfo runtime.ClientAuthInfoWriter) (*GetBannedUsersOK, error) {
 	// TODO: Validate the params before sending
@@ -417,7 +417,7 @@ This API is for game service to report a game player.
 
 Other detail info:
 
-  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:ACTION", action=1 (CREATE)
+  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:ACTION", action=1 (CREATE)
 */
 func (a *Client) ReportUser(params *ReportUserParams, authInfo runtime.ClientAuthInfoWriter) (*ReportUserCreated, *ReportUserUnprocessableEntity, error) {
 	// TODO: Validate the params before sending
@@ -469,7 +469,7 @@ This API is for game service to report a game player.
 
 Other detail info:
 
-  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:ACTION", action=1 (CREATE)
+  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:ACTION", action=1 (CREATE)
 */
 func (a *Client) ReportUserShort(params *ReportUserParams, authInfo runtime.ClientAuthInfoWriter) (*ReportUserCreated, error) {
 	// TODO: Validate the params before sending
@@ -525,7 +525,7 @@ GetUserStatus get user status
 Get user status.
 If actionId does not exist, then the user is not banned.If actionId and expires exist, then the user is temporarily banned, if expires does not exist, then the user is permanently banned.Other detail info:
 
-  - Required permission : resource= "ADMIN:NAMESPACE:{namespace}:ACTION" , action=2 (READ)
+  * Required permission : resource= "ADMIN:NAMESPACE:{namespace}:ACTION" , action=2 (READ)
 */
 func (a *Client) GetUserStatus(params *GetUserStatusParams, authInfo runtime.ClientAuthInfoWriter) (*GetUserStatusOK, *GetUserStatusBadRequest, *GetUserStatusNotFound, *GetUserStatusUnprocessableEntity, *GetUserStatusInternalServerError, error) {
 	// TODO: Validate the params before sending
@@ -585,7 +585,7 @@ GetUserStatusShort get user status
 Get user status.
 If actionId does not exist, then the user is not banned.If actionId and expires exist, then the user is temporarily banned, if expires does not exist, then the user is permanently banned.Other detail info:
 
-  - Required permission : resource= "ADMIN:NAMESPACE:{namespace}:ACTION" , action=2 (READ)
+  * Required permission : resource= "ADMIN:NAMESPACE:{namespace}:ACTION" , action=2 (READ)
 */
 func (a *Client) GetUserStatusShort(params *GetUserStatusParams, authInfo runtime.ClientAuthInfoWriter) (*GetUserStatusOK, error) {
 	// TODO: Validate the params before sending
@@ -647,7 +647,7 @@ UnBanUsers unban user
 Unban user.
 Other detail info:
 
-  - Required permission : resource= "ADMIN:NAMESPACE:{namespace}:ACTION" , action=4 (UPDATE)
+  * Required permission : resource= "ADMIN:NAMESPACE:{namespace}:ACTION" , action=4 (UPDATE)
 */
 func (a *Client) UnBanUsers(params *UnBanUsersParams, authInfo runtime.ClientAuthInfoWriter) (*UnBanUsersOK, *UnBanUsersBadRequest, *UnBanUsersNotFound, *UnBanUsersUnprocessableEntity, *UnBanUsersInternalServerError, error) {
 	// TODO: Validate the params before sending
@@ -707,7 +707,7 @@ UnBanUsersShort unban user
 Unban user.
 Other detail info:
 
-  - Required permission : resource= "ADMIN:NAMESPACE:{namespace}:ACTION" , action=4 (UPDATE)
+  * Required permission : resource= "ADMIN:NAMESPACE:{namespace}:ACTION" , action=4 (UPDATE)
 */
 func (a *Client) UnBanUsersShort(params *UnBanUsersParams, authInfo runtime.ClientAuthInfoWriter) (*UnBanUsersOK, error) {
 	// TODO: Validate the params before sending
@@ -770,7 +770,7 @@ This API is used to report a game user.
 
 Other detail info:
 
-  - Required permission : resource="NAMESPACE:{namespace}:USER:{userId}:ACTION", action=1 (CREATE)
+  * Required permission : resource="NAMESPACE:{namespace}:USER:{userId}:ACTION", action=1 (CREATE)
 */
 func (a *Client) PublicReportUser(params *PublicReportUserParams, authInfo runtime.ClientAuthInfoWriter) (*PublicReportUserCreated, *PublicReportUserBadRequest, *PublicReportUserUnprocessableEntity, error) {
 	// TODO: Validate the params before sending
@@ -825,7 +825,7 @@ This API is used to report a game user.
 
 Other detail info:
 
-  - Required permission : resource="NAMESPACE:{namespace}:USER:{userId}:ACTION", action=1 (CREATE)
+  * Required permission : resource="NAMESPACE:{namespace}:USER:{userId}:ACTION", action=1 (CREATE)
 */
 func (a *Client) PublicReportUserShort(params *PublicReportUserParams, authInfo runtime.ClientAuthInfoWriter) (*PublicReportUserCreated, error) {
 	// TODO: Validate the params before sending

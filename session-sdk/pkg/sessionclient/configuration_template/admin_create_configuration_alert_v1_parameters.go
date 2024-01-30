@@ -59,8 +59,7 @@ func NewAdminCreateConfigurationAlertV1ParamsWithHTTPClient(client *http.Client)
 	}
 }
 
-/*
-AdminCreateConfigurationAlertV1Params contains all the parameters to send to the API endpoint
+/*AdminCreateConfigurationAlertV1Params contains all the parameters to send to the API endpoint
 for the admin create configuration alert v1 operation typically these are written to a http.Request
 */
 type AdminCreateConfigurationAlertV1Params struct {

@@ -59,8 +59,7 @@ func NewSimulatePaymentOrderNotificationParamsWithHTTPClient(client *http.Client
 	}
 }
 
-/*
-SimulatePaymentOrderNotificationParams contains all the parameters to send to the API endpoint
+/*SimulatePaymentOrderNotificationParams contains all the parameters to send to the API endpoint
 for the simulate payment order notification operation typically these are written to a http.Request
 */
 type SimulatePaymentOrderNotificationParams struct {

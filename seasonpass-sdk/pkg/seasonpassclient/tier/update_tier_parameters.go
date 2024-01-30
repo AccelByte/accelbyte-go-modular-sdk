@@ -59,8 +59,7 @@ func NewUpdateTierParamsWithHTTPClient(client *http.Client) *UpdateTierParams {
 	}
 }
 
-/*
-UpdateTierParams contains all the parameters to send to the API endpoint
+/*UpdateTierParams contains all the parameters to send to the API endpoint
 for the update tier operation typically these are written to a http.Request
 */
 type UpdateTierParams struct {

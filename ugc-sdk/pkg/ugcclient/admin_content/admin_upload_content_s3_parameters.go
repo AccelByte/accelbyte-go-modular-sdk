@@ -59,8 +59,7 @@ func NewAdminUploadContentS3ParamsWithHTTPClient(client *http.Client) *AdminUplo
 	}
 }
 
-/*
-AdminUploadContentS3Params contains all the parameters to send to the API endpoint
+/*AdminUploadContentS3Params contains all the parameters to send to the API endpoint
 for the admin upload content s3 operation typically these are written to a http.Request
 */
 type AdminUploadContentS3Params struct {

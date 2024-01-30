@@ -57,8 +57,7 @@ func NewFleetGetParamsWithHTTPClient(client *http.Client) *FleetGetParams {
 	}
 }
 
-/*
-FleetGetParams contains all the parameters to send to the API endpoint
+/*FleetGetParams contains all the parameters to send to the API endpoint
 for the fleet get operation typically these are written to a http.Request
 */
 type FleetGetParams struct {

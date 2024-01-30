@@ -57,8 +57,7 @@ func NewGetAllPartyInChannelParamsWithHTTPClient(client *http.Client) *GetAllPar
 	}
 }
 
-/*
-GetAllPartyInChannelParams contains all the parameters to send to the API endpoint
+/*GetAllPartyInChannelParams contains all the parameters to send to the API endpoint
 for the get all party in channel operation typically these are written to a http.Request
 */
 type GetAllPartyInChannelParams struct {

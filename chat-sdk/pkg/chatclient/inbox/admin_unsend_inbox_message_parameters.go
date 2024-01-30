@@ -59,8 +59,7 @@ func NewAdminUnsendInboxMessageParamsWithHTTPClient(client *http.Client) *AdminU
 	}
 }
 
-/*
-AdminUnsendInboxMessageParams contains all the parameters to send to the API endpoint
+/*AdminUnsendInboxMessageParams contains all the parameters to send to the API endpoint
 for the admin unsend inbox message operation typically these are written to a http.Request
 */
 type AdminUnsendInboxMessageParams struct {

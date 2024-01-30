@@ -59,8 +59,7 @@ func NewUpdateServerConfigParamsWithHTTPClient(client *http.Client) *UpdateServe
 	}
 }
 
-/*
-UpdateServerConfigParams contains all the parameters to send to the API endpoint
+/*UpdateServerConfigParams contains all the parameters to send to the API endpoint
 for the update server config operation typically these are written to a http.Request
 */
 type UpdateServerConfigParams struct {

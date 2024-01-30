@@ -22,6 +22,14 @@ type ClawbackService struct {
 	Client           *platformclient.JusticePlatformService
 	ConfigRepository repository.ConfigRepository
 	TokenRepository  repository.TokenRepository
+
+	FlightIdRepository *utils.FlightIdContainer
+}
+
+var tempFlightIdClawback *string
+
+func (aaa *ClawbackService) UpdateFlightId(flightId string) {
+	tempFlightIdClawback = &flightId
 }
 
 func (aaa *ClawbackService) GetAuthSession() auth.Session {
@@ -47,17 +55,17 @@ func (aaa *ClawbackService) QueryIAPClawbackHistory(input *clawback.QueryIAPClaw
 }
 
 // Deprecated: 2022-01-10 - Please use MockPlayStationStreamEventShort instead.
-func (aaa *ClawbackService) MockPlayStationStreamEvent(input *clawback.MockPlayStationStreamEventParams) error {
+func (aaa *ClawbackService) MockPlayStationStreamEvent(input *clawback.MockPlayStationStreamEventParams) (*platformclientmodels.ClawbackInfo, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
-		return err
+		return nil, err
 	}
-	_, err = aaa.Client.Clawback.MockPlayStationStreamEvent(input, client.BearerToken(*token.AccessToken))
+	ok, err := aaa.Client.Clawback.MockPlayStationStreamEvent(input, client.BearerToken(*token.AccessToken))
 	if err != nil {
-		return err
+		return nil, err
 	}
 
-	return nil
+	return ok.GetPayload(), nil
 }
 
 func (aaa *ClawbackService) QueryIAPClawbackHistoryShort(input *clawback.QueryIAPClawbackHistoryParams) (*platformclientmodels.IAPClawbackPagingSlicedResult, error) {
@@ -76,6 +84,11 @@ func (aaa *ClawbackService) QueryIAPClawbackHistoryShort(input *clawback.QueryIA
 			RetryCodes: utils.RetryCodes,
 		}
 	}
+	if tempFlightIdClawback != nil {
+		input.XFlightId = tempFlightIdClawback
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	}
 
 	ok, err := aaa.Client.Clawback.QueryIAPClawbackHistoryShort(input, authInfoWriter)
 	if err != nil {
@@ -85,7 +98,7 @@ func (aaa *ClawbackService) QueryIAPClawbackHistoryShort(input *clawback.QueryIA
 	return ok.GetPayload(), nil
 }
 
-func (aaa *ClawbackService) MockPlayStationStreamEventShort(input *clawback.MockPlayStationStreamEventParams) error {
+func (aaa *ClawbackService) MockPlayStationStreamEventShort(input *clawback.MockPlayStationStreamEventParams) (*platformclientmodels.ClawbackInfo, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -101,11 +114,16 @@ func (aaa *ClawbackService) MockPlayStationStreamEventShort(input *clawback.Mock
 			RetryCodes: utils.RetryCodes,
 		}
 	}
-
-	_, err := aaa.Client.Clawback.MockPlayStationStreamEventShort(input, authInfoWriter)
-	if err != nil {
-		return err
+	if tempFlightIdClawback != nil {
+		input.XFlightId = tempFlightIdClawback
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
 	}
 
-	return nil
+	ok, err := aaa.Client.Clawback.MockPlayStationStreamEventShort(input, authInfoWriter)
+	if err != nil {
+		return nil, err
+	}
+
+	return ok.GetPayload(), nil
 }

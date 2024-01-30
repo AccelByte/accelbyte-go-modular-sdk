@@ -21,6 +21,14 @@ type OperationsService struct {
 	Client           *sessionclient.JusticeSessionService
 	ConfigRepository repository.ConfigRepository
 	TokenRepository  repository.TokenRepository
+
+	FlightIdRepository *utils.FlightIdContainer
+}
+
+var tempFlightIdOperations *string
+
+func (aaa *OperationsService) UpdateFlightId(flightId string) {
+	tempFlightIdOperations = &flightId
 }
 
 func (aaa *OperationsService) GetAuthSession() auth.Session {
@@ -75,6 +83,11 @@ func (aaa *OperationsService) GetHealthcheckInfoShort(input *operations.GetHealt
 			RetryCodes: utils.RetryCodes,
 		}
 	}
+	if tempFlightIdOperations != nil {
+		input.XFlightId = tempFlightIdOperations
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	}
 
 	_, err := aaa.Client.Operations.GetHealthcheckInfoShort(input, authInfoWriter)
 	if err != nil {
@@ -99,6 +112,11 @@ func (aaa *OperationsService) GetHealthcheckInfoV1Short(input *operations.GetHea
 			Transport:  aaa.Client.Runtime.Transport,
 			RetryCodes: utils.RetryCodes,
 		}
+	}
+	if tempFlightIdOperations != nil {
+		input.XFlightId = tempFlightIdOperations
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
 	}
 
 	_, err := aaa.Client.Operations.GetHealthcheckInfoV1Short(input, authInfoWriter)

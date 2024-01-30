@@ -788,6 +788,8 @@ Example
 
 `{ "data2": "new value" }`
 
+
+
 ## Restriction
 This is the restriction of Key Naming for the record:
 1. Cannot use **"."** as the key name
@@ -796,6 +798,7 @@ This is the restriction of Key Naming for the record:
 - `{ "$data": "value" }`
 3. Cannot use empty string in key names
 - `{ "": "value" }`
+
 
 ## Record Metadata
 
@@ -898,6 +901,8 @@ Example
 
 `{ "data2": "new value" }`
 
+
+
 ## Restriction
 This is the restriction of Key Naming for the record:
 1. Cannot use **"."** as the key name
@@ -906,6 +911,7 @@ This is the restriction of Key Naming for the record:
 - `{ "$data": "value" }`
 3. Cannot use empty string in key names
 - `{ "": "value" }`
+
 
 ## Record Metadata
 
@@ -1009,6 +1015,7 @@ Example 1
 
 `{ "data1": "value", "data2": "new value" }`
 
+
 Example 2
 - Existing JSON:
 
@@ -1022,6 +1029,7 @@ Example 2
 
 `{ "data1": { "data2": "value", "data3": "new value" }`
 
+
 ## Restriction
 This is the restriction of Key Naming for the record:
 1. Cannot use **"."** as the key name
@@ -1030,6 +1038,7 @@ This is the restriction of Key Naming for the record:
 - `{ "$data": "value" }`
 3. Cannot use empty string in key names
 - `{ "": "value" }`
+
 
 ## Record Metadata
 
@@ -1131,6 +1140,7 @@ Example 1
 
 `{ "data1": "value", "data2": "new value" }`
 
+
 Example 2
 - Existing JSON:
 
@@ -1144,6 +1154,7 @@ Example 2
 
 `{ "data1": { "data2": "value", "data3": "new value" }`
 
+
 ## Restriction
 This is the restriction of Key Naming for the record:
 1. Cannot use **"."** as the key name
@@ -1152,6 +1163,7 @@ This is the restriction of Key Naming for the record:
 - `{ "$data": "value" }`
 3. Cannot use empty string in key names
 - `{ "": "value" }`
+
 
 ## Record Metadata
 
@@ -1483,6 +1495,8 @@ Example
 
 `{ "data2": "new value" }`
 
+
+
 ## Restriction
 This is the restriction of Key Naming for the record:
 1. Cannot use **"."** as the key name
@@ -1491,6 +1505,7 @@ This is the restriction of Key Naming for the record:
 - `{ "$data": "value" }`
 3. Cannot use empty string in key names
 - `{ "": "value" }`
+
 
 ## Warning: This endpoint is going to deprecate
 
@@ -1576,6 +1591,8 @@ Example
 
 `{ "data2": "new value" }`
 
+
+
 ## Restriction
 This is the restriction of Key Naming for the record:
 1. Cannot use **"."** as the key name
@@ -1584,6 +1601,7 @@ This is the restriction of Key Naming for the record:
 - `{ "$data": "value" }`
 3. Cannot use empty string in key names
 - `{ "": "value" }`
+
 
 ## Warning: This endpoint is going to deprecate
 
@@ -1670,6 +1688,7 @@ Example 1
 
 `{ "data1": "value", "data2": "new value" }`
 
+
 Example 2
 - Existing JSON:
 
@@ -1683,6 +1702,7 @@ Example 2
 
 `{ "data1": { "data2": "value", "data3": "new value" }`
 
+
 ## Restriction
 This is the restriction of Key Naming for the record:
 1. Cannot use **"."** as the key name
@@ -1691,6 +1711,7 @@ This is the restriction of Key Naming for the record:
 - `{ "$data": "value" }`
 3. Cannot use empty string in key names
 - `{ "": "value" }`
+
 
 ## Warning: This endpoint is going to deprecate
 
@@ -1775,6 +1796,7 @@ Example 1
 
 `{ "data1": "value", "data2": "new value" }`
 
+
 Example 2
 - Existing JSON:
 
@@ -1788,6 +1810,7 @@ Example 2
 
 `{ "data1": { "data2": "value", "data3": "new value" }`
 
+
 ## Restriction
 This is the restriction of Key Naming for the record:
 1. Cannot use **"."** as the key name
@@ -1796,6 +1819,7 @@ This is the restriction of Key Naming for the record:
 - `{ "$data": "value" }`
 3. Cannot use empty string in key names
 - `{ "": "value" }`
+
 
 ## Warning: This endpoint is going to deprecate
 
@@ -1865,6 +1889,7 @@ Deprecated: 2022-08-10 - Use AdminDeletePlayerPublicRecordHandlerV1Short instead
 AdminDeletePlayerPublicRecordHandlerV1 delete player public record
 Delete player public record.
 
+
 ## Warning: This endpoint is going to deprecate
 
 This endpoint is going to deprecate in the future please don't use it.
@@ -1933,6 +1958,7 @@ func (a *Client) AdminDeletePlayerPublicRecordHandlerV1(params *AdminDeletePlaye
 /*
 AdminDeletePlayerPublicRecordHandlerV1Short delete player public record
 Delete player public record.
+
 
 ## Warning: This endpoint is going to deprecate
 

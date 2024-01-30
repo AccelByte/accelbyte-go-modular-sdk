@@ -59,8 +59,7 @@ func NewUpdateSSOPlatformCredentialParamsWithHTTPClient(client *http.Client) *Up
 	}
 }
 
-/*
-UpdateSSOPlatformCredentialParams contains all the parameters to send to the API endpoint
+/*UpdateSSOPlatformCredentialParams contains all the parameters to send to the API endpoint
 for the update sso platform credential operation typically these are written to a http.Request
 */
 type UpdateSSOPlatformCredentialParams struct {

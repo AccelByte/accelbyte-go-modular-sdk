@@ -57,8 +57,7 @@ func NewAdminGetInventoryItemParamsWithHTTPClient(client *http.Client) *AdminGet
 	}
 }
 
-/*
-AdminGetInventoryItemParams contains all the parameters to send to the API endpoint
+/*AdminGetInventoryItemParams contains all the parameters to send to the API endpoint
 for the admin get inventory item operation typically these are written to a http.Request
 */
 type AdminGetInventoryItemParams struct {

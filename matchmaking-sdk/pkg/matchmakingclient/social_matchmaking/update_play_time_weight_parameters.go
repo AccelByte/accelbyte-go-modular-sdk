@@ -59,8 +59,7 @@ func NewUpdatePlayTimeWeightParamsWithHTTPClient(client *http.Client) *UpdatePla
 	}
 }
 
-/*
-UpdatePlayTimeWeightParams contains all the parameters to send to the API endpoint
+/*UpdatePlayTimeWeightParams contains all the parameters to send to the API endpoint
 for the update play time weight operation typically these are written to a http.Request
 */
 type UpdatePlayTimeWeightParams struct {

@@ -59,8 +59,7 @@ func NewUpdateLootBoxPluginConfigParamsWithHTTPClient(client *http.Client) *Upda
 	}
 }
 
-/*
-UpdateLootBoxPluginConfigParams contains all the parameters to send to the API endpoint
+/*UpdateLootBoxPluginConfigParams contains all the parameters to send to the API endpoint
 for the update loot box plugin config operation typically these are written to a http.Request
 */
 type UpdateLootBoxPluginConfigParams struct {

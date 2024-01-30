@@ -57,8 +57,7 @@ func NewPublicGetPartyParamsWithHTTPClient(client *http.Client) *PublicGetPartyP
 	}
 }
 
-/*
-PublicGetPartyParams contains all the parameters to send to the API endpoint
+/*PublicGetPartyParams contains all the parameters to send to the API endpoint
 for the public get party operation typically these are written to a http.Request
 */
 type PublicGetPartyParams struct {

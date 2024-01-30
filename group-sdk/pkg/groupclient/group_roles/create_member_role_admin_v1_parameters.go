@@ -59,8 +59,7 @@ func NewCreateMemberRoleAdminV1ParamsWithHTTPClient(client *http.Client) *Create
 	}
 }
 
-/*
-CreateMemberRoleAdminV1Params contains all the parameters to send to the API endpoint
+/*CreateMemberRoleAdminV1Params contains all the parameters to send to the API endpoint
 for the create member role admin v1 operation typically these are written to a http.Request
 */
 type CreateMemberRoleAdminV1Params struct {

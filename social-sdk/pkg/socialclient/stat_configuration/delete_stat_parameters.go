@@ -57,8 +57,7 @@ func NewDeleteStatParamsWithHTTPClient(client *http.Client) *DeleteStatParams {
 	}
 }
 
-/*
-DeleteStatParams contains all the parameters to send to the API endpoint
+/*DeleteStatParams contains all the parameters to send to the API endpoint
 for the delete stat operation typically these are written to a http.Request
 */
 type DeleteStatParams struct {

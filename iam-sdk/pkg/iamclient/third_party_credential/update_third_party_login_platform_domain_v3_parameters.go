@@ -59,8 +59,7 @@ func NewUpdateThirdPartyLoginPlatformDomainV3ParamsWithHTTPClient(client *http.C
 	}
 }
 
-/*
-UpdateThirdPartyLoginPlatformDomainV3Params contains all the parameters to send to the API endpoint
+/*UpdateThirdPartyLoginPlatformDomainV3Params contains all the parameters to send to the API endpoint
 for the update third party login platform domain v3 operation typically these are written to a http.Request
 */
 type UpdateThirdPartyLoginPlatformDomainV3Params struct {

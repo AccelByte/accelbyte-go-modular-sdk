@@ -22,6 +22,14 @@ type AdminInventoryConfigurationsService struct {
 	Client           *inventoryclient.JusticeInventoryService
 	ConfigRepository repository.ConfigRepository
 	TokenRepository  repository.TokenRepository
+
+	FlightIdRepository *utils.FlightIdContainer
+}
+
+var tempFlightIdAdminInventoryConfigurations *string
+
+func (aaa *AdminInventoryConfigurationsService) UpdateFlightId(flightId string) {
+	tempFlightIdAdminInventoryConfigurations = &flightId
 }
 
 func (aaa *AdminInventoryConfigurationsService) GetAuthSession() auth.Session {
@@ -163,6 +171,11 @@ func (aaa *AdminInventoryConfigurationsService) AdminListInventoryConfigurations
 			RetryCodes: utils.RetryCodes,
 		}
 	}
+	if tempFlightIdAdminInventoryConfigurations != nil {
+		input.XFlightId = tempFlightIdAdminInventoryConfigurations
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	}
 
 	ok, err := aaa.Client.AdminInventoryConfigurations.AdminListInventoryConfigurationsShort(input, authInfoWriter)
 	if err != nil {
@@ -187,6 +200,11 @@ func (aaa *AdminInventoryConfigurationsService) AdminCreateInventoryConfiguratio
 			Transport:  aaa.Client.Runtime.Transport,
 			RetryCodes: utils.RetryCodes,
 		}
+	}
+	if tempFlightIdAdminInventoryConfigurations != nil {
+		input.XFlightId = tempFlightIdAdminInventoryConfigurations
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
 	}
 
 	created, err := aaa.Client.AdminInventoryConfigurations.AdminCreateInventoryConfigurationShort(input, authInfoWriter)
@@ -213,6 +231,11 @@ func (aaa *AdminInventoryConfigurationsService) AdminGetInventoryConfigurationSh
 			RetryCodes: utils.RetryCodes,
 		}
 	}
+	if tempFlightIdAdminInventoryConfigurations != nil {
+		input.XFlightId = tempFlightIdAdminInventoryConfigurations
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	}
 
 	ok, err := aaa.Client.AdminInventoryConfigurations.AdminGetInventoryConfigurationShort(input, authInfoWriter)
 	if err != nil {
@@ -238,6 +261,11 @@ func (aaa *AdminInventoryConfigurationsService) AdminUpdateInventoryConfiguratio
 			RetryCodes: utils.RetryCodes,
 		}
 	}
+	if tempFlightIdAdminInventoryConfigurations != nil {
+		input.XFlightId = tempFlightIdAdminInventoryConfigurations
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	}
 
 	ok, err := aaa.Client.AdminInventoryConfigurations.AdminUpdateInventoryConfigurationShort(input, authInfoWriter)
 	if err != nil {
@@ -262,6 +290,11 @@ func (aaa *AdminInventoryConfigurationsService) AdminDeleteInventoryConfiguratio
 			Transport:  aaa.Client.Runtime.Transport,
 			RetryCodes: utils.RetryCodes,
 		}
+	}
+	if tempFlightIdAdminInventoryConfigurations != nil {
+		input.XFlightId = tempFlightIdAdminInventoryConfigurations
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
 	}
 
 	_, err := aaa.Client.AdminInventoryConfigurations.AdminDeleteInventoryConfigurationShort(input, authInfoWriter)

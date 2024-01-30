@@ -59,8 +59,7 @@ func NewAdminSaveItemToInventoryParamsWithHTTPClient(client *http.Client) *Admin
 	}
 }
 
-/*
-AdminSaveItemToInventoryParams contains all the parameters to send to the API endpoint
+/*AdminSaveItemToInventoryParams contains all the parameters to send to the API endpoint
 for the admin save item to inventory operation typically these are written to a http.Request
 */
 type AdminSaveItemToInventoryParams struct {

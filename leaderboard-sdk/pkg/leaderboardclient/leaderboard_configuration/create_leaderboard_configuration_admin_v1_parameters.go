@@ -59,8 +59,7 @@ func NewCreateLeaderboardConfigurationAdminV1ParamsWithHTTPClient(client *http.C
 	}
 }
 
-/*
-CreateLeaderboardConfigurationAdminV1Params contains all the parameters to send to the API endpoint
+/*CreateLeaderboardConfigurationAdminV1Params contains all the parameters to send to the API endpoint
 for the create leaderboard configuration admin v1 operation typically these are written to a http.Request
 */
 type CreateLeaderboardConfigurationAdminV1Params struct {

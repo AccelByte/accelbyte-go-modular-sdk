@@ -59,8 +59,7 @@ func NewCreateCodesParamsWithHTTPClient(client *http.Client) *CreateCodesParams 
 	}
 }
 
-/*
-CreateCodesParams contains all the parameters to send to the API endpoint
+/*CreateCodesParams contains all the parameters to send to the API endpoint
 for the create codes operation typically these are written to a http.Request
 */
 type CreateCodesParams struct {

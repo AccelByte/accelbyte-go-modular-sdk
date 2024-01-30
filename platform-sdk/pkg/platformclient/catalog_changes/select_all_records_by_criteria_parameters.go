@@ -89,8 +89,7 @@ func NewSelectAllRecordsByCriteriaParamsWithHTTPClient(client *http.Client) *Sel
 	}
 }
 
-/*
-SelectAllRecordsByCriteriaParams contains all the parameters to send to the API endpoint
+/*SelectAllRecordsByCriteriaParams contains all the parameters to send to the API endpoint
 for the select all records by criteria operation typically these are written to a http.Request
 */
 type SelectAllRecordsByCriteriaParams struct {

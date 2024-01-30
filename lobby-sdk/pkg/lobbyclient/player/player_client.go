@@ -1013,6 +1013,7 @@ Deprecated: 2022-08-10 - Use PublicGetPlayerBlockedPlayersV1Short instead.
 PublicGetPlayerBlockedPlayersV1 get blocked players by user id
 Required valid user authorization
 
+
 load blocked players in a namespace based on user id
 
 Action Code: 50101
@@ -1076,6 +1077,7 @@ func (a *Client) PublicGetPlayerBlockedPlayersV1(params *PublicGetPlayerBlockedP
 /*
 PublicGetPlayerBlockedPlayersV1Short get blocked players by user id
 Required valid user authorization
+
 
 load blocked players in a namespace based on user id
 
@@ -1142,6 +1144,7 @@ Deprecated: 2022-08-10 - Use PublicGetPlayerBlockedByPlayersV1Short instead.
 PublicGetPlayerBlockedByPlayersV1 get players who blocked this player by user id
 Required valid user authorization
 
+
 load get players who blocked this player in a namespace based on user id
 
 Action Code: 50101
@@ -1205,6 +1208,7 @@ func (a *Client) PublicGetPlayerBlockedByPlayersV1(params *PublicGetPlayerBlocke
 /*
 PublicGetPlayerBlockedByPlayersV1Short get players who blocked this player by user id
 Required valid user authorization
+
 
 load get players who blocked this player in a namespace based on user id
 

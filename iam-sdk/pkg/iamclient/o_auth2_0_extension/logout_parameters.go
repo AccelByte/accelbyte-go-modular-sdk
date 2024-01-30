@@ -57,8 +57,7 @@ func NewLogoutParamsWithHTTPClient(client *http.Client) *LogoutParams {
 	}
 }
 
-/*
-LogoutParams contains all the parameters to send to the API endpoint
+/*LogoutParams contains all the parameters to send to the API endpoint
 for the logout operation typically these are written to a http.Request
 */
 type LogoutParams struct {

@@ -58,8 +58,7 @@ func NewGetEventByNamespaceHandlerParamsWithHTTPClient(client *http.Client) *Get
 	}
 }
 
-/*
-GetEventByNamespaceHandlerParams contains all the parameters to send to the API endpoint
+/*GetEventByNamespaceHandlerParams contains all the parameters to send to the API endpoint
 for the get event by namespace handler operation typically these are written to a http.Request
 */
 type GetEventByNamespaceHandlerParams struct {

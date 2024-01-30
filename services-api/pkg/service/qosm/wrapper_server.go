@@ -21,6 +21,14 @@ type ServerService struct {
 	Client           *qosmclient.JusticeQosmService
 	ConfigRepository repository.ConfigRepository
 	TokenRepository  repository.TokenRepository
+
+	FlightIdRepository *utils.FlightIdContainer
+}
+
+var tempFlightIdServer *string
+
+func (aaa *ServerService) UpdateFlightId(flightId string) {
+	tempFlightIdServer = &flightId
 }
 
 func (aaa *ServerService) GetAuthSession() auth.Session {
@@ -66,6 +74,11 @@ func (aaa *ServerService) HeartbeatShort(input *server.HeartbeatParams) error {
 			Transport:  aaa.Client.Runtime.Transport,
 			RetryCodes: utils.RetryCodes,
 		}
+	}
+	if tempFlightIdServer != nil {
+		input.XFlightId = tempFlightIdServer
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
 	}
 
 	_, err := aaa.Client.Server.HeartbeatShort(input, authInfoWriter)

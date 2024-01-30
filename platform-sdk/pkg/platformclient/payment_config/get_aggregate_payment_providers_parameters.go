@@ -57,8 +57,7 @@ func NewGetAggregatePaymentProvidersParamsWithHTTPClient(client *http.Client) *G
 	}
 }
 
-/*
-GetAggregatePaymentProvidersParams contains all the parameters to send to the API endpoint
+/*GetAggregatePaymentProvidersParams contains all the parameters to send to the API endpoint
 for the get aggregate payment providers operation typically these are written to a http.Request
 */
 type GetAggregatePaymentProvidersParams struct {

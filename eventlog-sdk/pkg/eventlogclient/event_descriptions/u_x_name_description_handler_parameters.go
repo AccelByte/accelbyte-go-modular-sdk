@@ -57,8 +57,7 @@ func NewUXNameDescriptionHandlerParamsWithHTTPClient(client *http.Client) *UXNam
 	}
 }
 
-/*
-UXNameDescriptionHandlerParams contains all the parameters to send to the API endpoint
+/*UXNameDescriptionHandlerParams contains all the parameters to send to the API endpoint
 for the ux name description handler operation typically these are written to a http.Request
 */
 type UXNameDescriptionHandlerParams struct {

@@ -22,6 +22,14 @@ type PublicPlayerRecordService struct {
 	Client           *cloudsaveclient.JusticeCloudsaveService
 	ConfigRepository repository.ConfigRepository
 	TokenRepository  repository.TokenRepository
+
+	FlightIdRepository *utils.FlightIdContainer
+}
+
+var tempFlightIdPublicPlayerRecord *string
+
+func (aaa *PublicPlayerRecordService) UpdateFlightId(flightId string) {
+	tempFlightIdPublicPlayerRecord = &flightId
 }
 
 func (aaa *PublicPlayerRecordService) GetAuthSession() auth.Session {
@@ -395,6 +403,11 @@ func (aaa *PublicPlayerRecordService) BulkGetPlayerPublicRecordHandlerV1Short(in
 			RetryCodes: utils.RetryCodes,
 		}
 	}
+	if tempFlightIdPublicPlayerRecord != nil {
+		input.XFlightId = tempFlightIdPublicPlayerRecord
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	}
 
 	ok, err := aaa.Client.PublicPlayerRecord.BulkGetPlayerPublicRecordHandlerV1Short(input, authInfoWriter)
 	if err != nil {
@@ -419,6 +432,11 @@ func (aaa *PublicPlayerRecordService) RetrievePlayerRecordsShort(input *public_p
 			Transport:  aaa.Client.Runtime.Transport,
 			RetryCodes: utils.RetryCodes,
 		}
+	}
+	if tempFlightIdPublicPlayerRecord != nil {
+		input.XFlightId = tempFlightIdPublicPlayerRecord
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.PublicPlayerRecord.RetrievePlayerRecordsShort(input, authInfoWriter)
@@ -445,6 +463,11 @@ func (aaa *PublicPlayerRecordService) GetPlayerRecordsBulkHandlerV1Short(input *
 			RetryCodes: utils.RetryCodes,
 		}
 	}
+	if tempFlightIdPublicPlayerRecord != nil {
+		input.XFlightId = tempFlightIdPublicPlayerRecord
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	}
 
 	ok, err := aaa.Client.PublicPlayerRecord.GetPlayerRecordsBulkHandlerV1Short(input, authInfoWriter)
 	if err != nil {
@@ -469,6 +492,11 @@ func (aaa *PublicPlayerRecordService) PublicDeletePlayerPublicRecordHandlerV1Sho
 			Transport:  aaa.Client.Runtime.Transport,
 			RetryCodes: utils.RetryCodes,
 		}
+	}
+	if tempFlightIdPublicPlayerRecord != nil {
+		input.XFlightId = tempFlightIdPublicPlayerRecord
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
 	}
 
 	_, err := aaa.Client.PublicPlayerRecord.PublicDeletePlayerPublicRecordHandlerV1Short(input, authInfoWriter)
@@ -495,6 +523,11 @@ func (aaa *PublicPlayerRecordService) GetOtherPlayerPublicRecordKeyHandlerV1Shor
 			RetryCodes: utils.RetryCodes,
 		}
 	}
+	if tempFlightIdPublicPlayerRecord != nil {
+		input.XFlightId = tempFlightIdPublicPlayerRecord
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	}
 
 	ok, err := aaa.Client.PublicPlayerRecord.GetOtherPlayerPublicRecordKeyHandlerV1Short(input, authInfoWriter)
 	if err != nil {
@@ -519,6 +552,11 @@ func (aaa *PublicPlayerRecordService) GetOtherPlayerPublicRecordHandlerV1Short(i
 			Transport:  aaa.Client.Runtime.Transport,
 			RetryCodes: utils.RetryCodes,
 		}
+	}
+	if tempFlightIdPublicPlayerRecord != nil {
+		input.XFlightId = tempFlightIdPublicPlayerRecord
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.PublicPlayerRecord.GetOtherPlayerPublicRecordHandlerV1Short(input, authInfoWriter)
@@ -545,6 +583,11 @@ func (aaa *PublicPlayerRecordService) GetPlayerRecordHandlerV1Short(input *publi
 			RetryCodes: utils.RetryCodes,
 		}
 	}
+	if tempFlightIdPublicPlayerRecord != nil {
+		input.XFlightId = tempFlightIdPublicPlayerRecord
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	}
 
 	ok, err := aaa.Client.PublicPlayerRecord.GetPlayerRecordHandlerV1Short(input, authInfoWriter)
 	if err != nil {
@@ -569,6 +612,11 @@ func (aaa *PublicPlayerRecordService) PutPlayerRecordHandlerV1Short(input *publi
 			Transport:  aaa.Client.Runtime.Transport,
 			RetryCodes: utils.RetryCodes,
 		}
+	}
+	if tempFlightIdPublicPlayerRecord != nil {
+		input.XFlightId = tempFlightIdPublicPlayerRecord
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.PublicPlayerRecord.PutPlayerRecordHandlerV1Short(input, authInfoWriter)
@@ -595,6 +643,11 @@ func (aaa *PublicPlayerRecordService) PostPlayerRecordHandlerV1Short(input *publ
 			RetryCodes: utils.RetryCodes,
 		}
 	}
+	if tempFlightIdPublicPlayerRecord != nil {
+		input.XFlightId = tempFlightIdPublicPlayerRecord
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	}
 
 	created, err := aaa.Client.PublicPlayerRecord.PostPlayerRecordHandlerV1Short(input, authInfoWriter)
 	if err != nil {
@@ -619,6 +672,11 @@ func (aaa *PublicPlayerRecordService) DeletePlayerRecordHandlerV1Short(input *pu
 			Transport:  aaa.Client.Runtime.Transport,
 			RetryCodes: utils.RetryCodes,
 		}
+	}
+	if tempFlightIdPublicPlayerRecord != nil {
+		input.XFlightId = tempFlightIdPublicPlayerRecord
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
 	}
 
 	_, err := aaa.Client.PublicPlayerRecord.DeletePlayerRecordHandlerV1Short(input, authInfoWriter)
@@ -645,6 +703,11 @@ func (aaa *PublicPlayerRecordService) GetPlayerPublicRecordHandlerV1Short(input 
 			RetryCodes: utils.RetryCodes,
 		}
 	}
+	if tempFlightIdPublicPlayerRecord != nil {
+		input.XFlightId = tempFlightIdPublicPlayerRecord
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	}
 
 	ok, err := aaa.Client.PublicPlayerRecord.GetPlayerPublicRecordHandlerV1Short(input, authInfoWriter)
 	if err != nil {
@@ -670,6 +733,11 @@ func (aaa *PublicPlayerRecordService) PutPlayerPublicRecordHandlerV1Short(input 
 			RetryCodes: utils.RetryCodes,
 		}
 	}
+	if tempFlightIdPublicPlayerRecord != nil {
+		input.XFlightId = tempFlightIdPublicPlayerRecord
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	}
 
 	ok, err := aaa.Client.PublicPlayerRecord.PutPlayerPublicRecordHandlerV1Short(input, authInfoWriter)
 	if err != nil {
@@ -694,6 +762,11 @@ func (aaa *PublicPlayerRecordService) PostPlayerPublicRecordHandlerV1Short(input
 			Transport:  aaa.Client.Runtime.Transport,
 			RetryCodes: utils.RetryCodes,
 		}
+	}
+	if tempFlightIdPublicPlayerRecord != nil {
+		input.XFlightId = tempFlightIdPublicPlayerRecord
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
 	}
 
 	created, err := aaa.Client.PublicPlayerRecord.PostPlayerPublicRecordHandlerV1Short(input, authInfoWriter)

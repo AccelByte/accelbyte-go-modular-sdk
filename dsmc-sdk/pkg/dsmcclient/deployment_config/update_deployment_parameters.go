@@ -59,8 +59,7 @@ func NewUpdateDeploymentParamsWithHTTPClient(client *http.Client) *UpdateDeploym
 	}
 }
 
-/*
-UpdateDeploymentParams contains all the parameters to send to the API endpoint
+/*UpdateDeploymentParams contains all the parameters to send to the API endpoint
 for the update deployment operation typically these are written to a http.Request
 */
 type UpdateDeploymentParams struct {

@@ -57,8 +57,7 @@ func NewDeletePassParamsWithHTTPClient(client *http.Client) *DeletePassParams {
 	}
 }
 
-/*
-DeletePassParams contains all the parameters to send to the API endpoint
+/*DeletePassParams contains all the parameters to send to the API endpoint
 for the delete pass operation typically these are written to a http.Request
 */
 type DeletePassParams struct {

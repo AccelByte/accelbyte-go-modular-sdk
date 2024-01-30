@@ -83,8 +83,7 @@ func NewPayParamsWithHTTPClient(client *http.Client) *PayParams {
 	}
 }
 
-/*
-PayParams contains all the parameters to send to the API endpoint
+/*PayParams contains all the parameters to send to the API endpoint
 for the pay operation typically these are written to a http.Request
 */
 type PayParams struct {

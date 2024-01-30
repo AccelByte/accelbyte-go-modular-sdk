@@ -22,6 +22,14 @@ type DevicesV4Service struct {
 	Client           *iamclient.JusticeIamService
 	ConfigRepository repository.ConfigRepository
 	TokenRepository  repository.TokenRepository
+
+	FlightIdRepository *utils.FlightIdContainer
+}
+
+var tempFlightIdDevicesV4 *string
+
+func (aaa *DevicesV4Service) UpdateFlightId(flightId string) {
+	tempFlightIdDevicesV4 = &flightId
 }
 
 func (aaa *DevicesV4Service) GetAuthSession() auth.Session {
@@ -372,6 +380,11 @@ func (aaa *DevicesV4Service) AdminGetDevicesByUserV4Short(input *devices_v4.Admi
 			RetryCodes: utils.RetryCodes,
 		}
 	}
+	if tempFlightIdDevicesV4 != nil {
+		input.XFlightId = tempFlightIdDevicesV4
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	}
 
 	ok, err := aaa.Client.DevicesV4.AdminGetDevicesByUserV4Short(input, authInfoWriter)
 	if err != nil {
@@ -396,6 +409,11 @@ func (aaa *DevicesV4Service) AdminGetBannedDevicesV4Short(input *devices_v4.Admi
 			Transport:  aaa.Client.Runtime.Transport,
 			RetryCodes: utils.RetryCodes,
 		}
+	}
+	if tempFlightIdDevicesV4 != nil {
+		input.XFlightId = tempFlightIdDevicesV4
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.DevicesV4.AdminGetBannedDevicesV4Short(input, authInfoWriter)
@@ -422,6 +440,11 @@ func (aaa *DevicesV4Service) AdminGetUserDeviceBansV4Short(input *devices_v4.Adm
 			RetryCodes: utils.RetryCodes,
 		}
 	}
+	if tempFlightIdDevicesV4 != nil {
+		input.XFlightId = tempFlightIdDevicesV4
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	}
 
 	ok, err := aaa.Client.DevicesV4.AdminGetUserDeviceBansV4Short(input, authInfoWriter)
 	if err != nil {
@@ -446,6 +469,11 @@ func (aaa *DevicesV4Service) AdminBanDeviceV4Short(input *devices_v4.AdminBanDev
 			Transport:  aaa.Client.Runtime.Transport,
 			RetryCodes: utils.RetryCodes,
 		}
+	}
+	if tempFlightIdDevicesV4 != nil {
+		input.XFlightId = tempFlightIdDevicesV4
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
 	}
 
 	_, err := aaa.Client.DevicesV4.AdminBanDeviceV4Short(input, authInfoWriter)
@@ -472,6 +500,11 @@ func (aaa *DevicesV4Service) AdminGetDeviceBanV4Short(input *devices_v4.AdminGet
 			RetryCodes: utils.RetryCodes,
 		}
 	}
+	if tempFlightIdDevicesV4 != nil {
+		input.XFlightId = tempFlightIdDevicesV4
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	}
 
 	ok, err := aaa.Client.DevicesV4.AdminGetDeviceBanV4Short(input, authInfoWriter)
 	if err != nil {
@@ -496,6 +529,11 @@ func (aaa *DevicesV4Service) AdminUpdateDeviceBanV4Short(input *devices_v4.Admin
 			Transport:  aaa.Client.Runtime.Transport,
 			RetryCodes: utils.RetryCodes,
 		}
+	}
+	if tempFlightIdDevicesV4 != nil {
+		input.XFlightId = tempFlightIdDevicesV4
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
 	}
 
 	_, err := aaa.Client.DevicesV4.AdminUpdateDeviceBanV4Short(input, authInfoWriter)
@@ -522,6 +560,11 @@ func (aaa *DevicesV4Service) AdminGenerateReportV4Short(input *devices_v4.AdminG
 			RetryCodes: utils.RetryCodes,
 		}
 	}
+	if tempFlightIdDevicesV4 != nil {
+		input.XFlightId = tempFlightIdDevicesV4
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	}
 
 	_, err := aaa.Client.DevicesV4.AdminGenerateReportV4Short(input, authInfoWriter)
 	if err != nil {
@@ -546,6 +589,11 @@ func (aaa *DevicesV4Service) AdminGetDeviceTypesV4Short(input *devices_v4.AdminG
 			Transport:  aaa.Client.Runtime.Transport,
 			RetryCodes: utils.RetryCodes,
 		}
+	}
+	if tempFlightIdDevicesV4 != nil {
+		input.XFlightId = tempFlightIdDevicesV4
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.DevicesV4.AdminGetDeviceTypesV4Short(input, authInfoWriter)
@@ -572,6 +620,11 @@ func (aaa *DevicesV4Service) AdminGetDeviceBansV4Short(input *devices_v4.AdminGe
 			RetryCodes: utils.RetryCodes,
 		}
 	}
+	if tempFlightIdDevicesV4 != nil {
+		input.XFlightId = tempFlightIdDevicesV4
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	}
 
 	ok, err := aaa.Client.DevicesV4.AdminGetDeviceBansV4Short(input, authInfoWriter)
 	if err != nil {
@@ -596,6 +649,11 @@ func (aaa *DevicesV4Service) AdminDecryptDeviceV4Short(input *devices_v4.AdminDe
 			Transport:  aaa.Client.Runtime.Transport,
 			RetryCodes: utils.RetryCodes,
 		}
+	}
+	if tempFlightIdDevicesV4 != nil {
+		input.XFlightId = tempFlightIdDevicesV4
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.DevicesV4.AdminDecryptDeviceV4Short(input, authInfoWriter)
@@ -622,6 +680,11 @@ func (aaa *DevicesV4Service) AdminUnbanDeviceV4Short(input *devices_v4.AdminUnba
 			RetryCodes: utils.RetryCodes,
 		}
 	}
+	if tempFlightIdDevicesV4 != nil {
+		input.XFlightId = tempFlightIdDevicesV4
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	}
 
 	_, err := aaa.Client.DevicesV4.AdminUnbanDeviceV4Short(input, authInfoWriter)
 	if err != nil {
@@ -646,6 +709,11 @@ func (aaa *DevicesV4Service) AdminGetUsersByDeviceV4Short(input *devices_v4.Admi
 			Transport:  aaa.Client.Runtime.Transport,
 			RetryCodes: utils.RetryCodes,
 		}
+	}
+	if tempFlightIdDevicesV4 != nil {
+		input.XFlightId = tempFlightIdDevicesV4
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.DevicesV4.AdminGetUsersByDeviceV4Short(input, authInfoWriter)

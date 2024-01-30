@@ -57,8 +57,7 @@ func NewPublishTemplateLocalizationV1AdminParamsWithHTTPClient(client *http.Clie
 	}
 }
 
-/*
-PublishTemplateLocalizationV1AdminParams contains all the parameters to send to the API endpoint
+/*PublishTemplateLocalizationV1AdminParams contains all the parameters to send to the API endpoint
 for the publish template localization v1 admin operation typically these are written to a http.Request
 */
 type PublishTemplateLocalizationV1AdminParams struct {

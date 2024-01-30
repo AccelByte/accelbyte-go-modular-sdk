@@ -82,8 +82,7 @@ func NewGetPaymentPublicConfigParamsWithHTTPClient(client *http.Client) *GetPaym
 	}
 }
 
-/*
-GetPaymentPublicConfigParams contains all the parameters to send to the API endpoint
+/*GetPaymentPublicConfigParams contains all the parameters to send to the API endpoint
 for the get payment public config operation typically these are written to a http.Request
 */
 type GetPaymentPublicConfigParams struct {

@@ -91,8 +91,7 @@ func NewPublicListInventoryConfigurationsParamsWithHTTPClient(client *http.Clien
 	}
 }
 
-/*
-PublicListInventoryConfigurationsParams contains all the parameters to send to the API endpoint
+/*PublicListInventoryConfigurationsParams contains all the parameters to send to the API endpoint
 for the public list inventory configurations operation typically these are written to a http.Request
 */
 type PublicListInventoryConfigurationsParams struct {

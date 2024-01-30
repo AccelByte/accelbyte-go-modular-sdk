@@ -22,6 +22,14 @@ type CategoryService struct {
 	Client           *platformclient.JusticePlatformService
 	ConfigRepository repository.ConfigRepository
 	TokenRepository  repository.TokenRepository
+
+	FlightIdRepository *utils.FlightIdContainer
+}
+
+var tempFlightIdCategory *string
+
+func (aaa *CategoryService) UpdateFlightId(flightId string) {
+	tempFlightIdCategory = &flightId
 }
 
 func (aaa *CategoryService) GetAuthSession() auth.Session {
@@ -249,6 +257,11 @@ func (aaa *CategoryService) GetRootCategoriesShort(input *category.GetRootCatego
 			RetryCodes: utils.RetryCodes,
 		}
 	}
+	if tempFlightIdCategory != nil {
+		input.XFlightId = tempFlightIdCategory
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	}
 
 	ok, err := aaa.Client.Category.GetRootCategoriesShort(input, authInfoWriter)
 	if err != nil {
@@ -273,6 +286,11 @@ func (aaa *CategoryService) CreateCategoryShort(input *category.CreateCategoryPa
 			Transport:  aaa.Client.Runtime.Transport,
 			RetryCodes: utils.RetryCodes,
 		}
+	}
+	if tempFlightIdCategory != nil {
+		input.XFlightId = tempFlightIdCategory
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
 	}
 
 	created, err := aaa.Client.Category.CreateCategoryShort(input, authInfoWriter)
@@ -299,6 +317,11 @@ func (aaa *CategoryService) ListCategoriesBasicShort(input *category.ListCategor
 			RetryCodes: utils.RetryCodes,
 		}
 	}
+	if tempFlightIdCategory != nil {
+		input.XFlightId = tempFlightIdCategory
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	}
 
 	ok, err := aaa.Client.Category.ListCategoriesBasicShort(input, authInfoWriter)
 	if err != nil {
@@ -323,6 +346,11 @@ func (aaa *CategoryService) GetCategoryShort(input *category.GetCategoryParams) 
 			Transport:  aaa.Client.Runtime.Transport,
 			RetryCodes: utils.RetryCodes,
 		}
+	}
+	if tempFlightIdCategory != nil {
+		input.XFlightId = tempFlightIdCategory
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.Category.GetCategoryShort(input, authInfoWriter)
@@ -349,6 +377,11 @@ func (aaa *CategoryService) UpdateCategoryShort(input *category.UpdateCategoryPa
 			RetryCodes: utils.RetryCodes,
 		}
 	}
+	if tempFlightIdCategory != nil {
+		input.XFlightId = tempFlightIdCategory
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	}
 
 	ok, err := aaa.Client.Category.UpdateCategoryShort(input, authInfoWriter)
 	if err != nil {
@@ -373,6 +406,11 @@ func (aaa *CategoryService) DeleteCategoryShort(input *category.DeleteCategoryPa
 			Transport:  aaa.Client.Runtime.Transport,
 			RetryCodes: utils.RetryCodes,
 		}
+	}
+	if tempFlightIdCategory != nil {
+		input.XFlightId = tempFlightIdCategory
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.Category.DeleteCategoryShort(input, authInfoWriter)
@@ -399,6 +437,11 @@ func (aaa *CategoryService) GetChildCategoriesShort(input *category.GetChildCate
 			RetryCodes: utils.RetryCodes,
 		}
 	}
+	if tempFlightIdCategory != nil {
+		input.XFlightId = tempFlightIdCategory
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	}
 
 	ok, err := aaa.Client.Category.GetChildCategoriesShort(input, authInfoWriter)
 	if err != nil {
@@ -424,6 +467,11 @@ func (aaa *CategoryService) GetDescendantCategoriesShort(input *category.GetDesc
 			RetryCodes: utils.RetryCodes,
 		}
 	}
+	if tempFlightIdCategory != nil {
+		input.XFlightId = tempFlightIdCategory
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	}
 
 	ok, err := aaa.Client.Category.GetDescendantCategoriesShort(input, authInfoWriter)
 	if err != nil {
@@ -441,6 +489,11 @@ func (aaa *CategoryService) PublicGetRootCategoriesShort(input *category.PublicG
 			Transport:  aaa.Client.Runtime.Transport,
 			RetryCodes: utils.RetryCodes,
 		}
+	}
+	if tempFlightIdCategory != nil {
+		input.XFlightId = tempFlightIdCategory
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.Category.PublicGetRootCategoriesShort(input)
@@ -460,6 +513,11 @@ func (aaa *CategoryService) DownloadCategoriesShort(input *category.DownloadCate
 			RetryCodes: utils.RetryCodes,
 		}
 	}
+	if tempFlightIdCategory != nil {
+		input.XFlightId = tempFlightIdCategory
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	}
 
 	ok, err := aaa.Client.Category.DownloadCategoriesShort(input)
 	if err != nil {
@@ -477,6 +535,11 @@ func (aaa *CategoryService) PublicGetCategoryShort(input *category.PublicGetCate
 			Transport:  aaa.Client.Runtime.Transport,
 			RetryCodes: utils.RetryCodes,
 		}
+	}
+	if tempFlightIdCategory != nil {
+		input.XFlightId = tempFlightIdCategory
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.Category.PublicGetCategoryShort(input)
@@ -496,6 +559,11 @@ func (aaa *CategoryService) PublicGetChildCategoriesShort(input *category.Public
 			RetryCodes: utils.RetryCodes,
 		}
 	}
+	if tempFlightIdCategory != nil {
+		input.XFlightId = tempFlightIdCategory
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	}
 
 	ok, err := aaa.Client.Category.PublicGetChildCategoriesShort(input)
 	if err != nil {
@@ -513,6 +581,11 @@ func (aaa *CategoryService) PublicGetDescendantCategoriesShort(input *category.P
 			Transport:  aaa.Client.Runtime.Transport,
 			RetryCodes: utils.RetryCodes,
 		}
+	}
+	if tempFlightIdCategory != nil {
+		input.XFlightId = tempFlightIdCategory
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.Category.PublicGetDescendantCategoriesShort(input)

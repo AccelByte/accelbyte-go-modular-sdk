@@ -57,8 +57,7 @@ func NewPublicGetWalletParamsWithHTTPClient(client *http.Client) *PublicGetWalle
 	}
 }
 
-/*
-PublicGetWalletParams contains all the parameters to send to the API endpoint
+/*PublicGetWalletParams contains all the parameters to send to the API endpoint
 for the public get wallet operation typically these are written to a http.Request
 */
 type PublicGetWalletParams struct {

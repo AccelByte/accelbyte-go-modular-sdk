@@ -56,8 +56,8 @@ This API is used to query rewards for a season.
 
 Other detail info:
 
-  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:SEASONPASS", action=2 (READ)
-  - Returns : the list of rewards
+  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:SEASONPASS", action=2 (READ)
+  *  Returns : the list of rewards
 */
 func (a *Client) QueryRewards(params *QueryRewardsParams, authInfo runtime.ClientAuthInfoWriter) (*QueryRewardsOK, *QueryRewardsBadRequest, *QueryRewardsNotFound, error) {
 	// TODO: Validate the params before sending
@@ -112,8 +112,8 @@ This API is used to query rewards for a season.
 
 Other detail info:
 
-  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:SEASONPASS", action=2 (READ)
-  - Returns : the list of rewards
+  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:SEASONPASS", action=2 (READ)
+  *  Returns : the list of rewards
 */
 func (a *Client) QueryRewardsShort(params *QueryRewardsParams, authInfo runtime.ClientAuthInfoWriter) (*QueryRewardsOK, error) {
 	// TODO: Validate the params before sending
@@ -172,8 +172,8 @@ This API is used to create a reward for a draft season.
 
 Other detail info:
 
-  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:SEASONPASS", action=1 (CREATE)
-  - Returns : created reward
+  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:SEASONPASS", action=1 (CREATE)
+  *  Returns : created reward
 */
 func (a *Client) CreateReward(params *CreateRewardParams, authInfo runtime.ClientAuthInfoWriter) (*CreateRewardCreated, *CreateRewardBadRequest, *CreateRewardNotFound, *CreateRewardConflict, *CreateRewardUnprocessableEntity, error) {
 	// TODO: Validate the params before sending
@@ -234,8 +234,8 @@ This API is used to create a reward for a draft season.
 
 Other detail info:
 
-  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:SEASONPASS", action=1 (CREATE)
-  - Returns : created reward
+  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:SEASONPASS", action=1 (CREATE)
+  *  Returns : created reward
 */
 func (a *Client) CreateRewardShort(params *CreateRewardParams, authInfo runtime.ClientAuthInfoWriter) (*CreateRewardCreated, error) {
 	// TODO: Validate the params before sending
@@ -298,8 +298,8 @@ This API is used to get a reward for a season.
 
 Other detail info:
 
-  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:SEASONPASS", action=2 (READ)
-  - Returns : reward data
+  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:SEASONPASS", action=2 (READ)
+  *  Returns : reward data
 */
 func (a *Client) GetReward(params *GetRewardParams, authInfo runtime.ClientAuthInfoWriter) (*GetRewardOK, *GetRewardBadRequest, *GetRewardNotFound, error) {
 	// TODO: Validate the params before sending
@@ -354,8 +354,8 @@ This API is used to get a reward for a season.
 
 Other detail info:
 
-  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:SEASONPASS", action=2 (READ)
-  - Returns : reward data
+  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:SEASONPASS", action=2 (READ)
+  *  Returns : reward data
 */
 func (a *Client) GetRewardShort(params *GetRewardParams, authInfo runtime.ClientAuthInfoWriter) (*GetRewardOK, error) {
 	// TODO: Validate the params before sending
@@ -414,7 +414,7 @@ This API is used to delete a reward permanently, only draft season reward can be
 
 Other detail info:
 
-  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:SEASONPASS", action=8 (DELETE)
+  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:SEASONPASS", action=8 (DELETE)
 */
 func (a *Client) DeleteReward(params *DeleteRewardParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteRewardNoContent, *DeleteRewardBadRequest, *DeleteRewardNotFound, *DeleteRewardConflict, error) {
 	// TODO: Validate the params before sending
@@ -472,7 +472,7 @@ This API is used to delete a reward permanently, only draft season reward can be
 
 Other detail info:
 
-  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:SEASONPASS", action=8 (DELETE)
+  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:SEASONPASS", action=8 (DELETE)
 */
 func (a *Client) DeleteRewardShort(params *DeleteRewardParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteRewardNoContent, error) {
 	// TODO: Validate the params before sending
@@ -533,8 +533,8 @@ This API is used to update a reward. Only draft season reward can be updated.
 
 Other detail info:
 
-  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:SEASONPASS", action=4 (UPDATE)
-  - Returns : updated reward
+  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:SEASONPASS", action=4 (UPDATE)
+  *  Returns : updated reward
 */
 func (a *Client) UpdateReward(params *UpdateRewardParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateRewardOK, *UpdateRewardBadRequest, *UpdateRewardNotFound, *UpdateRewardConflict, *UpdateRewardUnprocessableEntity, error) {
 	// TODO: Validate the params before sending
@@ -595,8 +595,8 @@ This API is used to update a reward. Only draft season reward can be updated.
 
 Other detail info:
 
-  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:SEASONPASS", action=4 (UPDATE)
-  - Returns : updated reward
+  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:SEASONPASS", action=4 (UPDATE)
+  *  Returns : updated reward
 */
 func (a *Client) UpdateRewardShort(params *UpdateRewardParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateRewardOK, error) {
 	// TODO: Validate the params before sending
@@ -659,8 +659,8 @@ This API is used to claim reward, season only located in non-publisher namespace
 
 Other detail info:
 
-  - Required permission : resource="NAMESPACE:{namespace}:USER:{userId}:SEASONPASS", action=4 (UPDATE)
-  - Returns : user season data
+  * Required permission : resource="NAMESPACE:{namespace}:USER:{userId}:SEASONPASS", action=4 (UPDATE)
+  *  Returns : user season data
 */
 func (a *Client) PublicClaimUserReward(params *PublicClaimUserRewardParams, authInfo runtime.ClientAuthInfoWriter) (*PublicClaimUserRewardOK, *PublicClaimUserRewardBadRequest, *PublicClaimUserRewardNotFound, *PublicClaimUserRewardConflict, error) {
 	// TODO: Validate the params before sending
@@ -718,8 +718,8 @@ This API is used to claim reward, season only located in non-publisher namespace
 
 Other detail info:
 
-  - Required permission : resource="NAMESPACE:{namespace}:USER:{userId}:SEASONPASS", action=4 (UPDATE)
-  - Returns : user season data
+  * Required permission : resource="NAMESPACE:{namespace}:USER:{userId}:SEASONPASS", action=4 (UPDATE)
+  *  Returns : user season data
 */
 func (a *Client) PublicClaimUserRewardShort(params *PublicClaimUserRewardParams, authInfo runtime.ClientAuthInfoWriter) (*PublicClaimUserRewardOK, error) {
 	// TODO: Validate the params before sending
@@ -780,8 +780,8 @@ This API is used to bulk claim all remained rewards, season only located in non-
 
 Other detail info:
 
-  - Required permission : resource="NAMESPACE:{namespace}:USER:{userId}:SEASONPASS", action=4 (UPDATE)
-  - Returns : user season data
+  * Required permission : resource="NAMESPACE:{namespace}:USER:{userId}:SEASONPASS", action=4 (UPDATE)
+  *  Returns : user season data
 */
 func (a *Client) PublicBulkClaimUserRewards(params *PublicBulkClaimUserRewardsParams, authInfo runtime.ClientAuthInfoWriter) (*PublicBulkClaimUserRewardsOK, *PublicBulkClaimUserRewardsBadRequest, *PublicBulkClaimUserRewardsNotFound, error) {
 	// TODO: Validate the params before sending
@@ -836,8 +836,8 @@ This API is used to bulk claim all remained rewards, season only located in non-
 
 Other detail info:
 
-  - Required permission : resource="NAMESPACE:{namespace}:USER:{userId}:SEASONPASS", action=4 (UPDATE)
-  - Returns : user season data
+  * Required permission : resource="NAMESPACE:{namespace}:USER:{userId}:SEASONPASS", action=4 (UPDATE)
+  *  Returns : user season data
 */
 func (a *Client) PublicBulkClaimUserRewardsShort(params *PublicBulkClaimUserRewardsParams, authInfo runtime.ClientAuthInfoWriter) (*PublicBulkClaimUserRewardsOK, error) {
 	// TODO: Validate the params before sending

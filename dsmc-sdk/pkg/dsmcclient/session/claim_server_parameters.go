@@ -59,8 +59,7 @@ func NewClaimServerParamsWithHTTPClient(client *http.Client) *ClaimServerParams 
 	}
 }
 
-/*
-ClaimServerParams contains all the parameters to send to the API endpoint
+/*ClaimServerParams contains all the parameters to send to the API endpoint
 for the claim server operation typically these are written to a http.Request
 */
 type ClaimServerParams struct {

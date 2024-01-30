@@ -80,8 +80,7 @@ func NewUpdateAdyenConfigParamsWithHTTPClient(client *http.Client) *UpdateAdyenC
 	}
 }
 
-/*
-UpdateAdyenConfigParams contains all the parameters to send to the API endpoint
+/*UpdateAdyenConfigParams contains all the parameters to send to the API endpoint
 for the update adyen config operation typically these are written to a http.Request
 */
 type UpdateAdyenConfigParams struct {

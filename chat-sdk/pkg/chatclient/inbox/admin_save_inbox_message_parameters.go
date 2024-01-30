@@ -59,8 +59,7 @@ func NewAdminSaveInboxMessageParamsWithHTTPClient(client *http.Client) *AdminSav
 	}
 }
 
-/*
-AdminSaveInboxMessageParams contains all the parameters to send to the API endpoint
+/*AdminSaveInboxMessageParams contains all the parameters to send to the API endpoint
 for the admin save inbox message operation typically these are written to a http.Request
 */
 type AdminSaveInboxMessageParams struct {

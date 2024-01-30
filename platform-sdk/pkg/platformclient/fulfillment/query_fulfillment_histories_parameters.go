@@ -84,8 +84,7 @@ func NewQueryFulfillmentHistoriesParamsWithHTTPClient(client *http.Client) *Quer
 	}
 }
 
-/*
-QueryFulfillmentHistoriesParams contains all the parameters to send to the API endpoint
+/*QueryFulfillmentHistoriesParams contains all the parameters to send to the API endpoint
 for the query fulfillment histories operation typically these are written to a http.Request
 */
 type QueryFulfillmentHistoriesParams struct {

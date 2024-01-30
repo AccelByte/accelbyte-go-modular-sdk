@@ -57,8 +57,7 @@ func NewListViewsParamsWithHTTPClient(client *http.Client) *ListViewsParams {
 	}
 }
 
-/*
-ListViewsParams contains all the parameters to send to the API endpoint
+/*ListViewsParams contains all the parameters to send to the API endpoint
 for the list views operation typically these are written to a http.Request
 */
 type ListViewsParams struct {

@@ -57,8 +57,7 @@ func NewPublicGeneratePartyCodeParamsWithHTTPClient(client *http.Client) *Public
 	}
 }
 
-/*
-PublicGeneratePartyCodeParams contains all the parameters to send to the API endpoint
+/*PublicGeneratePartyCodeParams contains all the parameters to send to the API endpoint
 for the public generate party code operation typically these are written to a http.Request
 */
 type PublicGeneratePartyCodeParams struct {

@@ -39,9 +39,13 @@ type ClientService interface {
 /*
 Deprecated: 2022-08-10 - Use GetUserLeaderboardRankingsAdminV1Short instead.
 
-# GetUserLeaderboardRankingsAdminV1 get user rankings
+GetUserLeaderboardRankingsAdminV1 get user rankings
+
 
 Required permission 'ADMIN:NAMESPACE:{namespace}:LEADERBOARD [READ]'
+
+
+
 
 Get user leaderboard rankings
 */
@@ -101,7 +105,11 @@ func (a *Client) GetUserLeaderboardRankingsAdminV1(params *GetUserLeaderboardRan
 /*
 GetUserLeaderboardRankingsAdminV1Short get user rankings
 
+
 Required permission 'ADMIN:NAMESPACE:{namespace}:LEADERBOARD [READ]'
+
+
+
 
 Get user leaderboard rankings
 */

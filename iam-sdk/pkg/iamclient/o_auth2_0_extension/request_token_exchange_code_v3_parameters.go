@@ -57,8 +57,7 @@ func NewRequestTokenExchangeCodeV3ParamsWithHTTPClient(client *http.Client) *Req
 	}
 }
 
-/*
-RequestTokenExchangeCodeV3Params contains all the parameters to send to the API endpoint
+/*RequestTokenExchangeCodeV3Params contains all the parameters to send to the API endpoint
 for the request token exchange code v3 operation typically these are written to a http.Request
 */
 type RequestTokenExchangeCodeV3Params struct {

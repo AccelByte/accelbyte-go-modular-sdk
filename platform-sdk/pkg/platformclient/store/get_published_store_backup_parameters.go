@@ -57,8 +57,7 @@ func NewGetPublishedStoreBackupParamsWithHTTPClient(client *http.Client) *GetPub
 	}
 }
 
-/*
-GetPublishedStoreBackupParams contains all the parameters to send to the API endpoint
+/*GetPublishedStoreBackupParams contains all the parameters to send to the API endpoint
 for the get published store backup operation typically these are written to a http.Request
 */
 type GetPublishedStoreBackupParams struct {

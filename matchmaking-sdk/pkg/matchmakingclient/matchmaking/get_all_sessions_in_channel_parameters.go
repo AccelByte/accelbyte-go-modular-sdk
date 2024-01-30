@@ -57,8 +57,7 @@ func NewGetAllSessionsInChannelParamsWithHTTPClient(client *http.Client) *GetAll
 	}
 }
 
-/*
-GetAllSessionsInChannelParams contains all the parameters to send to the API endpoint
+/*GetAllSessionsInChannelParams contains all the parameters to send to the API endpoint
 for the get all sessions in channel operation typically these are written to a http.Request
 */
 type GetAllSessionsInChannelParams struct {

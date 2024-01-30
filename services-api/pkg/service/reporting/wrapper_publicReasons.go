@@ -22,6 +22,14 @@ type PublicReasonsService struct {
 	Client           *reportingclient.JusticeReportingService
 	ConfigRepository repository.ConfigRepository
 	TokenRepository  repository.TokenRepository
+
+	FlightIdRepository *utils.FlightIdContainer
+}
+
+var tempFlightIdPublicReasons *string
+
+func (aaa *PublicReasonsService) UpdateFlightId(flightId string) {
+	tempFlightIdPublicReasons = &flightId
 }
 
 func (aaa *PublicReasonsService) GetAuthSession() auth.Session {
@@ -85,6 +93,11 @@ func (aaa *PublicReasonsService) PublicListReasonGroupsShort(input *public_reaso
 			RetryCodes: utils.RetryCodes,
 		}
 	}
+	if tempFlightIdPublicReasons != nil {
+		input.XFlightId = tempFlightIdPublicReasons
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	}
 
 	ok, err := aaa.Client.PublicReasons.PublicListReasonGroupsShort(input, authInfoWriter)
 	if err != nil {
@@ -109,6 +122,11 @@ func (aaa *PublicReasonsService) PublicGetReasonsShort(input *public_reasons.Pub
 			Transport:  aaa.Client.Runtime.Transport,
 			RetryCodes: utils.RetryCodes,
 		}
+	}
+	if tempFlightIdPublicReasons != nil {
+		input.XFlightId = tempFlightIdPublicReasons
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.PublicReasons.PublicGetReasonsShort(input, authInfoWriter)

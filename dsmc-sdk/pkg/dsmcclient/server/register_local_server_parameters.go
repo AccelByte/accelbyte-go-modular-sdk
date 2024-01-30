@@ -59,8 +59,7 @@ func NewRegisterLocalServerParamsWithHTTPClient(client *http.Client) *RegisterLo
 	}
 }
 
-/*
-RegisterLocalServerParams contains all the parameters to send to the API endpoint
+/*RegisterLocalServerParams contains all the parameters to send to the API endpoint
 for the register local server operation typically these are written to a http.Request
 */
 type RegisterLocalServerParams struct {

@@ -57,8 +57,7 @@ func NewAdminCancelUserAccountDeletionRequestParamsWithHTTPClient(client *http.C
 	}
 }
 
-/*
-AdminCancelUserAccountDeletionRequestParams contains all the parameters to send to the API endpoint
+/*AdminCancelUserAccountDeletionRequestParams contains all the parameters to send to the API endpoint
 for the admin cancel user account deletion request operation typically these are written to a http.Request
 */
 type AdminCancelUserAccountDeletionRequestParams struct {

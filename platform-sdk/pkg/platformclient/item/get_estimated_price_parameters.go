@@ -57,8 +57,7 @@ func NewGetEstimatedPriceParamsWithHTTPClient(client *http.Client) *GetEstimated
 	}
 }
 
-/*
-GetEstimatedPriceParams contains all the parameters to send to the API endpoint
+/*GetEstimatedPriceParams contains all the parameters to send to the API endpoint
 for the get estimated price operation typically these are written to a http.Request
 */
 type GetEstimatedPriceParams struct {
@@ -67,6 +66,8 @@ type GetEstimatedPriceParams struct {
 	RetryPolicy *utils.Retry
 	/*Namespace*/
 	Namespace string
+	/*Platform*/
+	Platform *string
 	/*Region*/
 	Region *string
 	/*StoreID
@@ -158,6 +159,17 @@ func (o *GetEstimatedPriceParams) SetNamespace(namespace string) {
 	o.Namespace = namespace
 }
 
+// WithPlatform adds the platform to the get estimated price params
+func (o *GetEstimatedPriceParams) WithPlatform(platform *string) *GetEstimatedPriceParams {
+	o.SetPlatform(platform)
+	return o
+}
+
+// SetPlatform adds the platform to the get estimated price params
+func (o *GetEstimatedPriceParams) SetPlatform(platform *string) {
+	o.Platform = platform
+}
+
 // WithRegion adds the region to the get estimated price params
 func (o *GetEstimatedPriceParams) WithRegion(region *string) *GetEstimatedPriceParams {
 	o.SetRegion(region)
@@ -213,6 +225,22 @@ func (o *GetEstimatedPriceParams) WriteToRequest(r runtime.ClientRequest, reg st
 	// path param namespace
 	if err := r.SetPathParam("namespace", o.Namespace); err != nil {
 		return err
+	}
+
+	if o.Platform != nil {
+
+		// query param platform
+		var qrPlatform string
+		if o.Platform != nil {
+			qrPlatform = *o.Platform
+		}
+		qPlatform := qrPlatform
+		if qPlatform != "" {
+			if err := r.SetQueryParam("platform", qPlatform); err != nil {
+				return err
+			}
+		}
+
 	}
 
 	if o.Region != nil {

@@ -22,6 +22,14 @@ type ImageConfigService struct {
 	Client           *dsmcclient.JusticeDsmcService
 	ConfigRepository repository.ConfigRepository
 	TokenRepository  repository.TokenRepository
+
+	FlightIdRepository *utils.FlightIdContainer
+}
+
+var tempFlightIdImageConfig *string
+
+func (aaa *ImageConfigService) UpdateFlightId(flightId string) {
+	tempFlightIdImageConfig = &flightId
 }
 
 func (aaa *ImageConfigService) GetAuthSession() auth.Session {
@@ -460,6 +468,11 @@ func (aaa *ImageConfigService) UpdateImageShort(input *image_config.UpdateImageP
 			RetryCodes: utils.RetryCodes,
 		}
 	}
+	if tempFlightIdImageConfig != nil {
+		input.XFlightId = tempFlightIdImageConfig
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	}
 
 	_, err := aaa.Client.ImageConfig.UpdateImageShort(input, authInfoWriter)
 	if err != nil {
@@ -484,6 +497,11 @@ func (aaa *ImageConfigService) CreateImageShort(input *image_config.CreateImageP
 			Transport:  aaa.Client.Runtime.Transport,
 			RetryCodes: utils.RetryCodes,
 		}
+	}
+	if tempFlightIdImageConfig != nil {
+		input.XFlightId = tempFlightIdImageConfig
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
 	}
 
 	_, err := aaa.Client.ImageConfig.CreateImageShort(input, authInfoWriter)
@@ -510,6 +528,11 @@ func (aaa *ImageConfigService) ImportImagesShort(input *image_config.ImportImage
 			RetryCodes: utils.RetryCodes,
 		}
 	}
+	if tempFlightIdImageConfig != nil {
+		input.XFlightId = tempFlightIdImageConfig
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	}
 
 	ok, err := aaa.Client.ImageConfig.ImportImagesShort(input, authInfoWriter)
 	if err != nil {
@@ -534,6 +557,11 @@ func (aaa *ImageConfigService) CreateImagePatchShort(input *image_config.CreateI
 			Transport:  aaa.Client.Runtime.Transport,
 			RetryCodes: utils.RetryCodes,
 		}
+	}
+	if tempFlightIdImageConfig != nil {
+		input.XFlightId = tempFlightIdImageConfig
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
 	}
 
 	_, err := aaa.Client.ImageConfig.CreateImagePatchShort(input, authInfoWriter)
@@ -560,6 +588,11 @@ func (aaa *ImageConfigService) ListImagesShort(input *image_config.ListImagesPar
 			RetryCodes: utils.RetryCodes,
 		}
 	}
+	if tempFlightIdImageConfig != nil {
+		input.XFlightId = tempFlightIdImageConfig
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	}
 
 	ok, err := aaa.Client.ImageConfig.ListImagesShort(input, authInfoWriter)
 	if err != nil {
@@ -584,6 +617,11 @@ func (aaa *ImageConfigService) DeleteImageShort(input *image_config.DeleteImageP
 			Transport:  aaa.Client.Runtime.Transport,
 			RetryCodes: utils.RetryCodes,
 		}
+	}
+	if tempFlightIdImageConfig != nil {
+		input.XFlightId = tempFlightIdImageConfig
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
 	}
 
 	_, err := aaa.Client.ImageConfig.DeleteImageShort(input, authInfoWriter)
@@ -610,6 +648,11 @@ func (aaa *ImageConfigService) ExportImagesShort(input *image_config.ExportImage
 			RetryCodes: utils.RetryCodes,
 		}
 	}
+	if tempFlightIdImageConfig != nil {
+		input.XFlightId = tempFlightIdImageConfig
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	}
 
 	ok, err := aaa.Client.ImageConfig.ExportImagesShort(input, authInfoWriter)
 	if err != nil {
@@ -634,6 +677,11 @@ func (aaa *ImageConfigService) GetImageLimitShort(input *image_config.GetImageLi
 			Transport:  aaa.Client.Runtime.Transport,
 			RetryCodes: utils.RetryCodes,
 		}
+	}
+	if tempFlightIdImageConfig != nil {
+		input.XFlightId = tempFlightIdImageConfig
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.ImageConfig.GetImageLimitShort(input, authInfoWriter)
@@ -660,6 +708,11 @@ func (aaa *ImageConfigService) DeleteImagePatchShort(input *image_config.DeleteI
 			RetryCodes: utils.RetryCodes,
 		}
 	}
+	if tempFlightIdImageConfig != nil {
+		input.XFlightId = tempFlightIdImageConfig
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	}
 
 	_, err := aaa.Client.ImageConfig.DeleteImagePatchShort(input, authInfoWriter)
 	if err != nil {
@@ -684,6 +737,11 @@ func (aaa *ImageConfigService) GetImageDetailShort(input *image_config.GetImageD
 			Transport:  aaa.Client.Runtime.Transport,
 			RetryCodes: utils.RetryCodes,
 		}
+	}
+	if tempFlightIdImageConfig != nil {
+		input.XFlightId = tempFlightIdImageConfig
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.ImageConfig.GetImageDetailShort(input, authInfoWriter)
@@ -710,6 +768,11 @@ func (aaa *ImageConfigService) GetImagePatchesShort(input *image_config.GetImage
 			RetryCodes: utils.RetryCodes,
 		}
 	}
+	if tempFlightIdImageConfig != nil {
+		input.XFlightId = tempFlightIdImageConfig
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	}
 
 	ok, err := aaa.Client.ImageConfig.GetImagePatchesShort(input, authInfoWriter)
 	if err != nil {
@@ -734,6 +797,11 @@ func (aaa *ImageConfigService) GetImagePatchDetailShort(input *image_config.GetI
 			Transport:  aaa.Client.Runtime.Transport,
 			RetryCodes: utils.RetryCodes,
 		}
+	}
+	if tempFlightIdImageConfig != nil {
+		input.XFlightId = tempFlightIdImageConfig
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.ImageConfig.GetImagePatchDetailShort(input, authInfoWriter)
@@ -760,6 +828,11 @@ func (aaa *ImageConfigService) GetRepositoryShort(input *image_config.GetReposit
 			RetryCodes: utils.RetryCodes,
 		}
 	}
+	if tempFlightIdImageConfig != nil {
+		input.XFlightId = tempFlightIdImageConfig
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	}
 
 	ok, err := aaa.Client.ImageConfig.GetRepositoryShort(input, authInfoWriter)
 	if err != nil {
@@ -784,6 +857,11 @@ func (aaa *ImageConfigService) CreateRepositoryShort(input *image_config.CreateR
 			Transport:  aaa.Client.Runtime.Transport,
 			RetryCodes: utils.RetryCodes,
 		}
+	}
+	if tempFlightIdImageConfig != nil {
+		input.XFlightId = tempFlightIdImageConfig
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
 	}
 
 	_, err := aaa.Client.ImageConfig.CreateRepositoryShort(input, authInfoWriter)
@@ -810,6 +888,11 @@ func (aaa *ImageConfigService) ListImagesClientShort(input *image_config.ListIma
 			RetryCodes: utils.RetryCodes,
 		}
 	}
+	if tempFlightIdImageConfig != nil {
+		input.XFlightId = tempFlightIdImageConfig
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	}
 
 	ok, err := aaa.Client.ImageConfig.ListImagesClientShort(input, authInfoWriter)
 	if err != nil {
@@ -835,6 +918,11 @@ func (aaa *ImageConfigService) ImageLimitClientShort(input *image_config.ImageLi
 			RetryCodes: utils.RetryCodes,
 		}
 	}
+	if tempFlightIdImageConfig != nil {
+		input.XFlightId = tempFlightIdImageConfig
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	}
 
 	ok, err := aaa.Client.ImageConfig.ImageLimitClientShort(input, authInfoWriter)
 	if err != nil {
@@ -859,6 +947,11 @@ func (aaa *ImageConfigService) ImageDetailClientShort(input *image_config.ImageD
 			Transport:  aaa.Client.Runtime.Transport,
 			RetryCodes: utils.RetryCodes,
 		}
+	}
+	if tempFlightIdImageConfig != nil {
+		input.XFlightId = tempFlightIdImageConfig
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.ImageConfig.ImageDetailClientShort(input, authInfoWriter)

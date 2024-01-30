@@ -59,8 +59,7 @@ func NewCreateMatchFunctionParamsWithHTTPClient(client *http.Client) *CreateMatc
 	}
 }
 
-/*
-CreateMatchFunctionParams contains all the parameters to send to the API endpoint
+/*CreateMatchFunctionParams contains all the parameters to send to the API endpoint
 for the create match function operation typically these are written to a http.Request
 */
 type CreateMatchFunctionParams struct {

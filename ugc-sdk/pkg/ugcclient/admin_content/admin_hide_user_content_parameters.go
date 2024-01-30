@@ -59,8 +59,7 @@ func NewAdminHideUserContentParamsWithHTTPClient(client *http.Client) *AdminHide
 	}
 }
 
-/*
-AdminHideUserContentParams contains all the parameters to send to the API endpoint
+/*AdminHideUserContentParams contains all the parameters to send to the API endpoint
 for the admin hide user content operation typically these are written to a http.Request
 */
 type AdminHideUserContentParams struct {

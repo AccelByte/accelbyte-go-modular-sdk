@@ -59,8 +59,7 @@ func NewUpdateMatchmakingChannelParamsWithHTTPClient(client *http.Client) *Updat
 	}
 }
 
-/*
-UpdateMatchmakingChannelParams contains all the parameters to send to the API endpoint
+/*UpdateMatchmakingChannelParams contains all the parameters to send to the API endpoint
 for the update matchmaking channel operation typically these are written to a http.Request
 */
 type UpdateMatchmakingChannelParams struct {

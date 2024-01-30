@@ -59,8 +59,7 @@ func NewPublicSendRegistrationCodeParamsWithHTTPClient(client *http.Client) *Pub
 	}
 }
 
-/*
-PublicSendRegistrationCodeParams contains all the parameters to send to the API endpoint
+/*PublicSendRegistrationCodeParams contains all the parameters to send to the API endpoint
 for the public send registration code operation typically these are written to a http.Request
 */
 type PublicSendRegistrationCodeParams struct {

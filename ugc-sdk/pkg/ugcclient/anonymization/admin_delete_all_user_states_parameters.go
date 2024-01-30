@@ -57,8 +57,7 @@ func NewAdminDeleteAllUserStatesParamsWithHTTPClient(client *http.Client) *Admin
 	}
 }
 
-/*
-AdminDeleteAllUserStatesParams contains all the parameters to send to the API endpoint
+/*AdminDeleteAllUserStatesParams contains all the parameters to send to the API endpoint
 for the admin delete all user states operation typically these are written to a http.Request
 */
 type AdminDeleteAllUserStatesParams struct {

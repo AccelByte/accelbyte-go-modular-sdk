@@ -57,8 +57,7 @@ func NewAdminGetUserMappingParamsWithHTTPClient(client *http.Client) *AdminGetUs
 	}
 }
 
-/*
-AdminGetUserMappingParams contains all the parameters to send to the API endpoint
+/*AdminGetUserMappingParams contains all the parameters to send to the API endpoint
 for the admin get user mapping operation typically these are written to a http.Request
 */
 type AdminGetUserMappingParams struct {

@@ -57,8 +57,7 @@ func NewPublicGetQRCodeParamsWithHTTPClient(client *http.Client) *PublicGetQRCod
 	}
 }
 
-/*
-PublicGetQRCodeParams contains all the parameters to send to the API endpoint
+/*PublicGetQRCodeParams contains all the parameters to send to the API endpoint
 for the public get qr code operation typically these are written to a http.Request
 */
 type PublicGetQRCodeParams struct {

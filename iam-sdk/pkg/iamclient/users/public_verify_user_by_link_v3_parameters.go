@@ -57,8 +57,7 @@ func NewPublicVerifyUserByLinkV3ParamsWithHTTPClient(client *http.Client) *Publi
 	}
 }
 
-/*
-PublicVerifyUserByLinkV3Params contains all the parameters to send to the API endpoint
+/*PublicVerifyUserByLinkV3Params contains all the parameters to send to the API endpoint
 for the public verify user by link v3 operation typically these are written to a http.Request
 */
 type PublicVerifyUserByLinkV3Params struct {

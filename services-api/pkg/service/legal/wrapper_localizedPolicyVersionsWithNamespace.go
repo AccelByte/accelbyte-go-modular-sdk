@@ -22,6 +22,14 @@ type LocalizedPolicyVersionsWithNamespaceService struct {
 	Client           *legalclient.JusticeLegalService
 	ConfigRepository repository.ConfigRepository
 	TokenRepository  repository.TokenRepository
+
+	FlightIdRepository *utils.FlightIdContainer
+}
+
+var tempFlightIdLocalizedPolicyVersionsWithNamespace *string
+
+func (aaa *LocalizedPolicyVersionsWithNamespaceService) UpdateFlightId(flightId string) {
+	tempFlightIdLocalizedPolicyVersionsWithNamespace = &flightId
 }
 
 func (aaa *LocalizedPolicyVersionsWithNamespaceService) GetAuthSession() auth.Session {
@@ -160,6 +168,11 @@ func (aaa *LocalizedPolicyVersionsWithNamespaceService) RetrieveLocalizedPolicyV
 			RetryCodes: utils.RetryCodes,
 		}
 	}
+	if tempFlightIdLocalizedPolicyVersionsWithNamespace != nil {
+		input.XFlightId = tempFlightIdLocalizedPolicyVersionsWithNamespace
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	}
 
 	ok, err := aaa.Client.LocalizedPolicyVersionsWithNamespace.RetrieveLocalizedPolicyVersions1Short(input, authInfoWriter)
 	if err != nil {
@@ -184,6 +197,11 @@ func (aaa *LocalizedPolicyVersionsWithNamespaceService) CreateLocalizedPolicyVer
 			Transport:  aaa.Client.Runtime.Transport,
 			RetryCodes: utils.RetryCodes,
 		}
+	}
+	if tempFlightIdLocalizedPolicyVersionsWithNamespace != nil {
+		input.XFlightId = tempFlightIdLocalizedPolicyVersionsWithNamespace
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
 	}
 
 	created, err := aaa.Client.LocalizedPolicyVersionsWithNamespace.CreateLocalizedPolicyVersion1Short(input, authInfoWriter)
@@ -210,6 +228,11 @@ func (aaa *LocalizedPolicyVersionsWithNamespaceService) RetrieveSingleLocalizedP
 			RetryCodes: utils.RetryCodes,
 		}
 	}
+	if tempFlightIdLocalizedPolicyVersionsWithNamespace != nil {
+		input.XFlightId = tempFlightIdLocalizedPolicyVersionsWithNamespace
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	}
 
 	ok, err := aaa.Client.LocalizedPolicyVersionsWithNamespace.RetrieveSingleLocalizedPolicyVersion1Short(input, authInfoWriter)
 	if err != nil {
@@ -234,6 +257,11 @@ func (aaa *LocalizedPolicyVersionsWithNamespaceService) UpdateLocalizedPolicyVer
 			Transport:  aaa.Client.Runtime.Transport,
 			RetryCodes: utils.RetryCodes,
 		}
+	}
+	if tempFlightIdLocalizedPolicyVersionsWithNamespace != nil {
+		input.XFlightId = tempFlightIdLocalizedPolicyVersionsWithNamespace
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.LocalizedPolicyVersionsWithNamespace.UpdateLocalizedPolicyVersion1Short(input, authInfoWriter)
@@ -260,6 +288,11 @@ func (aaa *LocalizedPolicyVersionsWithNamespaceService) RequestPresignedURL1Shor
 			RetryCodes: utils.RetryCodes,
 		}
 	}
+	if tempFlightIdLocalizedPolicyVersionsWithNamespace != nil {
+		input.XFlightId = tempFlightIdLocalizedPolicyVersionsWithNamespace
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	}
 
 	created, err := aaa.Client.LocalizedPolicyVersionsWithNamespace.RequestPresignedURL1Short(input, authInfoWriter)
 	if err != nil {
@@ -285,6 +318,11 @@ func (aaa *LocalizedPolicyVersionsWithNamespaceService) SetDefaultPolicy1Short(i
 			RetryCodes: utils.RetryCodes,
 		}
 	}
+	if tempFlightIdLocalizedPolicyVersionsWithNamespace != nil {
+		input.XFlightId = tempFlightIdLocalizedPolicyVersionsWithNamespace
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	}
 
 	_, err := aaa.Client.LocalizedPolicyVersionsWithNamespace.SetDefaultPolicy1Short(input, authInfoWriter)
 	if err != nil {
@@ -302,6 +340,11 @@ func (aaa *LocalizedPolicyVersionsWithNamespaceService) RetrieveSingleLocalizedP
 			Transport:  aaa.Client.Runtime.Transport,
 			RetryCodes: utils.RetryCodes,
 		}
+	}
+	if tempFlightIdLocalizedPolicyVersionsWithNamespace != nil {
+		input.XFlightId = tempFlightIdLocalizedPolicyVersionsWithNamespace
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.LocalizedPolicyVersionsWithNamespace.RetrieveSingleLocalizedPolicyVersion3Short(input)

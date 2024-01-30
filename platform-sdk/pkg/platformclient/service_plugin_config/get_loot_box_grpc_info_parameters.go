@@ -58,8 +58,7 @@ func NewGetLootBoxGrpcInfoParamsWithHTTPClient(client *http.Client) *GetLootBoxG
 	}
 }
 
-/*
-GetLootBoxGrpcInfoParams contains all the parameters to send to the API endpoint
+/*GetLootBoxGrpcInfoParams contains all the parameters to send to the API endpoint
 for the get loot box grpc info operation typically these are written to a http.Request
 */
 type GetLootBoxGrpcInfoParams struct {

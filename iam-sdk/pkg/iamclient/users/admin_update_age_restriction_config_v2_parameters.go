@@ -59,8 +59,7 @@ func NewAdminUpdateAgeRestrictionConfigV2ParamsWithHTTPClient(client *http.Clien
 	}
 }
 
-/*
-AdminUpdateAgeRestrictionConfigV2Params contains all the parameters to send to the API endpoint
+/*AdminUpdateAgeRestrictionConfigV2Params contains all the parameters to send to the API endpoint
 for the admin update age restriction config v2 operation typically these are written to a http.Request
 */
 type AdminUpdateAgeRestrictionConfigV2Params struct {

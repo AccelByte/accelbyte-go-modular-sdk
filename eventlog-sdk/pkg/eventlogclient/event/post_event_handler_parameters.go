@@ -59,8 +59,7 @@ func NewPostEventHandlerParamsWithHTTPClient(client *http.Client) *PostEventHand
 	}
 }
 
-/*
-PostEventHandlerParams contains all the parameters to send to the API endpoint
+/*PostEventHandlerParams contains all the parameters to send to the API endpoint
 for the post event handler operation typically these are written to a http.Request
 */
 type PostEventHandlerParams struct {

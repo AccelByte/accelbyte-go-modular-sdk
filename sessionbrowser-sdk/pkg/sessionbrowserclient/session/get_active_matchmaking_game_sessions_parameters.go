@@ -78,8 +78,7 @@ func NewGetActiveMatchmakingGameSessionsParamsWithHTTPClient(client *http.Client
 	}
 }
 
-/*
-GetActiveMatchmakingGameSessionsParams contains all the parameters to send to the API endpoint
+/*GetActiveMatchmakingGameSessionsParams contains all the parameters to send to the API endpoint
 for the get active matchmaking game sessions operation typically these are written to a http.Request
 */
 type GetActiveMatchmakingGameSessionsParams struct {

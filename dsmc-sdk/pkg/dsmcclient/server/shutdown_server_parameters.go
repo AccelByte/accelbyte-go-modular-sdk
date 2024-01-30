@@ -59,8 +59,7 @@ func NewShutdownServerParamsWithHTTPClient(client *http.Client) *ShutdownServerP
 	}
 }
 
-/*
-ShutdownServerParams contains all the parameters to send to the API endpoint
+/*ShutdownServerParams contains all the parameters to send to the API endpoint
 for the shutdown server operation typically these are written to a http.Request
 */
 type ShutdownServerParams struct {

@@ -57,8 +57,7 @@ func NewListExtOrderNoByExtTxIDParamsWithHTTPClient(client *http.Client) *ListEx
 	}
 }
 
-/*
-ListExtOrderNoByExtTxIDParams contains all the parameters to send to the API endpoint
+/*ListExtOrderNoByExtTxIDParams contains all the parameters to send to the API endpoint
 for the list ext order no by ext tx id operation typically these are written to a http.Request
 */
 type ListExtOrderNoByExtTxIDParams struct {

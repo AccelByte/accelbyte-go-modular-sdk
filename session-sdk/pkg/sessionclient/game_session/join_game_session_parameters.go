@@ -57,8 +57,7 @@ func NewJoinGameSessionParamsWithHTTPClient(client *http.Client) *JoinGameSessio
 	}
 }
 
-/*
-JoinGameSessionParams contains all the parameters to send to the API endpoint
+/*JoinGameSessionParams contains all the parameters to send to the API endpoint
 for the join game session operation typically these are written to a http.Request
 */
 type JoinGameSessionParams struct {

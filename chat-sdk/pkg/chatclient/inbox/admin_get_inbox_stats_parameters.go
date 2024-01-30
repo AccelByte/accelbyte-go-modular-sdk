@@ -58,8 +58,7 @@ func NewAdminGetInboxStatsParamsWithHTTPClient(client *http.Client) *AdminGetInb
 	}
 }
 
-/*
-AdminGetInboxStatsParams contains all the parameters to send to the API endpoint
+/*AdminGetInboxStatsParams contains all the parameters to send to the API endpoint
 for the admin get inbox stats operation typically these are written to a http.Request
 */
 type AdminGetInboxStatsParams struct {

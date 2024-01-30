@@ -59,8 +59,7 @@ func NewPublicCreateContentV2ParamsWithHTTPClient(client *http.Client) *PublicCr
 	}
 }
 
-/*
-PublicCreateContentV2Params contains all the parameters to send to the API endpoint
+/*PublicCreateContentV2Params contains all the parameters to send to the API endpoint
 for the public create content v2 operation typically these are written to a http.Request
 */
 type PublicCreateContentV2Params struct {

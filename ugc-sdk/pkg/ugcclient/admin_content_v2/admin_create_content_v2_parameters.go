@@ -59,8 +59,7 @@ func NewAdminCreateContentV2ParamsWithHTTPClient(client *http.Client) *AdminCrea
 	}
 }
 
-/*
-AdminCreateContentV2Params contains all the parameters to send to the API endpoint
+/*AdminCreateContentV2Params contains all the parameters to send to the API endpoint
 for the admin create content v2 operation typically these are written to a http.Request
 */
 type AdminCreateContentV2Params struct {

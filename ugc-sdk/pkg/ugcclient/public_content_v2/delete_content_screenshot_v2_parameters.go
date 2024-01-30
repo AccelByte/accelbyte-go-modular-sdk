@@ -57,8 +57,7 @@ func NewDeleteContentScreenshotV2ParamsWithHTTPClient(client *http.Client) *Dele
 	}
 }
 
-/*
-DeleteContentScreenshotV2Params contains all the parameters to send to the API endpoint
+/*DeleteContentScreenshotV2Params contains all the parameters to send to the API endpoint
 for the delete content screenshot v2 operation typically these are written to a http.Request
 */
 type DeleteContentScreenshotV2Params struct {

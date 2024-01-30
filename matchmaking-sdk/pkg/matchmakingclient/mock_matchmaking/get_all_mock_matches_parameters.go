@@ -57,8 +57,7 @@ func NewGetAllMockMatchesParamsWithHTTPClient(client *http.Client) *GetAllMockMa
 	}
 }
 
-/*
-GetAllMockMatchesParams contains all the parameters to send to the API endpoint
+/*GetAllMockMatchesParams contains all the parameters to send to the API endpoint
 for the get all mock matches operation typically these are written to a http.Request
 */
 type GetAllMockMatchesParams struct {

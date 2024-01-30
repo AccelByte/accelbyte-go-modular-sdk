@@ -59,8 +59,7 @@ func NewBulkAcceptVersionedPolicyParamsWithHTTPClient(client *http.Client) *Bulk
 	}
 }
 
-/*
-BulkAcceptVersionedPolicyParams contains all the parameters to send to the API endpoint
+/*BulkAcceptVersionedPolicyParams contains all the parameters to send to the API endpoint
 for the bulk accept versioned policy operation typically these are written to a http.Request
 */
 type BulkAcceptVersionedPolicyParams struct {

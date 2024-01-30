@@ -57,8 +57,7 @@ func NewGetCampaignParamsWithHTTPClient(client *http.Client) *GetCampaignParams 
 	}
 }
 
-/*
-GetCampaignParams contains all the parameters to send to the API endpoint
+/*GetCampaignParams contains all the parameters to send to the API endpoint
 for the get campaign operation typically these are written to a http.Request
 */
 type GetCampaignParams struct {

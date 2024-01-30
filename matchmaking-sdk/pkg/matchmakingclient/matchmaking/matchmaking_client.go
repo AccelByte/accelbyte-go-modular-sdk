@@ -221,7 +221,7 @@ If match timeout is set to 0, by default, incoming matchmaking requests will be 
 
 If max worker delay is set to 0, by default, it will wait for at max ~8 seconds during low volume.
 
-# Rule Set
+Rule Set
 
 Matching Rule used to classify the player. Player that has matched criteria will be grouped together within an ally.
 
@@ -294,7 +294,7 @@ If match timeout is set to 0, by default, incoming matchmaking requests will be 
 
 If max worker delay is set to 0, by default, it will wait for at max ~8 seconds during low volume.
 
-# Rule Set
+Rule Set
 
 Matching Rule used to classify the player. Player that has matched criteria will be grouped together within an ally.
 
@@ -2710,13 +2710,28 @@ func (a *Client) GetStatDataShort(params *GetStatDataParams, authInfo runtime.Cl
 /*
 Deprecated: 2022-08-10 - Use SearchSessionsShort instead.
 
-# SearchSessions search sessions
+SearchSessions search sessions
+
+
+
+
+
 
 ## The endpoint is going to be deprecated
 
-# Endpoint migration guide
 
-  - Substitute endpoint: /sessionbrowser/admin/namespaces/{namespace}/sessions/history/search [GET]
+Endpoint migration guide
+
+
+
+
+  * Substitute endpoint: /sessionbrowser/admin/namespaces/{namespace}/sessions/history/search [GET]
+
+
+
+
+
+
 
 Search sessions.
 */
@@ -2779,11 +2794,26 @@ func (a *Client) SearchSessions(params *SearchSessionsParams, authInfo runtime.C
 /*
 SearchSessionsShort search sessions
 
+
+
+
+
+
 ## The endpoint is going to be deprecated
 
-# Endpoint migration guide
 
-  - Substitute endpoint: /sessionbrowser/admin/namespaces/{namespace}/sessions/history/search [GET]
+Endpoint migration guide
+
+
+
+
+  * Substitute endpoint: /sessionbrowser/admin/namespaces/{namespace}/sessions/history/search [GET]
+
+
+
+
+
+
 
 Search sessions.
 */
@@ -2845,13 +2875,28 @@ func (a *Client) SearchSessionsShort(params *SearchSessionsParams, authInfo runt
 /*
 Deprecated: 2022-08-10 - Use GetSessionHistoryDetailedShort instead.
 
-# GetSessionHistoryDetailed get session history detailed
+GetSessionHistoryDetailed get session history detailed
+
+
+
+
+
 
 ## The endpoint is going to be deprecated
 
-# Endpoint migration guide
 
-  - Substitute endpoint: /sessionbrowser/admin/namespaces/{namespace}/sessions/{sessionId}/history/detailed [GET]
+Endpoint migration guide
+
+
+
+
+  * Substitute endpoint: /sessionbrowser/admin/namespaces/{namespace}/sessions/{sessionId}/history/detailed [GET]
+
+
+
+
+
+
 
 Get session history detailed.
 
@@ -2916,11 +2961,26 @@ func (a *Client) GetSessionHistoryDetailed(params *GetSessionHistoryDetailedPara
 /*
 GetSessionHistoryDetailedShort get session history detailed
 
+
+
+
+
+
 ## The endpoint is going to be deprecated
 
-# Endpoint migration guide
 
-  - Substitute endpoint: /sessionbrowser/admin/namespaces/{namespace}/sessions/{sessionId}/history/detailed [GET]
+Endpoint migration guide
+
+
+
+
+  * Substitute endpoint: /sessionbrowser/admin/namespaces/{namespace}/sessions/{sessionId}/history/detailed [GET]
+
+
+
+
+
+
 
 Get session history detailed.
 
@@ -3226,13 +3286,27 @@ func (a *Client) PublicGetSingleMatchmakingChannelShort(params *PublicGetSingleM
 /*
 Deprecated: 2022-08-10 - Use SearchSessionsV2Short instead.
 
-# SearchSessionsV2 search sessions
+SearchSessionsV2 search sessions
+
+
+
+
 
 ## The endpoint is going to be deprecated
 
-# Endpoint migration guide
 
-  - Substitute endpoint: /sessionbrowser/admin/namespaces/{namespace}/sessions/history/search [GET]
+Endpoint migration guide
+
+
+
+
+  * Substitute endpoint: /sessionbrowser/admin/namespaces/{namespace}/sessions/history/search [GET]
+
+
+
+
+
+
 
 Search sessions. Optimize the query by differentiating query with filter namespace only and filter with namespace & other filter (partyID, userID, matchID).
 Query with filter namespace only will not group whole session data while query with filter namespace & other filter will include session data.
@@ -3296,11 +3370,25 @@ func (a *Client) SearchSessionsV2(params *SearchSessionsV2Params, authInfo runti
 /*
 SearchSessionsV2Short search sessions
 
+
+
+
+
 ## The endpoint is going to be deprecated
 
-# Endpoint migration guide
 
-  - Substitute endpoint: /sessionbrowser/admin/namespaces/{namespace}/sessions/history/search [GET]
+Endpoint migration guide
+
+
+
+
+  * Substitute endpoint: /sessionbrowser/admin/namespaces/{namespace}/sessions/history/search [GET]
+
+
+
+
+
+
 
 Search sessions. Optimize the query by differentiating query with filter namespace only and filter with namespace & other filter (partyID, userID, matchID).
 Query with filter namespace only will not group whole session data while query with filter namespace & other filter will include session data.

@@ -57,8 +57,7 @@ func NewGetCountryGroupsParamsWithHTTPClient(client *http.Client) *GetCountryGro
 	}
 }
 
-/*
-GetCountryGroupsParams contains all the parameters to send to the API endpoint
+/*GetCountryGroupsParams contains all the parameters to send to the API endpoint
 for the get country groups operation typically these are written to a http.Request
 */
 type GetCountryGroupsParams struct {

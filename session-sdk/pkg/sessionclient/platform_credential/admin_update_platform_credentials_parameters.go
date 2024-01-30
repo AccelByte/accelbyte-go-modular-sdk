@@ -59,8 +59,7 @@ func NewAdminUpdatePlatformCredentialsParamsWithHTTPClient(client *http.Client) 
 	}
 }
 
-/*
-AdminUpdatePlatformCredentialsParams contains all the parameters to send to the API endpoint
+/*AdminUpdatePlatformCredentialsParams contains all the parameters to send to the API endpoint
 for the admin update platform credentials operation typically these are written to a http.Request
 */
 type AdminUpdatePlatformCredentialsParams struct {

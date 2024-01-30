@@ -57,8 +57,7 @@ func NewAdminDeleteTopicParamsWithHTTPClient(client *http.Client) *AdminDeleteTo
 	}
 }
 
-/*
-AdminDeleteTopicParams contains all the parameters to send to the API endpoint
+/*AdminDeleteTopicParams contains all the parameters to send to the API endpoint
 for the admin delete topic operation typically these are written to a http.Request
 */
 type AdminDeleteTopicParams struct {

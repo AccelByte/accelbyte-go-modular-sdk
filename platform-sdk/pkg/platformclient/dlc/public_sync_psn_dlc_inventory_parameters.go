@@ -59,8 +59,7 @@ func NewPublicSyncPsnDLCInventoryParamsWithHTTPClient(client *http.Client) *Publ
 	}
 }
 
-/*
-PublicSyncPsnDLCInventoryParams contains all the parameters to send to the API endpoint
+/*PublicSyncPsnDLCInventoryParams contains all the parameters to send to the API endpoint
 for the public sync psn dlc inventory operation typically these are written to a http.Request
 */
 type PublicSyncPsnDLCInventoryParams struct {

@@ -57,8 +57,7 @@ func NewGetCurrencyConfigParamsWithHTTPClient(client *http.Client) *GetCurrencyC
 	}
 }
 
-/*
-GetCurrencyConfigParams contains all the parameters to send to the API endpoint
+/*GetCurrencyConfigParams contains all the parameters to send to the API endpoint
 for the get currency config operation typically these are written to a http.Request
 */
 type GetCurrencyConfigParams struct {

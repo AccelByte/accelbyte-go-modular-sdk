@@ -22,6 +22,14 @@ type PublicContentLegacyService struct {
 	Client           *ugcclient.JusticeUgcService
 	ConfigRepository repository.ConfigRepository
 	TokenRepository  repository.TokenRepository
+
+	FlightIdRepository *utils.FlightIdContainer
+}
+
+var tempFlightIdPublicContentLegacy *string
+
+func (aaa *PublicContentLegacyService) UpdateFlightId(flightId string) {
+	tempFlightIdPublicContentLegacy = &flightId
 }
 
 func (aaa *PublicContentLegacyService) GetAuthSession() auth.Session {
@@ -542,6 +550,11 @@ func (aaa *PublicContentLegacyService) SearchChannelSpecificContentShort(input *
 			RetryCodes: utils.RetryCodes,
 		}
 	}
+	if tempFlightIdPublicContentLegacy != nil {
+		input.XFlightId = tempFlightIdPublicContentLegacy
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	}
 
 	ok, err := aaa.Client.PublicContentLegacy.SearchChannelSpecificContentShort(input, authInfoWriter)
 	if err != nil {
@@ -566,6 +579,11 @@ func (aaa *PublicContentLegacyService) PublicSearchContentShort(input *public_co
 			Transport:  aaa.Client.Runtime.Transport,
 			RetryCodes: utils.RetryCodes,
 		}
+	}
+	if tempFlightIdPublicContentLegacy != nil {
+		input.XFlightId = tempFlightIdPublicContentLegacy
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.PublicContentLegacy.PublicSearchContentShort(input, authInfoWriter)
@@ -592,6 +610,11 @@ func (aaa *PublicContentLegacyService) PublicGetContentBulkShort(input *public_c
 			RetryCodes: utils.RetryCodes,
 		}
 	}
+	if tempFlightIdPublicContentLegacy != nil {
+		input.XFlightId = tempFlightIdPublicContentLegacy
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	}
 
 	ok, err := aaa.Client.PublicContentLegacy.PublicGetContentBulkShort(input, authInfoWriter)
 	if err != nil {
@@ -616,6 +639,11 @@ func (aaa *PublicContentLegacyService) PublicGetContentBulkByShareCodesShort(inp
 			Transport:  aaa.Client.Runtime.Transport,
 			RetryCodes: utils.RetryCodes,
 		}
+	}
+	if tempFlightIdPublicContentLegacy != nil {
+		input.XFlightId = tempFlightIdPublicContentLegacy
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.PublicContentLegacy.PublicGetContentBulkByShareCodesShort(input, authInfoWriter)
@@ -642,6 +670,11 @@ func (aaa *PublicContentLegacyService) PublicDownloadContentByShareCodeShort(inp
 			RetryCodes: utils.RetryCodes,
 		}
 	}
+	if tempFlightIdPublicContentLegacy != nil {
+		input.XFlightId = tempFlightIdPublicContentLegacy
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	}
 
 	ok, err := aaa.Client.PublicContentLegacy.PublicDownloadContentByShareCodeShort(input, authInfoWriter)
 	if err != nil {
@@ -666,6 +699,11 @@ func (aaa *PublicContentLegacyService) PublicDownloadContentByContentIDShort(inp
 			Transport:  aaa.Client.Runtime.Transport,
 			RetryCodes: utils.RetryCodes,
 		}
+	}
+	if tempFlightIdPublicContentLegacy != nil {
+		input.XFlightId = tempFlightIdPublicContentLegacy
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.PublicContentLegacy.PublicDownloadContentByContentIDShort(input, authInfoWriter)
@@ -692,6 +730,11 @@ func (aaa *PublicContentLegacyService) PublicDownloadContentPreviewShort(input *
 			RetryCodes: utils.RetryCodes,
 		}
 	}
+	if tempFlightIdPublicContentLegacy != nil {
+		input.XFlightId = tempFlightIdPublicContentLegacy
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	}
 
 	ok, err := aaa.Client.PublicContentLegacy.PublicDownloadContentPreviewShort(input, authInfoWriter)
 	if err != nil {
@@ -716,6 +759,11 @@ func (aaa *PublicContentLegacyService) CreateContentDirectShort(input *public_co
 			Transport:  aaa.Client.Runtime.Transport,
 			RetryCodes: utils.RetryCodes,
 		}
+	}
+	if tempFlightIdPublicContentLegacy != nil {
+		input.XFlightId = tempFlightIdPublicContentLegacy
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
 	}
 
 	created, err := aaa.Client.PublicContentLegacy.CreateContentDirectShort(input, authInfoWriter)
@@ -742,6 +790,11 @@ func (aaa *PublicContentLegacyService) CreateContentS3Short(input *public_conten
 			RetryCodes: utils.RetryCodes,
 		}
 	}
+	if tempFlightIdPublicContentLegacy != nil {
+		input.XFlightId = tempFlightIdPublicContentLegacy
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	}
 
 	created, err := aaa.Client.PublicContentLegacy.CreateContentS3Short(input, authInfoWriter)
 	if err != nil {
@@ -766,6 +819,11 @@ func (aaa *PublicContentLegacyService) PublicUpdateContentByShareCodeShort(input
 			Transport:  aaa.Client.Runtime.Transport,
 			RetryCodes: utils.RetryCodes,
 		}
+	}
+	if tempFlightIdPublicContentLegacy != nil {
+		input.XFlightId = tempFlightIdPublicContentLegacy
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.PublicContentLegacy.PublicUpdateContentByShareCodeShort(input, authInfoWriter)
@@ -792,6 +850,11 @@ func (aaa *PublicContentLegacyService) UpdateContentS3Short(input *public_conten
 			RetryCodes: utils.RetryCodes,
 		}
 	}
+	if tempFlightIdPublicContentLegacy != nil {
+		input.XFlightId = tempFlightIdPublicContentLegacy
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	}
 
 	ok, err := aaa.Client.PublicContentLegacy.UpdateContentS3Short(input, authInfoWriter)
 	if err != nil {
@@ -816,6 +879,11 @@ func (aaa *PublicContentLegacyService) PublicDeleteContentByShareCodeShort(input
 			Transport:  aaa.Client.Runtime.Transport,
 			RetryCodes: utils.RetryCodes,
 		}
+	}
+	if tempFlightIdPublicContentLegacy != nil {
+		input.XFlightId = tempFlightIdPublicContentLegacy
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
 	}
 
 	_, err := aaa.Client.PublicContentLegacy.PublicDeleteContentByShareCodeShort(input, authInfoWriter)
@@ -842,6 +910,11 @@ func (aaa *PublicContentLegacyService) UpdateContentDirectShort(input *public_co
 			RetryCodes: utils.RetryCodes,
 		}
 	}
+	if tempFlightIdPublicContentLegacy != nil {
+		input.XFlightId = tempFlightIdPublicContentLegacy
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	}
 
 	ok, err := aaa.Client.PublicContentLegacy.UpdateContentDirectShort(input, authInfoWriter)
 	if err != nil {
@@ -866,6 +939,11 @@ func (aaa *PublicContentLegacyService) DeleteContentShort(input *public_content_
 			Transport:  aaa.Client.Runtime.Transport,
 			RetryCodes: utils.RetryCodes,
 		}
+	}
+	if tempFlightIdPublicContentLegacy != nil {
+		input.XFlightId = tempFlightIdPublicContentLegacy
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
 	}
 
 	_, err := aaa.Client.PublicContentLegacy.DeleteContentShort(input, authInfoWriter)
@@ -892,6 +970,11 @@ func (aaa *PublicContentLegacyService) UpdateContentShareCodeShort(input *public
 			RetryCodes: utils.RetryCodes,
 		}
 	}
+	if tempFlightIdPublicContentLegacy != nil {
+		input.XFlightId = tempFlightIdPublicContentLegacy
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	}
 
 	ok, err := aaa.Client.PublicContentLegacy.UpdateContentShareCodeShort(input, authInfoWriter)
 	if err != nil {
@@ -916,6 +999,11 @@ func (aaa *PublicContentLegacyService) PublicGetUserContentShort(input *public_c
 			Transport:  aaa.Client.Runtime.Transport,
 			RetryCodes: utils.RetryCodes,
 		}
+	}
+	if tempFlightIdPublicContentLegacy != nil {
+		input.XFlightId = tempFlightIdPublicContentLegacy
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.PublicContentLegacy.PublicGetUserContentShort(input, authInfoWriter)
@@ -942,6 +1030,11 @@ func (aaa *PublicContentLegacyService) UpdateScreenshotsShort(input *public_cont
 			RetryCodes: utils.RetryCodes,
 		}
 	}
+	if tempFlightIdPublicContentLegacy != nil {
+		input.XFlightId = tempFlightIdPublicContentLegacy
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	}
 
 	ok, err := aaa.Client.PublicContentLegacy.UpdateScreenshotsShort(input, authInfoWriter)
 	if err != nil {
@@ -967,6 +1060,11 @@ func (aaa *PublicContentLegacyService) UploadContentScreenshotShort(input *publi
 			RetryCodes: utils.RetryCodes,
 		}
 	}
+	if tempFlightIdPublicContentLegacy != nil {
+		input.XFlightId = tempFlightIdPublicContentLegacy
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	}
 
 	created, err := aaa.Client.PublicContentLegacy.UploadContentScreenshotShort(input, authInfoWriter)
 	if err != nil {
@@ -991,6 +1089,11 @@ func (aaa *PublicContentLegacyService) DeleteContentScreenshotShort(input *publi
 			Transport:  aaa.Client.Runtime.Transport,
 			RetryCodes: utils.RetryCodes,
 		}
+	}
+	if tempFlightIdPublicContentLegacy != nil {
+		input.XFlightId = tempFlightIdPublicContentLegacy
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
 	}
 
 	_, err := aaa.Client.PublicContentLegacy.DeleteContentScreenshotShort(input, authInfoWriter)

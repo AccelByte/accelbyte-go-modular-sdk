@@ -59,8 +59,7 @@ func NewAdminDebugProfanityFiltersParamsWithHTTPClient(client *http.Client) *Adm
 	}
 }
 
-/*
-AdminDebugProfanityFiltersParams contains all the parameters to send to the API endpoint
+/*AdminDebugProfanityFiltersParams contains all the parameters to send to the API endpoint
 for the admin debug profanity filters operation typically these are written to a http.Request
 */
 type AdminDebugProfanityFiltersParams struct {

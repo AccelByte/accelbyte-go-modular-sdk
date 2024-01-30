@@ -57,8 +57,7 @@ func NewDeleteRootRegionOverrideParamsWithHTTPClient(client *http.Client) *Delet
 	}
 }
 
-/*
-DeleteRootRegionOverrideParams contains all the parameters to send to the API endpoint
+/*DeleteRootRegionOverrideParams contains all the parameters to send to the API endpoint
 for the delete root region override operation typically these are written to a http.Request
 */
 type DeleteRootRegionOverrideParams struct {

@@ -57,8 +57,7 @@ func NewCountServerDetailedParamsWithHTTPClient(client *http.Client) *CountServe
 	}
 }
 
-/*
-CountServerDetailedParams contains all the parameters to send to the API endpoint
+/*CountServerDetailedParams contains all the parameters to send to the API endpoint
 for the count server detailed operation typically these are written to a http.Request
 */
 type CountServerDetailedParams struct {

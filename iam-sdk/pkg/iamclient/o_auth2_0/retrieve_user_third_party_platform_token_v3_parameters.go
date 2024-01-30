@@ -57,8 +57,7 @@ func NewRetrieveUserThirdPartyPlatformTokenV3ParamsWithHTTPClient(client *http.C
 	}
 }
 
-/*
-RetrieveUserThirdPartyPlatformTokenV3Params contains all the parameters to send to the API endpoint
+/*RetrieveUserThirdPartyPlatformTokenV3Params contains all the parameters to send to the API endpoint
 for the retrieve user third party platform token v3 operation typically these are written to a http.Request
 */
 type RetrieveUserThirdPartyPlatformTokenV3Params struct {

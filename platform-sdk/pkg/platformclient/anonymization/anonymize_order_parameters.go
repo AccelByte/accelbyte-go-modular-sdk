@@ -57,8 +57,7 @@ func NewAnonymizeOrderParamsWithHTTPClient(client *http.Client) *AnonymizeOrderP
 	}
 }
 
-/*
-AnonymizeOrderParams contains all the parameters to send to the API endpoint
+/*AnonymizeOrderParams contains all the parameters to send to the API endpoint
 for the anonymize order operation typically these are written to a http.Request
 */
 type AnonymizeOrderParams struct {

@@ -292,6 +292,7 @@ Deprecated: 2022-08-10 - Use PublicGetPartyDataV1Short instead.
 PublicGetPartyDataV1 get party data by party id
 Required valid user authorization
 
+
 load personal party data in a namespace based on Party ID
 
 Action Code: 50101
@@ -355,6 +356,7 @@ func (a *Client) PublicGetPartyDataV1(params *PublicGetPartyDataV1Params, authIn
 /*
 PublicGetPartyDataV1Short get party data by party id
 Required valid user authorization
+
 
 load personal party data in a namespace based on Party ID
 
@@ -421,6 +423,7 @@ Deprecated: 2022-08-10 - Use PublicUpdatePartyAttributesV1Short instead.
 PublicUpdatePartyAttributesV1 update party attributes
 Required valid user authorization
 
+
 update party attributes in a namespace.
 */
 func (a *Client) PublicUpdatePartyAttributesV1(params *PublicUpdatePartyAttributesV1Params, authInfo runtime.ClientAuthInfoWriter) (*PublicUpdatePartyAttributesV1OK, *PublicUpdatePartyAttributesV1BadRequest, *PublicUpdatePartyAttributesV1Unauthorized, *PublicUpdatePartyAttributesV1Forbidden, *PublicUpdatePartyAttributesV1NotFound, *PublicUpdatePartyAttributesV1PreconditionFailed, *PublicUpdatePartyAttributesV1InternalServerError, error) {
@@ -485,6 +488,7 @@ func (a *Client) PublicUpdatePartyAttributesV1(params *PublicUpdatePartyAttribut
 /*
 PublicUpdatePartyAttributesV1Short update party attributes
 Required valid user authorization
+
 
 update party attributes in a namespace.
 */
@@ -551,6 +555,7 @@ Deprecated: 2022-08-10 - Use PublicSetPartyLimitV1Short instead.
 PublicSetPartyLimitV1 set party limit
 Required valid user authorization
 
+
 Set party limit, only party leader can call this endpoint.
 */
 func (a *Client) PublicSetPartyLimitV1(params *PublicSetPartyLimitV1Params, authInfo runtime.ClientAuthInfoWriter) (*PublicSetPartyLimitV1OK, *PublicSetPartyLimitV1BadRequest, *PublicSetPartyLimitV1Unauthorized, *PublicSetPartyLimitV1Forbidden, *PublicSetPartyLimitV1NotFound, *PublicSetPartyLimitV1InternalServerError, error) {
@@ -612,6 +617,7 @@ func (a *Client) PublicSetPartyLimitV1(params *PublicSetPartyLimitV1Params, auth
 /*
 PublicSetPartyLimitV1Short set party limit
 Required valid user authorization
+
 
 Set party limit, only party leader can call this endpoint.
 */

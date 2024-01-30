@@ -57,8 +57,7 @@ func NewDeleteDeploymentOverrideParamsWithHTTPClient(client *http.Client) *Delet
 	}
 }
 
-/*
-DeleteDeploymentOverrideParams contains all the parameters to send to the API endpoint
+/*DeleteDeploymentOverrideParams contains all the parameters to send to the API endpoint
 for the delete deployment override operation typically these are written to a http.Request
 */
 type DeleteDeploymentOverrideParams struct {

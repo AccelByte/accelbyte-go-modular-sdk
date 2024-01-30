@@ -57,8 +57,7 @@ func NewDeleteSteamIAPConfigParamsWithHTTPClient(client *http.Client) *DeleteSte
 	}
 }
 
-/*
-DeleteSteamIAPConfigParams contains all the parameters to send to the API endpoint
+/*DeleteSteamIAPConfigParams contains all the parameters to send to the API endpoint
 for the delete steam iap config operation typically these are written to a http.Request
 */
 type DeleteSteamIAPConfigParams struct {

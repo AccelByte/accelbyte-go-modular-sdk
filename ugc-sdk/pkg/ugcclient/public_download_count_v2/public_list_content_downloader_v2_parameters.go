@@ -86,8 +86,7 @@ func NewPublicListContentDownloaderV2ParamsWithHTTPClient(client *http.Client) *
 	}
 }
 
-/*
-PublicListContentDownloaderV2Params contains all the parameters to send to the API endpoint
+/*PublicListContentDownloaderV2Params contains all the parameters to send to the API endpoint
 for the public list content downloader v2 operation typically these are written to a http.Request
 */
 type PublicListContentDownloaderV2Params struct {

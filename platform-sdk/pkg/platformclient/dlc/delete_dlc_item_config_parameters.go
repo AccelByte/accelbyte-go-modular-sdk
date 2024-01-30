@@ -57,8 +57,7 @@ func NewDeleteDLCItemConfigParamsWithHTTPClient(client *http.Client) *DeleteDLCI
 	}
 }
 
-/*
-DeleteDLCItemConfigParams contains all the parameters to send to the API endpoint
+/*DeleteDLCItemConfigParams contains all the parameters to send to the API endpoint
 for the delete dlc item config operation typically these are written to a http.Request
 */
 type DeleteDLCItemConfigParams struct {

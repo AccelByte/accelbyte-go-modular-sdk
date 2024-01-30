@@ -57,8 +57,7 @@ func NewAdminDeleteSessionParamsWithHTTPClient(client *http.Client) *AdminDelete
 	}
 }
 
-/*
-AdminDeleteSessionParams contains all the parameters to send to the API endpoint
+/*AdminDeleteSessionParams contains all the parameters to send to the API endpoint
 for the admin delete session operation typically these are written to a http.Request
 */
 type AdminDeleteSessionParams struct {

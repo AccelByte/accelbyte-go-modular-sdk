@@ -22,6 +22,14 @@ type PluginConfigService struct {
 	Client           *cloudsaveclient.JusticeCloudsaveService
 	ConfigRepository repository.ConfigRepository
 	TokenRepository  repository.TokenRepository
+
+	FlightIdRepository *utils.FlightIdContainer
+}
+
+var tempFlightIdPluginConfig *string
+
+func (aaa *PluginConfigService) UpdateFlightId(flightId string) {
+	tempFlightIdPluginConfig = &flightId
 }
 
 func (aaa *PluginConfigService) GetAuthSession() auth.Session {
@@ -158,6 +166,11 @@ func (aaa *PluginConfigService) GetPluginConfigShort(input *plugin_config.GetPlu
 			RetryCodes: utils.RetryCodes,
 		}
 	}
+	if tempFlightIdPluginConfig != nil {
+		input.XFlightId = tempFlightIdPluginConfig
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	}
 
 	ok, err := aaa.Client.PluginConfig.GetPluginConfigShort(input, authInfoWriter)
 	if err != nil {
@@ -182,6 +195,11 @@ func (aaa *PluginConfigService) CreatePluginConfigShort(input *plugin_config.Cre
 			Transport:  aaa.Client.Runtime.Transport,
 			RetryCodes: utils.RetryCodes,
 		}
+	}
+	if tempFlightIdPluginConfig != nil {
+		input.XFlightId = tempFlightIdPluginConfig
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
 	}
 
 	created, err := aaa.Client.PluginConfig.CreatePluginConfigShort(input, authInfoWriter)
@@ -208,6 +226,11 @@ func (aaa *PluginConfigService) DeletePluginConfigShort(input *plugin_config.Del
 			RetryCodes: utils.RetryCodes,
 		}
 	}
+	if tempFlightIdPluginConfig != nil {
+		input.XFlightId = tempFlightIdPluginConfig
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	}
 
 	_, err := aaa.Client.PluginConfig.DeletePluginConfigShort(input, authInfoWriter)
 	if err != nil {
@@ -232,6 +255,11 @@ func (aaa *PluginConfigService) UpdatePluginConfigShort(input *plugin_config.Upd
 			Transport:  aaa.Client.Runtime.Transport,
 			RetryCodes: utils.RetryCodes,
 		}
+	}
+	if tempFlightIdPluginConfig != nil {
+		input.XFlightId = tempFlightIdPluginConfig
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.PluginConfig.UpdatePluginConfigShort(input, authInfoWriter)

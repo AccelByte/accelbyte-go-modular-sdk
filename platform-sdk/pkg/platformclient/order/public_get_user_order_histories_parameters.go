@@ -57,8 +57,7 @@ func NewPublicGetUserOrderHistoriesParamsWithHTTPClient(client *http.Client) *Pu
 	}
 }
 
-/*
-PublicGetUserOrderHistoriesParams contains all the parameters to send to the API endpoint
+/*PublicGetUserOrderHistoriesParams contains all the parameters to send to the API endpoint
 for the public get user order histories operation typically these are written to a http.Request
 */
 type PublicGetUserOrderHistoriesParams struct {

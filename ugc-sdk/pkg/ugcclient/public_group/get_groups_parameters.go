@@ -78,8 +78,7 @@ func NewGetGroupsParamsWithHTTPClient(client *http.Client) *GetGroupsParams {
 	}
 }
 
-/*
-GetGroupsParams contains all the parameters to send to the API endpoint
+/*GetGroupsParams contains all the parameters to send to the API endpoint
 for the get groups operation typically these are written to a http.Request
 */
 type GetGroupsParams struct {

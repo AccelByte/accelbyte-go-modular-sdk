@@ -59,8 +59,7 @@ func NewAdminGetContentBulkParamsWithHTTPClient(client *http.Client) *AdminGetCo
 	}
 }
 
-/*
-AdminGetContentBulkParams contains all the parameters to send to the API endpoint
+/*AdminGetContentBulkParams contains all the parameters to send to the API endpoint
 for the admin get content bulk operation typically these are written to a http.Request
 */
 type AdminGetContentBulkParams struct {

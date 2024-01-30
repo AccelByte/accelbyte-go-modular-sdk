@@ -57,8 +57,7 @@ func NewDeleteNotificationTemplateSlugV1AdminParamsWithHTTPClient(client *http.C
 	}
 }
 
-/*
-DeleteNotificationTemplateSlugV1AdminParams contains all the parameters to send to the API endpoint
+/*DeleteNotificationTemplateSlugV1AdminParams contains all the parameters to send to the API endpoint
 for the delete notification template slug v1 admin operation typically these are written to a http.Request
 */
 type DeleteNotificationTemplateSlugV1AdminParams struct {

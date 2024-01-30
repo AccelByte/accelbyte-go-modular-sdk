@@ -57,8 +57,7 @@ func NewAdminGetListBanReasonV3ParamsWithHTTPClient(client *http.Client) *AdminG
 	}
 }
 
-/*
-AdminGetListBanReasonV3Params contains all the parameters to send to the API endpoint
+/*AdminGetListBanReasonV3Params contains all the parameters to send to the API endpoint
 for the admin get list ban reason v3 operation typically these are written to a http.Request
 */
 type AdminGetListBanReasonV3Params struct {

@@ -78,8 +78,7 @@ func NewAdminRetrievePlayerRecordsParamsWithHTTPClient(client *http.Client) *Adm
 	}
 }
 
-/*
-AdminRetrievePlayerRecordsParams contains all the parameters to send to the API endpoint
+/*AdminRetrievePlayerRecordsParams contains all the parameters to send to the API endpoint
 for the admin retrieve player records operation typically these are written to a http.Request
 */
 type AdminRetrievePlayerRecordsParams struct {

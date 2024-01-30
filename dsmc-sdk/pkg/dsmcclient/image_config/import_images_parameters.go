@@ -57,8 +57,7 @@ func NewImportImagesParamsWithHTTPClient(client *http.Client) *ImportImagesParam
 	}
 }
 
-/*
-ImportImagesParams contains all the parameters to send to the API endpoint
+/*ImportImagesParams contains all the parameters to send to the API endpoint
 for the import images operation typically these are written to a http.Request
 */
 type ImportImagesParams struct {

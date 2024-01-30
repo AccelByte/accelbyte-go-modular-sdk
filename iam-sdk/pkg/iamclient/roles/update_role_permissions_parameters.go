@@ -59,8 +59,7 @@ func NewUpdateRolePermissionsParamsWithHTTPClient(client *http.Client) *UpdateRo
 	}
 }
 
-/*
-UpdateRolePermissionsParams contains all the parameters to send to the API endpoint
+/*UpdateRolePermissionsParams contains all the parameters to send to the API endpoint
 for the update role permissions operation typically these are written to a http.Request
 */
 type UpdateRolePermissionsParams struct {

@@ -21,6 +21,14 @@ type AnonymizationService struct {
 	Client           *ugcclient.JusticeUgcService
 	ConfigRepository repository.ConfigRepository
 	TokenRepository  repository.TokenRepository
+
+	FlightIdRepository *utils.FlightIdContainer
+}
+
+var tempFlightIdAnonymization *string
+
+func (aaa *AnonymizationService) UpdateFlightId(flightId string) {
+	tempFlightIdAnonymization = &flightId
 }
 
 func (aaa *AnonymizationService) GetAuthSession() auth.Session {
@@ -231,6 +239,11 @@ func (aaa *AnonymizationService) AdminDeleteAllUserChannelsShort(input *anonymiz
 			RetryCodes: utils.RetryCodes,
 		}
 	}
+	if tempFlightIdAnonymization != nil {
+		input.XFlightId = tempFlightIdAnonymization
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	}
 
 	_, err := aaa.Client.Anonymization.AdminDeleteAllUserChannelsShort(input, authInfoWriter)
 	if err != nil {
@@ -255,6 +268,11 @@ func (aaa *AnonymizationService) AdminDeleteAllUserContentsShort(input *anonymiz
 			Transport:  aaa.Client.Runtime.Transport,
 			RetryCodes: utils.RetryCodes,
 		}
+	}
+	if tempFlightIdAnonymization != nil {
+		input.XFlightId = tempFlightIdAnonymization
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
 	}
 
 	_, err := aaa.Client.Anonymization.AdminDeleteAllUserContentsShort(input, authInfoWriter)
@@ -281,6 +299,11 @@ func (aaa *AnonymizationService) AdminDeleteAllUserGroupShort(input *anonymizati
 			RetryCodes: utils.RetryCodes,
 		}
 	}
+	if tempFlightIdAnonymization != nil {
+		input.XFlightId = tempFlightIdAnonymization
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	}
 
 	_, err := aaa.Client.Anonymization.AdminDeleteAllUserGroupShort(input, authInfoWriter)
 	if err != nil {
@@ -305,6 +328,11 @@ func (aaa *AnonymizationService) AdminDeleteAllUserStatesShort(input *anonymizat
 			Transport:  aaa.Client.Runtime.Transport,
 			RetryCodes: utils.RetryCodes,
 		}
+	}
+	if tempFlightIdAnonymization != nil {
+		input.XFlightId = tempFlightIdAnonymization
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
 	}
 
 	_, err := aaa.Client.Anonymization.AdminDeleteAllUserStatesShort(input, authInfoWriter)
@@ -331,6 +359,11 @@ func (aaa *AnonymizationService) DeleteAllUserChannelShort(input *anonymization.
 			RetryCodes: utils.RetryCodes,
 		}
 	}
+	if tempFlightIdAnonymization != nil {
+		input.XFlightId = tempFlightIdAnonymization
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	}
 
 	_, err := aaa.Client.Anonymization.DeleteAllUserChannelShort(input, authInfoWriter)
 	if err != nil {
@@ -355,6 +388,11 @@ func (aaa *AnonymizationService) DeleteAllUserContentsShort(input *anonymization
 			Transport:  aaa.Client.Runtime.Transport,
 			RetryCodes: utils.RetryCodes,
 		}
+	}
+	if tempFlightIdAnonymization != nil {
+		input.XFlightId = tempFlightIdAnonymization
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
 	}
 
 	_, err := aaa.Client.Anonymization.DeleteAllUserContentsShort(input, authInfoWriter)
@@ -381,6 +419,11 @@ func (aaa *AnonymizationService) DeleteAllUserGroupShort(input *anonymization.De
 			RetryCodes: utils.RetryCodes,
 		}
 	}
+	if tempFlightIdAnonymization != nil {
+		input.XFlightId = tempFlightIdAnonymization
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	}
 
 	_, err := aaa.Client.Anonymization.DeleteAllUserGroupShort(input, authInfoWriter)
 	if err != nil {
@@ -405,6 +448,11 @@ func (aaa *AnonymizationService) DeleteAllUserStatesShort(input *anonymization.D
 			Transport:  aaa.Client.Runtime.Transport,
 			RetryCodes: utils.RetryCodes,
 		}
+	}
+	if tempFlightIdAnonymization != nil {
+		input.XFlightId = tempFlightIdAnonymization
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
 	}
 
 	_, err := aaa.Client.Anonymization.DeleteAllUserStatesShort(input, authInfoWriter)

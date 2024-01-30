@@ -57,8 +57,7 @@ func NewRequestOneTimeLinkingCodeV3ParamsWithHTTPClient(client *http.Client) *Re
 	}
 }
 
-/*
-RequestOneTimeLinkingCodeV3Params contains all the parameters to send to the API endpoint
+/*RequestOneTimeLinkingCodeV3Params contains all the parameters to send to the API endpoint
 for the request one time linking code v3 operation typically these are written to a http.Request
 */
 type RequestOneTimeLinkingCodeV3Params struct {

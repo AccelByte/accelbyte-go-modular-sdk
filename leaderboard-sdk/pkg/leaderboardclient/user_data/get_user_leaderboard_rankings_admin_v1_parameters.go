@@ -58,8 +58,7 @@ func NewGetUserLeaderboardRankingsAdminV1ParamsWithHTTPClient(client *http.Clien
 	}
 }
 
-/*
-GetUserLeaderboardRankingsAdminV1Params contains all the parameters to send to the API endpoint
+/*GetUserLeaderboardRankingsAdminV1Params contains all the parameters to send to the API endpoint
 for the get user leaderboard rankings admin v1 operation typically these are written to a http.Request
 */
 type GetUserLeaderboardRankingsAdminV1Params struct {

@@ -57,8 +57,7 @@ func NewPublicGetAsyncStatusParamsWithHTTPClient(client *http.Client) *PublicGet
 	}
 }
 
-/*
-PublicGetAsyncStatusParams contains all the parameters to send to the API endpoint
+/*PublicGetAsyncStatusParams contains all the parameters to send to the API endpoint
 for the public get async status operation typically these are written to a http.Request
 */
 type PublicGetAsyncStatusParams struct {

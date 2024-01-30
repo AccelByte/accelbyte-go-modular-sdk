@@ -57,8 +57,7 @@ func NewPublicRevokePartyCodeParamsWithHTTPClient(client *http.Client) *PublicRe
 	}
 }
 
-/*
-PublicRevokePartyCodeParams contains all the parameters to send to the API endpoint
+/*PublicRevokePartyCodeParams contains all the parameters to send to the API endpoint
 for the public revoke party code operation typically these are written to a http.Request
 */
 type PublicRevokePartyCodeParams struct {

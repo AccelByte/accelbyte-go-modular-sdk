@@ -57,8 +57,7 @@ func NewListProvidersByRegionParamsWithHTTPClient(client *http.Client) *ListProv
 	}
 }
 
-/*
-ListProvidersByRegionParams contains all the parameters to send to the API endpoint
+/*ListProvidersByRegionParams contains all the parameters to send to the API endpoint
 for the list providers by region operation typically these are written to a http.Request
 */
 type ListProvidersByRegionParams struct {

@@ -59,8 +59,7 @@ func NewPublicBulkIncUserStatItemValueParamsWithHTTPClient(client *http.Client) 
 	}
 }
 
-/*
-PublicBulkIncUserStatItemValueParams contains all the parameters to send to the API endpoint
+/*PublicBulkIncUserStatItemValueParams contains all the parameters to send to the API endpoint
 for the public bulk inc user stat item value operation typically these are written to a http.Request
 */
 type PublicBulkIncUserStatItemValueParams struct {

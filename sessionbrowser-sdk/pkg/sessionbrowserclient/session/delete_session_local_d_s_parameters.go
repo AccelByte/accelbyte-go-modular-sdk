@@ -57,8 +57,7 @@ func NewDeleteSessionLocalDSParamsWithHTTPClient(client *http.Client) *DeleteSes
 	}
 }
 
-/*
-DeleteSessionLocalDSParams contains all the parameters to send to the API endpoint
+/*DeleteSessionLocalDSParams contains all the parameters to send to the API endpoint
 for the delete session local ds operation typically these are written to a http.Request
 */
 type DeleteSessionLocalDSParams struct {

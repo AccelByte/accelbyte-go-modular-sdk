@@ -22,6 +22,14 @@ type GlobalConfigurationService struct {
 	Client           *sessionclient.JusticeSessionService
 	ConfigRepository repository.ConfigRepository
 	TokenRepository  repository.TokenRepository
+
+	FlightIdRepository *utils.FlightIdContainer
+}
+
+var tempFlightIdGlobalConfiguration *string
+
+func (aaa *GlobalConfigurationService) UpdateFlightId(flightId string) {
+	tempFlightIdGlobalConfiguration = &flightId
 }
 
 func (aaa *GlobalConfigurationService) GetAuthSession() auth.Session {
@@ -108,6 +116,11 @@ func (aaa *GlobalConfigurationService) AdminListGlobalConfigurationShort(input *
 			RetryCodes: utils.RetryCodes,
 		}
 	}
+	if tempFlightIdGlobalConfiguration != nil {
+		input.XFlightId = tempFlightIdGlobalConfiguration
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	}
 
 	ok, err := aaa.Client.GlobalConfiguration.AdminListGlobalConfigurationShort(input, authInfoWriter)
 	if err != nil {
@@ -133,6 +146,11 @@ func (aaa *GlobalConfigurationService) AdminUpdateGlobalConfigurationShort(input
 			RetryCodes: utils.RetryCodes,
 		}
 	}
+	if tempFlightIdGlobalConfiguration != nil {
+		input.XFlightId = tempFlightIdGlobalConfiguration
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	}
 
 	ok, err := aaa.Client.GlobalConfiguration.AdminUpdateGlobalConfigurationShort(input, authInfoWriter)
 	if err != nil {
@@ -157,6 +175,11 @@ func (aaa *GlobalConfigurationService) AdminDeleteGlobalConfigurationShort(input
 			Transport:  aaa.Client.Runtime.Transport,
 			RetryCodes: utils.RetryCodes,
 		}
+	}
+	if tempFlightIdGlobalConfiguration != nil {
+		input.XFlightId = tempFlightIdGlobalConfiguration
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
 	}
 
 	noContent, err := aaa.Client.GlobalConfiguration.AdminDeleteGlobalConfigurationShort(input, authInfoWriter)

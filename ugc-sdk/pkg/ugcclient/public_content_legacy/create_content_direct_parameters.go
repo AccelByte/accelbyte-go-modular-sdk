@@ -59,8 +59,7 @@ func NewCreateContentDirectParamsWithHTTPClient(client *http.Client) *CreateCont
 	}
 }
 
-/*
-CreateContentDirectParams contains all the parameters to send to the API endpoint
+/*CreateContentDirectParams contains all the parameters to send to the API endpoint
 for the create content direct operation typically these are written to a http.Request
 */
 type CreateContentDirectParams struct {

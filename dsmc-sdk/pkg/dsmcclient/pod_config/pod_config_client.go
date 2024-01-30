@@ -174,7 +174,7 @@ Required permission: ADMIN:NAMESPACE:{namespace}:DSM:CONFIG [READ]
 
 Required scope: social
 
-# This endpoint get a all pod configs in a namespace
+This endpoint get a all pod configs in a namespace
 
 Parameter Offset and Count is Required
 */
@@ -234,7 +234,7 @@ Required permission: ADMIN:NAMESPACE:{namespace}:DSM:CONFIG [READ]
 
 Required scope: social
 
-# This endpoint get a all pod configs in a namespace
+This endpoint get a all pod configs in a namespace
 
 Parameter Offset and Count is Required
 */
@@ -803,7 +803,7 @@ Required permission: NAMESPACE:{namespace}:DSM:CONFIG [READ]
 
 Required scope: social
 
-# This endpoint get a all pod configs in a namespace
+This endpoint get a all pod configs in a namespace
 
 Parameter Offset and Count is Required
 */
@@ -863,7 +863,7 @@ Required permission: NAMESPACE:{namespace}:DSM:CONFIG [READ]
 
 Required scope: social
 
-# This endpoint get a all pod configs in a namespace
+This endpoint get a all pod configs in a namespace
 
 Parameter Offset and Count is Required
 */

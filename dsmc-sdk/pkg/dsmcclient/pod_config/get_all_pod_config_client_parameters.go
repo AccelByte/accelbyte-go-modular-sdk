@@ -58,8 +58,7 @@ func NewGetAllPodConfigClientParamsWithHTTPClient(client *http.Client) *GetAllPo
 	}
 }
 
-/*
-GetAllPodConfigClientParams contains all the parameters to send to the API endpoint
+/*GetAllPodConfigClientParams contains all the parameters to send to the API endpoint
 for the get all pod config client operation typically these are written to a http.Request
 */
 type GetAllPodConfigClientParams struct {

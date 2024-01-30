@@ -57,8 +57,7 @@ func NewAdminDeleteThirdPartyConfigParamsWithHTTPClient(client *http.Client) *Ad
 	}
 }
 
-/*
-AdminDeleteThirdPartyConfigParams contains all the parameters to send to the API endpoint
+/*AdminDeleteThirdPartyConfigParams contains all the parameters to send to the API endpoint
 for the admin delete third party config operation typically these are written to a http.Request
 */
 type AdminDeleteThirdPartyConfigParams struct {

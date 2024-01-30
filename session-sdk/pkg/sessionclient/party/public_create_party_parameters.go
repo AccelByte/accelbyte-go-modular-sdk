@@ -59,8 +59,7 @@ func NewPublicCreatePartyParamsWithHTTPClient(client *http.Client) *PublicCreate
 	}
 }
 
-/*
-PublicCreatePartyParams contains all the parameters to send to the API endpoint
+/*PublicCreatePartyParams contains all the parameters to send to the API endpoint
 for the public create party operation typically these are written to a http.Request
 */
 type PublicCreatePartyParams struct {

@@ -59,8 +59,7 @@ func NewCheckSeasonPurchasableParamsWithHTTPClient(client *http.Client) *CheckSe
 	}
 }
 
-/*
-CheckSeasonPurchasableParams contains all the parameters to send to the API endpoint
+/*CheckSeasonPurchasableParams contains all the parameters to send to the API endpoint
 for the check season purchasable operation typically these are written to a http.Request
 */
 type CheckSeasonPurchasableParams struct {

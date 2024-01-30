@@ -57,8 +57,7 @@ func NewMatchPoolMetricParamsWithHTTPClient(client *http.Client) *MatchPoolMetri
 	}
 }
 
-/*
-MatchPoolMetricParams contains all the parameters to send to the API endpoint
+/*MatchPoolMetricParams contains all the parameters to send to the API endpoint
 for the match pool metric operation typically these are written to a http.Request
 */
 type MatchPoolMetricParams struct {

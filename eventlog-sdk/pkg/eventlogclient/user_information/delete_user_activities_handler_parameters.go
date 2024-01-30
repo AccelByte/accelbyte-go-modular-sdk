@@ -57,8 +57,7 @@ func NewDeleteUserActivitiesHandlerParamsWithHTTPClient(client *http.Client) *De
 	}
 }
 
-/*
-DeleteUserActivitiesHandlerParams contains all the parameters to send to the API endpoint
+/*DeleteUserActivitiesHandlerParams contains all the parameters to send to the API endpoint
 for the delete user activities handler operation typically these are written to a http.Request
 */
 type DeleteUserActivitiesHandlerParams struct {

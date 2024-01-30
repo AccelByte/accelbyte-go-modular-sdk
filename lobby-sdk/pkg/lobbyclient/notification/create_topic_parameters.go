@@ -59,8 +59,7 @@ func NewCreateTopicParamsWithHTTPClient(client *http.Client) *CreateTopicParams 
 	}
 }
 
-/*
-CreateTopicParams contains all the parameters to send to the API endpoint
+/*CreateTopicParams contains all the parameters to send to the API endpoint
 for the create topic operation typically these are written to a http.Request
 */
 type CreateTopicParams struct {

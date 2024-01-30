@@ -59,8 +59,7 @@ func NewTestXsollaConfigParamsWithHTTPClient(client *http.Client) *TestXsollaCon
 	}
 }
 
-/*
-TestXsollaConfigParams contains all the parameters to send to the API endpoint
+/*TestXsollaConfigParams contains all the parameters to send to the API endpoint
 for the test xsolla config operation typically these are written to a http.Request
 */
 type TestXsollaConfigParams struct {

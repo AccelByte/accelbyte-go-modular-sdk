@@ -57,8 +57,7 @@ func NewHandleUploadXboxPFXCertificateParamsWithHTTPClient(client *http.Client) 
 	}
 }
 
-/*
-HandleUploadXboxPFXCertificateParams contains all the parameters to send to the API endpoint
+/*HandleUploadXboxPFXCertificateParams contains all the parameters to send to the API endpoint
 for the handle upload xbox pfx certificate operation typically these are written to a http.Request
 */
 type HandleUploadXboxPFXCertificateParams struct {

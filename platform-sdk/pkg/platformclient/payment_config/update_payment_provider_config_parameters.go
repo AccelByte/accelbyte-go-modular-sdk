@@ -59,8 +59,7 @@ func NewUpdatePaymentProviderConfigParamsWithHTTPClient(client *http.Client) *Up
 	}
 }
 
-/*
-UpdatePaymentProviderConfigParams contains all the parameters to send to the API endpoint
+/*UpdatePaymentProviderConfigParams contains all the parameters to send to the API endpoint
 for the update payment provider config operation typically these are written to a http.Request
 */
 type UpdatePaymentProviderConfigParams struct {

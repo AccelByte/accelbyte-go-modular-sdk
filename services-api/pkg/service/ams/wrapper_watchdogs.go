@@ -21,6 +21,14 @@ type WatchdogsService struct {
 	Client           *amsclient.JusticeAmsService
 	ConfigRepository repository.ConfigRepository
 	TokenRepository  repository.TokenRepository
+
+	FlightIdRepository *utils.FlightIdContainer
+}
+
+var tempFlightIdWatchdogs *string
+
+func (aaa *WatchdogsService) UpdateFlightId(flightId string) {
+	tempFlightIdWatchdogs = &flightId
 }
 
 func (aaa *WatchdogsService) GetAuthSession() auth.Session {
@@ -75,6 +83,11 @@ func (aaa *WatchdogsService) LocalWatchdogConnectShort(input *watchdogs.LocalWat
 			RetryCodes: utils.RetryCodes,
 		}
 	}
+	if tempFlightIdWatchdogs != nil {
+		input.XFlightId = tempFlightIdWatchdogs
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	}
 
 	_, err := aaa.Client.Watchdogs.LocalWatchdogConnectShort(input, authInfoWriter)
 	if err != nil {
@@ -99,6 +112,11 @@ func (aaa *WatchdogsService) WatchdogConnectShort(input *watchdogs.WatchdogConne
 			Transport:  aaa.Client.Runtime.Transport,
 			RetryCodes: utils.RetryCodes,
 		}
+	}
+	if tempFlightIdWatchdogs != nil {
+		input.XFlightId = tempFlightIdWatchdogs
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
 	}
 
 	_, err := aaa.Client.Watchdogs.WatchdogConnectShort(input, authInfoWriter)

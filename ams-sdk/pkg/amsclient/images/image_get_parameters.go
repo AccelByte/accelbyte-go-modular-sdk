@@ -57,8 +57,7 @@ func NewImageGetParamsWithHTTPClient(client *http.Client) *ImageGetParams {
 	}
 }
 
-/*
-ImageGetParams contains all the parameters to send to the API endpoint
+/*ImageGetParams contains all the parameters to send to the API endpoint
 for the image get operation typically these are written to a http.Request
 */
 type ImageGetParams struct {

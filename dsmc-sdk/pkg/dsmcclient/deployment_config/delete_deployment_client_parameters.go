@@ -57,8 +57,7 @@ func NewDeleteDeploymentClientParamsWithHTTPClient(client *http.Client) *DeleteD
 	}
 }
 
-/*
-DeleteDeploymentClientParams contains all the parameters to send to the API endpoint
+/*DeleteDeploymentClientParams contains all the parameters to send to the API endpoint
 for the delete deployment client operation typically these are written to a http.Request
 */
 type DeleteDeploymentClientParams struct {

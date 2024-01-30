@@ -22,6 +22,14 @@ type EQU8ConfigService struct {
 	Client           *basicclient.JusticeBasicService
 	ConfigRepository repository.ConfigRepository
 	TokenRepository  repository.TokenRepository
+
+	FlightIdRepository *utils.FlightIdContainer
+}
+
+var tempFlightIdEQU8Config *string
+
+func (aaa *EQU8ConfigService) UpdateFlightId(flightId string) {
+	tempFlightIdEQU8Config = &flightId
 }
 
 func (aaa *EQU8ConfigService) GetAuthSession() auth.Session {
@@ -102,6 +110,11 @@ func (aaa *EQU8ConfigService) GetConfigShort(input *equ8_config.GetConfigParams)
 			RetryCodes: utils.RetryCodes,
 		}
 	}
+	if tempFlightIdEQU8Config != nil {
+		input.XFlightId = tempFlightIdEQU8Config
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	}
 
 	ok, err := aaa.Client.EQU8Config.GetConfigShort(input, authInfoWriter)
 	if err != nil {
@@ -127,6 +140,11 @@ func (aaa *EQU8ConfigService) DeleteConfigShort(input *equ8_config.DeleteConfigP
 			RetryCodes: utils.RetryCodes,
 		}
 	}
+	if tempFlightIdEQU8Config != nil {
+		input.XFlightId = tempFlightIdEQU8Config
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	}
 
 	_, err := aaa.Client.EQU8Config.DeleteConfigShort(input, authInfoWriter)
 	if err != nil {
@@ -151,6 +169,11 @@ func (aaa *EQU8ConfigService) UpdateConfigShort(input *equ8_config.UpdateConfigP
 			Transport:  aaa.Client.Runtime.Transport,
 			RetryCodes: utils.RetryCodes,
 		}
+	}
+	if tempFlightIdEQU8Config != nil {
+		input.XFlightId = tempFlightIdEQU8Config
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.EQU8Config.UpdateConfigShort(input, authInfoWriter)

@@ -57,8 +57,7 @@ func NewAdminGetUserPartyV1ParamsWithHTTPClient(client *http.Client) *AdminGetUs
 	}
 }
 
-/*
-AdminGetUserPartyV1Params contains all the parameters to send to the API endpoint
+/*AdminGetUserPartyV1Params contains all the parameters to send to the API endpoint
 for the admin get user party v1 operation typically these are written to a http.Request
 */
 type AdminGetUserPartyV1Params struct {

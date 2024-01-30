@@ -39,7 +39,7 @@ type ClientService interface {
 /*
 Deprecated: 2022-08-10 - Use PublicListTagsShort instead.
 
-# PublicListTags to list tags
+PublicListTags to list tags
 
 This endpoint will list all tags in a namespace.
 The response body will be in the form of standard pagination.

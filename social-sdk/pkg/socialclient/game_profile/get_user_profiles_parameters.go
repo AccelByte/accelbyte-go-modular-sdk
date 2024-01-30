@@ -57,8 +57,7 @@ func NewGetUserProfilesParamsWithHTTPClient(client *http.Client) *GetUserProfile
 	}
 }
 
-/*
-GetUserProfilesParams contains all the parameters to send to the API endpoint
+/*GetUserProfilesParams contains all the parameters to send to the API endpoint
 for the get user profiles operation typically these are written to a http.Request
 */
 type GetUserProfilesParams struct {

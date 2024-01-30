@@ -57,8 +57,7 @@ func NewSyncOculusDLCParamsWithHTTPClient(client *http.Client) *SyncOculusDLCPar
 	}
 }
 
-/*
-SyncOculusDLCParams contains all the parameters to send to the API endpoint
+/*SyncOculusDLCParams contains all the parameters to send to the API endpoint
 for the sync oculus dlc operation typically these are written to a http.Request
 */
 type SyncOculusDLCParams struct {

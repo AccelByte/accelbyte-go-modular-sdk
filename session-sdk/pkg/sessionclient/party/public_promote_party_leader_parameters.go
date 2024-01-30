@@ -59,8 +59,7 @@ func NewPublicPromotePartyLeaderParamsWithHTTPClient(client *http.Client) *Publi
 	}
 }
 
-/*
-PublicPromotePartyLeaderParams contains all the parameters to send to the API endpoint
+/*PublicPromotePartyLeaderParams contains all the parameters to send to the API endpoint
 for the public promote party leader operation typically these are written to a http.Request
 */
 type PublicPromotePartyLeaderParams struct {

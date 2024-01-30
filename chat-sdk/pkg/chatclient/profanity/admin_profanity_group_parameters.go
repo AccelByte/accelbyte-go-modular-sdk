@@ -58,8 +58,7 @@ func NewAdminProfanityGroupParamsWithHTTPClient(client *http.Client) *AdminProfa
 	}
 }
 
-/*
-AdminProfanityGroupParams contains all the parameters to send to the API endpoint
+/*AdminProfanityGroupParams contains all the parameters to send to the API endpoint
 for the admin profanity group operation typically these are written to a http.Request
 */
 type AdminProfanityGroupParams struct {

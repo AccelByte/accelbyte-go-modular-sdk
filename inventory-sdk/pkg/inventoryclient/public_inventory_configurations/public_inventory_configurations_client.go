@@ -39,7 +39,7 @@ type ClientService interface {
 /*
 Deprecated: 2022-08-10 - Use PublicListInventoryConfigurationsShort instead.
 
-# PublicListInventoryConfigurations to list inventory configurations
+PublicListInventoryConfigurations to list inventory configurations
 
 Listing all inventory configurations in a namespace.
 The response body will be in the form of standard pagination.

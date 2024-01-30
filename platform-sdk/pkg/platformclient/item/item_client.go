@@ -134,13 +134,12 @@ type ClientService interface {
 Deprecated: 2022-08-10 - Use ListItemTypeConfigsShort instead.
 
 ListItemTypeConfigs get all item type configs
-
-	[Not Supported Yet In Starter] This API is used to get all item type configs.
+ [Not Supported Yet In Starter] This API is used to get all item type configs.
 
 Other detail info:
 
-  - Required permission : resource="ADMIN:ITEM:CONFIG", action=2 (READ)
-  - Returns : the list of items
+  * Required permission : resource="ADMIN:ITEM:CONFIG", action=2 (READ)
+  *  Returns : the list of items
 */
 func (a *Client) ListItemTypeConfigs(params *ListItemTypeConfigsParams, authInfo runtime.ClientAuthInfoWriter) (*ListItemTypeConfigsOK, error) {
 	// TODO: Validate the params before sending
@@ -185,13 +184,12 @@ func (a *Client) ListItemTypeConfigs(params *ListItemTypeConfigsParams, authInfo
 
 /*
 ListItemTypeConfigsShort get all item type configs
-
-	[Not Supported Yet In Starter] This API is used to get all item type configs.
+ [Not Supported Yet In Starter] This API is used to get all item type configs.
 
 Other detail info:
 
-  - Required permission : resource="ADMIN:ITEM:CONFIG", action=2 (READ)
-  - Returns : the list of items
+  * Required permission : resource="ADMIN:ITEM:CONFIG", action=2 (READ)
+  *  Returns : the list of items
 */
 func (a *Client) ListItemTypeConfigsShort(params *ListItemTypeConfigsParams, authInfo runtime.ClientAuthInfoWriter) (*ListItemTypeConfigsOK, error) {
 	// TODO: Validate the params before sending
@@ -242,8 +240,7 @@ func (a *Client) ListItemTypeConfigsShort(params *ListItemTypeConfigsParams, aut
 Deprecated: 2022-08-10 - Use CreateItemTypeConfigShort instead.
 
 CreateItemTypeConfig create an item type config
-
-	[Not Supported Yet In Starter] This API is used to create an item type config.
+ [Not Supported Yet In Starter] This API is used to create an item type config.
 
 *  Required permission : resource="ADMIN:ITEM:CONFIG", action=1 (CREATE)
 *  Returns : item type config data
@@ -300,8 +297,7 @@ func (a *Client) CreateItemTypeConfig(params *CreateItemTypeConfigParams, authIn
 
 /*
 CreateItemTypeConfigShort create an item type config
-
-	[Not Supported Yet In Starter] This API is used to create an item type config.
+ [Not Supported Yet In Starter] This API is used to create an item type config.
 
 *  Required permission : resource="ADMIN:ITEM:CONFIG", action=1 (CREATE)
 *  Returns : item type config data
@@ -361,13 +357,12 @@ func (a *Client) CreateItemTypeConfigShort(params *CreateItemTypeConfigParams, a
 Deprecated: 2022-08-10 - Use SearchItemTypeConfigShort instead.
 
 SearchItemTypeConfig get an item type config
-
-	[Not Supported Yet In Starter] This API is used to get an item type config.
+ [Not Supported Yet In Starter] This API is used to get an item type config.
 
 Other detail info:
 
-  - Required permission : resource="ADMIN:ITEM:CONFIG", action=2 (READ)
-  - Returns : item type config data
+  * Required permission : resource="ADMIN:ITEM:CONFIG", action=2 (READ)
+  *  Returns : item type config data
 */
 func (a *Client) SearchItemTypeConfig(params *SearchItemTypeConfigParams, authInfo runtime.ClientAuthInfoWriter) (*SearchItemTypeConfigOK, *SearchItemTypeConfigNotFound, error) {
 	// TODO: Validate the params before sending
@@ -415,13 +410,12 @@ func (a *Client) SearchItemTypeConfig(params *SearchItemTypeConfigParams, authIn
 
 /*
 SearchItemTypeConfigShort get an item type config
-
-	[Not Supported Yet In Starter] This API is used to get an item type config.
+ [Not Supported Yet In Starter] This API is used to get an item type config.
 
 Other detail info:
 
-  - Required permission : resource="ADMIN:ITEM:CONFIG", action=2 (READ)
-  - Returns : item type config data
+  * Required permission : resource="ADMIN:ITEM:CONFIG", action=2 (READ)
+  *  Returns : item type config data
 */
 func (a *Client) SearchItemTypeConfigShort(params *SearchItemTypeConfigParams, authInfo runtime.ClientAuthInfoWriter) (*SearchItemTypeConfigOK, error) {
 	// TODO: Validate the params before sending
@@ -474,13 +468,12 @@ func (a *Client) SearchItemTypeConfigShort(params *SearchItemTypeConfigParams, a
 Deprecated: 2022-08-10 - Use GetItemTypeConfigShort instead.
 
 GetItemTypeConfig get an item type config
-
-	[Not Supported Yet In Starter] This API is used to get an item type config.
+ [Not Supported Yet In Starter] This API is used to get an item type config.
 
 Other detail info:
 
-  - Required permission : resource="ADMIN:ITEM:CONFIG", action=2 (READ)
-  - Returns : item type config data
+  * Required permission : resource="ADMIN:ITEM:CONFIG", action=2 (READ)
+  *  Returns : item type config data
 */
 func (a *Client) GetItemTypeConfig(params *GetItemTypeConfigParams, authInfo runtime.ClientAuthInfoWriter) (*GetItemTypeConfigOK, *GetItemTypeConfigNotFound, error) {
 	// TODO: Validate the params before sending
@@ -528,13 +521,12 @@ func (a *Client) GetItemTypeConfig(params *GetItemTypeConfigParams, authInfo run
 
 /*
 GetItemTypeConfigShort get an item type config
-
-	[Not Supported Yet In Starter] This API is used to get an item type config.
+ [Not Supported Yet In Starter] This API is used to get an item type config.
 
 Other detail info:
 
-  - Required permission : resource="ADMIN:ITEM:CONFIG", action=2 (READ)
-  - Returns : item type config data
+  * Required permission : resource="ADMIN:ITEM:CONFIG", action=2 (READ)
+  *  Returns : item type config data
 */
 func (a *Client) GetItemTypeConfigShort(params *GetItemTypeConfigParams, authInfo runtime.ClientAuthInfoWriter) (*GetItemTypeConfigOK, error) {
 	// TODO: Validate the params before sending
@@ -587,8 +579,7 @@ func (a *Client) GetItemTypeConfigShort(params *GetItemTypeConfigParams, authInf
 Deprecated: 2022-08-10 - Use UpdateItemTypeConfigShort instead.
 
 UpdateItemTypeConfig update an item type config
-
-	[Not Supported Yet In Starter] This API is used to update an item type config.
+ [Not Supported Yet In Starter] This API is used to update an item type config.
 
 *  Required permission : resource="ADMIN:ITEM:CONFIG", action=4 (UPDATE)
 *  Returns : item type config data
@@ -645,8 +636,7 @@ func (a *Client) UpdateItemTypeConfig(params *UpdateItemTypeConfigParams, authIn
 
 /*
 UpdateItemTypeConfigShort update an item type config
-
-	[Not Supported Yet In Starter] This API is used to update an item type config.
+ [Not Supported Yet In Starter] This API is used to update an item type config.
 
 *  Required permission : resource="ADMIN:ITEM:CONFIG", action=4 (UPDATE)
 *  Returns : item type config data
@@ -706,10 +696,9 @@ func (a *Client) UpdateItemTypeConfigShort(params *UpdateItemTypeConfigParams, a
 Deprecated: 2022-08-10 - Use DeleteItemTypeConfigShort instead.
 
 DeleteItemTypeConfig delete an item type config
+ [Not Supported Yet In Starter] This API is used to delete an item type config permanently.Other detail info:
 
-	[Not Supported Yet In Starter] This API is used to delete an item type config permanently.Other detail info:
-
-	 * Required permission : resource="ADMIN:ITEM:CONFIG", action=8 (DELETE)
+  * Required permission : resource="ADMIN:ITEM:CONFIG", action=8 (DELETE)
 */
 func (a *Client) DeleteItemTypeConfig(params *DeleteItemTypeConfigParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteItemTypeConfigNoContent, *DeleteItemTypeConfigNotFound, error) {
 	// TODO: Validate the params before sending
@@ -757,10 +746,9 @@ func (a *Client) DeleteItemTypeConfig(params *DeleteItemTypeConfigParams, authIn
 
 /*
 DeleteItemTypeConfigShort delete an item type config
+ [Not Supported Yet In Starter] This API is used to delete an item type config permanently.Other detail info:
 
-	[Not Supported Yet In Starter] This API is used to delete an item type config permanently.Other detail info:
-
-	 * Required permission : resource="ADMIN:ITEM:CONFIG", action=8 (DELETE)
+  * Required permission : resource="ADMIN:ITEM:CONFIG", action=8 (DELETE)
 */
 func (a *Client) DeleteItemTypeConfigShort(params *DeleteItemTypeConfigParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteItemTypeConfigNoContent, error) {
 	// TODO: Validate the params before sending
@@ -813,15 +801,14 @@ func (a *Client) DeleteItemTypeConfigShort(params *DeleteItemTypeConfigParams, a
 Deprecated: 2022-08-10 - Use SyncInGameItemShort instead.
 
 SyncInGameItem sync an in game item
-
-	[Not Supported Yet In Starter] This API is used to sync an in game item in game namespace to publisher namespace, only INGAMEITEM, CODE, COINS and SEASON are supported
+ [Not Supported Yet In Starter] This API is used to sync an in game item in game namespace to publisher namespace, only INGAMEITEM, CODE, COINS and SEASON are supported
 
 The synced item has an additional field targetItemId besides targetNamespace, mostly this item should not modified manually again.
 
 Other detail info:
 
-  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:ITEM", action=4 (UPDATE)
-  - Returns : item data
+  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:ITEM", action=4 (UPDATE)
+  *  Returns : item data
 */
 func (a *Client) SyncInGameItem(params *SyncInGameItemParams, authInfo runtime.ClientAuthInfoWriter) (*SyncInGameItemOK, *SyncInGameItemBadRequest, *SyncInGameItemNotFound, *SyncInGameItemConflict, *SyncInGameItemUnprocessableEntity, error) {
 	// TODO: Validate the params before sending
@@ -878,15 +865,14 @@ func (a *Client) SyncInGameItem(params *SyncInGameItemParams, authInfo runtime.C
 
 /*
 SyncInGameItemShort sync an in game item
-
-	[Not Supported Yet In Starter] This API is used to sync an in game item in game namespace to publisher namespace, only INGAMEITEM, CODE, COINS and SEASON are supported
+ [Not Supported Yet In Starter] This API is used to sync an in game item in game namespace to publisher namespace, only INGAMEITEM, CODE, COINS and SEASON are supported
 
 The synced item has an additional field targetItemId besides targetNamespace, mostly this item should not modified manually again.
 
 Other detail info:
 
-  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:ITEM", action=4 (UPDATE)
-  - Returns : item data
+  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:ITEM", action=4 (UPDATE)
+  *  Returns : item data
 */
 func (a *Client) SyncInGameItemShort(params *SyncInGameItemParams, authInfo runtime.ClientAuthInfoWriter) (*SyncInGameItemOK, error) {
 	// TODO: Validate the params before sending
@@ -949,232 +935,239 @@ This API is used to create an item. APP item only can created in publisher names
 
 An item create example:
 
-	{
 
-	   "categoryPath": "/games",
+    {
 
-	   "localizations": {
+       "categoryPath": "/games",
 
-	       "en": {
+       "localizations": {
 
-	           "title":"required",
+           "en": {
 
-	           "description":"optional",
+               "title":"required",
 
-	           "longDescription":"optional",
+               "description":"optional",
 
-	           "localExt": {
+               "longDescription":"optional",
 
-	                  "properties":[
+               "localExt": {
 
-	                                   {
+                      "properties":[
 
-	                                       "key1":"value1",
+                                       {
 
-	                                       "key2":"value2"
+                                           "key1":"value1",
 
-	                                   }
+                                           "key2":"value2"
 
-	                  ],
+                                       }
 
-	                  "functions":[
+                      ],
 
-	                                   {
+                      "functions":[
 
-	                                       "key1":"value1",
+                                       {
 
-	                                       "key2":"value2"
+                                           "key1":"value1",
 
-	                                   }
+                                           "key2":"value2"
 
-	                 ]
+                                       }
 
-	           }
+                     ]
 
-	        }
+               }
 
-	   },
+            }
 
-	   "images": [
+       },
 
-	     {
+       "images": [
 
-	           "as":"optional, image for",
+         {
 
-	           "caption":"optional",
+               "as":"optional, image for",
 
-	           "height":10,
+               "caption":"optional",
 
-	           "width":10,
+               "height":10,
 
-	           "imageUrl":"http://img-url-required",
+               "width":10,
 
-	           "smallImageUrl":"http://small-img-url-required"
+               "imageUrl":"http://img-url-required",
 
-	     }
+               "smallImageUrl":"http://small-img-url-required"
 
-	   ],
+         }
 
-	   "thumbnailUrl": "optional, thumbnail url",
+       ],
 
-	   "status": "ACTIVE",
+       "thumbnailUrl": "optional, thumbnail url",
 
-	   "listable": true,
+       "status": "ACTIVE",
 
-	   "purchasable": true,
+       "listable": true,
 
-	   "itemType": "APP(allowed: [APP,COINS,INGAMEITEM,CODE,BUNDLE])",
+       "purchasable": true,
 
-	   "name": "required, also will be used as entitlement name",
+       "itemType": "APP(allowed: [APP,COINS,INGAMEITEM,CODE,BUNDLE])",
 
-	   "entitlementType": "DURABLE(allowed:[DURABLE,CONSUMABLE], should be CONSUMABLE when item type is COINS)",
+       "name": "required, also will be used as entitlement name",
 
-	   "useCount": 1(optional, required if the entitlement type is consumable),
+       "entitlementType": "DURABLE(allowed:[DURABLE,CONSUMABLE], should be CONSUMABLE when item type is COINS)",
 
-	   "stackable": false,
+       "useCount": 1(optional, required if the entitlement type is consumable),
 
-	   "appId": "optional, required if itemType is APP",
+       "stackable": false,
 
-	   "appType": "GAME(optional, required if itemType is APP)",
+       "appId": "optional, required if itemType is APP",
 
-	   "seasonType": "PASS(optional, required if itemType is SEASON)",
+       "appType": "GAME(optional, required if itemType is APP)",
 
-	   "baseAppId": "optional, set value of game app id if you want to link to a game",
+       "seasonType": "PASS(optional, required if itemType is SEASON)",
 
-	   "targetCurrencyCode": "optional, required if itemType is COINS",
+       "baseAppId": "optional, set value of game app id if you want to link to a game",
 
-	   "targetNamespace": "optional, required when itemType is INGAMEITEM, the targetNamespace will only take effect when the item
+       "targetCurrencyCode": "optional, required if itemType is COINS",
 
-	   created belongs to the publisher namespace",
+       "targetNamespace": "optional, required when itemType is INGAMEITEM, the targetNamespace will only take effect when the item
 
-	   "sku": "optional, commonly unique item code",
+       created belongs to the publisher namespace",
 
-	   "regionData": {
+       "sku": "optional, commonly unique item code",
 
-	       "US(store's default region is required)": [
+       "regionData": {
 
-	         {
+           "US(store's default region is required)": [
 
-	            "price":10,
+             {
 
-	            "discountPercentage": 0(integer, optional, range[0,100], discountedPrice = price  * ((100 - discountPercentage) * 0.01),
+                "price":10,
 
-	              will use it to calculate discounted price if it is not 0),
+                "discountPercentage": 0(integer, optional, range[0,100], discountedPrice = price  * ((100 - discountPercentage) * 0.01),
 
-	            "discountAmount":0(integer, optional, range[0,itemPrice], will use it to calculate discounted price if discountPercentage is 0),
+                  will use it to calculate discounted price if it is not 0),
 
-	            "currencyCode":"code(required, example: USD)",
+                "discountAmount":0(integer, optional, range[0,itemPrice], will use it to calculate discounted price if discountPercentage is 0),
 
-	            "currencyNamespace":"test-ns-required(allow publisher namespace if namespace is publisher namespace, allow publisher and game namespace if namespace is not publisher namespace)",
+                "currencyCode":"code(required, example: USD)",
 
-	            "trialPrice":5(required while fixedTrialCycles set, should >=0 and <= price, will same as price if not present),
+                "currencyNamespace":"test-ns-required(allow publisher namespace if namespace is publisher namespace, allow publisher and game namespace if namespace is not publisher namespace)",
 
-	            "purchaseAt":"optional yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
+                "trialPrice":5(required while fixedTrialCycles set, should >=0 and <= price, will same as price if not present),
 
-	            "expireAt":"optional yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
+                "purchaseAt":"optional yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
 
-	            "discountPurchaseAt":"optional yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
+                "expireAt":"optional yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
 
-	            "discountExpireAt":"optional yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
+                "discountPurchaseAt":"optional yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
 
-	         }
+                "discountExpireAt":"optional yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
 
-	       ]
+             }
 
-	   },
+           ]
 
-	   "itemIds": [
+       },
 
-	       "itemId"
+       "itemIds": [
 
-	   ],
+           "itemId"
 
-	   "itemQty": {
+       ],
 
-	       "itemId":1
+       "itemQty": {
 
-	   },
+           "itemId":1
 
-	   "recurring": {
+       },
 
-	       "cycle":"MONTHLY(allowed: [WEEKLY,MONTHLY,QUARTERLY,YEARLY])",
+       "recurring": {
 
-	       "fixedFreeDays":0(integer, fixed free days, 0 means not set),
+           "cycle":"MONTHLY(allowed: [WEEKLY,MONTHLY,QUARTERLY,YEARLY])",
 
-	       "fixedTrialCycles":0(integer, fixed trial cycles, 0 means not set, will not take effect if fixedFreeDays set),
+           "fixedFreeDays":0(integer, fixed free days, 0 means not set),
 
-	       "graceDays":7(integer, recurring grace days, retry recurring charge within configured days if charge fail, default 7)
+           "fixedTrialCycles":0(integer, fixed trial cycles, 0 means not set, will not take effect if fixedFreeDays set),
 
-	   },
+           "graceDays":7(integer, recurring grace days, retry recurring charge within configured days if charge fail, default 7)
 
-	   "tags": [
+       },
 
-	       "exampleTag24"
+       "tags": [
 
-	   ],
+           "exampleTag24"
 
-	   "features": [
+       ],
 
-	       "feature"
+       "features": [
 
-	   ],
+           "feature"
 
-	   "clazz": "weapon",
+       ],
 
-	   "boothName": "C_campaign1",
+       "clazz": "weapon",
 
-	   "displayOrder": 1000,
+       "boothName": "C_campaign1",
 
-	   "ext": {
+       "displayOrder": 1000,
 
-	       "properties":[
+       "ext": {
 
-	           {
+           "properties":[
 
-	               "key1":"value1",
+               {
 
-	               "key2":"value2"
+                   "key1":"value1",
 
-	           }
+                   "key2":"value2"
 
-	       ],
+               }
 
-	       "functions":[
+           ],
 
-	           {
+           "functions":[
 
-	               "key1":"value1",
+               {
 
-	               "key2":"value2"
+                   "key1":"value1",
 
-	           }
+                   "key2":"value2"
 
-	       ]
+               }
 
-	   },
+           ]
 
-	   "maxCountPerUser": 1(integer, optional, -1 means UNLIMITED),
+       },
 
-	   "maxCount": 1(integer, optional, -1 means UNLIMITED, unset when itemType is CODE)
+       "maxCountPerUser": 1(integer, optional, -1 means UNLIMITED),
 
-	}
+       "maxCount": 1(integer, optional, -1 means UNLIMITED, unset when itemType is CODE)
+
+    }
 
 Other detail info:
 
-  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:ITEM", action=1 (CREATE)
-  - Returns : created item data
+  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:ITEM", action=1 (CREATE)
+  *  Returns : created item data
 
-## Restrictions for item extension and localization extension
+
+
+## Restrictions for item extension and localization extension and inventory config custom attributes
+
 
 1. Cannot use "." as the key name
 -
 
-	{ "data.2": "value" }
+
+    { "data.2": "value" }
+
 
 2. Cannot use "$" as the prefix in key names
 -
 
-	{ "$data": "value" }
+
+    { "$data": "value" }
 */
 func (a *Client) CreateItem(params *CreateItemParams, authInfo runtime.ClientAuthInfoWriter) (*CreateItemCreated, *CreateItemBadRequest, *CreateItemNotFound, *CreateItemConflict, *CreateItemUnprocessableEntity, error) {
 	// TODO: Validate the params before sending
@@ -1235,232 +1228,239 @@ This API is used to create an item. APP item only can created in publisher names
 
 An item create example:
 
-	{
 
-	   "categoryPath": "/games",
+    {
 
-	   "localizations": {
+       "categoryPath": "/games",
 
-	       "en": {
+       "localizations": {
 
-	           "title":"required",
+           "en": {
 
-	           "description":"optional",
+               "title":"required",
 
-	           "longDescription":"optional",
+               "description":"optional",
 
-	           "localExt": {
+               "longDescription":"optional",
 
-	                  "properties":[
+               "localExt": {
 
-	                                   {
+                      "properties":[
 
-	                                       "key1":"value1",
+                                       {
 
-	                                       "key2":"value2"
+                                           "key1":"value1",
 
-	                                   }
+                                           "key2":"value2"
 
-	                  ],
+                                       }
 
-	                  "functions":[
+                      ],
 
-	                                   {
+                      "functions":[
 
-	                                       "key1":"value1",
+                                       {
 
-	                                       "key2":"value2"
+                                           "key1":"value1",
 
-	                                   }
+                                           "key2":"value2"
 
-	                 ]
+                                       }
 
-	           }
+                     ]
 
-	        }
+               }
 
-	   },
+            }
 
-	   "images": [
+       },
 
-	     {
+       "images": [
 
-	           "as":"optional, image for",
+         {
 
-	           "caption":"optional",
+               "as":"optional, image for",
 
-	           "height":10,
+               "caption":"optional",
 
-	           "width":10,
+               "height":10,
 
-	           "imageUrl":"http://img-url-required",
+               "width":10,
 
-	           "smallImageUrl":"http://small-img-url-required"
+               "imageUrl":"http://img-url-required",
 
-	     }
+               "smallImageUrl":"http://small-img-url-required"
 
-	   ],
+         }
 
-	   "thumbnailUrl": "optional, thumbnail url",
+       ],
 
-	   "status": "ACTIVE",
+       "thumbnailUrl": "optional, thumbnail url",
 
-	   "listable": true,
+       "status": "ACTIVE",
 
-	   "purchasable": true,
+       "listable": true,
 
-	   "itemType": "APP(allowed: [APP,COINS,INGAMEITEM,CODE,BUNDLE])",
+       "purchasable": true,
 
-	   "name": "required, also will be used as entitlement name",
+       "itemType": "APP(allowed: [APP,COINS,INGAMEITEM,CODE,BUNDLE])",
 
-	   "entitlementType": "DURABLE(allowed:[DURABLE,CONSUMABLE], should be CONSUMABLE when item type is COINS)",
+       "name": "required, also will be used as entitlement name",
 
-	   "useCount": 1(optional, required if the entitlement type is consumable),
+       "entitlementType": "DURABLE(allowed:[DURABLE,CONSUMABLE], should be CONSUMABLE when item type is COINS)",
 
-	   "stackable": false,
+       "useCount": 1(optional, required if the entitlement type is consumable),
 
-	   "appId": "optional, required if itemType is APP",
+       "stackable": false,
 
-	   "appType": "GAME(optional, required if itemType is APP)",
+       "appId": "optional, required if itemType is APP",
 
-	   "seasonType": "PASS(optional, required if itemType is SEASON)",
+       "appType": "GAME(optional, required if itemType is APP)",
 
-	   "baseAppId": "optional, set value of game app id if you want to link to a game",
+       "seasonType": "PASS(optional, required if itemType is SEASON)",
 
-	   "targetCurrencyCode": "optional, required if itemType is COINS",
+       "baseAppId": "optional, set value of game app id if you want to link to a game",
 
-	   "targetNamespace": "optional, required when itemType is INGAMEITEM, the targetNamespace will only take effect when the item
+       "targetCurrencyCode": "optional, required if itemType is COINS",
 
-	   created belongs to the publisher namespace",
+       "targetNamespace": "optional, required when itemType is INGAMEITEM, the targetNamespace will only take effect when the item
 
-	   "sku": "optional, commonly unique item code",
+       created belongs to the publisher namespace",
 
-	   "regionData": {
+       "sku": "optional, commonly unique item code",
 
-	       "US(store's default region is required)": [
+       "regionData": {
 
-	         {
+           "US(store's default region is required)": [
 
-	            "price":10,
+             {
 
-	            "discountPercentage": 0(integer, optional, range[0,100], discountedPrice = price  * ((100 - discountPercentage) * 0.01),
+                "price":10,
 
-	              will use it to calculate discounted price if it is not 0),
+                "discountPercentage": 0(integer, optional, range[0,100], discountedPrice = price  * ((100 - discountPercentage) * 0.01),
 
-	            "discountAmount":0(integer, optional, range[0,itemPrice], will use it to calculate discounted price if discountPercentage is 0),
+                  will use it to calculate discounted price if it is not 0),
 
-	            "currencyCode":"code(required, example: USD)",
+                "discountAmount":0(integer, optional, range[0,itemPrice], will use it to calculate discounted price if discountPercentage is 0),
 
-	            "currencyNamespace":"test-ns-required(allow publisher namespace if namespace is publisher namespace, allow publisher and game namespace if namespace is not publisher namespace)",
+                "currencyCode":"code(required, example: USD)",
 
-	            "trialPrice":5(required while fixedTrialCycles set, should >=0 and <= price, will same as price if not present),
+                "currencyNamespace":"test-ns-required(allow publisher namespace if namespace is publisher namespace, allow publisher and game namespace if namespace is not publisher namespace)",
 
-	            "purchaseAt":"optional yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
+                "trialPrice":5(required while fixedTrialCycles set, should >=0 and <= price, will same as price if not present),
 
-	            "expireAt":"optional yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
+                "purchaseAt":"optional yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
 
-	            "discountPurchaseAt":"optional yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
+                "expireAt":"optional yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
 
-	            "discountExpireAt":"optional yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
+                "discountPurchaseAt":"optional yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
 
-	         }
+                "discountExpireAt":"optional yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
 
-	       ]
+             }
 
-	   },
+           ]
 
-	   "itemIds": [
+       },
 
-	       "itemId"
+       "itemIds": [
 
-	   ],
+           "itemId"
 
-	   "itemQty": {
+       ],
 
-	       "itemId":1
+       "itemQty": {
 
-	   },
+           "itemId":1
 
-	   "recurring": {
+       },
 
-	       "cycle":"MONTHLY(allowed: [WEEKLY,MONTHLY,QUARTERLY,YEARLY])",
+       "recurring": {
 
-	       "fixedFreeDays":0(integer, fixed free days, 0 means not set),
+           "cycle":"MONTHLY(allowed: [WEEKLY,MONTHLY,QUARTERLY,YEARLY])",
 
-	       "fixedTrialCycles":0(integer, fixed trial cycles, 0 means not set, will not take effect if fixedFreeDays set),
+           "fixedFreeDays":0(integer, fixed free days, 0 means not set),
 
-	       "graceDays":7(integer, recurring grace days, retry recurring charge within configured days if charge fail, default 7)
+           "fixedTrialCycles":0(integer, fixed trial cycles, 0 means not set, will not take effect if fixedFreeDays set),
 
-	   },
+           "graceDays":7(integer, recurring grace days, retry recurring charge within configured days if charge fail, default 7)
 
-	   "tags": [
+       },
 
-	       "exampleTag24"
+       "tags": [
 
-	   ],
+           "exampleTag24"
 
-	   "features": [
+       ],
 
-	       "feature"
+       "features": [
 
-	   ],
+           "feature"
 
-	   "clazz": "weapon",
+       ],
 
-	   "boothName": "C_campaign1",
+       "clazz": "weapon",
 
-	   "displayOrder": 1000,
+       "boothName": "C_campaign1",
 
-	   "ext": {
+       "displayOrder": 1000,
 
-	       "properties":[
+       "ext": {
 
-	           {
+           "properties":[
 
-	               "key1":"value1",
+               {
 
-	               "key2":"value2"
+                   "key1":"value1",
 
-	           }
+                   "key2":"value2"
 
-	       ],
+               }
 
-	       "functions":[
+           ],
 
-	           {
+           "functions":[
 
-	               "key1":"value1",
+               {
 
-	               "key2":"value2"
+                   "key1":"value1",
 
-	           }
+                   "key2":"value2"
 
-	       ]
+               }
 
-	   },
+           ]
 
-	   "maxCountPerUser": 1(integer, optional, -1 means UNLIMITED),
+       },
 
-	   "maxCount": 1(integer, optional, -1 means UNLIMITED, unset when itemType is CODE)
+       "maxCountPerUser": 1(integer, optional, -1 means UNLIMITED),
 
-	}
+       "maxCount": 1(integer, optional, -1 means UNLIMITED, unset when itemType is CODE)
+
+    }
 
 Other detail info:
 
-  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:ITEM", action=1 (CREATE)
-  - Returns : created item data
+  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:ITEM", action=1 (CREATE)
+  *  Returns : created item data
 
-## Restrictions for item extension and localization extension
+
+
+## Restrictions for item extension and localization extension and inventory config custom attributes
+
 
 1. Cannot use "." as the key name
 -
 
-	{ "data.2": "value" }
+
+    { "data.2": "value" }
+
 
 2. Cannot use "$" as the prefix in key names
 -
 
-	{ "$data": "value" }
+
+    { "$data": "value" }
 */
 func (a *Client) CreateItemShort(params *CreateItemParams, authInfo runtime.ClientAuthInfoWriter) (*CreateItemCreated, error) {
 	// TODO: Validate the params before sending
@@ -1523,8 +1523,8 @@ This API is used to get the item by appId.
 
 Other detail info:
 
-  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:ITEM", action=2 (READ)
-  - Returns : the item with that appId
+  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:ITEM", action=2 (READ)
+  *  Returns : the item with that appId
 */
 func (a *Client) GetItemByAppID(params *GetItemByAppIDParams, authInfo runtime.ClientAuthInfoWriter) (*GetItemByAppIDOK, *GetItemByAppIDNotFound, error) {
 	// TODO: Validate the params before sending
@@ -1576,8 +1576,8 @@ This API is used to get the item by appId.
 
 Other detail info:
 
-  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:ITEM", action=2 (READ)
-  - Returns : the item with that appId
+  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:ITEM", action=2 (READ)
+  *  Returns : the item with that appId
 */
 func (a *Client) GetItemByAppIDShort(params *GetItemByAppIDParams, authInfo runtime.ClientAuthInfoWriter) (*GetItemByAppIDOK, error) {
 	// TODO: Validate the params before sending
@@ -1634,8 +1634,8 @@ This API is used to query items by criteria within a store.
 
 Other detail info:
 
-  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:ITEM", action=2 (READ)
-  - Returns : the list of items
+  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:ITEM", action=2 (READ)
+  *  Returns : the list of items
 */
 func (a *Client) QueryItems(params *QueryItemsParams, authInfo runtime.ClientAuthInfoWriter) (*QueryItemsOK, *QueryItemsNotFound, *QueryItemsUnprocessableEntity, error) {
 	// TODO: Validate the params before sending
@@ -1690,8 +1690,8 @@ This API is used to query items by criteria within a store.
 
 Other detail info:
 
-  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:ITEM", action=2 (READ)
-  - Returns : the list of items
+  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:ITEM", action=2 (READ)
+  *  Returns : the list of items
 */
 func (a *Client) QueryItemsShort(params *QueryItemsParams, authInfo runtime.ClientAuthInfoWriter) (*QueryItemsOK, error) {
 	// TODO: Validate the params before sending
@@ -1746,13 +1746,12 @@ func (a *Client) QueryItemsShort(params *QueryItemsParams, authInfo runtime.Clie
 Deprecated: 2022-08-10 - Use ListBasicItemsByFeaturesShort instead.
 
 ListBasicItemsByFeatures list basic items by features
-
-	[SERVICE COMMUNICATION ONLY] This API is used to list basic items by features.
+ [SERVICE COMMUNICATION ONLY] This API is used to list basic items by features.
 
 Other detail info:
 
-  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:ITEM", action=2 (READ)
-  - Returns : the list of basic items
+  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:ITEM", action=2 (READ)
+  *  Returns : the list of basic items
 */
 func (a *Client) ListBasicItemsByFeatures(params *ListBasicItemsByFeaturesParams, authInfo runtime.ClientAuthInfoWriter) (*ListBasicItemsByFeaturesOK, error) {
 	// TODO: Validate the params before sending
@@ -1797,13 +1796,12 @@ func (a *Client) ListBasicItemsByFeatures(params *ListBasicItemsByFeaturesParams
 
 /*
 ListBasicItemsByFeaturesShort list basic items by features
-
-	[SERVICE COMMUNICATION ONLY] This API is used to list basic items by features.
+ [SERVICE COMMUNICATION ONLY] This API is used to list basic items by features.
 
 Other detail info:
 
-  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:ITEM", action=2 (READ)
-  - Returns : the list of basic items
+  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:ITEM", action=2 (READ)
+  *  Returns : the list of basic items
 */
 func (a *Client) ListBasicItemsByFeaturesShort(params *ListBasicItemsByFeaturesParams, authInfo runtime.ClientAuthInfoWriter) (*ListBasicItemsByFeaturesOK, error) {
 	// TODO: Validate the params before sending
@@ -1858,8 +1856,8 @@ This API is used to get items.
 
 Other detail info:
 
-  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:ITEM", action=2 (READ)
-  - Returns : the list of items info
+  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:ITEM", action=2 (READ)
+  *  Returns : the list of items info
 */
 func (a *Client) GetItems(params *GetItemsParams, authInfo runtime.ClientAuthInfoWriter) (*GetItemsOK, *GetItemsNotFound, error) {
 	// TODO: Validate the params before sending
@@ -1911,8 +1909,8 @@ This API is used to get items.
 
 Other detail info:
 
-  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:ITEM", action=2 (READ)
-  - Returns : the list of items info
+  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:ITEM", action=2 (READ)
+  *  Returns : the list of items info
 */
 func (a *Client) GetItemsShort(params *GetItemsParams, authInfo runtime.ClientAuthInfoWriter) (*GetItemsOK, error) {
 	// TODO: Validate the params before sending
@@ -1969,8 +1967,8 @@ This API is used to get the item by sku.
 
 Other detail info:
 
-  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:ITEM", action=2 (READ)
-  - Returns : the item with sku
+  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:ITEM", action=2 (READ)
+  *  Returns : the item with sku
 */
 func (a *Client) GetItemBySku(params *GetItemBySkuParams, authInfo runtime.ClientAuthInfoWriter) (*GetItemBySkuOK, *GetItemBySkuNotFound, error) {
 	// TODO: Validate the params before sending
@@ -2022,8 +2020,8 @@ This API is used to get the item by sku.
 
 Other detail info:
 
-  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:ITEM", action=2 (READ)
-  - Returns : the item with sku
+  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:ITEM", action=2 (READ)
+  *  Returns : the item with sku
 */
 func (a *Client) GetItemBySkuShort(params *GetItemBySkuParams, authInfo runtime.ClientAuthInfoWriter) (*GetItemBySkuOK, error) {
 	// TODO: Validate the params before sending
@@ -2080,8 +2078,8 @@ This API is used to get an item by sku in specific locale. If item not exist in 
 
 Other detail info:
 
-  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:ITEM", action=2 (READ)
-  - Returns : item data
+  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:ITEM", action=2 (READ)
+  *  Returns : item data
 */
 func (a *Client) GetLocaleItemBySku(params *GetLocaleItemBySkuParams, authInfo runtime.ClientAuthInfoWriter) (*GetLocaleItemBySkuOK, *GetLocaleItemBySkuNotFound, error) {
 	// TODO: Validate the params before sending
@@ -2133,8 +2131,8 @@ This API is used to get an item by sku in specific locale. If item not exist in 
 
 Other detail info:
 
-  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:ITEM", action=2 (READ)
-  - Returns : item data
+  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:ITEM", action=2 (READ)
+  *  Returns : item data
 */
 func (a *Client) GetLocaleItemBySkuShort(params *GetLocaleItemBySkuParams, authInfo runtime.ClientAuthInfoWriter) (*GetLocaleItemBySkuOK, error) {
 	// TODO: Validate the params before sending
@@ -2288,13 +2286,12 @@ func (a *Client) GetEstimatedPriceShort(params *GetEstimatedPriceParams, authInf
 Deprecated: 2022-08-10 - Use GetItemIDBySkuShort instead.
 
 GetItemIDBySku get itemid by sku
-
-	[SERVICE COMMUNICATION ONLY] This API is used to get the itemId by sku.
+ [SERVICE COMMUNICATION ONLY] This API is used to get the itemId by sku.
 
 Other detail info:
 
-  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:ITEM", action=2 (READ)
-  - Returns : the itemId with sku
+  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:ITEM", action=2 (READ)
+  *  Returns : the itemId with sku
 */
 func (a *Client) GetItemIDBySku(params *GetItemIDBySkuParams, authInfo runtime.ClientAuthInfoWriter) (*GetItemIDBySkuOK, *GetItemIDBySkuNotFound, error) {
 	// TODO: Validate the params before sending
@@ -2342,13 +2339,12 @@ func (a *Client) GetItemIDBySku(params *GetItemIDBySkuParams, authInfo runtime.C
 
 /*
 GetItemIDBySkuShort get itemid by sku
-
-	[SERVICE COMMUNICATION ONLY] This API is used to get the itemId by sku.
+ [SERVICE COMMUNICATION ONLY] This API is used to get the itemId by sku.
 
 Other detail info:
 
-  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:ITEM", action=2 (READ)
-  - Returns : the itemId with sku
+  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:ITEM", action=2 (READ)
+  *  Returns : the itemId with sku
 */
 func (a *Client) GetItemIDBySkuShort(params *GetItemIDBySkuParams, authInfo runtime.ClientAuthInfoWriter) (*GetItemIDBySkuOK, error) {
 	// TODO: Validate the params before sending
@@ -2405,8 +2401,8 @@ This API is used to get an list of itemId by list of sku.
 
 Other detail info:
 
-  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:ITEM", action=2 (READ)
-  - Returns : item data
+  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:ITEM", action=2 (READ)
+  *  Returns : item data
 */
 func (a *Client) GetBulkItemIDBySkus(params *GetBulkItemIDBySkusParams, authInfo runtime.ClientAuthInfoWriter) (*GetBulkItemIDBySkusOK, error) {
 	// TODO: Validate the params before sending
@@ -2455,8 +2451,8 @@ This API is used to get an list of itemId by list of sku.
 
 Other detail info:
 
-  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:ITEM", action=2 (READ)
-  - Returns : item data
+  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:ITEM", action=2 (READ)
+  *  Returns : item data
 */
 func (a *Client) GetBulkItemIDBySkusShort(params *GetBulkItemIDBySkusParams, authInfo runtime.ClientAuthInfoWriter) (*GetBulkItemIDBySkusOK, error) {
 	// TODO: Validate the params before sending
@@ -2511,8 +2507,8 @@ This API is used to bulk get locale items. If item not exist in specific region,
 
 Other detail info:
 
-  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:ITEM", action=2 (READ)
-  - Returns : the list of items info
+  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:ITEM", action=2 (READ)
+  *  Returns : the list of items info
 */
 func (a *Client) BulkGetLocaleItems(params *BulkGetLocaleItemsParams, authInfo runtime.ClientAuthInfoWriter) (*BulkGetLocaleItemsOK, *BulkGetLocaleItemsNotFound, error) {
 	// TODO: Validate the params before sending
@@ -2564,8 +2560,8 @@ This API is used to bulk get locale items. If item not exist in specific region,
 
 Other detail info:
 
-  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:ITEM", action=2 (READ)
-  - Returns : the list of items info
+  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:ITEM", action=2 (READ)
+  *  Returns : the list of items info
 */
 func (a *Client) BulkGetLocaleItemsShort(params *BulkGetLocaleItemsParams, authInfo runtime.ClientAuthInfoWriter) (*BulkGetLocaleItemsOK, error) {
 	// TODO: Validate the params before sending
@@ -2621,8 +2617,8 @@ GetAvailablePredicateTypes get available predicate types
 Get available predicate types.
 Other detail info:
 
-  - Required permission : resource=ADMIN:NAMESPACE:{namespace}:ITEM, action=2 (READ)
-  - Returns : available predicate types
+  * Required permission : resource=ADMIN:NAMESPACE:{namespace}:ITEM, action=2 (READ)
+  *  Returns : available predicate types
 */
 func (a *Client) GetAvailablePredicateTypes(params *GetAvailablePredicateTypesParams, authInfo runtime.ClientAuthInfoWriter) (*GetAvailablePredicateTypesOK, *GetAvailablePredicateTypesNotFound, error) {
 	// TODO: Validate the params before sending
@@ -2673,8 +2669,8 @@ GetAvailablePredicateTypesShort get available predicate types
 Get available predicate types.
 Other detail info:
 
-  - Required permission : resource=ADMIN:NAMESPACE:{namespace}:ITEM, action=2 (READ)
-  - Returns : available predicate types
+  * Required permission : resource=ADMIN:NAMESPACE:{namespace}:ITEM, action=2 (READ)
+  *  Returns : available predicate types
 */
 func (a *Client) GetAvailablePredicateTypesShort(params *GetAvailablePredicateTypesParams, authInfo runtime.ClientAuthInfoWriter) (*GetAvailablePredicateTypesOK, error) {
 	// TODO: Validate the params before sending
@@ -2831,7 +2827,7 @@ BulkUpdateRegionData update item's region data in bulk
 This API is used to update region data of items in bulk
 Other detail info:
 
-  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:ITEM", action=4 (UPDATE)
+  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:ITEM", action=4 (UPDATE)
 */
 func (a *Client) BulkUpdateRegionData(params *BulkUpdateRegionDataParams, authInfo runtime.ClientAuthInfoWriter) (*BulkUpdateRegionDataNoContent, *BulkUpdateRegionDataBadRequest, *BulkUpdateRegionDataNotFound, *BulkUpdateRegionDataConflict, *BulkUpdateRegionDataUnprocessableEntity, error) {
 	// TODO: Validate the params before sending
@@ -2891,7 +2887,7 @@ BulkUpdateRegionDataShort update item's region data in bulk
 This API is used to update region data of items in bulk
 Other detail info:
 
-  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:ITEM", action=4 (UPDATE)
+  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:ITEM", action=4 (UPDATE)
 */
 func (a *Client) BulkUpdateRegionDataShort(params *BulkUpdateRegionDataParams, authInfo runtime.ClientAuthInfoWriter) (*BulkUpdateRegionDataNoContent, error) {
 	// TODO: Validate the params before sending
@@ -2954,8 +2950,8 @@ This API is used to search items by keyword in title, description and long descr
 
 Other detail info:
 
-  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:ITEM", action=2 (READ)
-  - Returns : the list of items
+  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:ITEM", action=2 (READ)
+  *  Returns : the list of items
 */
 func (a *Client) SearchItems(params *SearchItemsParams, authInfo runtime.ClientAuthInfoWriter) (*SearchItemsOK, *SearchItemsNotFound, error) {
 	// TODO: Validate the params before sending
@@ -3007,8 +3003,8 @@ This API is used to search items by keyword in title, description and long descr
 
 Other detail info:
 
-  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:ITEM", action=2 (READ)
-  - Returns : the list of items
+  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:ITEM", action=2 (READ)
+  *  Returns : the list of items
 */
 func (a *Client) SearchItemsShort(params *SearchItemsParams, authInfo runtime.ClientAuthInfoWriter) (*SearchItemsOK, error) {
 	// TODO: Validate the params before sending
@@ -3065,8 +3061,8 @@ This API is used to query uncategorized items within a store.
 
 Other detail info:
 
-  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:ITEM", action=2 (READ)
-  - Returns : the list of uncategorized items
+  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:ITEM", action=2 (READ)
+  *  Returns : the list of uncategorized items
 */
 func (a *Client) QueryUncategorizedItems(params *QueryUncategorizedItemsParams, authInfo runtime.ClientAuthInfoWriter) (*QueryUncategorizedItemsOK, *QueryUncategorizedItemsNotFound, *QueryUncategorizedItemsUnprocessableEntity, error) {
 	// TODO: Validate the params before sending
@@ -3121,8 +3117,8 @@ This API is used to query uncategorized items within a store.
 
 Other detail info:
 
-  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:ITEM", action=2 (READ)
-  - Returns : the list of uncategorized items
+  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:ITEM", action=2 (READ)
+  *  Returns : the list of uncategorized items
 */
 func (a *Client) QueryUncategorizedItemsShort(params *QueryUncategorizedItemsParams, authInfo runtime.ClientAuthInfoWriter) (*QueryUncategorizedItemsOK, error) {
 	// TODO: Validate the params before sending
@@ -3181,8 +3177,8 @@ This API is used to get an item.
 
 Other detail info:
 
-  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:ITEM", action=2 (READ)
-  - Returns : item data
+  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:ITEM", action=2 (READ)
+  *  Returns : item data
 */
 func (a *Client) GetItem(params *GetItemParams, authInfo runtime.ClientAuthInfoWriter) (*GetItemOK, *GetItemNotFound, error) {
 	// TODO: Validate the params before sending
@@ -3234,8 +3230,8 @@ This API is used to get an item.
 
 Other detail info:
 
-  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:ITEM", action=2 (READ)
-  - Returns : item data
+  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:ITEM", action=2 (READ)
+  *  Returns : item data
 */
 func (a *Client) GetItemShort(params *GetItemParams, authInfo runtime.ClientAuthInfoWriter) (*GetItemOK, error) {
 	// TODO: Validate the params before sending
@@ -3292,234 +3288,241 @@ This API is used to update an item.
 
 An item update example:
 
-	{
 
-	    "categoryPath": "/games",
+    {
 
-	    "localizations": {
+        "categoryPath": "/games",
 
-	       "en": {
+        "localizations": {
 
-	           "title":"required",
+           "en": {
 
-	           "description":"optional",
+               "title":"required",
 
-	           "longDescription":"optional",
+               "description":"optional",
 
-	           "localExt": {
+               "longDescription":"optional",
 
-	                  "properties":[
+               "localExt": {
 
-	                                   {
+                      "properties":[
 
-	                                       "key1":"value1",
+                                       {
 
-	                                       "key2":"value2"
+                                           "key1":"value1",
 
-	                                   }
+                                           "key2":"value2"
 
-	                  ],
+                                       }
 
-	                  "functions":[
+                      ],
 
-	                                   {
+                      "functions":[
 
-	                                       "key1":"value1",
+                                       {
 
-	                                       "key2":"value2"
+                                           "key1":"value1",
 
-	                                   }
+                                           "key2":"value2"
 
-	                 ]
+                                       }
 
-	           }
+                     ]
 
-	       }
+               }
 
-	   },
+           }
 
-	   "images": [
+       },
 
-	     {
+       "images": [
 
-	           "as":"optional, image for",
+         {
 
-	           "caption":"optional",
+               "as":"optional, image for",
 
-	           "height":10,
+               "caption":"optional",
 
-	           "width":10,
+               "height":10,
 
-	           "imageUrl":"http://img-url-required",
+               "width":10,
 
-	           "smallImageUrl":"http://small-img-url-required"
+               "imageUrl":"http://img-url-required",
 
-	     }
+               "smallImageUrl":"http://small-img-url-required"
 
-	   ],
+         }
 
-	   "thumbnailUrl": "optional, thumbnail url",
+       ],
 
-	   "status": "ACTIVE",
+       "thumbnailUrl": "optional, thumbnail url",
 
-	   "listable": true,
+       "status": "ACTIVE",
 
-	   "purchasable": true,
+       "listable": true,
 
-	   "itemType": "APP(allowed: [APP,COINS,INGAMEITEM,CODE,BUNDLE])",
+       "purchasable": true,
 
-	   "name": "optional",
+       "itemType": "APP(allowed: [APP,COINS,INGAMEITEM,CODE,BUNDLE])",
 
-	   "entitlementType": "DURABLE(allowed:[DURABLE,CONSUMABLE], should be CONSUMABLE when item type is COINS)",
+       "name": "optional",
 
-	   "useCount": 1(optional, required if the entitlement type is consumable),
+       "entitlementType": "DURABLE(allowed:[DURABLE,CONSUMABLE], should be CONSUMABLE when item type is COINS)",
 
-	   "stackable": false,
+       "useCount": 1(optional, required if the entitlement type is consumable),
 
-	   "appId": "optional, required if itemType is APP",
+       "stackable": false,
 
-	   "baseAppId": "optional, set value of game app id if you want to link to a game",
+       "appId": "optional, required if itemType is APP",
 
-	   "appType": "GAME(optional, required if itemType is APP)",
+       "baseAppId": "optional, set value of game app id if you want to link to a game",
 
-	   "seasonType": "PASS(optional, required if itemType is SEASON)",
+       "appType": "GAME(optional, required if itemType is APP)",
 
-	   "sku": "optional, commonly unique item code",
+       "seasonType": "PASS(optional, required if itemType is SEASON)",
 
-	   "targetCurrencyCode": "optional, required if itemType is COINS",
+       "sku": "optional, commonly unique item code",
 
-	   "targetNamespace": "optional, required when itemType is INGAMEITEM, the targetNamespace will only take effect when the item
+       "targetCurrencyCode": "optional, required if itemType is COINS",
 
-	   created belongs to the publisher namespace",
+       "targetNamespace": "optional, required when itemType is INGAMEITEM, the targetNamespace will only take effect when the item
 
-	   "regionData": {
+       created belongs to the publisher namespace",
 
-	       "US(store's default region is required)": [
+       "regionData": {
 
-	         {
+           "US(store's default region is required)": [
 
-	            "price":10,
+             {
 
-	            "discountPercentage":0(integer, optional, range[0,100], discountedPrice = price*((100 - discountPercentage) * 0.01),
+                "price":10,
 
-	              if it is not 0, will use it to calculate discounted price),
+                "discountPercentage":0(integer, optional, range[0,100], discountedPrice = price*((100 - discountPercentage) * 0.01),
 
-	            "discountAmount":0(integer, optional, range[0,itemPrice], will use it to calculate discounted price if discountPercentage is 0),
+                  if it is not 0, will use it to calculate discounted price),
 
-	            "currencyCode":"code(required, example: USD)",
+                "discountAmount":0(integer, optional, range[0,itemPrice], will use it to calculate discounted price if discountPercentage is 0),
 
-	            "currencyNamespace":"test-ns-required(allow publisher namespace if namespace is publisher namespace, allow publisher and game namespace if namespace is not publisher namespace)",
+                "currencyCode":"code(required, example: USD)",
 
-	            "trialPrice":5(required while fixedTrialCycles set, should >=0 and <= price, will same as price if not present),
+                "currencyNamespace":"test-ns-required(allow publisher namespace if namespace is publisher namespace, allow publisher and game namespace if namespace is not publisher namespace)",
 
-	            "purchaseAt":"optional yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
+                "trialPrice":5(required while fixedTrialCycles set, should >=0 and <= price, will same as price if not present),
 
-	            "expireAt":"optional yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
+                "purchaseAt":"optional yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
 
-	            "discountPurchaseAt":"optional yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
+                "expireAt":"optional yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
 
-	            "discountExpireAt":"optional yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
+                "discountPurchaseAt":"optional yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
 
-	         }
+                "discountExpireAt":"optional yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
 
-	       ]
+             }
 
-	   },
+           ]
 
-	   "itemIds": [
+       },
 
-	       "itemId"
+       "itemIds": [
 
-	   ],
+           "itemId"
 
-	   "itemQty": {
+       ],
 
-	       "itemId":1
+       "itemQty": {
 
-	   },
+           "itemId":1
 
-	   "recurring": {
+       },
 
-	       "cycle":"MONTHLY(allowed: [WEEKLY,MONTHLY,QUARTERLY,YEARLY])",
+       "recurring": {
 
-	       "fixedFreeDays":0(integer, fixed free days, 0 means not set),
+           "cycle":"MONTHLY(allowed: [WEEKLY,MONTHLY,QUARTERLY,YEARLY])",
 
-	       "fixedTrialCycles":0(integer, fixed trial cycles, 0 means not set, will not take effect if fixedFreeDays set),
+           "fixedFreeDays":0(integer, fixed free days, 0 means not set),
 
-	       "graceDays":7(integer, recurring grace days, retry recurring charge within configured days if charge fail, default 7)
+           "fixedTrialCycles":0(integer, fixed trial cycles, 0 means not set, will not take effect if fixedFreeDays set),
 
-	   },
+           "graceDays":7(integer, recurring grace days, retry recurring charge within configured days if charge fail, default 7)
 
-	   "tags": [
+       },
 
-	       "exampleTag24"
+       "tags": [
 
-	   ],
+           "exampleTag24"
 
-	   "features": [
+       ],
 
-	       "feature"
+       "features": [
 
-	   ],
+           "feature"
 
-	   "clazz": "weapon",
+       ],
 
-	   "boothName": "C_campaign1",
+       "clazz": "weapon",
 
-	   "displayOrder": 1000,
+       "boothName": "C_campaign1",
 
-	   "ext": {
+       "displayOrder": 1000,
 
-	       "properties":[
+       "ext": {
 
-	           {
+           "properties":[
 
-	               "key1":"value1",
+               {
 
-	               "key2":"value2"
+                   "key1":"value1",
 
-	           }
+                   "key2":"value2"
 
-	       ],
+               }
 
-	       "functions":[
+           ],
 
-	           {
+           "functions":[
 
-	               "key1":"value1",
+               {
 
-	               "key2":"value2"
+                   "key1":"value1",
 
-	           }
+                   "key2":"value2"
 
-	       ]
+               }
 
-	   },
+           ]
 
-	   "maxCountPerUser": 1(integer, optional, -1 means UNLIMITED),
+       },
 
-	   "maxCount": 1(integer, optional, -1 means UNLIMITED, new value should >= old value if both old value and new value is
+       "maxCountPerUser": 1(integer, optional, -1 means UNLIMITED),
 
-	   limited, unset when item type is CODE)
+       "maxCount": 1(integer, optional, -1 means UNLIMITED, new value should >= old value if both old value and new value is
 
-	}
+       limited, unset when item type is CODE)
+
+    }
 
 Other detail info:
 
-  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:ITEM", action=4 (UPDATE)
-  - Returns : updated item data
+  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:ITEM", action=4 (UPDATE)
+  *  Returns : updated item data
+
+
 
 ## Restrictions for item extension and localization extension
+
 
 1. Cannot use "." as the key name
 -
 
-	{ "data.2": "value" }
+
+    { "data.2": "value" }
+
 
 2. Cannot use "$" as the prefix in key names
 -
 
-	{ "$data": "value" }
+
+    { "$data": "value" }
 */
 func (a *Client) UpdateItem(params *UpdateItemParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateItemOK, *UpdateItemBadRequest, *UpdateItemNotFound, *UpdateItemConflict, *UpdateItemUnprocessableEntity, error) {
 	// TODO: Validate the params before sending
@@ -3580,234 +3583,241 @@ This API is used to update an item.
 
 An item update example:
 
-	{
 
-	    "categoryPath": "/games",
+    {
 
-	    "localizations": {
+        "categoryPath": "/games",
 
-	       "en": {
+        "localizations": {
 
-	           "title":"required",
+           "en": {
 
-	           "description":"optional",
+               "title":"required",
 
-	           "longDescription":"optional",
+               "description":"optional",
 
-	           "localExt": {
+               "longDescription":"optional",
 
-	                  "properties":[
+               "localExt": {
 
-	                                   {
+                      "properties":[
 
-	                                       "key1":"value1",
+                                       {
 
-	                                       "key2":"value2"
+                                           "key1":"value1",
 
-	                                   }
+                                           "key2":"value2"
 
-	                  ],
+                                       }
 
-	                  "functions":[
+                      ],
 
-	                                   {
+                      "functions":[
 
-	                                       "key1":"value1",
+                                       {
 
-	                                       "key2":"value2"
+                                           "key1":"value1",
 
-	                                   }
+                                           "key2":"value2"
 
-	                 ]
+                                       }
 
-	           }
+                     ]
 
-	       }
+               }
 
-	   },
+           }
 
-	   "images": [
+       },
 
-	     {
+       "images": [
 
-	           "as":"optional, image for",
+         {
 
-	           "caption":"optional",
+               "as":"optional, image for",
 
-	           "height":10,
+               "caption":"optional",
 
-	           "width":10,
+               "height":10,
 
-	           "imageUrl":"http://img-url-required",
+               "width":10,
 
-	           "smallImageUrl":"http://small-img-url-required"
+               "imageUrl":"http://img-url-required",
 
-	     }
+               "smallImageUrl":"http://small-img-url-required"
 
-	   ],
+         }
 
-	   "thumbnailUrl": "optional, thumbnail url",
+       ],
 
-	   "status": "ACTIVE",
+       "thumbnailUrl": "optional, thumbnail url",
 
-	   "listable": true,
+       "status": "ACTIVE",
 
-	   "purchasable": true,
+       "listable": true,
 
-	   "itemType": "APP(allowed: [APP,COINS,INGAMEITEM,CODE,BUNDLE])",
+       "purchasable": true,
 
-	   "name": "optional",
+       "itemType": "APP(allowed: [APP,COINS,INGAMEITEM,CODE,BUNDLE])",
 
-	   "entitlementType": "DURABLE(allowed:[DURABLE,CONSUMABLE], should be CONSUMABLE when item type is COINS)",
+       "name": "optional",
 
-	   "useCount": 1(optional, required if the entitlement type is consumable),
+       "entitlementType": "DURABLE(allowed:[DURABLE,CONSUMABLE], should be CONSUMABLE when item type is COINS)",
 
-	   "stackable": false,
+       "useCount": 1(optional, required if the entitlement type is consumable),
 
-	   "appId": "optional, required if itemType is APP",
+       "stackable": false,
 
-	   "baseAppId": "optional, set value of game app id if you want to link to a game",
+       "appId": "optional, required if itemType is APP",
 
-	   "appType": "GAME(optional, required if itemType is APP)",
+       "baseAppId": "optional, set value of game app id if you want to link to a game",
 
-	   "seasonType": "PASS(optional, required if itemType is SEASON)",
+       "appType": "GAME(optional, required if itemType is APP)",
 
-	   "sku": "optional, commonly unique item code",
+       "seasonType": "PASS(optional, required if itemType is SEASON)",
 
-	   "targetCurrencyCode": "optional, required if itemType is COINS",
+       "sku": "optional, commonly unique item code",
 
-	   "targetNamespace": "optional, required when itemType is INGAMEITEM, the targetNamespace will only take effect when the item
+       "targetCurrencyCode": "optional, required if itemType is COINS",
 
-	   created belongs to the publisher namespace",
+       "targetNamespace": "optional, required when itemType is INGAMEITEM, the targetNamespace will only take effect when the item
 
-	   "regionData": {
+       created belongs to the publisher namespace",
 
-	       "US(store's default region is required)": [
+       "regionData": {
 
-	         {
+           "US(store's default region is required)": [
 
-	            "price":10,
+             {
 
-	            "discountPercentage":0(integer, optional, range[0,100], discountedPrice = price*((100 - discountPercentage) * 0.01),
+                "price":10,
 
-	              if it is not 0, will use it to calculate discounted price),
+                "discountPercentage":0(integer, optional, range[0,100], discountedPrice = price*((100 - discountPercentage) * 0.01),
 
-	            "discountAmount":0(integer, optional, range[0,itemPrice], will use it to calculate discounted price if discountPercentage is 0),
+                  if it is not 0, will use it to calculate discounted price),
 
-	            "currencyCode":"code(required, example: USD)",
+                "discountAmount":0(integer, optional, range[0,itemPrice], will use it to calculate discounted price if discountPercentage is 0),
 
-	            "currencyNamespace":"test-ns-required(allow publisher namespace if namespace is publisher namespace, allow publisher and game namespace if namespace is not publisher namespace)",
+                "currencyCode":"code(required, example: USD)",
 
-	            "trialPrice":5(required while fixedTrialCycles set, should >=0 and <= price, will same as price if not present),
+                "currencyNamespace":"test-ns-required(allow publisher namespace if namespace is publisher namespace, allow publisher and game namespace if namespace is not publisher namespace)",
 
-	            "purchaseAt":"optional yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
+                "trialPrice":5(required while fixedTrialCycles set, should >=0 and <= price, will same as price if not present),
 
-	            "expireAt":"optional yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
+                "purchaseAt":"optional yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
 
-	            "discountPurchaseAt":"optional yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
+                "expireAt":"optional yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
 
-	            "discountExpireAt":"optional yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
+                "discountPurchaseAt":"optional yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
 
-	         }
+                "discountExpireAt":"optional yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
 
-	       ]
+             }
 
-	   },
+           ]
 
-	   "itemIds": [
+       },
 
-	       "itemId"
+       "itemIds": [
 
-	   ],
+           "itemId"
 
-	   "itemQty": {
+       ],
 
-	       "itemId":1
+       "itemQty": {
 
-	   },
+           "itemId":1
 
-	   "recurring": {
+       },
 
-	       "cycle":"MONTHLY(allowed: [WEEKLY,MONTHLY,QUARTERLY,YEARLY])",
+       "recurring": {
 
-	       "fixedFreeDays":0(integer, fixed free days, 0 means not set),
+           "cycle":"MONTHLY(allowed: [WEEKLY,MONTHLY,QUARTERLY,YEARLY])",
 
-	       "fixedTrialCycles":0(integer, fixed trial cycles, 0 means not set, will not take effect if fixedFreeDays set),
+           "fixedFreeDays":0(integer, fixed free days, 0 means not set),
 
-	       "graceDays":7(integer, recurring grace days, retry recurring charge within configured days if charge fail, default 7)
+           "fixedTrialCycles":0(integer, fixed trial cycles, 0 means not set, will not take effect if fixedFreeDays set),
 
-	   },
+           "graceDays":7(integer, recurring grace days, retry recurring charge within configured days if charge fail, default 7)
 
-	   "tags": [
+       },
 
-	       "exampleTag24"
+       "tags": [
 
-	   ],
+           "exampleTag24"
 
-	   "features": [
+       ],
 
-	       "feature"
+       "features": [
 
-	   ],
+           "feature"
 
-	   "clazz": "weapon",
+       ],
 
-	   "boothName": "C_campaign1",
+       "clazz": "weapon",
 
-	   "displayOrder": 1000,
+       "boothName": "C_campaign1",
 
-	   "ext": {
+       "displayOrder": 1000,
 
-	       "properties":[
+       "ext": {
 
-	           {
+           "properties":[
 
-	               "key1":"value1",
+               {
 
-	               "key2":"value2"
+                   "key1":"value1",
 
-	           }
+                   "key2":"value2"
 
-	       ],
+               }
 
-	       "functions":[
+           ],
 
-	           {
+           "functions":[
 
-	               "key1":"value1",
+               {
 
-	               "key2":"value2"
+                   "key1":"value1",
 
-	           }
+                   "key2":"value2"
 
-	       ]
+               }
 
-	   },
+           ]
 
-	   "maxCountPerUser": 1(integer, optional, -1 means UNLIMITED),
+       },
 
-	   "maxCount": 1(integer, optional, -1 means UNLIMITED, new value should >= old value if both old value and new value is
+       "maxCountPerUser": 1(integer, optional, -1 means UNLIMITED),
 
-	   limited, unset when item type is CODE)
+       "maxCount": 1(integer, optional, -1 means UNLIMITED, new value should >= old value if both old value and new value is
 
-	}
+       limited, unset when item type is CODE)
+
+    }
 
 Other detail info:
 
-  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:ITEM", action=4 (UPDATE)
-  - Returns : updated item data
+  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:ITEM", action=4 (UPDATE)
+  *  Returns : updated item data
+
+
 
 ## Restrictions for item extension and localization extension
+
 
 1. Cannot use "." as the key name
 -
 
-	{ "data.2": "value" }
+
+    { "data.2": "value" }
+
 
 2. Cannot use "$" as the prefix in key names
 -
 
-	{ "$data": "value" }
+
+    { "$data": "value" }
 */
 func (a *Client) UpdateItemShort(params *UpdateItemParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateItemOK, error) {
 	// TODO: Validate the params before sending
@@ -3873,7 +3883,7 @@ force: the default value should be: false. When the value is:
 *  true: the item in the draft store(even been published before) can be removed.
 Other detail info:
 
-  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:ITEM", action=8 (DELETE)
+  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:ITEM", action=8 (DELETE)
 */
 func (a *Client) DeleteItem(params *DeleteItemParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteItemNoContent, *DeleteItemNotFound, error) {
 	// TODO: Validate the params before sending
@@ -3928,7 +3938,7 @@ force: the default value should be: false. When the value is:
 *  true: the item in the draft store(even been published before) can be removed.
 Other detail info:
 
-  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:ITEM", action=8 (DELETE)
+  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:ITEM", action=8 (DELETE)
 */
 func (a *Client) DeleteItemShort(params *DeleteItemParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteItemNoContent, error) {
 	// TODO: Validate the params before sending
@@ -3981,13 +3991,11 @@ func (a *Client) DeleteItemShort(params *DeleteItemParams, authInfo runtime.Clie
 Deprecated: 2022-08-10 - Use AcquireItemShort instead.
 
 AcquireItem acquire item
-
-	[SERVICE COMMUNICATION ONLY] This api is used for acquiring a published item while the item is maxCount limited, it will decrease the sale available count.
-
+ [SERVICE COMMUNICATION ONLY] This api is used for acquiring a published item while the item is maxCount limited, it will decrease the sale available count.
 Other detail info:
 
-  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:ITEM", action=4 (UPDATE)
-  - Returns : acquire result
+  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:ITEM", action=4 (UPDATE)
+  *  Returns : acquire result
 */
 func (a *Client) AcquireItem(params *AcquireItemParams, authInfo runtime.ClientAuthInfoWriter) (*AcquireItemOK, *AcquireItemNotFound, error) {
 	// TODO: Validate the params before sending
@@ -4035,13 +4043,11 @@ func (a *Client) AcquireItem(params *AcquireItemParams, authInfo runtime.ClientA
 
 /*
 AcquireItemShort acquire item
-
-	[SERVICE COMMUNICATION ONLY] This api is used for acquiring a published item while the item is maxCount limited, it will decrease the sale available count.
-
+ [SERVICE COMMUNICATION ONLY] This api is used for acquiring a published item while the item is maxCount limited, it will decrease the sale available count.
 Other detail info:
 
-  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:ITEM", action=4 (UPDATE)
-  - Returns : acquire result
+  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:ITEM", action=4 (UPDATE)
+  *  Returns : acquire result
 */
 func (a *Client) AcquireItemShort(params *AcquireItemParams, authInfo runtime.ClientAuthInfoWriter) (*AcquireItemOK, error) {
 	// TODO: Validate the params before sending
@@ -4098,8 +4104,8 @@ This API is used to get an app info.
 
 Other detail info:
 
-  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:ITEM", action=2 (READ)
-  - Returns : app data
+  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:ITEM", action=2 (READ)
+  *  Returns : app data
 */
 func (a *Client) GetApp(params *GetAppParams, authInfo runtime.ClientAuthInfoWriter) (*GetAppOK, error) {
 	// TODO: Validate the params before sending
@@ -4148,8 +4154,8 @@ This API is used to get an app info.
 
 Other detail info:
 
-  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:ITEM", action=2 (READ)
-  - Returns : app data
+  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:ITEM", action=2 (READ)
+  *  Returns : app data
 */
 func (a *Client) GetAppShort(params *GetAppParams, authInfo runtime.ClientAuthInfoWriter) (*GetAppOK, error) {
 	// TODO: Validate the params before sending
@@ -4204,94 +4210,95 @@ This API is used to update an app.
 
 An app update example:
 
-	{
 
-	  "developer": "accelbyte",
+    {
 
-	  "publisher": "accelbyte",
+      "developer": "accelbyte",
 
-	  "websiteUrl": "http://accelbyte.io",
+      "publisher": "accelbyte",
 
-	  "forumUrl": "http://accelbyte.io",
+      "websiteUrl": "http://accelbyte.io",
 
-	  "platforms": ["Windows(allowed values: Windows, MacOS, Linux, IOS, Android)"],
+      "forumUrl": "http://accelbyte.io",
 
-	  "platformRequirements": {
+      "platforms": ["Windows(allowed values: Windows, MacOS, Linux, IOS, Android)"],
 
-	    "Windows": [
+      "platformRequirements": {
 
-	      {
+        "Windows": [
 
-	        "label":"minimum(can be minimum or recommended)",
+          {
 
-	        "osVersion":"os version",
+            "label":"minimum(can be minimum or recommended)",
 
-	        "processor":"processor",
+            "osVersion":"os version",
 
-	        "ram":"RAM",
+            "processor":"processor",
 
-	        "graphics":"graphics",
+            "ram":"RAM",
 
-	        "directXVersion":"directXVersion",
+            "graphics":"graphics",
 
-	        "diskSpace":"diskSpace",
+            "directXVersion":"directXVersion",
 
-	        "soundCard":"soundCard",
+            "diskSpace":"diskSpace",
 
-	        "additionals":"additionals"
+            "soundCard":"soundCard",
 
-	      }
+            "additionals":"additionals"
 
-	     ]
+          }
 
-	  },
+         ]
 
-	  "carousel": [
+      },
 
-	    {
+      "carousel": [
 
-	      "type":"image(allowed values: image, video)",
+        {
 
-	      "videoSource":"generic(allowed values:generic, youtube, viemo)",
+          "type":"image(allowed values: image, video)",
 
-	      "url":"url",
+          "videoSource":"generic(allowed values:generic, youtube, viemo)",
 
-	      "alt":"alternative url or text",
+          "url":"url",
 
-	      "thumbnailUrl":"thumbnail url",
+          "alt":"alternative url or text",
 
-	      "previewUrl":"preview url",
+          "thumbnailUrl":"thumbnail url",
 
-	    }
+          "previewUrl":"preview url",
 
-	  ],
+        }
 
-	  "localizations": {
+      ],
 
-	    "en": {
+      "localizations": {
 
-	      "slogan":"slogan",
+        "en": {
 
-	      "announcement":"announcement",
+          "slogan":"slogan",
 
-	    }
+          "announcement":"announcement",
 
-	  },
+        }
 
-	  "primaryGenre": "Action",
+      },
 
-	  "genres": ["Action", "Adventure"],
+      "primaryGenre": "Action",
 
-	  "players": ["Single"],
+      "genres": ["Action", "Adventure"],
 
-	  "releaseDate": "optional yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
+      "players": ["Single"],
 
-	}
+      "releaseDate": "optional yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
+
+    }
 
 Other detail info:
 
-  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:ITEM", action=4 (UPDATE)
-  - Returns : updated app data
+  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:ITEM", action=4 (UPDATE)
+  *  Returns : updated app data
 */
 func (a *Client) UpdateApp(params *UpdateAppParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateAppOK, *UpdateAppNotFound, *UpdateAppConflict, *UpdateAppUnprocessableEntity, error) {
 	// TODO: Validate the params before sending
@@ -4349,94 +4356,95 @@ This API is used to update an app.
 
 An app update example:
 
-	{
 
-	  "developer": "accelbyte",
+    {
 
-	  "publisher": "accelbyte",
+      "developer": "accelbyte",
 
-	  "websiteUrl": "http://accelbyte.io",
+      "publisher": "accelbyte",
 
-	  "forumUrl": "http://accelbyte.io",
+      "websiteUrl": "http://accelbyte.io",
 
-	  "platforms": ["Windows(allowed values: Windows, MacOS, Linux, IOS, Android)"],
+      "forumUrl": "http://accelbyte.io",
 
-	  "platformRequirements": {
+      "platforms": ["Windows(allowed values: Windows, MacOS, Linux, IOS, Android)"],
 
-	    "Windows": [
+      "platformRequirements": {
 
-	      {
+        "Windows": [
 
-	        "label":"minimum(can be minimum or recommended)",
+          {
 
-	        "osVersion":"os version",
+            "label":"minimum(can be minimum or recommended)",
 
-	        "processor":"processor",
+            "osVersion":"os version",
 
-	        "ram":"RAM",
+            "processor":"processor",
 
-	        "graphics":"graphics",
+            "ram":"RAM",
 
-	        "directXVersion":"directXVersion",
+            "graphics":"graphics",
 
-	        "diskSpace":"diskSpace",
+            "directXVersion":"directXVersion",
 
-	        "soundCard":"soundCard",
+            "diskSpace":"diskSpace",
 
-	        "additionals":"additionals"
+            "soundCard":"soundCard",
 
-	      }
+            "additionals":"additionals"
 
-	     ]
+          }
 
-	  },
+         ]
 
-	  "carousel": [
+      },
 
-	    {
+      "carousel": [
 
-	      "type":"image(allowed values: image, video)",
+        {
 
-	      "videoSource":"generic(allowed values:generic, youtube, viemo)",
+          "type":"image(allowed values: image, video)",
 
-	      "url":"url",
+          "videoSource":"generic(allowed values:generic, youtube, viemo)",
 
-	      "alt":"alternative url or text",
+          "url":"url",
 
-	      "thumbnailUrl":"thumbnail url",
+          "alt":"alternative url or text",
 
-	      "previewUrl":"preview url",
+          "thumbnailUrl":"thumbnail url",
 
-	    }
+          "previewUrl":"preview url",
 
-	  ],
+        }
 
-	  "localizations": {
+      ],
 
-	    "en": {
+      "localizations": {
 
-	      "slogan":"slogan",
+        "en": {
 
-	      "announcement":"announcement",
+          "slogan":"slogan",
 
-	    }
+          "announcement":"announcement",
 
-	  },
+        }
 
-	  "primaryGenre": "Action",
+      },
 
-	  "genres": ["Action", "Adventure"],
+      "primaryGenre": "Action",
 
-	  "players": ["Single"],
+      "genres": ["Action", "Adventure"],
 
-	  "releaseDate": "optional yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
+      "players": ["Single"],
 
-	}
+      "releaseDate": "optional yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
+
+    }
 
 Other detail info:
 
-  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:ITEM", action=4 (UPDATE)
-  - Returns : updated app data
+  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:ITEM", action=4 (UPDATE)
+  *  Returns : updated app data
 */
 func (a *Client) UpdateAppShort(params *UpdateAppParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateAppOK, error) {
 	// TODO: Validate the params before sending
@@ -4496,8 +4504,8 @@ DisableItem disable an item
 Disable an item.
 Other detail info:
 
-  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:ITEM", action=4 (UPDATE)
-  - Returns : updated item
+  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:ITEM", action=4 (UPDATE)
+  *  Returns : updated item
 */
 func (a *Client) DisableItem(params *DisableItemParams, authInfo runtime.ClientAuthInfoWriter) (*DisableItemOK, *DisableItemNotFound, *DisableItemConflict, error) {
 	// TODO: Validate the params before sending
@@ -4551,8 +4559,8 @@ DisableItemShort disable an item
 Disable an item.
 Other detail info:
 
-  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:ITEM", action=4 (UPDATE)
-  - Returns : updated item
+  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:ITEM", action=4 (UPDATE)
+  *  Returns : updated item
 */
 func (a *Client) DisableItemShort(params *DisableItemParams, authInfo runtime.ClientAuthInfoWriter) (*DisableItemOK, error) {
 	// TODO: Validate the params before sending
@@ -4610,8 +4618,8 @@ GetItemDynamicData get item dynamic data
 Get item dynamic data for published item.
 Other detail info:
 
-  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:ITEM", action=2 (READ)
-  - Returns : item dynamic data
+  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:ITEM", action=2 (READ)
+  *  Returns : item dynamic data
 */
 func (a *Client) GetItemDynamicData(params *GetItemDynamicDataParams, authInfo runtime.ClientAuthInfoWriter) (*GetItemDynamicDataOK, *GetItemDynamicDataNotFound, error) {
 	// TODO: Validate the params before sending
@@ -4662,8 +4670,8 @@ GetItemDynamicDataShort get item dynamic data
 Get item dynamic data for published item.
 Other detail info:
 
-  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:ITEM", action=2 (READ)
-  - Returns : item dynamic data
+  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:ITEM", action=2 (READ)
+  *  Returns : item dynamic data
 */
 func (a *Client) GetItemDynamicDataShort(params *GetItemDynamicDataParams, authInfo runtime.ClientAuthInfoWriter) (*GetItemDynamicDataOK, error) {
 	// TODO: Validate the params before sending
@@ -4719,8 +4727,8 @@ EnableItem enable an item
 Enable an item.
 Other detail info:
 
-  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:ITEM", action=4 (UPDATE)
-  - Returns : updated item
+  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:ITEM", action=4 (UPDATE)
+  *  Returns : updated item
 */
 func (a *Client) EnableItem(params *EnableItemParams, authInfo runtime.ClientAuthInfoWriter) (*EnableItemOK, *EnableItemNotFound, *EnableItemConflict, error) {
 	// TODO: Validate the params before sending
@@ -4774,8 +4782,8 @@ EnableItemShort enable an item
 Enable an item.
 Other detail info:
 
-  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:ITEM", action=4 (UPDATE)
-  - Returns : updated item
+  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:ITEM", action=4 (UPDATE)
+  *  Returns : updated item
 */
 func (a *Client) EnableItemShort(params *EnableItemParams, authInfo runtime.ClientAuthInfoWriter) (*EnableItemOK, error) {
 	// TODO: Validate the params before sending
@@ -4833,8 +4841,8 @@ FeatureItem feature an item
 Add a feature to an item.
 Other detail info:
 
-  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:ITEM", action=4 (UPDATE)
-  - Returns : updated item
+  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:ITEM", action=4 (UPDATE)
+  *  Returns : updated item
 */
 func (a *Client) FeatureItem(params *FeatureItemParams, authInfo runtime.ClientAuthInfoWriter) (*FeatureItemOK, *FeatureItemNotFound, *FeatureItemConflict, error) {
 	// TODO: Validate the params before sending
@@ -4888,8 +4896,8 @@ FeatureItemShort feature an item
 Add a feature to an item.
 Other detail info:
 
-  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:ITEM", action=4 (UPDATE)
-  - Returns : updated item
+  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:ITEM", action=4 (UPDATE)
+  *  Returns : updated item
 */
 func (a *Client) FeatureItemShort(params *FeatureItemParams, authInfo runtime.ClientAuthInfoWriter) (*FeatureItemOK, error) {
 	// TODO: Validate the params before sending
@@ -4947,8 +4955,8 @@ DefeatureItem defeature an item
 Remove a feature from an item.
 Other detail info:
 
-  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:ITEM", action=4 (UPDATE)
-  - Returns : updated item
+  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:ITEM", action=4 (UPDATE)
+  *  Returns : updated item
 */
 func (a *Client) DefeatureItem(params *DefeatureItemParams, authInfo runtime.ClientAuthInfoWriter) (*DefeatureItemOK, *DefeatureItemNotFound, *DefeatureItemConflict, error) {
 	// TODO: Validate the params before sending
@@ -5002,8 +5010,8 @@ DefeatureItemShort defeature an item
 Remove a feature from an item.
 Other detail info:
 
-  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:ITEM", action=4 (UPDATE)
-  - Returns : updated item
+  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:ITEM", action=4 (UPDATE)
+  *  Returns : updated item
 */
 func (a *Client) DefeatureItemShort(params *DefeatureItemParams, authInfo runtime.ClientAuthInfoWriter) (*DefeatureItemOK, error) {
 	// TODO: Validate the params before sending
@@ -5062,8 +5070,8 @@ This API is used to get an item in specific locale. If item not exist in specifi
 
 Other detail info:
 
-  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:ITEM", action=2 (READ)
-  - Returns : item data
+  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:ITEM", action=2 (READ)
+  *  Returns : item data
 */
 func (a *Client) GetLocaleItem(params *GetLocaleItemParams, authInfo runtime.ClientAuthInfoWriter) (*GetLocaleItemOK, *GetLocaleItemNotFound, error) {
 	// TODO: Validate the params before sending
@@ -5115,8 +5123,8 @@ This API is used to get an item in specific locale. If item not exist in specifi
 
 Other detail info:
 
-  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:ITEM", action=2 (READ)
-  - Returns : item data
+  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:ITEM", action=2 (READ)
+  *  Returns : item data
 */
 func (a *Client) GetLocaleItemShort(params *GetLocaleItemParams, authInfo runtime.ClientAuthInfoWriter) (*GetLocaleItemOK, error) {
 	// TODO: Validate the params before sending
@@ -5285,12 +5293,10 @@ func (a *Client) UpdateItemPurchaseConditionShort(params *UpdateItemPurchaseCond
 Deprecated: 2022-08-10 - Use ReturnItemShort instead.
 
 ReturnItem return item
-
-	[SERVICE COMMUNICATION ONLY] This api is used for returning a published item while the item is maxCount limited, it will increase the sale available count if orderNo already acquired.
-
+ [SERVICE COMMUNICATION ONLY] This api is used for returning a published item while the item is maxCount limited, it will increase the sale available count if orderNo already acquired.
 Other detail info:
 
-  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:ITEM", action=4 (UPDATE)
+  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:ITEM", action=4 (UPDATE)
 */
 func (a *Client) ReturnItem(params *ReturnItemParams, authInfo runtime.ClientAuthInfoWriter) (*ReturnItemNoContent, *ReturnItemNotFound, *ReturnItemUnprocessableEntity, error) {
 	// TODO: Validate the params before sending
@@ -5341,12 +5347,10 @@ func (a *Client) ReturnItem(params *ReturnItemParams, authInfo runtime.ClientAut
 
 /*
 ReturnItemShort return item
-
-	[SERVICE COMMUNICATION ONLY] This api is used for returning a published item while the item is maxCount limited, it will increase the sale available count if orderNo already acquired.
-
+ [SERVICE COMMUNICATION ONLY] This api is used for returning a published item while the item is maxCount limited, it will increase the sale available count if orderNo already acquired.
 Other detail info:
 
-  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:ITEM", action=4 (UPDATE)
+  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:ITEM", action=4 (UPDATE)
 */
 func (a *Client) ReturnItemShort(params *ReturnItemParams, authInfo runtime.ClientAuthInfoWriter) (*ReturnItemNoContent, error) {
 	// TODO: Validate the params before sending
@@ -5405,9 +5409,9 @@ This API is used to get item by appId.
 
 Other detail info:
 
-  - Optional permission : resource="PREVIEW", action=1(CREATE) (user with this permission can view draft store item)
-  - Optional permission : resource="SANDBOX", action=1(CREATE) (user with this permission can view draft store item)
-  - Returns : the item with that appId
+  * Optional permission : resource="PREVIEW", action=1(CREATE) (user with this permission can view draft store item)
+  *  Optional permission : resource="SANDBOX", action=1(CREATE) (user with this permission can view draft store item)
+  *  Returns : the item with that appId
 */
 func (a *Client) PublicGetItemByAppID(params *PublicGetItemByAppIDParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGetItemByAppIDOK, *PublicGetItemByAppIDNotFound, error) {
 	// TODO: Validate the params before sending
@@ -5459,9 +5463,9 @@ This API is used to get item by appId.
 
 Other detail info:
 
-  - Optional permission : resource="PREVIEW", action=1(CREATE) (user with this permission can view draft store item)
-  - Optional permission : resource="SANDBOX", action=1(CREATE) (user with this permission can view draft store item)
-  - Returns : the item with that appId
+  * Optional permission : resource="PREVIEW", action=1(CREATE) (user with this permission can view draft store item)
+  *  Optional permission : resource="SANDBOX", action=1(CREATE) (user with this permission can view draft store item)
+  *  Returns : the item with that appId
 */
 func (a *Client) PublicGetItemByAppIDShort(params *PublicGetItemByAppIDParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGetItemByAppIDOK, error) {
 	// TODO: Validate the params before sending
@@ -5518,9 +5522,9 @@ This API is used to query items by criteria within a store. If item not exist in
 
 Other detail info:
 
-  - Optional permission : resource="PREVIEW", action=1(CREATE) (user with this permission can view draft store item)
-  - Optional permission : resource="SANDBOX", action=1(CREATE) (user with this permission can view draft store item)
-  - Returns : the list of items
+  * Optional permission : resource="PREVIEW", action=1(CREATE) (user with this permission can view draft store item)
+  *  Optional permission : resource="SANDBOX", action=1(CREATE) (user with this permission can view draft store item)
+  *  Returns : the list of items
 */
 func (a *Client) PublicQueryItems(params *PublicQueryItemsParams, authInfo runtime.ClientAuthInfoWriter) (*PublicQueryItemsOK, *PublicQueryItemsNotFound, *PublicQueryItemsUnprocessableEntity, error) {
 	// TODO: Validate the params before sending
@@ -5575,9 +5579,9 @@ This API is used to query items by criteria within a store. If item not exist in
 
 Other detail info:
 
-  - Optional permission : resource="PREVIEW", action=1(CREATE) (user with this permission can view draft store item)
-  - Optional permission : resource="SANDBOX", action=1(CREATE) (user with this permission can view draft store item)
-  - Returns : the list of items
+  * Optional permission : resource="PREVIEW", action=1(CREATE) (user with this permission can view draft store item)
+  *  Optional permission : resource="SANDBOX", action=1(CREATE) (user with this permission can view draft store item)
+  *  Returns : the list of items
 */
 func (a *Client) PublicQueryItemsShort(params *PublicQueryItemsParams, authInfo runtime.ClientAuthInfoWriter) (*PublicQueryItemsOK, error) {
 	// TODO: Validate the params before sending
@@ -5636,9 +5640,9 @@ This API is used to get the item by sku.
 
 Other detail info:
 
-  - Optional permission : resource="PREVIEW", action=1(CREATE) (user with this permission can view draft store item)
-  - Optional permission : resource="SANDBOX", action=1(CREATE) (user with this permission can view draft store item)
-  - Returns : the item with sku
+  * Optional permission : resource="PREVIEW", action=1(CREATE) (user with this permission can view draft store item)
+  *  Optional permission : resource="SANDBOX", action=1(CREATE) (user with this permission can view draft store item)
+  *  Returns : the item with sku
 */
 func (a *Client) PublicGetItemBySku(params *PublicGetItemBySkuParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGetItemBySkuOK, *PublicGetItemBySkuNotFound, error) {
 	// TODO: Validate the params before sending
@@ -5690,9 +5694,9 @@ This API is used to get the item by sku.
 
 Other detail info:
 
-  - Optional permission : resource="PREVIEW", action=1(CREATE) (user with this permission can view draft store item)
-  - Optional permission : resource="SANDBOX", action=1(CREATE) (user with this permission can view draft store item)
-  - Returns : the item with sku
+  * Optional permission : resource="PREVIEW", action=1(CREATE) (user with this permission can view draft store item)
+  *  Optional permission : resource="SANDBOX", action=1(CREATE) (user with this permission can view draft store item)
+  *  Returns : the item with sku
 */
 func (a *Client) PublicGetItemBySkuShort(params *PublicGetItemBySkuParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGetItemBySkuOK, error) {
 	// TODO: Validate the params before sending
@@ -5850,9 +5854,9 @@ This API is used to bulk get locale items. If item not exist in specific region,
 
 Other detail info:
 
-  - Optional permission : resource="PREVIEW", action=1(CREATE) (user with this permission can view draft store items)
-  - Optional permission : resource="SANDBOX", action=1(CREATE) (user with this permission can view draft store items)
-  - Returns : the list of items info
+  * Optional permission : resource="PREVIEW", action=1(CREATE) (user with this permission can view draft store items)
+  *  Optional permission : resource="SANDBOX", action=1(CREATE) (user with this permission can view draft store items)
+  *  Returns : the list of items info
 */
 func (a *Client) PublicBulkGetItems(params *PublicBulkGetItemsParams, authInfo runtime.ClientAuthInfoWriter) (*PublicBulkGetItemsOK, *PublicBulkGetItemsNotFound, error) {
 	// TODO: Validate the params before sending
@@ -5904,9 +5908,9 @@ This API is used to bulk get locale items. If item not exist in specific region,
 
 Other detail info:
 
-  - Optional permission : resource="PREVIEW", action=1(CREATE) (user with this permission can view draft store items)
-  - Optional permission : resource="SANDBOX", action=1(CREATE) (user with this permission can view draft store items)
-  - Returns : the list of items info
+  * Optional permission : resource="PREVIEW", action=1(CREATE) (user with this permission can view draft store items)
+  *  Optional permission : resource="SANDBOX", action=1(CREATE) (user with this permission can view draft store items)
+  *  Returns : the list of items info
 */
 func (a *Client) PublicBulkGetItemsShort(params *PublicBulkGetItemsParams, authInfo runtime.ClientAuthInfoWriter) (*PublicBulkGetItemsOK, error) {
 	// TODO: Validate the params before sending
@@ -6064,9 +6068,9 @@ This API is used to search items by keyword in title, description and long descr
 
 Other detail info:
 
-  - Optional permission : resource="PREVIEW", action=1(CREATE) (user with this permission can view draft store item)
-  - Optional permission : resource="SANDBOX", action=1(CREATE) (user with this permission can view draft store item)
-  - Returns : the list of items
+  * Optional permission : resource="PREVIEW", action=1(CREATE) (user with this permission can view draft store item)
+  *  Optional permission : resource="SANDBOX", action=1(CREATE) (user with this permission can view draft store item)
+  *  Returns : the list of items
 */
 func (a *Client) PublicSearchItems(params *PublicSearchItemsParams, authInfo runtime.ClientAuthInfoWriter) (*PublicSearchItemsOK, *PublicSearchItemsNotFound, error) {
 	// TODO: Validate the params before sending
@@ -6118,9 +6122,9 @@ This API is used to search items by keyword in title, description and long descr
 
 Other detail info:
 
-  - Optional permission : resource="PREVIEW", action=1(CREATE) (user with this permission can view draft store item)
-  - Optional permission : resource="SANDBOX", action=1(CREATE) (user with this permission can view draft store item)
-  - Returns : the list of items
+  * Optional permission : resource="PREVIEW", action=1(CREATE) (user with this permission can view draft store item)
+  *  Optional permission : resource="SANDBOX", action=1(CREATE) (user with this permission can view draft store item)
+  *  Returns : the list of items
 */
 func (a *Client) PublicSearchItemsShort(params *PublicSearchItemsParams, authInfo runtime.ClientAuthInfoWriter) (*PublicSearchItemsOK, error) {
 	// TODO: Validate the params before sending
@@ -6177,9 +6181,9 @@ This API is used to get an app in locale. If app not exist in specific region, d
 
 Other detail info:
 
-  - Optional permission : resource="PREVIEW", action=1(CREATE) (user with this permission can view draft store app)
-  - Optional permission : resource="SANDBOX", action=1(CREATE) (user with this permission can view draft store app)
-  - Returns : app data
+  * Optional permission : resource="PREVIEW", action=1(CREATE) (user with this permission can view draft store app)
+  *  Optional permission : resource="SANDBOX", action=1(CREATE) (user with this permission can view draft store app)
+  *  Returns : app data
 */
 func (a *Client) PublicGetApp(params *PublicGetAppParams) (*PublicGetAppOK, *PublicGetAppNotFound, error) {
 	// TODO: Validate the params before sending
@@ -6230,9 +6234,9 @@ This API is used to get an app in locale. If app not exist in specific region, d
 
 Other detail info:
 
-  - Optional permission : resource="PREVIEW", action=1(CREATE) (user with this permission can view draft store app)
-  - Optional permission : resource="SANDBOX", action=1(CREATE) (user with this permission can view draft store app)
-  - Returns : app data
+  * Optional permission : resource="PREVIEW", action=1(CREATE) (user with this permission can view draft store app)
+  *  Optional permission : resource="SANDBOX", action=1(CREATE) (user with this permission can view draft store app)
+  *  Returns : app data
 */
 func (a *Client) PublicGetAppShort(params *PublicGetAppParams) (*PublicGetAppOK, error) {
 	// TODO: Validate the params before sending
@@ -6287,7 +6291,7 @@ PublicGetItemDynamicData get item dynamic data
 Get item dynamic data for a published item.
 Other detail info:
 
-  - Returns : item dynamic data
+  * Returns : item dynamic data
 */
 func (a *Client) PublicGetItemDynamicData(params *PublicGetItemDynamicDataParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGetItemDynamicDataOK, *PublicGetItemDynamicDataNotFound, error) {
 	// TODO: Validate the params before sending
@@ -6338,7 +6342,7 @@ PublicGetItemDynamicDataShort get item dynamic data
 Get item dynamic data for a published item.
 Other detail info:
 
-  - Returns : item dynamic data
+  * Returns : item dynamic data
 */
 func (a *Client) PublicGetItemDynamicDataShort(params *PublicGetItemDynamicDataParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGetItemDynamicDataOK, error) {
 	// TODO: Validate the params before sending
@@ -6395,9 +6399,9 @@ This API is used to get an item in locale. If item not exist in specific region,
 
 Other detail info:
 
-  - Optional permission : resource="PREVIEW", action=1(CREATE) (user with this permission can view draft store item)
-  - Optional permission : resource="SANDBOX", action=1(CREATE) (user with this permission can view draft store item)
-  - Returns : item data
+  * Optional permission : resource="PREVIEW", action=1(CREATE) (user with this permission can view draft store item)
+  *  Optional permission : resource="SANDBOX", action=1(CREATE) (user with this permission can view draft store item)
+  *  Returns : item data
 */
 func (a *Client) PublicGetItem(params *PublicGetItemParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGetItemOK, *PublicGetItemNotFound, error) {
 	// TODO: Validate the params before sending
@@ -6449,9 +6453,9 @@ This API is used to get an item in locale. If item not exist in specific region,
 
 Other detail info:
 
-  - Optional permission : resource="PREVIEW", action=1(CREATE) (user with this permission can view draft store item)
-  - Optional permission : resource="SANDBOX", action=1(CREATE) (user with this permission can view draft store item)
-  - Returns : item data
+  * Optional permission : resource="PREVIEW", action=1(CREATE) (user with this permission can view draft store item)
+  *  Optional permission : resource="SANDBOX", action=1(CREATE) (user with this permission can view draft store item)
+  *  Returns : item data
 */
 func (a *Client) PublicGetItemShort(params *PublicGetItemParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGetItemOK, error) {
 	// TODO: Validate the params before sending
@@ -6512,8 +6516,8 @@ The behaviour for itemStatus query parameter:
 * Not provided: show both ACTIVE and INACTIVE items
 Other detail info:
 
-  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:ITEM", action=2 (READ)
-  - Returns : the list of items
+  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:ITEM", action=2 (READ)
+  *  Returns : the list of items
 */
 func (a *Client) QueryItems1(params *QueryItems1Params, authInfo runtime.ClientAuthInfoWriter) (*QueryItems1OK, *QueryItems1NotFound, *QueryItems1UnprocessableEntity, error) {
 	// TODO: Validate the params before sending
@@ -6572,8 +6576,8 @@ The behaviour for itemStatus query parameter:
 * Not provided: show both ACTIVE and INACTIVE items
 Other detail info:
 
-  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:ITEM", action=2 (READ)
-  - Returns : the list of items
+  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:ITEM", action=2 (READ)
+  *  Returns : the list of items
 */
 func (a *Client) QueryItems1Short(params *QueryItems1Params, authInfo runtime.ClientAuthInfoWriter) (*QueryItems1OK, error) {
 	// TODO: Validate the params before sending

@@ -57,8 +57,7 @@ func NewCountSessionParamsWithHTTPClient(client *http.Client) *CountSessionParam
 	}
 }
 
-/*
-CountSessionParams contains all the parameters to send to the API endpoint
+/*CountSessionParams contains all the parameters to send to the API endpoint
 for the count session operation typically these are written to a http.Request
 */
 type CountSessionParams struct {

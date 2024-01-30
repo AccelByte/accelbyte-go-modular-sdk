@@ -58,8 +58,7 @@ func NewAdminGetConfigsParamsWithHTTPClient(client *http.Client) *AdminGetConfig
 	}
 }
 
-/*
-AdminGetConfigsParams contains all the parameters to send to the API endpoint
+/*AdminGetConfigsParams contains all the parameters to send to the API endpoint
 for the admin get configs operation typically these are written to a http.Request
 */
 type AdminGetConfigsParams struct {

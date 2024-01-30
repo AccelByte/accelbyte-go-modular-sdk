@@ -59,8 +59,7 @@ func NewSyncXboxDLCParamsWithHTTPClient(client *http.Client) *SyncXboxDLCParams 
 	}
 }
 
-/*
-SyncXboxDLCParams contains all the parameters to send to the API endpoint
+/*SyncXboxDLCParams contains all the parameters to send to the API endpoint
 for the sync xbox dlc operation typically these are written to a http.Request
 */
 type SyncXboxDLCParams struct {

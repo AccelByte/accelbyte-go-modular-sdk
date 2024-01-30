@@ -59,8 +59,7 @@ func NewCreateCategoryParamsWithHTTPClient(client *http.Client) *CreateCategoryP
 	}
 }
 
-/*
-CreateCategoryParams contains all the parameters to send to the API endpoint
+/*CreateCategoryParams contains all the parameters to send to the API endpoint
 for the create category operation typically these are written to a http.Request
 */
 type CreateCategoryParams struct {

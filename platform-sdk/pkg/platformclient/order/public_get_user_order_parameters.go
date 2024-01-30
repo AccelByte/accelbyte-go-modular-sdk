@@ -57,8 +57,7 @@ func NewPublicGetUserOrderParamsWithHTTPClient(client *http.Client) *PublicGetUs
 	}
 }
 
-/*
-PublicGetUserOrderParams contains all the parameters to send to the API endpoint
+/*PublicGetUserOrderParams contains all the parameters to send to the API endpoint
 for the public get user order operation typically these are written to a http.Request
 */
 type PublicGetUserOrderParams struct {

@@ -57,8 +57,7 @@ func NewBulkGetSessionsParamsWithHTTPClient(client *http.Client) *BulkGetSession
 	}
 }
 
-/*
-BulkGetSessionsParams contains all the parameters to send to the API endpoint
+/*BulkGetSessionsParams contains all the parameters to send to the API endpoint
 for the bulk get sessions operation typically these are written to a http.Request
 */
 type BulkGetSessionsParams struct {

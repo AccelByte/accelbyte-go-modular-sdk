@@ -59,8 +59,7 @@ func NewUpdateUserSlotConfigParamsWithHTTPClient(client *http.Client) *UpdateUse
 	}
 }
 
-/*
-UpdateUserSlotConfigParams contains all the parameters to send to the API endpoint
+/*UpdateUserSlotConfigParams contains all the parameters to send to the API endpoint
 for the update user slot config operation typically these are written to a http.Request
 */
 type UpdateUserSlotConfigParams struct {

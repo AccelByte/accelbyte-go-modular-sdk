@@ -22,6 +22,14 @@ type FulfillmentService struct {
 	Client           *platformclient.JusticePlatformService
 	ConfigRepository repository.ConfigRepository
 	TokenRepository  repository.TokenRepository
+
+	FlightIdRepository *utils.FlightIdContainer
+}
+
+var tempFlightIdFulfillment *string
+
+func (aaa *FulfillmentService) UpdateFlightId(flightId string) {
+	tempFlightIdFulfillment = &flightId
 }
 
 func (aaa *FulfillmentService) GetAuthSession() auth.Session {
@@ -200,6 +208,11 @@ func (aaa *FulfillmentService) QueryFulfillmentHistoriesShort(input *fulfillment
 			RetryCodes: utils.RetryCodes,
 		}
 	}
+	if tempFlightIdFulfillment != nil {
+		input.XFlightId = tempFlightIdFulfillment
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	}
 
 	ok, err := aaa.Client.Fulfillment.QueryFulfillmentHistoriesShort(input, authInfoWriter)
 	if err != nil {
@@ -224,6 +237,11 @@ func (aaa *FulfillmentService) FulfillItemShort(input *fulfillment.FulfillItemPa
 			Transport:  aaa.Client.Runtime.Transport,
 			RetryCodes: utils.RetryCodes,
 		}
+	}
+	if tempFlightIdFulfillment != nil {
+		input.XFlightId = tempFlightIdFulfillment
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.Fulfillment.FulfillItemShort(input, authInfoWriter)
@@ -250,6 +268,11 @@ func (aaa *FulfillmentService) RedeemCodeShort(input *fulfillment.RedeemCodePara
 			RetryCodes: utils.RetryCodes,
 		}
 	}
+	if tempFlightIdFulfillment != nil {
+		input.XFlightId = tempFlightIdFulfillment
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	}
 
 	ok, err := aaa.Client.Fulfillment.RedeemCodeShort(input, authInfoWriter)
 	if err != nil {
@@ -274,6 +297,11 @@ func (aaa *FulfillmentService) PreCheckFulfillItemShort(input *fulfillment.PreCh
 			Transport:  aaa.Client.Runtime.Transport,
 			RetryCodes: utils.RetryCodes,
 		}
+	}
+	if tempFlightIdFulfillment != nil {
+		input.XFlightId = tempFlightIdFulfillment
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.Fulfillment.PreCheckFulfillItemShort(input, authInfoWriter)
@@ -300,6 +328,11 @@ func (aaa *FulfillmentService) FulfillRewardsShort(input *fulfillment.FulfillRew
 			RetryCodes: utils.RetryCodes,
 		}
 	}
+	if tempFlightIdFulfillment != nil {
+		input.XFlightId = tempFlightIdFulfillment
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	}
 
 	_, err := aaa.Client.Fulfillment.FulfillRewardsShort(input, authInfoWriter)
 	if err != nil {
@@ -325,6 +358,11 @@ func (aaa *FulfillmentService) PublicRedeemCodeShort(input *fulfillment.PublicRe
 			RetryCodes: utils.RetryCodes,
 		}
 	}
+	if tempFlightIdFulfillment != nil {
+		input.XFlightId = tempFlightIdFulfillment
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	}
 
 	ok, err := aaa.Client.Fulfillment.PublicRedeemCodeShort(input, authInfoWriter)
 	if err != nil {
@@ -349,6 +387,11 @@ func (aaa *FulfillmentService) FulfillRewardsV2Short(input *fulfillment.FulfillR
 			Transport:  aaa.Client.Runtime.Transport,
 			RetryCodes: utils.RetryCodes,
 		}
+	}
+	if tempFlightIdFulfillment != nil {
+		input.XFlightId = tempFlightIdFulfillment
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.Fulfillment.FulfillRewardsV2Short(input, authInfoWriter)

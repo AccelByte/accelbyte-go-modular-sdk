@@ -72,8 +72,7 @@ func NewGenerateInvoiceSummaryParamsWithHTTPClient(client *http.Client) *Generat
 	}
 }
 
-/*
-GenerateInvoiceSummaryParams contains all the parameters to send to the API endpoint
+/*GenerateInvoiceSummaryParams contains all the parameters to send to the API endpoint
 for the generate invoice summary operation typically these are written to a http.Request
 */
 type GenerateInvoiceSummaryParams struct {

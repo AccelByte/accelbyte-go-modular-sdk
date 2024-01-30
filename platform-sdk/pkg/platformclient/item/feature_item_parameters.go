@@ -57,8 +57,7 @@ func NewFeatureItemParamsWithHTTPClient(client *http.Client) *FeatureItemParams 
 	}
 }
 
-/*
-FeatureItemParams contains all the parameters to send to the API endpoint
+/*FeatureItemParams contains all the parameters to send to the API endpoint
 for the feature item operation typically these are written to a http.Request
 */
 type FeatureItemParams struct {

@@ -57,8 +57,7 @@ func NewGetNamespacePublisherParamsWithHTTPClient(client *http.Client) *GetNames
 	}
 }
 
-/*
-GetNamespacePublisherParams contains all the parameters to send to the API endpoint
+/*GetNamespacePublisherParams contains all the parameters to send to the API endpoint
 for the get namespace publisher operation typically these are written to a http.Request
 */
 type GetNamespacePublisherParams struct {

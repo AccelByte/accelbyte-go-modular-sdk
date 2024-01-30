@@ -62,7 +62,7 @@ Allowed character for operand: alphanumeric, underscore `_` and dash `-`
 
 Allowed character for operator: `&` `|` `(` `)`
 
-	Please note that value of tags query param should be URL encoded
+ Please note that value of tags query param should be URL encoded
 */
 func (a *Client) GetLikedContent(params *GetLikedContentParams, authInfo runtime.ClientAuthInfoWriter) (*GetLikedContentOK, *GetLikedContentBadRequest, *GetLikedContentUnauthorized, *GetLikedContentInternalServerError, error) {
 	// TODO: Validate the params before sending
@@ -136,7 +136,7 @@ Allowed character for operand: alphanumeric, underscore `_` and dash `-`
 
 Allowed character for operator: `&` `|` `(` `)`
 
-	Please note that value of tags query param should be URL encoded
+ Please note that value of tags query param should be URL encoded
 */
 func (a *Client) GetLikedContentShort(params *GetLikedContentParams, authInfo runtime.ClientAuthInfoWriter) (*GetLikedContentOK, error) {
 	// TODO: Validate the params before sending

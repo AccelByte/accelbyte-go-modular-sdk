@@ -59,8 +59,7 @@ func NewBulkUpdateRegionDataParamsWithHTTPClient(client *http.Client) *BulkUpdat
 	}
 }
 
-/*
-BulkUpdateRegionDataParams contains all the parameters to send to the API endpoint
+/*BulkUpdateRegionDataParams contains all the parameters to send to the API endpoint
 for the bulk update region data operation typically these are written to a http.Request
 */
 type BulkUpdateRegionDataParams struct {

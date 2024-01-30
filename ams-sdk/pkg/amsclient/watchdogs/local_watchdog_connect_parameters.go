@@ -57,8 +57,7 @@ func NewLocalWatchdogConnectParamsWithHTTPClient(client *http.Client) *LocalWatc
 	}
 }
 
-/*
-LocalWatchdogConnectParams contains all the parameters to send to the API endpoint
+/*LocalWatchdogConnectParams contains all the parameters to send to the API endpoint
 for the local watchdog connect operation typically these are written to a http.Request
 */
 type LocalWatchdogConnectParams struct {

@@ -141,8 +141,7 @@ func NewQueryItemsParamsWithHTTPClient(client *http.Client) *QueryItemsParams {
 	}
 }
 
-/*
-QueryItemsParams contains all the parameters to send to the API endpoint
+/*QueryItemsParams contains all the parameters to send to the API endpoint
 for the query items operation typically these are written to a http.Request
 */
 type QueryItemsParams struct {

@@ -59,8 +59,7 @@ func NewAdminGetBulkPlayerBlockedPlayersV1ParamsWithHTTPClient(client *http.Clie
 	}
 }
 
-/*
-AdminGetBulkPlayerBlockedPlayersV1Params contains all the parameters to send to the API endpoint
+/*AdminGetBulkPlayerBlockedPlayersV1Params contains all the parameters to send to the API endpoint
 for the admin get bulk player blocked players v1 operation typically these are written to a http.Request
 */
 type AdminGetBulkPlayerBlockedPlayersV1Params struct {

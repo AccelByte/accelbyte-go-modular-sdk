@@ -57,8 +57,7 @@ func NewImportAchievementsParamsWithHTTPClient(client *http.Client) *ImportAchie
 	}
 }
 
-/*
-ImportAchievementsParams contains all the parameters to send to the API endpoint
+/*ImportAchievementsParams contains all the parameters to send to the API endpoint
 for the import achievements operation typically these are written to a http.Request
 */
 type ImportAchievementsParams struct {

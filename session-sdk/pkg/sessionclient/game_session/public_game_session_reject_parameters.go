@@ -57,8 +57,7 @@ func NewPublicGameSessionRejectParamsWithHTTPClient(client *http.Client) *Public
 	}
 }
 
-/*
-PublicGameSessionRejectParams contains all the parameters to send to the API endpoint
+/*PublicGameSessionRejectParams contains all the parameters to send to the API endpoint
 for the public game session reject operation typically these are written to a http.Request
 */
 type PublicGameSessionRejectParams struct {

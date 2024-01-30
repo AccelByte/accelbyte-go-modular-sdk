@@ -58,8 +58,7 @@ func NewGetBannedUsersParamsWithHTTPClient(client *http.Client) *GetBannedUsersP
 	}
 }
 
-/*
-GetBannedUsersParams contains all the parameters to send to the API endpoint
+/*GetBannedUsersParams contains all the parameters to send to the API endpoint
 for the get banned users operation typically these are written to a http.Request
 */
 type GetBannedUsersParams struct {

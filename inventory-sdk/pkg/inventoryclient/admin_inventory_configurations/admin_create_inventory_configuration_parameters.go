@@ -59,8 +59,7 @@ func NewAdminCreateInventoryConfigurationParamsWithHTTPClient(client *http.Clien
 	}
 }
 
-/*
-AdminCreateInventoryConfigurationParams contains all the parameters to send to the API endpoint
+/*AdminCreateInventoryConfigurationParams contains all the parameters to send to the API endpoint
 for the admin create inventory configuration operation typically these are written to a http.Request
 */
 type AdminCreateInventoryConfigurationParams struct {

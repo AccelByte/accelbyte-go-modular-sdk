@@ -58,8 +58,7 @@ func NewGetEventByUserIDHandlerParamsWithHTTPClient(client *http.Client) *GetEve
 	}
 }
 
-/*
-GetEventByUserIDHandlerParams contains all the parameters to send to the API endpoint
+/*GetEventByUserIDHandlerParams contains all the parameters to send to the API endpoint
 for the get event by user id handler operation typically these are written to a http.Request
 */
 type GetEventByUserIDHandlerParams struct {

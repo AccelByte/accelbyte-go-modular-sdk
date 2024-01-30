@@ -59,8 +59,7 @@ func NewCreateNamespaceParamsWithHTTPClient(client *http.Client) *CreateNamespac
 	}
 }
 
-/*
-CreateNamespaceParams contains all the parameters to send to the API endpoint
+/*CreateNamespaceParams contains all the parameters to send to the API endpoint
 for the create namespace operation typically these are written to a http.Request
 */
 type CreateNamespaceParams struct {

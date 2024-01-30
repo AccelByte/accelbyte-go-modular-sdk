@@ -78,8 +78,7 @@ func NewPublicGetItemParamsWithHTTPClient(client *http.Client) *PublicGetItemPar
 	}
 }
 
-/*
-PublicGetItemParams contains all the parameters to send to the API endpoint
+/*PublicGetItemParams contains all the parameters to send to the API endpoint
 for the public get item operation typically these are written to a http.Request
 */
 type PublicGetItemParams struct {

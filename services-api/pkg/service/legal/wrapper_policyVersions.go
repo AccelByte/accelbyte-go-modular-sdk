@@ -22,6 +22,14 @@ type PolicyVersionsService struct {
 	Client           *legalclient.JusticeLegalService
 	ConfigRepository repository.ConfigRepository
 	TokenRepository  repository.TokenRepository
+
+	FlightIdRepository *utils.FlightIdContainer
+}
+
+var tempFlightIdPolicyVersions *string
+
+func (aaa *PolicyVersionsService) UpdateFlightId(flightId string) {
+	tempFlightIdPolicyVersions = &flightId
 }
 
 func (aaa *PolicyVersionsService) GetAuthSession() auth.Session {
@@ -122,6 +130,11 @@ func (aaa *PolicyVersionsService) UpdatePolicyVersionShort(input *policy_version
 			RetryCodes: utils.RetryCodes,
 		}
 	}
+	if tempFlightIdPolicyVersions != nil {
+		input.XFlightId = tempFlightIdPolicyVersions
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	}
 
 	ok, err := aaa.Client.PolicyVersions.UpdatePolicyVersionShort(input, authInfoWriter)
 	if err != nil {
@@ -146,6 +159,11 @@ func (aaa *PolicyVersionsService) PublishPolicyVersionShort(input *policy_versio
 			Transport:  aaa.Client.Runtime.Transport,
 			RetryCodes: utils.RetryCodes,
 		}
+	}
+	if tempFlightIdPolicyVersions != nil {
+		input.XFlightId = tempFlightIdPolicyVersions
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
 	}
 
 	_, err := aaa.Client.PolicyVersions.PublishPolicyVersionShort(input, authInfoWriter)
@@ -172,6 +190,11 @@ func (aaa *PolicyVersionsService) RetrieveSinglePolicyVersionShort(input *policy
 			RetryCodes: utils.RetryCodes,
 		}
 	}
+	if tempFlightIdPolicyVersions != nil {
+		input.XFlightId = tempFlightIdPolicyVersions
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	}
 
 	ok, err := aaa.Client.PolicyVersions.RetrieveSinglePolicyVersionShort(input, authInfoWriter)
 	if err != nil {
@@ -196,6 +219,11 @@ func (aaa *PolicyVersionsService) CreatePolicyVersionShort(input *policy_version
 			Transport:  aaa.Client.Runtime.Transport,
 			RetryCodes: utils.RetryCodes,
 		}
+	}
+	if tempFlightIdPolicyVersions != nil {
+		input.XFlightId = tempFlightIdPolicyVersions
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
 	}
 
 	created, err := aaa.Client.PolicyVersions.CreatePolicyVersionShort(input, authInfoWriter)

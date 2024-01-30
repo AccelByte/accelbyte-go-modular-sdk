@@ -60,8 +60,7 @@ func NewQueryEventStreamHandlerParamsWithHTTPClient(client *http.Client) *QueryE
 	}
 }
 
-/*
-QueryEventStreamHandlerParams contains all the parameters to send to the API endpoint
+/*QueryEventStreamHandlerParams contains all the parameters to send to the API endpoint
 for the query event stream handler operation typically these are written to a http.Request
 */
 type QueryEventStreamHandlerParams struct {

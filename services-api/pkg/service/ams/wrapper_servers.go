@@ -22,6 +22,14 @@ type ServersService struct {
 	Client           *amsclient.JusticeAmsService
 	ConfigRepository repository.ConfigRepository
 	TokenRepository  repository.TokenRepository
+
+	FlightIdRepository *utils.FlightIdContainer
+}
+
+var tempFlightIdServers *string
+
+func (aaa *ServersService) UpdateFlightId(flightId string) {
+	tempFlightIdServers = &flightId
 }
 
 func (aaa *ServersService) GetAuthSession() auth.Session {
@@ -126,6 +134,11 @@ func (aaa *ServersService) FleetServerHistoryShort(input *servers.FleetServerHis
 			RetryCodes: utils.RetryCodes,
 		}
 	}
+	if tempFlightIdServers != nil {
+		input.XFlightId = tempFlightIdServers
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	}
 
 	ok, err := aaa.Client.Servers.FleetServerHistoryShort(input, authInfoWriter)
 	if err != nil {
@@ -151,6 +164,11 @@ func (aaa *ServersService) FleetServerInfoShort(input *servers.FleetServerInfoPa
 			RetryCodes: utils.RetryCodes,
 		}
 	}
+	if tempFlightIdServers != nil {
+		input.XFlightId = tempFlightIdServers
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	}
 
 	ok, err := aaa.Client.Servers.FleetServerInfoShort(input, authInfoWriter)
 	if err != nil {
@@ -175,6 +193,11 @@ func (aaa *ServersService) ServerHistoryShort(input *servers.ServerHistoryParams
 			Transport:  aaa.Client.Runtime.Transport,
 			RetryCodes: utils.RetryCodes,
 		}
+	}
+	if tempFlightIdServers != nil {
+		input.XFlightId = tempFlightIdServers
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.Servers.ServerHistoryShort(input, authInfoWriter)

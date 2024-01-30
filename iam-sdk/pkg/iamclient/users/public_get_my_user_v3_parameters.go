@@ -70,8 +70,7 @@ func NewPublicGetMyUserV3ParamsWithHTTPClient(client *http.Client) *PublicGetMyU
 	}
 }
 
-/*
-PublicGetMyUserV3Params contains all the parameters to send to the API endpoint
+/*PublicGetMyUserV3Params contains all the parameters to send to the API endpoint
 for the public get my user v3 operation typically these are written to a http.Request
 */
 type PublicGetMyUserV3Params struct {

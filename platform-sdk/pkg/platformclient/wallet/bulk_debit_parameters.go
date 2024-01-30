@@ -59,8 +59,7 @@ func NewBulkDebitParamsWithHTTPClient(client *http.Client) *BulkDebitParams {
 	}
 }
 
-/*
-BulkDebitParams contains all the parameters to send to the API endpoint
+/*BulkDebitParams contains all the parameters to send to the API endpoint
 for the bulk debit operation typically these are written to a http.Request
 */
 type BulkDebitParams struct {

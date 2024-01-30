@@ -57,8 +57,7 @@ func NewListServerPerNamespaceParamsWithHTTPClient(client *http.Client) *ListSer
 	}
 }
 
-/*
-ListServerPerNamespaceParams contains all the parameters to send to the API endpoint
+/*ListServerPerNamespaceParams contains all the parameters to send to the API endpoint
 for the list server per namespace operation typically these are written to a http.Request
 */
 type ListServerPerNamespaceParams struct {

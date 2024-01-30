@@ -57,8 +57,7 @@ func NewGetFullSeasonParamsWithHTTPClient(client *http.Client) *GetFullSeasonPar
 	}
 }
 
-/*
-GetFullSeasonParams contains all the parameters to send to the API endpoint
+/*GetFullSeasonParams contains all the parameters to send to the API endpoint
 for the get full season operation typically these are written to a http.Request
 */
 type GetFullSeasonParams struct {

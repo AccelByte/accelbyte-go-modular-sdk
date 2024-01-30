@@ -57,8 +57,7 @@ func NewDeleteSectionPluginConfigParamsWithHTTPClient(client *http.Client) *Dele
 	}
 }
 
-/*
-DeleteSectionPluginConfigParams contains all the parameters to send to the API endpoint
+/*DeleteSectionPluginConfigParams contains all the parameters to send to the API endpoint
 for the delete section plugin config operation typically these are written to a http.Request
 */
 type DeleteSectionPluginConfigParams struct {

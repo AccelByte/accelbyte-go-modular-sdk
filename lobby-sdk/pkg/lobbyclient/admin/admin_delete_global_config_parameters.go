@@ -57,8 +57,7 @@ func NewAdminDeleteGlobalConfigParamsWithHTTPClient(client *http.Client) *AdminD
 	}
 }
 
-/*
-AdminDeleteGlobalConfigParams contains all the parameters to send to the API endpoint
+/*AdminDeleteGlobalConfigParams contains all the parameters to send to the API endpoint
 for the admin delete global config operation typically these are written to a http.Request
 */
 type AdminDeleteGlobalConfigParams struct {

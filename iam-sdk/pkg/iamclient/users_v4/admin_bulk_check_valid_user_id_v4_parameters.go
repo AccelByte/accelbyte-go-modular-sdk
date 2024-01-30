@@ -59,8 +59,7 @@ func NewAdminBulkCheckValidUserIDV4ParamsWithHTTPClient(client *http.Client) *Ad
 	}
 }
 
-/*
-AdminBulkCheckValidUserIDV4Params contains all the parameters to send to the API endpoint
+/*AdminBulkCheckValidUserIDV4Params contains all the parameters to send to the API endpoint
 for the admin bulk check valid user idv4 operation typically these are written to a http.Request
 */
 type AdminBulkCheckValidUserIDV4Params struct {

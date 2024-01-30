@@ -57,8 +57,7 @@ func NewVersionCheckHandlerParamsWithHTTPClient(client *http.Client) *VersionChe
 	}
 }
 
-/*
-VersionCheckHandlerParams contains all the parameters to send to the API endpoint
+/*VersionCheckHandlerParams contains all the parameters to send to the API endpoint
 for the version check handler operation typically these are written to a http.Request
 */
 type VersionCheckHandlerParams struct {

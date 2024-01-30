@@ -57,8 +57,7 @@ func NewPublicGenerateMyAuthenticatorKeyV4ParamsWithHTTPClient(client *http.Clie
 	}
 }
 
-/*
-PublicGenerateMyAuthenticatorKeyV4Params contains all the parameters to send to the API endpoint
+/*PublicGenerateMyAuthenticatorKeyV4Params contains all the parameters to send to the API endpoint
 for the public generate my authenticator key v4 operation typically these are written to a http.Request
 */
 type PublicGenerateMyAuthenticatorKeyV4Params struct {

@@ -59,8 +59,7 @@ func NewUpdateSectionPluginConfigParamsWithHTTPClient(client *http.Client) *Upda
 	}
 }
 
-/*
-UpdateSectionPluginConfigParams contains all the parameters to send to the API endpoint
+/*UpdateSectionPluginConfigParams contains all the parameters to send to the API endpoint
 for the update section plugin config operation typically these are written to a http.Request
 */
 type UpdateSectionPluginConfigParams struct {

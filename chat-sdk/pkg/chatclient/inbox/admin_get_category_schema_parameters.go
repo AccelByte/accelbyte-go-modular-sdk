@@ -57,8 +57,7 @@ func NewAdminGetCategorySchemaParamsWithHTTPClient(client *http.Client) *AdminGe
 	}
 }
 
-/*
-AdminGetCategorySchemaParams contains all the parameters to send to the API endpoint
+/*AdminGetCategorySchemaParams contains all the parameters to send to the API endpoint
 for the admin get category schema operation typically these are written to a http.Request
 */
 type AdminGetCategorySchemaParams struct {

@@ -63,8 +63,7 @@ func NewPublicListCurrenciesParamsWithHTTPClient(client *http.Client) *PublicLis
 	}
 }
 
-/*
-PublicListCurrenciesParams contains all the parameters to send to the API endpoint
+/*PublicListCurrenciesParams contains all the parameters to send to the API endpoint
 for the public list currencies operation typically these are written to a http.Request
 */
 type PublicListCurrenciesParams struct {

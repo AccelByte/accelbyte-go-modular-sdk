@@ -57,8 +57,7 @@ func NewDeleteIAPItemConfigParamsWithHTTPClient(client *http.Client) *DeleteIAPI
 	}
 }
 
-/*
-DeleteIAPItemConfigParams contains all the parameters to send to the API endpoint
+/*DeleteIAPItemConfigParams contains all the parameters to send to the API endpoint
 for the delete iap item config operation typically these are written to a http.Request
 */
 type DeleteIAPItemConfigParams struct {

@@ -57,8 +57,7 @@ func NewGameSessionGenerateCodeParamsWithHTTPClient(client *http.Client) *GameSe
 	}
 }
 
-/*
-GameSessionGenerateCodeParams contains all the parameters to send to the API endpoint
+/*GameSessionGenerateCodeParams contains all the parameters to send to the API endpoint
 for the game session generate code operation typically these are written to a http.Request
 */
 type GameSessionGenerateCodeParams struct {

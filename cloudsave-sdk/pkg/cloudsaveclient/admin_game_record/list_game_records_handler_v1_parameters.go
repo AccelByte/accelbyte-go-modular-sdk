@@ -78,8 +78,7 @@ func NewListGameRecordsHandlerV1ParamsWithHTTPClient(client *http.Client) *ListG
 	}
 }
 
-/*
-ListGameRecordsHandlerV1Params contains all the parameters to send to the API endpoint
+/*ListGameRecordsHandlerV1Params contains all the parameters to send to the API endpoint
 for the list game records handler v1 operation typically these are written to a http.Request
 */
 type ListGameRecordsHandlerV1Params struct {

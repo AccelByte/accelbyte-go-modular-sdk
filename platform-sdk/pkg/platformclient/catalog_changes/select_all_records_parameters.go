@@ -57,8 +57,7 @@ func NewSelectAllRecordsParamsWithHTTPClient(client *http.Client) *SelectAllReco
 	}
 }
 
-/*
-SelectAllRecordsParams contains all the parameters to send to the API endpoint
+/*SelectAllRecordsParams contains all the parameters to send to the API endpoint
 for the select all records operation typically these are written to a http.Request
 */
 type SelectAllRecordsParams struct {

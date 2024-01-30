@@ -59,8 +59,7 @@ func NewUpdateLocalizedPolicyVersion1ParamsWithHTTPClient(client *http.Client) *
 	}
 }
 
-/*
-UpdateLocalizedPolicyVersion1Params contains all the parameters to send to the API endpoint
+/*UpdateLocalizedPolicyVersion1Params contains all the parameters to send to the API endpoint
 for the update localized policy version 1 operation typically these are written to a http.Request
 */
 type UpdateLocalizedPolicyVersion1Params struct {

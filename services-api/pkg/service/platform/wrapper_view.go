@@ -22,6 +22,14 @@ type ViewService struct {
 	Client           *platformclient.JusticePlatformService
 	ConfigRepository repository.ConfigRepository
 	TokenRepository  repository.TokenRepository
+
+	FlightIdRepository *utils.FlightIdContainer
+}
+
+var tempFlightIdView *string
+
+func (aaa *ViewService) UpdateFlightId(flightId string) {
+	tempFlightIdView = &flightId
 }
 
 func (aaa *ViewService) GetAuthSession() auth.Session {
@@ -171,6 +179,11 @@ func (aaa *ViewService) ListViewsShort(input *view.ListViewsParams) ([]*platform
 			RetryCodes: utils.RetryCodes,
 		}
 	}
+	if tempFlightIdView != nil {
+		input.XFlightId = tempFlightIdView
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	}
 
 	ok, err := aaa.Client.View.ListViewsShort(input, authInfoWriter)
 	if err != nil {
@@ -195,6 +208,11 @@ func (aaa *ViewService) CreateViewShort(input *view.CreateViewParams) (*platform
 			Transport:  aaa.Client.Runtime.Transport,
 			RetryCodes: utils.RetryCodes,
 		}
+	}
+	if tempFlightIdView != nil {
+		input.XFlightId = tempFlightIdView
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
 	}
 
 	created, err := aaa.Client.View.CreateViewShort(input, authInfoWriter)
@@ -221,6 +239,11 @@ func (aaa *ViewService) GetViewShort(input *view.GetViewParams) (*platformclient
 			RetryCodes: utils.RetryCodes,
 		}
 	}
+	if tempFlightIdView != nil {
+		input.XFlightId = tempFlightIdView
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	}
 
 	ok, err := aaa.Client.View.GetViewShort(input, authInfoWriter)
 	if err != nil {
@@ -245,6 +268,11 @@ func (aaa *ViewService) UpdateViewShort(input *view.UpdateViewParams) (*platform
 			Transport:  aaa.Client.Runtime.Transport,
 			RetryCodes: utils.RetryCodes,
 		}
+	}
+	if tempFlightIdView != nil {
+		input.XFlightId = tempFlightIdView
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.View.UpdateViewShort(input, authInfoWriter)
@@ -271,6 +299,11 @@ func (aaa *ViewService) DeleteViewShort(input *view.DeleteViewParams) error {
 			RetryCodes: utils.RetryCodes,
 		}
 	}
+	if tempFlightIdView != nil {
+		input.XFlightId = tempFlightIdView
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	}
 
 	_, err := aaa.Client.View.DeleteViewShort(input, authInfoWriter)
 	if err != nil {
@@ -295,6 +328,11 @@ func (aaa *ViewService) PublicListViewsShort(input *view.PublicListViewsParams) 
 			Transport:  aaa.Client.Runtime.Transport,
 			RetryCodes: utils.RetryCodes,
 		}
+	}
+	if tempFlightIdView != nil {
+		input.XFlightId = tempFlightIdView
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.View.PublicListViewsShort(input, authInfoWriter)

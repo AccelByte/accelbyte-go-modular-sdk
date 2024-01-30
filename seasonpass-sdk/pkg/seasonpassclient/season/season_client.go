@@ -88,8 +88,8 @@ This API is used to query seasons, seasons only located in non-publisher namespa
 
 Other detail info:
 
-  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:SEASONPASS", action=2 (READ)
-  - Returns : the list of season basic info
+  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:SEASONPASS", action=2 (READ)
+  *  Returns : the list of season basic info
 */
 func (a *Client) QuerySeasons(params *QuerySeasonsParams, authInfo runtime.ClientAuthInfoWriter) (*QuerySeasonsOK, *QuerySeasonsBadRequest, error) {
 	// TODO: Validate the params before sending
@@ -141,8 +141,8 @@ This API is used to query seasons, seasons only located in non-publisher namespa
 
 Other detail info:
 
-  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:SEASONPASS", action=2 (READ)
-  - Returns : the list of season basic info
+  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:SEASONPASS", action=2 (READ)
+  *  Returns : the list of season basic info
 */
 func (a *Client) QuerySeasonsShort(params *QuerySeasonsParams, authInfo runtime.ClientAuthInfoWriter) (*QuerySeasonsOK, error) {
 	// TODO: Validate the params before sending
@@ -199,8 +199,8 @@ This API is used to create a season, season only allowed in non-publisher namesp
 
 Other detail info:
 
-  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:SEASONPASS", action=1 (CREATE)
-  - Returns : created season
+  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:SEASONPASS", action=1 (CREATE)
+  *  Returns : created season
 */
 func (a *Client) CreateSeason(params *CreateSeasonParams, authInfo runtime.ClientAuthInfoWriter) (*CreateSeasonCreated, *CreateSeasonBadRequest, *CreateSeasonNotFound, *CreateSeasonUnprocessableEntity, error) {
 	// TODO: Validate the params before sending
@@ -258,8 +258,8 @@ This API is used to create a season, season only allowed in non-publisher namesp
 
 Other detail info:
 
-  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:SEASONPASS", action=1 (CREATE)
-  - Returns : created season
+  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:SEASONPASS", action=1 (CREATE)
+  *  Returns : created season
 */
 func (a *Client) CreateSeasonShort(params *CreateSeasonParams, authInfo runtime.ClientAuthInfoWriter) (*CreateSeasonCreated, error) {
 	// TODO: Validate the params before sending
@@ -320,7 +320,7 @@ GetCurrentSeason get current published season summary
 
 Other detail info:
 
-  - Returns : season summary data
+  * Returns : season summary data
 */
 func (a *Client) GetCurrentSeason(params *GetCurrentSeasonParams, authInfo runtime.ClientAuthInfoWriter) (*GetCurrentSeasonOK, *GetCurrentSeasonBadRequest, *GetCurrentSeasonNotFound, error) {
 	// TODO: Validate the params before sending
@@ -375,7 +375,7 @@ GetCurrentSeasonShort get current published season summary
 
 Other detail info:
 
-  - Returns : season summary data
+  * Returns : season summary data
 */
 func (a *Client) GetCurrentSeasonShort(params *GetCurrentSeasonParams, authInfo runtime.ClientAuthInfoWriter) (*GetCurrentSeasonOK, error) {
 	// TODO: Validate the params before sending
@@ -434,8 +434,8 @@ This API is used to bulk get user current season progression, season only locate
 
 Other detail info:
 
-  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:SEASONPASS, action=2 (READ)
-  - Returns : user season progression
+  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:SEASONPASS, action=2 (READ)
+  *  Returns : user season progression
 */
 func (a *Client) BulkGetUserSeasonProgression(params *BulkGetUserSeasonProgressionParams, authInfo runtime.ClientAuthInfoWriter) (*BulkGetUserSeasonProgressionOK, *BulkGetUserSeasonProgressionBadRequest, *BulkGetUserSeasonProgressionNotFound, error) {
 	// TODO: Validate the params before sending
@@ -490,8 +490,8 @@ This API is used to bulk get user current season progression, season only locate
 
 Other detail info:
 
-  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:SEASONPASS, action=2 (READ)
-  - Returns : user season progression
+  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:SEASONPASS, action=2 (READ)
+  *  Returns : user season progression
 */
 func (a *Client) BulkGetUserSeasonProgressionShort(params *BulkGetUserSeasonProgressionParams, authInfo runtime.ClientAuthInfoWriter) (*BulkGetUserSeasonProgressionOK, error) {
 	// TODO: Validate the params before sending
@@ -550,8 +550,8 @@ This API is used to get a season, season only located in non-publisher namespace
 
 Other detail info:
 
-  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:SEASONPASS", action=2 (READ)
-  - Returns : season data
+  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:SEASONPASS", action=2 (READ)
+  *  Returns : season data
 */
 func (a *Client) GetSeason(params *GetSeasonParams, authInfo runtime.ClientAuthInfoWriter) (*GetSeasonOK, *GetSeasonBadRequest, *GetSeasonNotFound, error) {
 	// TODO: Validate the params before sending
@@ -606,8 +606,8 @@ This API is used to get a season, season only located in non-publisher namespace
 
 Other detail info:
 
-  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:SEASONPASS", action=2 (READ)
-  - Returns : season data
+  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:SEASONPASS", action=2 (READ)
+  *  Returns : season data
 */
 func (a *Client) GetSeasonShort(params *GetSeasonParams, authInfo runtime.ClientAuthInfoWriter) (*GetSeasonOK, error) {
 	// TODO: Validate the params before sending
@@ -666,7 +666,7 @@ This API is used to delete a season permanently, only draft season can be delete
 
 Other detail info:
 
-  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:SEASONPASS", action=8 (DELETE)
+  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:SEASONPASS", action=8 (DELETE)
 */
 func (a *Client) DeleteSeason(params *DeleteSeasonParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteSeasonNoContent, *DeleteSeasonBadRequest, *DeleteSeasonNotFound, *DeleteSeasonConflict, error) {
 	// TODO: Validate the params before sending
@@ -724,7 +724,7 @@ This API is used to delete a season permanently, only draft season can be delete
 
 Other detail info:
 
-  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:SEASONPASS", action=8 (DELETE)
+  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:SEASONPASS", action=8 (DELETE)
 */
 func (a *Client) DeleteSeasonShort(params *DeleteSeasonParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteSeasonNoContent, error) {
 	// TODO: Validate the params before sending
@@ -785,8 +785,8 @@ This API is used to update a season. Only draft season can be updated.
 
 Other detail info:
 
-  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:SEASONPASS", action=4 (UPDATE)
-  - Returns : updated season
+  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:SEASONPASS", action=4 (UPDATE)
+  *  Returns : updated season
 */
 func (a *Client) UpdateSeason(params *UpdateSeasonParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateSeasonOK, *UpdateSeasonBadRequest, *UpdateSeasonNotFound, *UpdateSeasonConflict, *UpdateSeasonUnprocessableEntity, error) {
 	// TODO: Validate the params before sending
@@ -847,8 +847,8 @@ This API is used to update a season. Only draft season can be updated.
 
 Other detail info:
 
-  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:SEASONPASS", action=4 (UPDATE)
-  - Returns : updated season
+  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:SEASONPASS", action=4 (UPDATE)
+  *  Returns : updated season
 */
 func (a *Client) UpdateSeasonShort(params *UpdateSeasonParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateSeasonOK, error) {
 	// TODO: Validate the params before sending
@@ -911,8 +911,8 @@ This API is used to clone a season.
 
 Other detail info:
 
-  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:SEASONPASS", action=1 (CREATE)
-  - Returns : cloned season info
+  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:SEASONPASS", action=1 (CREATE)
+  *  Returns : cloned season info
 */
 func (a *Client) CloneSeason(params *CloneSeasonParams, authInfo runtime.ClientAuthInfoWriter) (*CloneSeasonOK, *CloneSeasonBadRequest, *CloneSeasonNotFound, *CloneSeasonUnprocessableEntity, error) {
 	// TODO: Validate the params before sending
@@ -970,8 +970,8 @@ This API is used to clone a season.
 
 Other detail info:
 
-  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:SEASONPASS", action=1 (CREATE)
-  - Returns : cloned season info
+  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:SEASONPASS", action=1 (CREATE)
+  *  Returns : cloned season info
 */
 func (a *Client) CloneSeasonShort(params *CloneSeasonParams, authInfo runtime.ClientAuthInfoWriter) (*CloneSeasonOK, error) {
 	// TODO: Validate the params before sending
@@ -1032,8 +1032,8 @@ This API is used to get a season full content, season only located in non-publis
 
 Other detail info:
 
-  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:SEASONPASS", action=2 (READ)
-  - Returns : season data
+  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:SEASONPASS", action=2 (READ)
+  *  Returns : season data
 */
 func (a *Client) GetFullSeason(params *GetFullSeasonParams, authInfo runtime.ClientAuthInfoWriter) (*GetFullSeasonOK, *GetFullSeasonBadRequest, *GetFullSeasonNotFound, error) {
 	// TODO: Validate the params before sending
@@ -1088,8 +1088,8 @@ This API is used to get a season full content, season only located in non-publis
 
 Other detail info:
 
-  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:SEASONPASS", action=2 (READ)
-  - Returns : season data
+  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:SEASONPASS", action=2 (READ)
+  *  Returns : season data
 */
 func (a *Client) GetFullSeasonShort(params *GetFullSeasonParams, authInfo runtime.ClientAuthInfoWriter) (*GetFullSeasonOK, error) {
 	// TODO: Validate the params before sending
@@ -1148,8 +1148,8 @@ This API is used to publish a draft season, only one published season allowed at
 
 Other detail info:
 
-  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:SEASONPASS", action=4 (UPDATE)
-  - Returns : published season
+  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:SEASONPASS", action=4 (UPDATE)
+  *  Returns : published season
 */
 func (a *Client) PublishSeason(params *PublishSeasonParams, authInfo runtime.ClientAuthInfoWriter) (*PublishSeasonOK, *PublishSeasonBadRequest, *PublishSeasonNotFound, *PublishSeasonConflict, error) {
 	// TODO: Validate the params before sending
@@ -1207,8 +1207,8 @@ This API is used to publish a draft season, only one published season allowed at
 
 Other detail info:
 
-  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:SEASONPASS", action=4 (UPDATE)
-  - Returns : published season
+  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:SEASONPASS", action=4 (UPDATE)
+  *  Returns : published season
 */
 func (a *Client) PublishSeasonShort(params *PublishSeasonParams, authInfo runtime.ClientAuthInfoWriter) (*PublishSeasonOK, error) {
 	// TODO: Validate the params before sending
@@ -1269,8 +1269,8 @@ This API is used to retire a published season, if the season has not ended it wi
 
 Other detail info:
 
-  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:SEASONPASS", action=4 (UPDATE)
-  - Returns : season info
+  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:SEASONPASS", action=4 (UPDATE)
+  *  Returns : season info
 */
 func (a *Client) RetireSeason(params *RetireSeasonParams, authInfo runtime.ClientAuthInfoWriter) (*RetireSeasonOK, *RetireSeasonBadRequest, *RetireSeasonNotFound, *RetireSeasonConflict, error) {
 	// TODO: Validate the params before sending
@@ -1328,8 +1328,8 @@ This API is used to retire a published season, if the season has not ended it wi
 
 Other detail info:
 
-  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:SEASONPASS", action=4 (UPDATE)
-  - Returns : season info
+  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:SEASONPASS", action=4 (UPDATE)
+  *  Returns : season info
 */
 func (a *Client) RetireSeasonShort(params *RetireSeasonParams, authInfo runtime.ClientAuthInfoWriter) (*RetireSeasonOK, error) {
 	// TODO: Validate the params before sending
@@ -1390,8 +1390,8 @@ This API is used to unpublish a published season, if the season already started 
 
 Other detail info:
 
-  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:SEASONPASS", action=4 (UPDATE)
-  - Returns : season info
+  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:SEASONPASS", action=4 (UPDATE)
+  *  Returns : season info
 */
 func (a *Client) UnpublishSeason(params *UnpublishSeasonParams, authInfo runtime.ClientAuthInfoWriter) (*UnpublishSeasonOK, *UnpublishSeasonBadRequest, *UnpublishSeasonNotFound, *UnpublishSeasonConflict, error) {
 	// TODO: Validate the params before sending
@@ -1449,8 +1449,8 @@ This API is used to unpublish a published season, if the season already started 
 
 Other detail info:
 
-  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:SEASONPASS", action=4 (UPDATE)
-  - Returns : season info
+  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:SEASONPASS", action=4 (UPDATE)
+  *  Returns : season info
 */
 func (a *Client) UnpublishSeasonShort(params *UnpublishSeasonParams, authInfo runtime.ClientAuthInfoWriter) (*UnpublishSeasonOK, error) {
 	// TODO: Validate the params before sending
@@ -1511,8 +1511,8 @@ This API is used to get user participated season data, season only located in no
 
 Other detail info:
 
-  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:USER:{userId}:SEASONPASS", action=2 (READ)
-  - Returns : user participated season data
+  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:USER:{userId}:SEASONPASS", action=2 (READ)
+  *  Returns : user participated season data
 */
 func (a *Client) GetUserParticipatedSeasons(params *GetUserParticipatedSeasonsParams, authInfo runtime.ClientAuthInfoWriter) (*GetUserParticipatedSeasonsOK, *GetUserParticipatedSeasonsBadRequest, error) {
 	// TODO: Validate the params before sending
@@ -1564,8 +1564,8 @@ This API is used to get user participated season data, season only located in no
 
 Other detail info:
 
-  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:USER:{userId}:SEASONPASS", action=2 (READ)
-  - Returns : user participated season data
+  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:USER:{userId}:SEASONPASS", action=2 (READ)
+  *  Returns : user participated season data
 */
 func (a *Client) GetUserParticipatedSeasonsShort(params *GetUserParticipatedSeasonsParams, authInfo runtime.ClientAuthInfoWriter) (*GetUserParticipatedSeasonsOK, error) {
 	// TODO: Validate the params before sending
@@ -1622,8 +1622,8 @@ ExistsAnyPassByPassCodes get ownership for any pass codes
 
 Other detail info:
 
-  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:USER:{userId}:SEASONPASS", action=2 (READ)
-  - Returns : ownership
+  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:USER:{userId}:SEASONPASS", action=2 (READ)
+  *  Returns : ownership
 */
 func (a *Client) ExistsAnyPassByPassCodes(params *ExistsAnyPassByPassCodesParams, authInfo runtime.ClientAuthInfoWriter) (*ExistsAnyPassByPassCodesOK, *ExistsAnyPassByPassCodesBadRequest, error) {
 	// TODO: Validate the params before sending
@@ -1675,8 +1675,8 @@ ExistsAnyPassByPassCodesShort get ownership for any pass codes
 
 Other detail info:
 
-  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:USER:{userId}:SEASONPASS", action=2 (READ)
-  - Returns : ownership
+  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:USER:{userId}:SEASONPASS", action=2 (READ)
+  *  Returns : ownership
 */
 func (a *Client) ExistsAnyPassByPassCodesShort(params *ExistsAnyPassByPassCodesParams, authInfo runtime.ClientAuthInfoWriter) (*ExistsAnyPassByPassCodesOK, error) {
 	// TODO: Validate the params before sending
@@ -1733,8 +1733,8 @@ This API is used to get current user season progression, season only located in 
 
 Other detail info:
 
-  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:USER:{userId}:SEASONPASS", action=2 (READ)
-  - Returns : user season progression
+  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:USER:{userId}:SEASONPASS", action=2 (READ)
+  *  Returns : user season progression
 */
 func (a *Client) GetCurrentUserSeasonProgression(params *GetCurrentUserSeasonProgressionParams, authInfo runtime.ClientAuthInfoWriter) (*GetCurrentUserSeasonProgressionOK, *GetCurrentUserSeasonProgressionBadRequest, *GetCurrentUserSeasonProgressionNotFound, error) {
 	// TODO: Validate the params before sending
@@ -1789,8 +1789,8 @@ This API is used to get current user season progression, season only located in 
 
 Other detail info:
 
-  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:USER:{userId}:SEASONPASS", action=2 (READ)
-  - Returns : user season progression
+  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:USER:{userId}:SEASONPASS", action=2 (READ)
+  *  Returns : user season progression
 */
 func (a *Client) GetCurrentUserSeasonProgressionShort(params *GetCurrentUserSeasonProgressionParams, authInfo runtime.ClientAuthInfoWriter) (*GetCurrentUserSeasonProgressionOK, error) {
 	// TODO: Validate the params before sending
@@ -1849,7 +1849,7 @@ This API is used to check pass or tier purchasable, season only located in non-p
 
 Other detail info:
 
-  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:USER:{userId}:SEASONPASS", action=2 (READ)
+  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:USER:{userId}:SEASONPASS", action=2 (READ)
 */
 func (a *Client) CheckSeasonPurchasable(params *CheckSeasonPurchasableParams, authInfo runtime.ClientAuthInfoWriter) (*CheckSeasonPurchasableNoContent, *CheckSeasonPurchasableBadRequest, *CheckSeasonPurchasableNotFound, *CheckSeasonPurchasableConflict, error) {
 	// TODO: Validate the params before sending
@@ -1907,7 +1907,7 @@ This API is used to check pass or tier purchasable, season only located in non-p
 
 Other detail info:
 
-  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:USER:{userId}:SEASONPASS", action=2 (READ)
+  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:USER:{userId}:SEASONPASS", action=2 (READ)
 */
 func (a *Client) CheckSeasonPurchasableShort(params *CheckSeasonPurchasableParams, authInfo runtime.ClientAuthInfoWriter) (*CheckSeasonPurchasableNoContent, error) {
 	// TODO: Validate the params before sending
@@ -1964,12 +1964,11 @@ func (a *Client) CheckSeasonPurchasableShort(params *CheckSeasonPurchasableParam
 Deprecated: 2022-08-10 - Use ResetUserSeasonShort instead.
 
 ResetUserSeason reset user data in current season
-
-	[TEST FACILITY ONLY] Forbidden in live environment. This API is used to reset user data in current season, it will not revoke the rewarded entitlements.
+ [TEST FACILITY ONLY] Forbidden in live environment. This API is used to reset user data in current season, it will not revoke the rewarded entitlements.
 
 Other detail info:
 
-  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:USER:{userId}:SEASONPASS", action=8 (DELETE)
+  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:USER:{userId}:SEASONPASS", action=8 (DELETE)
 */
 func (a *Client) ResetUserSeason(params *ResetUserSeasonParams, authInfo runtime.ClientAuthInfoWriter) (*ResetUserSeasonNoContent, *ResetUserSeasonBadRequest, error) {
 	// TODO: Validate the params before sending
@@ -2017,12 +2016,11 @@ func (a *Client) ResetUserSeason(params *ResetUserSeasonParams, authInfo runtime
 
 /*
 ResetUserSeasonShort reset user data in current season
-
-	[TEST FACILITY ONLY] Forbidden in live environment. This API is used to reset user data in current season, it will not revoke the rewarded entitlements.
+ [TEST FACILITY ONLY] Forbidden in live environment. This API is used to reset user data in current season, it will not revoke the rewarded entitlements.
 
 Other detail info:
 
-  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:USER:{userId}:SEASONPASS", action=8 (DELETE)
+  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:USER:{userId}:SEASONPASS", action=8 (DELETE)
 */
 func (a *Client) ResetUserSeasonShort(params *ResetUserSeasonParams, authInfo runtime.ClientAuthInfoWriter) (*ResetUserSeasonNoContent, error) {
 	// TODO: Validate the params before sending
@@ -2079,9 +2077,9 @@ This API is used to get user exp acquisition history, season only located in non
 
 Other detail info:
 
-  - default will query from current active season
-  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:USER:{userId}:SEASONPASS", action=2 (READ)
-  - Returns : paginated grant history
+  * default will query from current active season
+  *  Required permission : resource="ADMIN:NAMESPACE:{namespace}:USER:{userId}:SEASONPASS", action=2 (READ)
+  *  Returns : paginated grant history
 */
 func (a *Client) QueryUserExpGrantHistory(params *QueryUserExpGrantHistoryParams, authInfo runtime.ClientAuthInfoWriter) (*QueryUserExpGrantHistoryOK, *QueryUserExpGrantHistoryBadRequest, error) {
 	// TODO: Validate the params before sending
@@ -2133,9 +2131,9 @@ This API is used to get user exp acquisition history, season only located in non
 
 Other detail info:
 
-  - default will query from current active season
-  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:USER:{userId}:SEASONPASS", action=2 (READ)
-  - Returns : paginated grant history
+  * default will query from current active season
+  *  Required permission : resource="ADMIN:NAMESPACE:{namespace}:USER:{userId}:SEASONPASS", action=2 (READ)
+  *  Returns : paginated grant history
 */
 func (a *Client) QueryUserExpGrantHistoryShort(params *QueryUserExpGrantHistoryParams, authInfo runtime.ClientAuthInfoWriter) (*QueryUserExpGrantHistoryOK, error) {
 	// TODO: Validate the params before sending
@@ -2192,9 +2190,9 @@ This API is used to get user exp acquisition history's tag list.
 
 Other detail info:
 
-  - default will query from current active season
-  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:USER:{userId}:SEASONPASS", action=2 (READ)
-  - Returns : exp grant history tags list
+  * default will query from current active season
+  *  Required permission : resource="ADMIN:NAMESPACE:{namespace}:USER:{userId}:SEASONPASS", action=2 (READ)
+  *  Returns : exp grant history tags list
 */
 func (a *Client) QueryUserExpGrantHistoryTag(params *QueryUserExpGrantHistoryTagParams, authInfo runtime.ClientAuthInfoWriter) (*QueryUserExpGrantHistoryTagOK, *QueryUserExpGrantHistoryTagBadRequest, error) {
 	// TODO: Validate the params before sending
@@ -2246,9 +2244,9 @@ This API is used to get user exp acquisition history's tag list.
 
 Other detail info:
 
-  - default will query from current active season
-  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:USER:{userId}:SEASONPASS", action=2 (READ)
-  - Returns : exp grant history tags list
+  * default will query from current active season
+  *  Required permission : resource="ADMIN:NAMESPACE:{namespace}:USER:{userId}:SEASONPASS", action=2 (READ)
+  *  Returns : exp grant history tags list
 */
 func (a *Client) QueryUserExpGrantHistoryTagShort(params *QueryUserExpGrantHistoryTagParams, authInfo runtime.ClientAuthInfoWriter) (*QueryUserExpGrantHistoryTagOK, error) {
 	// TODO: Validate the params before sending
@@ -2305,8 +2303,8 @@ This API is used to get user season data, season only located in non-publisher n
 
 Other detail info:
 
-  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:USER:{userId}:SEASONPASS", action=2 (READ)
-  - Returns : user season data
+  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:USER:{userId}:SEASONPASS", action=2 (READ)
+  *  Returns : user season data
 */
 func (a *Client) GetUserSeason(params *GetUserSeasonParams, authInfo runtime.ClientAuthInfoWriter) (*GetUserSeasonOK, *GetUserSeasonBadRequest, *GetUserSeasonNotFound, error) {
 	// TODO: Validate the params before sending
@@ -2361,8 +2359,8 @@ This API is used to get user season data, season only located in non-publisher n
 
 Other detail info:
 
-  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:USER:{userId}:SEASONPASS", action=2 (READ)
-  - Returns : user season data
+  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:USER:{userId}:SEASONPASS", action=2 (READ)
+  *  Returns : user season data
 */
 func (a *Client) GetUserSeasonShort(params *GetUserSeasonParams, authInfo runtime.ClientAuthInfoWriter) (*GetUserSeasonOK, error) {
 	// TODO: Validate the params before sending
@@ -2421,7 +2419,7 @@ This API is used to get current published season, season only located in non-pub
 
 Other detail info:
 
-  - Returns : localized season data
+  * Returns : localized season data
 */
 func (a *Client) PublicGetCurrentSeason(params *PublicGetCurrentSeasonParams) (*PublicGetCurrentSeasonOK, *PublicGetCurrentSeasonBadRequest, *PublicGetCurrentSeasonNotFound, error) {
 	// TODO: Validate the params before sending
@@ -2475,7 +2473,7 @@ This API is used to get current published season, season only located in non-pub
 
 Other detail info:
 
-  - Returns : localized season data
+  * Returns : localized season data
 */
 func (a *Client) PublicGetCurrentSeasonShort(params *PublicGetCurrentSeasonParams) (*PublicGetCurrentSeasonOK, error) {
 	// TODO: Validate the params before sending
@@ -2533,8 +2531,8 @@ This API is used to get current user season data, it will auto enroll if there's
 
 Other detail info:
 
-  - Required permission : resource="NAMESPACE:{namespace}:USER:{userId}:SEASONPASS", action=2 (READ)
-  - Returns : user season data
+  * Required permission : resource="NAMESPACE:{namespace}:USER:{userId}:SEASONPASS", action=2 (READ)
+  *  Returns : user season data
 */
 func (a *Client) PublicGetCurrentUserSeason(params *PublicGetCurrentUserSeasonParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGetCurrentUserSeasonOK, *PublicGetCurrentUserSeasonBadRequest, *PublicGetCurrentUserSeasonNotFound, error) {
 	// TODO: Validate the params before sending
@@ -2589,8 +2587,8 @@ This API is used to get current user season data, it will auto enroll if there's
 
 Other detail info:
 
-  - Required permission : resource="NAMESPACE:{namespace}:USER:{userId}:SEASONPASS", action=2 (READ)
-  - Returns : user season data
+  * Required permission : resource="NAMESPACE:{namespace}:USER:{userId}:SEASONPASS", action=2 (READ)
+  *  Returns : user season data
 */
 func (a *Client) PublicGetCurrentUserSeasonShort(params *PublicGetCurrentUserSeasonParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGetCurrentUserSeasonOK, error) {
 	// TODO: Validate the params before sending
@@ -2649,8 +2647,8 @@ This API is used to get user season data, season only located in non-publisher n
 
 Other detail info:
 
-  - Required permission : resource="NAMESPACE:{namespace}:USER:{userId}:SEASONPASS", action=2 (READ)
-  - Returns : user season data
+  * Required permission : resource="NAMESPACE:{namespace}:USER:{userId}:SEASONPASS", action=2 (READ)
+  *  Returns : user season data
 */
 func (a *Client) PublicGetUserSeason(params *PublicGetUserSeasonParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGetUserSeasonOK, *PublicGetUserSeasonBadRequest, *PublicGetUserSeasonNotFound, error) {
 	// TODO: Validate the params before sending
@@ -2705,8 +2703,8 @@ This API is used to get user season data, season only located in non-publisher n
 
 Other detail info:
 
-  - Required permission : resource="NAMESPACE:{namespace}:USER:{userId}:SEASONPASS", action=2 (READ)
-  - Returns : user season data
+  * Required permission : resource="NAMESPACE:{namespace}:USER:{userId}:SEASONPASS", action=2 (READ)
+  *  Returns : user season data
 */
 func (a *Client) PublicGetUserSeasonShort(params *PublicGetUserSeasonParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGetUserSeasonOK, error) {
 	// TODO: Validate the params before sending

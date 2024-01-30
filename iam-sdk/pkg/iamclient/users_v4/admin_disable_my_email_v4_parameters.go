@@ -57,8 +57,7 @@ func NewAdminDisableMyEmailV4ParamsWithHTTPClient(client *http.Client) *AdminDis
 	}
 }
 
-/*
-AdminDisableMyEmailV4Params contains all the parameters to send to the API endpoint
+/*AdminDisableMyEmailV4Params contains all the parameters to send to the API endpoint
 for the admin disable my email v4 operation typically these are written to a http.Request
 */
 type AdminDisableMyEmailV4Params struct {

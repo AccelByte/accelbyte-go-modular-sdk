@@ -59,8 +59,7 @@ func NewPublicGetUsersPlatformInfosV3ParamsWithHTTPClient(client *http.Client) *
 	}
 }
 
-/*
-PublicGetUsersPlatformInfosV3Params contains all the parameters to send to the API endpoint
+/*PublicGetUsersPlatformInfosV3Params contains all the parameters to send to the API endpoint
 for the public get users platform infos v3 operation typically these are written to a http.Request
 */
 type PublicGetUsersPlatformInfosV3Params struct {

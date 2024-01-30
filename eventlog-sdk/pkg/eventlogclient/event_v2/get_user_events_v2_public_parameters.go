@@ -58,8 +58,7 @@ func NewGetUserEventsV2PublicParamsWithHTTPClient(client *http.Client) *GetUserE
 	}
 }
 
-/*
-GetUserEventsV2PublicParams contains all the parameters to send to the API endpoint
+/*GetUserEventsV2PublicParams contains all the parameters to send to the API endpoint
 for the get user events v2 public operation typically these are written to a http.Request
 */
 type GetUserEventsV2PublicParams struct {

@@ -72,8 +72,7 @@ func NewUpdatePlatformWalletConfigParamsWithHTTPClient(client *http.Client) *Upd
 	}
 }
 
-/*
-UpdatePlatformWalletConfigParams contains all the parameters to send to the API endpoint
+/*UpdatePlatformWalletConfigParams contains all the parameters to send to the API endpoint
 for the update platform wallet config operation typically these are written to a http.Request
 */
 type UpdatePlatformWalletConfigParams struct {

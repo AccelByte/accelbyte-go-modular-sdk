@@ -59,8 +59,7 @@ func NewAddPortParamsWithHTTPClient(client *http.Client) *AddPortParams {
 	}
 }
 
-/*
-AddPortParams contains all the parameters to send to the API endpoint
+/*AddPortParams contains all the parameters to send to the API endpoint
 for the add port operation typically these are written to a http.Request
 */
 type AddPortParams struct {

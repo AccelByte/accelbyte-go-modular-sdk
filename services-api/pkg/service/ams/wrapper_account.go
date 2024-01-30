@@ -22,6 +22,14 @@ type AccountService struct {
 	Client           *amsclient.JusticeAmsService
 	ConfigRepository repository.ConfigRepository
 	TokenRepository  repository.TokenRepository
+
+	FlightIdRepository *utils.FlightIdContainer
+}
+
+var tempFlightIdAccount *string
+
+func (aaa *AccountService) UpdateFlightId(flightId string) {
+	tempFlightIdAccount = &flightId
 }
 
 func (aaa *AccountService) GetAuthSession() auth.Session {
@@ -172,6 +180,11 @@ func (aaa *AccountService) AdminAccountGetShort(input *account.AdminAccountGetPa
 			RetryCodes: utils.RetryCodes,
 		}
 	}
+	if tempFlightIdAccount != nil {
+		input.XFlightId = tempFlightIdAccount
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	}
 
 	ok, err := aaa.Client.Account.AdminAccountGetShort(input, authInfoWriter)
 	if err != nil {
@@ -196,6 +209,11 @@ func (aaa *AccountService) AdminAccountCreateShort(input *account.AdminAccountCr
 			Transport:  aaa.Client.Runtime.Transport,
 			RetryCodes: utils.RetryCodes,
 		}
+	}
+	if tempFlightIdAccount != nil {
+		input.XFlightId = tempFlightIdAccount
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
 	}
 
 	created, err := aaa.Client.Account.AdminAccountCreateShort(input, authInfoWriter)
@@ -222,6 +240,11 @@ func (aaa *AccountService) AdminAccountLinkTokenGetShort(input *account.AdminAcc
 			RetryCodes: utils.RetryCodes,
 		}
 	}
+	if tempFlightIdAccount != nil {
+		input.XFlightId = tempFlightIdAccount
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	}
 
 	ok, err := aaa.Client.Account.AdminAccountLinkTokenGetShort(input, authInfoWriter)
 	if err != nil {
@@ -247,6 +270,11 @@ func (aaa *AccountService) AdminAccountLinkTokenPostShort(input *account.AdminAc
 			RetryCodes: utils.RetryCodes,
 		}
 	}
+	if tempFlightIdAccount != nil {
+		input.XFlightId = tempFlightIdAccount
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	}
 
 	created, err := aaa.Client.Account.AdminAccountLinkTokenPostShort(input, authInfoWriter)
 	if err != nil {
@@ -271,6 +299,11 @@ func (aaa *AccountService) AccountGetShort(input *account.AccountGetParams) (*am
 			Transport:  aaa.Client.Runtime.Transport,
 			RetryCodes: utils.RetryCodes,
 		}
+	}
+	if tempFlightIdAccount != nil {
+		input.XFlightId = tempFlightIdAccount
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.Account.AccountGetShort(input, authInfoWriter)

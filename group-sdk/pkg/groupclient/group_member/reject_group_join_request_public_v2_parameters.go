@@ -57,8 +57,7 @@ func NewRejectGroupJoinRequestPublicV2ParamsWithHTTPClient(client *http.Client) 
 	}
 }
 
-/*
-RejectGroupJoinRequestPublicV2Params contains all the parameters to send to the API endpoint
+/*RejectGroupJoinRequestPublicV2Params contains all the parameters to send to the API endpoint
 for the reject group join request public v2 operation typically these are written to a http.Request
 */
 type RejectGroupJoinRequestPublicV2Params struct {

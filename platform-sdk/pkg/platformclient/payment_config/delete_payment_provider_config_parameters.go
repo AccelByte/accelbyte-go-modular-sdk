@@ -57,8 +57,7 @@ func NewDeletePaymentProviderConfigParamsWithHTTPClient(client *http.Client) *De
 	}
 }
 
-/*
-DeletePaymentProviderConfigParams contains all the parameters to send to the API endpoint
+/*DeletePaymentProviderConfigParams contains all the parameters to send to the API endpoint
 for the delete payment provider config operation typically these are written to a http.Request
 */
 type DeletePaymentProviderConfigParams struct {

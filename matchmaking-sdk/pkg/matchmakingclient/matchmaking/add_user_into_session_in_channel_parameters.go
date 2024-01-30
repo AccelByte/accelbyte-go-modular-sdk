@@ -59,8 +59,7 @@ func NewAddUserIntoSessionInChannelParamsWithHTTPClient(client *http.Client) *Ad
 	}
 }
 
-/*
-AddUserIntoSessionInChannelParams contains all the parameters to send to the API endpoint
+/*AddUserIntoSessionInChannelParams contains all the parameters to send to the API endpoint
 for the add user into session in channel operation typically these are written to a http.Request
 */
 type AddUserIntoSessionInChannelParams struct {

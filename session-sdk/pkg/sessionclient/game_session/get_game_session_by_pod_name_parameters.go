@@ -57,8 +57,7 @@ func NewGetGameSessionByPodNameParamsWithHTTPClient(client *http.Client) *GetGam
 	}
 }
 
-/*
-GetGameSessionByPodNameParams contains all the parameters to send to the API endpoint
+/*GetGameSessionByPodNameParams contains all the parameters to send to the API endpoint
 for the get game session by pod name operation typically these are written to a http.Request
 */
 type GetGameSessionByPodNameParams struct {

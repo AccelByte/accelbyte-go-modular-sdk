@@ -57,8 +57,7 @@ func NewPublishAllParamsWithHTTPClient(client *http.Client) *PublishAllParams {
 	}
 }
 
-/*
-PublishAllParams contains all the parameters to send to the API endpoint
+/*PublishAllParams contains all the parameters to send to the API endpoint
 for the publish all operation typically these are written to a http.Request
 */
 type PublishAllParams struct {

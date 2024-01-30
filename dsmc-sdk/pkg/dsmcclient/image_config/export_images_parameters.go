@@ -57,8 +57,7 @@ func NewExportImagesParamsWithHTTPClient(client *http.Client) *ExportImagesParam
 	}
 }
 
-/*
-ExportImagesParams contains all the parameters to send to the API endpoint
+/*ExportImagesParams contains all the parameters to send to the API endpoint
 for the export images operation typically these are written to a http.Request
 */
 type ExportImagesParams struct {

@@ -59,8 +59,7 @@ func NewAdminAddRolePermissionsV4ParamsWithHTTPClient(client *http.Client) *Admi
 	}
 }
 
-/*
-AdminAddRolePermissionsV4Params contains all the parameters to send to the API endpoint
+/*AdminAddRolePermissionsV4Params contains all the parameters to send to the API endpoint
 for the admin add role permissions v4 operation typically these are written to a http.Request
 */
 type AdminAddRolePermissionsV4Params struct {

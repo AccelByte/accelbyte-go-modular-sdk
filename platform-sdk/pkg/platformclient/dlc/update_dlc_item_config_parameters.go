@@ -59,8 +59,7 @@ func NewUpdateDLCItemConfigParamsWithHTTPClient(client *http.Client) *UpdateDLCI
 	}
 }
 
-/*
-UpdateDLCItemConfigParams contains all the parameters to send to the API endpoint
+/*UpdateDLCItemConfigParams contains all the parameters to send to the API endpoint
 for the update dlc item config operation typically these are written to a http.Request
 */
 type UpdateDLCItemConfigParams struct {

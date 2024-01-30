@@ -57,8 +57,7 @@ func NewGetRevocationListV3ParamsWithHTTPClient(client *http.Client) *GetRevocat
 	}
 }
 
-/*
-GetRevocationListV3Params contains all the parameters to send to the API endpoint
+/*GetRevocationListV3Params contains all the parameters to send to the API endpoint
 for the get revocation list v3 operation typically these are written to a http.Request
 */
 type GetRevocationListV3Params struct {

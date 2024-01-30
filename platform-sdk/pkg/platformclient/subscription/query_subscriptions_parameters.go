@@ -101,8 +101,7 @@ func NewQuerySubscriptionsParamsWithHTTPClient(client *http.Client) *QuerySubscr
 	}
 }
 
-/*
-QuerySubscriptionsParams contains all the parameters to send to the API endpoint
+/*QuerySubscriptionsParams contains all the parameters to send to the API endpoint
 for the query subscriptions operation typically these are written to a http.Request
 */
 type QuerySubscriptionsParams struct {

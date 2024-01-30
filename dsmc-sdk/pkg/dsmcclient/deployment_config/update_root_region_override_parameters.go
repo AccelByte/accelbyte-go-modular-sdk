@@ -59,8 +59,7 @@ func NewUpdateRootRegionOverrideParamsWithHTTPClient(client *http.Client) *Updat
 	}
 }
 
-/*
-UpdateRootRegionOverrideParams contains all the parameters to send to the API endpoint
+/*UpdateRootRegionOverrideParams contains all the parameters to send to the API endpoint
 for the update root region override operation typically these are written to a http.Request
 */
 type UpdateRootRegionOverrideParams struct {

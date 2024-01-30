@@ -59,8 +59,7 @@ func NewPublicResetPasswordV2ParamsWithHTTPClient(client *http.Client) *PublicRe
 	}
 }
 
-/*
-PublicResetPasswordV2Params contains all the parameters to send to the API endpoint
+/*PublicResetPasswordV2Params contains all the parameters to send to the API endpoint
 for the public reset password v2 operation typically these are written to a http.Request
 */
 type PublicResetPasswordV2Params struct {

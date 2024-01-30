@@ -57,8 +57,7 @@ func NewDeleteUserSubscriptionParamsWithHTTPClient(client *http.Client) *DeleteU
 	}
 }
 
-/*
-DeleteUserSubscriptionParams contains all the parameters to send to the API endpoint
+/*DeleteUserSubscriptionParams contains all the parameters to send to the API endpoint
 for the delete user subscription operation typically these are written to a http.Request
 */
 type DeleteUserSubscriptionParams struct {

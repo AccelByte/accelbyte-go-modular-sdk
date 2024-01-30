@@ -57,8 +57,7 @@ func NewRetrieveActiveOIDCClientsPublicV3ParamsWithHTTPClient(client *http.Clien
 	}
 }
 
-/*
-RetrieveActiveOIDCClientsPublicV3Params contains all the parameters to send to the API endpoint
+/*RetrieveActiveOIDCClientsPublicV3Params contains all the parameters to send to the API endpoint
 for the retrieve active oidc clients public v3 operation typically these are written to a http.Request
 */
 type RetrieveActiveOIDCClientsPublicV3Params struct {

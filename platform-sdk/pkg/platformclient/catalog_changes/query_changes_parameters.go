@@ -149,8 +149,7 @@ func NewQueryChangesParamsWithHTTPClient(client *http.Client) *QueryChangesParam
 	}
 }
 
-/*
-QueryChangesParams contains all the parameters to send to the API endpoint
+/*QueryChangesParams contains all the parameters to send to the API endpoint
 for the query changes operation typically these are written to a http.Request
 */
 type QueryChangesParams struct {

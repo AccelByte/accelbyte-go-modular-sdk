@@ -59,8 +59,7 @@ func NewAdminUpdateContentHideStatusV2ParamsWithHTTPClient(client *http.Client) 
 	}
 }
 
-/*
-AdminUpdateContentHideStatusV2Params contains all the parameters to send to the API endpoint
+/*AdminUpdateContentHideStatusV2Params contains all the parameters to send to the API endpoint
 for the admin update content hide status v2 operation typically these are written to a http.Request
 */
 type AdminUpdateContentHideStatusV2Params struct {

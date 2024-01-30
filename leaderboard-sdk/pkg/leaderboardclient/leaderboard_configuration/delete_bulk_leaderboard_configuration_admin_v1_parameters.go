@@ -59,8 +59,7 @@ func NewDeleteBulkLeaderboardConfigurationAdminV1ParamsWithHTTPClient(client *ht
 	}
 }
 
-/*
-DeleteBulkLeaderboardConfigurationAdminV1Params contains all the parameters to send to the API endpoint
+/*DeleteBulkLeaderboardConfigurationAdminV1Params contains all the parameters to send to the API endpoint
 for the delete bulk leaderboard configuration admin v1 operation typically these are written to a http.Request
 */
 type DeleteBulkLeaderboardConfigurationAdminV1Params struct {

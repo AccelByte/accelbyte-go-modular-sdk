@@ -57,8 +57,7 @@ func NewGetSingleMemberRoleAdminV1ParamsWithHTTPClient(client *http.Client) *Get
 	}
 }
 
-/*
-GetSingleMemberRoleAdminV1Params contains all the parameters to send to the API endpoint
+/*GetSingleMemberRoleAdminV1Params contains all the parameters to send to the API endpoint
 for the get single member role admin v1 operation typically these are written to a http.Request
 */
 type GetSingleMemberRoleAdminV1Params struct {

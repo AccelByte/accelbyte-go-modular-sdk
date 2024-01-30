@@ -57,8 +57,7 @@ func NewPublicGetItemByAppIDParamsWithHTTPClient(client *http.Client) *PublicGet
 	}
 }
 
-/*
-PublicGetItemByAppIDParams contains all the parameters to send to the API endpoint
+/*PublicGetItemByAppIDParams contains all the parameters to send to the API endpoint
 for the public get item by app id operation typically these are written to a http.Request
 */
 type PublicGetItemByAppIDParams struct {

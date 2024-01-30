@@ -78,8 +78,7 @@ func NewGetIncomingFriendRequestsParamsWithHTTPClient(client *http.Client) *GetI
 	}
 }
 
-/*
-GetIncomingFriendRequestsParams contains all the parameters to send to the API endpoint
+/*GetIncomingFriendRequestsParams contains all the parameters to send to the API endpoint
 for the get incoming friend requests operation typically these are written to a http.Request
 */
 type GetIncomingFriendRequestsParams struct {

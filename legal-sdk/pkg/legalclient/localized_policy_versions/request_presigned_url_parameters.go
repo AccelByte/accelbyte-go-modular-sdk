@@ -59,8 +59,7 @@ func NewRequestPresignedURLParamsWithHTTPClient(client *http.Client) *RequestPre
 	}
 }
 
-/*
-RequestPresignedURLParams contains all the parameters to send to the API endpoint
+/*RequestPresignedURLParams contains all the parameters to send to the API endpoint
 for the request presigned url operation typically these are written to a http.Request
 */
 type RequestPresignedURLParams struct {

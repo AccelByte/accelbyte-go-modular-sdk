@@ -57,8 +57,7 @@ func NewGetSingleMatchmakingChannelParamsWithHTTPClient(client *http.Client) *Ge
 	}
 }
 
-/*
-GetSingleMatchmakingChannelParams contains all the parameters to send to the API endpoint
+/*GetSingleMatchmakingChannelParams contains all the parameters to send to the API endpoint
 for the get single matchmaking channel operation typically these are written to a http.Request
 */
 type GetSingleMatchmakingChannelParams struct {

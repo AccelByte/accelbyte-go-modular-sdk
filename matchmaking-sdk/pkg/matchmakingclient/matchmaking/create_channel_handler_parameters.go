@@ -59,8 +59,7 @@ func NewCreateChannelHandlerParamsWithHTTPClient(client *http.Client) *CreateCha
 	}
 }
 
-/*
-CreateChannelHandlerParams contains all the parameters to send to the API endpoint
+/*CreateChannelHandlerParams contains all the parameters to send to the API endpoint
 for the create channel handler operation typically these are written to a http.Request
 */
 type CreateChannelHandlerParams struct {

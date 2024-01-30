@@ -58,8 +58,7 @@ func NewAdminListStagingContentsParamsWithHTTPClient(client *http.Client) *Admin
 	}
 }
 
-/*
-AdminListStagingContentsParams contains all the parameters to send to the API endpoint
+/*AdminListStagingContentsParams contains all the parameters to send to the API endpoint
 for the admin list staging contents operation typically these are written to a http.Request
 */
 type AdminListStagingContentsParams struct {

@@ -57,8 +57,7 @@ func NewAdminGetUserGroupStatusInformationV2ParamsWithHTTPClient(client *http.Cl
 	}
 }
 
-/*
-AdminGetUserGroupStatusInformationV2Params contains all the parameters to send to the API endpoint
+/*AdminGetUserGroupStatusInformationV2Params contains all the parameters to send to the API endpoint
 for the admin get user group status information v2 operation typically these are written to a http.Request
 */
 type AdminGetUserGroupStatusInformationV2Params struct {

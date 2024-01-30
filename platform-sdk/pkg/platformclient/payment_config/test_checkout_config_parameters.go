@@ -72,8 +72,7 @@ func NewTestCheckoutConfigParamsWithHTTPClient(client *http.Client) *TestCheckou
 	}
 }
 
-/*
-TestCheckoutConfigParams contains all the parameters to send to the API endpoint
+/*TestCheckoutConfigParams contains all the parameters to send to the API endpoint
 for the test checkout config operation typically these are written to a http.Request
 */
 type TestCheckoutConfigParams struct {

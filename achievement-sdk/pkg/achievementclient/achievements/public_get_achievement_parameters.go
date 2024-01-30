@@ -57,8 +57,7 @@ func NewPublicGetAchievementParamsWithHTTPClient(client *http.Client) *PublicGet
 	}
 }
 
-/*
-PublicGetAchievementParams contains all the parameters to send to the API endpoint
+/*PublicGetAchievementParams contains all the parameters to send to the API endpoint
 for the public get achievement operation typically these are written to a http.Request
 */
 type PublicGetAchievementParams struct {

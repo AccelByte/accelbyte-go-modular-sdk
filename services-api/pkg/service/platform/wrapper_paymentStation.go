@@ -23,6 +23,14 @@ type PaymentStationService struct {
 	Client           *platformclient.JusticePlatformService
 	ConfigRepository repository.ConfigRepository
 	TokenRepository  repository.TokenRepository
+
+	FlightIdRepository *utils.FlightIdContainer
+}
+
+var tempFlightIdPaymentStation *string
+
+func (aaa *PaymentStationService) UpdateFlightId(flightId string) {
+	tempFlightIdPaymentStation = &flightId
 }
 
 func (aaa *PaymentStationService) GetAuthSession() auth.Session {
@@ -181,6 +189,11 @@ func (aaa *PaymentStationService) GetPaymentCustomizationShort(input *payment_st
 			RetryCodes: utils.RetryCodes,
 		}
 	}
+	if tempFlightIdPaymentStation != nil {
+		input.XFlightId = tempFlightIdPaymentStation
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	}
 
 	ok, err := aaa.Client.PaymentStation.GetPaymentCustomizationShort(input)
 	if err != nil {
@@ -198,6 +211,11 @@ func (aaa *PaymentStationService) PublicGetPaymentURLShort(input *payment_statio
 			Transport:  aaa.Client.Runtime.Transport,
 			RetryCodes: utils.RetryCodes,
 		}
+	}
+	if tempFlightIdPaymentStation != nil {
+		input.XFlightId = tempFlightIdPaymentStation
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.PaymentStation.PublicGetPaymentURLShort(input)
@@ -217,6 +235,11 @@ func (aaa *PaymentStationService) PublicGetPaymentMethodsShort(input *payment_st
 			RetryCodes: utils.RetryCodes,
 		}
 	}
+	if tempFlightIdPaymentStation != nil {
+		input.XFlightId = tempFlightIdPaymentStation
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	}
 
 	ok, err := aaa.Client.PaymentStation.PublicGetPaymentMethodsShort(input)
 	if err != nil {
@@ -234,6 +257,11 @@ func (aaa *PaymentStationService) PublicGetUnpaidPaymentOrderShort(input *paymen
 			Transport:  aaa.Client.Runtime.Transport,
 			RetryCodes: utils.RetryCodes,
 		}
+	}
+	if tempFlightIdPaymentStation != nil {
+		input.XFlightId = tempFlightIdPaymentStation
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.PaymentStation.PublicGetUnpaidPaymentOrderShort(input)
@@ -253,6 +281,11 @@ func (aaa *PaymentStationService) PayShort(input *payment_station.PayParams) (*p
 			RetryCodes: utils.RetryCodes,
 		}
 	}
+	if tempFlightIdPaymentStation != nil {
+		input.XFlightId = tempFlightIdPaymentStation
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	}
 
 	ok, err := aaa.Client.PaymentStation.PayShort(input)
 	if err != nil {
@@ -270,6 +303,11 @@ func (aaa *PaymentStationService) PublicCheckPaymentOrderPaidStatusShort(input *
 			Transport:  aaa.Client.Runtime.Transport,
 			RetryCodes: utils.RetryCodes,
 		}
+	}
+	if tempFlightIdPaymentStation != nil {
+		input.XFlightId = tempFlightIdPaymentStation
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.PaymentStation.PublicCheckPaymentOrderPaidStatusShort(input)
@@ -289,6 +327,11 @@ func (aaa *PaymentStationService) GetPaymentPublicConfigShort(input *payment_sta
 			RetryCodes: utils.RetryCodes,
 		}
 	}
+	if tempFlightIdPaymentStation != nil {
+		input.XFlightId = tempFlightIdPaymentStation
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	}
 
 	ok, err := aaa.Client.PaymentStation.GetPaymentPublicConfigShort(input)
 	if err != nil {
@@ -306,6 +349,11 @@ func (aaa *PaymentStationService) PublicGetQRCodeShort(input *payment_station.Pu
 			Transport:  aaa.Client.Runtime.Transport,
 			RetryCodes: utils.RetryCodes,
 		}
+	}
+	if tempFlightIdPaymentStation != nil {
+		input.XFlightId = tempFlightIdPaymentStation
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.PaymentStation.PublicGetQRCodeShort(input, writer)
@@ -325,6 +373,11 @@ func (aaa *PaymentStationService) PublicNormalizePaymentReturnURLShort(input *pa
 			RetryCodes: utils.RetryCodes,
 		}
 	}
+	if tempFlightIdPaymentStation != nil {
+		input.XFlightId = tempFlightIdPaymentStation
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	}
 
 	_, err := aaa.Client.PaymentStation.PublicNormalizePaymentReturnURLShort(input)
 	if err != nil {
@@ -342,6 +395,11 @@ func (aaa *PaymentStationService) GetPaymentTaxValueShort(input *payment_station
 			Transport:  aaa.Client.Runtime.Transport,
 			RetryCodes: utils.RetryCodes,
 		}
+	}
+	if tempFlightIdPaymentStation != nil {
+		input.XFlightId = tempFlightIdPaymentStation
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.PaymentStation.GetPaymentTaxValueShort(input)

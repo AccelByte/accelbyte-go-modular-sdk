@@ -57,8 +57,7 @@ func NewDefeatureItemParamsWithHTTPClient(client *http.Client) *DefeatureItemPar
 	}
 }
 
-/*
-DefeatureItemParams contains all the parameters to send to the API endpoint
+/*DefeatureItemParams contains all the parameters to send to the API endpoint
 for the defeature item operation typically these are written to a http.Request
 */
 type DefeatureItemParams struct {

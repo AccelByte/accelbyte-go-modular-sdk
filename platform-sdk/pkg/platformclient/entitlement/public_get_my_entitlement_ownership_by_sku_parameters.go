@@ -68,8 +68,7 @@ func NewPublicGetMyEntitlementOwnershipBySkuParamsWithHTTPClient(client *http.Cl
 	}
 }
 
-/*
-PublicGetMyEntitlementOwnershipBySkuParams contains all the parameters to send to the API endpoint
+/*PublicGetMyEntitlementOwnershipBySkuParams contains all the parameters to send to the API endpoint
 for the public get my entitlement ownership by sku operation typically these are written to a http.Request
 */
 type PublicGetMyEntitlementOwnershipBySkuParams struct {

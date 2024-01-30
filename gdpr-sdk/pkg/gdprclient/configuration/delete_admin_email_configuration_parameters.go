@@ -58,8 +58,7 @@ func NewDeleteAdminEmailConfigurationParamsWithHTTPClient(client *http.Client) *
 	}
 }
 
-/*
-DeleteAdminEmailConfigurationParams contains all the parameters to send to the API endpoint
+/*DeleteAdminEmailConfigurationParams contains all the parameters to send to the API endpoint
 for the delete admin email configuration operation typically these are written to a http.Request
 */
 type DeleteAdminEmailConfigurationParams struct {

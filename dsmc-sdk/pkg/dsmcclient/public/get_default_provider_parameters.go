@@ -57,8 +57,7 @@ func NewGetDefaultProviderParamsWithHTTPClient(client *http.Client) *GetDefaultP
 	}
 }
 
-/*
-GetDefaultProviderParams contains all the parameters to send to the API endpoint
+/*GetDefaultProviderParams contains all the parameters to send to the API endpoint
 for the get default provider operation typically these are written to a http.Request
 */
 type GetDefaultProviderParams struct {

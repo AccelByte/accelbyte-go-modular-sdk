@@ -57,8 +57,7 @@ func NewAnonymizeUserProfileParamsWithHTTPClient(client *http.Client) *Anonymize
 	}
 }
 
-/*
-AnonymizeUserProfileParams contains all the parameters to send to the API endpoint
+/*AnonymizeUserProfileParams contains all the parameters to send to the API endpoint
 for the anonymize user profile operation typically these are written to a http.Request
 */
 type AnonymizeUserProfileParams struct {

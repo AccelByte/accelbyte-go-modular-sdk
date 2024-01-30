@@ -57,8 +57,7 @@ func NewDeleteUserStatItemsParamsWithHTTPClient(client *http.Client) *DeleteUser
 	}
 }
 
-/*
-DeleteUserStatItemsParams contains all the parameters to send to the API endpoint
+/*DeleteUserStatItemsParams contains all the parameters to send to the API endpoint
 for the delete user stat items operation typically these are written to a http.Request
 */
 type DeleteUserStatItemsParams struct {

@@ -22,6 +22,14 @@ type ProfanityService struct {
 	Client           *chatclient.JusticeChatService
 	ConfigRepository repository.ConfigRepository
 	TokenRepository  repository.TokenRepository
+
+	FlightIdRepository *utils.FlightIdContainer
+}
+
+var tempFlightIdProfanity *string
+
+func (aaa *ProfanityService) UpdateFlightId(flightId string) {
+	tempFlightIdProfanity = &flightId
 }
 
 func (aaa *ProfanityService) GetAuthSession() auth.Session {
@@ -274,6 +282,11 @@ func (aaa *ProfanityService) AdminProfanityQueryShort(input *profanity.AdminProf
 			RetryCodes: utils.RetryCodes,
 		}
 	}
+	if tempFlightIdProfanity != nil {
+		input.XFlightId = tempFlightIdProfanity
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	}
 
 	ok, err := aaa.Client.Profanity.AdminProfanityQueryShort(input, authInfoWriter)
 	if err != nil {
@@ -298,6 +311,11 @@ func (aaa *ProfanityService) AdminProfanityCreateShort(input *profanity.AdminPro
 			Transport:  aaa.Client.Runtime.Transport,
 			RetryCodes: utils.RetryCodes,
 		}
+	}
+	if tempFlightIdProfanity != nil {
+		input.XFlightId = tempFlightIdProfanity
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.Profanity.AdminProfanityCreateShort(input, authInfoWriter)
@@ -324,6 +342,11 @@ func (aaa *ProfanityService) AdminProfanityCreateBulkShort(input *profanity.Admi
 			RetryCodes: utils.RetryCodes,
 		}
 	}
+	if tempFlightIdProfanity != nil {
+		input.XFlightId = tempFlightIdProfanity
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	}
 
 	noContent, err := aaa.Client.Profanity.AdminProfanityCreateBulkShort(input, authInfoWriter)
 	if err != nil {
@@ -348,6 +371,11 @@ func (aaa *ProfanityService) AdminProfanityExportShort(input *profanity.AdminPro
 			Transport:  aaa.Client.Runtime.Transport,
 			RetryCodes: utils.RetryCodes,
 		}
+	}
+	if tempFlightIdProfanity != nil {
+		input.XFlightId = tempFlightIdProfanity
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.Profanity.AdminProfanityExportShort(input, authInfoWriter)
@@ -374,6 +402,11 @@ func (aaa *ProfanityService) AdminProfanityGroupShort(input *profanity.AdminProf
 			RetryCodes: utils.RetryCodes,
 		}
 	}
+	if tempFlightIdProfanity != nil {
+		input.XFlightId = tempFlightIdProfanity
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	}
 
 	ok, err := aaa.Client.Profanity.AdminProfanityGroupShort(input, authInfoWriter)
 	if err != nil {
@@ -398,6 +431,11 @@ func (aaa *ProfanityService) AdminProfanityImportShort(input *profanity.AdminPro
 			Transport:  aaa.Client.Runtime.Transport,
 			RetryCodes: utils.RetryCodes,
 		}
+	}
+	if tempFlightIdProfanity != nil {
+		input.XFlightId = tempFlightIdProfanity
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.Profanity.AdminProfanityImportShort(input, authInfoWriter)
@@ -424,6 +462,11 @@ func (aaa *ProfanityService) AdminProfanityUpdateShort(input *profanity.AdminPro
 			RetryCodes: utils.RetryCodes,
 		}
 	}
+	if tempFlightIdProfanity != nil {
+		input.XFlightId = tempFlightIdProfanity
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	}
 
 	ok, err := aaa.Client.Profanity.AdminProfanityUpdateShort(input, authInfoWriter)
 	if err != nil {
@@ -448,6 +491,11 @@ func (aaa *ProfanityService) AdminProfanityDeleteShort(input *profanity.AdminPro
 			Transport:  aaa.Client.Runtime.Transport,
 			RetryCodes: utils.RetryCodes,
 		}
+	}
+	if tempFlightIdProfanity != nil {
+		input.XFlightId = tempFlightIdProfanity
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
 	}
 
 	_, err := aaa.Client.Profanity.AdminProfanityDeleteShort(input, authInfoWriter)

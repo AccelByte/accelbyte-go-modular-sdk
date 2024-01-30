@@ -57,8 +57,7 @@ func NewDownloadServerLogsParamsWithHTTPClient(client *http.Client) *DownloadSer
 	}
 }
 
-/*
-DownloadServerLogsParams contains all the parameters to send to the API endpoint
+/*DownloadServerLogsParams contains all the parameters to send to the API endpoint
 for the download server logs operation typically these are written to a http.Request
 */
 type DownloadServerLogsParams struct {

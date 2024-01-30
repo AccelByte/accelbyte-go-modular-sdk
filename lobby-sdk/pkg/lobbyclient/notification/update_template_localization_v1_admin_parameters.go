@@ -59,8 +59,7 @@ func NewUpdateTemplateLocalizationV1AdminParamsWithHTTPClient(client *http.Clien
 	}
 }
 
-/*
-UpdateTemplateLocalizationV1AdminParams contains all the parameters to send to the API endpoint
+/*UpdateTemplateLocalizationV1AdminParams contains all the parameters to send to the API endpoint
 for the update template localization v1 admin operation typically these are written to a http.Request
 */
 type UpdateTemplateLocalizationV1AdminParams struct {

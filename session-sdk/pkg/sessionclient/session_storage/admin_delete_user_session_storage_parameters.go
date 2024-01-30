@@ -57,8 +57,7 @@ func NewAdminDeleteUserSessionStorageParamsWithHTTPClient(client *http.Client) *
 	}
 }
 
-/*
-AdminDeleteUserSessionStorageParams contains all the parameters to send to the API endpoint
+/*AdminDeleteUserSessionStorageParams contains all the parameters to send to the API endpoint
 for the admin delete user session storage operation typically these are written to a http.Request
 */
 type AdminDeleteUserSessionStorageParams struct {

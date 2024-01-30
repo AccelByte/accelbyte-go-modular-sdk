@@ -59,8 +59,7 @@ func NewPublicUpdateContentFileLocationParamsWithHTTPClient(client *http.Client)
 	}
 }
 
-/*
-PublicUpdateContentFileLocationParams contains all the parameters to send to the API endpoint
+/*PublicUpdateContentFileLocationParams contains all the parameters to send to the API endpoint
 for the public update content file location operation typically these are written to a http.Request
 */
 type PublicUpdateContentFileLocationParams struct {

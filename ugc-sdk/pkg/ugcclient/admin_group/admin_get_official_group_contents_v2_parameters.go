@@ -78,8 +78,7 @@ func NewAdminGetOfficialGroupContentsV2ParamsWithHTTPClient(client *http.Client)
 	}
 }
 
-/*
-AdminGetOfficialGroupContentsV2Params contains all the parameters to send to the API endpoint
+/*AdminGetOfficialGroupContentsV2Params contains all the parameters to send to the API endpoint
 for the admin get official group contents v2 operation typically these are written to a http.Request
 */
 type AdminGetOfficialGroupContentsV2Params struct {

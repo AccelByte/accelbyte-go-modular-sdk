@@ -22,6 +22,14 @@ type KeyGroupService struct {
 	Client           *platformclient.JusticePlatformService
 	ConfigRepository repository.ConfigRepository
 	TokenRepository  repository.TokenRepository
+
+	FlightIdRepository *utils.FlightIdContainer
+}
+
+var tempFlightIdKeyGroup *string
+
+func (aaa *KeyGroupService) UpdateFlightId(flightId string) {
+	tempFlightIdKeyGroup = &flightId
 }
 
 func (aaa *KeyGroupService) GetAuthSession() auth.Session {
@@ -190,6 +198,11 @@ func (aaa *KeyGroupService) QueryKeyGroupsShort(input *key_group.QueryKeyGroupsP
 			RetryCodes: utils.RetryCodes,
 		}
 	}
+	if tempFlightIdKeyGroup != nil {
+		input.XFlightId = tempFlightIdKeyGroup
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	}
 
 	ok, err := aaa.Client.KeyGroup.QueryKeyGroupsShort(input, authInfoWriter)
 	if err != nil {
@@ -214,6 +227,11 @@ func (aaa *KeyGroupService) CreateKeyGroupShort(input *key_group.CreateKeyGroupP
 			Transport:  aaa.Client.Runtime.Transport,
 			RetryCodes: utils.RetryCodes,
 		}
+	}
+	if tempFlightIdKeyGroup != nil {
+		input.XFlightId = tempFlightIdKeyGroup
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
 	}
 
 	created, err := aaa.Client.KeyGroup.CreateKeyGroupShort(input, authInfoWriter)
@@ -240,6 +258,11 @@ func (aaa *KeyGroupService) GetKeyGroupByBoothNameShort(input *key_group.GetKeyG
 			RetryCodes: utils.RetryCodes,
 		}
 	}
+	if tempFlightIdKeyGroup != nil {
+		input.XFlightId = tempFlightIdKeyGroup
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	}
 
 	ok, err := aaa.Client.KeyGroup.GetKeyGroupByBoothNameShort(input, authInfoWriter)
 	if err != nil {
@@ -264,6 +287,11 @@ func (aaa *KeyGroupService) GetKeyGroupShort(input *key_group.GetKeyGroupParams)
 			Transport:  aaa.Client.Runtime.Transport,
 			RetryCodes: utils.RetryCodes,
 		}
+	}
+	if tempFlightIdKeyGroup != nil {
+		input.XFlightId = tempFlightIdKeyGroup
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.KeyGroup.GetKeyGroupShort(input, authInfoWriter)
@@ -290,6 +318,11 @@ func (aaa *KeyGroupService) UpdateKeyGroupShort(input *key_group.UpdateKeyGroupP
 			RetryCodes: utils.RetryCodes,
 		}
 	}
+	if tempFlightIdKeyGroup != nil {
+		input.XFlightId = tempFlightIdKeyGroup
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	}
 
 	ok, err := aaa.Client.KeyGroup.UpdateKeyGroupShort(input, authInfoWriter)
 	if err != nil {
@@ -314,6 +347,11 @@ func (aaa *KeyGroupService) GetKeyGroupDynamicShort(input *key_group.GetKeyGroup
 			Transport:  aaa.Client.Runtime.Transport,
 			RetryCodes: utils.RetryCodes,
 		}
+	}
+	if tempFlightIdKeyGroup != nil {
+		input.XFlightId = tempFlightIdKeyGroup
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.KeyGroup.GetKeyGroupDynamicShort(input, authInfoWriter)
@@ -340,6 +378,11 @@ func (aaa *KeyGroupService) ListKeysShort(input *key_group.ListKeysParams) (*pla
 			RetryCodes: utils.RetryCodes,
 		}
 	}
+	if tempFlightIdKeyGroup != nil {
+		input.XFlightId = tempFlightIdKeyGroup
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	}
 
 	ok, err := aaa.Client.KeyGroup.ListKeysShort(input, authInfoWriter)
 	if err != nil {
@@ -364,6 +407,11 @@ func (aaa *KeyGroupService) UploadKeysShort(input *key_group.UploadKeysParams) (
 			Transport:  aaa.Client.Runtime.Transport,
 			RetryCodes: utils.RetryCodes,
 		}
+	}
+	if tempFlightIdKeyGroup != nil {
+		input.XFlightId = tempFlightIdKeyGroup
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.KeyGroup.UploadKeysShort(input, authInfoWriter)

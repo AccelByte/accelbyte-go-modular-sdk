@@ -59,8 +59,7 @@ func NewPutGameRecordConcurrentHandlerV1ParamsWithHTTPClient(client *http.Client
 	}
 }
 
-/*
-PutGameRecordConcurrentHandlerV1Params contains all the parameters to send to the API endpoint
+/*PutGameRecordConcurrentHandlerV1Params contains all the parameters to send to the API endpoint
 for the put game record concurrent handler v1 operation typically these are written to a http.Request
 */
 type PutGameRecordConcurrentHandlerV1Params struct {

@@ -59,8 +59,7 @@ func NewPublicBulkCreateUserStatItemsParamsWithHTTPClient(client *http.Client) *
 	}
 }
 
-/*
-PublicBulkCreateUserStatItemsParams contains all the parameters to send to the API endpoint
+/*PublicBulkCreateUserStatItemsParams contains all the parameters to send to the API endpoint
 for the public bulk create user stat items operation typically these are written to a http.Request
 */
 type PublicBulkCreateUserStatItemsParams struct {

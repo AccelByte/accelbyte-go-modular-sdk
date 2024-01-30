@@ -58,8 +58,7 @@ func NewGetCurrentWeekLeaderboardRankingAdminV1ParamsWithHTTPClient(client *http
 	}
 }
 
-/*
-GetCurrentWeekLeaderboardRankingAdminV1Params contains all the parameters to send to the API endpoint
+/*GetCurrentWeekLeaderboardRankingAdminV1Params contains all the parameters to send to the API endpoint
 for the get current week leaderboard ranking admin v1 operation typically these are written to a http.Request
 */
 type GetCurrentWeekLeaderboardRankingAdminV1Params struct {

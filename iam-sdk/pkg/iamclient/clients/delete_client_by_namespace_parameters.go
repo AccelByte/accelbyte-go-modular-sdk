@@ -57,8 +57,7 @@ func NewDeleteClientByNamespaceParamsWithHTTPClient(client *http.Client) *Delete
 	}
 }
 
-/*
-DeleteClientByNamespaceParams contains all the parameters to send to the API endpoint
+/*DeleteClientByNamespaceParams contains all the parameters to send to the API endpoint
 for the delete client by namespace operation typically these are written to a http.Request
 */
 type DeleteClientByNamespaceParams struct {

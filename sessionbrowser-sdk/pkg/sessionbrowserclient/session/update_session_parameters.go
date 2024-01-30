@@ -59,8 +59,7 @@ func NewUpdateSessionParamsWithHTTPClient(client *http.Client) *UpdateSessionPar
 	}
 }
 
-/*
-UpdateSessionParams contains all the parameters to send to the API endpoint
+/*UpdateSessionParams contains all the parameters to send to the API endpoint
 for the update session operation typically these are written to a http.Request
 */
 type UpdateSessionParams struct {

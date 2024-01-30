@@ -57,8 +57,7 @@ func NewPublicGeneratePersonalDataURLParamsWithHTTPClient(client *http.Client) *
 	}
 }
 
-/*
-PublicGeneratePersonalDataURLParams contains all the parameters to send to the API endpoint
+/*PublicGeneratePersonalDataURLParams contains all the parameters to send to the API endpoint
 for the public generate personal data url operation typically these are written to a http.Request
 */
 type PublicGeneratePersonalDataURLParams struct {

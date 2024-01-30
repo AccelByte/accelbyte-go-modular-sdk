@@ -59,8 +59,7 @@ func NewGrantUserTierParamsWithHTTPClient(client *http.Client) *GrantUserTierPar
 	}
 }
 
-/*
-GrantUserTierParams contains all the parameters to send to the API endpoint
+/*GrantUserTierParams contains all the parameters to send to the API endpoint
 for the grant user tier operation typically these are written to a http.Request
 */
 type GrantUserTierParams struct {

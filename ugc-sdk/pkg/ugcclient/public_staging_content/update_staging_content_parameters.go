@@ -59,8 +59,7 @@ func NewUpdateStagingContentParamsWithHTTPClient(client *http.Client) *UpdateSta
 	}
 }
 
-/*
-UpdateStagingContentParams contains all the parameters to send to the API endpoint
+/*UpdateStagingContentParams contains all the parameters to send to the API endpoint
 for the update staging content operation typically these are written to a http.Request
 */
 type UpdateStagingContentParams struct {

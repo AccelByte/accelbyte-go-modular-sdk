@@ -57,8 +57,7 @@ func NewListLocalServerParamsWithHTTPClient(client *http.Client) *ListLocalServe
 	}
 }
 
-/*
-ListLocalServerParams contains all the parameters to send to the API endpoint
+/*ListLocalServerParams contains all the parameters to send to the API endpoint
 for the list local server operation typically these are written to a http.Request
 */
 type ListLocalServerParams struct {

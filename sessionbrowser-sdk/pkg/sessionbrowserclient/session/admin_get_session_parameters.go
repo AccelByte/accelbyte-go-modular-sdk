@@ -57,8 +57,7 @@ func NewAdminGetSessionParamsWithHTTPClient(client *http.Client) *AdminGetSessio
 	}
 }
 
-/*
-AdminGetSessionParams contains all the parameters to send to the API endpoint
+/*AdminGetSessionParams contains all the parameters to send to the API endpoint
 for the admin get session operation typically these are written to a http.Request
 */
 type AdminGetSessionParams struct {

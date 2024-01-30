@@ -78,8 +78,7 @@ func NewAdminQueryPartiesParamsWithHTTPClient(client *http.Client) *AdminQueryPa
 	}
 }
 
-/*
-AdminQueryPartiesParams contains all the parameters to send to the API endpoint
+/*AdminQueryPartiesParams contains all the parameters to send to the API endpoint
 for the admin query parties operation typically these are written to a http.Request
 */
 type AdminQueryPartiesParams struct {

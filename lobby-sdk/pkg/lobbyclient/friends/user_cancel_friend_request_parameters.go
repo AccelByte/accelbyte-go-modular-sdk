@@ -59,8 +59,7 @@ func NewUserCancelFriendRequestParamsWithHTTPClient(client *http.Client) *UserCa
 	}
 }
 
-/*
-UserCancelFriendRequestParams contains all the parameters to send to the API endpoint
+/*UserCancelFriendRequestParams contains all the parameters to send to the API endpoint
 for the user cancel friend request operation typically these are written to a http.Request
 */
 type UserCancelFriendRequestParams struct {

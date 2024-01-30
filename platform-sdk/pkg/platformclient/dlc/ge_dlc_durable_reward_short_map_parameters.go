@@ -66,8 +66,7 @@ func NewGeDLCDurableRewardShortMapParamsWithHTTPClient(client *http.Client) *GeD
 	}
 }
 
-/*
-GeDLCDurableRewardShortMapParams contains all the parameters to send to the API endpoint
+/*GeDLCDurableRewardShortMapParams contains all the parameters to send to the API endpoint
 for the ge dlc durable reward short map operation typically these are written to a http.Request
 */
 type GeDLCDurableRewardShortMapParams struct {

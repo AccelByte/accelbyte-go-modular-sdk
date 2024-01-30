@@ -57,8 +57,7 @@ func NewPublicCheckPaymentOrderPaidStatusParamsWithHTTPClient(client *http.Clien
 	}
 }
 
-/*
-PublicCheckPaymentOrderPaidStatusParams contains all the parameters to send to the API endpoint
+/*PublicCheckPaymentOrderPaidStatusParams contains all the parameters to send to the API endpoint
 for the public check payment order paid status operation typically these are written to a http.Request
 */
 type PublicCheckPaymentOrderPaidStatusParams struct {

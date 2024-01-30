@@ -59,8 +59,7 @@ func NewUpdateViewParamsWithHTTPClient(client *http.Client) *UpdateViewParams {
 	}
 }
 
-/*
-UpdateViewParams contains all the parameters to send to the API endpoint
+/*UpdateViewParams contains all the parameters to send to the API endpoint
 for the update view operation typically these are written to a http.Request
 */
 type UpdateViewParams struct {

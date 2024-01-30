@@ -57,8 +57,7 @@ func NewPublishSelectedParamsWithHTTPClient(client *http.Client) *PublishSelecte
 	}
 }
 
-/*
-PublishSelectedParams contains all the parameters to send to the API endpoint
+/*PublishSelectedParams contains all the parameters to send to the API endpoint
 for the publish selected operation typically these are written to a http.Request
 */
 type PublishSelectedParams struct {

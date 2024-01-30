@@ -70,8 +70,7 @@ func NewListAllTerminatedServersParamsWithHTTPClient(client *http.Client) *ListA
 	}
 }
 
-/*
-ListAllTerminatedServersParams contains all the parameters to send to the API endpoint
+/*ListAllTerminatedServersParams contains all the parameters to send to the API endpoint
 for the list all terminated servers operation typically these are written to a http.Request
 */
 type ListAllTerminatedServersParams struct {

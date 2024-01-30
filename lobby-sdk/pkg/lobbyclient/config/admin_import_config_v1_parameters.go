@@ -57,8 +57,7 @@ func NewAdminImportConfigV1ParamsWithHTTPClient(client *http.Client) *AdminImpor
 	}
 }
 
-/*
-AdminImportConfigV1Params contains all the parameters to send to the API endpoint
+/*AdminImportConfigV1Params contains all the parameters to send to the API endpoint
 for the admin import config v1 operation typically these are written to a http.Request
 */
 type AdminImportConfigV1Params struct {

@@ -59,8 +59,7 @@ func NewUpdateEpicGamesIAPConfigParamsWithHTTPClient(client *http.Client) *Updat
 	}
 }
 
-/*
-UpdateEpicGamesIAPConfigParams contains all the parameters to send to the API endpoint
+/*UpdateEpicGamesIAPConfigParams contains all the parameters to send to the API endpoint
 for the update epic games iap config operation typically these are written to a http.Request
 */
 type UpdateEpicGamesIAPConfigParams struct {

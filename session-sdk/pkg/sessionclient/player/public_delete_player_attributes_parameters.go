@@ -57,8 +57,7 @@ func NewPublicDeletePlayerAttributesParamsWithHTTPClient(client *http.Client) *P
 	}
 }
 
-/*
-PublicDeletePlayerAttributesParams contains all the parameters to send to the API endpoint
+/*PublicDeletePlayerAttributesParams contains all the parameters to send to the API endpoint
 for the public delete player attributes operation typically these are written to a http.Request
 */
 type PublicDeletePlayerAttributesParams struct {

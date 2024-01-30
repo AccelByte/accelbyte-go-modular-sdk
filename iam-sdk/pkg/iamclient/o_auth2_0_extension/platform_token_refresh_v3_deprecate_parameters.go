@@ -57,8 +57,7 @@ func NewPlatformTokenRefreshV3DeprecateParamsWithHTTPClient(client *http.Client)
 	}
 }
 
-/*
-PlatformTokenRefreshV3DeprecateParams contains all the parameters to send to the API endpoint
+/*PlatformTokenRefreshV3DeprecateParams contains all the parameters to send to the API endpoint
 for the platform token refresh v3 deprecate operation typically these are written to a http.Request
 */
 type PlatformTokenRefreshV3DeprecateParams struct {

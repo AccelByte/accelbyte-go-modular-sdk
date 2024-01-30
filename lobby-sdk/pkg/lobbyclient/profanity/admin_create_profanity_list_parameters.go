@@ -59,8 +59,7 @@ func NewAdminCreateProfanityListParamsWithHTTPClient(client *http.Client) *Admin
 	}
 }
 
-/*
-AdminCreateProfanityListParams contains all the parameters to send to the API endpoint
+/*AdminCreateProfanityListParams contains all the parameters to send to the API endpoint
 for the admin create profanity list operation typically these are written to a http.Request
 */
 type AdminCreateProfanityListParams struct {

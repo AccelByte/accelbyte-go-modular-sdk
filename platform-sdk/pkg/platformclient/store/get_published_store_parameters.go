@@ -57,8 +57,7 @@ func NewGetPublishedStoreParamsWithHTTPClient(client *http.Client) *GetPublished
 	}
 }
 
-/*
-GetPublishedStoreParams contains all the parameters to send to the API endpoint
+/*GetPublishedStoreParams contains all the parameters to send to the API endpoint
 for the get published store operation typically these are written to a http.Request
 */
 type GetPublishedStoreParams struct {

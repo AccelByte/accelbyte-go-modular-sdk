@@ -57,8 +57,7 @@ func NewSetDefaultPolicyParamsWithHTTPClient(client *http.Client) *SetDefaultPol
 	}
 }
 
-/*
-SetDefaultPolicyParams contains all the parameters to send to the API endpoint
+/*SetDefaultPolicyParams contains all the parameters to send to the API endpoint
 for the set default policy operation typically these are written to a http.Request
 */
 type SetDefaultPolicyParams struct {

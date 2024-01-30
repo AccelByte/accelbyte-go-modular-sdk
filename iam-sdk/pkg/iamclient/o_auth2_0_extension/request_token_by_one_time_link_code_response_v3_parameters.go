@@ -70,8 +70,7 @@ func NewRequestTokenByOneTimeLinkCodeResponseV3ParamsWithHTTPClient(client *http
 	}
 }
 
-/*
-RequestTokenByOneTimeLinkCodeResponseV3Params contains all the parameters to send to the API endpoint
+/*RequestTokenByOneTimeLinkCodeResponseV3Params contains all the parameters to send to the API endpoint
 for the request token by one time link code response v3 operation typically these are written to a http.Request
 */
 type RequestTokenByOneTimeLinkCodeResponseV3Params struct {

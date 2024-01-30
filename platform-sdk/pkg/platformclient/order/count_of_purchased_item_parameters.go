@@ -57,8 +57,7 @@ func NewCountOfPurchasedItemParamsWithHTTPClient(client *http.Client) *CountOfPu
 	}
 }
 
-/*
-CountOfPurchasedItemParams contains all the parameters to send to the API endpoint
+/*CountOfPurchasedItemParams contains all the parameters to send to the API endpoint
 for the count of purchased item operation typically these are written to a http.Request
 */
 type CountOfPurchasedItemParams struct {

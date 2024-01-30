@@ -57,8 +57,7 @@ func NewExportConfigV1ParamsWithHTTPClient(client *http.Client) *ExportConfigV1P
 	}
 }
 
-/*
-ExportConfigV1Params contains all the parameters to send to the API endpoint
+/*ExportConfigV1Params contains all the parameters to send to the API endpoint
 for the export config v1 operation typically these are written to a http.Request
 */
 type ExportConfigV1Params struct {

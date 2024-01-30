@@ -59,8 +59,7 @@ func NewUpdateGroupConfigurationGlobalRuleAdminV1ParamsWithHTTPClient(client *ht
 	}
 }
 
-/*
-UpdateGroupConfigurationGlobalRuleAdminV1Params contains all the parameters to send to the API endpoint
+/*UpdateGroupConfigurationGlobalRuleAdminV1Params contains all the parameters to send to the API endpoint
 for the update group configuration global rule admin v1 operation typically these are written to a http.Request
 */
 type UpdateGroupConfigurationGlobalRuleAdminV1Params struct {

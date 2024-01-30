@@ -59,8 +59,7 @@ func NewUpdateAppleIAPConfigParamsWithHTTPClient(client *http.Client) *UpdateApp
 	}
 }
 
-/*
-UpdateAppleIAPConfigParams contains all the parameters to send to the API endpoint
+/*UpdateAppleIAPConfigParams contains all the parameters to send to the API endpoint
 for the update apple iap config operation typically these are written to a http.Request
 */
 type UpdateAppleIAPConfigParams struct {

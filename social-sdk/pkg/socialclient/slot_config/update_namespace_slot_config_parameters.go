@@ -59,8 +59,7 @@ func NewUpdateNamespaceSlotConfigParamsWithHTTPClient(client *http.Client) *Upda
 	}
 }
 
-/*
-UpdateNamespaceSlotConfigParams contains all the parameters to send to the API endpoint
+/*UpdateNamespaceSlotConfigParams contains all the parameters to send to the API endpoint
 for the update namespace slot config operation typically these are written to a http.Request
 */
 type UpdateNamespaceSlotConfigParams struct {

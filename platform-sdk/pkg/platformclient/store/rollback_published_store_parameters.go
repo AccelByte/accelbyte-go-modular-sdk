@@ -57,8 +57,7 @@ func NewRollbackPublishedStoreParamsWithHTTPClient(client *http.Client) *Rollbac
 	}
 }
 
-/*
-RollbackPublishedStoreParams contains all the parameters to send to the API endpoint
+/*RollbackPublishedStoreParams contains all the parameters to send to the API endpoint
 for the rollback published store operation typically these are written to a http.Request
 */
 type RollbackPublishedStoreParams struct {

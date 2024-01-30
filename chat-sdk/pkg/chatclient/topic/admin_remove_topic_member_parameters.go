@@ -57,8 +57,7 @@ func NewAdminRemoveTopicMemberParamsWithHTTPClient(client *http.Client) *AdminRe
 	}
 }
 
-/*
-AdminRemoveTopicMemberParams contains all the parameters to send to the API endpoint
+/*AdminRemoveTopicMemberParams contains all the parameters to send to the API endpoint
 for the admin remove topic member operation typically these are written to a http.Request
 */
 type AdminRemoveTopicMemberParams struct {

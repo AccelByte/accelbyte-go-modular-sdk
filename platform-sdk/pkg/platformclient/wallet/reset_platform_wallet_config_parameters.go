@@ -70,8 +70,7 @@ func NewResetPlatformWalletConfigParamsWithHTTPClient(client *http.Client) *Rese
 	}
 }
 
-/*
-ResetPlatformWalletConfigParams contains all the parameters to send to the API endpoint
+/*ResetPlatformWalletConfigParams contains all the parameters to send to the API endpoint
 for the reset platform wallet config operation typically these are written to a http.Request
 */
 type ResetPlatformWalletConfigParams struct {

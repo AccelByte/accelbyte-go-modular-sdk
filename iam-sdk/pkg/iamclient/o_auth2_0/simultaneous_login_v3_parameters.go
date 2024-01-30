@@ -80,8 +80,7 @@ func NewSimultaneousLoginV3ParamsWithHTTPClient(client *http.Client) *Simultaneo
 	}
 }
 
-/*
-SimultaneousLoginV3Params contains all the parameters to send to the API endpoint
+/*SimultaneousLoginV3Params contains all the parameters to send to the API endpoint
 for the simultaneous login v3 operation typically these are written to a http.Request
 */
 type SimultaneousLoginV3Params struct {

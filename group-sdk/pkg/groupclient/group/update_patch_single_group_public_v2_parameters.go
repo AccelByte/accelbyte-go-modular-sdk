@@ -59,8 +59,7 @@ func NewUpdatePatchSingleGroupPublicV2ParamsWithHTTPClient(client *http.Client) 
 	}
 }
 
-/*
-UpdatePatchSingleGroupPublicV2Params contains all the parameters to send to the API endpoint
+/*UpdatePatchSingleGroupPublicV2Params contains all the parameters to send to the API endpoint
 for the update patch single group public v2 operation typically these are written to a http.Request
 */
 type UpdatePatchSingleGroupPublicV2Params struct {

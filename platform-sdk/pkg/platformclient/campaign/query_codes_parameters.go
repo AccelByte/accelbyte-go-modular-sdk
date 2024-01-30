@@ -86,8 +86,7 @@ func NewQueryCodesParamsWithHTTPClient(client *http.Client) *QueryCodesParams {
 	}
 }
 
-/*
-QueryCodesParams contains all the parameters to send to the API endpoint
+/*QueryCodesParams contains all the parameters to send to the API endpoint
 for the query codes operation typically these are written to a http.Request
 */
 type QueryCodesParams struct {

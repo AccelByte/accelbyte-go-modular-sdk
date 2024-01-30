@@ -57,8 +57,7 @@ func NewSingleAdminDeleteChannelParamsWithHTTPClient(client *http.Client) *Singl
 	}
 }
 
-/*
-SingleAdminDeleteChannelParams contains all the parameters to send to the API endpoint
+/*SingleAdminDeleteChannelParams contains all the parameters to send to the API endpoint
 for the single admin delete channel operation typically these are written to a http.Request
 */
 type SingleAdminDeleteChannelParams struct {

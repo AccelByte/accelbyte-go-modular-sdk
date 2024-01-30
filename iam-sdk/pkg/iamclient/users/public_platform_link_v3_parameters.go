@@ -57,8 +57,7 @@ func NewPublicPlatformLinkV3ParamsWithHTTPClient(client *http.Client) *PublicPla
 	}
 }
 
-/*
-PublicPlatformLinkV3Params contains all the parameters to send to the API endpoint
+/*PublicPlatformLinkV3Params contains all the parameters to send to the API endpoint
 for the public platform link v3 operation typically these are written to a http.Request
 */
 type PublicPlatformLinkV3Params struct {

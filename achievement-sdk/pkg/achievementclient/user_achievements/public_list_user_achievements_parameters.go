@@ -86,8 +86,7 @@ func NewPublicListUserAchievementsParamsWithHTTPClient(client *http.Client) *Pub
 	}
 }
 
-/*
-PublicListUserAchievementsParams contains all the parameters to send to the API endpoint
+/*PublicListUserAchievementsParams contains all the parameters to send to the API endpoint
 for the public list user achievements operation typically these are written to a http.Request
 */
 type PublicListUserAchievementsParams struct {

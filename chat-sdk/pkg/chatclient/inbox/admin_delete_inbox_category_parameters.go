@@ -57,8 +57,7 @@ func NewAdminDeleteInboxCategoryParamsWithHTTPClient(client *http.Client) *Admin
 	}
 }
 
-/*
-AdminDeleteInboxCategoryParams contains all the parameters to send to the API endpoint
+/*AdminDeleteInboxCategoryParams contains all the parameters to send to the API endpoint
 for the admin delete inbox category operation typically these are written to a http.Request
 */
 type AdminDeleteInboxCategoryParams struct {

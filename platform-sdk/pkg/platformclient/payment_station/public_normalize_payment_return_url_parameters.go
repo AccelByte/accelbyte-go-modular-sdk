@@ -69,8 +69,7 @@ func NewPublicNormalizePaymentReturnURLParamsWithHTTPClient(client *http.Client)
 	}
 }
 
-/*
-PublicNormalizePaymentReturnURLParams contains all the parameters to send to the API endpoint
+/*PublicNormalizePaymentReturnURLParams contains all the parameters to send to the API endpoint
 for the public normalize payment return url operation typically these are written to a http.Request
 */
 type PublicNormalizePaymentReturnURLParams struct {

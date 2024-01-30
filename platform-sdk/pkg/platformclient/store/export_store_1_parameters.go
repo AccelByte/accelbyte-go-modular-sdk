@@ -59,8 +59,7 @@ func NewExportStore1ParamsWithHTTPClient(client *http.Client) *ExportStore1Param
 	}
 }
 
-/*
-ExportStore1Params contains all the parameters to send to the API endpoint
+/*ExportStore1Params contains all the parameters to send to the API endpoint
 for the export store 1 operation typically these are written to a http.Request
 */
 type ExportStore1Params struct {

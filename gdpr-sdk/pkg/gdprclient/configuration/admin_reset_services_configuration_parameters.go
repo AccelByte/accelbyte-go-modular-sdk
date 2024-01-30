@@ -57,8 +57,7 @@ func NewAdminResetServicesConfigurationParamsWithHTTPClient(client *http.Client)
 	}
 }
 
-/*
-AdminResetServicesConfigurationParams contains all the parameters to send to the API endpoint
+/*AdminResetServicesConfigurationParams contains all the parameters to send to the API endpoint
 for the admin reset services configuration operation typically these are written to a http.Request
 */
 type AdminResetServicesConfigurationParams struct {

@@ -57,8 +57,7 @@ func NewGetGoogleIAPConfigParamsWithHTTPClient(client *http.Client) *GetGoogleIA
 	}
 }
 
-/*
-GetGoogleIAPConfigParams contains all the parameters to send to the API endpoint
+/*GetGoogleIAPConfigParams contains all the parameters to send to the API endpoint
 for the get google iap config operation typically these are written to a http.Request
 */
 type GetGoogleIAPConfigParams struct {

@@ -55,20 +55,20 @@ eval_tap $? 2 'AdminFindActionList' test.out
 
 #- 3 AdminCreateModAction
 samples/cli/sample-apps Reporting adminCreateModAction \
-    --body '{"actionId": "19l1Jkax", "actionName": "k4hNSwCd", "eventName": "zipZ2Njl"}' \
+    --body '{"actionId": "mIhFLIRU", "actionName": "EIL5vz3x", "eventName": "V6CU7GL1"}' \
     > test.out 2>&1
 eval_tap $? 3 'AdminCreateModAction' test.out
 
 #- 4 AdminFindExtensionCategoryList
 samples/cli/sample-apps Reporting adminFindExtensionCategoryList \
-    --order 'asc' \
+    --order 'desc' \
     --sortBy 'extensionCategoryName' \
     > test.out 2>&1
 eval_tap $? 4 'AdminFindExtensionCategoryList' test.out
 
 #- 5 AdminCreateExtensionCategory
 samples/cli/sample-apps Reporting adminCreateExtensionCategory \
-    --body '{"extensionCategory": "2q1w7Lnv", "extensionCategoryName": "FoNNKmsx", "serviceSource": "SYV9rxci"}' \
+    --body '{"extensionCategory": "b4ahbE1K", "extensionCategoryName": "RDZSBhdH", "serviceSource": "PuqdvFhg"}' \
     > test.out 2>&1
 eval_tap $? 5 'AdminCreateExtensionCategory' test.out
 
@@ -82,61 +82,61 @@ eval_tap $? 6 'Get' test.out
 #- 7 Upsert
 samples/cli/sample-apps Reporting upsert \
     --namespace $AB_NAMESPACE \
-    --body '{"categoryLimits": [{"extensionCategory": "qoYYmRRR", "maxReportPerTicket": 84, "name": "EV2AVlpc"}, {"extensionCategory": "Kp9grzZF", "maxReportPerTicket": 18, "name": "uqSwxT2z"}, {"extensionCategory": "C6UGOvvg", "maxReportPerTicket": 62, "name": "t2bnirSq"}], "timeInterval": 39, "userMaxReportPerTimeInterval": 60}' \
+    --body '{"categoryLimits": [{"extensionCategory": "q15z5bE4", "maxReportPerTicket": 35, "name": "bHIDXKmF"}, {"extensionCategory": "5sxEy2bm", "maxReportPerTicket": 61, "name": "YLo9TeH0"}, {"extensionCategory": "DX0LrMa6", "maxReportPerTicket": 51, "name": "fD15SoSn"}], "timeInterval": 66, "userMaxReportPerTimeInterval": 52}' \
     > test.out 2>&1
 eval_tap $? 7 'Upsert' test.out
 
 #- 8 AdminListReasonGroups
 samples/cli/sample-apps Reporting adminListReasonGroups \
     --namespace $AB_NAMESPACE \
-    --limit '28' \
-    --offset '68' \
+    --limit '70' \
+    --offset '47' \
     > test.out 2>&1
 eval_tap $? 8 'AdminListReasonGroups' test.out
 
 #- 9 CreateReasonGroup
 samples/cli/sample-apps Reporting createReasonGroup \
     --namespace $AB_NAMESPACE \
-    --body '{"reasonIds": ["H10gHw4A", "v26CYQWS", "rKRJ2i7k"], "title": "bjwipHuO"}' \
+    --body '{"reasonIds": ["M29efC7l", "fnXN1RYL", "jQ5vdzpr"], "title": "XyZlPeO2"}' \
     > test.out 2>&1
 eval_tap $? 9 'CreateReasonGroup' test.out
 
 #- 10 GetReasonGroup
 samples/cli/sample-apps Reporting getReasonGroup \
-    --groupId 'wAKqFtjn' \
+    --groupId 'sxEnC6Kd' \
     --namespace $AB_NAMESPACE \
     > test.out 2>&1
 eval_tap $? 10 'GetReasonGroup' test.out
 
 #- 11 DeleteReasonGroup
 samples/cli/sample-apps Reporting deleteReasonGroup \
-    --groupId 'z0fnvyMZ' \
+    --groupId 'Q3BmcVJo' \
     --namespace $AB_NAMESPACE \
     > test.out 2>&1
 eval_tap $? 11 'DeleteReasonGroup' test.out
 
 #- 12 UpdateReasonGroup
 samples/cli/sample-apps Reporting updateReasonGroup \
-    --groupId '4Drafncv' \
+    --groupId 'ch7EWIZ3' \
     --namespace $AB_NAMESPACE \
-    --body '{"reasonIds": ["vtlQs2Vf", "42oypF0c", "TlVQSn3P"], "title": "agHuXhLE"}' \
+    --body '{"reasonIds": ["bVbYWKYI", "5g7jeg9y", "AzpDWLBa"], "title": "NP5O2PLH"}' \
     > test.out 2>&1
 eval_tap $? 12 'UpdateReasonGroup' test.out
 
 #- 13 AdminGetReasons
 samples/cli/sample-apps Reporting adminGetReasons \
     --namespace $AB_NAMESPACE \
-    --group 'cv2qPPCS' \
-    --limit '72' \
-    --offset '59' \
-    --title 'MtTZepY1' \
+    --group 'VQZdbyWP' \
+    --limit '37' \
+    --offset '14' \
+    --title 'M32jbX3P' \
     > test.out 2>&1
 eval_tap $? 13 'AdminGetReasons' test.out
 
 #- 14 CreateReason
 samples/cli/sample-apps Reporting createReason \
     --namespace $AB_NAMESPACE \
-    --body '{"description": "zaEgE9Nr", "groupIds": ["ZUyaID74", "gSndLPf0", "NwfatMxi"], "title": "LyUZzUPR"}' \
+    --body '{"description": "Gfzey0oG", "groupIds": ["x1b1rdxb", "2M7dkicx", "llJmYsIF"], "title": "SOGI2U6p"}' \
     > test.out 2>&1
 eval_tap $? 14 'CreateReason' test.out
 
@@ -149,173 +149,173 @@ eval_tap $? 15 'AdminGetAllReasons' test.out
 #- 16 AdminGetUnusedReasons
 samples/cli/sample-apps Reporting adminGetUnusedReasons \
     --namespace $AB_NAMESPACE \
-    --extensionCategory 'r5j61zpa' \
-    --category 'tIzlWSTD' \
+    --extensionCategory 'cuKHI1zj' \
+    --category 'oNlZArKZ' \
     > test.out 2>&1
 eval_tap $? 16 'AdminGetUnusedReasons' test.out
 
 #- 17 AdminGetReason
 samples/cli/sample-apps Reporting adminGetReason \
     --namespace $AB_NAMESPACE \
-    --reasonId 'lv3rdk8m' \
+    --reasonId 'HNyuHqQa' \
     > test.out 2>&1
 eval_tap $? 17 'AdminGetReason' test.out
 
 #- 18 DeleteReason
 samples/cli/sample-apps Reporting deleteReason \
     --namespace $AB_NAMESPACE \
-    --reasonId 'cuUObGjF' \
+    --reasonId 'leqUn3NU' \
     > test.out 2>&1
 eval_tap $? 18 'DeleteReason' test.out
 
 #- 19 UpdateReason
 samples/cli/sample-apps Reporting updateReason \
     --namespace $AB_NAMESPACE \
-    --reasonId '2r1bIEtZ' \
-    --body '{"description": "4WD5WCkq", "groupIds": ["1bYM3lbD", "foEAzgNE", "6nkKU8mC"], "title": "CAtnAGR6"}' \
+    --reasonId 'KelhQ1Kz' \
+    --body '{"description": "3YE5s301", "groupIds": ["lzEPnZGS", "HHcfCB3m", "pIkyHQ1L"], "title": "opD1ba3K"}' \
     > test.out 2>&1
 eval_tap $? 19 'UpdateReason' test.out
 
 #- 20 ListReports
 samples/cli/sample-apps Reporting listReports \
     --namespace $AB_NAMESPACE \
-    --category 'piXYDZaV' \
-    --limit '2' \
-    --offset '1' \
-    --reportedUserId '6oOL9bce' \
-    --sortBy 'lLVrhroz' \
+    --category '2hV0aWkl' \
+    --limit '23' \
+    --offset '6' \
+    --reportedUserId '6bfg5Y7w' \
+    --sortBy 'Y7sePEVe' \
     > test.out 2>&1
 eval_tap $? 20 'ListReports' test.out
 
 #- 21 AdminSubmitReport
 samples/cli/sample-apps Reporting adminSubmitReport \
     --namespace $AB_NAMESPACE \
-    --body '{"additionalInfo": {"Haa4Rgp9": {}, "dfzZvk3q": {}, "YNZhwG83": {}}, "category": "EXTENSION", "comment": "X2baUxrL", "extensionCategory": "aixdC4sB", "objectId": "qbQFB88g", "objectType": "D65sOvNn", "reason": "GIRekr49", "userId": "xuBXWz4r"}' \
+    --body '{"additionalInfo": {"Fq7Nccwt": {}, "h7NmaSXm": {}, "FycagAMW": {}}, "category": "CHAT", "comment": "q7OmZxi4", "extensionCategory": "iHHi6W8j", "objectId": "rbIhsSpw", "objectType": "7oEGhDel", "reason": "slq11EQ9", "userId": "bDptxCMv"}' \
     > test.out 2>&1
 eval_tap $? 21 'AdminSubmitReport' test.out
 
 #- 22 CreateModerationRule
 samples/cli/sample-apps Reporting createModerationRule \
     --namespace $AB_NAMESPACE \
-    --body '{"action": "HideContent", "actions": {"banAccount": {"comment": "omzDkC44", "duration": 47, "reason": "hw5jJwgQ", "skipNotif": false, "type": "QaLI9xQL"}, "deleteChat": true, "extensionActionIds": ["aeT6cx4q", "HG70IZEF", "E6rHE5C9"], "hideContent": true}, "active": false, "category": "CHAT", "extensionCategory": "D6EkNMJB", "reason": "0vmvCDQh", "threshold": 60}' \
+    --body '{"action": "HideContent", "actions": {"banAccount": {"comment": "bCm9ZcOa", "duration": 98, "reason": "2ljEE6qd", "skipNotif": true, "type": "anZImH9w"}, "deleteChat": false, "extensionActionIds": ["XjpkGv8t", "iGCy9bk4", "oEjXfTOH"], "hideContent": true}, "active": false, "category": "EXTENSION", "extensionCategory": "PjASpAmB", "reason": "6tnZfi4z", "threshold": 28}' \
     > test.out 2>&1
 eval_tap $? 22 'CreateModerationRule' test.out
 
 #- 23 UpdateModerationRule
 samples/cli/sample-apps Reporting updateModerationRule \
     --namespace $AB_NAMESPACE \
-    --ruleId 'jFd6EhcK' \
-    --body '{"action": "HideContent", "actions": {"banAccount": {"comment": "NIBzv5JZ", "duration": 18, "reason": "YCUfGBSY", "skipNotif": false, "type": "PYNLwqHG"}, "deleteChat": true, "extensionActionIds": ["Ap5YC2cE", "6G80m1NQ", "t7pzPLHY"], "hideContent": false}, "active": true, "category": "EXTENSION", "extensionCategory": "FGTXuzjp", "reason": "GXJPeAhb", "threshold": 16}' \
+    --ruleId 'kWKZMXnb' \
+    --body '{"action": "HideContent", "actions": {"banAccount": {"comment": "QFQMVObd", "duration": 8, "reason": "CTEHBjzS", "skipNotif": true, "type": "uVzhmT7t"}, "deleteChat": true, "extensionActionIds": ["UGUWjtiT", "ayFEGtDv", "9WmxmnID"], "hideContent": true}, "active": true, "category": "USER", "extensionCategory": "XmVprzbW", "reason": "PXSA1tsh", "threshold": 51}' \
     > test.out 2>&1
 eval_tap $? 23 'UpdateModerationRule' test.out
 
 #- 24 DeleteModerationRule
 samples/cli/sample-apps Reporting deleteModerationRule \
     --namespace $AB_NAMESPACE \
-    --ruleId 'ETQngeZq' \
+    --ruleId '2jmhDsSU' \
     > test.out 2>&1
 eval_tap $? 24 'DeleteModerationRule' test.out
 
 #- 25 UpdateModerationRuleStatus
 samples/cli/sample-apps Reporting updateModerationRuleStatus \
     --namespace $AB_NAMESPACE \
-    --ruleId 'OQFvRqm3' \
-    --body '{"active": false}' \
+    --ruleId 'AmSBsCTV' \
+    --body '{"active": true}' \
     > test.out 2>&1
 eval_tap $? 25 'UpdateModerationRuleStatus' test.out
 
 #- 26 GetModerationRules
 samples/cli/sample-apps Reporting getModerationRules \
     --namespace $AB_NAMESPACE \
-    --category '2aqk1FEv' \
-    --extensionCategory 'DHwJMXLY' \
-    --limit '90' \
-    --offset '27' \
+    --category 'KHtwF7JJ' \
+    --extensionCategory 'mVjRaM69' \
+    --limit '99' \
+    --offset '32' \
     > test.out 2>&1
 eval_tap $? 26 'GetModerationRules' test.out
 
 #- 27 GetModerationRuleDetails
 samples/cli/sample-apps Reporting getModerationRuleDetails \
     --namespace $AB_NAMESPACE \
-    --ruleId 'z6VMgok9' \
+    --ruleId 'rS0I7PTR' \
     > test.out 2>&1
 eval_tap $? 27 'GetModerationRuleDetails' test.out
 
 #- 28 ListTickets
 samples/cli/sample-apps Reporting listTickets \
     --namespace $AB_NAMESPACE \
-    --category '8wfx8qPT' \
-    --extensionCategory 'CiddSBiu' \
-    --limit '76' \
-    --offset '91' \
-    --order 'Xtl1G19z' \
-    --reportedUserId 'BhvNUOfQ' \
-    --sortBy 'xu45SVPB' \
-    --status 'CLeHO6X7' \
+    --category 'Sk08U625' \
+    --extensionCategory '8ZtDJwmk' \
+    --limit '80' \
+    --offset '33' \
+    --order 'WiNl4Flh' \
+    --reportedUserId 'pex5UahJ' \
+    --sortBy 'dTzwObsU' \
+    --status 'qVr5L5SH' \
     > test.out 2>&1
 eval_tap $? 28 'ListTickets' test.out
 
 #- 29 TicketStatistic
 samples/cli/sample-apps Reporting ticketStatistic \
     --namespace $AB_NAMESPACE \
-    --extensionCategory 'luRVTVxO' \
-    --category 'GUMp6iqw' \
+    --extensionCategory 'hJjq1Z9I' \
+    --category 'g1pUXg6Y' \
     > test.out 2>&1
 eval_tap $? 29 'TicketStatistic' test.out
 
 #- 30 GetTicketDetail
 samples/cli/sample-apps Reporting getTicketDetail \
     --namespace $AB_NAMESPACE \
-    --ticketId 'hptRgHVO' \
+    --ticketId 'giosuPBO' \
     > test.out 2>&1
 eval_tap $? 30 'GetTicketDetail' test.out
 
 #- 31 DeleteTicket
 samples/cli/sample-apps Reporting deleteTicket \
     --namespace $AB_NAMESPACE \
-    --ticketId 'lT0IKKfU' \
+    --ticketId 'KVUOgtiI' \
     > test.out 2>&1
 eval_tap $? 31 'DeleteTicket' test.out
 
 #- 32 GetReportsByTicket
 samples/cli/sample-apps Reporting getReportsByTicket \
     --namespace $AB_NAMESPACE \
-    --ticketId 'UAm8Da5N' \
-    --limit '89' \
-    --offset '93' \
+    --ticketId 'fHJ1vA2u' \
+    --limit '47' \
+    --offset '4' \
     > test.out 2>&1
 eval_tap $? 32 'GetReportsByTicket' test.out
 
 #- 33 UpdateTicketResolutions
 samples/cli/sample-apps Reporting updateTicketResolutions \
     --namespace $AB_NAMESPACE \
-    --ticketId '4Jm4f7YD' \
-    --body '{"notes": "lrayVuSy", "status": "OPEN"}' \
+    --ticketId '6y8uCTXg' \
+    --body '{"notes": "OgZkfufN", "status": "AUTO_MODERATED"}' \
     > test.out 2>&1
 eval_tap $? 33 'UpdateTicketResolutions' test.out
 
 #- 34 PublicListReasonGroups
 samples/cli/sample-apps Reporting publicListReasonGroups \
     --namespace $AB_NAMESPACE \
-    --limit '56' \
-    --offset '11' \
+    --limit '53' \
+    --offset '94' \
     > test.out 2>&1
 eval_tap $? 34 'PublicListReasonGroups' test.out
 
 #- 35 PublicGetReasons
 samples/cli/sample-apps Reporting publicGetReasons \
     --namespace $AB_NAMESPACE \
-    --group 'mDn3aIsf' \
-    --limit '49' \
-    --offset '61' \
-    --title 'DTKx2VZg' \
+    --group 'GPDCA0WK' \
+    --limit '81' \
+    --offset '23' \
+    --title 'knHR7z1d' \
     > test.out 2>&1
 eval_tap $? 35 'PublicGetReasons' test.out
 
 #- 36 SubmitReport
 samples/cli/sample-apps Reporting submitReport \
     --namespace $AB_NAMESPACE \
-    --body '{"additionalInfo": {"Aw8XAuNw": {}, "zjnY6bb6": {}, "wVsjNFuO": {}}, "category": "CHAT", "comment": "xkVbhB5N", "extensionCategory": "ENEYsk0B", "objectId": "NuhYOysH", "objectType": "0eWN5NgH", "reason": "PaYSUT1W", "userId": "QvoeGGrU"}' \
+    --body '{"additionalInfo": {"MV8gDGzY": {}, "Q7W6tOVZ": {}, "JD5CZqPM": {}}, "category": "UGC", "comment": "HaZoepLo", "extensionCategory": "I3nHlCtg", "objectId": "lw2lXXYO", "objectType": "xlu7P9rv", "reason": "CnNGXhLP", "userId": "DAByAeBx"}' \
     > test.out 2>&1
 eval_tap $? 36 'SubmitReport' test.out
 

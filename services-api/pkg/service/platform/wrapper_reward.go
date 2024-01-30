@@ -24,6 +24,14 @@ type RewardService struct {
 	Client           *platformclient.JusticePlatformService
 	ConfigRepository repository.ConfigRepository
 	TokenRepository  repository.TokenRepository
+
+	FlightIdRepository *utils.FlightIdContainer
+}
+
+var tempFlightIdReward *string
+
+func (aaa *RewardService) UpdateFlightId(flightId string) {
+	tempFlightIdReward = &flightId
 }
 
 func (aaa *RewardService) GetAuthSession() auth.Session {
@@ -266,6 +274,11 @@ func (aaa *RewardService) CreateRewardShort(input *reward.CreateRewardParams) (*
 			RetryCodes: utils.RetryCodes,
 		}
 	}
+	if tempFlightIdReward != nil {
+		input.XFlightId = tempFlightIdReward
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	}
 
 	ok, err := aaa.Client.Reward.CreateRewardShort(input, authInfoWriter)
 	if err != nil {
@@ -290,6 +303,11 @@ func (aaa *RewardService) QueryRewardsShort(input *reward.QueryRewardsParams) (*
 			Transport:  aaa.Client.Runtime.Transport,
 			RetryCodes: utils.RetryCodes,
 		}
+	}
+	if tempFlightIdReward != nil {
+		input.XFlightId = tempFlightIdReward
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.Reward.QueryRewardsShort(input, authInfoWriter)
@@ -316,6 +334,11 @@ func (aaa *RewardService) ExportRewardsShort(input *reward.ExportRewardsParams, 
 			RetryCodes: utils.RetryCodes,
 		}
 	}
+	if tempFlightIdReward != nil {
+		input.XFlightId = tempFlightIdReward
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	}
 
 	ok, err := aaa.Client.Reward.ExportRewardsShort(input, authInfoWriter, writer)
 	if err != nil {
@@ -340,6 +363,11 @@ func (aaa *RewardService) ImportRewardsShort(input *reward.ImportRewardsParams) 
 			Transport:  aaa.Client.Runtime.Transport,
 			RetryCodes: utils.RetryCodes,
 		}
+	}
+	if tempFlightIdReward != nil {
+		input.XFlightId = tempFlightIdReward
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
 	}
 
 	_, err := aaa.Client.Reward.ImportRewardsShort(input, authInfoWriter)
@@ -366,6 +394,11 @@ func (aaa *RewardService) GetRewardShort(input *reward.GetRewardParams) (*platfo
 			RetryCodes: utils.RetryCodes,
 		}
 	}
+	if tempFlightIdReward != nil {
+		input.XFlightId = tempFlightIdReward
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	}
 
 	ok, err := aaa.Client.Reward.GetRewardShort(input, authInfoWriter)
 	if err != nil {
@@ -390,6 +423,11 @@ func (aaa *RewardService) UpdateRewardShort(input *reward.UpdateRewardParams) (*
 			Transport:  aaa.Client.Runtime.Transport,
 			RetryCodes: utils.RetryCodes,
 		}
+	}
+	if tempFlightIdReward != nil {
+		input.XFlightId = tempFlightIdReward
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.Reward.UpdateRewardShort(input, authInfoWriter)
@@ -416,6 +454,11 @@ func (aaa *RewardService) DeleteRewardShort(input *reward.DeleteRewardParams) (*
 			RetryCodes: utils.RetryCodes,
 		}
 	}
+	if tempFlightIdReward != nil {
+		input.XFlightId = tempFlightIdReward
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	}
 
 	ok, err := aaa.Client.Reward.DeleteRewardShort(input, authInfoWriter)
 	if err != nil {
@@ -440,6 +483,11 @@ func (aaa *RewardService) CheckEventConditionShort(input *reward.CheckEventCondi
 			Transport:  aaa.Client.Runtime.Transport,
 			RetryCodes: utils.RetryCodes,
 		}
+	}
+	if tempFlightIdReward != nil {
+		input.XFlightId = tempFlightIdReward
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.Reward.CheckEventConditionShort(input, authInfoWriter)
@@ -466,6 +514,11 @@ func (aaa *RewardService) DeleteRewardConditionRecordShort(input *reward.DeleteR
 			RetryCodes: utils.RetryCodes,
 		}
 	}
+	if tempFlightIdReward != nil {
+		input.XFlightId = tempFlightIdReward
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	}
 
 	_, err := aaa.Client.Reward.DeleteRewardConditionRecordShort(input, authInfoWriter)
 	if err != nil {
@@ -490,6 +543,11 @@ func (aaa *RewardService) GetRewardByCodeShort(input *reward.GetRewardByCodePara
 			Transport:  aaa.Client.Runtime.Transport,
 			RetryCodes: utils.RetryCodes,
 		}
+	}
+	if tempFlightIdReward != nil {
+		input.XFlightId = tempFlightIdReward
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.Reward.GetRewardByCodeShort(input, authInfoWriter)
@@ -516,6 +574,11 @@ func (aaa *RewardService) QueryRewards1Short(input *reward.QueryRewards1Params) 
 			RetryCodes: utils.RetryCodes,
 		}
 	}
+	if tempFlightIdReward != nil {
+		input.XFlightId = tempFlightIdReward
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	}
 
 	ok, err := aaa.Client.Reward.QueryRewards1Short(input, authInfoWriter)
 	if err != nil {
@@ -540,6 +603,11 @@ func (aaa *RewardService) GetReward1Short(input *reward.GetReward1Params) (*plat
 			Transport:  aaa.Client.Runtime.Transport,
 			RetryCodes: utils.RetryCodes,
 		}
+	}
+	if tempFlightIdReward != nil {
+		input.XFlightId = tempFlightIdReward
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.Reward.GetReward1Short(input, authInfoWriter)

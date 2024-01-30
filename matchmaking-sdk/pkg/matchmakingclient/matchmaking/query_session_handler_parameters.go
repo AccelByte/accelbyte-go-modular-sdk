@@ -57,8 +57,7 @@ func NewQuerySessionHandlerParamsWithHTTPClient(client *http.Client) *QuerySessi
 	}
 }
 
-/*
-QuerySessionHandlerParams contains all the parameters to send to the API endpoint
+/*QuerySessionHandlerParams contains all the parameters to send to the API endpoint
 for the query session handler operation typically these are written to a http.Request
 */
 type QuerySessionHandlerParams struct {

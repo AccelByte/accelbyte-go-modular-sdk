@@ -57,8 +57,7 @@ func NewCheckUserSubscriptionSubscribableByItemIDParamsWithHTTPClient(client *ht
 	}
 }
 
-/*
-CheckUserSubscriptionSubscribableByItemIDParams contains all the parameters to send to the API endpoint
+/*CheckUserSubscriptionSubscribableByItemIDParams contains all the parameters to send to the API endpoint
 for the check user subscription subscribable by item id operation typically these are written to a http.Request
 */
 type CheckUserSubscriptionSubscribableByItemIDParams struct {

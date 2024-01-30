@@ -58,8 +58,7 @@ func NewAdminListAssignedUsersV4ParamsWithHTTPClient(client *http.Client) *Admin
 	}
 }
 
-/*
-AdminListAssignedUsersV4Params contains all the parameters to send to the API endpoint
+/*AdminListAssignedUsersV4Params contains all the parameters to send to the API endpoint
 for the admin list assigned users v4 operation typically these are written to a http.Request
 */
 type AdminListAssignedUsersV4Params struct {

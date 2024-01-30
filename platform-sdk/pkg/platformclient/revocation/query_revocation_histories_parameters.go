@@ -92,8 +92,7 @@ func NewQueryRevocationHistoriesParamsWithHTTPClient(client *http.Client) *Query
 	}
 }
 
-/*
-QueryRevocationHistoriesParams contains all the parameters to send to the API endpoint
+/*QueryRevocationHistoriesParams contains all the parameters to send to the API endpoint
 for the query revocation histories operation typically these are written to a http.Request
 */
 type QueryRevocationHistoriesParams struct {

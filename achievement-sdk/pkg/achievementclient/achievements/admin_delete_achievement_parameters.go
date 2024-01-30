@@ -57,8 +57,7 @@ func NewAdminDeleteAchievementParamsWithHTTPClient(client *http.Client) *AdminDe
 	}
 }
 
-/*
-AdminDeleteAchievementParams contains all the parameters to send to the API endpoint
+/*AdminDeleteAchievementParams contains all the parameters to send to the API endpoint
 for the admin delete achievement operation typically these are written to a http.Request
 */
 type AdminDeleteAchievementParams struct {

@@ -59,8 +59,7 @@ func NewSetUserLeaderboardVisibilityV3ParamsWithHTTPClient(client *http.Client) 
 	}
 }
 
-/*
-SetUserLeaderboardVisibilityV3Params contains all the parameters to send to the API endpoint
+/*SetUserLeaderboardVisibilityV3Params contains all the parameters to send to the API endpoint
 for the set user leaderboard visibility v3 operation typically these are written to a http.Request
 */
 type SetUserLeaderboardVisibilityV3Params struct {

@@ -59,8 +59,7 @@ func NewRebalanceParamsWithHTTPClient(client *http.Client) *RebalanceParams {
 	}
 }
 
-/*
-RebalanceParams contains all the parameters to send to the API endpoint
+/*RebalanceParams contains all the parameters to send to the API endpoint
 for the rebalance operation typically these are written to a http.Request
 */
 type RebalanceParams struct {

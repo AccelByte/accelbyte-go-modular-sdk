@@ -57,8 +57,7 @@ func NewAdminAnonymizeUserLeaderboardAdminV1ParamsWithHTTPClient(client *http.Cl
 	}
 }
 
-/*
-AdminAnonymizeUserLeaderboardAdminV1Params contains all the parameters to send to the API endpoint
+/*AdminAnonymizeUserLeaderboardAdminV1Params contains all the parameters to send to the API endpoint
 for the admin anonymize user leaderboard admin v1 operation typically these are written to a http.Request
 */
 type AdminAnonymizeUserLeaderboardAdminV1Params struct {

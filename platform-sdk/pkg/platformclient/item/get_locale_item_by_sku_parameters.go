@@ -78,8 +78,7 @@ func NewGetLocaleItemBySkuParamsWithHTTPClient(client *http.Client) *GetLocaleIt
 	}
 }
 
-/*
-GetLocaleItemBySkuParams contains all the parameters to send to the API endpoint
+/*GetLocaleItemBySkuParams contains all the parameters to send to the API endpoint
 for the get locale item by sku operation typically these are written to a http.Request
 */
 type GetLocaleItemBySkuParams struct {

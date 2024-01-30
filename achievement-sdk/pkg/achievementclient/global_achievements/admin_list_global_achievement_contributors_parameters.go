@@ -86,8 +86,7 @@ func NewAdminListGlobalAchievementContributorsParamsWithHTTPClient(client *http.
 	}
 }
 
-/*
-AdminListGlobalAchievementContributorsParams contains all the parameters to send to the API endpoint
+/*AdminListGlobalAchievementContributorsParams contains all the parameters to send to the API endpoint
 for the admin list global achievement contributors operation typically these are written to a http.Request
 */
 type AdminListGlobalAchievementContributorsParams struct {

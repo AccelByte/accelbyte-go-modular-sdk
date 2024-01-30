@@ -57,8 +57,7 @@ func NewDisableUserWalletParamsWithHTTPClient(client *http.Client) *DisableUserW
 	}
 }
 
-/*
-DisableUserWalletParams contains all the parameters to send to the API endpoint
+/*DisableUserWalletParams contains all the parameters to send to the API endpoint
 for the disable user wallet operation typically these are written to a http.Request
 */
 type DisableUserWalletParams struct {

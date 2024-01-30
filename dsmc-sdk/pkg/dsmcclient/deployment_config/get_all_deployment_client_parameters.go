@@ -58,8 +58,7 @@ func NewGetAllDeploymentClientParamsWithHTTPClient(client *http.Client) *GetAllD
 	}
 }
 
-/*
-GetAllDeploymentClientParams contains all the parameters to send to the API endpoint
+/*GetAllDeploymentClientParams contains all the parameters to send to the API endpoint
 for the get all deployment client operation typically these are written to a http.Request
 */
 type GetAllDeploymentClientParams struct {

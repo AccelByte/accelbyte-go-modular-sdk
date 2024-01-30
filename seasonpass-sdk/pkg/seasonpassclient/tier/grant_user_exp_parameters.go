@@ -59,8 +59,7 @@ func NewGrantUserExpParamsWithHTTPClient(client *http.Client) *GrantUserExpParam
 	}
 }
 
-/*
-GrantUserExpParams contains all the parameters to send to the API endpoint
+/*GrantUserExpParams contains all the parameters to send to the API endpoint
 for the grant user exp operation typically these are written to a http.Request
 */
 type GrantUserExpParams struct {

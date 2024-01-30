@@ -59,8 +59,7 @@ func NewMockFulfillIAPItemParamsWithHTTPClient(client *http.Client) *MockFulfill
 	}
 }
 
-/*
-MockFulfillIAPItemParams contains all the parameters to send to the API endpoint
+/*MockFulfillIAPItemParams contains all the parameters to send to the API endpoint
 for the mock fulfill iap item operation typically these are written to a http.Request
 */
 type MockFulfillIAPItemParams struct {

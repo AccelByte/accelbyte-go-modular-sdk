@@ -57,8 +57,7 @@ func NewImageLimitClientParamsWithHTTPClient(client *http.Client) *ImageLimitCli
 	}
 }
 
-/*
-ImageLimitClientParams contains all the parameters to send to the API endpoint
+/*ImageLimitClientParams contains all the parameters to send to the API endpoint
 for the image limit client operation typically these are written to a http.Request
 */
 type ImageLimitClientParams struct {

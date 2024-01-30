@@ -59,8 +59,7 @@ func NewUpdateMatchFunctionParamsWithHTTPClient(client *http.Client) *UpdateMatc
 	}
 }
 
-/*
-UpdateMatchFunctionParams contains all the parameters to send to the API endpoint
+/*UpdateMatchFunctionParams contains all the parameters to send to the API endpoint
 for the update match function operation typically these are written to a http.Request
 */
 type UpdateMatchFunctionParams struct {

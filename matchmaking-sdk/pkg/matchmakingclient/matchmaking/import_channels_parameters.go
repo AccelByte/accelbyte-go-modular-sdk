@@ -57,8 +57,7 @@ func NewImportChannelsParamsWithHTTPClient(client *http.Client) *ImportChannelsP
 	}
 }
 
-/*
-ImportChannelsParams contains all the parameters to send to the API endpoint
+/*ImportChannelsParams contains all the parameters to send to the API endpoint
 for the import channels operation typically these are written to a http.Request
 */
 type ImportChannelsParams struct {

@@ -45,7 +45,7 @@ This process only supports cross-namespace checking between game namespace and p
 
 Other detail info:
 
-  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:USER:{userId}:LEGAL", action=2 (READ)
+  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:USER:{userId}:LEGAL", action=2 (READ)
 */
 func (a *Client) AdminRetrieveEligibilities(params *AdminRetrieveEligibilitiesParams, authInfo runtime.ClientAuthInfoWriter) (*AdminRetrieveEligibilitiesOK, *AdminRetrieveEligibilitiesBadRequest, error) {
 	// TODO: Validate the params before sending
@@ -98,7 +98,7 @@ This process only supports cross-namespace checking between game namespace and p
 
 Other detail info:
 
-  - Required permission : resource="ADMIN:NAMESPACE:{namespace}:USER:{userId}:LEGAL", action=2 (READ)
+  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:USER:{userId}:LEGAL", action=2 (READ)
 */
 func (a *Client) AdminRetrieveEligibilitiesShort(params *AdminRetrieveEligibilitiesParams, authInfo runtime.ClientAuthInfoWriter) (*AdminRetrieveEligibilitiesOK, error) {
 	// TODO: Validate the params before sending

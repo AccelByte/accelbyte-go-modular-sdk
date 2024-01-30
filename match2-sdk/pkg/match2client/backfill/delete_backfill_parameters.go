@@ -57,8 +57,7 @@ func NewDeleteBackfillParamsWithHTTPClient(client *http.Client) *DeleteBackfillP
 	}
 }
 
-/*
-DeleteBackfillParams contains all the parameters to send to the API endpoint
+/*DeleteBackfillParams contains all the parameters to send to the API endpoint
 for the delete backfill operation typically these are written to a http.Request
 */
 type DeleteBackfillParams struct {

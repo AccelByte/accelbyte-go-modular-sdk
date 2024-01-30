@@ -58,8 +58,7 @@ func NewUsersPresenceHandlerV1ParamsWithHTTPClient(client *http.Client) *UsersPr
 	}
 }
 
-/*
-UsersPresenceHandlerV1Params contains all the parameters to send to the API endpoint
+/*UsersPresenceHandlerV1Params contains all the parameters to send to the API endpoint
 for the users presence handler v1 operation typically these are written to a http.Request
 */
 type UsersPresenceHandlerV1Params struct {

@@ -57,8 +57,7 @@ func NewGetPaymentOrderParamsWithHTTPClient(client *http.Client) *GetPaymentOrde
 	}
 }
 
-/*
-GetPaymentOrderParams contains all the parameters to send to the API endpoint
+/*GetPaymentOrderParams contains all the parameters to send to the API endpoint
 for the get payment order operation typically these are written to a http.Request
 */
 type GetPaymentOrderParams struct {

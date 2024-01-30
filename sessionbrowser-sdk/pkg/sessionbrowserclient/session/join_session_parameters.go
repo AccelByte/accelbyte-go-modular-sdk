@@ -59,8 +59,7 @@ func NewJoinSessionParamsWithHTTPClient(client *http.Client) *JoinSessionParams 
 	}
 }
 
-/*
-JoinSessionParams contains all the parameters to send to the API endpoint
+/*JoinSessionParams contains all the parameters to send to the API endpoint
 for the join session operation typically these are written to a http.Request
 */
 type JoinSessionParams struct {

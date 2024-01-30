@@ -59,8 +59,7 @@ func NewPublicUpdateProfileParamsWithHTTPClient(client *http.Client) *PublicUpda
 	}
 }
 
-/*
-PublicUpdateProfileParams contains all the parameters to send to the API endpoint
+/*PublicUpdateProfileParams contains all the parameters to send to the API endpoint
 for the public update profile operation typically these are written to a http.Request
 */
 type PublicUpdateProfileParams struct {

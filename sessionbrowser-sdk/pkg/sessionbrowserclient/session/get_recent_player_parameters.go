@@ -57,8 +57,7 @@ func NewGetRecentPlayerParamsWithHTTPClient(client *http.Client) *GetRecentPlaye
 	}
 }
 
-/*
-GetRecentPlayerParams contains all the parameters to send to the API endpoint
+/*GetRecentPlayerParams contains all the parameters to send to the API endpoint
 for the get recent player operation typically these are written to a http.Request
 */
 type GetRecentPlayerParams struct {

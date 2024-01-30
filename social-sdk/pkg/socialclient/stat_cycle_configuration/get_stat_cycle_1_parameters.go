@@ -57,8 +57,7 @@ func NewGetStatCycle1ParamsWithHTTPClient(client *http.Client) *GetStatCycle1Par
 	}
 }
 
-/*
-GetStatCycle1Params contains all the parameters to send to the API endpoint
+/*GetStatCycle1Params contains all the parameters to send to the API endpoint
 for the get stat cycle 1 operation typically these are written to a http.Request
 */
 type GetStatCycle1Params struct {

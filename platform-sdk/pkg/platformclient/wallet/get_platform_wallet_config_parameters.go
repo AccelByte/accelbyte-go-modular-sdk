@@ -70,8 +70,7 @@ func NewGetPlatformWalletConfigParamsWithHTTPClient(client *http.Client) *GetPla
 	}
 }
 
-/*
-GetPlatformWalletConfigParams contains all the parameters to send to the API endpoint
+/*GetPlatformWalletConfigParams contains all the parameters to send to the API endpoint
 for the get platform wallet config operation typically these are written to a http.Request
 */
 type GetPlatformWalletConfigParams struct {

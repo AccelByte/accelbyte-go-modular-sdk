@@ -59,8 +59,7 @@ func NewPublicForgotPasswordV2ParamsWithHTTPClient(client *http.Client) *PublicF
 	}
 }
 
-/*
-PublicForgotPasswordV2Params contains all the parameters to send to the API endpoint
+/*PublicForgotPasswordV2Params contains all the parameters to send to the API endpoint
 for the public forgot password v2 operation typically these are written to a http.Request
 */
 type PublicForgotPasswordV2Params struct {

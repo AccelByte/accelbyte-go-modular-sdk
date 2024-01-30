@@ -57,8 +57,7 @@ func NewPublicDownloadContentByContentIDParamsWithHTTPClient(client *http.Client
 	}
 }
 
-/*
-PublicDownloadContentByContentIDParams contains all the parameters to send to the API endpoint
+/*PublicDownloadContentByContentIDParams contains all the parameters to send to the API endpoint
 for the public download content by content id operation typically these are written to a http.Request
 */
 type PublicDownloadContentByContentIDParams struct {

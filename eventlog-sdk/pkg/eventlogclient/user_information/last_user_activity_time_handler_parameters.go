@@ -57,8 +57,7 @@ func NewLastUserActivityTimeHandlerParamsWithHTTPClient(client *http.Client) *La
 	}
 }
 
-/*
-LastUserActivityTimeHandlerParams contains all the parameters to send to the API endpoint
+/*LastUserActivityTimeHandlerParams contains all the parameters to send to the API endpoint
 for the last user activity time handler operation typically these are written to a http.Request
 */
 type LastUserActivityTimeHandlerParams struct {

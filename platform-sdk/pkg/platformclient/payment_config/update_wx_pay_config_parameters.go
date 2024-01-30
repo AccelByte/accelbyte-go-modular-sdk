@@ -72,8 +72,7 @@ func NewUpdateWxPayConfigParamsWithHTTPClient(client *http.Client) *UpdateWxPayC
 	}
 }
 
-/*
-UpdateWxPayConfigParams contains all the parameters to send to the API endpoint
+/*UpdateWxPayConfigParams contains all the parameters to send to the API endpoint
 for the update wx pay config operation typically these are written to a http.Request
 */
 type UpdateWxPayConfigParams struct {

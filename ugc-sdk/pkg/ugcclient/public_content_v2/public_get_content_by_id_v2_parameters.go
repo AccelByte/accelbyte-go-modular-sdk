@@ -57,8 +57,7 @@ func NewPublicGetContentByIDV2ParamsWithHTTPClient(client *http.Client) *PublicG
 	}
 }
 
-/*
-PublicGetContentByIDV2Params contains all the parameters to send to the API endpoint
+/*PublicGetContentByIDV2Params contains all the parameters to send to the API endpoint
 for the public get content by idv2 operation typically these are written to a http.Request
 */
 type PublicGetContentByIDV2Params struct {

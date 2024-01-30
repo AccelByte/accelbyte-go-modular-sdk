@@ -57,8 +57,7 @@ func NewFleetDeleteParamsWithHTTPClient(client *http.Client) *FleetDeleteParams 
 	}
 }
 
-/*
-FleetDeleteParams contains all the parameters to send to the API endpoint
+/*FleetDeleteParams contains all the parameters to send to the API endpoint
 for the fleet delete operation typically these are written to a http.Request
 */
 type FleetDeleteParams struct {

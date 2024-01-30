@@ -59,8 +59,7 @@ func NewCreateGroupConfigurationAdminV1ParamsWithHTTPClient(client *http.Client)
 	}
 }
 
-/*
-CreateGroupConfigurationAdminV1Params contains all the parameters to send to the API endpoint
+/*CreateGroupConfigurationAdminV1Params contains all the parameters to send to the API endpoint
 for the create group configuration admin v1 operation typically these are written to a http.Request
 */
 type CreateGroupConfigurationAdminV1Params struct {

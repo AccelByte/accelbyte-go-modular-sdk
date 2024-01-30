@@ -59,8 +59,7 @@ func NewCreateGroupParamsWithHTTPClient(client *http.Client) *CreateGroupParams 
 	}
 }
 
-/*
-CreateGroupParams contains all the parameters to send to the API endpoint
+/*CreateGroupParams contains all the parameters to send to the API endpoint
 for the create group operation typically these are written to a http.Request
 */
 type CreateGroupParams struct {

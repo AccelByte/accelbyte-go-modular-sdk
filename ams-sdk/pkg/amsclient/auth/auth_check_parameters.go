@@ -57,8 +57,7 @@ func NewAuthCheckParamsWithHTTPClient(client *http.Client) *AuthCheckParams {
 	}
 }
 
-/*
-AuthCheckParams contains all the parameters to send to the API endpoint
+/*AuthCheckParams contains all the parameters to send to the API endpoint
 for the auth check operation typically these are written to a http.Request
 */
 type AuthCheckParams struct {

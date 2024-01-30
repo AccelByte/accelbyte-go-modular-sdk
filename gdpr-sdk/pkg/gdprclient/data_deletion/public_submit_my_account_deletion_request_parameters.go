@@ -57,8 +57,7 @@ func NewPublicSubmitMyAccountDeletionRequestParamsWithHTTPClient(client *http.Cl
 	}
 }
 
-/*
-PublicSubmitMyAccountDeletionRequestParams contains all the parameters to send to the API endpoint
+/*PublicSubmitMyAccountDeletionRequestParams contains all the parameters to send to the API endpoint
 for the public submit my account deletion request operation typically these are written to a http.Request
 */
 type PublicSubmitMyAccountDeletionRequestParams struct {

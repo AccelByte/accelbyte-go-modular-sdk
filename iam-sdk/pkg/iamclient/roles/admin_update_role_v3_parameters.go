@@ -59,8 +59,7 @@ func NewAdminUpdateRoleV3ParamsWithHTTPClient(client *http.Client) *AdminUpdateR
 	}
 }
 
-/*
-AdminUpdateRoleV3Params contains all the parameters to send to the API endpoint
+/*AdminUpdateRoleV3Params contains all the parameters to send to the API endpoint
 for the admin update role v3 operation typically these are written to a http.Request
 */
 type AdminUpdateRoleV3Params struct {

@@ -22,6 +22,14 @@ type PartyService struct {
 	Client           *lobbyclient.JusticeLobbyService
 	ConfigRepository repository.ConfigRepository
 	TokenRepository  repository.TokenRepository
+
+	FlightIdRepository *utils.FlightIdContainer
+}
+
+var tempFlightIdParty *string
+
+func (aaa *PartyService) UpdateFlightId(flightId string) {
+	tempFlightIdParty = &flightId
 }
 
 func (aaa *PartyService) GetAuthSession() auth.Session {
@@ -196,6 +204,11 @@ func (aaa *PartyService) AdminGetPartyDataV1Short(input *party.AdminGetPartyData
 			RetryCodes: utils.RetryCodes,
 		}
 	}
+	if tempFlightIdParty != nil {
+		input.XFlightId = tempFlightIdParty
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	}
 
 	ok, err := aaa.Client.Party.AdminGetPartyDataV1Short(input, authInfoWriter)
 	if err != nil {
@@ -220,6 +233,11 @@ func (aaa *PartyService) AdminGetUserPartyV1Short(input *party.AdminGetUserParty
 			Transport:  aaa.Client.Runtime.Transport,
 			RetryCodes: utils.RetryCodes,
 		}
+	}
+	if tempFlightIdParty != nil {
+		input.XFlightId = tempFlightIdParty
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.Party.AdminGetUserPartyV1Short(input, authInfoWriter)
@@ -246,6 +264,11 @@ func (aaa *PartyService) PublicGetPartyDataV1Short(input *party.PublicGetPartyDa
 			RetryCodes: utils.RetryCodes,
 		}
 	}
+	if tempFlightIdParty != nil {
+		input.XFlightId = tempFlightIdParty
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	}
 
 	ok, err := aaa.Client.Party.PublicGetPartyDataV1Short(input, authInfoWriter)
 	if err != nil {
@@ -271,6 +294,11 @@ func (aaa *PartyService) PublicUpdatePartyAttributesV1Short(input *party.PublicU
 			RetryCodes: utils.RetryCodes,
 		}
 	}
+	if tempFlightIdParty != nil {
+		input.XFlightId = tempFlightIdParty
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	}
 
 	ok, err := aaa.Client.Party.PublicUpdatePartyAttributesV1Short(input, authInfoWriter)
 	if err != nil {
@@ -295,6 +323,11 @@ func (aaa *PartyService) PublicSetPartyLimitV1Short(input *party.PublicSetPartyL
 			Transport:  aaa.Client.Runtime.Transport,
 			RetryCodes: utils.RetryCodes,
 		}
+	}
+	if tempFlightIdParty != nil {
+		input.XFlightId = tempFlightIdParty
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
 	}
 
 	_, err := aaa.Client.Party.PublicSetPartyLimitV1Short(input, authInfoWriter)

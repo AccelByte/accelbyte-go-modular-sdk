@@ -59,8 +59,7 @@ func NewPublicGetContentBulkParamsWithHTTPClient(client *http.Client) *PublicGet
 	}
 }
 
-/*
-PublicGetContentBulkParams contains all the parameters to send to the API endpoint
+/*PublicGetContentBulkParams contains all the parameters to send to the API endpoint
 for the public get content bulk operation typically these are written to a http.Request
 */
 type PublicGetContentBulkParams struct {

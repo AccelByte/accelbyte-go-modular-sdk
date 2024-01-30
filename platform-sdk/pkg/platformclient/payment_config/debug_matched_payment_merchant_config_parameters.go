@@ -77,8 +77,7 @@ func NewDebugMatchedPaymentMerchantConfigParamsWithHTTPClient(client *http.Clien
 	}
 }
 
-/*
-DebugMatchedPaymentMerchantConfigParams contains all the parameters to send to the API endpoint
+/*DebugMatchedPaymentMerchantConfigParams contains all the parameters to send to the API endpoint
 for the debug matched payment merchant config operation typically these are written to a http.Request
 */
 type DebugMatchedPaymentMerchantConfigParams struct {

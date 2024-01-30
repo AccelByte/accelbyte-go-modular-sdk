@@ -57,8 +57,7 @@ func NewGetSessionParamsWithHTTPClient(client *http.Client) *GetSessionParams {
 	}
 }
 
-/*
-GetSessionParams contains all the parameters to send to the API endpoint
+/*GetSessionParams contains all the parameters to send to the API endpoint
 for the get session operation typically these are written to a http.Request
 */
 type GetSessionParams struct {

@@ -57,8 +57,7 @@ func NewGetCurrencySummaryParamsWithHTTPClient(client *http.Client) *GetCurrency
 	}
 }
 
-/*
-GetCurrencySummaryParams contains all the parameters to send to the API endpoint
+/*GetCurrencySummaryParams contains all the parameters to send to the API endpoint
 for the get currency summary operation typically these are written to a http.Request
 */
 type GetCurrencySummaryParams struct {

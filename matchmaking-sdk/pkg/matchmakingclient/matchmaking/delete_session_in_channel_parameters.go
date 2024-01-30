@@ -57,8 +57,7 @@ func NewDeleteSessionInChannelParamsWithHTTPClient(client *http.Client) *DeleteS
 	}
 }
 
-/*
-DeleteSessionInChannelParams contains all the parameters to send to the API endpoint
+/*DeleteSessionInChannelParams contains all the parameters to send to the API endpoint
 for the delete session in channel operation typically these are written to a http.Request
 */
 type DeleteSessionInChannelParams struct {

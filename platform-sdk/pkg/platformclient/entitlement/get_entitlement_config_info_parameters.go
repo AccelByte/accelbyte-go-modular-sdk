@@ -70,8 +70,7 @@ func NewGetEntitlementConfigInfoParamsWithHTTPClient(client *http.Client) *GetEn
 	}
 }
 
-/*
-GetEntitlementConfigInfoParams contains all the parameters to send to the API endpoint
+/*GetEntitlementConfigInfoParams contains all the parameters to send to the API endpoint
 for the get entitlement config info operation typically these are written to a http.Request
 */
 type GetEntitlementConfigInfoParams struct {

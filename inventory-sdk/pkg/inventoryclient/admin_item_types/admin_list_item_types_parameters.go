@@ -88,8 +88,7 @@ func NewAdminListItemTypesParamsWithHTTPClient(client *http.Client) *AdminListIt
 	}
 }
 
-/*
-AdminListItemTypesParams contains all the parameters to send to the API endpoint
+/*AdminListItemTypesParams contains all the parameters to send to the API endpoint
 for the admin list item types operation typically these are written to a http.Request
 */
 type AdminListItemTypesParams struct {

@@ -57,8 +57,7 @@ func NewInviteGroupPublicV1ParamsWithHTTPClient(client *http.Client) *InviteGrou
 	}
 }
 
-/*
-InviteGroupPublicV1Params contains all the parameters to send to the API endpoint
+/*InviteGroupPublicV1Params contains all the parameters to send to the API endpoint
 for the invite group public v1 operation typically these are written to a http.Request
 */
 type InviteGroupPublicV1Params struct {

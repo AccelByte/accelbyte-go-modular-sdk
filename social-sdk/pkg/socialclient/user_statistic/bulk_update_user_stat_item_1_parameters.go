@@ -59,8 +59,7 @@ func NewBulkUpdateUserStatItem1ParamsWithHTTPClient(client *http.Client) *BulkUp
 	}
 }
 
-/*
-BulkUpdateUserStatItem1Params contains all the parameters to send to the API endpoint
+/*BulkUpdateUserStatItem1Params contains all the parameters to send to the API endpoint
 for the bulk update user stat item 1 operation typically these are written to a http.Request
 */
 type BulkUpdateUserStatItem1Params struct {

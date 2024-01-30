@@ -59,8 +59,7 @@ func NewAdminUpdatePartyAttributesV1ParamsWithHTTPClient(client *http.Client) *A
 	}
 }
 
-/*
-AdminUpdatePartyAttributesV1Params contains all the parameters to send to the API endpoint
+/*AdminUpdatePartyAttributesV1Params contains all the parameters to send to the API endpoint
 for the admin update party attributes v1 operation typically these are written to a http.Request
 */
 type AdminUpdatePartyAttributesV1Params struct {

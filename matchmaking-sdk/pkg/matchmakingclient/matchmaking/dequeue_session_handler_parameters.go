@@ -59,8 +59,7 @@ func NewDequeueSessionHandlerParamsWithHTTPClient(client *http.Client) *DequeueS
 	}
 }
 
-/*
-DequeueSessionHandlerParams contains all the parameters to send to the API endpoint
+/*DequeueSessionHandlerParams contains all the parameters to send to the API endpoint
 for the dequeue session handler operation typically these are written to a http.Request
 */
 type DequeueSessionHandlerParams struct {

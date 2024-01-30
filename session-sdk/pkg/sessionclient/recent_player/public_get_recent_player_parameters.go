@@ -70,8 +70,7 @@ func NewPublicGetRecentPlayerParamsWithHTTPClient(client *http.Client) *PublicGe
 	}
 }
 
-/*
-PublicGetRecentPlayerParams contains all the parameters to send to the API endpoint
+/*PublicGetRecentPlayerParams contains all the parameters to send to the API endpoint
 for the public get recent player operation typically these are written to a http.Request
 */
 type PublicGetRecentPlayerParams struct {

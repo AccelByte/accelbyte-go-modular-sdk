@@ -59,8 +59,7 @@ func NewCreateFulfillmentScriptParamsWithHTTPClient(client *http.Client) *Create
 	}
 }
 
-/*
-CreateFulfillmentScriptParams contains all the parameters to send to the API endpoint
+/*CreateFulfillmentScriptParams contains all the parameters to send to the API endpoint
 for the create fulfillment script operation typically these are written to a http.Request
 */
 type CreateFulfillmentScriptParams struct {

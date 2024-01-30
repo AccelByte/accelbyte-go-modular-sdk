@@ -78,8 +78,7 @@ func NewAdminGetMatchPoolTicketsParamsWithHTTPClient(client *http.Client) *Admin
 	}
 }
 
-/*
-AdminGetMatchPoolTicketsParams contains all the parameters to send to the API endpoint
+/*AdminGetMatchPoolTicketsParams contains all the parameters to send to the API endpoint
 for the admin get match pool tickets operation typically these are written to a http.Request
 */
 type AdminGetMatchPoolTicketsParams struct {

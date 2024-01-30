@@ -57,8 +57,7 @@ func NewDisableItemParamsWithHTTPClient(client *http.Client) *DisableItemParams 
 	}
 }
 
-/*
-DisableItemParams contains all the parameters to send to the API endpoint
+/*DisableItemParams contains all the parameters to send to the API endpoint
 for the disable item operation typically these are written to a http.Request
 */
 type DisableItemParams struct {

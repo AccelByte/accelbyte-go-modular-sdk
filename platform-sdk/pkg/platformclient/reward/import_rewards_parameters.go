@@ -58,8 +58,7 @@ func NewImportRewardsParamsWithHTTPClient(client *http.Client) *ImportRewardsPar
 	}
 }
 
-/*
-ImportRewardsParams contains all the parameters to send to the API endpoint
+/*ImportRewardsParams contains all the parameters to send to the API endpoint
 for the import rewards operation typically these are written to a http.Request
 */
 type ImportRewardsParams struct {

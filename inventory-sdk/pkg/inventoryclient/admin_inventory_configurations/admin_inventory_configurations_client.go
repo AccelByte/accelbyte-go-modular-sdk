@@ -47,7 +47,7 @@ type ClientService interface {
 /*
 Deprecated: 2022-08-10 - Use AdminListInventoryConfigurationsShort instead.
 
-# AdminListInventoryConfigurations to list inventory configurations
+AdminListInventoryConfigurations to list inventory configurations
 
 Listing all inventory configurations in a namespace.
 The response body will be in the form of standard pagination.
@@ -161,7 +161,7 @@ func (a *Client) AdminListInventoryConfigurationsShort(params *AdminListInventor
 /*
 Deprecated: 2022-08-10 - Use AdminCreateInventoryConfigurationShort instead.
 
-# AdminCreateInventoryConfiguration to create inventory configuration
+AdminCreateInventoryConfiguration to create inventory configuration
 
 Creating inventory configuration.
 There cannot be one inventory configuration duplicate code per namespace.
@@ -280,7 +280,7 @@ func (a *Client) AdminCreateInventoryConfigurationShort(params *AdminCreateInven
 /*
 Deprecated: 2022-08-10 - Use AdminGetInventoryConfigurationShort instead.
 
-# AdminGetInventoryConfiguration to get inventory configuration
+AdminGetInventoryConfiguration to get inventory configuration
 
 Getting an inventory configuration info.
 
@@ -397,7 +397,7 @@ func (a *Client) AdminGetInventoryConfigurationShort(params *AdminGetInventoryCo
 /*
 Deprecated: 2022-08-10 - Use AdminUpdateInventoryConfigurationShort instead.
 
-# AdminUpdateInventoryConfiguration to update inventory configuration
+AdminUpdateInventoryConfiguration to update inventory configuration
 
 Updating inventory configuration.
 There cannot be duplicate code per namespace.
@@ -521,7 +521,7 @@ func (a *Client) AdminUpdateInventoryConfigurationShort(params *AdminUpdateInven
 /*
 Deprecated: 2022-08-10 - Use AdminDeleteInventoryConfigurationShort instead.
 
-# AdminDeleteInventoryConfiguration to delete inventory configuration
+AdminDeleteInventoryConfiguration to delete inventory configuration
 
 Deleting an inventory configuration.
 If an inventory already reference this type (i.e. STATUS is "TIED"), then the type cannot be deleted anymore.

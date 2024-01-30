@@ -78,8 +78,7 @@ func NewGetChannelsParamsWithHTTPClient(client *http.Client) *GetChannelsParams 
 	}
 }
 
-/*
-GetChannelsParams contains all the parameters to send to the API endpoint
+/*GetChannelsParams contains all the parameters to send to the API endpoint
 for the get channels operation typically these are written to a http.Request
 */
 type GetChannelsParams struct {

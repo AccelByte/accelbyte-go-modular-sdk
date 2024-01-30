@@ -57,8 +57,7 @@ func NewRecurringChargeSubscriptionParamsWithHTTPClient(client *http.Client) *Re
 	}
 }
 
-/*
-RecurringChargeSubscriptionParams contains all the parameters to send to the API endpoint
+/*RecurringChargeSubscriptionParams contains all the parameters to send to the API endpoint
 for the recurring charge subscription operation typically these are written to a http.Request
 */
 type RecurringChargeSubscriptionParams struct {

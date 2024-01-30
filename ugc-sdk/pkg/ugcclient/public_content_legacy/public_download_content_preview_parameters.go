@@ -57,8 +57,7 @@ func NewPublicDownloadContentPreviewParamsWithHTTPClient(client *http.Client) *P
 	}
 }
 
-/*
-PublicDownloadContentPreviewParams contains all the parameters to send to the API endpoint
+/*PublicDownloadContentPreviewParams contains all the parameters to send to the API endpoint
 for the public download content preview operation typically these are written to a http.Request
 */
 type PublicDownloadContentPreviewParams struct {

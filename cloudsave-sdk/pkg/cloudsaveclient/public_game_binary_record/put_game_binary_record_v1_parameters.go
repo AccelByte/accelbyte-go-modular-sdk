@@ -59,8 +59,7 @@ func NewPutGameBinaryRecordV1ParamsWithHTTPClient(client *http.Client) *PutGameB
 	}
 }
 
-/*
-PutGameBinaryRecordV1Params contains all the parameters to send to the API endpoint
+/*PutGameBinaryRecordV1Params contains all the parameters to send to the API endpoint
 for the put game binary record v1 operation typically these are written to a http.Request
 */
 type PutGameBinaryRecordV1Params struct {

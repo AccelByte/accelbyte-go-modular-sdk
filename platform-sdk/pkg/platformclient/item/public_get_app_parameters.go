@@ -57,8 +57,7 @@ func NewPublicGetAppParamsWithHTTPClient(client *http.Client) *PublicGetAppParam
 	}
 }
 
-/*
-PublicGetAppParams contains all the parameters to send to the API endpoint
+/*PublicGetAppParams contains all the parameters to send to the API endpoint
 for the public get app operation typically these are written to a http.Request
 */
 type PublicGetAppParams struct {

@@ -57,8 +57,7 @@ func NewPublicGetMyAppEntitlementOwnershipByAppIDParamsWithHTTPClient(client *ht
 	}
 }
 
-/*
-PublicGetMyAppEntitlementOwnershipByAppIDParams contains all the parameters to send to the API endpoint
+/*PublicGetMyAppEntitlementOwnershipByAppIDParams contains all the parameters to send to the API endpoint
 for the public get my app entitlement ownership by app id operation typically these are written to a http.Request
 */
 type PublicGetMyAppEntitlementOwnershipByAppIDParams struct {

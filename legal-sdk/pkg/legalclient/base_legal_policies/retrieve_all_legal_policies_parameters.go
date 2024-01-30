@@ -57,8 +57,7 @@ func NewRetrieveAllLegalPoliciesParamsWithHTTPClient(client *http.Client) *Retri
 	}
 }
 
-/*
-RetrieveAllLegalPoliciesParams contains all the parameters to send to the API endpoint
+/*RetrieveAllLegalPoliciesParams contains all the parameters to send to the API endpoint
 for the retrieve all legal policies operation typically these are written to a http.Request
 */
 type RetrieveAllLegalPoliciesParams struct {

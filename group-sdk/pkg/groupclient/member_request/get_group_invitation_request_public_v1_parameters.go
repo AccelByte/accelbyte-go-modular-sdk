@@ -58,8 +58,7 @@ func NewGetGroupInvitationRequestPublicV1ParamsWithHTTPClient(client *http.Clien
 	}
 }
 
-/*
-GetGroupInvitationRequestPublicV1Params contains all the parameters to send to the API endpoint
+/*GetGroupInvitationRequestPublicV1Params contains all the parameters to send to the API endpoint
 for the get group invitation request public v1 operation typically these are written to a http.Request
 */
 type GetGroupInvitationRequestPublicV1Params struct {

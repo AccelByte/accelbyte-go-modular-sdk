@@ -57,8 +57,7 @@ func NewDisableCodeParamsWithHTTPClient(client *http.Client) *DisableCodeParams 
 	}
 }
 
-/*
-DisableCodeParams contains all the parameters to send to the API endpoint
+/*DisableCodeParams contains all the parameters to send to the API endpoint
 for the disable code operation typically these are written to a http.Request
 */
 type DisableCodeParams struct {

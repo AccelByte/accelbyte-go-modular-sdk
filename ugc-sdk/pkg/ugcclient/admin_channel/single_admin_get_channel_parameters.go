@@ -78,8 +78,7 @@ func NewSingleAdminGetChannelParamsWithHTTPClient(client *http.Client) *SingleAd
 	}
 }
 
-/*
-SingleAdminGetChannelParams contains all the parameters to send to the API endpoint
+/*SingleAdminGetChannelParams contains all the parameters to send to the API endpoint
 for the single admin get channel operation typically these are written to a http.Request
 */
 type SingleAdminGetChannelParams struct {

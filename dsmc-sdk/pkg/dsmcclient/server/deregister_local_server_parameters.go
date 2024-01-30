@@ -59,8 +59,7 @@ func NewDeregisterLocalServerParamsWithHTTPClient(client *http.Client) *Deregist
 	}
 }
 
-/*
-DeregisterLocalServerParams contains all the parameters to send to the API endpoint
+/*DeregisterLocalServerParams contains all the parameters to send to the API endpoint
 for the deregister local server operation typically these are written to a http.Request
 */
 type DeregisterLocalServerParams struct {

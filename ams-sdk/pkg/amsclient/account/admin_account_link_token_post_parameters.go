@@ -59,8 +59,7 @@ func NewAdminAccountLinkTokenPostParamsWithHTTPClient(client *http.Client) *Admi
 	}
 }
 
-/*
-AdminAccountLinkTokenPostParams contains all the parameters to send to the API endpoint
+/*AdminAccountLinkTokenPostParams contains all the parameters to send to the API endpoint
 for the admin account link token post operation typically these are written to a http.Request
 */
 type AdminAccountLinkTokenPostParams struct {

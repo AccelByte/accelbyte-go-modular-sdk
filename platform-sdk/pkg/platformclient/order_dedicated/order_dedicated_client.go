@@ -40,13 +40,11 @@ type ClientService interface {
 Deprecated: 2022-08-10 - Use SyncOrdersShort instead.
 
 SyncOrders sync orders
-
-	[Not Supported Yet In Starter] Sync orders. If response contains nextEvaluatedKey, please use it as query param in the next call to fetch the next batch, a batch has 1000 elements or less.
-
+ [Not Supported Yet In Starter] Sync orders. If response contains nextEvaluatedKey, please use it as query param in the next call to fetch the next batch, a batch has 1000 elements or less.
 Other detail info:
 
-  - Required permission : resource="ADMIN:ORDER", action=2 (READ)
-  - Returns : sync orders
+  * Required permission : resource="ADMIN:ORDER", action=2 (READ)
+  *  Returns : sync orders
 */
 func (a *Client) SyncOrders(params *SyncOrdersParams, authInfo runtime.ClientAuthInfoWriter) (*SyncOrdersOK, error) {
 	// TODO: Validate the params before sending
@@ -91,13 +89,11 @@ func (a *Client) SyncOrders(params *SyncOrdersParams, authInfo runtime.ClientAut
 
 /*
 SyncOrdersShort sync orders
-
-	[Not Supported Yet In Starter] Sync orders. If response contains nextEvaluatedKey, please use it as query param in the next call to fetch the next batch, a batch has 1000 elements or less.
-
+ [Not Supported Yet In Starter] Sync orders. If response contains nextEvaluatedKey, please use it as query param in the next call to fetch the next batch, a batch has 1000 elements or less.
 Other detail info:
 
-  - Required permission : resource="ADMIN:ORDER", action=2 (READ)
-  - Returns : sync orders
+  * Required permission : resource="ADMIN:ORDER", action=2 (READ)
+  *  Returns : sync orders
 */
 func (a *Client) SyncOrdersShort(params *SyncOrdersParams, authInfo runtime.ClientAuthInfoWriter) (*SyncOrdersOK, error) {
 	// TODO: Validate the params before sending

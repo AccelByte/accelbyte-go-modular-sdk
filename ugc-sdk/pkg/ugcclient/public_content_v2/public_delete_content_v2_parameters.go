@@ -57,8 +57,7 @@ func NewPublicDeleteContentV2ParamsWithHTTPClient(client *http.Client) *PublicDe
 	}
 }
 
-/*
-PublicDeleteContentV2Params contains all the parameters to send to the API endpoint
+/*PublicDeleteContentV2Params contains all the parameters to send to the API endpoint
 for the public delete content v2 operation typically these are written to a http.Request
 */
 type PublicDeleteContentV2Params struct {

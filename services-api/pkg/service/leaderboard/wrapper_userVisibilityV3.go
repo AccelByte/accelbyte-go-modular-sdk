@@ -22,6 +22,14 @@ type UserVisibilityV3Service struct {
 	Client           *leaderboardclient.JusticeLeaderboardService
 	ConfigRepository repository.ConfigRepository
 	TokenRepository  repository.TokenRepository
+
+	FlightIdRepository *utils.FlightIdContainer
+}
+
+var tempFlightIdUserVisibilityV3 *string
+
+func (aaa *UserVisibilityV3Service) UpdateFlightId(flightId string) {
+	tempFlightIdUserVisibilityV3 = &flightId
 }
 
 func (aaa *UserVisibilityV3Service) GetAuthSession() auth.Session {
@@ -164,6 +172,11 @@ func (aaa *UserVisibilityV3Service) GetHiddenUsersV3Short(input *user_visibility
 			RetryCodes: utils.RetryCodes,
 		}
 	}
+	if tempFlightIdUserVisibilityV3 != nil {
+		input.XFlightId = tempFlightIdUserVisibilityV3
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	}
 
 	ok, err := aaa.Client.UserVisibilityV3.GetHiddenUsersV3Short(input, authInfoWriter)
 	if err != nil {
@@ -188,6 +201,11 @@ func (aaa *UserVisibilityV3Service) GetUserVisibilityStatusV3Short(input *user_v
 			Transport:  aaa.Client.Runtime.Transport,
 			RetryCodes: utils.RetryCodes,
 		}
+	}
+	if tempFlightIdUserVisibilityV3 != nil {
+		input.XFlightId = tempFlightIdUserVisibilityV3
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.UserVisibilityV3.GetUserVisibilityStatusV3Short(input, authInfoWriter)
@@ -214,6 +232,11 @@ func (aaa *UserVisibilityV3Service) SetUserLeaderboardVisibilityV3Short(input *u
 			RetryCodes: utils.RetryCodes,
 		}
 	}
+	if tempFlightIdUserVisibilityV3 != nil {
+		input.XFlightId = tempFlightIdUserVisibilityV3
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	}
 
 	ok, err := aaa.Client.UserVisibilityV3.SetUserLeaderboardVisibilityV3Short(input, authInfoWriter)
 	if err != nil {
@@ -238,6 +261,11 @@ func (aaa *UserVisibilityV3Service) SetUserVisibilityV3Short(input *user_visibil
 			Transport:  aaa.Client.Runtime.Transport,
 			RetryCodes: utils.RetryCodes,
 		}
+	}
+	if tempFlightIdUserVisibilityV3 != nil {
+		input.XFlightId = tempFlightIdUserVisibilityV3
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.UserVisibilityV3.SetUserVisibilityV3Short(input, authInfoWriter)

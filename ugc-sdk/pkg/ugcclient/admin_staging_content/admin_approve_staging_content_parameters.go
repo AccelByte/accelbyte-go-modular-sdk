@@ -59,8 +59,7 @@ func NewAdminApproveStagingContentParamsWithHTTPClient(client *http.Client) *Adm
 	}
 }
 
-/*
-AdminApproveStagingContentParams contains all the parameters to send to the API endpoint
+/*AdminApproveStagingContentParams contains all the parameters to send to the API endpoint
 for the admin approve staging content operation typically these are written to a http.Request
 */
 type AdminApproveStagingContentParams struct {

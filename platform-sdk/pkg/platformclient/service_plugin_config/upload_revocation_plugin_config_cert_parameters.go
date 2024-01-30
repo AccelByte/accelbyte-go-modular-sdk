@@ -57,8 +57,7 @@ func NewUploadRevocationPluginConfigCertParamsWithHTTPClient(client *http.Client
 	}
 }
 
-/*
-UploadRevocationPluginConfigCertParams contains all the parameters to send to the API endpoint
+/*UploadRevocationPluginConfigCertParams contains all the parameters to send to the API endpoint
 for the upload revocation plugin config cert operation typically these are written to a http.Request
 */
 type UploadRevocationPluginConfigCertParams struct {

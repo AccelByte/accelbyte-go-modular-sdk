@@ -96,8 +96,7 @@ func NewQueryRewards1ParamsWithHTTPClient(client *http.Client) *QueryRewards1Par
 	}
 }
 
-/*
-QueryRewards1Params contains all the parameters to send to the API endpoint
+/*QueryRewards1Params contains all the parameters to send to the API endpoint
 for the query rewards 1 operation typically these are written to a http.Request
 */
 type QueryRewards1Params struct {

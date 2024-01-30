@@ -58,8 +58,7 @@ func NewGetCurrentMonthLeaderboardRankingPublicV1ParamsWithHTTPClient(client *ht
 	}
 }
 
-/*
-GetCurrentMonthLeaderboardRankingPublicV1Params contains all the parameters to send to the API endpoint
+/*GetCurrentMonthLeaderboardRankingPublicV1Params contains all the parameters to send to the API endpoint
 for the get current month leaderboard ranking public v1 operation typically these are written to a http.Request
 */
 type GetCurrentMonthLeaderboardRankingPublicV1Params struct {

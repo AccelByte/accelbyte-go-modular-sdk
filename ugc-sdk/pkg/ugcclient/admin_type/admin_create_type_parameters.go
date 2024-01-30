@@ -59,8 +59,7 @@ func NewAdminCreateTypeParamsWithHTTPClient(client *http.Client) *AdminCreateTyp
 	}
 }
 
-/*
-AdminCreateTypeParams contains all the parameters to send to the API endpoint
+/*AdminCreateTypeParams contains all the parameters to send to the API endpoint
 for the admin create type operation typically these are written to a http.Request
 */
 type AdminCreateTypeParams struct {

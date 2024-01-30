@@ -24,6 +24,14 @@ type UsersV4Service struct {
 	Client           *iamclient.JusticeIamService
 	ConfigRepository repository.ConfigRepository
 	TokenRepository  repository.TokenRepository
+
+	FlightIdRepository *utils.FlightIdContainer
+}
+
+var tempFlightIdUsersV4 *string
+
+func (aaa *UsersV4Service) UpdateFlightId(flightId string) {
+	tempFlightIdUsersV4 = &flightId
 }
 
 func (aaa *UsersV4Service) GetAuthSession() auth.Session {
@@ -49,6 +57,38 @@ func (aaa *UsersV4Service) AdminCreateTestUsersV4(input *users_v4.AdminCreateTes
 	}
 	if notImplemented != nil {
 		return nil, notImplemented
+	}
+	if err != nil {
+		return nil, err
+	}
+
+	return created.GetPayload(), nil
+}
+
+// Deprecated: 2022-01-10 - Please use AdminCreateUserV4Short instead.
+func (aaa *UsersV4Service) AdminCreateUserV4(input *users_v4.AdminCreateUserV4Params) (*iamclientmodels.AccountCreateUserResponseV4, error) {
+	token, err := aaa.TokenRepository.GetToken()
+	if err != nil {
+		return nil, err
+	}
+	created, badRequest, unauthorized, forbidden, notFound, conflict, internalServerError, err := aaa.Client.UsersV4.AdminCreateUserV4(input, client.BearerToken(*token.AccessToken))
+	if badRequest != nil {
+		return nil, badRequest
+	}
+	if unauthorized != nil {
+		return nil, unauthorized
+	}
+	if forbidden != nil {
+		return nil, forbidden
+	}
+	if notFound != nil {
+		return nil, notFound
+	}
+	if conflict != nil {
+		return nil, conflict
+	}
+	if internalServerError != nil {
+		return nil, internalServerError
 	}
 	if err != nil {
 		return nil, err
@@ -1492,8 +1532,43 @@ func (aaa *UsersV4Service) AdminCreateTestUsersV4Short(input *users_v4.AdminCrea
 			RetryCodes: utils.RetryCodes,
 		}
 	}
+	if tempFlightIdUsersV4 != nil {
+		input.XFlightId = tempFlightIdUsersV4
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	}
 
 	created, err := aaa.Client.UsersV4.AdminCreateTestUsersV4Short(input, authInfoWriter)
+	if err != nil {
+		return nil, err
+	}
+
+	return created.GetPayload(), nil
+}
+
+func (aaa *UsersV4Service) AdminCreateUserV4Short(input *users_v4.AdminCreateUserV4Params) (*iamclientmodels.AccountCreateUserResponseV4, error) {
+	authInfoWriter := input.AuthInfoWriter
+	if authInfoWriter == nil {
+		security := [][]string{
+			{"bearer"},
+		}
+		authInfoWriter = auth.AuthInfoWriter(aaa.GetAuthSession(), security, "")
+	}
+	if input.RetryPolicy == nil {
+		input.RetryPolicy = &utils.Retry{
+			MaxTries:   utils.MaxTries,
+			Backoff:    utils.NewConstantBackoff(0),
+			Transport:  aaa.Client.Runtime.Transport,
+			RetryCodes: utils.RetryCodes,
+		}
+	}
+	if tempFlightIdUsersV4 != nil {
+		input.XFlightId = tempFlightIdUsersV4
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	}
+
+	created, err := aaa.Client.UsersV4.AdminCreateUserV4Short(input, authInfoWriter)
 	if err != nil {
 		return nil, err
 	}
@@ -1516,6 +1591,11 @@ func (aaa *UsersV4Service) AdminBulkUpdateUserAccountTypeV4Short(input *users_v4
 			Transport:  aaa.Client.Runtime.Transport,
 			RetryCodes: utils.RetryCodes,
 		}
+	}
+	if tempFlightIdUsersV4 != nil {
+		input.XFlightId = tempFlightIdUsersV4
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
 	}
 
 	_, err := aaa.Client.UsersV4.AdminBulkUpdateUserAccountTypeV4Short(input, authInfoWriter)
@@ -1542,6 +1622,11 @@ func (aaa *UsersV4Service) AdminBulkCheckValidUserIDV4Short(input *users_v4.Admi
 			RetryCodes: utils.RetryCodes,
 		}
 	}
+	if tempFlightIdUsersV4 != nil {
+		input.XFlightId = tempFlightIdUsersV4
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	}
 
 	ok, err := aaa.Client.UsersV4.AdminBulkCheckValidUserIDV4Short(input, authInfoWriter)
 	if err != nil {
@@ -1566,6 +1651,11 @@ func (aaa *UsersV4Service) AdminUpdateUserV4Short(input *users_v4.AdminUpdateUse
 			Transport:  aaa.Client.Runtime.Transport,
 			RetryCodes: utils.RetryCodes,
 		}
+	}
+	if tempFlightIdUsersV4 != nil {
+		input.XFlightId = tempFlightIdUsersV4
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.UsersV4.AdminUpdateUserV4Short(input, authInfoWriter)
@@ -1592,6 +1682,11 @@ func (aaa *UsersV4Service) AdminUpdateUserEmailAddressV4Short(input *users_v4.Ad
 			RetryCodes: utils.RetryCodes,
 		}
 	}
+	if tempFlightIdUsersV4 != nil {
+		input.XFlightId = tempFlightIdUsersV4
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	}
 
 	_, err := aaa.Client.UsersV4.AdminUpdateUserEmailAddressV4Short(input, authInfoWriter)
 	if err != nil {
@@ -1616,6 +1711,11 @@ func (aaa *UsersV4Service) AdminDisableUserMFAV4Short(input *users_v4.AdminDisab
 			Transport:  aaa.Client.Runtime.Transport,
 			RetryCodes: utils.RetryCodes,
 		}
+	}
+	if tempFlightIdUsersV4 != nil {
+		input.XFlightId = tempFlightIdUsersV4
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
 	}
 
 	_, err := aaa.Client.UsersV4.AdminDisableUserMFAV4Short(input, authInfoWriter)
@@ -1642,6 +1742,11 @@ func (aaa *UsersV4Service) AdminListUserRolesV4Short(input *users_v4.AdminListUs
 			RetryCodes: utils.RetryCodes,
 		}
 	}
+	if tempFlightIdUsersV4 != nil {
+		input.XFlightId = tempFlightIdUsersV4
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	}
 
 	ok, err := aaa.Client.UsersV4.AdminListUserRolesV4Short(input, authInfoWriter)
 	if err != nil {
@@ -1666,6 +1771,11 @@ func (aaa *UsersV4Service) AdminUpdateUserRoleV4Short(input *users_v4.AdminUpdat
 			Transport:  aaa.Client.Runtime.Transport,
 			RetryCodes: utils.RetryCodes,
 		}
+	}
+	if tempFlightIdUsersV4 != nil {
+		input.XFlightId = tempFlightIdUsersV4
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.UsersV4.AdminUpdateUserRoleV4Short(input, authInfoWriter)
@@ -1692,6 +1802,11 @@ func (aaa *UsersV4Service) AdminAddUserRoleV4Short(input *users_v4.AdminAddUserR
 			RetryCodes: utils.RetryCodes,
 		}
 	}
+	if tempFlightIdUsersV4 != nil {
+		input.XFlightId = tempFlightIdUsersV4
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	}
 
 	ok, err := aaa.Client.UsersV4.AdminAddUserRoleV4Short(input, authInfoWriter)
 	if err != nil {
@@ -1716,6 +1831,11 @@ func (aaa *UsersV4Service) AdminRemoveUserRoleV4Short(input *users_v4.AdminRemov
 			Transport:  aaa.Client.Runtime.Transport,
 			RetryCodes: utils.RetryCodes,
 		}
+	}
+	if tempFlightIdUsersV4 != nil {
+		input.XFlightId = tempFlightIdUsersV4
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
 	}
 
 	_, err := aaa.Client.UsersV4.AdminRemoveUserRoleV4Short(input, authInfoWriter)
@@ -1742,6 +1862,11 @@ func (aaa *UsersV4Service) AdminInviteUserNewV4Short(input *users_v4.AdminInvite
 			RetryCodes: utils.RetryCodes,
 		}
 	}
+	if tempFlightIdUsersV4 != nil {
+		input.XFlightId = tempFlightIdUsersV4
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	}
 
 	created, err := aaa.Client.UsersV4.AdminInviteUserNewV4Short(input, authInfoWriter)
 	if err != nil {
@@ -1766,6 +1891,11 @@ func (aaa *UsersV4Service) AdminUpdateMyUserV4Short(input *users_v4.AdminUpdateM
 			Transport:  aaa.Client.Runtime.Transport,
 			RetryCodes: utils.RetryCodes,
 		}
+	}
+	if tempFlightIdUsersV4 != nil {
+		input.XFlightId = tempFlightIdUsersV4
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.UsersV4.AdminUpdateMyUserV4Short(input, authInfoWriter)
@@ -1792,6 +1922,11 @@ func (aaa *UsersV4Service) AdminDisableMyAuthenticatorV4Short(input *users_v4.Ad
 			RetryCodes: utils.RetryCodes,
 		}
 	}
+	if tempFlightIdUsersV4 != nil {
+		input.XFlightId = tempFlightIdUsersV4
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	}
 
 	_, err := aaa.Client.UsersV4.AdminDisableMyAuthenticatorV4Short(input, authInfoWriter)
 	if err != nil {
@@ -1816,6 +1951,11 @@ func (aaa *UsersV4Service) AdminEnableMyAuthenticatorV4Short(input *users_v4.Adm
 			Transport:  aaa.Client.Runtime.Transport,
 			RetryCodes: utils.RetryCodes,
 		}
+	}
+	if tempFlightIdUsersV4 != nil {
+		input.XFlightId = tempFlightIdUsersV4
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
 	}
 
 	_, err := aaa.Client.UsersV4.AdminEnableMyAuthenticatorV4Short(input, authInfoWriter)
@@ -1842,6 +1982,11 @@ func (aaa *UsersV4Service) AdminGenerateMyAuthenticatorKeyV4Short(input *users_v
 			RetryCodes: utils.RetryCodes,
 		}
 	}
+	if tempFlightIdUsersV4 != nil {
+		input.XFlightId = tempFlightIdUsersV4
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	}
 
 	ok, err := aaa.Client.UsersV4.AdminGenerateMyAuthenticatorKeyV4Short(input, authInfoWriter)
 	if err != nil {
@@ -1866,6 +2011,11 @@ func (aaa *UsersV4Service) AdminGetMyBackupCodesV4Short(input *users_v4.AdminGet
 			Transport:  aaa.Client.Runtime.Transport,
 			RetryCodes: utils.RetryCodes,
 		}
+	}
+	if tempFlightIdUsersV4 != nil {
+		input.XFlightId = tempFlightIdUsersV4
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.UsersV4.AdminGetMyBackupCodesV4Short(input, authInfoWriter)
@@ -1892,6 +2042,11 @@ func (aaa *UsersV4Service) AdminGenerateMyBackupCodesV4Short(input *users_v4.Adm
 			RetryCodes: utils.RetryCodes,
 		}
 	}
+	if tempFlightIdUsersV4 != nil {
+		input.XFlightId = tempFlightIdUsersV4
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	}
 
 	ok, err := aaa.Client.UsersV4.AdminGenerateMyBackupCodesV4Short(input, authInfoWriter)
 	if err != nil {
@@ -1916,6 +2071,11 @@ func (aaa *UsersV4Service) AdminDisableMyBackupCodesV4Short(input *users_v4.Admi
 			Transport:  aaa.Client.Runtime.Transport,
 			RetryCodes: utils.RetryCodes,
 		}
+	}
+	if tempFlightIdUsersV4 != nil {
+		input.XFlightId = tempFlightIdUsersV4
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
 	}
 
 	_, err := aaa.Client.UsersV4.AdminDisableMyBackupCodesV4Short(input, authInfoWriter)
@@ -1942,6 +2102,11 @@ func (aaa *UsersV4Service) AdminDownloadMyBackupCodesV4Short(input *users_v4.Adm
 			RetryCodes: utils.RetryCodes,
 		}
 	}
+	if tempFlightIdUsersV4 != nil {
+		input.XFlightId = tempFlightIdUsersV4
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	}
 
 	ok, err := aaa.Client.UsersV4.AdminDownloadMyBackupCodesV4Short(input, authInfoWriter, writer)
 	if err != nil {
@@ -1966,6 +2131,11 @@ func (aaa *UsersV4Service) AdminEnableMyBackupCodesV4Short(input *users_v4.Admin
 			Transport:  aaa.Client.Runtime.Transport,
 			RetryCodes: utils.RetryCodes,
 		}
+	}
+	if tempFlightIdUsersV4 != nil {
+		input.XFlightId = tempFlightIdUsersV4
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.UsersV4.AdminEnableMyBackupCodesV4Short(input, authInfoWriter)
@@ -1992,6 +2162,11 @@ func (aaa *UsersV4Service) AdminSendMyMFAEmailCodeV4Short(input *users_v4.AdminS
 			RetryCodes: utils.RetryCodes,
 		}
 	}
+	if tempFlightIdUsersV4 != nil {
+		input.XFlightId = tempFlightIdUsersV4
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	}
 
 	_, err := aaa.Client.UsersV4.AdminSendMyMFAEmailCodeV4Short(input, authInfoWriter)
 	if err != nil {
@@ -2016,6 +2191,11 @@ func (aaa *UsersV4Service) AdminDisableMyEmailV4Short(input *users_v4.AdminDisab
 			Transport:  aaa.Client.Runtime.Transport,
 			RetryCodes: utils.RetryCodes,
 		}
+	}
+	if tempFlightIdUsersV4 != nil {
+		input.XFlightId = tempFlightIdUsersV4
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
 	}
 
 	_, err := aaa.Client.UsersV4.AdminDisableMyEmailV4Short(input, authInfoWriter)
@@ -2042,6 +2222,11 @@ func (aaa *UsersV4Service) AdminEnableMyEmailV4Short(input *users_v4.AdminEnable
 			RetryCodes: utils.RetryCodes,
 		}
 	}
+	if tempFlightIdUsersV4 != nil {
+		input.XFlightId = tempFlightIdUsersV4
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	}
 
 	_, err := aaa.Client.UsersV4.AdminEnableMyEmailV4Short(input, authInfoWriter)
 	if err != nil {
@@ -2066,6 +2251,11 @@ func (aaa *UsersV4Service) AdminGetMyEnabledFactorsV4Short(input *users_v4.Admin
 			Transport:  aaa.Client.Runtime.Transport,
 			RetryCodes: utils.RetryCodes,
 		}
+	}
+	if tempFlightIdUsersV4 != nil {
+		input.XFlightId = tempFlightIdUsersV4
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.UsersV4.AdminGetMyEnabledFactorsV4Short(input, authInfoWriter)
@@ -2092,6 +2282,11 @@ func (aaa *UsersV4Service) AdminMakeFactorMyDefaultV4Short(input *users_v4.Admin
 			RetryCodes: utils.RetryCodes,
 		}
 	}
+	if tempFlightIdUsersV4 != nil {
+		input.XFlightId = tempFlightIdUsersV4
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	}
 
 	_, err := aaa.Client.UsersV4.AdminMakeFactorMyDefaultV4Short(input, authInfoWriter)
 	if err != nil {
@@ -2116,6 +2311,11 @@ func (aaa *UsersV4Service) AdminInviteUserV4Short(input *users_v4.AdminInviteUse
 			Transport:  aaa.Client.Runtime.Transport,
 			RetryCodes: utils.RetryCodes,
 		}
+	}
+	if tempFlightIdUsersV4 != nil {
+		input.XFlightId = tempFlightIdUsersV4
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
 	}
 
 	created, err := aaa.Client.UsersV4.AdminInviteUserV4Short(input, authInfoWriter)
@@ -2142,6 +2342,11 @@ func (aaa *UsersV4Service) PublicCreateTestUserV4Short(input *users_v4.PublicCre
 			RetryCodes: utils.RetryCodes,
 		}
 	}
+	if tempFlightIdUsersV4 != nil {
+		input.XFlightId = tempFlightIdUsersV4
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	}
 
 	created, err := aaa.Client.UsersV4.PublicCreateTestUserV4Short(input, authInfoWriter)
 	if err != nil {
@@ -2166,6 +2371,11 @@ func (aaa *UsersV4Service) PublicCreateUserV4Short(input *users_v4.PublicCreateU
 			Transport:  aaa.Client.Runtime.Transport,
 			RetryCodes: utils.RetryCodes,
 		}
+	}
+	if tempFlightIdUsersV4 != nil {
+		input.XFlightId = tempFlightIdUsersV4
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
 	}
 
 	created, err := aaa.Client.UsersV4.PublicCreateUserV4Short(input, authInfoWriter)
@@ -2192,6 +2402,11 @@ func (aaa *UsersV4Service) CreateUserFromInvitationV4Short(input *users_v4.Creat
 			RetryCodes: utils.RetryCodes,
 		}
 	}
+	if tempFlightIdUsersV4 != nil {
+		input.XFlightId = tempFlightIdUsersV4
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	}
 
 	created, err := aaa.Client.UsersV4.CreateUserFromInvitationV4Short(input, authInfoWriter)
 	if err != nil {
@@ -2216,6 +2431,11 @@ func (aaa *UsersV4Service) PublicUpdateUserV4Short(input *users_v4.PublicUpdateU
 			Transport:  aaa.Client.Runtime.Transport,
 			RetryCodes: utils.RetryCodes,
 		}
+	}
+	if tempFlightIdUsersV4 != nil {
+		input.XFlightId = tempFlightIdUsersV4
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.UsersV4.PublicUpdateUserV4Short(input, authInfoWriter)
@@ -2242,6 +2462,11 @@ func (aaa *UsersV4Service) PublicUpdateUserEmailAddressV4Short(input *users_v4.P
 			RetryCodes: utils.RetryCodes,
 		}
 	}
+	if tempFlightIdUsersV4 != nil {
+		input.XFlightId = tempFlightIdUsersV4
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	}
 
 	_, err := aaa.Client.UsersV4.PublicUpdateUserEmailAddressV4Short(input, authInfoWriter)
 	if err != nil {
@@ -2266,6 +2491,11 @@ func (aaa *UsersV4Service) PublicUpgradeHeadlessAccountWithVerificationCodeV4Sho
 			Transport:  aaa.Client.Runtime.Transport,
 			RetryCodes: utils.RetryCodes,
 		}
+	}
+	if tempFlightIdUsersV4 != nil {
+		input.XFlightId = tempFlightIdUsersV4
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.UsersV4.PublicUpgradeHeadlessAccountWithVerificationCodeV4Short(input, authInfoWriter)
@@ -2292,6 +2522,11 @@ func (aaa *UsersV4Service) PublicUpgradeHeadlessAccountV4Short(input *users_v4.P
 			RetryCodes: utils.RetryCodes,
 		}
 	}
+	if tempFlightIdUsersV4 != nil {
+		input.XFlightId = tempFlightIdUsersV4
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	}
 
 	ok, err := aaa.Client.UsersV4.PublicUpgradeHeadlessAccountV4Short(input, authInfoWriter)
 	if err != nil {
@@ -2316,6 +2551,11 @@ func (aaa *UsersV4Service) PublicDisableMyAuthenticatorV4Short(input *users_v4.P
 			Transport:  aaa.Client.Runtime.Transport,
 			RetryCodes: utils.RetryCodes,
 		}
+	}
+	if tempFlightIdUsersV4 != nil {
+		input.XFlightId = tempFlightIdUsersV4
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
 	}
 
 	_, err := aaa.Client.UsersV4.PublicDisableMyAuthenticatorV4Short(input, authInfoWriter)
@@ -2342,6 +2582,11 @@ func (aaa *UsersV4Service) PublicEnableMyAuthenticatorV4Short(input *users_v4.Pu
 			RetryCodes: utils.RetryCodes,
 		}
 	}
+	if tempFlightIdUsersV4 != nil {
+		input.XFlightId = tempFlightIdUsersV4
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	}
 
 	_, err := aaa.Client.UsersV4.PublicEnableMyAuthenticatorV4Short(input, authInfoWriter)
 	if err != nil {
@@ -2366,6 +2611,11 @@ func (aaa *UsersV4Service) PublicGenerateMyAuthenticatorKeyV4Short(input *users_
 			Transport:  aaa.Client.Runtime.Transport,
 			RetryCodes: utils.RetryCodes,
 		}
+	}
+	if tempFlightIdUsersV4 != nil {
+		input.XFlightId = tempFlightIdUsersV4
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.UsersV4.PublicGenerateMyAuthenticatorKeyV4Short(input, authInfoWriter)
@@ -2392,6 +2642,11 @@ func (aaa *UsersV4Service) PublicGetMyBackupCodesV4Short(input *users_v4.PublicG
 			RetryCodes: utils.RetryCodes,
 		}
 	}
+	if tempFlightIdUsersV4 != nil {
+		input.XFlightId = tempFlightIdUsersV4
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	}
 
 	ok, err := aaa.Client.UsersV4.PublicGetMyBackupCodesV4Short(input, authInfoWriter)
 	if err != nil {
@@ -2416,6 +2671,11 @@ func (aaa *UsersV4Service) PublicGenerateMyBackupCodesV4Short(input *users_v4.Pu
 			Transport:  aaa.Client.Runtime.Transport,
 			RetryCodes: utils.RetryCodes,
 		}
+	}
+	if tempFlightIdUsersV4 != nil {
+		input.XFlightId = tempFlightIdUsersV4
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.UsersV4.PublicGenerateMyBackupCodesV4Short(input, authInfoWriter)
@@ -2442,6 +2702,11 @@ func (aaa *UsersV4Service) PublicDisableMyBackupCodesV4Short(input *users_v4.Pub
 			RetryCodes: utils.RetryCodes,
 		}
 	}
+	if tempFlightIdUsersV4 != nil {
+		input.XFlightId = tempFlightIdUsersV4
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	}
 
 	_, err := aaa.Client.UsersV4.PublicDisableMyBackupCodesV4Short(input, authInfoWriter)
 	if err != nil {
@@ -2466,6 +2731,11 @@ func (aaa *UsersV4Service) PublicDownloadMyBackupCodesV4Short(input *users_v4.Pu
 			Transport:  aaa.Client.Runtime.Transport,
 			RetryCodes: utils.RetryCodes,
 		}
+	}
+	if tempFlightIdUsersV4 != nil {
+		input.XFlightId = tempFlightIdUsersV4
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.UsersV4.PublicDownloadMyBackupCodesV4Short(input, authInfoWriter, writer)
@@ -2492,6 +2762,11 @@ func (aaa *UsersV4Service) PublicEnableMyBackupCodesV4Short(input *users_v4.Publ
 			RetryCodes: utils.RetryCodes,
 		}
 	}
+	if tempFlightIdUsersV4 != nil {
+		input.XFlightId = tempFlightIdUsersV4
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	}
 
 	ok, err := aaa.Client.UsersV4.PublicEnableMyBackupCodesV4Short(input, authInfoWriter)
 	if err != nil {
@@ -2516,6 +2791,11 @@ func (aaa *UsersV4Service) PublicRemoveTrustedDeviceV4Short(input *users_v4.Publ
 			Transport:  aaa.Client.Runtime.Transport,
 			RetryCodes: utils.RetryCodes,
 		}
+	}
+	if tempFlightIdUsersV4 != nil {
+		input.XFlightId = tempFlightIdUsersV4
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
 	}
 
 	_, err := aaa.Client.UsersV4.PublicRemoveTrustedDeviceV4Short(input, authInfoWriter)
@@ -2542,6 +2822,11 @@ func (aaa *UsersV4Service) PublicSendMyMFAEmailCodeV4Short(input *users_v4.Publi
 			RetryCodes: utils.RetryCodes,
 		}
 	}
+	if tempFlightIdUsersV4 != nil {
+		input.XFlightId = tempFlightIdUsersV4
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	}
 
 	_, err := aaa.Client.UsersV4.PublicSendMyMFAEmailCodeV4Short(input, authInfoWriter)
 	if err != nil {
@@ -2566,6 +2851,11 @@ func (aaa *UsersV4Service) PublicDisableMyEmailV4Short(input *users_v4.PublicDis
 			Transport:  aaa.Client.Runtime.Transport,
 			RetryCodes: utils.RetryCodes,
 		}
+	}
+	if tempFlightIdUsersV4 != nil {
+		input.XFlightId = tempFlightIdUsersV4
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
 	}
 
 	_, err := aaa.Client.UsersV4.PublicDisableMyEmailV4Short(input, authInfoWriter)
@@ -2592,6 +2882,11 @@ func (aaa *UsersV4Service) PublicEnableMyEmailV4Short(input *users_v4.PublicEnab
 			RetryCodes: utils.RetryCodes,
 		}
 	}
+	if tempFlightIdUsersV4 != nil {
+		input.XFlightId = tempFlightIdUsersV4
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	}
 
 	_, err := aaa.Client.UsersV4.PublicEnableMyEmailV4Short(input, authInfoWriter)
 	if err != nil {
@@ -2616,6 +2911,11 @@ func (aaa *UsersV4Service) PublicGetMyEnabledFactorsV4Short(input *users_v4.Publ
 			Transport:  aaa.Client.Runtime.Transport,
 			RetryCodes: utils.RetryCodes,
 		}
+	}
+	if tempFlightIdUsersV4 != nil {
+		input.XFlightId = tempFlightIdUsersV4
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.UsersV4.PublicGetMyEnabledFactorsV4Short(input, authInfoWriter)
@@ -2642,6 +2942,11 @@ func (aaa *UsersV4Service) PublicMakeFactorMyDefaultV4Short(input *users_v4.Publ
 			RetryCodes: utils.RetryCodes,
 		}
 	}
+	if tempFlightIdUsersV4 != nil {
+		input.XFlightId = tempFlightIdUsersV4
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	}
 
 	_, err := aaa.Client.UsersV4.PublicMakeFactorMyDefaultV4Short(input, authInfoWriter)
 	if err != nil {
@@ -2667,6 +2972,11 @@ func (aaa *UsersV4Service) PublicGetUserPublicInfoByUserIDV4Short(input *users_v
 			RetryCodes: utils.RetryCodes,
 		}
 	}
+	if tempFlightIdUsersV4 != nil {
+		input.XFlightId = tempFlightIdUsersV4
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	}
 
 	ok, err := aaa.Client.UsersV4.PublicGetUserPublicInfoByUserIDV4Short(input, authInfoWriter)
 	if err != nil {
@@ -2691,6 +3001,11 @@ func (aaa *UsersV4Service) PublicInviteUserV4Short(input *users_v4.PublicInviteU
 			Transport:  aaa.Client.Runtime.Transport,
 			RetryCodes: utils.RetryCodes,
 		}
+	}
+	if tempFlightIdUsersV4 != nil {
+		input.XFlightId = tempFlightIdUsersV4
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
 	}
 
 	created, err := aaa.Client.UsersV4.PublicInviteUserV4Short(input, authInfoWriter)

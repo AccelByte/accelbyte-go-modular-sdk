@@ -78,8 +78,7 @@ func NewUserQuerySessionParamsWithHTTPClient(client *http.Client) *UserQuerySess
 	}
 }
 
-/*
-UserQuerySessionParams contains all the parameters to send to the API endpoint
+/*UserQuerySessionParams contains all the parameters to send to the API endpoint
 for the user query session operation typically these are written to a http.Request
 */
 type UserQuerySessionParams struct {

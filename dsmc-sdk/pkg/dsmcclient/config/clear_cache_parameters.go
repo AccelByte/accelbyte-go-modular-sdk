@@ -57,8 +57,7 @@ func NewClearCacheParamsWithHTTPClient(client *http.Client) *ClearCacheParams {
 	}
 }
 
-/*
-ClearCacheParams contains all the parameters to send to the API endpoint
+/*ClearCacheParams contains all the parameters to send to the API endpoint
 for the clear cache operation typically these are written to a http.Request
 */
 type ClearCacheParams struct {

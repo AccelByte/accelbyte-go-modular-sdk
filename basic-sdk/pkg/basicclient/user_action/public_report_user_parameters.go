@@ -59,8 +59,7 @@ func NewPublicReportUserParamsWithHTTPClient(client *http.Client) *PublicReportU
 	}
 }
 
-/*
-PublicReportUserParams contains all the parameters to send to the API endpoint
+/*PublicReportUserParams contains all the parameters to send to the API endpoint
 for the public report user operation typically these are written to a http.Request
 */
 type PublicReportUserParams struct {

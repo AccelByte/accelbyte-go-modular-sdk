@@ -59,8 +59,7 @@ func NewUpdateDeploymentOverrideParamsWithHTTPClient(client *http.Client) *Updat
 	}
 }
 
-/*
-UpdateDeploymentOverrideParams contains all the parameters to send to the API endpoint
+/*UpdateDeploymentOverrideParams contains all the parameters to send to the API endpoint
 for the update deployment override operation typically these are written to a http.Request
 */
 type UpdateDeploymentOverrideParams struct {

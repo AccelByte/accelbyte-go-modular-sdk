@@ -178,6 +178,7 @@ Other detail info:
 3. spaces are not allowed
 4. separators must not appears twice in a row
 
+
 Supported file types: jpeg, jpg, png, bmp, gif, mp3, webp, and bin.
 */
 func (a *Client) PostGameBinaryRecordV1(params *PostGameBinaryRecordV1Params, authInfo runtime.ClientAuthInfoWriter) (*PostGameBinaryRecordV1Created, *PostGameBinaryRecordV1BadRequest, *PostGameBinaryRecordV1Unauthorized, *PostGameBinaryRecordV1Forbidden, *PostGameBinaryRecordV1Conflict, *PostGameBinaryRecordV1InternalServerError, error) {
@@ -247,6 +248,7 @@ Other detail info:
 2. begin and end with letters or numbers
 3. spaces are not allowed
 4. separators must not appears twice in a row
+
 
 Supported file types: jpeg, jpg, png, bmp, gif, mp3, webp, and bin.
 */

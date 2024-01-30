@@ -57,8 +57,7 @@ func NewGetUserVisibilityStatusV3ParamsWithHTTPClient(client *http.Client) *GetU
 	}
 }
 
-/*
-GetUserVisibilityStatusV3Params contains all the parameters to send to the API endpoint
+/*GetUserVisibilityStatusV3Params contains all the parameters to send to the API endpoint
 for the get user visibility status v3 operation typically these are written to a http.Request
 */
 type GetUserVisibilityStatusV3Params struct {

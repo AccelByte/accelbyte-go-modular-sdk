@@ -184,7 +184,7 @@ func (a *Client) PublicGetContentByChannelIDV2Short(params *PublicGetContentByCh
 /*
 Deprecated: 2022-08-10 - Use PublicListContentV2Short instead.
 
-# PublicListContentV2 list contents
+PublicListContentV2 list contents
 
 For advance tag filtering supports & as AND operator and | as OR operator and parentheses () for priority. e.g:
 
@@ -199,7 +199,7 @@ The precedence of logical operator is AND > OR, so if no parentheses, AND logica
 Allowed character for operand: alphanumeric, underscore `_` and dash `-`
 Allowed character for operator: `&` `|` `(` `)`
 
-	Please note that value of tags query param should be URL encoded
+ Please note that value of tags query param should be URL encoded
 */
 func (a *Client) PublicListContentV2(params *PublicListContentV2Params, authInfo runtime.ClientAuthInfoWriter) (*PublicListContentV2OK, *PublicListContentV2BadRequest, *PublicListContentV2Unauthorized, *PublicListContentV2InternalServerError, error) {
 	// TODO: Validate the params before sending
@@ -267,7 +267,7 @@ The precedence of logical operator is AND > OR, so if no parentheses, AND logica
 Allowed character for operand: alphanumeric, underscore `_` and dash `-`
 Allowed character for operator: `&` `|` `(` `)`
 
-	Please note that value of tags query param should be URL encoded
+ Please note that value of tags query param should be URL encoded
 */
 func (a *Client) PublicListContentV2Short(params *PublicListContentV2Params, authInfo runtime.ClientAuthInfoWriter) (*PublicListContentV2OK, error) {
 	// TODO: Validate the params before sending

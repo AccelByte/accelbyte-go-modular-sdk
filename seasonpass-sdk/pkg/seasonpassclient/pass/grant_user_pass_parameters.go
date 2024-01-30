@@ -59,8 +59,7 @@ func NewGrantUserPassParamsWithHTTPClient(client *http.Client) *GrantUserPassPar
 	}
 }
 
-/*
-GrantUserPassParams contains all the parameters to send to the API endpoint
+/*GrantUserPassParams contains all the parameters to send to the API endpoint
 for the grant user pass operation typically these are written to a http.Request
 */
 type GrantUserPassParams struct {

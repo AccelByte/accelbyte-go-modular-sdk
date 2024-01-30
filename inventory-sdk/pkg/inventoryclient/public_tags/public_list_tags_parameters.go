@@ -88,8 +88,7 @@ func NewPublicListTagsParamsWithHTTPClient(client *http.Client) *PublicListTagsP
 	}
 }
 
-/*
-PublicListTagsParams contains all the parameters to send to the API endpoint
+/*PublicListTagsParams contains all the parameters to send to the API endpoint
 for the public list tags operation typically these are written to a http.Request
 */
 type PublicListTagsParams struct {
