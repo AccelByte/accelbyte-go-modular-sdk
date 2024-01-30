@@ -5,11 +5,14 @@ module github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/service/ia
 go 1.18
 
 // for development only (not propagated)
-replace github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk => ../../../../iam-sdk
+replace (
+	github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk => ../../../../iam-sdk // required: included by services-api
+	github.com/AccelByte/accelbyte-go-modular-sdk/services-api => ../../../../services-api
+)
 
 require (
-	github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk v0.1.0-alpha.1
-	github.com/AccelByte/accelbyte-go-modular-sdk/services-api v0.1.0-alpha.1
+	github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk v0.1.0-alpha.10
+	github.com/AccelByte/accelbyte-go-modular-sdk/services-api v0.1.0-alpha.2
 	github.com/AccelByte/bloom v0.0.0-20180915202807-98c052463922
 	github.com/AccelByte/go-jose v2.1.4+incompatible
 	github.com/go-openapi/runtime v0.19.29

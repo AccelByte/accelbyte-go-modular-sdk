@@ -5,16 +5,20 @@ module github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/service/ug
 go 1.18
 
 // for development only (not propagated)
-replace github.com/AccelByte/accelbyte-go-modular-sdk/ugc-sdk => ../../../../ugc-sdk
+replace (
+	github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk => ../../../../iam-sdk // required: included by services-api
+	github.com/AccelByte/accelbyte-go-modular-sdk/services-api => ../../../../services-api
+	github.com/AccelByte/accelbyte-go-modular-sdk/ugc-sdk => ../../../../ugc-sdk
+)
 
 require (
-	github.com/AccelByte/accelbyte-go-modular-sdk/services-api v0.1.0-alpha.1
+	github.com/AccelByte/accelbyte-go-modular-sdk/services-api v0.1.0-alpha.2
 	github.com/AccelByte/accelbyte-go-modular-sdk/ugc-sdk v0.0.0
 	github.com/go-openapi/runtime v0.19.29
 )
 
 require (
-	github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk v0.1.0-alpha.9 // indirect
+	github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk v0.1.0-alpha.10 // indirect
 	github.com/PuerkitoBio/purell v1.1.1 // indirect
 	github.com/PuerkitoBio/urlesc v0.0.0-20170810143723-de5bf2ad4578 // indirect
 	github.com/asaskevich/govalidator v0.0.0-20210307081110-f21760c49a8d // indirect
