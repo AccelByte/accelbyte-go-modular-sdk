@@ -5,6 +5,7 @@
 package integration_test
 
 import (
+	"strings"
 	"testing"
 
 	"github.com/sirupsen/logrus"
@@ -54,7 +55,9 @@ var (
 )
 
 func TestIntegrationMatchPool(t *testing.T) {
-	t.Skip("skip due to UserIsNotInSession error")
+	if strings.Contains(configRepository.BaseUrl, "gamingservices.accelbyte.io") {
+		t.Skip("temporarily disabled in AGS Starter due to issue in session service")
+	}
 
 	// Login User - Arrange
 	Init()
