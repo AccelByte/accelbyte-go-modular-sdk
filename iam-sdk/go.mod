@@ -21,6 +21,7 @@ require (
 	github.com/go-openapi/strfmt v0.21.1
 	github.com/go-openapi/swag v0.21.1
 	github.com/go-openapi/validate v0.21.0
+	github.com/patrickmn/go-cache v2.1.0+incompatible
 	github.com/sirupsen/logrus v1.9.0
 	github.com/stretchr/testify v1.8.2
 )
