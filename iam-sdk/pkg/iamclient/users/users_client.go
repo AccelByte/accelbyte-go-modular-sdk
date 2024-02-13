@@ -16006,6 +16006,9 @@ PublicCreateUserV3 create user
 Available Authentication Types:
 1. **EMAILPASSWD**: an authentication type used for new user registration through email.
 
+**Note**:
+* **uniqueDisplayName**: this is required when uniqueDisplayNameEnabled/UNIQUE_DISPLAY_NAME_ENABLED is true.
+
 Country use ISO3166-1 alpha-2 two letter, e.g. US.
 Date of Birth format : YYYY-MM-DD, e.g. 2019-04-29.
 This endpoint support accepting agreements for the created user. Supply the accepted agreements in acceptedPolicies attribute.
@@ -16070,6 +16073,9 @@ func (a *Client) PublicCreateUserV3(params *PublicCreateUserV3Params, authInfo r
 PublicCreateUserV3Short create user
 Available Authentication Types:
 1. **EMAILPASSWD**: an authentication type used for new user registration through email.
+
+**Note**:
+* **uniqueDisplayName**: this is required when uniqueDisplayNameEnabled/UNIQUE_DISPLAY_NAME_ENABLED is true.
 
 Country use ISO3166-1 alpha-2 two letter, e.g. US.
 Date of Birth format : YYYY-MM-DD, e.g. 2019-04-29.
@@ -16137,6 +16143,7 @@ CheckUserAvailability check user's account availability
 Check user's account availability.
 Available field :
 - displayName
+- uniqueDisplayName
 - username
 
 If request include access token with user ID data, that user ID will be excluded from availability check.
@@ -16201,6 +16208,7 @@ CheckUserAvailabilityShort check user's account availability
 Check user's account availability.
 Available field :
 - displayName
+- uniqueDisplayName
 - username
 
 If request include access token with user ID data, that user ID will be excluded from availability check.
@@ -16819,6 +16827,10 @@ This endpoint create user from saved roles when creating invitation and submitte
 User will be able to login after completing submitting the data through this endpoint.
 Available Authentication Types:
 EMAILPASSWD: an authentication type used for new user registration through email.
+
+**Note**:
+* **uniqueDisplayName**: this is required when uniqueDisplayNameEnabled/UNIQUE_DISPLAY_NAME_ENABLED is true.
+
 Country use ISO3166-1 alpha-2 two letter, e.g. US.
 Date of Birth format : YYYY-MM-DD, e.g. 2019-04-29.
 */
@@ -16881,6 +16893,10 @@ This endpoint create user from saved roles when creating invitation and submitte
 User will be able to login after completing submitting the data through this endpoint.
 Available Authentication Types:
 EMAILPASSWD: an authentication type used for new user registration through email.
+
+**Note**:
+* **uniqueDisplayName**: this is required when uniqueDisplayNameEnabled/UNIQUE_DISPLAY_NAME_ENABLED is true.
+
 Country use ISO3166-1 alpha-2 two letter, e.g. US.
 Date of Birth format : YYYY-MM-DD, e.g. 2019-04-29.
 */

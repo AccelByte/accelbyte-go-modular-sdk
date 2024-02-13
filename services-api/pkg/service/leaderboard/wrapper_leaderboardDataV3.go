@@ -182,15 +182,12 @@ func (aaa *LeaderboardDataV3Service) DeleteUserRankingsAdminV3(input *leaderboar
 	if err != nil {
 		return err
 	}
-	_, unauthorized, forbidden, notFound, internalServerError, err := aaa.Client.LeaderboardDataV3.DeleteUserRankingsAdminV3(input, client.BearerToken(*token.AccessToken))
+	_, unauthorized, forbidden, internalServerError, err := aaa.Client.LeaderboardDataV3.DeleteUserRankingsAdminV3(input, client.BearerToken(*token.AccessToken))
 	if unauthorized != nil {
 		return unauthorized
 	}
 	if forbidden != nil {
 		return forbidden
-	}
-	if notFound != nil {
-		return notFound
 	}
 	if internalServerError != nil {
 		return internalServerError
@@ -254,7 +251,10 @@ func (aaa *LeaderboardDataV3Service) BulkGetUsersRankingPublicV3(input *leaderbo
 	if err != nil {
 		return nil, err
 	}
-	ok, unauthorized, forbidden, notFound, internalServerError, err := aaa.Client.LeaderboardDataV3.BulkGetUsersRankingPublicV3(input, client.BearerToken(*token.AccessToken))
+	ok, badRequest, unauthorized, forbidden, notFound, internalServerError, err := aaa.Client.LeaderboardDataV3.BulkGetUsersRankingPublicV3(input, client.BearerToken(*token.AccessToken))
+	if badRequest != nil {
+		return nil, badRequest
+	}
 	if unauthorized != nil {
 		return nil, unauthorized
 	}

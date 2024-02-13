@@ -263,6 +263,35 @@ func (aaa *PlayerService) AdminBulkBlockPlayersV1(input *player.AdminBulkBlockPl
 	return nil
 }
 
+// Deprecated: 2022-01-10 - Please use PublicPlayerBlockPlayersV1Short instead.
+func (aaa *PlayerService) PublicPlayerBlockPlayersV1(input *player.PublicPlayerBlockPlayersV1Params) error {
+	token, err := aaa.TokenRepository.GetToken()
+	if err != nil {
+		return err
+	}
+	_, badRequest, unauthorized, forbidden, notFound, internalServerError, err := aaa.Client.Player.PublicPlayerBlockPlayersV1(input, client.BearerToken(*token.AccessToken))
+	if badRequest != nil {
+		return badRequest
+	}
+	if unauthorized != nil {
+		return unauthorized
+	}
+	if forbidden != nil {
+		return forbidden
+	}
+	if notFound != nil {
+		return notFound
+	}
+	if internalServerError != nil {
+		return internalServerError
+	}
+	if err != nil {
+		return err
+	}
+
+	return nil
+}
+
 // Deprecated: 2022-01-10 - Please use PublicGetPlayerBlockedPlayersV1Short instead.
 func (aaa *PlayerService) PublicGetPlayerBlockedPlayersV1(input *player.PublicGetPlayerBlockedPlayersV1Params) (*lobbyclientmodels.ModelsGetAllPlayerBlockedUsersResponse, error) {
 	token, err := aaa.TokenRepository.GetToken()
@@ -319,6 +348,35 @@ func (aaa *PlayerService) PublicGetPlayerBlockedByPlayersV1(input *player.Public
 	}
 
 	return ok.GetPayload(), nil
+}
+
+// Deprecated: 2022-01-10 - Please use PublicUnblockPlayerV1Short instead.
+func (aaa *PlayerService) PublicUnblockPlayerV1(input *player.PublicUnblockPlayerV1Params) error {
+	token, err := aaa.TokenRepository.GetToken()
+	if err != nil {
+		return err
+	}
+	_, badRequest, unauthorized, forbidden, notFound, internalServerError, err := aaa.Client.Player.PublicUnblockPlayerV1(input, client.BearerToken(*token.AccessToken))
+	if badRequest != nil {
+		return badRequest
+	}
+	if unauthorized != nil {
+		return unauthorized
+	}
+	if forbidden != nil {
+		return forbidden
+	}
+	if notFound != nil {
+		return notFound
+	}
+	if internalServerError != nil {
+		return internalServerError
+	}
+	if err != nil {
+		return err
+	}
+
+	return nil
 }
 
 func (aaa *PlayerService) AdminGetLobbyCCUShort(input *player.AdminGetLobbyCCUParams) (*lobbyclientmodels.ModelsGetLobbyCcuResponse, error) {
@@ -561,6 +619,36 @@ func (aaa *PlayerService) AdminBulkBlockPlayersV1Short(input *player.AdminBulkBl
 	return nil
 }
 
+func (aaa *PlayerService) PublicPlayerBlockPlayersV1Short(input *player.PublicPlayerBlockPlayersV1Params) error {
+	authInfoWriter := input.AuthInfoWriter
+	if authInfoWriter == nil {
+		security := [][]string{
+			{"bearer"},
+		}
+		authInfoWriter = auth.AuthInfoWriter(aaa.GetAuthSession(), security, "")
+	}
+	if input.RetryPolicy == nil {
+		input.RetryPolicy = &utils.Retry{
+			MaxTries:   utils.MaxTries,
+			Backoff:    utils.NewConstantBackoff(0),
+			Transport:  aaa.Client.Runtime.Transport,
+			RetryCodes: utils.RetryCodes,
+		}
+	}
+	if tempFlightIdPlayer != nil {
+		input.XFlightId = tempFlightIdPlayer
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	}
+
+	_, err := aaa.Client.Player.PublicPlayerBlockPlayersV1Short(input, authInfoWriter)
+	if err != nil {
+		return err
+	}
+
+	return nil
+}
+
 func (aaa *PlayerService) PublicGetPlayerBlockedPlayersV1Short(input *player.PublicGetPlayerBlockedPlayersV1Params) (*lobbyclientmodels.ModelsGetAllPlayerBlockedUsersResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
@@ -619,4 +707,34 @@ func (aaa *PlayerService) PublicGetPlayerBlockedByPlayersV1Short(input *player.P
 	}
 
 	return ok.GetPayload(), nil
+}
+
+func (aaa *PlayerService) PublicUnblockPlayerV1Short(input *player.PublicUnblockPlayerV1Params) error {
+	authInfoWriter := input.AuthInfoWriter
+	if authInfoWriter == nil {
+		security := [][]string{
+			{"bearer"},
+		}
+		authInfoWriter = auth.AuthInfoWriter(aaa.GetAuthSession(), security, "")
+	}
+	if input.RetryPolicy == nil {
+		input.RetryPolicy = &utils.Retry{
+			MaxTries:   utils.MaxTries,
+			Backoff:    utils.NewConstantBackoff(0),
+			Transport:  aaa.Client.Runtime.Transport,
+			RetryCodes: utils.RetryCodes,
+		}
+	}
+	if tempFlightIdPlayer != nil {
+		input.XFlightId = tempFlightIdPlayer
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	}
+
+	_, err := aaa.Client.Player.PublicUnblockPlayerV1Short(input, authInfoWriter)
+	if err != nil {
+		return err
+	}
+
+	return nil
 }

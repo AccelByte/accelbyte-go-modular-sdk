@@ -156,7 +156,7 @@ func (aaa *LeaderboardConfigurationV3Service) UpdateLeaderboardConfigurationAdmi
 	if err != nil {
 		return nil, err
 	}
-	ok, badRequest, unauthorized, forbidden, notFound, internalServerError, err := aaa.Client.LeaderboardConfigurationV3.UpdateLeaderboardConfigurationAdminV3(input, client.BearerToken(*token.AccessToken))
+	ok, badRequest, unauthorized, forbidden, notFound, conflict, internalServerError, err := aaa.Client.LeaderboardConfigurationV3.UpdateLeaderboardConfigurationAdminV3(input, client.BearerToken(*token.AccessToken))
 	if badRequest != nil {
 		return nil, badRequest
 	}
@@ -168,6 +168,9 @@ func (aaa *LeaderboardConfigurationV3Service) UpdateLeaderboardConfigurationAdmi
 	}
 	if notFound != nil {
 		return nil, notFound
+	}
+	if conflict != nil {
+		return nil, conflict
 	}
 	if internalServerError != nil {
 		return nil, internalServerError
