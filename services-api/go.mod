@@ -19,7 +19,7 @@ require (
 	go.opentelemetry.io/contrib/propagators/aws v1.15.0
 )
 
-require github.com/AccelByte/accelbyte-go-modular-sdk/basic-sdk v0.1.0-alpha.2
+require github.com/AccelByte/accelbyte-go-modular-sdk/basic-sdk v0.1.0-alpha.3
 
 require (
 	github.com/AccelByte/bloom v0.0.0-20180915202807-98c052463922 // indirect
