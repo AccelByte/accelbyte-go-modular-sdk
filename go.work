@@ -75,4 +75,6 @@ use (
 	sessionbrowser-sdk
 	social-sdk
 	ugc-sdk
+	dsartifact-sdk
+	services-api/pkg/service/dsartifact
 )
