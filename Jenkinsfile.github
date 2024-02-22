@@ -102,7 +102,7 @@ def pushGitTag(selectedTag, isPrerelease, releaseNote, agsVersion) {
 
 pipeline {
   agent {
-    label 'master'
+    label "justice-codegen-sdk"
   }
   stages {
     stage('Prepare') {
