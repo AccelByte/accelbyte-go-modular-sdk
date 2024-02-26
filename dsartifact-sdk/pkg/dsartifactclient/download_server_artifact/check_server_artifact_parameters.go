@@ -57,8 +57,7 @@ func NewCheckServerArtifactParamsWithHTTPClient(client *http.Client) *CheckServe
 	}
 }
 
-/*
-CheckServerArtifactParams contains all the parameters to send to the API endpoint
+/*CheckServerArtifactParams contains all the parameters to send to the API endpoint
 for the check server artifact operation typically these are written to a http.Request
 */
 type CheckServerArtifactParams struct {

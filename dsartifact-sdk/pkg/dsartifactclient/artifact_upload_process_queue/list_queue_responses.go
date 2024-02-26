@@ -73,10 +73,9 @@ func NewListQueueOK() *ListQueueOK {
 	return &ListQueueOK{}
 }
 
-/*
-ListQueueOK handles this case with default header values.
+/*ListQueueOK handles this case with default header values.
 
-	OK
+  OK
 */
 type ListQueueOK struct {
 	Payload *dsartifactclientmodels.ModelsListQueueResponse
@@ -127,10 +126,9 @@ func NewListQueueBadRequest() *ListQueueBadRequest {
 	return &ListQueueBadRequest{}
 }
 
-/*
-ListQueueBadRequest handles this case with default header values.
+/*ListQueueBadRequest handles this case with default header values.
 
-	Bad Request
+  Bad Request
 */
 type ListQueueBadRequest struct {
 	Payload *dsartifactclientmodels.ResponseError
@@ -181,10 +179,9 @@ func NewListQueueUnauthorized() *ListQueueUnauthorized {
 	return &ListQueueUnauthorized{}
 }
 
-/*
-ListQueueUnauthorized handles this case with default header values.
+/*ListQueueUnauthorized handles this case with default header values.
 
-	Unauthorized
+  Unauthorized
 */
 type ListQueueUnauthorized struct {
 	Payload *dsartifactclientmodels.ResponseError
@@ -235,10 +232,9 @@ func NewListQueueNotFound() *ListQueueNotFound {
 	return &ListQueueNotFound{}
 }
 
-/*
-ListQueueNotFound handles this case with default header values.
+/*ListQueueNotFound handles this case with default header values.
 
-	Not Found
+  Not Found
 */
 type ListQueueNotFound struct {
 	Payload *dsartifactclientmodels.ResponseError
@@ -289,10 +285,9 @@ func NewListQueueInternalServerError() *ListQueueInternalServerError {
 	return &ListQueueInternalServerError{}
 }
 
-/*
-ListQueueInternalServerError handles this case with default header values.
+/*ListQueueInternalServerError handles this case with default header values.
 
-	Internal Server Error
+  Internal Server Error
 */
 type ListQueueInternalServerError struct {
 	Payload *dsartifactclientmodels.ResponseError

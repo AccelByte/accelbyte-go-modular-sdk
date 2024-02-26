@@ -66,13 +66,12 @@
 | `/cloudsave/v1/admin/namespaces/{namespace}/records/{key}` | POST | AdminPostGameRecordHandlerV1Short | [AdminPostGameRecordHandlerV1Short](../../cloudsave-sdk/pkg/cloudsaveclient/admin_game_record/admin_game_record_client.go) | [AdminPostGameRecordHandlerV1Short](../../cloudsave-sdk/pkg/wrapper_adminGameRecord.go) | [AdminPostGameRecordHandlerV1Short](../../samples/cli/cmd/cloudsave/adminGameRecord/adminPostGameRecordHandlerV1.go) |
 | `/cloudsave/v1/admin/namespaces/{namespace}/records/{key}` | DELETE | AdminDeleteGameRecordHandlerV1Short | [AdminDeleteGameRecordHandlerV1Short](../../cloudsave-sdk/pkg/cloudsaveclient/admin_game_record/admin_game_record_client.go) | [AdminDeleteGameRecordHandlerV1Short](../../cloudsave-sdk/pkg/wrapper_adminGameRecord.go) | [AdminDeleteGameRecordHandlerV1Short](../../samples/cli/cmd/cloudsave/adminGameRecord/adminDeleteGameRecordHandlerV1.go) |
 
-### Tags Wrapper:  [Tags](../../cloudsave-sdk/pkg/wrapper_tags.go)
+### AdminTags Wrapper:  [AdminTags](../../cloudsave-sdk/pkg/wrapper_adminTags.go)
 | Endpoint | Method | ID | Class | Wrapper | Example |
 |---|---|---|---|---|---|
-| `/cloudsave/v1/admin/namespaces/{namespace}/tags` | GET | AdminListTagsHandlerV1Short | [AdminListTagsHandlerV1Short](../../cloudsave-sdk/pkg/cloudsaveclient/tags/tags_client.go) | [AdminListTagsHandlerV1Short](../../cloudsave-sdk/pkg/wrapper_tags.go) | [AdminListTagsHandlerV1Short](../../samples/cli/cmd/cloudsave/tags/adminListTagsHandlerV1.go) |
-| `/cloudsave/v1/admin/namespaces/{namespace}/tags` | POST | AdminPostTagHandlerV1Short | [AdminPostTagHandlerV1Short](../../cloudsave-sdk/pkg/cloudsaveclient/tags/tags_client.go) | [AdminPostTagHandlerV1Short](../../cloudsave-sdk/pkg/wrapper_tags.go) | [AdminPostTagHandlerV1Short](../../samples/cli/cmd/cloudsave/tags/adminPostTagHandlerV1.go) |
-| `/cloudsave/v1/admin/namespaces/{namespace}/tags/{tag}` | DELETE | AdminDeleteTagHandlerV1Short | [AdminDeleteTagHandlerV1Short](../../cloudsave-sdk/pkg/cloudsaveclient/tags/tags_client.go) | [AdminDeleteTagHandlerV1Short](../../cloudsave-sdk/pkg/wrapper_tags.go) | [AdminDeleteTagHandlerV1Short](../../samples/cli/cmd/cloudsave/tags/adminDeleteTagHandlerV1.go) |
-| `/cloudsave/v1/namespaces/{namespace}/tags` | GET | PublicListTagsHandlerV1Short | [PublicListTagsHandlerV1Short](../../cloudsave-sdk/pkg/cloudsaveclient/tags/tags_client.go) | [PublicListTagsHandlerV1Short](../../cloudsave-sdk/pkg/wrapper_tags.go) | [PublicListTagsHandlerV1Short](../../samples/cli/cmd/cloudsave/tags/publicListTagsHandlerV1.go) |
+| `/cloudsave/v1/admin/namespaces/{namespace}/tags` | GET | AdminListTagsHandlerV1Short | [AdminListTagsHandlerV1Short](../../cloudsave-sdk/pkg/cloudsaveclient/admin_tags/admin_tags_client.go) | [AdminListTagsHandlerV1Short](../../cloudsave-sdk/pkg/wrapper_adminTags.go) | [AdminListTagsHandlerV1Short](../../samples/cli/cmd/cloudsave/adminTags/adminListTagsHandlerV1.go) |
+| `/cloudsave/v1/admin/namespaces/{namespace}/tags` | POST | AdminPostTagHandlerV1Short | [AdminPostTagHandlerV1Short](../../cloudsave-sdk/pkg/cloudsaveclient/admin_tags/admin_tags_client.go) | [AdminPostTagHandlerV1Short](../../cloudsave-sdk/pkg/wrapper_adminTags.go) | [AdminPostTagHandlerV1Short](../../samples/cli/cmd/cloudsave/adminTags/adminPostTagHandlerV1.go) |
+| `/cloudsave/v1/admin/namespaces/{namespace}/tags/{tag}` | DELETE | AdminDeleteTagHandlerV1Short | [AdminDeleteTagHandlerV1Short](../../cloudsave-sdk/pkg/cloudsaveclient/admin_tags/admin_tags_client.go) | [AdminDeleteTagHandlerV1Short](../../cloudsave-sdk/pkg/wrapper_adminTags.go) | [AdminDeleteTagHandlerV1Short](../../samples/cli/cmd/cloudsave/adminTags/adminDeleteTagHandlerV1.go) |
 
 ### AdminPlayerRecord Wrapper:  [AdminPlayerRecord](../../cloudsave-sdk/pkg/wrapper_adminPlayerRecord.go)
 | Endpoint | Method | ID | Class | Wrapper | Example |
@@ -129,6 +128,11 @@
 | `/cloudsave/v1/namespaces/{namespace}/records/{key}` | PUT | PutGameRecordHandlerV1Short | [PutGameRecordHandlerV1Short](../../cloudsave-sdk/pkg/cloudsaveclient/public_game_record/public_game_record_client.go) | [PutGameRecordHandlerV1Short](../../cloudsave-sdk/pkg/wrapper_publicGameRecord.go) | [PutGameRecordHandlerV1Short](../../samples/cli/cmd/cloudsave/publicGameRecord/putGameRecordHandlerV1.go) |
 | `/cloudsave/v1/namespaces/{namespace}/records/{key}` | POST | PostGameRecordHandlerV1Short | [PostGameRecordHandlerV1Short](../../cloudsave-sdk/pkg/cloudsaveclient/public_game_record/public_game_record_client.go) | [PostGameRecordHandlerV1Short](../../cloudsave-sdk/pkg/wrapper_publicGameRecord.go) | [PostGameRecordHandlerV1Short](../../samples/cli/cmd/cloudsave/publicGameRecord/postGameRecordHandlerV1.go) |
 | `/cloudsave/v1/namespaces/{namespace}/records/{key}` | DELETE | DeleteGameRecordHandlerV1Short | [DeleteGameRecordHandlerV1Short](../../cloudsave-sdk/pkg/cloudsaveclient/public_game_record/public_game_record_client.go) | [DeleteGameRecordHandlerV1Short](../../cloudsave-sdk/pkg/wrapper_publicGameRecord.go) | [DeleteGameRecordHandlerV1Short](../../samples/cli/cmd/cloudsave/publicGameRecord/deleteGameRecordHandlerV1.go) |
+
+### PublicTags Wrapper:  [PublicTags](../../cloudsave-sdk/pkg/wrapper_publicTags.go)
+| Endpoint | Method | ID | Class | Wrapper | Example |
+|---|---|---|---|---|---|
+| `/cloudsave/v1/namespaces/{namespace}/tags` | GET | PublicListTagsHandlerV1Short | [PublicListTagsHandlerV1Short](../../cloudsave-sdk/pkg/cloudsaveclient/public_tags/public_tags_client.go) | [PublicListTagsHandlerV1Short](../../cloudsave-sdk/pkg/wrapper_publicTags.go) | [PublicListTagsHandlerV1Short](../../samples/cli/cmd/cloudsave/publicTags/publicListTagsHandlerV1.go) |
 
 ### PublicPlayerBinaryRecord Wrapper:  [PublicPlayerBinaryRecord](../../cloudsave-sdk/pkg/wrapper_publicPlayerBinaryRecord.go)
 | Endpoint | Method | ID | Class | Wrapper | Example |

@@ -67,10 +67,9 @@ func NewDeleteActiveQueueNoContent() *DeleteActiveQueueNoContent {
 	return &DeleteActiveQueueNoContent{}
 }
 
-/*
-DeleteActiveQueueNoContent handles this case with default header values.
+/*DeleteActiveQueueNoContent handles this case with default header values.
 
-	No Content
+  No Content
 */
 type DeleteActiveQueueNoContent struct {
 }
@@ -94,10 +93,9 @@ func NewDeleteActiveQueueBadRequest() *DeleteActiveQueueBadRequest {
 	return &DeleteActiveQueueBadRequest{}
 }
 
-/*
-DeleteActiveQueueBadRequest handles this case with default header values.
+/*DeleteActiveQueueBadRequest handles this case with default header values.
 
-	Bad Request
+  Bad Request
 */
 type DeleteActiveQueueBadRequest struct {
 	Payload *dsartifactclientmodels.ResponseError
@@ -148,10 +146,9 @@ func NewDeleteActiveQueueUnauthorized() *DeleteActiveQueueUnauthorized {
 	return &DeleteActiveQueueUnauthorized{}
 }
 
-/*
-DeleteActiveQueueUnauthorized handles this case with default header values.
+/*DeleteActiveQueueUnauthorized handles this case with default header values.
 
-	Unauthorized
+  Unauthorized
 */
 type DeleteActiveQueueUnauthorized struct {
 	Payload *dsartifactclientmodels.ResponseError
@@ -202,10 +199,9 @@ func NewDeleteActiveQueueInternalServerError() *DeleteActiveQueueInternalServerE
 	return &DeleteActiveQueueInternalServerError{}
 }
 
-/*
-DeleteActiveQueueInternalServerError handles this case with default header values.
+/*DeleteActiveQueueInternalServerError handles this case with default header values.
 
-	Internal Server Error
+  Internal Server Error
 */
 type DeleteActiveQueueInternalServerError struct {
 	Payload *dsartifactclientmodels.ResponseError

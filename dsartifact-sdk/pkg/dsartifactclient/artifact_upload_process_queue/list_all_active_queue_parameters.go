@@ -70,8 +70,7 @@ func NewListAllActiveQueueParamsWithHTTPClient(client *http.Client) *ListAllActi
 	}
 }
 
-/*
-ListAllActiveQueueParams contains all the parameters to send to the API endpoint
+/*ListAllActiveQueueParams contains all the parameters to send to the API endpoint
 for the list all active queue operation typically these are written to a http.Request
 */
 type ListAllActiveQueueParams struct {

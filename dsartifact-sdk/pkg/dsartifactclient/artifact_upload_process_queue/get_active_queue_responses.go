@@ -73,10 +73,9 @@ func NewGetActiveQueueOK() *GetActiveQueueOK {
 	return &GetActiveQueueOK{}
 }
 
-/*
-GetActiveQueueOK handles this case with default header values.
+/*GetActiveQueueOK handles this case with default header values.
 
-	OK
+  OK
 */
 type GetActiveQueueOK struct {
 	Payload *dsartifactclientmodels.ModelsQueue
@@ -127,10 +126,9 @@ func NewGetActiveQueueBadRequest() *GetActiveQueueBadRequest {
 	return &GetActiveQueueBadRequest{}
 }
 
-/*
-GetActiveQueueBadRequest handles this case with default header values.
+/*GetActiveQueueBadRequest handles this case with default header values.
 
-	Bad Request
+  Bad Request
 */
 type GetActiveQueueBadRequest struct {
 	Payload *dsartifactclientmodels.ResponseError
@@ -181,10 +179,9 @@ func NewGetActiveQueueUnauthorized() *GetActiveQueueUnauthorized {
 	return &GetActiveQueueUnauthorized{}
 }
 
-/*
-GetActiveQueueUnauthorized handles this case with default header values.
+/*GetActiveQueueUnauthorized handles this case with default header values.
 
-	Unauthorized
+  Unauthorized
 */
 type GetActiveQueueUnauthorized struct {
 	Payload *dsartifactclientmodels.ResponseError
@@ -235,10 +232,9 @@ func NewGetActiveQueueNotFound() *GetActiveQueueNotFound {
 	return &GetActiveQueueNotFound{}
 }
 
-/*
-GetActiveQueueNotFound handles this case with default header values.
+/*GetActiveQueueNotFound handles this case with default header values.
 
-	Not Found
+  Not Found
 */
 type GetActiveQueueNotFound struct {
 	Payload *dsartifactclientmodels.ResponseError
@@ -289,10 +285,9 @@ func NewGetActiveQueueInternalServerError() *GetActiveQueueInternalServerError {
 	return &GetActiveQueueInternalServerError{}
 }
 
-/*
-GetActiveQueueInternalServerError handles this case with default header values.
+/*GetActiveQueueInternalServerError handles this case with default header values.
 
-	Internal Server Error
+  Internal Server Error
 */
 type GetActiveQueueInternalServerError struct {
 	Payload *dsartifactclientmodels.ResponseError

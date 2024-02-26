@@ -61,10 +61,9 @@ func NewCheckServerArtifactOK() *CheckServerArtifactOK {
 	return &CheckServerArtifactOK{}
 }
 
-/*
-CheckServerArtifactOK handles this case with default header values.
+/*CheckServerArtifactOK handles this case with default header values.
 
-	artifact exists.
+  artifact exists.
 */
 type CheckServerArtifactOK struct {
 	Payload *dsartifactclientmodels.ModelsArtifactFileStatus
@@ -115,10 +114,9 @@ func NewCheckServerArtifactNotFound() *CheckServerArtifactNotFound {
 	return &CheckServerArtifactNotFound{}
 }
 
-/*
-CheckServerArtifactNotFound handles this case with default header values.
+/*CheckServerArtifactNotFound handles this case with default header values.
 
-	Not Found
+  Not Found
 */
 type CheckServerArtifactNotFound struct {
 	Payload *dsartifactclientmodels.ResponseError
@@ -169,10 +167,9 @@ func NewCheckServerArtifactInternalServerError() *CheckServerArtifactInternalSer
 	return &CheckServerArtifactInternalServerError{}
 }
 
-/*
-CheckServerArtifactInternalServerError handles this case with default header values.
+/*CheckServerArtifactInternalServerError handles this case with default header values.
 
-	Internal Server Error
+  Internal Server Error
 */
 type CheckServerArtifactInternalServerError struct {
 	Payload *dsartifactclientmodels.ResponseError

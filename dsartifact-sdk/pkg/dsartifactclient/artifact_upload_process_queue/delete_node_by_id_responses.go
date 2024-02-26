@@ -61,10 +61,9 @@ func NewDeleteNodeByIDNoContent() *DeleteNodeByIDNoContent {
 	return &DeleteNodeByIDNoContent{}
 }
 
-/*
-DeleteNodeByIDNoContent handles this case with default header values.
+/*DeleteNodeByIDNoContent handles this case with default header values.
 
-	delete queue success.
+  delete queue success.
 */
 type DeleteNodeByIDNoContent struct {
 }
@@ -88,10 +87,9 @@ func NewDeleteNodeByIDBadRequest() *DeleteNodeByIDBadRequest {
 	return &DeleteNodeByIDBadRequest{}
 }
 
-/*
-DeleteNodeByIDBadRequest handles this case with default header values.
+/*DeleteNodeByIDBadRequest handles this case with default header values.
 
-	Bad Request
+  Bad Request
 */
 type DeleteNodeByIDBadRequest struct {
 	Payload *dsartifactclientmodels.ResponseError
@@ -142,10 +140,9 @@ func NewDeleteNodeByIDInternalServerError() *DeleteNodeByIDInternalServerError {
 	return &DeleteNodeByIDInternalServerError{}
 }
 
-/*
-DeleteNodeByIDInternalServerError handles this case with default header values.
+/*DeleteNodeByIDInternalServerError handles this case with default header values.
 
-	Internal Server Error
+  Internal Server Error
 */
 type DeleteNodeByIDInternalServerError struct {
 	Payload *dsartifactclientmodels.ResponseError

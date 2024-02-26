@@ -61,10 +61,9 @@ func NewDownloadServerArtifactsOK() *DownloadServerArtifactsOK {
 	return &DownloadServerArtifactsOK{}
 }
 
-/*
-DownloadServerArtifactsOK handles this case with default header values.
+/*DownloadServerArtifactsOK handles this case with default header values.
 
-	server artifact downloaded.
+  server artifact downloaded.
 */
 type DownloadServerArtifactsOK struct {
 }
@@ -88,10 +87,9 @@ func NewDownloadServerArtifactsNotFound() *DownloadServerArtifactsNotFound {
 	return &DownloadServerArtifactsNotFound{}
 }
 
-/*
-DownloadServerArtifactsNotFound handles this case with default header values.
+/*DownloadServerArtifactsNotFound handles this case with default header values.
 
-	Not Found
+  Not Found
 */
 type DownloadServerArtifactsNotFound struct {
 	Payload *dsartifactclientmodels.ResponseError
@@ -142,10 +140,9 @@ func NewDownloadServerArtifactsInternalServerError() *DownloadServerArtifactsInt
 	return &DownloadServerArtifactsInternalServerError{}
 }
 
-/*
-DownloadServerArtifactsInternalServerError handles this case with default header values.
+/*DownloadServerArtifactsInternalServerError handles this case with default header values.
 
-	Internal Server Error
+  Internal Server Error
 */
 type DownloadServerArtifactsInternalServerError struct {
 	Payload *dsartifactclientmodels.ResponseError

@@ -67,10 +67,9 @@ func NewSetActiveQueueNoContent() *SetActiveQueueNoContent {
 	return &SetActiveQueueNoContent{}
 }
 
-/*
-SetActiveQueueNoContent handles this case with default header values.
+/*SetActiveQueueNoContent handles this case with default header values.
 
-	No Content
+  No Content
 */
 type SetActiveQueueNoContent struct {
 }
@@ -94,10 +93,9 @@ func NewSetActiveQueueBadRequest() *SetActiveQueueBadRequest {
 	return &SetActiveQueueBadRequest{}
 }
 
-/*
-SetActiveQueueBadRequest handles this case with default header values.
+/*SetActiveQueueBadRequest handles this case with default header values.
 
-	Bad Request
+  Bad Request
 */
 type SetActiveQueueBadRequest struct {
 	Payload *dsartifactclientmodels.ResponseError
@@ -148,10 +146,9 @@ func NewSetActiveQueueUnauthorized() *SetActiveQueueUnauthorized {
 	return &SetActiveQueueUnauthorized{}
 }
 
-/*
-SetActiveQueueUnauthorized handles this case with default header values.
+/*SetActiveQueueUnauthorized handles this case with default header values.
 
-	Unauthorized
+  Unauthorized
 */
 type SetActiveQueueUnauthorized struct {
 	Payload *dsartifactclientmodels.ResponseError
@@ -202,10 +199,9 @@ func NewSetActiveQueueInternalServerError() *SetActiveQueueInternalServerError {
 	return &SetActiveQueueInternalServerError{}
 }
 
-/*
-SetActiveQueueInternalServerError handles this case with default header values.
+/*SetActiveQueueInternalServerError handles this case with default header values.
 
-	Internal Server Error
+  Internal Server Error
 */
 type SetActiveQueueInternalServerError struct {
 	Payload *dsartifactclientmodels.ResponseError

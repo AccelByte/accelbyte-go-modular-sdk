@@ -57,8 +57,7 @@ func NewDownloadServerArtifactsParamsWithHTTPClient(client *http.Client) *Downlo
 	}
 }
 
-/*
-DownloadServerArtifactsParams contains all the parameters to send to the API endpoint
+/*DownloadServerArtifactsParams contains all the parameters to send to the API endpoint
 for the download server artifacts operation typically these are written to a http.Request
 */
 type DownloadServerArtifactsParams struct {

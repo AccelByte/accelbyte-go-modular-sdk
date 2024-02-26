@@ -57,8 +57,7 @@ func NewDeleteQueueParamsWithHTTPClient(client *http.Client) *DeleteQueueParams 
 	}
 }
 
-/*
-DeleteQueueParams contains all the parameters to send to the API endpoint
+/*DeleteQueueParams contains all the parameters to send to the API endpoint
 for the delete queue operation typically these are written to a http.Request
 */
 type DeleteQueueParams struct {

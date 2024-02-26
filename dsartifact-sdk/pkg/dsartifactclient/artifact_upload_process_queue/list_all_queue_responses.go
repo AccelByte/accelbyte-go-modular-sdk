@@ -67,10 +67,9 @@ func NewListAllQueueOK() *ListAllQueueOK {
 	return &ListAllQueueOK{}
 }
 
-/*
-ListAllQueueOK handles this case with default header values.
+/*ListAllQueueOK handles this case with default header values.
 
-	get all queue success.
+  get all queue success.
 */
 type ListAllQueueOK struct {
 	Payload *dsartifactclientmodels.ModelsListAllQueueResponse
@@ -121,10 +120,9 @@ func NewListAllQueueBadRequest() *ListAllQueueBadRequest {
 	return &ListAllQueueBadRequest{}
 }
 
-/*
-ListAllQueueBadRequest handles this case with default header values.
+/*ListAllQueueBadRequest handles this case with default header values.
 
-	Bad Request
+  Bad Request
 */
 type ListAllQueueBadRequest struct {
 	Payload *dsartifactclientmodels.ResponseError
@@ -175,10 +173,9 @@ func NewListAllQueueNotFound() *ListAllQueueNotFound {
 	return &ListAllQueueNotFound{}
 }
 
-/*
-ListAllQueueNotFound handles this case with default header values.
+/*ListAllQueueNotFound handles this case with default header values.
 
-	Not Found
+  Not Found
 */
 type ListAllQueueNotFound struct {
 	Payload *dsartifactclientmodels.ResponseError
@@ -229,10 +226,9 @@ func NewListAllQueueInternalServerError() *ListAllQueueInternalServerError {
 	return &ListAllQueueInternalServerError{}
 }
 
-/*
-ListAllQueueInternalServerError handles this case with default header values.
+/*ListAllQueueInternalServerError handles this case with default header values.
 
-	Internal Server Error
+  Internal Server Error
 */
 type ListAllQueueInternalServerError struct {
 	Payload *dsartifactclientmodels.ResponseError

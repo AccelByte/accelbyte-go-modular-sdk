@@ -70,8 +70,7 @@ func NewListTerminatedServersWithNamespaceParamsWithHTTPClient(client *http.Clie
 	}
 }
 
-/*
-ListTerminatedServersWithNamespaceParams contains all the parameters to send to the API endpoint
+/*ListTerminatedServersWithNamespaceParams contains all the parameters to send to the API endpoint
 for the list terminated servers with namespace operation typically these are written to a http.Request
 */
 type ListTerminatedServersWithNamespaceParams struct {

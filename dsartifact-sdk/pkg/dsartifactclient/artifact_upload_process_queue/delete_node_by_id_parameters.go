@@ -57,8 +57,7 @@ func NewDeleteNodeByIDParamsWithHTTPClient(client *http.Client) *DeleteNodeByIDP
 	}
 }
 
-/*
-DeleteNodeByIDParams contains all the parameters to send to the API endpoint
+/*DeleteNodeByIDParams contains all the parameters to send to the API endpoint
 for the delete node by id operation typically these are written to a http.Request
 */
 type DeleteNodeByIDParams struct {

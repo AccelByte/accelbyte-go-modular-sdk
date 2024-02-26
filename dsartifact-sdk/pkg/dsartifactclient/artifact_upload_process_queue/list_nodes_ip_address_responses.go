@@ -61,10 +61,9 @@ func NewListNodesIPAddressOK() *ListNodesIPAddressOK {
 	return &ListNodesIPAddressOK{}
 }
 
-/*
-ListNodesIPAddressOK handles this case with default header values.
+/*ListNodesIPAddressOK handles this case with default header values.
 
-	get all active queue success.
+  get all active queue success.
 */
 type ListNodesIPAddressOK struct {
 	Payload *dsartifactclientmodels.ModelsListNodesIPAddress
@@ -115,10 +114,9 @@ func NewListNodesIPAddressBadRequest() *ListNodesIPAddressBadRequest {
 	return &ListNodesIPAddressBadRequest{}
 }
 
-/*
-ListNodesIPAddressBadRequest handles this case with default header values.
+/*ListNodesIPAddressBadRequest handles this case with default header values.
 
-	Bad Request
+  Bad Request
 */
 type ListNodesIPAddressBadRequest struct {
 	Payload *dsartifactclientmodels.ResponseError
@@ -169,10 +167,9 @@ func NewListNodesIPAddressInternalServerError() *ListNodesIPAddressInternalServe
 	return &ListNodesIPAddressInternalServerError{}
 }
 
-/*
-ListNodesIPAddressInternalServerError handles this case with default header values.
+/*ListNodesIPAddressInternalServerError handles this case with default header values.
 
-	Internal Server Error
+  Internal Server Error
 */
 type ListNodesIPAddressInternalServerError struct {
 	Payload *dsartifactclientmodels.ResponseError

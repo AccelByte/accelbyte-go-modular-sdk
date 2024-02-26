@@ -67,10 +67,9 @@ func NewListTerminatedServersWithNamespaceOK() *ListTerminatedServersWithNamespa
 	return &ListTerminatedServersWithNamespaceOK{}
 }
 
-/*
-ListTerminatedServersWithNamespaceOK handles this case with default header values.
+/*ListTerminatedServersWithNamespaceOK handles this case with default header values.
 
-	OK
+  OK
 */
 type ListTerminatedServersWithNamespaceOK struct {
 	Payload *dsartifactclientmodels.ModelsListTerminatedServersResponse
@@ -121,10 +120,9 @@ func NewListTerminatedServersWithNamespaceBadRequest() *ListTerminatedServersWit
 	return &ListTerminatedServersWithNamespaceBadRequest{}
 }
 
-/*
-ListTerminatedServersWithNamespaceBadRequest handles this case with default header values.
+/*ListTerminatedServersWithNamespaceBadRequest handles this case with default header values.
 
-	Bad Request
+  Bad Request
 */
 type ListTerminatedServersWithNamespaceBadRequest struct {
 	Payload *dsartifactclientmodels.ResponseError
@@ -175,10 +173,9 @@ func NewListTerminatedServersWithNamespaceUnauthorized() *ListTerminatedServersW
 	return &ListTerminatedServersWithNamespaceUnauthorized{}
 }
 
-/*
-ListTerminatedServersWithNamespaceUnauthorized handles this case with default header values.
+/*ListTerminatedServersWithNamespaceUnauthorized handles this case with default header values.
 
-	Unauthorized
+  Unauthorized
 */
 type ListTerminatedServersWithNamespaceUnauthorized struct {
 	Payload *dsartifactclientmodels.ResponseError
@@ -229,10 +226,9 @@ func NewListTerminatedServersWithNamespaceInternalServerError() *ListTerminatedS
 	return &ListTerminatedServersWithNamespaceInternalServerError{}
 }
 
-/*
-ListTerminatedServersWithNamespaceInternalServerError handles this case with default header values.
+/*ListTerminatedServersWithNamespaceInternalServerError handles this case with default header values.
 
-	Internal Server Error
+  Internal Server Error
 */
 type ListTerminatedServersWithNamespaceInternalServerError struct {
 	Payload *dsartifactclientmodels.ResponseError

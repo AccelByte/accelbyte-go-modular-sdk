@@ -12,7 +12,7 @@ replace (
 )
 
 require (
-	github.com/AccelByte/accelbyte-go-modular-sdk/cloudsave-sdk v0.1.0-alpha.6
+	github.com/AccelByte/accelbyte-go-modular-sdk/cloudsave-sdk v0.0.0
 	github.com/AccelByte/accelbyte-go-modular-sdk/services-api v0.1.0-alpha.2
 	github.com/go-openapi/runtime v0.19.29
 )

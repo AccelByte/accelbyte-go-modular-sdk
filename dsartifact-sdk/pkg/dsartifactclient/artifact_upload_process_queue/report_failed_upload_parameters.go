@@ -57,8 +57,7 @@ func NewReportFailedUploadParamsWithHTTPClient(client *http.Client) *ReportFaile
 	}
 }
 
-/*
-ReportFailedUploadParams contains all the parameters to send to the API endpoint
+/*ReportFailedUploadParams contains all the parameters to send to the API endpoint
 for the report failed upload operation typically these are written to a http.Request
 */
 type ReportFailedUploadParams struct {

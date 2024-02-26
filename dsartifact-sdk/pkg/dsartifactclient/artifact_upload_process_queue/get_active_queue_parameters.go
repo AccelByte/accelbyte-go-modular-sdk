@@ -57,8 +57,7 @@ func NewGetActiveQueueParamsWithHTTPClient(client *http.Client) *GetActiveQueueP
 	}
 }
 
-/*
-GetActiveQueueParams contains all the parameters to send to the API endpoint
+/*GetActiveQueueParams contains all the parameters to send to the API endpoint
 for the get active queue operation typically these are written to a http.Request
 */
 type GetActiveQueueParams struct {

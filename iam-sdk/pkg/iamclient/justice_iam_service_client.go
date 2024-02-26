@@ -17,6 +17,7 @@ import (
 
 	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/bans"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/clients"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/clients_config_v3"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/config"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/country"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/devices_v4"
@@ -24,6 +25,7 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/o_auth"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/o_auth2_0"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/o_auth2_0_extension"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/o_auth2_0_v4"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/roles"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/sso"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/sso_credential"
@@ -97,6 +99,7 @@ func New(transport runtime.ClientTransport, runtime *httptransport.Runtime, form
 	cli.Runtime = runtime
 	cli.Bans = bans.New(transport, formats)
 	cli.Clients = clients.New(transport, formats)
+	cli.ClientsConfigV3 = clients_config_v3.New(transport, formats)
 	cli.Config = config.New(transport, formats)
 	cli.Country = country.New(transport, formats)
 	cli.DevicesV4 = devices_v4.New(transport, formats)
@@ -104,6 +107,7 @@ func New(transport runtime.ClientTransport, runtime *httptransport.Runtime, form
 	cli.OAuth = o_auth.New(transport, formats)
 	cli.OAuth20 = o_auth2_0.New(transport, formats)
 	cli.OAuth20Extension = o_auth2_0_extension.New(transport, formats)
+	cli.OAuth20V4 = o_auth2_0_v4.New(transport, formats)
 	cli.Roles = roles.New(transport, formats)
 	cli.SSO = sso.New(transport, formats)
 	cli.SSOCredential = sso_credential.New(transport, formats)
@@ -176,6 +180,8 @@ type JusticeIamService struct {
 
 	Clients clients.ClientService
 
+	ClientsConfigV3 clients_config_v3.ClientService
+
 	Config config.ClientService
 
 	Country country.ClientService
@@ -189,6 +195,8 @@ type JusticeIamService struct {
 	OAuth20 o_auth2_0.ClientService
 
 	OAuth20Extension o_auth2_0_extension.ClientService
+
+	OAuth20V4 o_auth2_0_v4.ClientService
 
 	Roles roles.ClientService
 
@@ -213,6 +221,7 @@ func (c *JusticeIamService) SetTransport(transport runtime.ClientTransport) {
 	c.Transport = transport
 	c.Bans.SetTransport(transport)
 	c.Clients.SetTransport(transport)
+	c.ClientsConfigV3.SetTransport(transport)
 	c.Config.SetTransport(transport)
 	c.Country.SetTransport(transport)
 	c.DevicesV4.SetTransport(transport)
@@ -220,6 +229,7 @@ func (c *JusticeIamService) SetTransport(transport runtime.ClientTransport) {
 	c.OAuth.SetTransport(transport)
 	c.OAuth20.SetTransport(transport)
 	c.OAuth20Extension.SetTransport(transport)
+	c.OAuth20V4.SetTransport(transport)
 	c.Roles.SetTransport(transport)
 	c.SSO.SetTransport(transport)
 	c.SSOCredential.SetTransport(transport)

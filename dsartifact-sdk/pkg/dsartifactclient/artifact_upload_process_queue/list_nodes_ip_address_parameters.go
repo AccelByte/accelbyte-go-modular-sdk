@@ -70,8 +70,7 @@ func NewListNodesIPAddressParamsWithHTTPClient(client *http.Client) *ListNodesIP
 	}
 }
 
-/*
-ListNodesIPAddressParams contains all the parameters to send to the API endpoint
+/*ListNodesIPAddressParams contains all the parameters to send to the API endpoint
 for the list nodes ip address operation typically these are written to a http.Request
 */
 type ListNodesIPAddressParams struct {

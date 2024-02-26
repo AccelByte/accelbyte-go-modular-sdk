@@ -67,10 +67,9 @@ func NewReportFailedUploadNoContent() *ReportFailedUploadNoContent {
 	return &ReportFailedUploadNoContent{}
 }
 
-/*
-ReportFailedUploadNoContent handles this case with default header values.
+/*ReportFailedUploadNoContent handles this case with default header values.
 
-	No Content
+  No Content
 */
 type ReportFailedUploadNoContent struct {
 }
@@ -94,10 +93,9 @@ func NewReportFailedUploadBadRequest() *ReportFailedUploadBadRequest {
 	return &ReportFailedUploadBadRequest{}
 }
 
-/*
-ReportFailedUploadBadRequest handles this case with default header values.
+/*ReportFailedUploadBadRequest handles this case with default header values.
 
-	Bad Request
+  Bad Request
 */
 type ReportFailedUploadBadRequest struct {
 	Payload *dsartifactclientmodels.ResponseError
@@ -148,10 +146,9 @@ func NewReportFailedUploadUnauthorized() *ReportFailedUploadUnauthorized {
 	return &ReportFailedUploadUnauthorized{}
 }
 
-/*
-ReportFailedUploadUnauthorized handles this case with default header values.
+/*ReportFailedUploadUnauthorized handles this case with default header values.
 
-	Unauthorized
+  Unauthorized
 */
 type ReportFailedUploadUnauthorized struct {
 	Payload *dsartifactclientmodels.ResponseError
@@ -202,10 +199,9 @@ func NewReportFailedUploadInternalServerError() *ReportFailedUploadInternalServe
 	return &ReportFailedUploadInternalServerError{}
 }
 
-/*
-ReportFailedUploadInternalServerError handles this case with default header values.
+/*ReportFailedUploadInternalServerError handles this case with default header values.
 
-	Internal Server Error
+  Internal Server Error
 */
 type ReportFailedUploadInternalServerError struct {
 	Payload *dsartifactclientmodels.ResponseError
