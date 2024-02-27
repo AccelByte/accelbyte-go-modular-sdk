@@ -8,6 +8,7 @@ replace (
 	github.com/AccelByte/accelbyte-go-modular-sdk/basic-sdk => ../../../basic-sdk
 	github.com/AccelByte/accelbyte-go-modular-sdk/chat-sdk => ../../../chat-sdk
 	github.com/AccelByte/accelbyte-go-modular-sdk/cloudsave-sdk => ../../../cloudsave-sdk
+	github.com/AccelByte/accelbyte-go-modular-sdk/dsartifact-sdk => ../../../dsartifact-sdk
 	github.com/AccelByte/accelbyte-go-modular-sdk/dslogmanager-sdk => ../../../dslogmanager-sdk
 	github.com/AccelByte/accelbyte-go-modular-sdk/dsmc-sdk => ../../../dsmc-sdk
 	github.com/AccelByte/accelbyte-go-modular-sdk/eventlog-sdk => ../../../eventlog-sdk
@@ -46,13 +47,14 @@ require (
 	github.com/AccelByte/accelbyte-go-modular-sdk/basic-sdk v0.1.0-alpha.3
 	github.com/AccelByte/accelbyte-go-modular-sdk/chat-sdk v0.0.0-00010101000000-000000000000
 	github.com/AccelByte/accelbyte-go-modular-sdk/cloudsave-sdk v0.1.0-alpha.1
+	github.com/AccelByte/accelbyte-go-modular-sdk/dsartifact-sdk v0.0.0-00010101000000-000000000000
 	github.com/AccelByte/accelbyte-go-modular-sdk/dslogmanager-sdk v0.1.0-alpha.1
 	github.com/AccelByte/accelbyte-go-modular-sdk/dsmc-sdk v0.1.0-alpha.1
 	github.com/AccelByte/accelbyte-go-modular-sdk/eventlog-sdk v0.1.0-alpha.1
 	github.com/AccelByte/accelbyte-go-modular-sdk/gametelemetry-sdk v0.1.0-alpha.1
 	github.com/AccelByte/accelbyte-go-modular-sdk/gdpr-sdk v0.1.0-alpha.1
 	github.com/AccelByte/accelbyte-go-modular-sdk/group-sdk v0.1.0-alpha.1
-	github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk v0.1.0-alpha.11
+	github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk v0.1.0-alpha.12
 	github.com/AccelByte/accelbyte-go-modular-sdk/leaderboard-sdk v0.1.0-alpha.1
 	github.com/AccelByte/accelbyte-go-modular-sdk/legal-sdk v0.1.0-alpha.1
 	github.com/AccelByte/accelbyte-go-modular-sdk/lobby-sdk v0.1.0-alpha.1
