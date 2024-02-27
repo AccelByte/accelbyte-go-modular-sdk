@@ -23,6 +23,12 @@ use (
 	qosm-sdk
 	reporting-sdk
 	inventory-sdk
+	dsartifact-sdk
+	session-sdk
+	sessionbrowser-sdk
+	social-sdk
+	ugc-sdk
+	seasonpass-sdk
 
 	// samples
 	samples/aws-lambda-example/UserStatsFunction
@@ -33,7 +39,6 @@ use (
 	samples/ondemand-refresh-token
 	samples/tic-tac-toe/aws-lambda
 	samples/tic-tac-toe/client
-	seasonpass-sdk
 
 	// common module
 	services-api
@@ -67,14 +72,9 @@ use (
 	services-api/pkg/service/sessionbrowser
 	services-api/pkg/service/social
 	services-api/pkg/service/ugc
+	services-api/pkg/service/dsartifact
 
 	// tests
 	services-api/pkg/tests
 	services-api/pkg/utils/auth/validator
-	session-sdk
-	sessionbrowser-sdk
-	social-sdk
-	ugc-sdk
-	dsartifact-sdk
-	services-api/pkg/service/dsartifact
 )
