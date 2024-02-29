@@ -5,6 +5,7 @@ use (
 	ams-sdk
 	basic-sdk
 	chat-sdk
+	challenge-sdk
 	cloudsave-sdk
 	dslogmanager-sdk
 	dsmc-sdk
@@ -73,6 +74,7 @@ use (
 	services-api/pkg/service/social
 	services-api/pkg/service/ugc
 	services-api/pkg/service/dsartifact
+	services-api/pkg/service/challenge
 
 	// tests
 	services-api/pkg/tests
