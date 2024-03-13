@@ -73,10 +73,9 @@ func NewAdminRandomizeChallengeOK() *AdminRandomizeChallengeOK {
 	return &AdminRandomizeChallengeOK{}
 }
 
-/*
-AdminRandomizeChallengeOK handles this case with default header values.
+/*AdminRandomizeChallengeOK handles this case with default header values.
 
-	OK
+  OK
 */
 type AdminRandomizeChallengeOK struct {
 	Payload []*challengeclientmodels.ModelSchedule
@@ -125,10 +124,9 @@ func NewAdminRandomizeChallengeUnauthorized() *AdminRandomizeChallengeUnauthoriz
 	return &AdminRandomizeChallengeUnauthorized{}
 }
 
-/*
-AdminRandomizeChallengeUnauthorized handles this case with default header values.
+/*AdminRandomizeChallengeUnauthorized handles this case with default header values.
 
-	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type AdminRandomizeChallengeUnauthorized struct {
 	Payload *challengeclientmodels.IamErrorResponse
@@ -179,10 +177,9 @@ func NewAdminRandomizeChallengeForbidden() *AdminRandomizeChallengeForbidden {
 	return &AdminRandomizeChallengeForbidden{}
 }
 
-/*
-AdminRandomizeChallengeForbidden handles this case with default header values.
+/*AdminRandomizeChallengeForbidden handles this case with default header values.
 
-	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permission</td></tr></table>
+  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permission</td></tr></table>
 */
 type AdminRandomizeChallengeForbidden struct {
 	Payload *challengeclientmodels.IamErrorResponse
@@ -233,10 +230,9 @@ func NewAdminRandomizeChallengeNotFound() *AdminRandomizeChallengeNotFound {
 	return &AdminRandomizeChallengeNotFound{}
 }
 
-/*
-AdminRandomizeChallengeNotFound handles this case with default header values.
+/*AdminRandomizeChallengeNotFound handles this case with default header values.
 
-	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20029</td><td>not found</td></tr></table>
+  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20029</td><td>not found</td></tr></table>
 */
 type AdminRandomizeChallengeNotFound struct {
 	Payload *challengeclientmodels.ResponseError
@@ -287,10 +283,9 @@ func NewAdminRandomizeChallengeInternalServerError() *AdminRandomizeChallengeInt
 	return &AdminRandomizeChallengeInternalServerError{}
 }
 
-/*
-AdminRandomizeChallengeInternalServerError handles this case with default header values.
+/*AdminRandomizeChallengeInternalServerError handles this case with default header values.
 
-	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error: {{message}}</td></tr></table>
+  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error: {{message}}</td></tr></table>
 */
 type AdminRandomizeChallengeInternalServerError struct {
 	Payload *challengeclientmodels.ResponseError

@@ -114,6 +114,12 @@
 | `/session/v1/admin/namespaces/{namespace}/platform-credentials` | PUT | AdminUpdatePlatformCredentialsShort | [AdminUpdatePlatformCredentialsShort](../../session-sdk/pkg/sessionclient/platform_credential/platform_credential_client.go) | [AdminUpdatePlatformCredentialsShort](../../session-sdk/pkg/wrapper_platformCredential.go) | [AdminUpdatePlatformCredentialsShort](../../samples/cli/cmd/session/platformCredential/adminUpdatePlatformCredentials.go) |
 | `/session/v1/admin/namespaces/{namespace}/platform-credentials` | DELETE | AdminDeletePlatformCredentialsShort | [AdminDeletePlatformCredentialsShort](../../session-sdk/pkg/sessionclient/platform_credential/platform_credential_client.go) | [AdminDeletePlatformCredentialsShort](../../session-sdk/pkg/wrapper_platformCredential.go) | [AdminDeletePlatformCredentialsShort](../../samples/cli/cmd/session/platformCredential/adminDeletePlatformCredentials.go) |
 
+### Recent Player Wrapper:  [RecentPlayer](../../session-sdk/pkg/wrapper_recentPlayer.go)
+| Endpoint | Method | ID | Class | Wrapper | Example |
+|---|---|---|---|---|---|
+| `/session/v1/admin/namespaces/{namespace}/recent-player` | GET | AdminGetRecentPlayerShort | [AdminGetRecentPlayerShort](../../session-sdk/pkg/sessionclient/recent_player/recent_player_client.go) | [AdminGetRecentPlayerShort](../../session-sdk/pkg/wrapper_recentPlayer.go) | [AdminGetRecentPlayerShort](../../samples/cli/cmd/session/recentPlayer/adminGetRecentPlayer.go) |
+| `/session/v1/public/namespaces/{namespace}/recent-player` | GET | PublicGetRecentPlayerShort | [PublicGetRecentPlayerShort](../../session-sdk/pkg/sessionclient/recent_player/recent_player_client.go) | [PublicGetRecentPlayerShort](../../session-sdk/pkg/wrapper_recentPlayer.go) | [PublicGetRecentPlayerShort](../../samples/cli/cmd/session/recentPlayer/publicGetRecentPlayer.go) |
+
 ### Session Storage Wrapper:  [SessionStorage](../../session-sdk/pkg/wrapper_sessionStorage.go)
 | Endpoint | Method | ID | Class | Wrapper | Example |
 |---|---|---|---|---|---|
@@ -132,11 +138,6 @@
 | `/session/v1/public/namespaces/{namespace}/users/me/attributes` | GET | PublicGetPlayerAttributesShort | [PublicGetPlayerAttributesShort](../../session-sdk/pkg/sessionclient/player/player_client.go) | [PublicGetPlayerAttributesShort](../../session-sdk/pkg/wrapper_player.go) | [PublicGetPlayerAttributesShort](../../samples/cli/cmd/session/player/publicGetPlayerAttributes.go) |
 | `/session/v1/public/namespaces/{namespace}/users/me/attributes` | POST | PublicStorePlayerAttributesShort | [PublicStorePlayerAttributesShort](../../session-sdk/pkg/sessionclient/player/player_client.go) | [PublicStorePlayerAttributesShort](../../session-sdk/pkg/wrapper_player.go) | [PublicStorePlayerAttributesShort](../../samples/cli/cmd/session/player/publicStorePlayerAttributes.go) |
 | `/session/v1/public/namespaces/{namespace}/users/me/attributes` | DELETE | PublicDeletePlayerAttributesShort | [PublicDeletePlayerAttributesShort](../../session-sdk/pkg/sessionclient/player/player_client.go) | [PublicDeletePlayerAttributesShort](../../session-sdk/pkg/wrapper_player.go) | [PublicDeletePlayerAttributesShort](../../samples/cli/cmd/session/player/publicDeletePlayerAttributes.go) |
-
-### Recent Player Wrapper:  [RecentPlayer](../../session-sdk/pkg/wrapper_recentPlayer.go)
-| Endpoint | Method | ID | Class | Wrapper | Example |
-|---|---|---|---|---|---|
-| `/session/v1/public/namespaces/{namespace}/recent-player` | GET | PublicGetRecentPlayerShort | [PublicGetRecentPlayerShort](../../session-sdk/pkg/sessionclient/recent_player/recent_player_client.go) | [PublicGetRecentPlayerShort](../../session-sdk/pkg/wrapper_recentPlayer.go) | [PublicGetRecentPlayerShort](../../samples/cli/cmd/session/recentPlayer/publicGetRecentPlayer.go) |
 
 
 &nbsp;  

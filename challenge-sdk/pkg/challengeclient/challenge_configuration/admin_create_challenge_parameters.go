@@ -59,8 +59,7 @@ func NewAdminCreateChallengeParamsWithHTTPClient(client *http.Client) *AdminCrea
 	}
 }
 
-/*
-AdminCreateChallengeParams contains all the parameters to send to the API endpoint
+/*AdminCreateChallengeParams contains all the parameters to send to the API endpoint
 for the admin create challenge operation typically these are written to a http.Request
 */
 type AdminCreateChallengeParams struct {

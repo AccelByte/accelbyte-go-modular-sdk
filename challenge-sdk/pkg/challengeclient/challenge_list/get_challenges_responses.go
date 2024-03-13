@@ -67,10 +67,9 @@ func NewGetChallengesOK() *GetChallengesOK {
 	return &GetChallengesOK{}
 }
 
-/*
-GetChallengesOK handles this case with default header values.
+/*GetChallengesOK handles this case with default header values.
 
-	OK
+  OK
 */
 type GetChallengesOK struct {
 	Payload *challengeclientmodels.ModelListChallengeResponse
@@ -121,10 +120,9 @@ func NewGetChallengesUnauthorized() *GetChallengesUnauthorized {
 	return &GetChallengesUnauthorized{}
 }
 
-/*
-GetChallengesUnauthorized handles this case with default header values.
+/*GetChallengesUnauthorized handles this case with default header values.
 
-	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type GetChallengesUnauthorized struct {
 	Payload *challengeclientmodels.IamErrorResponse
@@ -175,10 +173,9 @@ func NewGetChallengesForbidden() *GetChallengesForbidden {
 	return &GetChallengesForbidden{}
 }
 
-/*
-GetChallengesForbidden handles this case with default header values.
+/*GetChallengesForbidden handles this case with default header values.
 
-	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permission</td></tr></table>
+  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permission</td></tr></table>
 */
 type GetChallengesForbidden struct {
 	Payload *challengeclientmodels.IamErrorResponse
@@ -229,10 +226,9 @@ func NewGetChallengesInternalServerError() *GetChallengesInternalServerError {
 	return &GetChallengesInternalServerError{}
 }
 
-/*
-GetChallengesInternalServerError handles this case with default header values.
+/*GetChallengesInternalServerError handles this case with default header values.
 
-	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error: {{message}}</td></tr></table>
+  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error: {{message}}</td></tr></table>
 */
 type GetChallengesInternalServerError struct {
 	Payload *challengeclientmodels.ResponseError

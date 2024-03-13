@@ -73,10 +73,9 @@ func NewAdminEvaluateProgressNoContent() *AdminEvaluateProgressNoContent {
 	return &AdminEvaluateProgressNoContent{}
 }
 
-/*
-AdminEvaluateProgressNoContent handles this case with default header values.
+/*AdminEvaluateProgressNoContent handles this case with default header values.
 
-	No Content
+  No Content
 */
 type AdminEvaluateProgressNoContent struct {
 }
@@ -100,10 +99,9 @@ func NewAdminEvaluateProgressUnauthorized() *AdminEvaluateProgressUnauthorized {
 	return &AdminEvaluateProgressUnauthorized{}
 }
 
-/*
-AdminEvaluateProgressUnauthorized handles this case with default header values.
+/*AdminEvaluateProgressUnauthorized handles this case with default header values.
 
-	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type AdminEvaluateProgressUnauthorized struct {
 	Payload *challengeclientmodels.IamErrorResponse
@@ -154,10 +152,9 @@ func NewAdminEvaluateProgressForbidden() *AdminEvaluateProgressForbidden {
 	return &AdminEvaluateProgressForbidden{}
 }
 
-/*
-AdminEvaluateProgressForbidden handles this case with default header values.
+/*AdminEvaluateProgressForbidden handles this case with default header values.
 
-	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permission</td></tr></table>
+  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permission</td></tr></table>
 */
 type AdminEvaluateProgressForbidden struct {
 	Payload *challengeclientmodels.IamErrorResponse
@@ -208,10 +205,9 @@ func NewAdminEvaluateProgressNotFound() *AdminEvaluateProgressNotFound {
 	return &AdminEvaluateProgressNotFound{}
 }
 
-/*
-AdminEvaluateProgressNotFound handles this case with default header values.
+/*AdminEvaluateProgressNotFound handles this case with default header values.
 
-	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20029</td><td>not found</td></tr></table>
+  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20029</td><td>not found</td></tr></table>
 */
 type AdminEvaluateProgressNotFound struct {
 	Payload *challengeclientmodels.ResponseError
@@ -262,10 +258,9 @@ func NewAdminEvaluateProgressInternalServerError() *AdminEvaluateProgressInterna
 	return &AdminEvaluateProgressInternalServerError{}
 }
 
-/*
-AdminEvaluateProgressInternalServerError handles this case with default header values.
+/*AdminEvaluateProgressInternalServerError handles this case with default header values.
 
-	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error: {{message}}</td></tr></table>
+  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error: {{message}}</td></tr></table>
 */
 type AdminEvaluateProgressInternalServerError struct {
 	Payload *challengeclientmodels.ResponseError

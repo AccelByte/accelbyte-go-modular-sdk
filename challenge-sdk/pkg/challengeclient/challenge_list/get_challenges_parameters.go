@@ -85,8 +85,7 @@ func NewGetChallengesParamsWithHTTPClient(client *http.Client) *GetChallengesPar
 	}
 }
 
-/*
-GetChallengesParams contains all the parameters to send to the API endpoint
+/*GetChallengesParams contains all the parameters to send to the API endpoint
 for the get challenges operation typically these are written to a http.Request
 */
 type GetChallengesParams struct {

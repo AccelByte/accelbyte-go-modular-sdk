@@ -67,10 +67,9 @@ func NewAdminDeleteGoalNoContent() *AdminDeleteGoalNoContent {
 	return &AdminDeleteGoalNoContent{}
 }
 
-/*
-AdminDeleteGoalNoContent handles this case with default header values.
+/*AdminDeleteGoalNoContent handles this case with default header values.
 
-	No Content
+  No Content
 */
 type AdminDeleteGoalNoContent struct {
 }
@@ -94,10 +93,9 @@ func NewAdminDeleteGoalBadRequest() *AdminDeleteGoalBadRequest {
 	return &AdminDeleteGoalBadRequest{}
 }
 
-/*
-AdminDeleteGoalBadRequest handles this case with default header values.
+/*AdminDeleteGoalBadRequest handles this case with default header values.
 
-	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20018</td><td>bad request: {{message}}</td></tr></table>
+  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20018</td><td>bad request: {{message}}</td></tr></table>
 */
 type AdminDeleteGoalBadRequest struct {
 	Payload *challengeclientmodels.ResponseError
@@ -148,10 +146,9 @@ func NewAdminDeleteGoalNotFound() *AdminDeleteGoalNotFound {
 	return &AdminDeleteGoalNotFound{}
 }
 
-/*
-AdminDeleteGoalNotFound handles this case with default header values.
+/*AdminDeleteGoalNotFound handles this case with default header values.
 
-	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20029</td><td>not found</td></tr></table>
+  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20029</td><td>not found</td></tr></table>
 */
 type AdminDeleteGoalNotFound struct {
 	Payload *challengeclientmodels.ResponseError
@@ -202,10 +199,9 @@ func NewAdminDeleteGoalInternalServerError() *AdminDeleteGoalInternalServerError
 	return &AdminDeleteGoalInternalServerError{}
 }
 
-/*
-AdminDeleteGoalInternalServerError handles this case with default header values.
+/*AdminDeleteGoalInternalServerError handles this case with default header values.
 
-	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error: {{message}}</td></tr></table>
+  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error: {{message}}</td></tr></table>
 */
 type AdminDeleteGoalInternalServerError struct {
 	Payload *challengeclientmodels.ResponseError

@@ -484,7 +484,10 @@ func (aaa *IAPService) UpdateXblBPCertFile(input *iap.UpdateXblBPCertFileParams)
 	if err != nil {
 		return nil, err
 	}
-	ok, err := aaa.Client.IAP.UpdateXblBPCertFile(input, client.BearerToken(*token.AccessToken))
+	ok, badRequest, err := aaa.Client.IAP.UpdateXblBPCertFile(input, client.BearerToken(*token.AccessToken))
+	if badRequest != nil {
+		return nil, badRequest
+	}
 	if err != nil {
 		return nil, err
 	}

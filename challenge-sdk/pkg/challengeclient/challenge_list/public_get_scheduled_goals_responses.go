@@ -67,10 +67,9 @@ func NewPublicGetScheduledGoalsOK() *PublicGetScheduledGoalsOK {
 	return &PublicGetScheduledGoalsOK{}
 }
 
-/*
-PublicGetScheduledGoalsOK handles this case with default header values.
+/*PublicGetScheduledGoalsOK handles this case with default header values.
 
-	OK
+  OK
 */
 type PublicGetScheduledGoalsOK struct {
 	Payload []*challengeclientmodels.ModelGoalResponse
@@ -119,10 +118,9 @@ func NewPublicGetScheduledGoalsUnauthorized() *PublicGetScheduledGoalsUnauthoriz
 	return &PublicGetScheduledGoalsUnauthorized{}
 }
 
-/*
-PublicGetScheduledGoalsUnauthorized handles this case with default header values.
+/*PublicGetScheduledGoalsUnauthorized handles this case with default header values.
 
-	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type PublicGetScheduledGoalsUnauthorized struct {
 	Payload *challengeclientmodels.IamErrorResponse
@@ -173,10 +171,9 @@ func NewPublicGetScheduledGoalsForbidden() *PublicGetScheduledGoalsForbidden {
 	return &PublicGetScheduledGoalsForbidden{}
 }
 
-/*
-PublicGetScheduledGoalsForbidden handles this case with default header values.
+/*PublicGetScheduledGoalsForbidden handles this case with default header values.
 
-	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permission</td></tr></table>
+  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permission</td></tr></table>
 */
 type PublicGetScheduledGoalsForbidden struct {
 	Payload *challengeclientmodels.IamErrorResponse
@@ -227,10 +224,9 @@ func NewPublicGetScheduledGoalsInternalServerError() *PublicGetScheduledGoalsInt
 	return &PublicGetScheduledGoalsInternalServerError{}
 }
 
-/*
-PublicGetScheduledGoalsInternalServerError handles this case with default header values.
+/*PublicGetScheduledGoalsInternalServerError handles this case with default header values.
 
-	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error: {{message}}</td></tr></table>
+  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error: {{message}}</td></tr></table>
 */
 type PublicGetScheduledGoalsInternalServerError struct {
 	Payload *challengeclientmodels.ResponseError

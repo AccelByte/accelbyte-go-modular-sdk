@@ -45,7 +45,7 @@ Deprecated: 2022-08-10 - Use AdminEvaluateProgressShort instead.
 
 AdminEvaluateProgress
 
-  - Required permission: ADMIN:NAMESPACE:{namespace}:CHALLENGE:PROGRESSION [UPDATE]
+  * Required permission: ADMIN:NAMESPACE:{namespace}:CHALLENGE:PROGRESSION [UPDATE]
 */
 func (a *Client) AdminEvaluateProgress(params *AdminEvaluateProgressParams, authInfo runtime.ClientAuthInfoWriter) (*AdminEvaluateProgressNoContent, *AdminEvaluateProgressUnauthorized, *AdminEvaluateProgressForbidden, *AdminEvaluateProgressNotFound, *AdminEvaluateProgressInternalServerError, error) {
 	// TODO: Validate the params before sending
@@ -103,7 +103,7 @@ func (a *Client) AdminEvaluateProgress(params *AdminEvaluateProgressParams, auth
 /*
 AdminEvaluateProgressShort
 
-  - Required permission: ADMIN:NAMESPACE:{namespace}:CHALLENGE:PROGRESSION [UPDATE]
+  * Required permission: ADMIN:NAMESPACE:{namespace}:CHALLENGE:PROGRESSION [UPDATE]
 */
 func (a *Client) AdminEvaluateProgressShort(params *AdminEvaluateProgressParams, authInfo runtime.ClientAuthInfoWriter) (*AdminEvaluateProgressNoContent, error) {
 	// TODO: Validate the params before sending

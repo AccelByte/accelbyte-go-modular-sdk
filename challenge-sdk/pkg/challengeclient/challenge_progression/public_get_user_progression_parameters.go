@@ -57,8 +57,7 @@ func NewPublicGetUserProgressionParamsWithHTTPClient(client *http.Client) *Publi
 	}
 }
 
-/*
-PublicGetUserProgressionParams contains all the parameters to send to the API endpoint
+/*PublicGetUserProgressionParams contains all the parameters to send to the API endpoint
 for the public get user progression operation typically these are written to a http.Request
 */
 type PublicGetUserProgressionParams struct {

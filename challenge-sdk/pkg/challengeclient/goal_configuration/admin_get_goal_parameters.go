@@ -57,8 +57,7 @@ func NewAdminGetGoalParamsWithHTTPClient(client *http.Client) *AdminGetGoalParam
 	}
 }
 
-/*
-AdminGetGoalParams contains all the parameters to send to the API endpoint
+/*AdminGetGoalParams contains all the parameters to send to the API endpoint
 for the admin get goal operation typically these are written to a http.Request
 */
 type AdminGetGoalParams struct {

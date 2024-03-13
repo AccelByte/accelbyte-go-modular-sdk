@@ -67,10 +67,9 @@ func NewAdminGetUserRewardsOK() *AdminGetUserRewardsOK {
 	return &AdminGetUserRewardsOK{}
 }
 
-/*
-AdminGetUserRewardsOK handles this case with default header values.
+/*AdminGetUserRewardsOK handles this case with default header values.
 
-	OK
+  OK
 */
 type AdminGetUserRewardsOK struct {
 	Payload *challengeclientmodels.ModelListUserRewardsResponse
@@ -121,10 +120,9 @@ func NewAdminGetUserRewardsUnauthorized() *AdminGetUserRewardsUnauthorized {
 	return &AdminGetUserRewardsUnauthorized{}
 }
 
-/*
-AdminGetUserRewardsUnauthorized handles this case with default header values.
+/*AdminGetUserRewardsUnauthorized handles this case with default header values.
 
-	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type AdminGetUserRewardsUnauthorized struct {
 	Payload *challengeclientmodels.IamErrorResponse
@@ -175,10 +173,9 @@ func NewAdminGetUserRewardsForbidden() *AdminGetUserRewardsForbidden {
 	return &AdminGetUserRewardsForbidden{}
 }
 
-/*
-AdminGetUserRewardsForbidden handles this case with default header values.
+/*AdminGetUserRewardsForbidden handles this case with default header values.
 
-	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permission</td></tr></table>
+  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permission</td></tr></table>
 */
 type AdminGetUserRewardsForbidden struct {
 	Payload *challengeclientmodels.IamErrorResponse
@@ -229,10 +226,9 @@ func NewAdminGetUserRewardsInternalServerError() *AdminGetUserRewardsInternalSer
 	return &AdminGetUserRewardsInternalServerError{}
 }
 
-/*
-AdminGetUserRewardsInternalServerError handles this case with default header values.
+/*AdminGetUserRewardsInternalServerError handles this case with default header values.
 
-	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error: {{message}}</td></tr></table>
+  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error: {{message}}</td></tr></table>
 */
 type AdminGetUserRewardsInternalServerError struct {
 	Payload *challengeclientmodels.ResponseError

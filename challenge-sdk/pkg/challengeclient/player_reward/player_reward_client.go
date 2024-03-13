@@ -45,7 +45,7 @@ Deprecated: 2022-08-10 - Use AdminGetUserRewardsShort instead.
 
 AdminGetUserRewards
 
-  - Required permission: ADMIN:NAMESPACE:{namespace}:CHALLENGE:REWARD [READ]
+  * Required permission: ADMIN:NAMESPACE:{namespace}:CHALLENGE:REWARD [READ]
 */
 func (a *Client) AdminGetUserRewards(params *AdminGetUserRewardsParams, authInfo runtime.ClientAuthInfoWriter) (*AdminGetUserRewardsOK, *AdminGetUserRewardsUnauthorized, *AdminGetUserRewardsForbidden, *AdminGetUserRewardsInternalServerError, error) {
 	// TODO: Validate the params before sending
@@ -100,7 +100,7 @@ func (a *Client) AdminGetUserRewards(params *AdminGetUserRewardsParams, authInfo
 /*
 AdminGetUserRewardsShort
 
-  - Required permission: ADMIN:NAMESPACE:{namespace}:CHALLENGE:REWARD [READ]
+  * Required permission: ADMIN:NAMESPACE:{namespace}:CHALLENGE:REWARD [READ]
 */
 func (a *Client) AdminGetUserRewardsShort(params *AdminGetUserRewardsParams, authInfo runtime.ClientAuthInfoWriter) (*AdminGetUserRewardsOK, error) {
 	// TODO: Validate the params before sending

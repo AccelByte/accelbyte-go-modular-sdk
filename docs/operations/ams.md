@@ -54,6 +54,7 @@
 |---|---|---|---|---|---|
 | `/ams/v1/admin/namespaces/{namespace}/fleets/{fleetID}/servers/history` | GET | FleetServerHistoryShort | [FleetServerHistoryShort](../../ams-sdk/pkg/amsclient/servers/servers_client.go) | [FleetServerHistoryShort](../../ams-sdk/pkg/wrapper_servers.go) | [FleetServerHistoryShort](../../samples/cli/cmd/ams/servers/fleetServerHistory.go) |
 | `/ams/v1/admin/namespaces/{namespace}/servers/{serverID}` | GET | FleetServerInfoShort | [FleetServerInfoShort](../../ams-sdk/pkg/amsclient/servers/servers_client.go) | [FleetServerInfoShort](../../ams-sdk/pkg/wrapper_servers.go) | [FleetServerInfoShort](../../samples/cli/cmd/ams/servers/fleetServerInfo.go) |
+| `/ams/v1/admin/namespaces/{namespace}/servers/{serverID}/connectioninfo` | GET | FleetServerConnectionInfoShort | [FleetServerConnectionInfoShort](../../ams-sdk/pkg/amsclient/servers/servers_client.go) | [FleetServerConnectionInfoShort](../../ams-sdk/pkg/wrapper_servers.go) | [FleetServerConnectionInfoShort](../../samples/cli/cmd/ams/servers/fleetServerConnectionInfo.go) |
 | `/ams/v1/admin/namespaces/{namespace}/servers/{serverID}/history` | GET | ServerHistoryShort | [ServerHistoryShort](../../ams-sdk/pkg/amsclient/servers/servers_client.go) | [ServerHistoryShort](../../ams-sdk/pkg/wrapper_servers.go) | [ServerHistoryShort](../../samples/cli/cmd/ams/servers/serverHistory.go) |
 
 ### Images Wrapper:  [Images](../../ams-sdk/pkg/wrapper_images.go)
@@ -117,6 +118,7 @@
 | `api.FleetListResponse` | [ApiFleetListResponse ](../../ams-sdk/pkg/amsclientmodels/api_fleet_list_response.go) |
 | `api.FleetParameters` | [ApiFleetParameters ](../../ams-sdk/pkg/amsclientmodels/api_fleet_parameters.go) |
 | `api.FleetRegionalServerCounts` | [ApiFleetRegionalServerCounts ](../../ams-sdk/pkg/amsclientmodels/api_fleet_regional_server_counts.go) |
+| `api.FleetServerConnectionInfoResponse` | [ApiFleetServerConnectionInfoResponse ](../../ams-sdk/pkg/amsclientmodels/api_fleet_server_connection_info_response.go) |
 | `api.FleetServerHistoryEventResponse` | [ApiFleetServerHistoryEventResponse ](../../ams-sdk/pkg/amsclientmodels/api_fleet_server_history_event_response.go) |
 | `api.FleetServerHistoryResponse` | [ApiFleetServerHistoryResponse ](../../ams-sdk/pkg/amsclientmodels/api_fleet_server_history_response.go) |
 | `api.FleetServerInfoResponse` | [ApiFleetServerInfoResponse ](../../ams-sdk/pkg/amsclientmodels/api_fleet_server_info_response.go) |
@@ -133,6 +135,10 @@
 | `api.QoSServer` | [ApiQoSServer ](../../ams-sdk/pkg/amsclientmodels/api_qo_s_server.go) |
 | `api.ReferencingFleet` | [ApiReferencingFleet ](../../ams-sdk/pkg/amsclientmodels/api_referencing_fleet.go) |
 | `api.RegionConfig` | [ApiRegionConfig ](../../ams-sdk/pkg/amsclientmodels/api_region_config.go) |
+| `api.Time` | [ApiTime ](../../ams-sdk/pkg/amsclientmodels/api_time.go) |
 | `api.Timeout` | [ApiTimeout ](../../ams-sdk/pkg/amsclientmodels/api_timeout.go) |
 | `api.UpdateServerRequest` | [ApiUpdateServerRequest ](../../ams-sdk/pkg/amsclientmodels/api_update_server_request.go) |
 | `response.ErrorResponse` | [ResponseErrorResponse ](../../ams-sdk/pkg/amsclientmodels/response_error_response.go) |
+| `time.Location` | [TimeLocation ](../../ams-sdk/pkg/amsclientmodels/time_location.go) |
+| `time.zone` | [TimeZone ](../../ams-sdk/pkg/amsclientmodels/time_zone.go) |
+| `time.zoneTrans` | [TimeZoneTrans ](../../ams-sdk/pkg/amsclientmodels/time_zone_trans.go) |

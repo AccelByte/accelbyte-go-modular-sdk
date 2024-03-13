@@ -59,8 +59,7 @@ func NewPublicClaimUserRewardsParamsWithHTTPClient(client *http.Client) *PublicC
 	}
 }
 
-/*
-PublicClaimUserRewardsParams contains all the parameters to send to the API endpoint
+/*PublicClaimUserRewardsParams contains all the parameters to send to the API endpoint
 for the public claim user rewards operation typically these are written to a http.Request
 */
 type PublicClaimUserRewardsParams struct {

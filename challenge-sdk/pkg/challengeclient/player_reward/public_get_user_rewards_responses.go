@@ -67,10 +67,9 @@ func NewPublicGetUserRewardsOK() *PublicGetUserRewardsOK {
 	return &PublicGetUserRewardsOK{}
 }
 
-/*
-PublicGetUserRewardsOK handles this case with default header values.
+/*PublicGetUserRewardsOK handles this case with default header values.
 
-	OK
+  OK
 */
 type PublicGetUserRewardsOK struct {
 	Payload *challengeclientmodels.ModelListUserRewardsResponse
@@ -121,10 +120,9 @@ func NewPublicGetUserRewardsUnauthorized() *PublicGetUserRewardsUnauthorized {
 	return &PublicGetUserRewardsUnauthorized{}
 }
 
-/*
-PublicGetUserRewardsUnauthorized handles this case with default header values.
+/*PublicGetUserRewardsUnauthorized handles this case with default header values.
 
-	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type PublicGetUserRewardsUnauthorized struct {
 	Payload *challengeclientmodels.IamErrorResponse
@@ -175,10 +173,9 @@ func NewPublicGetUserRewardsForbidden() *PublicGetUserRewardsForbidden {
 	return &PublicGetUserRewardsForbidden{}
 }
 
-/*
-PublicGetUserRewardsForbidden handles this case with default header values.
+/*PublicGetUserRewardsForbidden handles this case with default header values.
 
-	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permission</td></tr></table>
+  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permission</td></tr></table>
 */
 type PublicGetUserRewardsForbidden struct {
 	Payload *challengeclientmodels.IamErrorResponse
@@ -229,10 +226,9 @@ func NewPublicGetUserRewardsInternalServerError() *PublicGetUserRewardsInternalS
 	return &PublicGetUserRewardsInternalServerError{}
 }
 
-/*
-PublicGetUserRewardsInternalServerError handles this case with default header values.
+/*PublicGetUserRewardsInternalServerError handles this case with default header values.
 
-	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error: {{message}}</td></tr></table>
+  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error: {{message}}</td></tr></table>
 */
 type PublicGetUserRewardsInternalServerError struct {
 	Payload *challengeclientmodels.ResponseError

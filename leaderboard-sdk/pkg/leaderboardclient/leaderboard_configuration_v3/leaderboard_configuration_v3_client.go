@@ -58,11 +58,6 @@ Deprecated: 2022-08-10 - Use GetLeaderboardConfigurationsAdminV3Short instead.
 GetLeaderboardConfigurationsAdminV3 list all leaderboards by given namespace
 
 
-Required permission 'ADMIN:NAMESPACE:{namespace}:LEADERBOARD [READ]'
-
-
-
-
 This endpoint return all leaderboard configurations
 */
 func (a *Client) GetLeaderboardConfigurationsAdminV3(params *GetLeaderboardConfigurationsAdminV3Params, authInfo runtime.ClientAuthInfoWriter) (*GetLeaderboardConfigurationsAdminV3OK, *GetLeaderboardConfigurationsAdminV3BadRequest, *GetLeaderboardConfigurationsAdminV3Unauthorized, *GetLeaderboardConfigurationsAdminV3Forbidden, *GetLeaderboardConfigurationsAdminV3InternalServerError, error) {
@@ -120,11 +115,6 @@ func (a *Client) GetLeaderboardConfigurationsAdminV3(params *GetLeaderboardConfi
 
 /*
 GetLeaderboardConfigurationsAdminV3Short list all leaderboards by given namespace
-
-
-Required permission 'ADMIN:NAMESPACE:{namespace}:LEADERBOARD [READ]'
-
-
 
 
 This endpoint return all leaderboard configurations
@@ -187,8 +177,6 @@ Deprecated: 2022-08-10 - Use CreateLeaderboardConfigurationAdminV3Short instead.
 
 CreateLeaderboardConfigurationAdminV3 create new leaderboard
 
-
-Required permission 'ADMIN:NAMESPACE:{namespace}:LEADERBOARD [CREATE]'
 
  Fields :
 
@@ -278,9 +266,7 @@ func (a *Client) CreateLeaderboardConfigurationAdminV3(params *CreateLeaderboard
 CreateLeaderboardConfigurationAdminV3Short create new leaderboard
 
 
-Required permission 'ADMIN:NAMESPACE:{namespace}:LEADERBOARD [CREATE]'
-
- Fields :
+Fields :
 
 
 
@@ -369,11 +355,6 @@ Deprecated: 2022-08-10 - Use DeleteBulkLeaderboardConfigurationAdminV3Short inst
 DeleteBulkLeaderboardConfigurationAdminV3 delete bulk leaderboards. response body will contains failed leaderboard with the reason why it's failed to delete
 
 
-Required permission 'ADMIN:NAMESPACE:{namespace}:LEADERBOARD [DELETE]'
-
-
-
-
 This endpoint delete multiple leaderboards configuration in one request
 */
 func (a *Client) DeleteBulkLeaderboardConfigurationAdminV3(params *DeleteBulkLeaderboardConfigurationAdminV3Params, authInfo runtime.ClientAuthInfoWriter) (*DeleteBulkLeaderboardConfigurationAdminV3OK, *DeleteBulkLeaderboardConfigurationAdminV3BadRequest, *DeleteBulkLeaderboardConfigurationAdminV3Unauthorized, *DeleteBulkLeaderboardConfigurationAdminV3Forbidden, *DeleteBulkLeaderboardConfigurationAdminV3InternalServerError, error) {
@@ -431,11 +412,6 @@ func (a *Client) DeleteBulkLeaderboardConfigurationAdminV3(params *DeleteBulkLea
 
 /*
 DeleteBulkLeaderboardConfigurationAdminV3Short delete bulk leaderboards. response body will contains failed leaderboard with the reason why it's failed to delete
-
-
-Required permission 'ADMIN:NAMESPACE:{namespace}:LEADERBOARD [DELETE]'
-
-
 
 
 This endpoint delete multiple leaderboards configuration in one request
@@ -497,11 +473,6 @@ func (a *Client) DeleteBulkLeaderboardConfigurationAdminV3Short(params *DeleteBu
 Deprecated: 2022-08-10 - Use GetLeaderboardConfigurationAdminV3Short instead.
 
 GetLeaderboardConfigurationAdminV3 get leaderboard by leaderboardcode
-
-
-Required permission 'ADMIN:NAMESPACE:{namespace}:LEADERBOARD [READ]'
-
-
 
 
 This endpoint returns a leaderboard configuration
@@ -566,11 +537,6 @@ func (a *Client) GetLeaderboardConfigurationAdminV3(params *GetLeaderboardConfig
 GetLeaderboardConfigurationAdminV3Short get leaderboard by leaderboardcode
 
 
-Required permission 'ADMIN:NAMESPACE:{namespace}:LEADERBOARD [READ]'
-
-
-
-
 This endpoint returns a leaderboard configuration
 */
 func (a *Client) GetLeaderboardConfigurationAdminV3Short(params *GetLeaderboardConfigurationAdminV3Params, authInfo runtime.ClientAuthInfoWriter) (*GetLeaderboardConfigurationAdminV3OK, error) {
@@ -633,8 +599,6 @@ Deprecated: 2022-08-10 - Use UpdateLeaderboardConfigurationAdminV3Short instead.
 
 UpdateLeaderboardConfigurationAdminV3 update leaderboard by leaderboardcode
 
-
-Required permission 'ADMIN:NAMESPACE:{namespace}:LEADERBOARD [UPDATE]'
 
  Fields :
 
@@ -727,9 +691,7 @@ func (a *Client) UpdateLeaderboardConfigurationAdminV3(params *UpdateLeaderboard
 UpdateLeaderboardConfigurationAdminV3Short update leaderboard by leaderboardcode
 
 
-Required permission 'ADMIN:NAMESPACE:{namespace}:LEADERBOARD [UPDATE]'
-
- Fields :
+Fields :
 
 
 
@@ -820,11 +782,6 @@ Deprecated: 2022-08-10 - Use DeleteLeaderboardConfigurationAdminV3Short instead.
 DeleteLeaderboardConfigurationAdminV3 delete leaderboard by leaderboardcode
 
 
-Required permission 'ADMIN:NAMESPACE:{namespace}:LEADERBOARD [DELETE]'
-
-
-
-
 This endpoint delete a leaderboard configuration
 */
 func (a *Client) DeleteLeaderboardConfigurationAdminV3(params *DeleteLeaderboardConfigurationAdminV3Params, authInfo runtime.ClientAuthInfoWriter) (*DeleteLeaderboardConfigurationAdminV3NoContent, *DeleteLeaderboardConfigurationAdminV3BadRequest, *DeleteLeaderboardConfigurationAdminV3Unauthorized, *DeleteLeaderboardConfigurationAdminV3Forbidden, *DeleteLeaderboardConfigurationAdminV3NotFound, *DeleteLeaderboardConfigurationAdminV3InternalServerError, error) {
@@ -885,11 +842,6 @@ func (a *Client) DeleteLeaderboardConfigurationAdminV3(params *DeleteLeaderboard
 
 /*
 DeleteLeaderboardConfigurationAdminV3Short delete leaderboard by leaderboardcode
-
-
-Required permission 'ADMIN:NAMESPACE:{namespace}:LEADERBOARD [DELETE]'
-
-
 
 
 This endpoint delete a leaderboard configuration
@@ -955,12 +907,7 @@ Deprecated: 2022-08-10 - Use HardDeleteLeaderboardAdminV3Short instead.
 HardDeleteLeaderboardAdminV3 hard delete leaderboard config and data by leaderboard code
 
 
-[Test Facility Only]
-
-
-
-
-Required permission 'ADMIN:NAMESPACE:{namespace}:LEADERBOARD [DELETE]'
+ [Test Facility Only]
 
 
 
@@ -1033,11 +980,6 @@ HardDeleteLeaderboardAdminV3Short hard delete leaderboard config and data by lea
 
 
  [Test Facility Only]
-
-
-
-
-Required permission 'ADMIN:NAMESPACE:{namespace}:LEADERBOARD [DELETE]'
 
 
 

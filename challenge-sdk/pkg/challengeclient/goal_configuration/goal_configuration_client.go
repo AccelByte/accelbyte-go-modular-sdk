@@ -49,7 +49,7 @@ Deprecated: 2022-08-10 - Use AdminGetGoalsShort instead.
 
 AdminGetGoals
 
-  - Required permission: ADMIN:NAMESPACE:{namespace}:CHALLENGE [READ]
+  * Required permission: ADMIN:NAMESPACE:{namespace}:CHALLENGE [READ]
 */
 func (a *Client) AdminGetGoals(params *AdminGetGoalsParams, authInfo runtime.ClientAuthInfoWriter) (*AdminGetGoalsOK, *AdminGetGoalsUnauthorized, *AdminGetGoalsForbidden, *AdminGetGoalsNotFound, *AdminGetGoalsInternalServerError, error) {
 	// TODO: Validate the params before sending
@@ -107,7 +107,7 @@ func (a *Client) AdminGetGoals(params *AdminGetGoalsParams, authInfo runtime.Cli
 /*
 AdminGetGoalsShort
 
-  - Required permission: ADMIN:NAMESPACE:{namespace}:CHALLENGE [READ]
+  * Required permission: ADMIN:NAMESPACE:{namespace}:CHALLENGE [READ]
 */
 func (a *Client) AdminGetGoalsShort(params *AdminGetGoalsParams, authInfo runtime.ClientAuthInfoWriter) (*AdminGetGoalsOK, error) {
 	// TODO: Validate the params before sending
@@ -167,7 +167,7 @@ Deprecated: 2022-08-10 - Use AdminCreateGoalShort instead.
 
 AdminCreateGoal
 
-  - Required permission: ADMIN:NAMESPACE:{namespace}:CHALLENGE [CREATE]
+  * Required permission: ADMIN:NAMESPACE:{namespace}:CHALLENGE [CREATE]
 
 Goal describe set of requirements that need to be fulfilled by players in order to complete it and describe what is the rewards given to player when they complete the goal.The requirement will have target value and a operator that will evaluate that against an observable playerâs attribute (e.g. statistic, entitlement). Goal belongs to a challenge.
 */
@@ -230,7 +230,7 @@ func (a *Client) AdminCreateGoal(params *AdminCreateGoalParams, authInfo runtime
 /*
 AdminCreateGoalShort
 
-  - Required permission: ADMIN:NAMESPACE:{namespace}:CHALLENGE [CREATE]
+  * Required permission: ADMIN:NAMESPACE:{namespace}:CHALLENGE [CREATE]
 
 Goal describe set of requirements that need to be fulfilled by players in order to complete it and describe what is the rewards given to player when they complete the goal.The requirement will have target value and a operator that will evaluate that against an observable playerâs attribute (e.g. statistic, entitlement). Goal belongs to a challenge.
 */
@@ -294,7 +294,7 @@ Deprecated: 2022-08-10 - Use AdminGetGoalShort instead.
 
 AdminGetGoal
 
-  - Required permission: ADMIN:NAMESPACE:{namespace}:CHALLENGE [READ]
+  * Required permission: ADMIN:NAMESPACE:{namespace}:CHALLENGE [READ]
 */
 func (a *Client) AdminGetGoal(params *AdminGetGoalParams, authInfo runtime.ClientAuthInfoWriter) (*AdminGetGoalOK, *AdminGetGoalUnauthorized, *AdminGetGoalForbidden, *AdminGetGoalNotFound, *AdminGetGoalInternalServerError, error) {
 	// TODO: Validate the params before sending
@@ -352,7 +352,7 @@ func (a *Client) AdminGetGoal(params *AdminGetGoalParams, authInfo runtime.Clien
 /*
 AdminGetGoalShort
 
-  - Required permission: ADMIN:NAMESPACE:{namespace}:CHALLENGE [READ]
+  * Required permission: ADMIN:NAMESPACE:{namespace}:CHALLENGE [READ]
 */
 func (a *Client) AdminGetGoalShort(params *AdminGetGoalParams, authInfo runtime.ClientAuthInfoWriter) (*AdminGetGoalOK, error) {
 	// TODO: Validate the params before sending
@@ -412,7 +412,7 @@ Deprecated: 2022-08-10 - Use AdminUpdateGoalsShort instead.
 
 AdminUpdateGoals
 
-  - Required permission: ADMIN:NAMESPACE:{namespace}:CHALLENGE [UPDATE]
+  * Required permission: ADMIN:NAMESPACE:{namespace}:CHALLENGE [UPDATE]
 */
 func (a *Client) AdminUpdateGoals(params *AdminUpdateGoalsParams, authInfo runtime.ClientAuthInfoWriter) (*AdminUpdateGoalsOK, *AdminUpdateGoalsNotFound, *AdminUpdateGoalsInternalServerError, error) {
 	// TODO: Validate the params before sending
@@ -464,7 +464,7 @@ func (a *Client) AdminUpdateGoals(params *AdminUpdateGoalsParams, authInfo runti
 /*
 AdminUpdateGoalsShort
 
-  - Required permission: ADMIN:NAMESPACE:{namespace}:CHALLENGE [UPDATE]
+  * Required permission: ADMIN:NAMESPACE:{namespace}:CHALLENGE [UPDATE]
 */
 func (a *Client) AdminUpdateGoalsShort(params *AdminUpdateGoalsParams, authInfo runtime.ClientAuthInfoWriter) (*AdminUpdateGoalsOK, error) {
 	// TODO: Validate the params before sending
@@ -520,7 +520,7 @@ Deprecated: 2022-08-10 - Use AdminDeleteGoalShort instead.
 
 AdminDeleteGoal
 
-  - Required permission: ADMIN:NAMESPACE:{namespace}:CHALLENGE [DELETE]
+  * Required permission: ADMIN:NAMESPACE:{namespace}:CHALLENGE [DELETE]
 */
 func (a *Client) AdminDeleteGoal(params *AdminDeleteGoalParams, authInfo runtime.ClientAuthInfoWriter) (*AdminDeleteGoalNoContent, *AdminDeleteGoalBadRequest, *AdminDeleteGoalNotFound, *AdminDeleteGoalInternalServerError, error) {
 	// TODO: Validate the params before sending
@@ -575,7 +575,7 @@ func (a *Client) AdminDeleteGoal(params *AdminDeleteGoalParams, authInfo runtime
 /*
 AdminDeleteGoalShort
 
-  - Required permission: ADMIN:NAMESPACE:{namespace}:CHALLENGE [DELETE]
+  * Required permission: ADMIN:NAMESPACE:{namespace}:CHALLENGE [DELETE]
 */
 func (a *Client) AdminDeleteGoalShort(params *AdminDeleteGoalParams, authInfo runtime.ClientAuthInfoWriter) (*AdminDeleteGoalNoContent, error) {
 	// TODO: Validate the params before sending

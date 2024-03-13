@@ -73,10 +73,9 @@ func NewAdminGetGoalOK() *AdminGetGoalOK {
 	return &AdminGetGoalOK{}
 }
 
-/*
-AdminGetGoalOK handles this case with default header values.
+/*AdminGetGoalOK handles this case with default header values.
 
-	OK
+  OK
 */
 type AdminGetGoalOK struct {
 	Payload *challengeclientmodels.ModelGoalResponse
@@ -127,10 +126,9 @@ func NewAdminGetGoalUnauthorized() *AdminGetGoalUnauthorized {
 	return &AdminGetGoalUnauthorized{}
 }
 
-/*
-AdminGetGoalUnauthorized handles this case with default header values.
+/*AdminGetGoalUnauthorized handles this case with default header values.
 
-	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type AdminGetGoalUnauthorized struct {
 	Payload *challengeclientmodels.IamErrorResponse
@@ -181,10 +179,9 @@ func NewAdminGetGoalForbidden() *AdminGetGoalForbidden {
 	return &AdminGetGoalForbidden{}
 }
 
-/*
-AdminGetGoalForbidden handles this case with default header values.
+/*AdminGetGoalForbidden handles this case with default header values.
 
-	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permission</td></tr></table>
+  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permission</td></tr></table>
 */
 type AdminGetGoalForbidden struct {
 	Payload *challengeclientmodels.IamErrorResponse
@@ -235,10 +232,9 @@ func NewAdminGetGoalNotFound() *AdminGetGoalNotFound {
 	return &AdminGetGoalNotFound{}
 }
 
-/*
-AdminGetGoalNotFound handles this case with default header values.
+/*AdminGetGoalNotFound handles this case with default header values.
 
-	Not Found
+  Not Found
 */
 type AdminGetGoalNotFound struct {
 	Payload *challengeclientmodels.ResponseError
@@ -289,10 +285,9 @@ func NewAdminGetGoalInternalServerError() *AdminGetGoalInternalServerError {
 	return &AdminGetGoalInternalServerError{}
 }
 
-/*
-AdminGetGoalInternalServerError handles this case with default header values.
+/*AdminGetGoalInternalServerError handles this case with default header values.
 
-	Internal Server Error
+  Internal Server Error
 */
 type AdminGetGoalInternalServerError struct {
 	Payload *challengeclientmodels.ResponseError

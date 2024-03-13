@@ -43,7 +43,7 @@ Deprecated: 2022-08-10 - Use GetChallengesShort instead.
 
 GetChallenges
 
-  - Required permission: NAMESPACE:{namespace}:CHALLENGE [READ]
+  * Required permission: NAMESPACE:{namespace}:CHALLENGE [READ]
 */
 func (a *Client) GetChallenges(params *GetChallengesParams, authInfo runtime.ClientAuthInfoWriter) (*GetChallengesOK, *GetChallengesUnauthorized, *GetChallengesForbidden, *GetChallengesInternalServerError, error) {
 	// TODO: Validate the params before sending
@@ -98,7 +98,7 @@ func (a *Client) GetChallenges(params *GetChallengesParams, authInfo runtime.Cli
 /*
 GetChallengesShort
 
-  - Required permission: NAMESPACE:{namespace}:CHALLENGE [READ]
+  * Required permission: NAMESPACE:{namespace}:CHALLENGE [READ]
 */
 func (a *Client) GetChallengesShort(params *GetChallengesParams, authInfo runtime.ClientAuthInfoWriter) (*GetChallengesOK, error) {
 	// TODO: Validate the params before sending
@@ -156,7 +156,7 @@ Deprecated: 2022-08-10 - Use PublicGetScheduledGoalsShort instead.
 
 PublicGetScheduledGoals
 
-  - Required permission: NAMESPACE:{namespace}:CHALLENGE [READ]
+  * Required permission: NAMESPACE:{namespace}:CHALLENGE [READ]
 */
 func (a *Client) PublicGetScheduledGoals(params *PublicGetScheduledGoalsParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGetScheduledGoalsOK, *PublicGetScheduledGoalsUnauthorized, *PublicGetScheduledGoalsForbidden, *PublicGetScheduledGoalsInternalServerError, error) {
 	// TODO: Validate the params before sending
@@ -211,7 +211,7 @@ func (a *Client) PublicGetScheduledGoals(params *PublicGetScheduledGoalsParams, 
 /*
 PublicGetScheduledGoalsShort
 
-  - Required permission: NAMESPACE:{namespace}:CHALLENGE [READ]
+  * Required permission: NAMESPACE:{namespace}:CHALLENGE [READ]
 */
 func (a *Client) PublicGetScheduledGoalsShort(params *PublicGetScheduledGoalsParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGetScheduledGoalsOK, error) {
 	// TODO: Validate the params before sending

@@ -432,9 +432,20 @@ func (lobbyService *LobbyServiceWebsocket) MatchmakingNotif(counterPartyMember [
 	return nil
 }
 
-func (lobbyService *LobbyServiceWebsocket) MessageNotif(from string, id string, payload string, sentAt int64, to string, topic string) error {
+func (lobbyService *LobbyServiceWebsocket) MessageNotif(from string, id string, payload string, sentAt string, to string, topic string) error {
 	logrus.Debug("MessageNotif")
 	text := fmt.Sprintf("type: %s\n%s\nfrom: %v\nid: %v\npayload: %v\nsentAt: %v\nto: %v\ntopic: %v", model.TypeMessageNotif, utils.GenerateMessageID(), from, id, payload, sentAt, to, topic)
+	err := lobbyService.ConnectionManager.Get().Conn.WriteMessage(websocket.TextMessage, []byte(text))
+	if err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (lobbyService *LobbyServiceWebsocket) MessageSessionNotif(from string, id string, payload string, sentAt string, to string, topic string) error {
+	logrus.Debug("MessageSessionNotif")
+	text := fmt.Sprintf("type: %s\n%s\nfrom: %v\nid: %v\npayload: %v\nsentAt: %v\nto: %v\ntopic: %v", model.TypeMessageSessionNotif, utils.GenerateMessageID(), from, id, payload, sentAt, to, topic)
 	err := lobbyService.ConnectionManager.Get().Conn.WriteMessage(websocket.TextMessage, []byte(text))
 	if err != nil {
 		return err
@@ -476,7 +487,7 @@ func (lobbyService *LobbyServiceWebsocket) OnlineFriends(code int64, id string, 
 	return nil
 }
 
-func (lobbyService *LobbyServiceWebsocket) PartyChatNotif(from string, id string, payload string, receivedAt int64, to string) error {
+func (lobbyService *LobbyServiceWebsocket) PartyChatNotif(from string, id string, payload string, receivedAt string, to string) error {
 	logrus.Debug("PartyChatNotif")
 	text := fmt.Sprintf("type: %s\n%s\nfrom: %v\nid: %v\npayload: %v\nreceivedAt: %v\nto: %v", model.TypePartyChatNotif, utils.GenerateMessageID(), from, id, payload, receivedAt, to)
 	err := lobbyService.ConnectionManager.Get().Conn.WriteMessage(websocket.TextMessage, []byte(text))
@@ -487,7 +498,7 @@ func (lobbyService *LobbyServiceWebsocket) PartyChatNotif(from string, id string
 	return nil
 }
 
-func (lobbyService *LobbyServiceWebsocket) PartyChatRequest(from *string, id *string, payload *string, receivedAt *int64, to *string) error {
+func (lobbyService *LobbyServiceWebsocket) PartyChatRequest(from *string, id *string, payload *string, receivedAt *string, to *string) error {
 	logrus.Debug("PartyChatRequest")
 	text := fmt.Sprintf("type: %s\n%s\nfrom: %v\nid: %v\npayload: %v\nreceivedAt: %v\nto: %v", model.TypePartyChatRequest, utils.GenerateMessageID(), from, id, payload, receivedAt, to)
 	err := lobbyService.ConnectionManager.Get().Conn.WriteMessage(websocket.TextMessage, []byte(text))
@@ -531,7 +542,7 @@ func (lobbyService *LobbyServiceWebsocket) PartyCreateResponse(code int64, id st
 	return nil
 }
 
-func (lobbyService *LobbyServiceWebsocket) PartyDataUpdateNotif(customAttributes string, invitees []string, leader string, members []string, namespace string, partyId string, updatedAt int64) error {
+func (lobbyService *LobbyServiceWebsocket) PartyDataUpdateNotif(customAttributes string, invitees []string, leader string, members []string, namespace string, partyId string, updatedAt string) error {
 	logrus.Debug("PartyDataUpdateNotif")
 	text := fmt.Sprintf("type: %s\n%s\ncustomAttributes: %v\ninvitees: %v\nleader: %v\nmembers: %v\nnamespace: %v\npartyId: %v\nupdatedAt: %v", model.TypePartyDataUpdateNotif, utils.GenerateMessageID(), customAttributes, invitees, leader, members, namespace, partyId, updatedAt)
 	err := lobbyService.ConnectionManager.Get().Conn.WriteMessage(websocket.TextMessage, []byte(text))
@@ -784,7 +795,7 @@ func (lobbyService *LobbyServiceWebsocket) PersonalChatHistoryResponse(chat stri
 	return nil
 }
 
-func (lobbyService *LobbyServiceWebsocket) PersonalChatNotif(from string, id string, payload string, receivedAt int64, to string) error {
+func (lobbyService *LobbyServiceWebsocket) PersonalChatNotif(from string, id string, payload string, receivedAt string, to string) error {
 	logrus.Debug("PersonalChatNotif")
 	text := fmt.Sprintf("type: %s\n%s\nfrom: %v\nid: %v\npayload: %v\nreceivedAt: %v\nto: %v", model.TypePersonalChatNotif, utils.GenerateMessageID(), from, id, payload, receivedAt, to)
 	err := lobbyService.ConnectionManager.Get().Conn.WriteMessage(websocket.TextMessage, []byte(text))
@@ -795,7 +806,7 @@ func (lobbyService *LobbyServiceWebsocket) PersonalChatNotif(from string, id str
 	return nil
 }
 
-func (lobbyService *LobbyServiceWebsocket) PersonalChatRequest(from *string, id *string, payload *string, receivedAt *int64, to *string) error {
+func (lobbyService *LobbyServiceWebsocket) PersonalChatRequest(from *string, id *string, payload *string, receivedAt *string, to *string) error {
 	logrus.Debug("PersonalChatRequest")
 	text := fmt.Sprintf("type: %s\n%s\nfrom: %v\nid: %v\npayload: %v\nreceivedAt: %v\nto: %v", model.TypePersonalChatRequest, utils.GenerateMessageID(), from, id, payload, receivedAt, to)
 	err := lobbyService.ConnectionManager.Get().Conn.WriteMessage(websocket.TextMessage, []byte(text))

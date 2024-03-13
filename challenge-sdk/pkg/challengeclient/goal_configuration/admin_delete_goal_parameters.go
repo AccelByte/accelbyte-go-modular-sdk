@@ -57,8 +57,7 @@ func NewAdminDeleteGoalParamsWithHTTPClient(client *http.Client) *AdminDeleteGoa
 	}
 }
 
-/*
-AdminDeleteGoalParams contains all the parameters to send to the API endpoint
+/*AdminDeleteGoalParams contains all the parameters to send to the API endpoint
 for the admin delete goal operation typically these are written to a http.Request
 */
 type AdminDeleteGoalParams struct {

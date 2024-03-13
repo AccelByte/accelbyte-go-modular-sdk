@@ -64,7 +64,7 @@ type ClientService interface {
 Deprecated: 2022-08-10 - Use SingleAdminGetAllGroupsShort instead.
 
 SingleAdminGetAllGroups get all user groups
-Required permission ADMIN:NAMESPACE:{namespace}:USER:{userId}:CONTENTGROUP [READ].
+Get user group paginated
 */
 func (a *Client) SingleAdminGetAllGroups(params *SingleAdminGetAllGroupsParams, authInfo runtime.ClientAuthInfoWriter) (*SingleAdminGetAllGroupsOK, *SingleAdminGetAllGroupsBadRequest, *SingleAdminGetAllGroupsUnauthorized, *SingleAdminGetAllGroupsInternalServerError, error) {
 	// TODO: Validate the params before sending
@@ -118,7 +118,7 @@ func (a *Client) SingleAdminGetAllGroups(params *SingleAdminGetAllGroupsParams, 
 
 /*
 SingleAdminGetAllGroupsShort get all user groups
-Required permission ADMIN:NAMESPACE:{namespace}:USER:{userId}:CONTENTGROUP [READ].
+Get user group paginated
 */
 func (a *Client) SingleAdminGetAllGroupsShort(params *SingleAdminGetAllGroupsParams, authInfo runtime.ClientAuthInfoWriter) (*SingleAdminGetAllGroupsOK, error) {
 	// TODO: Validate the params before sending
@@ -175,7 +175,7 @@ func (a *Client) SingleAdminGetAllGroupsShort(params *SingleAdminGetAllGroupsPar
 Deprecated: 2022-08-10 - Use AdminCreateGroupShort instead.
 
 AdminCreateGroup create groups
-Required permission ADMIN:NAMESPACE:{namespace}:USER:{userId}:CONTENTGROUP [CREATE]
+Create group
 */
 func (a *Client) AdminCreateGroup(params *AdminCreateGroupParams, authInfo runtime.ClientAuthInfoWriter) (*AdminCreateGroupCreated, *AdminCreateGroupBadRequest, *AdminCreateGroupUnauthorized, *AdminCreateGroupInternalServerError, error) {
 	// TODO: Validate the params before sending
@@ -229,7 +229,7 @@ func (a *Client) AdminCreateGroup(params *AdminCreateGroupParams, authInfo runti
 
 /*
 AdminCreateGroupShort create groups
-Required permission ADMIN:NAMESPACE:{namespace}:USER:{userId}:CONTENTGROUP [CREATE]
+Create group
 */
 func (a *Client) AdminCreateGroupShort(params *AdminCreateGroupParams, authInfo runtime.ClientAuthInfoWriter) (*AdminCreateGroupCreated, error) {
 	// TODO: Validate the params before sending
@@ -286,7 +286,7 @@ func (a *Client) AdminCreateGroupShort(params *AdminCreateGroupParams, authInfo 
 Deprecated: 2022-08-10 - Use SingleAdminGetGroupShort instead.
 
 SingleAdminGetGroup get specific user group
-Required permission ADMIN:NAMESPACE:{namespace}:USER:{userId}:CONTENTGROUP [READ].
+Get user group by group ID
 */
 func (a *Client) SingleAdminGetGroup(params *SingleAdminGetGroupParams, authInfo runtime.ClientAuthInfoWriter) (*SingleAdminGetGroupOK, *SingleAdminGetGroupUnauthorized, *SingleAdminGetGroupNotFound, *SingleAdminGetGroupInternalServerError, error) {
 	// TODO: Validate the params before sending
@@ -340,7 +340,7 @@ func (a *Client) SingleAdminGetGroup(params *SingleAdminGetGroupParams, authInfo
 
 /*
 SingleAdminGetGroupShort get specific user group
-Required permission ADMIN:NAMESPACE:{namespace}:USER:{userId}:CONTENTGROUP [READ].
+Get user group by group ID
 */
 func (a *Client) SingleAdminGetGroupShort(params *SingleAdminGetGroupParams, authInfo runtime.ClientAuthInfoWriter) (*SingleAdminGetGroupOK, error) {
 	// TODO: Validate the params before sending
@@ -397,8 +397,7 @@ func (a *Client) SingleAdminGetGroupShort(params *SingleAdminGetGroupParams, aut
 Deprecated: 2022-08-10 - Use SingleAdminUpdateGroupShort instead.
 
 SingleAdminUpdateGroup update group
-Required permission ADMIN:NAMESPACE:{namespace}:USER:{userId}:CONTENTGROUP [UPDATE]
-replace group name and contents with new ones.
+Replace group name and contents with new ones.
 */
 func (a *Client) SingleAdminUpdateGroup(params *SingleAdminUpdateGroupParams, authInfo runtime.ClientAuthInfoWriter) (*SingleAdminUpdateGroupOK, *SingleAdminUpdateGroupBadRequest, *SingleAdminUpdateGroupUnauthorized, *SingleAdminUpdateGroupNotFound, *SingleAdminUpdateGroupInternalServerError, error) {
 	// TODO: Validate the params before sending
@@ -455,8 +454,7 @@ func (a *Client) SingleAdminUpdateGroup(params *SingleAdminUpdateGroupParams, au
 
 /*
 SingleAdminUpdateGroupShort update group
-Required permission ADMIN:NAMESPACE:{namespace}:USER:{userId}:CONTENTGROUP [UPDATE]
-replace group name and contents with new ones.
+Replace group name and contents with new ones.
 */
 func (a *Client) SingleAdminUpdateGroupShort(params *SingleAdminUpdateGroupParams, authInfo runtime.ClientAuthInfoWriter) (*SingleAdminUpdateGroupOK, error) {
 	// TODO: Validate the params before sending
@@ -515,7 +513,7 @@ func (a *Client) SingleAdminUpdateGroupShort(params *SingleAdminUpdateGroupParam
 Deprecated: 2022-08-10 - Use SingleAdminDeleteGroupShort instead.
 
 SingleAdminDeleteGroup delete group
-Required permission ADMIN:NAMESPACE:{namespace}:USER:{userId}:CONTENTGROUP [DELETE]
+Delete group by group ID
 */
 func (a *Client) SingleAdminDeleteGroup(params *SingleAdminDeleteGroupParams, authInfo runtime.ClientAuthInfoWriter) (*SingleAdminDeleteGroupNoContent, *SingleAdminDeleteGroupUnauthorized, *SingleAdminDeleteGroupNotFound, *SingleAdminDeleteGroupInternalServerError, error) {
 	// TODO: Validate the params before sending
@@ -569,7 +567,7 @@ func (a *Client) SingleAdminDeleteGroup(params *SingleAdminDeleteGroupParams, au
 
 /*
 SingleAdminDeleteGroupShort delete group
-Required permission ADMIN:NAMESPACE:{namespace}:USER:{userId}:CONTENTGROUP [DELETE]
+Delete group by group ID
 */
 func (a *Client) SingleAdminDeleteGroupShort(params *SingleAdminDeleteGroupParams, authInfo runtime.ClientAuthInfoWriter) (*SingleAdminDeleteGroupNoContent, error) {
 	// TODO: Validate the params before sending
@@ -626,7 +624,7 @@ func (a *Client) SingleAdminDeleteGroupShort(params *SingleAdminDeleteGroupParam
 Deprecated: 2022-08-10 - Use SingleAdminGetGroupContentsShort instead.
 
 SingleAdminGetGroupContents (legacy) get contents belong to a group
-Required permission ADMIN:NAMESPACE:{namespace}:USER:{userId}:CONTENT [READ].
+Get content belong to a group
 */
 func (a *Client) SingleAdminGetGroupContents(params *SingleAdminGetGroupContentsParams, authInfo runtime.ClientAuthInfoWriter) (*SingleAdminGetGroupContentsOK, *SingleAdminGetGroupContentsBadRequest, *SingleAdminGetGroupContentsUnauthorized, *SingleAdminGetGroupContentsNotFound, *SingleAdminGetGroupContentsInternalServerError, error) {
 	// TODO: Validate the params before sending
@@ -683,7 +681,7 @@ func (a *Client) SingleAdminGetGroupContents(params *SingleAdminGetGroupContents
 
 /*
 SingleAdminGetGroupContentsShort (legacy) get contents belong to a group
-Required permission ADMIN:NAMESPACE:{namespace}:USER:{userId}:CONTENT [READ].
+Get content belong to a group
 */
 func (a *Client) SingleAdminGetGroupContentsShort(params *SingleAdminGetGroupContentsParams, authInfo runtime.ClientAuthInfoWriter) (*SingleAdminGetGroupContentsOK, error) {
 	// TODO: Validate the params before sending
@@ -742,7 +740,7 @@ func (a *Client) SingleAdminGetGroupContentsShort(params *SingleAdminGetGroupCon
 Deprecated: 2022-08-10 - Use AdminGetAllGroupsShort instead.
 
 AdminGetAllGroups get all user groups
-Required permission ADMIN:NAMESPACE:{namespace}:USER:{userId}:CONTENTGROUP [READ].
+Get user group paginated
 */
 func (a *Client) AdminGetAllGroups(params *AdminGetAllGroupsParams, authInfo runtime.ClientAuthInfoWriter) (*AdminGetAllGroupsOK, *AdminGetAllGroupsBadRequest, *AdminGetAllGroupsUnauthorized, *AdminGetAllGroupsInternalServerError, error) {
 	// TODO: Validate the params before sending
@@ -796,7 +794,7 @@ func (a *Client) AdminGetAllGroups(params *AdminGetAllGroupsParams, authInfo run
 
 /*
 AdminGetAllGroupsShort get all user groups
-Required permission ADMIN:NAMESPACE:{namespace}:USER:{userId}:CONTENTGROUP [READ].
+Get user group paginated
 */
 func (a *Client) AdminGetAllGroupsShort(params *AdminGetAllGroupsParams, authInfo runtime.ClientAuthInfoWriter) (*AdminGetAllGroupsOK, error) {
 	// TODO: Validate the params before sending
@@ -853,7 +851,7 @@ func (a *Client) AdminGetAllGroupsShort(params *AdminGetAllGroupsParams, authInf
 Deprecated: 2022-08-10 - Use AdminGetGroupShort instead.
 
 AdminGetGroup get specific user group
-Required permission ADMIN:NAMESPACE:{namespace}:USER:{userId}:CONTENTGROUP [READ].
+Get user group by group ID
 */
 func (a *Client) AdminGetGroup(params *AdminGetGroupParams, authInfo runtime.ClientAuthInfoWriter) (*AdminGetGroupOK, *AdminGetGroupUnauthorized, *AdminGetGroupNotFound, *AdminGetGroupInternalServerError, error) {
 	// TODO: Validate the params before sending
@@ -907,7 +905,7 @@ func (a *Client) AdminGetGroup(params *AdminGetGroupParams, authInfo runtime.Cli
 
 /*
 AdminGetGroupShort get specific user group
-Required permission ADMIN:NAMESPACE:{namespace}:USER:{userId}:CONTENTGROUP [READ].
+Get user group by group ID
 */
 func (a *Client) AdminGetGroupShort(params *AdminGetGroupParams, authInfo runtime.ClientAuthInfoWriter) (*AdminGetGroupOK, error) {
 	// TODO: Validate the params before sending
@@ -964,8 +962,7 @@ func (a *Client) AdminGetGroupShort(params *AdminGetGroupParams, authInfo runtim
 Deprecated: 2022-08-10 - Use AdminUpdateGroupShort instead.
 
 AdminUpdateGroup update group
-Required permission ADMIN:NAMESPACE:{namespace}:USER:{userId}:CONTENTGROUP [UPDATE]
-replace group name and contents with new ones.
+Replace group name and contents with new ones.
 */
 func (a *Client) AdminUpdateGroup(params *AdminUpdateGroupParams, authInfo runtime.ClientAuthInfoWriter) (*AdminUpdateGroupOK, *AdminUpdateGroupBadRequest, *AdminUpdateGroupUnauthorized, *AdminUpdateGroupNotFound, *AdminUpdateGroupInternalServerError, error) {
 	// TODO: Validate the params before sending
@@ -1022,8 +1019,7 @@ func (a *Client) AdminUpdateGroup(params *AdminUpdateGroupParams, authInfo runti
 
 /*
 AdminUpdateGroupShort update group
-Required permission ADMIN:NAMESPACE:{namespace}:USER:{userId}:CONTENTGROUP [UPDATE]
-replace group name and contents with new ones.
+Replace group name and contents with new ones.
 */
 func (a *Client) AdminUpdateGroupShort(params *AdminUpdateGroupParams, authInfo runtime.ClientAuthInfoWriter) (*AdminUpdateGroupOK, error) {
 	// TODO: Validate the params before sending
@@ -1082,7 +1078,7 @@ func (a *Client) AdminUpdateGroupShort(params *AdminUpdateGroupParams, authInfo 
 Deprecated: 2022-08-10 - Use AdminDeleteGroupShort instead.
 
 AdminDeleteGroup delete group
-Required permission ADMIN:NAMESPACE:{namespace}:USER:{userId}:CONTENTGROUP [DELETE]
+Delete group
 */
 func (a *Client) AdminDeleteGroup(params *AdminDeleteGroupParams, authInfo runtime.ClientAuthInfoWriter) (*AdminDeleteGroupNoContent, *AdminDeleteGroupUnauthorized, *AdminDeleteGroupNotFound, *AdminDeleteGroupInternalServerError, error) {
 	// TODO: Validate the params before sending
@@ -1136,7 +1132,7 @@ func (a *Client) AdminDeleteGroup(params *AdminDeleteGroupParams, authInfo runti
 
 /*
 AdminDeleteGroupShort delete group
-Required permission ADMIN:NAMESPACE:{namespace}:USER:{userId}:CONTENTGROUP [DELETE]
+Delete group
 */
 func (a *Client) AdminDeleteGroupShort(params *AdminDeleteGroupParams, authInfo runtime.ClientAuthInfoWriter) (*AdminDeleteGroupNoContent, error) {
 	// TODO: Validate the params before sending
@@ -1193,7 +1189,7 @@ func (a *Client) AdminDeleteGroupShort(params *AdminDeleteGroupParams, authInfo 
 Deprecated: 2022-08-10 - Use AdminGetGroupContentsShort instead.
 
 AdminGetGroupContents (legacy) get contents belong to a group
-Required permission ADMIN:NAMESPACE:{namespace}:USER:{userId}:CONTENT [READ].
+Get content belong to a group
 */
 func (a *Client) AdminGetGroupContents(params *AdminGetGroupContentsParams, authInfo runtime.ClientAuthInfoWriter) (*AdminGetGroupContentsOK, *AdminGetGroupContentsBadRequest, *AdminGetGroupContentsUnauthorized, *AdminGetGroupContentsNotFound, *AdminGetGroupContentsInternalServerError, error) {
 	// TODO: Validate the params before sending
@@ -1250,7 +1246,7 @@ func (a *Client) AdminGetGroupContents(params *AdminGetGroupContentsParams, auth
 
 /*
 AdminGetGroupContentsShort (legacy) get contents belong to a group
-Required permission ADMIN:NAMESPACE:{namespace}:USER:{userId}:CONTENT [READ].
+Get content belong to a group
 */
 func (a *Client) AdminGetGroupContentsShort(params *AdminGetGroupContentsParams, authInfo runtime.ClientAuthInfoWriter) (*AdminGetGroupContentsOK, error) {
 	// TODO: Validate the params before sending
@@ -1309,7 +1305,7 @@ func (a *Client) AdminGetGroupContentsShort(params *AdminGetGroupContentsParams,
 Deprecated: 2022-08-10 - Use AdminGetOfficialGroupContentsV2Short instead.
 
 AdminGetOfficialGroupContentsV2 get contents belong to a group
-Required permission ADMIN:NAMESPACE:{namespace}:USER:{userId}:CONTENT [READ].
+Get contents belong to a group
 */
 func (a *Client) AdminGetOfficialGroupContentsV2(params *AdminGetOfficialGroupContentsV2Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetOfficialGroupContentsV2OK, *AdminGetOfficialGroupContentsV2BadRequest, *AdminGetOfficialGroupContentsV2Unauthorized, *AdminGetOfficialGroupContentsV2NotFound, *AdminGetOfficialGroupContentsV2InternalServerError, error) {
 	// TODO: Validate the params before sending
@@ -1366,7 +1362,7 @@ func (a *Client) AdminGetOfficialGroupContentsV2(params *AdminGetOfficialGroupCo
 
 /*
 AdminGetOfficialGroupContentsV2Short get contents belong to a group
-Required permission ADMIN:NAMESPACE:{namespace}:USER:{userId}:CONTENT [READ].
+Get contents belong to a group
 */
 func (a *Client) AdminGetOfficialGroupContentsV2Short(params *AdminGetOfficialGroupContentsV2Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetOfficialGroupContentsV2OK, error) {
 	// TODO: Validate the params before sending
@@ -1425,7 +1421,7 @@ func (a *Client) AdminGetOfficialGroupContentsV2Short(params *AdminGetOfficialGr
 Deprecated: 2022-08-10 - Use AdminGetUserGroupContentsV2Short instead.
 
 AdminGetUserGroupContentsV2 get contents belong to a group
-Required permission ADMIN:NAMESPACE:{namespace}:USER:{userId}:CONTENT [READ].
+Get contents belong to a group
 */
 func (a *Client) AdminGetUserGroupContentsV2(params *AdminGetUserGroupContentsV2Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetUserGroupContentsV2OK, *AdminGetUserGroupContentsV2BadRequest, *AdminGetUserGroupContentsV2Unauthorized, *AdminGetUserGroupContentsV2NotFound, *AdminGetUserGroupContentsV2InternalServerError, error) {
 	// TODO: Validate the params before sending
@@ -1482,7 +1478,7 @@ func (a *Client) AdminGetUserGroupContentsV2(params *AdminGetUserGroupContentsV2
 
 /*
 AdminGetUserGroupContentsV2Short get contents belong to a group
-Required permission ADMIN:NAMESPACE:{namespace}:USER:{userId}:CONTENT [READ].
+Get contents belong to a group
 */
 func (a *Client) AdminGetUserGroupContentsV2Short(params *AdminGetUserGroupContentsV2Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetUserGroupContentsV2OK, error) {
 	// TODO: Validate the params before sending

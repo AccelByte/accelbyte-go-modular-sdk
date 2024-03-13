@@ -79,10 +79,9 @@ func NewAdminUpdateChallengeOK() *AdminUpdateChallengeOK {
 	return &AdminUpdateChallengeOK{}
 }
 
-/*
-AdminUpdateChallengeOK handles this case with default header values.
+/*AdminUpdateChallengeOK handles this case with default header values.
 
-	OK
+  OK
 */
 type AdminUpdateChallengeOK struct {
 	Payload *challengeclientmodels.ModelChallengeResponse
@@ -133,10 +132,9 @@ func NewAdminUpdateChallengeUnauthorized() *AdminUpdateChallengeUnauthorized {
 	return &AdminUpdateChallengeUnauthorized{}
 }
 
-/*
-AdminUpdateChallengeUnauthorized handles this case with default header values.
+/*AdminUpdateChallengeUnauthorized handles this case with default header values.
 
-	Unauthorized
+  Unauthorized
 */
 type AdminUpdateChallengeUnauthorized struct {
 	Payload *challengeclientmodels.ResponseError
@@ -187,10 +185,9 @@ func NewAdminUpdateChallengeForbidden() *AdminUpdateChallengeForbidden {
 	return &AdminUpdateChallengeForbidden{}
 }
 
-/*
-AdminUpdateChallengeForbidden handles this case with default header values.
+/*AdminUpdateChallengeForbidden handles this case with default header values.
 
-	Forbidden
+  Forbidden
 */
 type AdminUpdateChallengeForbidden struct {
 	Payload *challengeclientmodels.ResponseError
@@ -241,10 +238,9 @@ func NewAdminUpdateChallengeNotFound() *AdminUpdateChallengeNotFound {
 	return &AdminUpdateChallengeNotFound{}
 }
 
-/*
-AdminUpdateChallengeNotFound handles this case with default header values.
+/*AdminUpdateChallengeNotFound handles this case with default header values.
 
-	Not Found
+  Not Found
 */
 type AdminUpdateChallengeNotFound struct {
 	Payload *challengeclientmodels.ResponseError
@@ -295,10 +291,9 @@ func NewAdminUpdateChallengeUnprocessableEntity() *AdminUpdateChallengeUnprocess
 	return &AdminUpdateChallengeUnprocessableEntity{}
 }
 
-/*
-AdminUpdateChallengeUnprocessableEntity handles this case with default header values.
+/*AdminUpdateChallengeUnprocessableEntity handles this case with default header values.
 
-	Unprocessable Entity
+  Unprocessable Entity
 */
 type AdminUpdateChallengeUnprocessableEntity struct {
 	Payload *challengeclientmodels.ResponseError
@@ -349,10 +344,9 @@ func NewAdminUpdateChallengeInternalServerError() *AdminUpdateChallengeInternalS
 	return &AdminUpdateChallengeInternalServerError{}
 }
 
-/*
-AdminUpdateChallengeInternalServerError handles this case with default header values.
+/*AdminUpdateChallengeInternalServerError handles this case with default header values.
 
-	Internal Server Error
+  Internal Server Error
 */
 type AdminUpdateChallengeInternalServerError struct {
 	Payload *challengeclientmodels.ResponseError
