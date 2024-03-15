@@ -79,4 +79,5 @@ use (
 	// tests
 	services-api/pkg/tests
 	services-api/pkg/utils/auth/validator
+	samples/ws-client-refresh-token
 )
