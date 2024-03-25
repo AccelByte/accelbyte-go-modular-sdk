@@ -7,9 +7,10 @@ package main
 import (
 	"bufio"
 	"fmt"
-	lobby "github.com/AccelByte/accelbyte-go-modular-sdk/lobby-sdk/pkg"
 	"strings"
 	"time"
+
+	lobby "github.com/AccelByte/accelbyte-go-modular-sdk/lobby-sdk/pkg"
 
 	iam "github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/model"

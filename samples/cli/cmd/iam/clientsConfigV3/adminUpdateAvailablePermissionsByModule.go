@@ -33,8 +33,10 @@ var AdminUpdateAvailablePermissionsByModuleCmd = &cobra.Command{
 		if errBody != nil {
 			return errBody
 		}
+		forceDelete, _ := cmd.Flags().GetBool("forceDelete")
 		input := &clients_config_v3.AdminUpdateAvailablePermissionsByModuleParams{
-			Body: body,
+			Body:        body,
+			ForceDelete: &forceDelete,
 		}
 		errNoContent := clientsConfigV3Service.AdminUpdateAvailablePermissionsByModuleShort(input)
 		if errNoContent != nil {
@@ -52,4 +54,5 @@ var AdminUpdateAvailablePermissionsByModuleCmd = &cobra.Command{
 func init() {
 	AdminUpdateAvailablePermissionsByModuleCmd.Flags().String("body", "", "Body")
 	_ = AdminUpdateAvailablePermissionsByModuleCmd.MarkFlagRequired("body")
+	AdminUpdateAvailablePermissionsByModuleCmd.Flags().Bool("forceDelete", false, "Force delete")
 }
