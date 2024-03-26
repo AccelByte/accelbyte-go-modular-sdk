@@ -7,6 +7,7 @@ replace (
 	github.com/AccelByte/accelbyte-go-modular-sdk/basic-sdk => ../../basic-sdk
 	github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk => ../../iam-sdk
 	github.com/AccelByte/accelbyte-go-modular-sdk/lobby-sdk => ../../lobby-sdk
+	github.com/AccelByte/accelbyte-go-modular-sdk/services-api => ../../services-api
 )
 
 require (
