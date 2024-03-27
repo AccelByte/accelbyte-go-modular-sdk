@@ -2,9 +2,9 @@
 
 > :warning: **This [accelbyte-go-modular-sdk](https://github.com/AccelByte/accelbyte-go-modular-sdk) 
 > is not to be confused with [accelbyte-go-sdk](https://github.com/AccelByte/accelbyte-go-sdk):** 
-> * The former (modular SDK) is planned to be the sucessor for the latter (monolithic SDK).
+> * The former (modular SDK) is **experimental** and is planned to be the sucessor for the latter (monolithic SDK).
 > * The modular SDK allows developers to include only the required modules in projects.
-> * If you are starting a new project, you may experiment with modular SDK.
+> * If you are starting a new project, you try to use modular SDK.
 > * If you use monolithic SDK in an existing project, a migration path is available via compatibility layer in modular SDK.
 > * Both monolithic and modular SDK will be maintained for some time to give time for migration until monolithic SDK is deprecated in the future.
 
