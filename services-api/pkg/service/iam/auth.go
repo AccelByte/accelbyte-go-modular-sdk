@@ -13,6 +13,7 @@ import (
 	"log"
 	"net/http"
 	"net/url"
+	"strings"
 	"sync/atomic"
 	"time"
 
@@ -198,6 +199,14 @@ func (o *OAuth20Service) Authorize(scope, challenge, challengeMethod string) (st
 	query, err := url.ParseQuery(parsedURL.RawQuery)
 	if err != nil {
 		return "", err
+	}
+	if e, ok := query["error"]; ok {
+		d, ok := query["error_description"]
+		if !ok {
+			return "", fmt.Errorf("%s", strings.Join(e, " "))
+		}
+
+		return "", fmt.Errorf("%s: %s", strings.Join(e, " "), strings.Join(d, " "))
 	}
 	requestID := query["request_id"][0]
 
