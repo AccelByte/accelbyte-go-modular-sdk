@@ -7,6 +7,7 @@ package integration
 import (
 	"fmt"
 	"os"
+	"strings"
 	"time"
 
 	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclientmodels"
@@ -63,6 +64,22 @@ func (c *ConfigRepositoryPhantAuthImpl) GetClientSecret() string {
 
 func (c *ConfigRepositoryPhantAuthImpl) GetJusticeBaseUrl() string {
 	return os.Getenv("AB_PHANTAUTH_BASE_URL")
+}
+
+func (c *ConfigRepositoryPhantAuthImpl) GetCustomBasePath(servicePath string) string {
+	baseUrl := os.Getenv(fmt.Sprintf("AB_%s_BASE_URL", strings.ToUpper(servicePath)))
+
+	customBasePath := os.Getenv(fmt.Sprintf("AB_%s_BASE_PATH", strings.ToUpper(servicePath)))
+
+	if baseUrl == "" && customBasePath == "" {
+		return c.GetJusticeBaseUrl()
+	}
+
+	if strings.HasPrefix(customBasePath, "/") {
+		return baseUrl + customBasePath
+	}
+
+	return customBasePath
 }
 
 func (t *TokenRepositoryPhantAuthImpl) Store(accessToken interface{}) error {

@@ -49,6 +49,10 @@ func (m *mockConfigRepository) GetJusticeBaseUrl() string {
 	return m.Called().Get(0).(string)
 }
 
+func (m *mockConfigRepository) GetCustomBasePath(servicePath string) string {
+	return m.Called().Get(0).(string)
+}
+
 type mockClientRequest struct {
 	mock.Mock
 }

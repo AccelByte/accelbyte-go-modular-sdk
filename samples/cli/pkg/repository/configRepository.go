@@ -4,7 +4,13 @@
 
 package repository
 
-import "github.com/AccelByte/sample-apps/pkg/models"
+import (
+	"fmt"
+	"os"
+	"strings"
+
+	"github.com/AccelByte/sample-apps/pkg/models"
+)
 
 type ConfigRepositoryImpl struct {
 }
@@ -20,4 +26,20 @@ func (configRepository *ConfigRepositoryImpl) GetClientSecret() string {
 // Empty string will use default base URL provided by SDK
 func (configRepository *ConfigRepositoryImpl) GetJusticeBaseUrl() string {
 	return models.JusticeBaseURL
+}
+
+func (configRepository *ConfigRepositoryImpl) GetCustomBasePath(servicePath string) string {
+	baseUrl := os.Getenv(fmt.Sprintf("AB_%s_BASE_URL", strings.ToUpper(servicePath)))
+
+	customBasePath := os.Getenv(fmt.Sprintf("AB_%s_BASE_PATH", strings.ToUpper(servicePath)))
+
+	if baseUrl == "" && customBasePath == "" {
+		return configRepository.GetJusticeBaseUrl()
+	}
+
+	if strings.HasPrefix(customBasePath, "/") {
+		return baseUrl + customBasePath
+	}
+
+	return customBasePath
 }

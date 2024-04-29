@@ -5,7 +5,9 @@
 package auth
 
 import (
+	"fmt"
 	"os"
+	"strings"
 
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/constant"
 )
@@ -14,6 +16,8 @@ type ConfigRepositoryImpl struct {
 	ClientId     string
 	ClientSecret string
 	BaseUrl      string
+	BaseUrls     map[string]string
+	BasePaths    map[string]string
 }
 
 func DefaultConfigRepositoryImpl() *ConfigRepositoryImpl {
@@ -34,4 +38,20 @@ func (c *ConfigRepositoryImpl) GetClientSecret() string {
 
 func (c *ConfigRepositoryImpl) GetJusticeBaseUrl() string {
 	return c.BaseUrl
+}
+
+func (c *ConfigRepositoryImpl) GetCustomBasePath(servicePath string) string {
+	baseUrl := os.Getenv(fmt.Sprintf("AB_%s_BASE_URL", strings.ToUpper(servicePath)))
+
+	customBasePath := os.Getenv(fmt.Sprintf("AB_%s_BASE_PATH", strings.ToUpper(servicePath)))
+
+	if baseUrl == "" && customBasePath == "" {
+		return c.GetJusticeBaseUrl()
+	}
+
+	if strings.HasPrefix(customBasePath, "/") {
+		return baseUrl + customBasePath
+	}
+
+	return customBasePath
 }
