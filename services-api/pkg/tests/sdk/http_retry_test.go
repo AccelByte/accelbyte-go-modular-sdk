@@ -10,7 +10,6 @@ import (
 	"fmt"
 	"net/http"
 	"os"
-	"strings"
 	"sync"
 	"testing"
 	"time"
@@ -107,21 +106,6 @@ type MyConfigRepo struct {
 func (c *MyConfigRepo) GetClientId() string       { return c.clientId }
 func (c *MyConfigRepo) GetClientSecret() string   { return c.clientSecret }
 func (c *MyConfigRepo) GetJusticeBaseUrl() string { return c.baseUrl }
-func (c *MyConfigRepo) GetCustomBasePath(servicePath string) string {
-	baseUrl := os.Getenv(fmt.Sprintf("AB_%s_BASE_URL", strings.ToUpper(servicePath)))
-
-	customBasePath := os.Getenv(fmt.Sprintf("AB_%s_BASE_PATH", strings.ToUpper(servicePath)))
-
-	if baseUrl == "" && customBasePath == "" {
-		return c.GetJusticeBaseUrl()
-	}
-
-	if strings.HasPrefix(customBasePath, "/") {
-		return baseUrl + customBasePath
-	}
-
-	return customBasePath
-}
 
 // endregion MyConfigRepo
 

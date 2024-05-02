@@ -8,5 +8,9 @@ type ConfigRepository interface {
 	GetClientId() string
 	GetClientSecret() string
 	GetJusticeBaseUrl() string
+}
+
+type ExtendedConfigRepository interface {
+	ConfigRepository
 	GetCustomBasePath(servicePath string) string
 }
