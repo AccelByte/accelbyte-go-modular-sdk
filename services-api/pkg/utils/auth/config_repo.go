@@ -44,7 +44,7 @@ type ExtendedDefaultConfigRepositoryImpl struct {
 	listBasePath map[string]string
 }
 
-func ExtendedDefaultConfigRepository(servicePath string) *ExtendedDefaultConfigRepositoryImpl {
+func ExtendedDefaultConfigRepository() *ExtendedDefaultConfigRepositoryImpl {
 	listBaseURL := map[string]string{
 		"achievement":    os.Getenv("AB_ACHIEVEMENT_BASE_URL"),
 		"ams":            os.Getenv("AB_AMS_BASE_URL"),
@@ -119,15 +119,15 @@ func ExtendedDefaultConfigRepository(servicePath string) *ExtendedDefaultConfigR
 }
 
 func (c *ExtendedDefaultConfigRepositoryImpl) GetCustomBasePath(servicePath string) string {
-	servicePath = strings.TrimPrefix(servicePath, "/")
-
-	if c.listBaseURL[servicePath] == "" && c.listBasePath[servicePath] == "" {
-		return c.GetJusticeBaseUrl()
+	servicePathTrim := strings.TrimPrefix(servicePath, "/")
+	baseURL := strings.TrimSuffix(c.listBaseURL[servicePathTrim], "/")
+	if baseURL == "" {
+		baseURL = c.GetJusticeBaseUrl()
 	}
 
 	if strings.HasPrefix(servicePath, "/") {
-		return fmt.Sprintf("%s/%s", c.listBaseURL[servicePath], servicePath)
+		return fmt.Sprintf("%s/%s", baseURL, servicePathTrim)
 	}
 
-	return c.listBasePath[servicePath]
+	return c.listBasePath[servicePathTrim]
 }
