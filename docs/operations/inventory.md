@@ -11,6 +11,14 @@
 |---|---|---|---|---|---|
 | `/inventory/v1/admin/namespaces/{namespace}/chainingOperations` | POST | AdminCreateChainingOperationsShort | [AdminCreateChainingOperationsShort](../../inventory-sdk/pkg/inventoryclient/admin_chaining_operations/admin_chaining_operations_client.go) | [AdminCreateChainingOperationsShort](../../inventory-sdk/pkg/wrapper_adminChainingOperations.go) | [AdminCreateChainingOperationsShort](../../samples/cli/cmd/inventory/adminChainingOperations/adminCreateChainingOperations.go) |
 
+### Admin Integration Configurations Wrapper:  [AdminIntegrationConfigurations](../../inventory-sdk/pkg/wrapper_adminIntegrationConfigurations.go)
+| Endpoint | Method | ID | Class | Wrapper | Example |
+|---|---|---|---|---|---|
+| `/inventory/v1/admin/namespaces/{namespace}/integrationConfigurations` | GET | AdminListIntegrationConfigurationsShort | [AdminListIntegrationConfigurationsShort](../../inventory-sdk/pkg/inventoryclient/admin_integration_configurations/admin_integration_configurations_client.go) | [AdminListIntegrationConfigurationsShort](../../inventory-sdk/pkg/wrapper_adminIntegrationConfigurations.go) | [AdminListIntegrationConfigurationsShort](../../samples/cli/cmd/inventory/adminIntegrationConfigurations/adminListIntegrationConfigurations.go) |
+| `/inventory/v1/admin/namespaces/{namespace}/integrationConfigurations` | POST | AdminCreateIntegrationConfigurationShort | [AdminCreateIntegrationConfigurationShort](../../inventory-sdk/pkg/inventoryclient/admin_integration_configurations/admin_integration_configurations_client.go) | [AdminCreateIntegrationConfigurationShort](../../inventory-sdk/pkg/wrapper_adminIntegrationConfigurations.go) | [AdminCreateIntegrationConfigurationShort](../../samples/cli/cmd/inventory/adminIntegrationConfigurations/adminCreateIntegrationConfiguration.go) |
+| `/inventory/v1/admin/namespaces/{namespace}/integrationConfigurations/{integrationConfigurationId}` | PUT | AdminUpdateIntegrationConfigurationShort | [AdminUpdateIntegrationConfigurationShort](../../inventory-sdk/pkg/inventoryclient/admin_integration_configurations/admin_integration_configurations_client.go) | [AdminUpdateIntegrationConfigurationShort](../../inventory-sdk/pkg/wrapper_adminIntegrationConfigurations.go) | [AdminUpdateIntegrationConfigurationShort](../../samples/cli/cmd/inventory/adminIntegrationConfigurations/adminUpdateIntegrationConfiguration.go) |
+| `/inventory/v1/admin/namespaces/{namespace}/integrationConfigurations/{integrationConfigurationId}/status` | PUT | AdminUpdateStatusIntegrationConfigurationShort | [AdminUpdateStatusIntegrationConfigurationShort](../../inventory-sdk/pkg/inventoryclient/admin_integration_configurations/admin_integration_configurations_client.go) | [AdminUpdateStatusIntegrationConfigurationShort](../../inventory-sdk/pkg/wrapper_adminIntegrationConfigurations.go) | [AdminUpdateStatusIntegrationConfigurationShort](../../samples/cli/cmd/inventory/adminIntegrationConfigurations/adminUpdateStatusIntegrationConfiguration.go) |
+
 ### Admin Inventories Wrapper:  [AdminInventories](../../inventory-sdk/pkg/wrapper_adminInventories.go)
 | Endpoint | Method | ID | Class | Wrapper | Example |
 |---|---|---|---|---|---|
@@ -19,6 +27,7 @@
 | `/inventory/v1/admin/namespaces/{namespace}/inventories/{inventoryId}` | GET | AdminGetInventoryShort | [AdminGetInventoryShort](../../inventory-sdk/pkg/inventoryclient/admin_inventories/admin_inventories_client.go) | [AdminGetInventoryShort](../../inventory-sdk/pkg/wrapper_adminInventories.go) | [AdminGetInventoryShort](../../samples/cli/cmd/inventory/adminInventories/adminGetInventory.go) |
 | `/inventory/v1/admin/namespaces/{namespace}/inventories/{inventoryId}` | PUT | AdminUpdateInventoryShort | [AdminUpdateInventoryShort](../../inventory-sdk/pkg/inventoryclient/admin_inventories/admin_inventories_client.go) | [AdminUpdateInventoryShort](../../inventory-sdk/pkg/wrapper_adminInventories.go) | [AdminUpdateInventoryShort](../../samples/cli/cmd/inventory/adminInventories/adminUpdateInventory.go) |
 | `/inventory/v1/admin/namespaces/{namespace}/inventories/{inventoryId}` | DELETE | DeleteInventoryShort | [DeleteInventoryShort](../../inventory-sdk/pkg/inventoryclient/admin_inventories/admin_inventories_client.go) | [DeleteInventoryShort](../../inventory-sdk/pkg/wrapper_adminInventories.go) | [DeleteInventoryShort](../../samples/cli/cmd/inventory/adminInventories/deleteInventory.go) |
+| `/inventory/v1/admin/namespaces/{namespace}/users/{userId}/purchaseable` | POST | AdminPurchasableShort | [AdminPurchasableShort](../../inventory-sdk/pkg/inventoryclient/admin_inventories/admin_inventories_client.go) | [AdminPurchasableShort](../../inventory-sdk/pkg/wrapper_adminInventories.go) | [AdminPurchasableShort](../../samples/cli/cmd/inventory/adminInventories/adminPurchasable.go) |
 
 ### Admin Items Wrapper:  [AdminItems](../../inventory-sdk/pkg/wrapper_adminItems.go)
 | Endpoint | Method | ID | Class | Wrapper | Example |
@@ -30,6 +39,7 @@
 | `/inventory/v1/admin/namespaces/{namespace}/users/{userId}/inventories/{inventoryId}/items` | POST | AdminSaveItemToInventoryShort | [AdminSaveItemToInventoryShort](../../inventory-sdk/pkg/inventoryclient/admin_items/admin_items_client.go) | [AdminSaveItemToInventoryShort](../../inventory-sdk/pkg/wrapper_adminItems.go) | [AdminSaveItemToInventoryShort](../../samples/cli/cmd/inventory/adminItems/adminSaveItemToInventory.go) |
 | `/inventory/v1/admin/namespaces/{namespace}/users/{userId}/inventories/{inventoryId}/items` | DELETE | AdminBulkRemoveItemsShort | [AdminBulkRemoveItemsShort](../../inventory-sdk/pkg/inventoryclient/admin_items/admin_items_client.go) | [AdminBulkRemoveItemsShort](../../inventory-sdk/pkg/wrapper_adminItems.go) | [AdminBulkRemoveItemsShort](../../samples/cli/cmd/inventory/adminItems/adminBulkRemoveItems.go) |
 | `/inventory/v1/admin/namespaces/{namespace}/users/{userId}/items` | POST | AdminSaveItemShort | [AdminSaveItemShort](../../inventory-sdk/pkg/inventoryclient/admin_items/admin_items_client.go) | [AdminSaveItemShort](../../inventory-sdk/pkg/wrapper_adminItems.go) | [AdminSaveItemShort](../../samples/cli/cmd/inventory/adminItems/adminSaveItem.go) |
+| `/inventory/v1/admin/namespaces/{namespace}/users/{userId}/items/entitlements/sync` | PUT | AdminSyncUserEntitlementsShort | [AdminSyncUserEntitlementsShort](../../inventory-sdk/pkg/inventoryclient/admin_items/admin_items_client.go) | [AdminSyncUserEntitlementsShort](../../inventory-sdk/pkg/wrapper_adminItems.go) | [AdminSyncUserEntitlementsShort](../../samples/cli/cmd/inventory/adminItems/adminSyncUserEntitlements.go) |
 
 ### Admin Inventory Configurations Wrapper:  [AdminInventoryConfigurations](../../inventory-sdk/pkg/wrapper_adminInventoryConfigurations.go)
 | Endpoint | Method | ID | Class | Wrapper | Example |
@@ -96,6 +106,7 @@
 | `apimodels.ChainingOperationResp` | [ApimodelsChainingOperationResp ](../../inventory-sdk/pkg/inventoryclientmodels/apimodels_chaining_operation_resp.go) |
 | `apimodels.ConsumeItem` | [ApimodelsConsumeItem ](../../inventory-sdk/pkg/inventoryclientmodels/apimodels_consume_item.go) |
 | `apimodels.ConsumeItemReq` | [ApimodelsConsumeItemReq ](../../inventory-sdk/pkg/inventoryclientmodels/apimodels_consume_item_req.go) |
+| `apimodels.CreateIntegrationConfigurationReq` | [ApimodelsCreateIntegrationConfigurationReq ](../../inventory-sdk/pkg/inventoryclientmodels/apimodels_create_integration_configuration_req.go) |
 | `apimodels.CreateInventoryConfigurationReq` | [ApimodelsCreateInventoryConfigurationReq ](../../inventory-sdk/pkg/inventoryclientmodels/apimodels_create_inventory_configuration_req.go) |
 | `apimodels.CreateInventoryReq` | [ApimodelsCreateInventoryReq ](../../inventory-sdk/pkg/inventoryclientmodels/apimodels_create_inventory_req.go) |
 | `apimodels.CreateItem` | [ApimodelsCreateItem ](../../inventory-sdk/pkg/inventoryclientmodels/apimodels_create_item.go) |
@@ -105,10 +116,13 @@
 | `apimodels.CreateTagResp` | [ApimodelsCreateTagResp ](../../inventory-sdk/pkg/inventoryclientmodels/apimodels_create_tag_resp.go) |
 | `apimodels.DeleteInventoryReq` | [ApimodelsDeleteInventoryReq ](../../inventory-sdk/pkg/inventoryclientmodels/apimodels_delete_inventory_req.go) |
 | `apimodels.ErrorResponse` | [ApimodelsErrorResponse ](../../inventory-sdk/pkg/inventoryclientmodels/apimodels_error_response.go) |
+| `apimodels.IntegrationConfigurationResp` | [ApimodelsIntegrationConfigurationResp ](../../inventory-sdk/pkg/inventoryclientmodels/apimodels_integration_configuration_resp.go) |
+| `apimodels.InventoryConfig` | [ApimodelsInventoryConfig ](../../inventory-sdk/pkg/inventoryclientmodels/apimodels_inventory_config.go) |
 | `apimodels.InventoryConfigurationReq` | [ApimodelsInventoryConfigurationReq ](../../inventory-sdk/pkg/inventoryclientmodels/apimodels_inventory_configuration_req.go) |
 | `apimodels.InventoryConfigurationResp` | [ApimodelsInventoryConfigurationResp ](../../inventory-sdk/pkg/inventoryclientmodels/apimodels_inventory_configuration_resp.go) |
 | `apimodels.InventoryResp` | [ApimodelsInventoryResp ](../../inventory-sdk/pkg/inventoryclientmodels/apimodels_inventory_resp.go) |
 | `apimodels.ItemResp` | [ApimodelsItemResp ](../../inventory-sdk/pkg/inventoryclientmodels/apimodels_item_resp.go) |
+| `apimodels.ListIntegrationConfigurationsResp` | [ApimodelsListIntegrationConfigurationsResp ](../../inventory-sdk/pkg/inventoryclientmodels/apimodels_list_integration_configurations_resp.go) |
 | `apimodels.ListInventoryConfigurationsResp` | [ApimodelsListInventoryConfigurationsResp ](../../inventory-sdk/pkg/inventoryclientmodels/apimodels_list_inventory_configurations_resp.go) |
 | `apimodels.ListInventoryResp` | [ApimodelsListInventoryResp ](../../inventory-sdk/pkg/inventoryclientmodels/apimodels_list_inventory_resp.go) |
 | `apimodels.ListItemResp` | [ApimodelsListItemResp ](../../inventory-sdk/pkg/inventoryclientmodels/apimodels_list_item_resp.go) |
@@ -118,13 +132,17 @@
 | `apimodels.MoveItemsResp` | [ApimodelsMoveItemsResp ](../../inventory-sdk/pkg/inventoryclientmodels/apimodels_move_items_resp.go) |
 | `apimodels.Operation` | [ApimodelsOperation ](../../inventory-sdk/pkg/inventoryclientmodels/apimodels_operation.go) |
 | `apimodels.Paging` | [ApimodelsPaging ](../../inventory-sdk/pkg/inventoryclientmodels/apimodels_paging.go) |
+| `apimodels.PurchaseValidationItemReq` | [ApimodelsPurchaseValidationItemReq ](../../inventory-sdk/pkg/inventoryclientmodels/apimodels_purchase_validation_item_req.go) |
+| `apimodels.PurchaseValidationReq` | [ApimodelsPurchaseValidationReq ](../../inventory-sdk/pkg/inventoryclientmodels/apimodels_purchase_validation_req.go) |
 | `apimodels.RemoveInventoryItemReq` | [ApimodelsRemoveInventoryItemReq ](../../inventory-sdk/pkg/inventoryclientmodels/apimodels_remove_inventory_item_req.go) |
 | `apimodels.RemoveItem` | [ApimodelsRemoveItem ](../../inventory-sdk/pkg/inventoryclientmodels/apimodels_remove_item.go) |
 | `apimodels.SaveItemReq` | [ApimodelsSaveItemReq ](../../inventory-sdk/pkg/inventoryclientmodels/apimodels_save_item_req.go) |
 | `apimodels.SaveItemToInventoryReq` | [ApimodelsSaveItemToInventoryReq ](../../inventory-sdk/pkg/inventoryclientmodels/apimodels_save_item_to_inventory_req.go) |
 | `apimodels.TradeItem` | [ApimodelsTradeItem ](../../inventory-sdk/pkg/inventoryclientmodels/apimodels_trade_item.go) |
 | `apimodels.TradeItemResp` | [ApimodelsTradeItemResp ](../../inventory-sdk/pkg/inventoryclientmodels/apimodels_trade_item_resp.go) |
+| `apimodels.UpdateIntegrationConfigurationReq` | [ApimodelsUpdateIntegrationConfigurationReq ](../../inventory-sdk/pkg/inventoryclientmodels/apimodels_update_integration_configuration_req.go) |
 | `apimodels.UpdateInventoryReq` | [ApimodelsUpdateInventoryReq ](../../inventory-sdk/pkg/inventoryclientmodels/apimodels_update_inventory_req.go) |
 | `apimodels.UpdateItem` | [ApimodelsUpdateItem ](../../inventory-sdk/pkg/inventoryclientmodels/apimodels_update_item.go) |
 | `apimodels.UpdateItemReq` | [ApimodelsUpdateItemReq ](../../inventory-sdk/pkg/inventoryclientmodels/apimodels_update_item_req.go) |
 | `apimodels.UpdateItemResp` | [ApimodelsUpdateItemResp ](../../inventory-sdk/pkg/inventoryclientmodels/apimodels_update_item_resp.go) |
+| `apimodels.UpdateStatusIntegrationConfigurationReq` | [ApimodelsUpdateStatusIntegrationConfigurationReq ](../../inventory-sdk/pkg/inventoryclientmodels/apimodels_update_status_integration_configuration_req.go) |

@@ -7,6 +7,8 @@
 package adminRecord
 
 import (
+	"encoding/json"
+
 	cloudsave "github.com/AccelByte/accelbyte-go-modular-sdk/cloudsave-sdk/pkg"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/cloudsave-sdk/pkg/cloudsaveclient/admin_record"
 	"github.com/AccelByte/sample-apps/pkg/repository"
@@ -28,11 +30,18 @@ var AdminListAdminGameRecordV1Cmd = &cobra.Command{
 		limit, _ := cmd.Flags().GetInt64("limit")
 		offset, _ := cmd.Flags().GetInt64("offset")
 		query, _ := cmd.Flags().GetString("query")
+		tagsString := cmd.Flag("tags").Value.String()
+		var tags []string
+		errTags := json.Unmarshal([]byte(tagsString), &tags)
+		if errTags != nil {
+			return errTags
+		}
 		input := &admin_record.AdminListAdminGameRecordV1Params{
 			Namespace: namespace,
 			Limit:     &limit,
 			Offset:    &offset,
 			Query:     &query,
+			Tags:      tags,
 		}
 		ok, errOK := adminRecordService.AdminListAdminGameRecordV1Short(input)
 		if errOK != nil {
@@ -53,4 +62,5 @@ func init() {
 	AdminListAdminGameRecordV1Cmd.Flags().Int64("limit", 20, "Limit")
 	AdminListAdminGameRecordV1Cmd.Flags().Int64("offset", 0, "Offset")
 	AdminListAdminGameRecordV1Cmd.Flags().String("query", "", "Query")
+	AdminListAdminGameRecordV1Cmd.Flags().String("tags", "", "Tags")
 }

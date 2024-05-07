@@ -3365,7 +3365,7 @@ func (aaa *UsersService) PublicSearchUserV3(input *users.PublicSearchUserV3Param
 	if err != nil {
 		return nil, err
 	}
-	ok, badRequest, unauthorized, notFound, internalServerError, err := aaa.Client.Users.PublicSearchUserV3(input, client.BearerToken(*token.AccessToken))
+	ok, badRequest, unauthorized, notFound, tooManyRequests, internalServerError, err := aaa.Client.Users.PublicSearchUserV3(input, client.BearerToken(*token.AccessToken))
 	if badRequest != nil {
 		return nil, badRequest
 	}
@@ -3374,6 +3374,9 @@ func (aaa *UsersService) PublicSearchUserV3(input *users.PublicSearchUserV3Param
 	}
 	if notFound != nil {
 		return nil, notFound
+	}
+	if tooManyRequests != nil {
+		return nil, tooManyRequests
 	}
 	if internalServerError != nil {
 		return nil, internalServerError
@@ -3391,7 +3394,7 @@ func (aaa *UsersService) PublicCreateUserV3(input *users.PublicCreateUserV3Param
 	if err != nil {
 		return nil, err
 	}
-	created, badRequest, forbidden, notFound, conflict, internalServerError, err := aaa.Client.Users.PublicCreateUserV3(input, client.BearerToken(*token.AccessToken))
+	created, badRequest, forbidden, notFound, conflict, tooManyRequests, internalServerError, err := aaa.Client.Users.PublicCreateUserV3(input, client.BearerToken(*token.AccessToken))
 	if badRequest != nil {
 		return nil, badRequest
 	}
@@ -3403,6 +3406,9 @@ func (aaa *UsersService) PublicCreateUserV3(input *users.PublicCreateUserV3Param
 	}
 	if conflict != nil {
 		return nil, conflict
+	}
+	if tooManyRequests != nil {
+		return nil, tooManyRequests
 	}
 	if internalServerError != nil {
 		return nil, internalServerError
@@ -3463,12 +3469,15 @@ func (aaa *UsersService) PublicSendRegistrationCode(input *users.PublicSendRegis
 	if err != nil {
 		return err
 	}
-	_, badRequest, conflict, err := aaa.Client.Users.PublicSendRegistrationCode(input, client.BearerToken(*token.AccessToken))
+	_, badRequest, conflict, tooManyRequests, err := aaa.Client.Users.PublicSendRegistrationCode(input, client.BearerToken(*token.AccessToken))
 	if badRequest != nil {
 		return badRequest
 	}
 	if conflict != nil {
 		return conflict
+	}
+	if tooManyRequests != nil {
+		return tooManyRequests
 	}
 	if err != nil {
 		return err
@@ -3543,7 +3552,7 @@ func (aaa *UsersService) CreateUserFromInvitationV3(input *users.CreateUserFromI
 	if err != nil {
 		return nil, err
 	}
-	created, badRequest, forbidden, notFound, internalServerError, err := aaa.Client.Users.CreateUserFromInvitationV3(input, client.BearerToken(*token.AccessToken))
+	created, badRequest, forbidden, notFound, conflict, internalServerError, err := aaa.Client.Users.CreateUserFromInvitationV3(input, client.BearerToken(*token.AccessToken))
 	if badRequest != nil {
 		return nil, badRequest
 	}
@@ -3552,6 +3561,9 @@ func (aaa *UsersService) CreateUserFromInvitationV3(input *users.CreateUserFromI
 	}
 	if notFound != nil {
 		return nil, notFound
+	}
+	if conflict != nil {
+		return nil, conflict
 	}
 	if internalServerError != nil {
 		return nil, internalServerError
@@ -3743,12 +3755,15 @@ func (aaa *UsersService) PublicUpdatePasswordV3(input *users.PublicUpdatePasswor
 	if err != nil {
 		return err
 	}
-	_, badRequest, unauthorized, internalServerError, err := aaa.Client.Users.PublicUpdatePasswordV3(input, client.BearerToken(*token.AccessToken))
+	_, badRequest, unauthorized, tooManyRequests, internalServerError, err := aaa.Client.Users.PublicUpdatePasswordV3(input, client.BearerToken(*token.AccessToken))
 	if badRequest != nil {
 		return badRequest
 	}
 	if unauthorized != nil {
 		return unauthorized
+	}
+	if tooManyRequests != nil {
+		return tooManyRequests
 	}
 	if internalServerError != nil {
 		return internalServerError

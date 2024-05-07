@@ -57,8 +57,7 @@ QueryKeyGroups query key groups
 Query key groups, if name is presented, it's fuzzy match.
 Other detail info:
 
-  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:KEYGROUP", action=2 (READ)
-  *  Returns : slice of key group
+  * Returns : slice of key group
 */
 func (a *Client) QueryKeyGroups(params *QueryKeyGroupsParams, authInfo runtime.ClientAuthInfoWriter) (*QueryKeyGroupsOK, error) {
 	// TODO: Validate the params before sending
@@ -106,8 +105,7 @@ QueryKeyGroupsShort query key groups
 Query key groups, if name is presented, it's fuzzy match.
 Other detail info:
 
-  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:KEYGROUP", action=2 (READ)
-  *  Returns : slice of key group
+  * Returns : slice of key group
 */
 func (a *Client) QueryKeyGroupsShort(params *QueryKeyGroupsParams, authInfo runtime.ClientAuthInfoWriter) (*QueryKeyGroupsOK, error) {
 	// TODO: Validate the params before sending
@@ -161,8 +159,7 @@ CreateKeyGroup create key group
 Create key group.
 Other detail info:
 
-  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:KEYGROUP", action=1 (CREATE)
-  *  Returns : created key group
+  * Returns : created key group
 */
 func (a *Client) CreateKeyGroup(params *CreateKeyGroupParams, authInfo runtime.ClientAuthInfoWriter) (*CreateKeyGroupCreated, *CreateKeyGroupConflict, *CreateKeyGroupUnprocessableEntity, error) {
 	// TODO: Validate the params before sending
@@ -216,8 +213,7 @@ CreateKeyGroupShort create key group
 Create key group.
 Other detail info:
 
-  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:KEYGROUP", action=1 (CREATE)
-  *  Returns : created key group
+  * Returns : created key group
 */
 func (a *Client) CreateKeyGroupShort(params *CreateKeyGroupParams, authInfo runtime.ClientAuthInfoWriter) (*CreateKeyGroupCreated, error) {
 	// TODO: Validate the params before sending
@@ -275,8 +271,7 @@ GetKeyGroupByBoothName get key group by booth name
 Get key group.
 Other detail info:
 
-  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:KEYGROUP", action=2 (READ)
-  *  Returns : key group info
+  * Returns : key group info
 */
 func (a *Client) GetKeyGroupByBoothName(params *GetKeyGroupByBoothNameParams, authInfo runtime.ClientAuthInfoWriter) (*GetKeyGroupByBoothNameOK, *GetKeyGroupByBoothNameNotFound, error) {
 	// TODO: Validate the params before sending
@@ -327,8 +322,7 @@ GetKeyGroupByBoothNameShort get key group by booth name
 Get key group.
 Other detail info:
 
-  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:KEYGROUP", action=2 (READ)
-  *  Returns : key group info
+  * Returns : key group info
 */
 func (a *Client) GetKeyGroupByBoothNameShort(params *GetKeyGroupByBoothNameParams, authInfo runtime.ClientAuthInfoWriter) (*GetKeyGroupByBoothNameOK, error) {
 	// TODO: Validate the params before sending
@@ -384,8 +378,7 @@ GetKeyGroup get key group
 Get key group.
 Other detail info:
 
-  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:KEYGROUP", action=2 (READ)
-  *  Returns : key group info
+  * Returns : key group info
 */
 func (a *Client) GetKeyGroup(params *GetKeyGroupParams, authInfo runtime.ClientAuthInfoWriter) (*GetKeyGroupOK, *GetKeyGroupNotFound, error) {
 	// TODO: Validate the params before sending
@@ -436,8 +429,7 @@ GetKeyGroupShort get key group
 Get key group.
 Other detail info:
 
-  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:KEYGROUP", action=2 (READ)
-  *  Returns : key group info
+  * Returns : key group info
 */
 func (a *Client) GetKeyGroupShort(params *GetKeyGroupParams, authInfo runtime.ClientAuthInfoWriter) (*GetKeyGroupOK, error) {
 	// TODO: Validate the params before sending
@@ -493,8 +485,7 @@ UpdateKeyGroup update key group
 Update key group.
 Other detail info:
 
-  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:KEYGROUP", action=4 (UPDATE)
-  *  Returns : updated key group
+  * Returns : updated key group
 */
 func (a *Client) UpdateKeyGroup(params *UpdateKeyGroupParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateKeyGroupOK, *UpdateKeyGroupNotFound, *UpdateKeyGroupConflict, *UpdateKeyGroupUnprocessableEntity, error) {
 	// TODO: Validate the params before sending
@@ -551,8 +542,7 @@ UpdateKeyGroupShort update key group
 Update key group.
 Other detail info:
 
-  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:KEYGROUP", action=4 (UPDATE)
-  *  Returns : updated key group
+  * Returns : updated key group
 */
 func (a *Client) UpdateKeyGroupShort(params *UpdateKeyGroupParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateKeyGroupOK, error) {
 	// TODO: Validate the params before sending
@@ -612,8 +602,7 @@ GetKeyGroupDynamic get key group dynamic
 Get key group dynamic.
 Other detail info:
 
-  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:KEYGROUP", action=2 (READ)
-  *  Returns : key group info
+  * Returns : key group info
 */
 func (a *Client) GetKeyGroupDynamic(params *GetKeyGroupDynamicParams, authInfo runtime.ClientAuthInfoWriter) (*GetKeyGroupDynamicOK, *GetKeyGroupDynamicNotFound, error) {
 	// TODO: Validate the params before sending
@@ -664,8 +653,7 @@ GetKeyGroupDynamicShort get key group dynamic
 Get key group dynamic.
 Other detail info:
 
-  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:KEYGROUP", action=2 (READ)
-  *  Returns : key group info
+  * Returns : key group info
 */
 func (a *Client) GetKeyGroupDynamicShort(params *GetKeyGroupDynamicParams, authInfo runtime.ClientAuthInfoWriter) (*GetKeyGroupDynamicOK, error) {
 	// TODO: Validate the params before sending
@@ -721,8 +709,7 @@ ListKeys list keys of a key group
 This API is used to list keys of a key group.
 Other detail info:
 
-  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:KEYGROUP", action=2 (READ)
-  *  Returns : keys
+  * Returns : keys
 */
 func (a *Client) ListKeys(params *ListKeysParams, authInfo runtime.ClientAuthInfoWriter) (*ListKeysOK, error) {
 	// TODO: Validate the params before sending
@@ -770,8 +757,7 @@ ListKeysShort list keys of a key group
 This API is used to list keys of a key group.
 Other detail info:
 
-  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:KEYGROUP", action=2 (READ)
-  *  Returns : keys
+  * Returns : keys
 */
 func (a *Client) ListKeysShort(params *ListKeysParams, authInfo runtime.ClientAuthInfoWriter) (*ListKeysOK, error) {
 	// TODO: Validate the params before sending
@@ -826,8 +812,7 @@ This API is used to upload keys with csv format to a key group.
 
 Other detail info:
 
-  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:KEYGROUP", action=4 (UPDATE)
-  *  Returns : item data
+  * Returns : item data
 */
 func (a *Client) UploadKeys(params *UploadKeysParams, authInfo runtime.ClientAuthInfoWriter) (*UploadKeysOK, *UploadKeysBadRequest, *UploadKeysNotFound, error) {
 	// TODO: Validate the params before sending
@@ -882,8 +867,7 @@ This API is used to upload keys with csv format to a key group.
 
 Other detail info:
 
-  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:KEYGROUP", action=4 (UPDATE)
-  *  Returns : item data
+  * Returns : item data
 */
 func (a *Client) UploadKeysShort(params *UploadKeysParams, authInfo runtime.ClientAuthInfoWriter) (*UploadKeysOK, error) {
 	// TODO: Validate the params before sending

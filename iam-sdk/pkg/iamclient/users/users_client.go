@@ -278,15 +278,15 @@ type ClientService interface {
 	PublicGetUserByPlatformUserIDV3Short(params *PublicGetUserByPlatformUserIDV3Params, authInfo runtime.ClientAuthInfoWriter) (*PublicGetUserByPlatformUserIDV3OK, error)
 	PublicGetAsyncStatus(params *PublicGetAsyncStatusParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGetAsyncStatusOK, *PublicGetAsyncStatusUnauthorized, *PublicGetAsyncStatusForbidden, *PublicGetAsyncStatusInternalServerError, error)
 	PublicGetAsyncStatusShort(params *PublicGetAsyncStatusParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGetAsyncStatusOK, error)
-	PublicSearchUserV3(params *PublicSearchUserV3Params, authInfo runtime.ClientAuthInfoWriter) (*PublicSearchUserV3OK, *PublicSearchUserV3BadRequest, *PublicSearchUserV3Unauthorized, *PublicSearchUserV3NotFound, *PublicSearchUserV3InternalServerError, error)
+	PublicSearchUserV3(params *PublicSearchUserV3Params, authInfo runtime.ClientAuthInfoWriter) (*PublicSearchUserV3OK, *PublicSearchUserV3BadRequest, *PublicSearchUserV3Unauthorized, *PublicSearchUserV3NotFound, *PublicSearchUserV3TooManyRequests, *PublicSearchUserV3InternalServerError, error)
 	PublicSearchUserV3Short(params *PublicSearchUserV3Params, authInfo runtime.ClientAuthInfoWriter) (*PublicSearchUserV3OK, error)
-	PublicCreateUserV3(params *PublicCreateUserV3Params, authInfo runtime.ClientAuthInfoWriter) (*PublicCreateUserV3Created, *PublicCreateUserV3BadRequest, *PublicCreateUserV3Forbidden, *PublicCreateUserV3NotFound, *PublicCreateUserV3Conflict, *PublicCreateUserV3InternalServerError, error)
+	PublicCreateUserV3(params *PublicCreateUserV3Params, authInfo runtime.ClientAuthInfoWriter) (*PublicCreateUserV3Created, *PublicCreateUserV3BadRequest, *PublicCreateUserV3Forbidden, *PublicCreateUserV3NotFound, *PublicCreateUserV3Conflict, *PublicCreateUserV3TooManyRequests, *PublicCreateUserV3InternalServerError, error)
 	PublicCreateUserV3Short(params *PublicCreateUserV3Params, authInfo runtime.ClientAuthInfoWriter) (*PublicCreateUserV3Created, error)
 	CheckUserAvailability(params *CheckUserAvailabilityParams, authInfo runtime.ClientAuthInfoWriter) (*CheckUserAvailabilityNoContent, *CheckUserAvailabilityBadRequest, *CheckUserAvailabilityNotFound, *CheckUserAvailabilityUnprocessableEntity, error)
 	CheckUserAvailabilityShort(params *CheckUserAvailabilityParams, authInfo runtime.ClientAuthInfoWriter) (*CheckUserAvailabilityNoContent, error)
 	PublicBulkGetUsers(params *PublicBulkGetUsersParams, authInfo runtime.ClientAuthInfoWriter) (*PublicBulkGetUsersOK, *PublicBulkGetUsersBadRequest, *PublicBulkGetUsersInternalServerError, error)
 	PublicBulkGetUsersShort(params *PublicBulkGetUsersParams, authInfo runtime.ClientAuthInfoWriter) (*PublicBulkGetUsersOK, error)
-	PublicSendRegistrationCode(params *PublicSendRegistrationCodeParams, authInfo runtime.ClientAuthInfoWriter) (*PublicSendRegistrationCodeNoContent, *PublicSendRegistrationCodeBadRequest, *PublicSendRegistrationCodeConflict, error)
+	PublicSendRegistrationCode(params *PublicSendRegistrationCodeParams, authInfo runtime.ClientAuthInfoWriter) (*PublicSendRegistrationCodeNoContent, *PublicSendRegistrationCodeBadRequest, *PublicSendRegistrationCodeConflict, *PublicSendRegistrationCodeTooManyRequests, error)
 	PublicSendRegistrationCodeShort(params *PublicSendRegistrationCodeParams, authInfo runtime.ClientAuthInfoWriter) (*PublicSendRegistrationCodeNoContent, error)
 	PublicVerifyRegistrationCode(params *PublicVerifyRegistrationCodeParams, authInfo runtime.ClientAuthInfoWriter) (*PublicVerifyRegistrationCodeNoContent, *PublicVerifyRegistrationCodeBadRequest, error)
 	PublicVerifyRegistrationCodeShort(params *PublicVerifyRegistrationCodeParams, authInfo runtime.ClientAuthInfoWriter) (*PublicVerifyRegistrationCodeNoContent, error)
@@ -294,7 +294,7 @@ type ClientService interface {
 	PublicForgotPasswordV3Short(params *PublicForgotPasswordV3Params, authInfo runtime.ClientAuthInfoWriter) (*PublicForgotPasswordV3NoContent, error)
 	GetAdminInvitationV3(params *GetAdminInvitationV3Params, authInfo runtime.ClientAuthInfoWriter) (*GetAdminInvitationV3OK, *GetAdminInvitationV3NotFound, *GetAdminInvitationV3InternalServerError, error)
 	GetAdminInvitationV3Short(params *GetAdminInvitationV3Params, authInfo runtime.ClientAuthInfoWriter) (*GetAdminInvitationV3OK, error)
-	CreateUserFromInvitationV3(params *CreateUserFromInvitationV3Params, authInfo runtime.ClientAuthInfoWriter) (*CreateUserFromInvitationV3Created, *CreateUserFromInvitationV3BadRequest, *CreateUserFromInvitationV3Forbidden, *CreateUserFromInvitationV3NotFound, *CreateUserFromInvitationV3InternalServerError, error)
+	CreateUserFromInvitationV3(params *CreateUserFromInvitationV3Params, authInfo runtime.ClientAuthInfoWriter) (*CreateUserFromInvitationV3Created, *CreateUserFromInvitationV3BadRequest, *CreateUserFromInvitationV3Forbidden, *CreateUserFromInvitationV3NotFound, *CreateUserFromInvitationV3Conflict, *CreateUserFromInvitationV3InternalServerError, error)
 	CreateUserFromInvitationV3Short(params *CreateUserFromInvitationV3Params, authInfo runtime.ClientAuthInfoWriter) (*CreateUserFromInvitationV3Created, error)
 	UpdateUserV3(params *UpdateUserV3Params, authInfo runtime.ClientAuthInfoWriter) (*UpdateUserV3OK, *UpdateUserV3BadRequest, *UpdateUserV3Unauthorized, *UpdateUserV3Forbidden, *UpdateUserV3Conflict, *UpdateUserV3InternalServerError, error)
 	UpdateUserV3Short(params *UpdateUserV3Params, authInfo runtime.ClientAuthInfoWriter) (*UpdateUserV3OK, error)
@@ -308,7 +308,7 @@ type ClientService interface {
 	PublicUpgradeHeadlessAccountV3Short(params *PublicUpgradeHeadlessAccountV3Params, authInfo runtime.ClientAuthInfoWriter) (*PublicUpgradeHeadlessAccountV3OK, error)
 	PublicVerifyHeadlessAccountV3(params *PublicVerifyHeadlessAccountV3Params, authInfo runtime.ClientAuthInfoWriter) (*PublicVerifyHeadlessAccountV3OK, *PublicVerifyHeadlessAccountV3BadRequest, *PublicVerifyHeadlessAccountV3Unauthorized, *PublicVerifyHeadlessAccountV3NotFound, *PublicVerifyHeadlessAccountV3Conflict, *PublicVerifyHeadlessAccountV3InternalServerError, error)
 	PublicVerifyHeadlessAccountV3Short(params *PublicVerifyHeadlessAccountV3Params, authInfo runtime.ClientAuthInfoWriter) (*PublicVerifyHeadlessAccountV3OK, error)
-	PublicUpdatePasswordV3(params *PublicUpdatePasswordV3Params, authInfo runtime.ClientAuthInfoWriter) (*PublicUpdatePasswordV3NoContent, *PublicUpdatePasswordV3BadRequest, *PublicUpdatePasswordV3Unauthorized, *PublicUpdatePasswordV3InternalServerError, error)
+	PublicUpdatePasswordV3(params *PublicUpdatePasswordV3Params, authInfo runtime.ClientAuthInfoWriter) (*PublicUpdatePasswordV3NoContent, *PublicUpdatePasswordV3BadRequest, *PublicUpdatePasswordV3Unauthorized, *PublicUpdatePasswordV3TooManyRequests, *PublicUpdatePasswordV3InternalServerError, error)
 	PublicUpdatePasswordV3Short(params *PublicUpdatePasswordV3Params, authInfo runtime.ClientAuthInfoWriter) (*PublicUpdatePasswordV3NoContent, error)
 	PublicCreateJusticeUser(params *PublicCreateJusticeUserParams, authInfo runtime.ClientAuthInfoWriter) (*PublicCreateJusticeUserCreated, *PublicCreateJusticeUserBadRequest, *PublicCreateJusticeUserUnauthorized, *PublicCreateJusticeUserForbidden, *PublicCreateJusticeUserNotFound, *PublicCreateJusticeUserInternalServerError, error)
 	PublicCreateJusticeUserShort(params *PublicCreateJusticeUserParams, authInfo runtime.ClientAuthInfoWriter) (*PublicCreateJusticeUserCreated, error)
@@ -3708,8 +3708,8 @@ GetUserMapping get user mapping
 
 This endpoint requires the client access token as the bearer token
 This endpoint will support publisher access to game and game access to publisher
-If targetNamespace filled with publisher namespace then this endpoint will return its game user id and game namespace
-If targetNamespace filled with game namespace then this endpoint will return its publisher user id and publisher namespace. Will create game user id if not exists.
+If targetNamespace filled with publisher namespace then this endpoint will return its publisher user id and publisher namespace.
+If targetNamespace filled with game namespace then this endpoint will return its game user id and game namespace. **Will create game user id if not exists.**
 */
 func (a *Client) GetUserMapping(params *GetUserMappingParams, authInfo runtime.ClientAuthInfoWriter) (*GetUserMappingOK, *GetUserMappingBadRequest, *GetUserMappingUnauthorized, *GetUserMappingForbidden, *GetUserMappingNotFound, error) {
 	// TODO: Validate the params before sending
@@ -3772,8 +3772,8 @@ GetUserMappingShort get user mapping
 
 This endpoint requires the client access token as the bearer token
 This endpoint will support publisher access to game and game access to publisher
-If targetNamespace filled with publisher namespace then this endpoint will return its game user id and game namespace
-If targetNamespace filled with game namespace then this endpoint will return its publisher user id and publisher namespace. Will create game user id if not exists.
+If targetNamespace filled with publisher namespace then this endpoint will return its publisher user id and publisher namespace.
+If targetNamespace filled with game namespace then this endpoint will return its game user id and game namespace. **Will create game user id if not exists.**
 */
 func (a *Client) GetUserMappingShort(params *GetUserMappingParams, authInfo runtime.ClientAuthInfoWriter) (*GetUserMappingOK, error) {
 	// TODO: Validate the params before sending
@@ -9198,6 +9198,33 @@ Admin List User ID By Platform User ID
 This endpoint intended to list game user ID from the given namespace
 This endpoint return list of user ID by given platform ID and list of platform user ID
 
+Supported platform:
+- steam
+- steamopenid
+- ps4web
+- ps4
+- ps5
+- live
+- xblweb
+- oculus
+- oculusweb
+- facebook
+- google
+- twitch
+- discord
+- android
+- ios
+- apple
+- device
+- justice
+- epicgames
+- nintendo
+- awscognito
+- netflix
+- snapchat
+- oidc platform id
+
+Note:
 **nintendo platform user ID**: NSA ID need to be appended with Environment ID using colon as separator. e.g kmzwa8awaa:dd1
 */
 func (a *Client) AdminListUserIDByPlatformUserIDsV3(params *AdminListUserIDByPlatformUserIDsV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminListUserIDByPlatformUserIDsV3OK, *AdminListUserIDByPlatformUserIDsV3BadRequest, *AdminListUserIDByPlatformUserIDsV3Unauthorized, *AdminListUserIDByPlatformUserIDsV3Forbidden, *AdminListUserIDByPlatformUserIDsV3InternalServerError, error) {
@@ -9259,6 +9286,33 @@ Admin List User ID By Platform User ID
 This endpoint intended to list game user ID from the given namespace
 This endpoint return list of user ID by given platform ID and list of platform user ID
 
+Supported platform:
+- steam
+- steamopenid
+- ps4web
+- ps4
+- ps5
+- live
+- xblweb
+- oculus
+- oculusweb
+- facebook
+- google
+- twitch
+- discord
+- android
+- ios
+- apple
+- device
+- justice
+- epicgames
+- nintendo
+- awscognito
+- netflix
+- snapchat
+- oidc platform id
+
+Note:
 **nintendo platform user ID**: NSA ID need to be appended with Environment ID using colon as separator. e.g kmzwa8awaa:dd1
 */
 func (a *Client) AdminListUserIDByPlatformUserIDsV3Short(params *AdminListUserIDByPlatformUserIDsV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminListUserIDByPlatformUserIDsV3OK, error) {
@@ -9319,9 +9373,41 @@ Deprecated: 2022-08-10 - Use AdminGetUserByPlatformUserIDV3Short instead.
 
 AdminGetUserByPlatformUserIDV3 admin get user by platform user id
 Get User By Platform User ID
+This endpoint return user information by given platform ID and platform user ID.
+Several platforms are grouped under account groups, you can use either platform ID or platform group as platformId path parameter.
+example: for steam network platform, you can use steamnetwork / steam / steamopenid as platformId path parameter.
 
-This endpoint return user information by given platform ID and platform user ID
+Supported platform:
+- Steam group(steamnetwork)
+- steam
+- steamopenid
+- PSN group(psn)
+- ps4web
+- ps4
+- ps5
+- XBOX group(xbox)
+- live
+- xblweb
+- Oculus group(oculusgroup)
+- oculus
+- oculusweb
+- facebook
+- google
+- twitch
+- discord
+- android
+- ios
+- apple
+- device
+- justice
+- epicgames
+- nintendo
+- awscognito
+- netflix
+- snapchat
+- oidc platform id
 
+Note:
 **nintendo platform user ID**: NSA ID need to be appended with Environment ID using colon as separator. e.g kmzwa8awaa:dd1
 */
 func (a *Client) AdminGetUserByPlatformUserIDV3(params *AdminGetUserByPlatformUserIDV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetUserByPlatformUserIDV3OK, *AdminGetUserByPlatformUserIDV3Unauthorized, *AdminGetUserByPlatformUserIDV3Forbidden, *AdminGetUserByPlatformUserIDV3NotFound, *AdminGetUserByPlatformUserIDV3InternalServerError, error) {
@@ -9380,9 +9466,41 @@ func (a *Client) AdminGetUserByPlatformUserIDV3(params *AdminGetUserByPlatformUs
 /*
 AdminGetUserByPlatformUserIDV3Short admin get user by platform user id
 Get User By Platform User ID
+This endpoint return user information by given platform ID and platform user ID.
+Several platforms are grouped under account groups, you can use either platform ID or platform group as platformId path parameter.
+example: for steam network platform, you can use steamnetwork / steam / steamopenid as platformId path parameter.
 
-This endpoint return user information by given platform ID and platform user ID
+Supported platform:
+- Steam group(steamnetwork)
+- steam
+- steamopenid
+- PSN group(psn)
+- ps4web
+- ps4
+- ps5
+- XBOX group(xbox)
+- live
+- xblweb
+- Oculus group(oculusgroup)
+- oculus
+- oculusweb
+- facebook
+- google
+- twitch
+- discord
+- android
+- ios
+- apple
+- device
+- justice
+- epicgames
+- nintendo
+- awscognito
+- netflix
+- snapchat
+- oidc platform id
 
+Note:
 **nintendo platform user ID**: NSA ID need to be appended with Environment ID using colon as separator. e.g kmzwa8awaa:dd1
 */
 func (a *Client) AdminGetUserByPlatformUserIDV3Short(params *AdminGetUserByPlatformUserIDV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetUserByPlatformUserIDV3OK, error) {
@@ -13530,8 +13648,8 @@ Deprecated: 2022-08-10 - Use AdminGetUserMappingShort instead.
 AdminGetUserMapping get user mapping
 This endpoint requires the client access token as the bearer token
 This endpoint will support publisher access to game and game access to publisher
-If targetNamespace filled with publisher namespace then this endpoint will return its game user id and game namespace
-If targetNamespace filled with game namespace then this endpoint will return its publisher user id and publisher namespace. Will create game user id if not exists.
+If targetNamespace filled with publisher namespace then this endpoint will return its publisher user id and publisher namespace.
+If targetNamespace filled with game namespace then this endpoint will return its game user id and game namespace.
 */
 func (a *Client) AdminGetUserMapping(params *AdminGetUserMappingParams, authInfo runtime.ClientAuthInfoWriter) (*AdminGetUserMappingOK, *AdminGetUserMappingBadRequest, *AdminGetUserMappingUnauthorized, *AdminGetUserMappingForbidden, *AdminGetUserMappingNotFound, error) {
 	// TODO: Validate the params before sending
@@ -13590,8 +13708,8 @@ func (a *Client) AdminGetUserMapping(params *AdminGetUserMappingParams, authInfo
 AdminGetUserMappingShort get user mapping
 This endpoint requires the client access token as the bearer token
 This endpoint will support publisher access to game and game access to publisher
-If targetNamespace filled with publisher namespace then this endpoint will return its game user id and game namespace
-If targetNamespace filled with game namespace then this endpoint will return its publisher user id and publisher namespace. Will create game user id if not exists.
+If targetNamespace filled with publisher namespace then this endpoint will return its publisher user id and publisher namespace.
+If targetNamespace filled with game namespace then this endpoint will return its game user id and game namespace.
 */
 func (a *Client) AdminGetUserMappingShort(params *AdminGetUserMappingParams, authInfo runtime.ClientAuthInfoWriter) (*AdminGetUserMappingOK, error) {
 	// TODO: Validate the params before sending
@@ -13897,7 +14015,7 @@ func (a *Client) AdminLinkPlatformAccountShort(params *AdminLinkPlatformAccountP
 /*
 Deprecated: 2022-08-10 - Use AdminPlatformUnlinkV3Short instead.
 
-AdminPlatformUnlinkV3 unlink user's account from specific platform
+AdminPlatformUnlinkV3 admin unlink user's account from specific platform
 ## Supported platforms:
 - **steam**
 - **steamopenid**
@@ -13978,7 +14096,7 @@ func (a *Client) AdminPlatformUnlinkV3(params *AdminPlatformUnlinkV3Params, auth
 }
 
 /*
-AdminPlatformUnlinkV3Short unlink user's account from specific platform
+AdminPlatformUnlinkV3Short admin unlink user's account from specific platform
 ## Supported platforms:
 - **steam**
 - **steamopenid**
@@ -14060,16 +14178,44 @@ func (a *Client) AdminPlatformUnlinkV3Short(params *AdminPlatformUnlinkV3Params,
 /*
 Deprecated: 2022-08-10 - Use AdminPlatformUnlinkAllV3Short instead.
 
-AdminPlatformUnlinkAllV3 unlink user's account from specific platform
+AdminPlatformUnlinkAllV3 admin unlink user's account from specific platform for all namespaces
 Unlink user's account from third platform in all namespaces.
+Several platforms are grouped under account groups, you can use either platform ID or platform group as platformId path parameter.
+example: to unlink steam third party account, you can use steamnetwork / steam / steamopenid as platformId path parameter
 
-This API support to handling platform group use case:
-i.e.
-1. Steam group: steam, steamopenid
-2. PSN group: ps4, ps5, psnweb
-3. XBOX group: live, xblweb
+Supported platform:
+- Steam group(steamnetwork)
+- steam
+- steamopenid
+- PSN group(psn)
+- ps4web
+- ps4
+- ps5
+- XBOX group(xbox)
+- live
+- xblweb
+- Oculus group(oculusgroup)
+- oculus
+- oculusweb
+- facebook
+- google
+- twitch
+- discord
+- android
+- ios
+- apple
+- device
+- justice
+- epicgames
+- nintendo
+- awscognito
+- netflix
+- snapchat
+- oidc platform id
 
-Example: if user unlink from ps4, the API logic will unlink ps5 and psnweb as well.
+Note:
+if user unlink platform account that have group, the API logic will unlink all of platform account under that group as well.
+example: if user unlink from ps4, the API logic will unlink ps5 and ps4web as well
 */
 func (a *Client) AdminPlatformUnlinkAllV3(params *AdminPlatformUnlinkAllV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminPlatformUnlinkAllV3NoContent, *AdminPlatformUnlinkAllV3BadRequest, *AdminPlatformUnlinkAllV3Unauthorized, *AdminPlatformUnlinkAllV3NotFound, *AdminPlatformUnlinkAllV3InternalServerError, error) {
 	// TODO: Validate the params before sending
@@ -14125,16 +14271,44 @@ func (a *Client) AdminPlatformUnlinkAllV3(params *AdminPlatformUnlinkAllV3Params
 }
 
 /*
-AdminPlatformUnlinkAllV3Short unlink user's account from specific platform
+AdminPlatformUnlinkAllV3Short admin unlink user's account from specific platform for all namespaces
 Unlink user's account from third platform in all namespaces.
+Several platforms are grouped under account groups, you can use either platform ID or platform group as platformId path parameter.
+example: to unlink steam third party account, you can use steamnetwork / steam / steamopenid as platformId path parameter
 
-This API support to handling platform group use case:
-i.e.
-1. Steam group: steam, steamopenid
-2. PSN group: ps4, ps5, psnweb
-3. XBOX group: live, xblweb
+Supported platform:
+- Steam group(steamnetwork)
+- steam
+- steamopenid
+- PSN group(psn)
+- ps4web
+- ps4
+- ps5
+- XBOX group(xbox)
+- live
+- xblweb
+- Oculus group(oculusgroup)
+- oculus
+- oculusweb
+- facebook
+- google
+- twitch
+- discord
+- android
+- ios
+- apple
+- device
+- justice
+- epicgames
+- nintendo
+- awscognito
+- netflix
+- snapchat
+- oidc platform id
 
-Example: if user unlink from ps4, the API logic will unlink ps5 and psnweb as well.
+Note:
+if user unlink platform account that have group, the API logic will unlink all of platform account under that group as well.
+example: if user unlink from ps4, the API logic will unlink ps5 and ps4web as well
 */
 func (a *Client) AdminPlatformUnlinkAllV3Short(params *AdminPlatformUnlinkAllV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminPlatformUnlinkAllV3NoContent, error) {
 	// TODO: Validate the params before sending
@@ -14349,7 +14523,34 @@ func (a *Client) AdminPlatformLinkV3Short(params *AdminPlatformLinkV3Params, aut
 Deprecated: 2022-08-10 - Use AdminDeleteUserLinkingHistoryByPlatformIDV3Short instead.
 
 AdminDeleteUserLinkingHistoryByPlatformIDV3 admin remove user's platform linking history.
-This API is for admin to delete user's linking history with target platform id
+This API is for admin to delete user's linking history with target platform id.
+Supported platform:
+- Steam group(steamnetwork)
+- steam
+- steamopenid
+- PSN group(psn)
+- ps4web
+- ps4
+- ps5
+- XBOX group(xbox)
+- live
+- xblweb
+- Oculus group(oculusgroup)
+- oculus
+- oculusweb
+- facebook
+- google
+- twitch
+- discord
+- apple
+- epicgames
+- nintendo
+- awscognito
+- netflix
+- snapchat
+- oidc platform id
+
+Note: you can use either platform ID or platform group as platformId query parameter
 */
 func (a *Client) AdminDeleteUserLinkingHistoryByPlatformIDV3(params *AdminDeleteUserLinkingHistoryByPlatformIDV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminDeleteUserLinkingHistoryByPlatformIDV3NoContent, *AdminDeleteUserLinkingHistoryByPlatformIDV3BadRequest, *AdminDeleteUserLinkingHistoryByPlatformIDV3Unauthorized, *AdminDeleteUserLinkingHistoryByPlatformIDV3Forbidden, *AdminDeleteUserLinkingHistoryByPlatformIDV3NotFound, *AdminDeleteUserLinkingHistoryByPlatformIDV3InternalServerError, error) {
 	// TODO: Validate the params before sending
@@ -14409,7 +14610,34 @@ func (a *Client) AdminDeleteUserLinkingHistoryByPlatformIDV3(params *AdminDelete
 
 /*
 AdminDeleteUserLinkingHistoryByPlatformIDV3Short admin remove user's platform linking history.
-This API is for admin to delete user's linking history with target platform id
+This API is for admin to delete user's linking history with target platform id.
+Supported platform:
+- Steam group(steamnetwork)
+- steam
+- steamopenid
+- PSN group(psn)
+- ps4web
+- ps4
+- ps5
+- XBOX group(xbox)
+- live
+- xblweb
+- Oculus group(oculusgroup)
+- oculus
+- oculusweb
+- facebook
+- google
+- twitch
+- discord
+- apple
+- epicgames
+- nintendo
+- awscognito
+- netflix
+- snapchat
+- oidc platform id
+
+Note: you can use either platform ID or platform group as platformId query parameter
 */
 func (a *Client) AdminDeleteUserLinkingHistoryByPlatformIDV3Short(params *AdminDeleteUserLinkingHistoryByPlatformIDV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminDeleteUserLinkingHistoryByPlatformIDV3NoContent, error) {
 	// TODO: Validate the params before sending
@@ -14644,7 +14872,31 @@ Deprecated: 2022-08-10 - Use AdminGetUserSinglePlatformAccountShort instead.
 
 AdminGetUserSinglePlatformAccount admin get user single platform account metadata
 This endpoint gets user single platform account metadata.
-Supported platforms are same with the supported login platforms.
+Supported Platform:
+- Steam group(steamnetwork):
+- steam
+- steamopenid
+- PSN group(psn)
+- ps4web
+- ps4
+- ps5
+- XBOX group(xbox)
+- live
+- xblweb
+- Oculus group(oculusgroup)
+- oculus
+- oculusweb
+- epicgames
+- nintendo
+- aws cognito
+- facebook
+- google
+- discord
+- twitch
+- snapchat
+- amazon
+
+Note: you can use either platform ID or platform group as platformId query parameter
 */
 func (a *Client) AdminGetUserSinglePlatformAccount(params *AdminGetUserSinglePlatformAccountParams, authInfo runtime.ClientAuthInfoWriter) (*AdminGetUserSinglePlatformAccountOK, *AdminGetUserSinglePlatformAccountBadRequest, *AdminGetUserSinglePlatformAccountUnauthorized, *AdminGetUserSinglePlatformAccountForbidden, *AdminGetUserSinglePlatformAccountNotFound, *AdminGetUserSinglePlatformAccountInternalServerError, error) {
 	// TODO: Validate the params before sending
@@ -14705,7 +14957,31 @@ func (a *Client) AdminGetUserSinglePlatformAccount(params *AdminGetUserSinglePla
 /*
 AdminGetUserSinglePlatformAccountShort admin get user single platform account metadata
 This endpoint gets user single platform account metadata.
-Supported platforms are same with the supported login platforms.
+Supported Platform:
+- Steam group(steamnetwork):
+- steam
+- steamopenid
+- PSN group(psn)
+- ps4web
+- ps4
+- ps5
+- XBOX group(xbox)
+- live
+- xblweb
+- Oculus group(oculusgroup)
+- oculus
+- oculusweb
+- epicgames
+- nintendo
+- aws cognito
+- facebook
+- google
+- discord
+- twitch
+- snapchat
+- amazon
+
+Note: you can use either platform ID or platform group as platformId query parameter
 */
 func (a *Client) AdminGetUserSinglePlatformAccountShort(params *AdminGetUserSinglePlatformAccountParams, authInfo runtime.ClientAuthInfoWriter) (*AdminGetUserSinglePlatformAccountOK, error) {
 	// TODO: Validate the params before sending
@@ -15878,6 +16154,31 @@ List User ID By Platform User ID
 This endpoint intended to list game user ID from the given namespace
 This endpoint return list of user ID by given platform ID and list of platform user ID
 
+Supported platform:
+- steam
+- steamopenid
+- ps4web
+- ps4
+- ps5
+- live
+- xblweb
+- oculus
+- oculusweb
+- facebook
+- google
+- twitch
+- discord
+- apple
+- device
+- justice
+- epicgames
+- nintendo
+- awscognito
+- netflix
+- snapchat
+- oidc platform id
+
+Note:
 **nintendo platform user ID**: NSA ID need to be appended with Environment ID using colon as separator. e.g kmzwa8awaa:dd1
 */
 func (a *Client) PublicListUserIDByPlatformUserIDsV3(params *PublicListUserIDByPlatformUserIDsV3Params, authInfo runtime.ClientAuthInfoWriter) (*PublicListUserIDByPlatformUserIDsV3OK, *PublicListUserIDByPlatformUserIDsV3BadRequest, *PublicListUserIDByPlatformUserIDsV3Unauthorized, *PublicListUserIDByPlatformUserIDsV3Forbidden, *PublicListUserIDByPlatformUserIDsV3InternalServerError, error) {
@@ -15939,6 +16240,31 @@ List User ID By Platform User ID
 This endpoint intended to list game user ID from the given namespace
 This endpoint return list of user ID by given platform ID and list of platform user ID
 
+Supported platform:
+- steam
+- steamopenid
+- ps4web
+- ps4
+- ps5
+- live
+- xblweb
+- oculus
+- oculusweb
+- facebook
+- google
+- twitch
+- discord
+- apple
+- device
+- justice
+- epicgames
+- nintendo
+- awscognito
+- netflix
+- snapchat
+- oidc platform id
+
+Note:
 **nintendo platform user ID**: NSA ID need to be appended with Environment ID using colon as separator. e.g kmzwa8awaa:dd1
 */
 func (a *Client) PublicListUserIDByPlatformUserIDsV3Short(params *PublicListUserIDByPlatformUserIDsV3Params, authInfo runtime.ClientAuthInfoWriter) (*PublicListUserIDByPlatformUserIDsV3OK, error) {
@@ -15998,8 +16324,42 @@ func (a *Client) PublicListUserIDByPlatformUserIDsV3Short(params *PublicListUser
 Deprecated: 2022-08-10 - Use PublicGetUserByPlatformUserIDV3Short instead.
 
 PublicGetUserByPlatformUserIDV3 get user by platform user id
-Get User By Platform User ID
-This endpoint return user information by given platform ID and platform user ID
+Get User By Platform User ID.
+This endpoint return user information by given platform ID and platform user ID.
+Several platforms are grouped under account groups, you can use either platform ID or platform group as platformId path parameter.
+example: for steam network platform, you can use steamnetwork / steam / steamopenid as platformId path parameter.
+
+Supported platform:
+- Steam group(steamnetwork)
+- steam
+- steamopenid
+- PSN group(psn)
+- ps4web
+- ps4
+- ps5
+- XBOX group(xbox)
+- live
+- xblweb
+- Oculus group(oculusgroup)
+- oculus
+- oculusweb
+- facebook
+- google
+- twitch
+- discord
+- android
+- ios
+- apple
+- device
+- justice
+- epicgames
+- nintendo
+- awscognito
+- netflix
+- snapchat
+- oidc platform id
+
+Note:
 **nintendo platform user ID**: NSA ID need to be appended with Environment ID using colon as separator. e.g kmzwa8awaa:dd1
 */
 func (a *Client) PublicGetUserByPlatformUserIDV3(params *PublicGetUserByPlatformUserIDV3Params, authInfo runtime.ClientAuthInfoWriter) (*PublicGetUserByPlatformUserIDV3OK, *PublicGetUserByPlatformUserIDV3Unauthorized, *PublicGetUserByPlatformUserIDV3Forbidden, *PublicGetUserByPlatformUserIDV3NotFound, *PublicGetUserByPlatformUserIDV3InternalServerError, error) {
@@ -16057,8 +16417,42 @@ func (a *Client) PublicGetUserByPlatformUserIDV3(params *PublicGetUserByPlatform
 
 /*
 PublicGetUserByPlatformUserIDV3Short get user by platform user id
-Get User By Platform User ID
-This endpoint return user information by given platform ID and platform user ID
+Get User By Platform User ID.
+This endpoint return user information by given platform ID and platform user ID.
+Several platforms are grouped under account groups, you can use either platform ID or platform group as platformId path parameter.
+example: for steam network platform, you can use steamnetwork / steam / steamopenid as platformId path parameter.
+
+Supported platform:
+- Steam group(steamnetwork)
+- steam
+- steamopenid
+- PSN group(psn)
+- ps4web
+- ps4
+- ps5
+- XBOX group(xbox)
+- live
+- xblweb
+- Oculus group(oculusgroup)
+- oculus
+- oculusweb
+- facebook
+- google
+- twitch
+- discord
+- android
+- ios
+- apple
+- device
+- justice
+- epicgames
+- nintendo
+- awscognito
+- netflix
+- snapchat
+- oidc platform id
+
+Note:
 **nintendo platform user ID**: NSA ID need to be appended with Environment ID using colon as separator. e.g kmzwa8awaa:dd1
 */
 func (a *Client) PublicGetUserByPlatformUserIDV3Short(params *PublicGetUserByPlatformUserIDV3Params, authInfo runtime.ClientAuthInfoWriter) (*PublicGetUserByPlatformUserIDV3OK, error) {
@@ -16231,23 +16625,35 @@ func (a *Client) PublicGetAsyncStatusShort(params *PublicGetAsyncStatusParams, a
 Deprecated: 2022-08-10 - Use PublicSearchUserV3Short instead.
 
 PublicSearchUserV3 search user
-This endpoint search all users on the specified namespace that match the query on these fields: display name, and username or by 3rd party display name.
-The query length should greater than 2ï¼otherwise will not query the database. The default limit value is 100.
-**Note: searching by 3rd party platform display name is exact query**
----
-When searching by 3rd party platform display name:
-1. set __by__ to __thirdPartyPlatform__
-2. set __platformId__ to the supported platform id
-3. set __platformBy__ to __platformDisplayName__
----
-Supported platform id:
+This endpoint search all users on the specified namespace that match the query on these fields: display name, unique display name, username or by 3rd party display name.
+The query length should between 3-20, otherwise will not query the database.
+The default limit value is 20.
 
+## Searching by 3rd party platform
+
+**Note: searching by 3rd party platform display name will use exact query, not fuzzy query.**
+
+Step when searching by 3rd party platform display name:
+1. set __by__ to __thirdPartyPlatform__
+2. set __platformId__ to the _supported platform id_
+3. set __platformBy__ to __platformDisplayName__
+
+### Supported platform id:
+* Steam group(steamnetwork)
 * steam
 * steamopenid
-* facebook
-* google
+* PSN group(psn)
+* ps4web
+* ps4
+* ps5
+* XBOX group(xbox)
+* live
+* xblweb
+* Oculus group(oculusgroup)
 * oculus
 * oculusweb
+* facebook
+* google
 * twitch
 * discord
 * android
@@ -16255,18 +16661,15 @@ Supported platform id:
 * apple
 * device
 * epicgames
-* ps4
-* ps5
-* ps4web
 * nintendo
 * awscognito
-* live
-* xblweb
 * netflix
 * snapchat
-* oidc platform id
+* _oidc platform id_
+
+Note: you can use either platform ID or platform group as __platformId__ query parameter.
 */
-func (a *Client) PublicSearchUserV3(params *PublicSearchUserV3Params, authInfo runtime.ClientAuthInfoWriter) (*PublicSearchUserV3OK, *PublicSearchUserV3BadRequest, *PublicSearchUserV3Unauthorized, *PublicSearchUserV3NotFound, *PublicSearchUserV3InternalServerError, error) {
+func (a *Client) PublicSearchUserV3(params *PublicSearchUserV3Params, authInfo runtime.ClientAuthInfoWriter) (*PublicSearchUserV3OK, *PublicSearchUserV3BadRequest, *PublicSearchUserV3Unauthorized, *PublicSearchUserV3NotFound, *PublicSearchUserV3TooManyRequests, *PublicSearchUserV3InternalServerError, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPublicSearchUserV3Params()
@@ -16294,50 +16697,65 @@ func (a *Client) PublicSearchUserV3(params *PublicSearchUserV3Params, authInfo r
 		Client:             params.HTTPClient,
 	})
 	if err != nil {
-		return nil, nil, nil, nil, nil, err
+		return nil, nil, nil, nil, nil, nil, err
 	}
 
 	switch v := result.(type) {
 
 	case *PublicSearchUserV3OK:
-		return v, nil, nil, nil, nil, nil
+		return v, nil, nil, nil, nil, nil, nil
 
 	case *PublicSearchUserV3BadRequest:
-		return nil, v, nil, nil, nil, nil
+		return nil, v, nil, nil, nil, nil, nil
 
 	case *PublicSearchUserV3Unauthorized:
-		return nil, nil, v, nil, nil, nil
+		return nil, nil, v, nil, nil, nil, nil
 
 	case *PublicSearchUserV3NotFound:
-		return nil, nil, nil, v, nil, nil
+		return nil, nil, nil, v, nil, nil, nil
+
+	case *PublicSearchUserV3TooManyRequests:
+		return nil, nil, nil, nil, v, nil, nil
 
 	case *PublicSearchUserV3InternalServerError:
-		return nil, nil, nil, nil, v, nil
+		return nil, nil, nil, nil, nil, v, nil
 
 	default:
-		return nil, nil, nil, nil, nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
+		return nil, nil, nil, nil, nil, nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
 	}
 }
 
 /*
 PublicSearchUserV3Short search user
-This endpoint search all users on the specified namespace that match the query on these fields: display name, and username or by 3rd party display name.
-The query length should greater than 2ï¼otherwise will not query the database. The default limit value is 100.
-**Note: searching by 3rd party platform display name is exact query**
----
-When searching by 3rd party platform display name:
-1. set __by__ to __thirdPartyPlatform__
-2. set __platformId__ to the supported platform id
-3. set __platformBy__ to __platformDisplayName__
----
-Supported platform id:
+This endpoint search all users on the specified namespace that match the query on these fields: display name, unique display name, username or by 3rd party display name.
+The query length should between 3-20, otherwise will not query the database.
+The default limit value is 20.
 
+## Searching by 3rd party platform
+
+**Note: searching by 3rd party platform display name will use exact query, not fuzzy query.**
+
+Step when searching by 3rd party platform display name:
+1. set __by__ to __thirdPartyPlatform__
+2. set __platformId__ to the _supported platform id_
+3. set __platformBy__ to __platformDisplayName__
+
+### Supported platform id:
+* Steam group(steamnetwork)
 * steam
 * steamopenid
-* facebook
-* google
+* PSN group(psn)
+* ps4web
+* ps4
+* ps5
+* XBOX group(xbox)
+* live
+* xblweb
+* Oculus group(oculusgroup)
 * oculus
 * oculusweb
+* facebook
+* google
 * twitch
 * discord
 * android
@@ -16345,16 +16763,13 @@ Supported platform id:
 * apple
 * device
 * epicgames
-* ps4
-* ps5
-* ps4web
 * nintendo
 * awscognito
-* live
-* xblweb
 * netflix
 * snapchat
-* oidc platform id
+* _oidc platform id_
+
+Note: you can use either platform ID or platform group as __platformId__ query parameter.
 */
 func (a *Client) PublicSearchUserV3Short(params *PublicSearchUserV3Params, authInfo runtime.ClientAuthInfoWriter) (*PublicSearchUserV3OK, error) {
 	// TODO: Validate the params before sending
@@ -16401,6 +16816,8 @@ func (a *Client) PublicSearchUserV3Short(params *PublicSearchUserV3Params, authI
 		return nil, v
 	case *PublicSearchUserV3NotFound:
 		return nil, v
+	case *PublicSearchUserV3TooManyRequests:
+		return nil, v
 	case *PublicSearchUserV3InternalServerError:
 		return nil, v
 
@@ -16423,7 +16840,7 @@ Country use ISO3166-1 alpha-2 two letter, e.g. US.
 Date of Birth format : YYYY-MM-DD, e.g. 2019-04-29.
 This endpoint support accepting agreements for the created user. Supply the accepted agreements in acceptedPolicies attribute.
 */
-func (a *Client) PublicCreateUserV3(params *PublicCreateUserV3Params, authInfo runtime.ClientAuthInfoWriter) (*PublicCreateUserV3Created, *PublicCreateUserV3BadRequest, *PublicCreateUserV3Forbidden, *PublicCreateUserV3NotFound, *PublicCreateUserV3Conflict, *PublicCreateUserV3InternalServerError, error) {
+func (a *Client) PublicCreateUserV3(params *PublicCreateUserV3Params, authInfo runtime.ClientAuthInfoWriter) (*PublicCreateUserV3Created, *PublicCreateUserV3BadRequest, *PublicCreateUserV3Forbidden, *PublicCreateUserV3NotFound, *PublicCreateUserV3Conflict, *PublicCreateUserV3TooManyRequests, *PublicCreateUserV3InternalServerError, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPublicCreateUserV3Params()
@@ -16451,31 +16868,34 @@ func (a *Client) PublicCreateUserV3(params *PublicCreateUserV3Params, authInfo r
 		Client:             params.HTTPClient,
 	})
 	if err != nil {
-		return nil, nil, nil, nil, nil, nil, err
+		return nil, nil, nil, nil, nil, nil, nil, err
 	}
 
 	switch v := result.(type) {
 
 	case *PublicCreateUserV3Created:
-		return v, nil, nil, nil, nil, nil, nil
+		return v, nil, nil, nil, nil, nil, nil, nil
 
 	case *PublicCreateUserV3BadRequest:
-		return nil, v, nil, nil, nil, nil, nil
+		return nil, v, nil, nil, nil, nil, nil, nil
 
 	case *PublicCreateUserV3Forbidden:
-		return nil, nil, v, nil, nil, nil, nil
+		return nil, nil, v, nil, nil, nil, nil, nil
 
 	case *PublicCreateUserV3NotFound:
-		return nil, nil, nil, v, nil, nil, nil
+		return nil, nil, nil, v, nil, nil, nil, nil
 
 	case *PublicCreateUserV3Conflict:
-		return nil, nil, nil, nil, v, nil, nil
+		return nil, nil, nil, nil, v, nil, nil, nil
+
+	case *PublicCreateUserV3TooManyRequests:
+		return nil, nil, nil, nil, nil, v, nil, nil
 
 	case *PublicCreateUserV3InternalServerError:
-		return nil, nil, nil, nil, nil, v, nil
+		return nil, nil, nil, nil, nil, nil, v, nil
 
 	default:
-		return nil, nil, nil, nil, nil, nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
+		return nil, nil, nil, nil, nil, nil, nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
 	}
 }
 
@@ -16537,6 +16957,8 @@ func (a *Client) PublicCreateUserV3Short(params *PublicCreateUserV3Params, authI
 	case *PublicCreateUserV3NotFound:
 		return nil, v
 	case *PublicCreateUserV3Conflict:
+		return nil, v
+	case *PublicCreateUserV3TooManyRequests:
 		return nil, v
 	case *PublicCreateUserV3InternalServerError:
 		return nil, v
@@ -16800,7 +17222,7 @@ If it already been used, will response 409.
 If it is available, we will send a verification code to this email address.
 This code can be verified by this [endpoint](#operations-Users-PublicVerifyRegistrationCode).
 */
-func (a *Client) PublicSendRegistrationCode(params *PublicSendRegistrationCodeParams, authInfo runtime.ClientAuthInfoWriter) (*PublicSendRegistrationCodeNoContent, *PublicSendRegistrationCodeBadRequest, *PublicSendRegistrationCodeConflict, error) {
+func (a *Client) PublicSendRegistrationCode(params *PublicSendRegistrationCodeParams, authInfo runtime.ClientAuthInfoWriter) (*PublicSendRegistrationCodeNoContent, *PublicSendRegistrationCodeBadRequest, *PublicSendRegistrationCodeConflict, *PublicSendRegistrationCodeTooManyRequests, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPublicSendRegistrationCodeParams()
@@ -16828,22 +17250,25 @@ func (a *Client) PublicSendRegistrationCode(params *PublicSendRegistrationCodePa
 		Client:             params.HTTPClient,
 	})
 	if err != nil {
-		return nil, nil, nil, err
+		return nil, nil, nil, nil, err
 	}
 
 	switch v := result.(type) {
 
 	case *PublicSendRegistrationCodeNoContent:
-		return v, nil, nil, nil
+		return v, nil, nil, nil, nil
 
 	case *PublicSendRegistrationCodeBadRequest:
-		return nil, v, nil, nil
+		return nil, v, nil, nil, nil
 
 	case *PublicSendRegistrationCodeConflict:
-		return nil, nil, v, nil
+		return nil, nil, v, nil, nil
+
+	case *PublicSendRegistrationCodeTooManyRequests:
+		return nil, nil, nil, v, nil
 
 	default:
-		return nil, nil, nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
+		return nil, nil, nil, nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
 	}
 }
 
@@ -16896,6 +17321,8 @@ func (a *Client) PublicSendRegistrationCodeShort(params *PublicSendRegistrationC
 	case *PublicSendRegistrationCodeBadRequest:
 		return nil, v
 	case *PublicSendRegistrationCodeConflict:
+		return nil, v
+	case *PublicSendRegistrationCodeTooManyRequests:
 		return nil, v
 
 	default:
@@ -17244,7 +17671,7 @@ EMAILPASSWD: an authentication type used for new user registration through email
 Country use ISO3166-1 alpha-2 two letter, e.g. US.
 Date of Birth format : YYYY-MM-DD, e.g. 2019-04-29.
 */
-func (a *Client) CreateUserFromInvitationV3(params *CreateUserFromInvitationV3Params, authInfo runtime.ClientAuthInfoWriter) (*CreateUserFromInvitationV3Created, *CreateUserFromInvitationV3BadRequest, *CreateUserFromInvitationV3Forbidden, *CreateUserFromInvitationV3NotFound, *CreateUserFromInvitationV3InternalServerError, error) {
+func (a *Client) CreateUserFromInvitationV3(params *CreateUserFromInvitationV3Params, authInfo runtime.ClientAuthInfoWriter) (*CreateUserFromInvitationV3Created, *CreateUserFromInvitationV3BadRequest, *CreateUserFromInvitationV3Forbidden, *CreateUserFromInvitationV3NotFound, *CreateUserFromInvitationV3Conflict, *CreateUserFromInvitationV3InternalServerError, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewCreateUserFromInvitationV3Params()
@@ -17272,28 +17699,31 @@ func (a *Client) CreateUserFromInvitationV3(params *CreateUserFromInvitationV3Pa
 		Client:             params.HTTPClient,
 	})
 	if err != nil {
-		return nil, nil, nil, nil, nil, err
+		return nil, nil, nil, nil, nil, nil, err
 	}
 
 	switch v := result.(type) {
 
 	case *CreateUserFromInvitationV3Created:
-		return v, nil, nil, nil, nil, nil
+		return v, nil, nil, nil, nil, nil, nil
 
 	case *CreateUserFromInvitationV3BadRequest:
-		return nil, v, nil, nil, nil, nil
+		return nil, v, nil, nil, nil, nil, nil
 
 	case *CreateUserFromInvitationV3Forbidden:
-		return nil, nil, v, nil, nil, nil
+		return nil, nil, v, nil, nil, nil, nil
 
 	case *CreateUserFromInvitationV3NotFound:
-		return nil, nil, nil, v, nil, nil
+		return nil, nil, nil, v, nil, nil, nil
+
+	case *CreateUserFromInvitationV3Conflict:
+		return nil, nil, nil, nil, v, nil, nil
 
 	case *CreateUserFromInvitationV3InternalServerError:
-		return nil, nil, nil, nil, v, nil
+		return nil, nil, nil, nil, nil, v, nil
 
 	default:
-		return nil, nil, nil, nil, nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
+		return nil, nil, nil, nil, nil, nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
 	}
 }
 
@@ -17354,6 +17784,8 @@ func (a *Client) CreateUserFromInvitationV3Short(params *CreateUserFromInvitatio
 	case *CreateUserFromInvitationV3Forbidden:
 		return nil, v
 	case *CreateUserFromInvitationV3NotFound:
+		return nil, v
+	case *CreateUserFromInvitationV3Conflict:
 		return nil, v
 	case *CreateUserFromInvitationV3InternalServerError:
 		return nil, v
@@ -18195,7 +18627,7 @@ Deprecated: 2022-08-10 - Use PublicUpdatePasswordV3Short instead.
 PublicUpdatePasswordV3 update user password
 action code: 10107
 */
-func (a *Client) PublicUpdatePasswordV3(params *PublicUpdatePasswordV3Params, authInfo runtime.ClientAuthInfoWriter) (*PublicUpdatePasswordV3NoContent, *PublicUpdatePasswordV3BadRequest, *PublicUpdatePasswordV3Unauthorized, *PublicUpdatePasswordV3InternalServerError, error) {
+func (a *Client) PublicUpdatePasswordV3(params *PublicUpdatePasswordV3Params, authInfo runtime.ClientAuthInfoWriter) (*PublicUpdatePasswordV3NoContent, *PublicUpdatePasswordV3BadRequest, *PublicUpdatePasswordV3Unauthorized, *PublicUpdatePasswordV3TooManyRequests, *PublicUpdatePasswordV3InternalServerError, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPublicUpdatePasswordV3Params()
@@ -18223,25 +18655,28 @@ func (a *Client) PublicUpdatePasswordV3(params *PublicUpdatePasswordV3Params, au
 		Client:             params.HTTPClient,
 	})
 	if err != nil {
-		return nil, nil, nil, nil, err
+		return nil, nil, nil, nil, nil, err
 	}
 
 	switch v := result.(type) {
 
 	case *PublicUpdatePasswordV3NoContent:
-		return v, nil, nil, nil, nil
+		return v, nil, nil, nil, nil, nil
 
 	case *PublicUpdatePasswordV3BadRequest:
-		return nil, v, nil, nil, nil
+		return nil, v, nil, nil, nil, nil
 
 	case *PublicUpdatePasswordV3Unauthorized:
-		return nil, nil, v, nil, nil
+		return nil, nil, v, nil, nil, nil
+
+	case *PublicUpdatePasswordV3TooManyRequests:
+		return nil, nil, nil, v, nil, nil
 
 	case *PublicUpdatePasswordV3InternalServerError:
-		return nil, nil, nil, v, nil
+		return nil, nil, nil, nil, v, nil
 
 	default:
-		return nil, nil, nil, nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
+		return nil, nil, nil, nil, nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
 	}
 }
 
@@ -18291,6 +18726,8 @@ func (a *Client) PublicUpdatePasswordV3Short(params *PublicUpdatePasswordV3Param
 	case *PublicUpdatePasswordV3BadRequest:
 		return nil, v
 	case *PublicUpdatePasswordV3Unauthorized:
+		return nil, v
+	case *PublicUpdatePasswordV3TooManyRequests:
 		return nil, v
 	case *PublicUpdatePasswordV3InternalServerError:
 		return nil, v
@@ -18595,7 +19032,7 @@ func (a *Client) PublicPlatformLinkV3Short(params *PublicPlatformLinkV3Params, a
 /*
 Deprecated: 2022-08-10 - Use PublicPlatformUnlinkV3Short instead.
 
-PublicPlatformUnlinkV3 unlink user's account from specific platform
+PublicPlatformUnlinkV3 public unlink user's account from specific platform
 ## Supported platforms:
 - **steam**
 - **steamopenid**
@@ -18672,7 +19109,7 @@ func (a *Client) PublicPlatformUnlinkV3(params *PublicPlatformUnlinkV3Params, au
 }
 
 /*
-PublicPlatformUnlinkV3Short unlink user's account from specific platform
+PublicPlatformUnlinkV3Short public unlink user's account from specific platform
 ## Supported platforms:
 - **steam**
 - **steamopenid**
@@ -18751,16 +19188,44 @@ func (a *Client) PublicPlatformUnlinkV3Short(params *PublicPlatformUnlinkV3Param
 /*
 Deprecated: 2022-08-10 - Use PublicPlatformUnlinkAllV3Short instead.
 
-PublicPlatformUnlinkAllV3 unlink user's account from specific platform
+PublicPlatformUnlinkAllV3 public unlink user's account from specific platform for all namespaces
 Unlink user's account from third platform in all namespaces.
+Several platforms are grouped under account groups, you can use either platform ID or platform group as platformId path parameter.
+example: to unlink steam third party account, you can use steamnetwork / steam / steamopenid as platformId path parameter.
 
-This API support to handling platform group use case:
-i.e.
-1. Steam group: steam, steamopenid
-2. PSN group: ps4, ps5, psnweb
-3. XBOX group: live, xblweb
+Supported platform:
+- Steam group(steamnetwork)
+- steam
+- steamopenid
+- PSN group(psn)
+- ps4web
+- ps4
+- ps5
+- XBOX group(xbox)
+- live
+- xblweb
+- Oculus group(oculusgroup)
+- oculus
+- oculusweb
+- facebook
+- google
+- twitch
+- discord
+- android
+- ios
+- apple
+- device
+- justice
+- epicgames
+- nintendo
+- awscognito
+- netflix
+- snapchat
+- oidc platform id
 
-Example: if user unlink from ps4, the API logic will unlink ps5 and psnweb as well.
+Note:
+if user unlink platform account that have group, the API logic will unlink all of platform account under that group as well.
+example: if user unlink from ps4, the API logic will unlink ps5 and ps4web as well
 */
 func (a *Client) PublicPlatformUnlinkAllV3(params *PublicPlatformUnlinkAllV3Params, authInfo runtime.ClientAuthInfoWriter) (*PublicPlatformUnlinkAllV3NoContent, *PublicPlatformUnlinkAllV3BadRequest, *PublicPlatformUnlinkAllV3Unauthorized, *PublicPlatformUnlinkAllV3NotFound, *PublicPlatformUnlinkAllV3InternalServerError, error) {
 	// TODO: Validate the params before sending
@@ -18816,16 +19281,44 @@ func (a *Client) PublicPlatformUnlinkAllV3(params *PublicPlatformUnlinkAllV3Para
 }
 
 /*
-PublicPlatformUnlinkAllV3Short unlink user's account from specific platform
+PublicPlatformUnlinkAllV3Short public unlink user's account from specific platform for all namespaces
 Unlink user's account from third platform in all namespaces.
+Several platforms are grouped under account groups, you can use either platform ID or platform group as platformId path parameter.
+example: to unlink steam third party account, you can use steamnetwork / steam / steamopenid as platformId path parameter.
 
-This API support to handling platform group use case:
-i.e.
-1. Steam group: steam, steamopenid
-2. PSN group: ps4, ps5, psnweb
-3. XBOX group: live, xblweb
+Supported platform:
+- Steam group(steamnetwork)
+- steam
+- steamopenid
+- PSN group(psn)
+- ps4web
+- ps4
+- ps5
+- XBOX group(xbox)
+- live
+- xblweb
+- Oculus group(oculusgroup)
+- oculus
+- oculusweb
+- facebook
+- google
+- twitch
+- discord
+- android
+- ios
+- apple
+- device
+- justice
+- epicgames
+- nintendo
+- awscognito
+- netflix
+- snapchat
+- oidc platform id
 
-Example: if user unlink from ps4, the API logic will unlink ps5 and psnweb as well.
+Note:
+if user unlink platform account that have group, the API logic will unlink all of platform account under that group as well.
+example: if user unlink from ps4, the API logic will unlink ps5 and ps4web as well
 */
 func (a *Client) PublicPlatformUnlinkAllV3Short(params *PublicPlatformUnlinkAllV3Params, authInfo runtime.ClientAuthInfoWriter) (*PublicPlatformUnlinkAllV3NoContent, error) {
 	// TODO: Validate the params before sending
@@ -19056,6 +19549,19 @@ Deprecated: 2022-08-10 - Use PublicWebLinkPlatformShort instead.
 
 PublicWebLinkPlatform create public web linking
 This endpoint is used to generate third party login page which will redirected to establish endpoint.
+Supported platforms:
+- ps4web
+- xblweb
+- steamopenid
+- epicgames
+- facebook
+- twitch
+- google
+- apple
+- snapchat
+- discord
+- amazon
+- oculusweb
 */
 func (a *Client) PublicWebLinkPlatform(params *PublicWebLinkPlatformParams, authInfo runtime.ClientAuthInfoWriter) (*PublicWebLinkPlatformOK, *PublicWebLinkPlatformBadRequest, *PublicWebLinkPlatformUnauthorized, *PublicWebLinkPlatformNotFound, error) {
 	// TODO: Validate the params before sending
@@ -19110,6 +19616,19 @@ func (a *Client) PublicWebLinkPlatform(params *PublicWebLinkPlatformParams, auth
 /*
 PublicWebLinkPlatformShort create public web linking
 This endpoint is used to generate third party login page which will redirected to establish endpoint.
+Supported platforms:
+- ps4web
+- xblweb
+- steamopenid
+- epicgames
+- facebook
+- twitch
+- google
+- apple
+- snapchat
+- discord
+- amazon
+- oculusweb
 */
 func (a *Client) PublicWebLinkPlatformShort(params *PublicWebLinkPlatformParams, authInfo runtime.ClientAuthInfoWriter) (*PublicWebLinkPlatformOK, error) {
 	// TODO: Validate the params before sending
@@ -19167,6 +19686,19 @@ Deprecated: 2022-08-10 - Use PublicWebLinkPlatformEstablishShort instead.
 
 PublicWebLinkPlatformEstablish establish link progress
 This endpoint is used by third party to redirect the code for the purpose of linking the account third party to IAM account.
+Supported platforms:
+- ps4web
+- xblweb
+- steamopenid
+- epicgames
+- facebook
+- twitch
+- google
+- apple
+- snapchat
+- discord
+- amazon
+- oculusweb
 */
 func (a *Client) PublicWebLinkPlatformEstablish(params *PublicWebLinkPlatformEstablishParams, authInfo runtime.ClientAuthInfoWriter) (*PublicWebLinkPlatformEstablishFound, error) {
 	// TODO: Validate the params before sending
@@ -19212,6 +19744,19 @@ func (a *Client) PublicWebLinkPlatformEstablish(params *PublicWebLinkPlatformEst
 /*
 PublicWebLinkPlatformEstablishShort establish link progress
 This endpoint is used by third party to redirect the code for the purpose of linking the account third party to IAM account.
+Supported platforms:
+- ps4web
+- xblweb
+- steamopenid
+- epicgames
+- facebook
+- twitch
+- google
+- apple
+- snapchat
+- discord
+- amazon
+- oculusweb
 */
 func (a *Client) PublicWebLinkPlatformEstablishShort(params *PublicWebLinkPlatformEstablishParams, authInfo runtime.ClientAuthInfoWriter) (*PublicWebLinkPlatformEstablishFound, error) {
 	// TODO: Validate the params before sending
@@ -19264,6 +19809,19 @@ Deprecated: 2022-08-10 - Use PublicProcessWebLinkPlatformV3Short instead.
 PublicProcessWebLinkPlatformV3 process link progress
 This endpoint is used to process third party account link, this endpoint will return the link status directly instead of redirecting to the original page.
 The param **state** comes from the response of `/users/me/platforms/{platformId}/web/link`
+Supported platforms:
+- ps4web
+- xblweb
+- steamopenid
+- epicgames
+- facebook
+- twitch
+- google
+- apple
+- snapchat
+- discord
+- amazon
+- oculusweb
 */
 func (a *Client) PublicProcessWebLinkPlatformV3(params *PublicProcessWebLinkPlatformV3Params, authInfo runtime.ClientAuthInfoWriter) (*PublicProcessWebLinkPlatformV3OK, *PublicProcessWebLinkPlatformV3BadRequest, error) {
 	// TODO: Validate the params before sending
@@ -19313,6 +19871,19 @@ func (a *Client) PublicProcessWebLinkPlatformV3(params *PublicProcessWebLinkPlat
 PublicProcessWebLinkPlatformV3Short process link progress
 This endpoint is used to process third party account link, this endpoint will return the link status directly instead of redirecting to the original page.
 The param **state** comes from the response of `/users/me/platforms/{platformId}/web/link`
+Supported platforms:
+- ps4web
+- xblweb
+- steamopenid
+- epicgames
+- facebook
+- twitch
+- google
+- apple
+- snapchat
+- discord
+- amazon
+- oculusweb
 */
 func (a *Client) PublicProcessWebLinkPlatformV3Short(params *PublicProcessWebLinkPlatformV3Params, authInfo runtime.ClientAuthInfoWriter) (*PublicProcessWebLinkPlatformV3OK, error) {
 	// TODO: Validate the params before sending
@@ -19373,14 +19944,18 @@ Note:
 __Supported 3rd platforms:__
 
 * __PSN(ps4web, ps4, ps5)__
+* account id
 * display name
 * avatar
 * __Xbox(live, xblweb)__
+* xuid or pxuid
 * display name
 * __Steam(steam, steamopenid)__
+* steam id
 * display name
 * avatar
 * __EpicGames(epicgames)__
+* epic account id
 * display name
 */
 func (a *Client) PublicGetUsersPlatformInfosV3(params *PublicGetUsersPlatformInfosV3Params, authInfo runtime.ClientAuthInfoWriter) (*PublicGetUsersPlatformInfosV3OK, *PublicGetUsersPlatformInfosV3BadRequest, *PublicGetUsersPlatformInfosV3Unauthorized, *PublicGetUsersPlatformInfosV3InternalServerError, error) {
@@ -19443,14 +20018,18 @@ Note:
 __Supported 3rd platforms:__
 
 * __PSN(ps4web, ps4, ps5)__
+* account id
 * display name
 * avatar
 * __Xbox(live, xblweb)__
+* xuid or pxuid
 * display name
 * __Steam(steam, steamopenid)__
+* steam id
 * display name
 * avatar
 * __EpicGames(epicgames)__
+* epic account id
 * display name
 */
 func (a *Client) PublicGetUsersPlatformInfosV3Short(params *PublicGetUsersPlatformInfosV3Params, authInfo runtime.ClientAuthInfoWriter) (*PublicGetUsersPlatformInfosV3OK, error) {
@@ -20953,14 +21532,18 @@ Get my user data
 __Supported 3rd platforms:__
 
 * __PSN(ps4web, ps4, ps5)__
+* account id
 * display name
 * avatar
 * __Xbox(live, xblweb)__
+* xuid or pxuid
 * display name
 * __Steam(steam, steamopenid)__
+* steam id
 * display name
 * avatar
 * __EpicGames(epicgames)__
+* epic account id
 * display name
 
 action code : 10147
@@ -21019,14 +21602,18 @@ Get my user data
 __Supported 3rd platforms:__
 
 * __PSN(ps4web, ps4, ps5)__
+* account id
 * display name
 * avatar
 * __Xbox(live, xblweb)__
+* xuid or pxuid
 * display name
 * __Steam(steam, steamopenid)__
+* steam id
 * display name
 * avatar
 * __EpicGames(epicgames)__
+* epic account id
 * display name
 
 action code : 10147

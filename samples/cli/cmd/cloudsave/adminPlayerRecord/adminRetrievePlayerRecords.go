@@ -7,6 +7,8 @@
 package adminPlayerRecord
 
 import (
+	"encoding/json"
+
 	cloudsave "github.com/AccelByte/accelbyte-go-modular-sdk/cloudsave-sdk/pkg"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/cloudsave-sdk/pkg/cloudsaveclient/admin_player_record"
 	"github.com/AccelByte/sample-apps/pkg/repository"
@@ -28,11 +30,20 @@ var AdminRetrievePlayerRecordsCmd = &cobra.Command{
 		userId, _ := cmd.Flags().GetString("userId")
 		limit, _ := cmd.Flags().GetInt64("limit")
 		offset, _ := cmd.Flags().GetInt64("offset")
+		query, _ := cmd.Flags().GetString("query")
+		tagsString := cmd.Flag("tags").Value.String()
+		var tags []string
+		errTags := json.Unmarshal([]byte(tagsString), &tags)
+		if errTags != nil {
+			return errTags
+		}
 		input := &admin_player_record.AdminRetrievePlayerRecordsParams{
 			Namespace: namespace,
 			UserID:    userId,
 			Limit:     &limit,
 			Offset:    &offset,
+			Query:     &query,
+			Tags:      tags,
 		}
 		ok, errOK := adminPlayerRecordService.AdminRetrievePlayerRecordsShort(input)
 		if errOK != nil {
@@ -54,4 +65,6 @@ func init() {
 	_ = AdminRetrievePlayerRecordsCmd.MarkFlagRequired("userId")
 	AdminRetrievePlayerRecordsCmd.Flags().Int64("limit", 20, "Limit")
 	AdminRetrievePlayerRecordsCmd.Flags().Int64("offset", 0, "Offset")
+	AdminRetrievePlayerRecordsCmd.Flags().String("query", "", "Query")
+	AdminRetrievePlayerRecordsCmd.Flags().String("tags", "", "Tags")
 }

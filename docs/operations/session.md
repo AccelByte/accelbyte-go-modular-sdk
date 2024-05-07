@@ -118,7 +118,9 @@
 | Endpoint | Method | ID | Class | Wrapper | Example |
 |---|---|---|---|---|---|
 | `/session/v1/admin/namespaces/{namespace}/recent-player` | GET | AdminGetRecentPlayerShort | [AdminGetRecentPlayerShort](../../session-sdk/pkg/sessionclient/recent_player/recent_player_client.go) | [AdminGetRecentPlayerShort](../../session-sdk/pkg/wrapper_recentPlayer.go) | [AdminGetRecentPlayerShort](../../samples/cli/cmd/session/recentPlayer/adminGetRecentPlayer.go) |
+| `/session/v1/admin/namespaces/{namespace}/recent-team-player` | GET | AdminGetRecentTeamPlayerShort | [AdminGetRecentTeamPlayerShort](../../session-sdk/pkg/sessionclient/recent_player/recent_player_client.go) | [AdminGetRecentTeamPlayerShort](../../session-sdk/pkg/wrapper_recentPlayer.go) | [AdminGetRecentTeamPlayerShort](../../samples/cli/cmd/session/recentPlayer/adminGetRecentTeamPlayer.go) |
 | `/session/v1/public/namespaces/{namespace}/recent-player` | GET | PublicGetRecentPlayerShort | [PublicGetRecentPlayerShort](../../session-sdk/pkg/sessionclient/recent_player/recent_player_client.go) | [PublicGetRecentPlayerShort](../../session-sdk/pkg/wrapper_recentPlayer.go) | [PublicGetRecentPlayerShort](../../samples/cli/cmd/session/recentPlayer/publicGetRecentPlayer.go) |
+| `/session/v1/public/namespaces/{namespace}/recent-team-player` | GET | PublicGetRecentTeamPlayerShort | [PublicGetRecentTeamPlayerShort](../../session-sdk/pkg/sessionclient/recent_player/recent_player_client.go) | [PublicGetRecentTeamPlayerShort](../../session-sdk/pkg/wrapper_recentPlayer.go) | [PublicGetRecentTeamPlayerShort](../../samples/cli/cmd/session/recentPlayer/publicGetRecentTeamPlayer.go) |
 
 ### Session Storage Wrapper:  [SessionStorage](../../session-sdk/pkg/wrapper_sessionStorage.go)
 | Endpoint | Method | ID | Class | Wrapper | Example |

@@ -15,7 +15,7 @@ import (
 	common "github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg"
 )
 
-const ServiceVersion = "1.13.0"
+const ServiceVersion = "1.17.0"
 
 //go:embed version.txt
 var SDKVersion string

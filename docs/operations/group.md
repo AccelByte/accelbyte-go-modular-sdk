@@ -6,6 +6,18 @@
 
 ## Operations
 
+### Operations Wrapper:  [Operations](../../group-sdk/pkg/wrapper_operations.go)
+| Endpoint | Method | ID | Class | Wrapper | Example |
+|---|---|---|---|---|---|
+| `/group/debug/pprof` | GET | IndexHandlerShort | [IndexHandlerShort](../../group-sdk/pkg/groupclient/operations/operations_client.go) | [IndexHandlerShort](../../group-sdk/pkg/wrapper_operations.go) | [IndexHandlerShort](../../samples/cli/cmd/group/operations/indexHandler.go) |
+| `/group/debug/pprof/block` | GET | BlockHandlerShort | [BlockHandlerShort](../../group-sdk/pkg/groupclient/operations/operations_client.go) | [BlockHandlerShort](../../group-sdk/pkg/wrapper_operations.go) | [BlockHandlerShort](../../samples/cli/cmd/group/operations/blockHandler.go) |
+| `/group/debug/pprof/cmdline` | GET | CmdlineHandlerShort | [CmdlineHandlerShort](../../group-sdk/pkg/groupclient/operations/operations_client.go) | [CmdlineHandlerShort](../../group-sdk/pkg/wrapper_operations.go) | [CmdlineHandlerShort](../../samples/cli/cmd/group/operations/cmdlineHandler.go) |
+| `/group/debug/pprof/goroutine` | GET | GoroutineHandlerShort | [GoroutineHandlerShort](../../group-sdk/pkg/groupclient/operations/operations_client.go) | [GoroutineHandlerShort](../../group-sdk/pkg/wrapper_operations.go) | [GoroutineHandlerShort](../../samples/cli/cmd/group/operations/goroutineHandler.go) |
+| `/group/debug/pprof/heap` | GET | HeapHandlerShort | [HeapHandlerShort](../../group-sdk/pkg/groupclient/operations/operations_client.go) | [HeapHandlerShort](../../group-sdk/pkg/wrapper_operations.go) | [HeapHandlerShort](../../samples/cli/cmd/group/operations/heapHandler.go) |
+| `/group/debug/pprof/profile` | GET | ProfileShort | [ProfileShort](../../group-sdk/pkg/groupclient/operations/operations_client.go) | [ProfileShort](../../group-sdk/pkg/wrapper_operations.go) | [ProfileShort](../../samples/cli/cmd/group/operations/profile.go) |
+| `/group/debug/pprof/symbol` | GET | SymbolHandlerShort | [SymbolHandlerShort](../../group-sdk/pkg/groupclient/operations/operations_client.go) | [SymbolHandlerShort](../../group-sdk/pkg/wrapper_operations.go) | [SymbolHandlerShort](../../samples/cli/cmd/group/operations/symbolHandler.go) |
+| `/group/debug/pprof/threadcreate` | GET | ThreadcreateHandlerShort | [ThreadcreateHandlerShort](../../group-sdk/pkg/groupclient/operations/operations_client.go) | [ThreadcreateHandlerShort](../../group-sdk/pkg/wrapper_operations.go) | [ThreadcreateHandlerShort](../../samples/cli/cmd/group/operations/threadcreateHandler.go) |
+
 ### Configuration Wrapper:  [Configuration](../../group-sdk/pkg/wrapper_configuration.go)
 | Endpoint | Method | ID | Class | Wrapper | Example |
 |---|---|---|---|---|---|

@@ -16,6 +16,7 @@ import (
 	"github.com/go-openapi/strfmt"
 
 	"github.com/AccelByte/accelbyte-go-modular-sdk/lobby-sdk/pkg/lobbyclient/admin"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/lobby-sdk/pkg/lobbyclient/blocks"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/lobby-sdk/pkg/lobbyclient/config"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/lobby-sdk/pkg/lobbyclient/friends"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/lobby-sdk/pkg/lobbyclient/lobby_operations"
@@ -91,6 +92,7 @@ func New(transport runtime.ClientTransport, runtime *httptransport.Runtime, form
 	cli.Runtime = runtime
 	cli.LobbyOperations = lobby_operations.New(transport, formats)
 	cli.Admin = admin.New(transport, formats)
+	cli.Blocks = blocks.New(transport, formats)
 	cli.Config = config.New(transport, formats)
 	cli.Friends = friends.New(transport, formats)
 	cli.Notification = notification.New(transport, formats)
@@ -164,6 +166,8 @@ type JusticeLobbyService struct {
 
 	Admin admin.ClientService
 
+	Blocks blocks.ClientService
+
 	Config config.ClientService
 
 	Friends friends.ClientService
@@ -189,6 +193,7 @@ func (c *JusticeLobbyService) SetTransport(transport runtime.ClientTransport) {
 	c.Transport = transport
 	c.LobbyOperations.SetTransport(transport)
 	c.Admin.SetTransport(transport)
+	c.Blocks.SetTransport(transport)
 	c.Config.SetTransport(transport)
 	c.Friends.SetTransport(transport)
 	c.Notification.SetTransport(transport)

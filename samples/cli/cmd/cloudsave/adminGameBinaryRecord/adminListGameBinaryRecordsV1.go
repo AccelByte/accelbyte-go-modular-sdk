@@ -7,6 +7,8 @@
 package adminGameBinaryRecord
 
 import (
+	"encoding/json"
+
 	cloudsave "github.com/AccelByte/accelbyte-go-modular-sdk/cloudsave-sdk/pkg"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/cloudsave-sdk/pkg/cloudsaveclient/admin_game_binary_record"
 	"github.com/AccelByte/sample-apps/pkg/repository"
@@ -28,11 +30,18 @@ var AdminListGameBinaryRecordsV1Cmd = &cobra.Command{
 		limit, _ := cmd.Flags().GetInt64("limit")
 		offset, _ := cmd.Flags().GetInt64("offset")
 		query, _ := cmd.Flags().GetString("query")
+		tagsString := cmd.Flag("tags").Value.String()
+		var tags []string
+		errTags := json.Unmarshal([]byte(tagsString), &tags)
+		if errTags != nil {
+			return errTags
+		}
 		input := &admin_game_binary_record.AdminListGameBinaryRecordsV1Params{
 			Namespace: namespace,
 			Limit:     &limit,
 			Offset:    &offset,
 			Query:     &query,
+			Tags:      tags,
 		}
 		ok, errOK := adminGameBinaryRecordService.AdminListGameBinaryRecordsV1Short(input)
 		if errOK != nil {
@@ -53,4 +62,5 @@ func init() {
 	AdminListGameBinaryRecordsV1Cmd.Flags().Int64("limit", 20, "Limit")
 	AdminListGameBinaryRecordsV1Cmd.Flags().Int64("offset", 0, "Offset")
 	AdminListGameBinaryRecordsV1Cmd.Flags().String("query", "", "Query")
+	AdminListGameBinaryRecordsV1Cmd.Flags().String("tags", "", "Tags")
 }

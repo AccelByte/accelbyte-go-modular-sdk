@@ -55,8 +55,7 @@ ListCurrencies list currencies
 List currencies of a namespace.
 Other detail info:
 
-  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:CURRENCY", action=2 (READ)
-  *  Returns : Currency List
+  * Returns : Currency List
 */
 func (a *Client) ListCurrencies(params *ListCurrenciesParams, authInfo runtime.ClientAuthInfoWriter) (*ListCurrenciesOK, error) {
 	// TODO: Validate the params before sending
@@ -104,8 +103,7 @@ ListCurrenciesShort list currencies
 List currencies of a namespace.
 Other detail info:
 
-  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:CURRENCY", action=2 (READ)
-  *  Returns : Currency List
+  * Returns : Currency List
 */
 func (a *Client) ListCurrenciesShort(params *ListCurrenciesParams, authInfo runtime.ClientAuthInfoWriter) (*ListCurrenciesOK, error) {
 	// TODO: Validate the params before sending
@@ -159,8 +157,7 @@ CreateCurrency create a currency
 Create a currency.
 Other detail info:
 
-  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:CURRENCY", action=1 (CREATE)
-  *  Returns : created currency
+  * Returns : created currency
 */
 func (a *Client) CreateCurrency(params *CreateCurrencyParams, authInfo runtime.ClientAuthInfoWriter) (*CreateCurrencyOK, *CreateCurrencyConflict, *CreateCurrencyUnprocessableEntity, error) {
 	// TODO: Validate the params before sending
@@ -214,8 +211,7 @@ CreateCurrencyShort create a currency
 Create a currency.
 Other detail info:
 
-  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:CURRENCY", action=1 (CREATE)
-  *  Returns : created currency
+  * Returns : created currency
 */
 func (a *Client) CreateCurrencyShort(params *CreateCurrencyParams, authInfo runtime.ClientAuthInfoWriter) (*CreateCurrencyOK, error) {
 	// TODO: Validate the params before sending
@@ -273,8 +269,7 @@ UpdateCurrency update a currency
 Update a currency by currency code.
 Other detail info:
 
-  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:CURRENCY", action=4 (UPDATE)
-  *  Returns : updated currency
+  * Returns : updated currency
 */
 func (a *Client) UpdateCurrency(params *UpdateCurrencyParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateCurrencyOK, *UpdateCurrencyNotFound, *UpdateCurrencyUnprocessableEntity, error) {
 	// TODO: Validate the params before sending
@@ -328,8 +323,7 @@ UpdateCurrencyShort update a currency
 Update a currency by currency code.
 Other detail info:
 
-  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:CURRENCY", action=4 (UPDATE)
-  *  Returns : updated currency
+  * Returns : updated currency
 */
 func (a *Client) UpdateCurrencyShort(params *UpdateCurrencyParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateCurrencyOK, error) {
 	// TODO: Validate the params before sending
@@ -387,8 +381,7 @@ DeleteCurrency delete a currency
 Delete a currency by currency code.
 Other detail info:
 
-  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:CURRENCY", action=8 (DELETE)
-  *  Returns :
+  * Returns :
 */
 func (a *Client) DeleteCurrency(params *DeleteCurrencyParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteCurrencyOK, *DeleteCurrencyNotFound, error) {
 	// TODO: Validate the params before sending
@@ -439,8 +432,7 @@ DeleteCurrencyShort delete a currency
 Delete a currency by currency code.
 Other detail info:
 
-  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:CURRENCY", action=8 (DELETE)
-  *  Returns :
+  * Returns :
 */
 func (a *Client) DeleteCurrencyShort(params *DeleteCurrencyParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteCurrencyOK, error) {
 	// TODO: Validate the params before sending
@@ -496,8 +488,7 @@ GetCurrencyConfig get currency config
 [SERVICE COMMUNICATION ONLY] Get currency config by code.
 Other detail info:
 
-  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:CURRENCY", action=2 (READ)
-  *  Returns : simplified Currency
+  * Returns : simplified Currency
 */
 func (a *Client) GetCurrencyConfig(params *GetCurrencyConfigParams, authInfo runtime.ClientAuthInfoWriter) (*GetCurrencyConfigOK, *GetCurrencyConfigNotFound, error) {
 	// TODO: Validate the params before sending
@@ -548,8 +539,7 @@ GetCurrencyConfigShort get currency config
  [SERVICE COMMUNICATION ONLY] Get currency config by code.
 Other detail info:
 
-  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:CURRENCY", action=2 (READ)
-  *  Returns : simplified Currency
+  * Returns : simplified Currency
 */
 func (a *Client) GetCurrencyConfigShort(params *GetCurrencyConfigParams, authInfo runtime.ClientAuthInfoWriter) (*GetCurrencyConfigOK, error) {
 	// TODO: Validate the params before sending
@@ -605,8 +595,7 @@ GetCurrencySummary get currency summary
 Get currency summary by code.
 Other detail info:
 
-  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:CURRENCY", action=2 (READ)
-  *  Returns : simplified Currency
+  * Returns : simplified Currency
 */
 func (a *Client) GetCurrencySummary(params *GetCurrencySummaryParams, authInfo runtime.ClientAuthInfoWriter) (*GetCurrencySummaryOK, *GetCurrencySummaryNotFound, error) {
 	// TODO: Validate the params before sending
@@ -657,8 +646,7 @@ GetCurrencySummaryShort get currency summary
 Get currency summary by code.
 Other detail info:
 
-  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:CURRENCY", action=2 (READ)
-  *  Returns : simplified Currency
+  * Returns : simplified Currency
 */
 func (a *Client) GetCurrencySummaryShort(params *GetCurrencySummaryParams, authInfo runtime.ClientAuthInfoWriter) (*GetCurrencySummaryOK, error) {
 	// TODO: Validate the params before sending

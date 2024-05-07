@@ -20,6 +20,7 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/group-sdk/pkg/groupclient/group_member"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/group-sdk/pkg/groupclient/group_roles"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/group-sdk/pkg/groupclient/member_request"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/group-sdk/pkg/groupclient/operations"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils"
 )
 
@@ -89,6 +90,7 @@ func New(transport runtime.ClientTransport, runtime *httptransport.Runtime, form
 	cli.GroupMember = group_member.New(transport, formats)
 	cli.GroupRoles = group_roles.New(transport, formats)
 	cli.MemberRequest = member_request.New(transport, formats)
+	cli.Operations = operations.New(transport, formats)
 
 	return cli
 }
@@ -160,6 +162,8 @@ type JusticeGroupService struct {
 
 	MemberRequest member_request.ClientService
 
+	Operations operations.ClientService
+
 	Runtime   *httptransport.Runtime
 	Transport runtime.ClientTransport
 }
@@ -172,4 +176,5 @@ func (c *JusticeGroupService) SetTransport(transport runtime.ClientTransport) {
 	c.GroupMember.SetTransport(transport)
 	c.GroupRoles.SetTransport(transport)
 	c.MemberRequest.SetTransport(transport)
+	c.Operations.SetTransport(transport)
 }

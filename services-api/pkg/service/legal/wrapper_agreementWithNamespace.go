@@ -85,6 +85,46 @@ func (aaa *AgreementWithNamespaceService) RetrieveAllUsersByPolicyVersion1(input
 	return ok.GetPayload(), nil
 }
 
+// Deprecated: 2022-01-10 - Please use DownloadExportedAgreementsInCSVShort instead.
+func (aaa *AgreementWithNamespaceService) DownloadExportedAgreementsInCSV(input *agreement_with_namespace.DownloadExportedAgreementsInCSVParams) (*legalclientmodels.DownloadExportedAgreementsInCSVResponse, error) {
+	token, err := aaa.TokenRepository.GetToken()
+	if err != nil {
+		return nil, err
+	}
+	ok, notFound, err := aaa.Client.AgreementWithNamespace.DownloadExportedAgreementsInCSV(input, client.BearerToken(*token.AccessToken))
+	if notFound != nil {
+		return nil, notFound
+	}
+	if err != nil {
+		return nil, err
+	}
+
+	return ok.GetPayload(), nil
+}
+
+// Deprecated: 2022-01-10 - Please use InitiateExportAgreementsToCSVShort instead.
+func (aaa *AgreementWithNamespaceService) InitiateExportAgreementsToCSV(input *agreement_with_namespace.InitiateExportAgreementsToCSVParams) (*legalclientmodels.InitiateExportAgreementsToCSVResponse, error) {
+	token, err := aaa.TokenRepository.GetToken()
+	if err != nil {
+		return nil, err
+	}
+	ok, badRequest, notFound, conflict, err := aaa.Client.AgreementWithNamespace.InitiateExportAgreementsToCSV(input, client.BearerToken(*token.AccessToken))
+	if badRequest != nil {
+		return nil, badRequest
+	}
+	if notFound != nil {
+		return nil, notFound
+	}
+	if conflict != nil {
+		return nil, conflict
+	}
+	if err != nil {
+		return nil, err
+	}
+
+	return ok.GetPayload(), nil
+}
+
 func (aaa *AgreementWithNamespaceService) RetrieveAcceptedAgreementsForMultiUsersShort(input *agreement_with_namespace.RetrieveAcceptedAgreementsForMultiUsersParams) ([]*legalclientmodels.UserAgreementsResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
@@ -168,6 +208,66 @@ func (aaa *AgreementWithNamespaceService) RetrieveAllUsersByPolicyVersion1Short(
 	}
 
 	ok, err := aaa.Client.AgreementWithNamespace.RetrieveAllUsersByPolicyVersion1Short(input, authInfoWriter)
+	if err != nil {
+		return nil, err
+	}
+
+	return ok.GetPayload(), nil
+}
+
+func (aaa *AgreementWithNamespaceService) DownloadExportedAgreementsInCSVShort(input *agreement_with_namespace.DownloadExportedAgreementsInCSVParams) (*legalclientmodels.DownloadExportedAgreementsInCSVResponse, error) {
+	authInfoWriter := input.AuthInfoWriter
+	if authInfoWriter == nil {
+		security := [][]string{
+			{"bearer"},
+		}
+		authInfoWriter = auth.AuthInfoWriter(aaa.GetAuthSession(), security, "")
+	}
+	if input.RetryPolicy == nil {
+		input.RetryPolicy = &utils.Retry{
+			MaxTries:   utils.MaxTries,
+			Backoff:    utils.NewConstantBackoff(0),
+			Transport:  aaa.Client.Runtime.Transport,
+			RetryCodes: utils.RetryCodes,
+		}
+	}
+	if tempFlightIdAgreementWithNamespace != nil {
+		input.XFlightId = tempFlightIdAgreementWithNamespace
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	}
+
+	ok, err := aaa.Client.AgreementWithNamespace.DownloadExportedAgreementsInCSVShort(input, authInfoWriter)
+	if err != nil {
+		return nil, err
+	}
+
+	return ok.GetPayload(), nil
+}
+
+func (aaa *AgreementWithNamespaceService) InitiateExportAgreementsToCSVShort(input *agreement_with_namespace.InitiateExportAgreementsToCSVParams) (*legalclientmodels.InitiateExportAgreementsToCSVResponse, error) {
+	authInfoWriter := input.AuthInfoWriter
+	if authInfoWriter == nil {
+		security := [][]string{
+			{"bearer"},
+		}
+		authInfoWriter = auth.AuthInfoWriter(aaa.GetAuthSession(), security, "")
+	}
+	if input.RetryPolicy == nil {
+		input.RetryPolicy = &utils.Retry{
+			MaxTries:   utils.MaxTries,
+			Backoff:    utils.NewConstantBackoff(0),
+			Transport:  aaa.Client.Runtime.Transport,
+			RetryCodes: utils.RetryCodes,
+		}
+	}
+	if tempFlightIdAgreementWithNamespace != nil {
+		input.XFlightId = tempFlightIdAgreementWithNamespace
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	}
+
+	ok, err := aaa.Client.AgreementWithNamespace.InitiateExportAgreementsToCSVShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
 	}

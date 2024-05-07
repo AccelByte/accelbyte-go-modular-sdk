@@ -105,6 +105,16 @@ type AdminListAdminUserRecordsV1Params struct {
 
 	*/
 	Offset *int64
+	/*Query
+	  query, search admin player records by key
+
+	*/
+	Query *string
+	/*Tags
+	  filter list by tags, max 5 tags per request
+
+	*/
+	Tags []string
 
 	timeout        time.Duration
 	AuthInfoWriter runtime.ClientAuthInfoWriter
@@ -215,6 +225,28 @@ func (o *AdminListAdminUserRecordsV1Params) SetOffset(offset *int64) {
 	o.Offset = offset
 }
 
+// WithQuery adds the query to the admin list admin user records v1 params
+func (o *AdminListAdminUserRecordsV1Params) WithQuery(query *string) *AdminListAdminUserRecordsV1Params {
+	o.SetQuery(query)
+	return o
+}
+
+// SetQuery adds the query to the admin list admin user records v1 params
+func (o *AdminListAdminUserRecordsV1Params) SetQuery(query *string) {
+	o.Query = query
+}
+
+// WithTags adds the tags to the admin list admin user records v1 params
+func (o *AdminListAdminUserRecordsV1Params) WithTags(tags []string) *AdminListAdminUserRecordsV1Params {
+	o.SetTags(tags)
+	return o
+}
+
+// SetTags adds the tags to the admin list admin user records v1 params
+func (o *AdminListAdminUserRecordsV1Params) SetTags(tags []string) {
+	o.Tags = tags
+}
+
 // WriteToRequest writes these params to a swagger request
 func (o *AdminListAdminUserRecordsV1Params) WriteToRequest(r runtime.ClientRequest, reg strfmt.Registry) error {
 
@@ -263,6 +295,30 @@ func (o *AdminListAdminUserRecordsV1Params) WriteToRequest(r runtime.ClientReque
 			}
 		}
 
+	}
+
+	if o.Query != nil {
+
+		// query param query
+		var qrQuery string
+		if o.Query != nil {
+			qrQuery = *o.Query
+		}
+		qQuery := qrQuery
+		if qQuery != "" {
+			if err := r.SetQueryParam("query", qQuery); err != nil {
+				return err
+			}
+		}
+
+	}
+
+	valuesTags := o.Tags
+
+	joinedTags := swag.JoinByFormat(valuesTags, "csv")
+	// query array param tags
+	if err := r.SetQueryParam("tags", joinedTags...); err != nil {
+		return err
 	}
 
 	// setting the default header value

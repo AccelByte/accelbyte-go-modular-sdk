@@ -56,9 +56,7 @@ type ClientService interface {
 Deprecated: 2022-08-10 - Use ChangePreferenceConsentShort instead.
 
 ChangePreferenceConsent change preference consent
-This API will Update Preference Consent. Other detail info:
-
-  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:LEGAL", action=4 (UPDATE)
+This API will Update Preference Consent
 */
 func (a *Client) ChangePreferenceConsent(params *ChangePreferenceConsentParams, authInfo runtime.ClientAuthInfoWriter) (*ChangePreferenceConsentOK, *ChangePreferenceConsentNotFound, error) {
 	// TODO: Validate the params before sending
@@ -106,8 +104,7 @@ func (a *Client) ChangePreferenceConsent(params *ChangePreferenceConsentParams, 
 
 /*
 ChangePreferenceConsentShort change preference consent
-This API will Update Preference Consent. Other detail info:
-  * Required permission : resource="ADMIN:NAMESPACE:{namespace}:LEGAL", action=4 (UPDATE)
+This API will Update Preference Consent
 */
 func (a *Client) ChangePreferenceConsentShort(params *ChangePreferenceConsentParams, authInfo runtime.ClientAuthInfoWriter) (*ChangePreferenceConsentOK, error) {
 	// TODO: Validate the params before sending
@@ -160,8 +157,7 @@ func (a *Client) ChangePreferenceConsentShort(params *ChangePreferenceConsentPar
 Deprecated: 2022-08-10 - Use RetrieveAcceptedAgreementsShort instead.
 
 RetrieveAcceptedAgreements retrieve accepted legal agreements
-This API will return all accepted Legal Agreements for specified user. Other detail info:
-  * Required permission : resource="ADMIN:NAMESPACE:*:LEGAL", action=2 (READ)
+This API will return all accepted Legal Agreements for specified user
 */
 func (a *Client) RetrieveAcceptedAgreements(params *RetrieveAcceptedAgreementsParams, authInfo runtime.ClientAuthInfoWriter) (*RetrieveAcceptedAgreementsOK, error) {
 	// TODO: Validate the params before sending
@@ -206,8 +202,7 @@ func (a *Client) RetrieveAcceptedAgreements(params *RetrieveAcceptedAgreementsPa
 
 /*
 RetrieveAcceptedAgreementsShort retrieve accepted legal agreements
-This API will return all accepted Legal Agreements for specified user. Other detail info:
-  * Required permission : resource="ADMIN:NAMESPACE:*:LEGAL", action=2 (READ)
+This API will return all accepted Legal Agreements for specified user
 */
 func (a *Client) RetrieveAcceptedAgreementsShort(params *RetrieveAcceptedAgreementsParams, authInfo runtime.ClientAuthInfoWriter) (*RetrieveAcceptedAgreementsOK, error) {
 	// TODO: Validate the params before sending
@@ -257,9 +252,8 @@ func (a *Client) RetrieveAcceptedAgreementsShort(params *RetrieveAcceptedAgreeme
 /*
 Deprecated: 2022-08-10 - Use RetrieveAllUsersByPolicyVersionShort instead.
 
-RetrieveAllUsersByPolicyVersion retrieve all users accepting legal agreements
-This API will return all users who has accepted a specific policy version.Other detail info:
-  * Required permission : resource="ADMIN:NAMESPACE:*:LEGAL", action=2 (READ)
+RetrieveAllUsersByPolicyVersion retrieve users accepting legal agreements
+This API will return users who has accepted a specific policy version.
 */
 func (a *Client) RetrieveAllUsersByPolicyVersion(params *RetrieveAllUsersByPolicyVersionParams, authInfo runtime.ClientAuthInfoWriter) (*RetrieveAllUsersByPolicyVersionOK, *RetrieveAllUsersByPolicyVersionNotFound, error) {
 	// TODO: Validate the params before sending
@@ -306,9 +300,8 @@ func (a *Client) RetrieveAllUsersByPolicyVersion(params *RetrieveAllUsersByPolic
 }
 
 /*
-RetrieveAllUsersByPolicyVersionShort retrieve all users accepting legal agreements
-This API will return all users who has accepted a specific policy version.Other detail info:
-  * Required permission : resource="ADMIN:NAMESPACE:*:LEGAL", action=2 (READ)
+RetrieveAllUsersByPolicyVersionShort retrieve users accepting legal agreements
+This API will return users who has accepted a specific policy version.
 */
 func (a *Client) RetrieveAllUsersByPolicyVersionShort(params *RetrieveAllUsersByPolicyVersionParams, authInfo runtime.ClientAuthInfoWriter) (*RetrieveAllUsersByPolicyVersionOK, error) {
 	// TODO: Validate the params before sending
@@ -362,9 +355,6 @@ Deprecated: 2022-08-10 - Use ChangePreferenceConsent1Short instead.
 
 ChangePreferenceConsent1 accept/revoke marketing preference consent
 Change marketing preference consent.
-Other detail info:
-
-  * Required permission : login user
 */
 func (a *Client) ChangePreferenceConsent1(params *ChangePreferenceConsent1Params, authInfo runtime.ClientAuthInfoWriter) (*ChangePreferenceConsent1OK, *ChangePreferenceConsent1BadRequest, error) {
 	// TODO: Validate the params before sending
@@ -413,9 +403,6 @@ func (a *Client) ChangePreferenceConsent1(params *ChangePreferenceConsent1Params
 /*
 ChangePreferenceConsent1Short accept/revoke marketing preference consent
 Change marketing preference consent.
-Other detail info:
-
-  * Required permission : login user
 */
 func (a *Client) ChangePreferenceConsent1Short(params *ChangePreferenceConsent1Params, authInfo runtime.ClientAuthInfoWriter) (*ChangePreferenceConsent1OK, error) {
 	// TODO: Validate the params before sending
@@ -468,10 +455,7 @@ func (a *Client) ChangePreferenceConsent1Short(params *ChangePreferenceConsent1P
 Deprecated: 2022-08-10 - Use AcceptVersionedPolicyShort instead.
 
 AcceptVersionedPolicy accept a policy version
-Accepts a legal policy version. Supply with localized version policy id to accept an agreement.
-Other detail info:
-
-  * Required permission : login user
+Accepts a legal policy version. Supply with localized version policy id to accept an agreement
 */
 func (a *Client) AcceptVersionedPolicy(params *AcceptVersionedPolicyParams, authInfo runtime.ClientAuthInfoWriter) (*AcceptVersionedPolicyCreated, *AcceptVersionedPolicyBadRequest, error) {
 	// TODO: Validate the params before sending
@@ -519,10 +503,7 @@ func (a *Client) AcceptVersionedPolicy(params *AcceptVersionedPolicyParams, auth
 
 /*
 AcceptVersionedPolicyShort accept a policy version
-Accepts a legal policy version. Supply with localized version policy id to accept an agreement.
-Other detail info:
-
-  * Required permission : login user
+Accepts a legal policy version. Supply with localized version policy id to accept an agreement
 */
 func (a *Client) AcceptVersionedPolicyShort(params *AcceptVersionedPolicyParams, authInfo runtime.ClientAuthInfoWriter) (*AcceptVersionedPolicyCreated, error) {
 	// TODO: Validate the params before sending
@@ -576,9 +557,6 @@ Deprecated: 2022-08-10 - Use RetrieveAgreementsPublicShort instead.
 
 RetrieveAgreementsPublic retrieve the accepted legal agreements
 Retrieve accepted Legal Agreements.
-Other detail info:
-
-  * Required permission : login user
 */
 func (a *Client) RetrieveAgreementsPublic(params *RetrieveAgreementsPublicParams, authInfo runtime.ClientAuthInfoWriter) (*RetrieveAgreementsPublicOK, *RetrieveAgreementsPublicBadRequest, error) {
 	// TODO: Validate the params before sending
@@ -627,9 +605,6 @@ func (a *Client) RetrieveAgreementsPublic(params *RetrieveAgreementsPublicParams
 /*
 RetrieveAgreementsPublicShort retrieve the accepted legal agreements
 Retrieve accepted Legal Agreements.
-Other detail info:
-
-  * Required permission : login user
 */
 func (a *Client) RetrieveAgreementsPublicShort(params *RetrieveAgreementsPublicParams, authInfo runtime.ClientAuthInfoWriter) (*RetrieveAgreementsPublicOK, error) {
 	// TODO: Validate the params before sending
@@ -683,9 +658,6 @@ Deprecated: 2022-08-10 - Use BulkAcceptVersionedPolicyShort instead.
 
 BulkAcceptVersionedPolicy bulk accept policy versions
 Accepts many legal policy versions all at once. Supply with localized version policy id to accept an agreement.
-Other detail info:
-
-  * Required permission : login user
 */
 func (a *Client) BulkAcceptVersionedPolicy(params *BulkAcceptVersionedPolicyParams, authInfo runtime.ClientAuthInfoWriter) (*BulkAcceptVersionedPolicyCreated, *BulkAcceptVersionedPolicyBadRequest, error) {
 	// TODO: Validate the params before sending
@@ -734,9 +706,6 @@ func (a *Client) BulkAcceptVersionedPolicy(params *BulkAcceptVersionedPolicyPara
 /*
 BulkAcceptVersionedPolicyShort bulk accept policy versions
 Accepts many legal policy versions all at once. Supply with localized version policy id to accept an agreement.
-Other detail info:
-
-  * Required permission : login user
 */
 func (a *Client) BulkAcceptVersionedPolicyShort(params *BulkAcceptVersionedPolicyParams, authInfo runtime.ClientAuthInfoWriter) (*BulkAcceptVersionedPolicyCreated, error) {
 	// TODO: Validate the params before sending
@@ -790,9 +759,6 @@ Deprecated: 2022-08-10 - Use IndirectBulkAcceptVersionedPolicyV2Short instead.
 
 IndirectBulkAcceptVersionedPolicyV2 bulk accept policy versions (indirect)
 Accepts many legal policy versions all at once. Supply with localized version policy id, version policy id, policy id, userId, namespace, country code and client id to accept an agreement. This endpoint used by APIGateway during new user registration.
-Other detail info:
-
-  * Required permission : resource="NAMESPACE:{namespace}:LEGAL", action=1 (CREATE)
 */
 func (a *Client) IndirectBulkAcceptVersionedPolicyV2(params *IndirectBulkAcceptVersionedPolicyV2Params, authInfo runtime.ClientAuthInfoWriter) (*IndirectBulkAcceptVersionedPolicyV2Created, error) {
 	// TODO: Validate the params before sending
@@ -838,9 +804,6 @@ func (a *Client) IndirectBulkAcceptVersionedPolicyV2(params *IndirectBulkAcceptV
 /*
 IndirectBulkAcceptVersionedPolicyV2Short bulk accept policy versions (indirect)
 Accepts many legal policy versions all at once. Supply with localized version policy id, version policy id, policy id, userId, namespace, country code and client id to accept an agreement. This endpoint used by APIGateway during new user registration.
-Other detail info:
-
-  * Required permission : resource="NAMESPACE:{namespace}:LEGAL", action=1 (CREATE)
 */
 func (a *Client) IndirectBulkAcceptVersionedPolicyV2Short(params *IndirectBulkAcceptVersionedPolicyV2Params, authInfo runtime.ClientAuthInfoWriter) (*IndirectBulkAcceptVersionedPolicyV2Created, error) {
 	// TODO: Validate the params before sending
@@ -892,9 +855,6 @@ Deprecated: 2022-08-10 - Use IndirectBulkAcceptVersionedPolicy1Short instead.
 
 IndirectBulkAcceptVersionedPolicy1 bulk accept policy versions (indirect)
 Accepts many legal policy versions all at once. Supply with localized version policy id and userId to accept an agreement. This endpoint used by Authentication Service during new user registration.
-Other detail info:
-
-  * Required permission : login user
 */
 func (a *Client) IndirectBulkAcceptVersionedPolicy1(params *IndirectBulkAcceptVersionedPolicy1Params, authInfo runtime.ClientAuthInfoWriter) (*IndirectBulkAcceptVersionedPolicy1Created, *IndirectBulkAcceptVersionedPolicy1NotFound, error) {
 	// TODO: Validate the params before sending
@@ -943,9 +903,6 @@ func (a *Client) IndirectBulkAcceptVersionedPolicy1(params *IndirectBulkAcceptVe
 /*
 IndirectBulkAcceptVersionedPolicy1Short bulk accept policy versions (indirect)
 Accepts many legal policy versions all at once. Supply with localized version policy id and userId to accept an agreement. This endpoint used by Authentication Service during new user registration.
-Other detail info:
-
-  * Required permission : login user
 */
 func (a *Client) IndirectBulkAcceptVersionedPolicy1Short(params *IndirectBulkAcceptVersionedPolicy1Params, authInfo runtime.ClientAuthInfoWriter) (*IndirectBulkAcceptVersionedPolicy1Created, error) {
 	// TODO: Validate the params before sending

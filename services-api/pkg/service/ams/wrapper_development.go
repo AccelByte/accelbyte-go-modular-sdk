@@ -41,7 +41,7 @@ func (aaa *DevelopmentService) GetAuthSession() auth.Session {
 }
 
 // Deprecated: 2022-01-10 - Please use DevelopmentServerConfigurationListShort instead.
-func (aaa *DevelopmentService) DevelopmentServerConfigurationList(input *development.DevelopmentServerConfigurationListParams) ([]*amsclientmodels.APIDevelopmentServerConfigurationGetResponse, error) {
+func (aaa *DevelopmentService) DevelopmentServerConfigurationList(input *development.DevelopmentServerConfigurationListParams) (*amsclientmodels.APIDevelopmentServerConfigurationListResponse, error) {
 	token, err := aaa.TokenRepository.GetToken()
 	if err != nil {
 		return nil, err
@@ -141,7 +141,7 @@ func (aaa *DevelopmentService) DevelopmentServerConfigurationDelete(input *devel
 	return nil
 }
 
-func (aaa *DevelopmentService) DevelopmentServerConfigurationListShort(input *development.DevelopmentServerConfigurationListParams) ([]*amsclientmodels.APIDevelopmentServerConfigurationGetResponse, error) {
+func (aaa *DevelopmentService) DevelopmentServerConfigurationListShort(input *development.DevelopmentServerConfigurationListParams) (*amsclientmodels.APIDevelopmentServerConfigurationListResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
