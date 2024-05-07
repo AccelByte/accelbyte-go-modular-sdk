@@ -45,7 +45,6 @@ type ExtendedDefaultConfigRepositoryImpl struct {
 }
 
 func ExtendedDefaultConfigRepository() *ExtendedDefaultConfigRepositoryImpl {
-
 	defaultConfigRepository := DefaultConfigRepositoryImpl()
 
 	return &ExtendedDefaultConfigRepositoryImpl{
