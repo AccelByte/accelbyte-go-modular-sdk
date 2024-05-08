@@ -8,7 +8,7 @@ replace (
 )
 
 require (
-	github.com/AccelByte/accelbyte-go-modular-sdk/services-api v0.1.0-alpha.2
+	github.com/AccelByte/accelbyte-go-modular-sdk/services-api v0.1.0-alpha.3
 	github.com/gorilla/websocket v1.5.0
 	github.com/sirupsen/logrus v1.9.0
 )

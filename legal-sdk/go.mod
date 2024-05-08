@@ -5,7 +5,7 @@ module github.com/AccelByte/accelbyte-go-modular-sdk/legal-sdk
 go 1.18
 
 require (
-	github.com/AccelByte/accelbyte-go-modular-sdk/services-api v0.1.0-alpha.1
+	github.com/AccelByte/accelbyte-go-modular-sdk/services-api v0.1.0-alpha.3
 	github.com/go-openapi/errors v0.20.2
 	github.com/go-openapi/runtime v0.19.29
 	github.com/go-openapi/strfmt v0.21.1
