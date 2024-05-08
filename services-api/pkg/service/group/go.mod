@@ -12,13 +12,13 @@ replace (
 )
 
 require (
-	github.com/AccelByte/accelbyte-go-modular-sdk/group-sdk v0.0.0
+	github.com/AccelByte/accelbyte-go-modular-sdk/group-sdk v0.1.0-alpha.3
 	github.com/AccelByte/accelbyte-go-modular-sdk/services-api v0.1.0-alpha.2
 	github.com/go-openapi/runtime v0.19.29
 )
 
 require (
-	github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk v0.1.0-alpha.14 // indirect
+	github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk v0.1.0-alpha.15 // indirect
 	github.com/PuerkitoBio/purell v1.1.1 // indirect
 	github.com/PuerkitoBio/urlesc v0.0.0-20170810143723-de5bf2ad4578 // indirect
 	github.com/asaskevich/govalidator v0.0.0-20210307081110-f21760c49a8d // indirect
