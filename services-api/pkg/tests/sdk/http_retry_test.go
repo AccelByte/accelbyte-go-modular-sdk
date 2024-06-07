@@ -278,7 +278,6 @@ func TestRetryRequest_withRetry(t *testing.T) {
 func TestRetryRequest_withMaxTries(t *testing.T) {
 	// Arrange
 	prepareToken(iamBansService)
-	maxNumberOfRetries := uint(3)
 	err := configureMockServerOverwriteResponse(map[string]interface{}{
 		"enabled":   true,
 		"overwrite": true,
@@ -288,6 +287,8 @@ func TestRetryRequest_withMaxTries(t *testing.T) {
 		t.Skip("unable to configure mock server")
 	}
 
+	expectedAttempts := 3
+
 	time.Sleep(1 * time.Second)
 
 	// Act
@@ -296,8 +297,8 @@ func TestRetryRequest_withMaxTries(t *testing.T) {
 		RoundTripper: iamBansService.Client.Runtime.Transport,
 	}
 	retryPolicy := utils.Retry{
+		MaxTries: uint(expectedAttempts),
 		Backoff:  utils.NewConstantBackoff(0),
-		MaxTries: maxNumberOfRetries,
 		RetryCodes: map[int]bool{
 			404: true,
 		},
@@ -309,10 +310,10 @@ func TestRetryRequest_withMaxTries(t *testing.T) {
 	_, err = iamBansService.AdminGetBansTypeV3Short(&paramsRetry)
 	assert.NotNil(t, err)
 
-	numberOfRetries := roundTripper.Counter - 1
+	actualAttempts := roundTripper.Counter
 
 	// Assert
-	assert.Equal(t, maxNumberOfRetries, uint(numberOfRetries))
+	assert.Equal(t, expectedAttempts, actualAttempts)
 
 	// Clean up
 	err = resetMockServerOverwriteResponse()
@@ -341,7 +342,6 @@ func TestRetryRequest_withBigFile(t *testing.T) {
 	}
 
 	// Arrange - additional
-	maxNumberOfRetries := uint(3)
 	err = configureMockServerOverwriteResponse(map[string]interface{}{
 		"enabled":   true,
 		"overwrite": true,
@@ -351,6 +351,8 @@ func TestRetryRequest_withBigFile(t *testing.T) {
 		t.Fatal("unable to configure mock server")
 	}
 
+	expectedAttempts := 3
+
 	time.Sleep(1 * time.Second)
 
 	// Act
@@ -359,8 +361,8 @@ func TestRetryRequest_withBigFile(t *testing.T) {
 		RoundTripper: lobbyConfigService.Client.Runtime.Transport,
 	}
 	retryPolicy := utils.Retry{
+		MaxTries: uint(expectedAttempts),
 		Backoff:  utils.NewConstantBackoff(0),
-		MaxTries: maxNumberOfRetries,
 		RetryCodes: map[int]bool{
 			404: true,
 		},
@@ -377,10 +379,10 @@ func TestRetryRequest_withBigFile(t *testing.T) {
 	}
 	assert.Nil(t, ok, "nil response is expected")
 
-	numberOfRetries := roundTripper.Counter - 1
+	actualAttempts := roundTripper.Counter
 
 	// Assert
-	assert.Equal(t, maxNumberOfRetries, uint(numberOfRetries))
+	assert.Equal(t, expectedAttempts, actualAttempts)
 
 	// Clean up
 	err = resetMockServerOverwriteResponse()
@@ -393,7 +395,7 @@ func prepareToken(iam *iam.BansService) {
 }
 
 func TestRetry_MockServerCustomOverride(t *testing.T) {
-	maxNumberOfRetries := uint(1)
+	expectedAttempts := 2
 	roundTripper := MyRoundTripper{
 		Counter:      0,
 		RoundTripper: iamBansService.Client.Runtime.Transport,
@@ -407,9 +409,9 @@ func TestRetry_MockServerCustomOverride(t *testing.T) {
 			name: "override the default retry with three custom attempt",
 			params: bans.AdminGetBansTypeV3Params{
 				RetryPolicy: &utils.Retry{
-					Transport: &roundTripper,
-					MaxTries:  maxNumberOfRetries,
+					MaxTries:  uint(expectedAttempts),
 					Backoff:   utils.NewConstantBackoff(0),
+					Transport: &roundTripper,
 					RetryCodes: map[int]bool{
 						404: true,
 					},
@@ -420,9 +422,9 @@ func TestRetry_MockServerCustomOverride(t *testing.T) {
 			name: "retry with constant backoff",
 			params: bans.AdminGetBansTypeV3Params{
 				RetryPolicy: &utils.Retry{
-					Transport: &roundTripper,
-					MaxTries:  maxNumberOfRetries,
+					MaxTries:  uint(expectedAttempts),
 					Backoff:   utils.NewConstantBackoff(0),
+					Transport: &roundTripper,
 					RetryCodes: map[int]bool{
 						404: true,
 					},
@@ -433,9 +435,9 @@ func TestRetry_MockServerCustomOverride(t *testing.T) {
 			name: "retry with exponential backoff",
 			params: bans.AdminGetBansTypeV3Params{
 				RetryPolicy: &utils.Retry{
-					Transport: &roundTripper,
-					MaxTries:  maxNumberOfRetries,
+					MaxTries:  uint(expectedAttempts),
 					Backoff:   utils.NewExponentialBackoff(utils.StartBackoff, utils.MaxBackoff),
+					Transport: &roundTripper,
 					RetryCodes: map[int]bool{
 						404: true,
 					},
@@ -465,7 +467,7 @@ func TestRetry_MockServerCustomOverride(t *testing.T) {
 			t.Logf("name: %s, count: %v", tt.name, roundTripper.Counter)
 		})
 	}
-	assert.Equal(t, 6, roundTripper.Counter)
+	assert.Equal(t, len(tests)*expectedAttempts, roundTripper.Counter)
 
 	// Clean up
 	err := resetMockServerOverwriteResponse()
