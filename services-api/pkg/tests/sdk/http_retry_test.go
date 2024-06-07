@@ -189,6 +189,8 @@ func TestRetryRequest_withDefaultPolicy(t *testing.T) {
 		t.Skip("unable to configure mock server")
 	}
 
+	expectedAttempts := utils.MaxTries
+
 	time.Sleep(1 * time.Second)
 
 	// Act
@@ -201,7 +203,7 @@ func TestRetryRequest_withDefaultPolicy(t *testing.T) {
 	// the best we can do is copy the values of the default retry policy found inside AdminGetBansTypeV3Short
 	// except for RetryCodes.
 	retryPolicy := utils.Retry{
-		MaxTries:  utils.MaxTries,
+		MaxTries:  uint(expectedAttempts),
 		Backoff:   utils.NewConstantBackoff(0),
 		Transport: &roundTripper,
 		RetryCodes: map[int]bool{
@@ -214,12 +216,10 @@ func TestRetryRequest_withDefaultPolicy(t *testing.T) {
 	_, err = iamBansService.AdminGetBansTypeV3Short(&paramsRetry)
 	assert.NotNil(t, err)
 
-	// note: roundTripper.Counter includes the first attempt
-	// and this statement accounts for that
-	numberOfRetries := roundTripper.Counter - 1
+	actualAttempts := roundTripper.Counter
 
 	// Assert
-	assert.Equal(t, uint(utils.MaxTries), uint(numberOfRetries))
+	assert.Equal(t, expectedAttempts, actualAttempts)
 
 	// Clean up
 	err = resetMockServerOverwriteResponse()
