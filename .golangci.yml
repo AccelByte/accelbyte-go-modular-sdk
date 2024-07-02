@@ -123,6 +123,4 @@ issues:
   exclude:
     - ^G104
     - ^G501
-    - "TypeRefreshTokenRequest not declared by package model"
-    - "TypeRefreshTokenResponse not declared by package model"
   max-same-issues: 20
