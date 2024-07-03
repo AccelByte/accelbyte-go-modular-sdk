@@ -43,7 +43,7 @@ func main() {
 
 		// get the token
 		token, _ := oauth.TokenRepository.GetToken()
-		fmt.Printf("print  %v\n", *token.AccessToken) // if refresh token happen this token will get changed
+		fmt.Printf("print  %v\n", token) // if refresh token happen this token will get changed
 
 		// prepare the IAM's Oauth 2.0 Extension service
 		oAuth20ExtensionService := &iam.OAuth20ExtensionService{

@@ -3,11 +3,12 @@ module ondemand-refresh-token
 go 1.18
 
 require (
-	github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk v0.1.0-alpha.1
+	github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk v0.1.0-alpha.15
 	github.com/AccelByte/accelbyte-go-modular-sdk/services-api v0.1.0-alpha.3
 )
 
 require (
+	github.com/AccelByte/accelbyte-go-modular-sdk/basic-sdk v0.1.0-alpha.3 // indirect
 	github.com/AccelByte/bloom v0.0.0-20180915202807-98c052463922 // indirect
 	github.com/AccelByte/go-jose v2.1.4+incompatible // indirect
 	github.com/PuerkitoBio/purell v1.1.1 // indirect
@@ -31,6 +32,7 @@ require (
 	github.com/mitchellh/mapstructure v1.4.3 // indirect
 	github.com/oklog/ulid v1.3.1 // indirect
 	github.com/opentracing/opentracing-go v1.2.0 // indirect
+	github.com/patrickmn/go-cache v2.1.0+incompatible // indirect
 	github.com/sirupsen/logrus v1.9.0 // indirect
 	github.com/spaolacci/murmur3 v1.1.0 // indirect
 	github.com/willf/bitset v1.1.11 // indirect

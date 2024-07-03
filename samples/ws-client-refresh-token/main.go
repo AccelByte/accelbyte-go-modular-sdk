@@ -93,7 +93,7 @@ func main() {
 
 		// cek the token
 		token, _ := oauth.TokenRepository.GetToken()
-		fmt.Printf("print  %v\n", *token.AccessToken) // if refresh token happen this token will get changed
+		fmt.Printf("print  %v\n", token) // if refresh token happen this token will get changed
 
 		// call an AccelByte Gaming Services Lobby Websocket operation
 		errNotif := lobbyService.ListOfFriendsRequest(&friendsId, &id)

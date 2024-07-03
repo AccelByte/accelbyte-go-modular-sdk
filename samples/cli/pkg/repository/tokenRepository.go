@@ -11,9 +11,9 @@ import (
 	"os"
 	"time"
 
-	"github.com/sirupsen/logrus"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 
-	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclientmodels"
+	"github.com/sirupsen/logrus"
 )
 
 type TokenRepositoryImpl struct {
@@ -42,7 +42,7 @@ func (tokenRepository *TokenRepositoryImpl) Store(accessToken interface{}) error
 	return nil
 }
 
-func (tokenRepository *TokenRepositoryImpl) GetToken() (*iamclientmodels.OauthmodelTokenResponseV3, error) {
+func (tokenRepository *TokenRepositoryImpl) GetToken() (*repository.Token, error) {
 	if _, err := os.Stat(os.TempDir() + "/justice-sample-apps/userData"); os.IsNotExist(err) {
 		logrus.Error(err)
 
@@ -54,7 +54,7 @@ func (tokenRepository *TokenRepositoryImpl) GetToken() (*iamclientmodels.Oauthmo
 
 		return nil, errors.New("please do login")
 	}
-	var token iamclientmodels.OauthmodelTokenResponseV3
+	var token repository.Token
 	err = json.Unmarshal(content, &token)
 	if err != nil {
 		logrus.Error(err)
