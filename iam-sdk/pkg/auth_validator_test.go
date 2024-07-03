@@ -15,10 +15,13 @@ import (
 	"github.com/AccelByte/go-jose"
 	"github.com/AccelByte/go-jose/jwt"
 	"github.com/stretchr/testify/assert"
-
+	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclientmodels"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils/auth"
 )
+
+const baseUrl = "https://example.com"
 
 func TestTokenValidator_ValidateToken(t *testing.T) {
 	// should be moved and run as integration test, skip for now
@@ -65,7 +68,15 @@ func TestTokenValidator_ValidateToken(t *testing.T) {
 }
 
 func TestTokenValidator_ValidateNamespaceRevamp(t *testing.T) {
-	validator := NewTokenValidatorTest(OAuth20Service{}, time.Hour)
+	configRepo := auth.DefaultConfigRepositoryImpl()
+	tokenRepo := auth.DefaultTokenRepositoryImpl()
+	authService := OAuth20Service{
+		Client:           NewIamClient(configRepo),
+		ConfigRepository: configRepo,
+		TokenRepository:  tokenRepo,
+	}
+	configRepo.BaseUrl = baseUrl
+	validator := NewTokenValidatorTest(authService, time.Hour)
 	jwtClaims := jwt.Claims{
 		Subject:  "user1",
 		Audience: []string{"client-id-1"},
@@ -165,6 +176,9 @@ func TestTokenValidator_ValidateNamespaceRevamp(t *testing.T) {
 			gotKeyIDs[j] = sig.Header.KeyID
 		}
 
+		n := authService.TokenRepository.Store(&repository.Token{AccessToken: &token})
+		assert.Nil(t, n)
+
 		// Act
 		err = validator.Validate(token, &tc.ExpectedPermission, &tc.Claims.Namespace, nil)
 
@@ -174,7 +188,15 @@ func TestTokenValidator_ValidateNamespaceRevamp(t *testing.T) {
 }
 
 func TestTokenValidator_ValidateNamespaceRevamp2(t *testing.T) {
-	validator := NewTokenValidatorTest2(OAuth20Service{}, time.Hour)
+	configRepo := auth.DefaultConfigRepositoryImpl()
+	tokenRepo := auth.DefaultTokenRepositoryImpl()
+	authService := OAuth20Service{
+		Client:           NewIamClient(configRepo),
+		ConfigRepository: configRepo,
+		TokenRepository:  tokenRepo,
+	}
+	configRepo.BaseUrl = baseUrl
+	validator := NewTokenValidatorTest2(authService, time.Hour)
 	jwtClaims := jwt.Claims{
 		Subject:  "user1",
 		Audience: []string{"client-id-1"},
@@ -252,6 +274,9 @@ func TestTokenValidator_ValidateNamespaceRevamp2(t *testing.T) {
 			gotKeyIDs[j] = sig.Header.KeyID
 		}
 
+		n := authService.TokenRepository.Store(&repository.Token{AccessToken: &token})
+		assert.Nil(t, n)
+
 		// Act
 		err = validator.Validate(token, &expectedPermission, &tc.Claims.Namespace, nil)
 
@@ -261,7 +286,15 @@ func TestTokenValidator_ValidateNamespaceRevamp2(t *testing.T) {
 }
 
 func TestTokenValidator_ValidateNamespaceRevamp3(t *testing.T) {
-	validator := NewTokenValidatorTest3(OAuth20Service{}, time.Hour)
+	configRepo := auth.DefaultConfigRepositoryImpl()
+	tokenRepo := auth.DefaultTokenRepositoryImpl()
+	authService := OAuth20Service{
+		Client:           NewIamClient(configRepo),
+		ConfigRepository: configRepo,
+		TokenRepository:  tokenRepo,
+	}
+	configRepo.BaseUrl = baseUrl
+	validator := NewTokenValidatorTest3(authService, time.Hour)
 	jwtClaims := jwt.Claims{
 		Subject:  "user1",
 		Audience: []string{"client-id-1"},
@@ -325,6 +358,8 @@ func TestTokenValidator_ValidateNamespaceRevamp3(t *testing.T) {
 		for j, sig := range jws.Signatures {
 			gotKeyIDs[j] = sig.Header.KeyID
 		}
+		n := authService.TokenRepository.Store(&repository.Token{AccessToken: &token})
+		assert.Nil(t, n)
 
 		// Act
 		err = validator.Validate(token, &expectedPermission, &tc.Claims.Namespace, nil)

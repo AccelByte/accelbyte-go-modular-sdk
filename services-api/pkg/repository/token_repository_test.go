@@ -12,7 +12,6 @@ import (
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/mock"
 
-	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclientmodels"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 )
 
@@ -21,13 +20,13 @@ type mockTokenRepository struct {
 }
 
 func (m *mockTokenRepository) Store(accessToken interface{}) error { return nil }
-func (m *mockTokenRepository) GetToken() (*iamclientmodels.OauthmodelTokenResponseV3, error) {
+func (m *mockTokenRepository) GetToken() (*repository.Token, error) {
 	args := m.Called()
-	var return0 *iamclientmodels.OauthmodelTokenResponseV3
+	var return0 *repository.Token
 	var return1 error
 
 	if args.Get(0) != nil {
-		return0 = args.Get(0).(*iamclientmodels.OauthmodelTokenResponseV3)
+		return0 = args.Get(0).(*repository.Token)
 	}
 
 	if args.Get(1) != nil {
@@ -42,7 +41,7 @@ func (m *mockTokenRepository) TokenIssuedTimeUTC() time.Time { return time.Time{
 func TestGetRefreshToken(t *testing.T) {
 	t.Run("Should return refresh token from valid token repository", func(t *testing.T) {
 		refToken := "<refresh-token>"
-		token := &iamclientmodels.OauthmodelTokenResponseV3{RefreshToken: refToken}
+		token := &repository.Token{RefreshToken: refToken}
 		tokenRepo := &mockTokenRepository{}
 		tokenRepo.On("GetToken").Return(token, nil)
 

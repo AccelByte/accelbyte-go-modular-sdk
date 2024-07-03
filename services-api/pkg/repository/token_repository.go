@@ -5,12 +5,15 @@
 package repository
 
 import (
+	"encoding/base64"
 	"encoding/json"
+	"errors"
+	"strings"
 	"time"
 
-	"github.com/go-openapi/strfmt"
+	"github.com/golang-jwt/jwt"
 
-	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclientmodels"
+	"github.com/go-openapi/strfmt"
 )
 
 type (
@@ -66,7 +69,7 @@ type (
 type TokenRepository interface {
 	// Store token model with type iamclientmodels.OauthmodelTokenResponseV3 or any type that compatible with its json serialized data
 	Store(token interface{}) error
-	GetToken() (*iamclientmodels.OauthmodelTokenResponseV3, error)
+	GetToken() (*Token, error)
 	RemoveToken() error
 	TokenIssuedTimeUTC() time.Time
 }
@@ -145,17 +148,61 @@ func HasRefreshTokenExpired(repository TokenRepository, refreshRate float64) boo
 	return GetSecondsTillExpiryRefresh(repository, refreshRate) <= 0
 }
 
-func ConvertInterfaceToModel(tokenInterface interface{}) (*iamclientmodels.OauthmodelTokenResponseV3, error) {
+func ConvertInterfaceToModel(tokenInterface interface{}) (*Token, error) {
 	tmpToken, errMarshal := json.Marshal(tokenInterface)
 	if errMarshal != nil {
 		return nil, errMarshal
 	}
 
-	token := &iamclientmodels.OauthmodelTokenResponseV3{}
+	token := &Token{}
 	errUnmarshal := json.Unmarshal(tmpToken, &token)
 	if errUnmarshal != nil {
 		return nil, errUnmarshal
 	}
 
 	return token, nil
+}
+
+// ConvertStringToModelToken converts access token string to Token struct used by iam Token Grant V3 endpoint
+func ConvertStringToModelToken(accessToken string) (*Token, error) {
+	tokenResponseV3 := &Token{}
+	parsedToken, err := jwt.Parse(accessToken, func(token *jwt.Token) (interface{}, error) {
+		return accessToken, nil
+	})
+
+	if parsedToken != nil {
+		jsonPayload, errMarshal := json.Marshal(parsedToken.Claims)
+		if errMarshal != nil {
+			return nil, errMarshal
+		}
+		err = json.Unmarshal(jsonPayload, tokenResponseV3)
+		if err != nil {
+			return nil, err
+		}
+		tokenResponseV3.AccessToken = &accessToken
+
+		return tokenResponseV3, nil
+	}
+
+	return nil, err
+}
+
+// CheckJWT checks if the token is a valid JWT
+func CheckJWT(token string) error {
+	parts := strings.Split(token, ".")
+	if len(parts) != 3 {
+		return errors.New("token does not have 3 parts")
+	}
+
+	_, err := base64.RawURLEncoding.DecodeString(parts[0])
+	if err != nil {
+		return errors.New("header is not valid base64")
+	}
+
+	_, err = base64.RawURLEncoding.DecodeString(parts[1])
+	if err != nil {
+		return errors.New("payload is not valid base64")
+	}
+
+	return nil
 }

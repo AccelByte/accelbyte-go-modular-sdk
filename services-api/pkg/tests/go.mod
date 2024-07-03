@@ -2,6 +2,7 @@ module github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/tests
 
 go 1.18
 
+// for development only (not propagated)
 replace (
 	github.com/AccelByte/accelbyte-go-modular-sdk/achievement-sdk => ../../../achievement-sdk
 	github.com/AccelByte/accelbyte-go-modular-sdk/ams-sdk => ../../../ams-sdk
@@ -33,19 +34,10 @@ replace (
 	github.com/AccelByte/accelbyte-go-modular-sdk/ugc-sdk => ../../../ugc-sdk
 )
 
-// for development only (not propagated)
-replace (
-	github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/factory => ../../../services-api/pkg/factory
-	github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/service/ams => ../../../services-api/pkg/service/ams
-	github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/service/iam => ../../../services-api/pkg/service/iam
-	github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/service/platform => ../../../services-api/pkg/service/platform
-	github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/service/seasonpass => ../../../services-api/pkg/service/seasonpass
-)
-
 require (
 	github.com/AccelByte/accelbyte-go-modular-sdk/achievement-sdk v0.1.0-alpha.1
 	github.com/AccelByte/accelbyte-go-modular-sdk/ams-sdk v0.1.0-alpha.1
-	github.com/AccelByte/accelbyte-go-modular-sdk/basic-sdk v0.1.0-alpha.3
+	github.com/AccelByte/accelbyte-go-modular-sdk/basic-sdk v0.1.0-alpha.4
 	github.com/AccelByte/accelbyte-go-modular-sdk/chat-sdk v0.0.0-00010101000000-000000000000
 	github.com/AccelByte/accelbyte-go-modular-sdk/cloudsave-sdk v0.1.0-alpha.1
 	github.com/AccelByte/accelbyte-go-modular-sdk/dsartifact-sdk v0.0.0-00010101000000-000000000000
@@ -79,6 +71,15 @@ require (
 	github.com/stretchr/testify v1.8.2
 )
 
+// for development only (not propagated)
+replace (
+	github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/factory => ../../../services-api/pkg/factory
+	github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/service/ams => ../../../services-api/pkg/service/ams
+	github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/service/iam => ../../../services-api/pkg/service/iam
+	github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/service/platform => ../../../services-api/pkg/service/platform
+	github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/service/seasonpass => ../../../services-api/pkg/service/seasonpass
+)
+
 require (
 	github.com/AccelByte/bloom v0.0.0-20180915202807-98c052463922 // indirect
 	github.com/AccelByte/go-jose v2.1.4+incompatible // indirect
@@ -95,6 +96,7 @@ require (
 	github.com/go-openapi/spec v0.20.4 // indirect
 	github.com/go-openapi/swag v0.21.1 // indirect
 	github.com/go-openapi/validate v0.21.0 // indirect
+	github.com/golang-jwt/jwt v3.2.2+incompatible // indirect
 	github.com/gorilla/websocket v1.5.0 // indirect
 	github.com/josharian/intern v1.0.0 // indirect
 	github.com/mailru/easyjson v0.7.7 // indirect

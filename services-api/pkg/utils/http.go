@@ -52,7 +52,7 @@ func SimpleHTTPCall(client http.Client, endpoint, httpMethod, authorizationValue
 	req.Header.Set("Authorization", authorizationValue)
 	resp, err := client.Do(req)
 	if err != nil {
-		logrus.Error("http call error")
+		logrus.Error("http call error. ", err.Error())
 
 		return nil, err
 	}

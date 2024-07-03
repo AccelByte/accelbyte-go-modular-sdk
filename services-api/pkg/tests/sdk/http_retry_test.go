@@ -16,7 +16,6 @@ import (
 
 	"github.com/stretchr/testify/assert"
 
-	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclientmodels"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 
 	iam "github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg"
@@ -62,7 +61,7 @@ var (
 	mockServerResetOverwriteResponse     = "/reset-overwrite-response"
 	namespace                            = "test"
 	tokenRepo                            = MyTokenRepo{
-		accessToken: &iamclientmodels.OauthmodelTokenResponseV3{
+		accessToken: &repository.Token{
 			AccessToken: &accessToken,
 			ExpiresIn:   &expiresIn,
 		},
@@ -113,11 +112,11 @@ func (c *MyConfigRepo) GetJusticeBaseUrl() string { return c.baseUrl }
 
 type MyTokenRepo struct {
 	IssuedTime  *time.Time
-	accessToken *iamclientmodels.OauthmodelTokenResponseV3
+	accessToken *repository.Token
 	mu          sync.Mutex
 }
 
-func (t *MyTokenRepo) GetToken() (*iamclientmodels.OauthmodelTokenResponseV3, error) {
+func (t *MyTokenRepo) GetToken() (*repository.Token, error) {
 	defer t.mu.Unlock()
 	t.mu.Lock()
 	if t.accessToken == nil {

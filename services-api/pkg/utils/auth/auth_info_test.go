@@ -16,8 +16,8 @@ import (
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/mock"
 
-	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclientmodels"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/constant"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 )
 
 type mockTokenRepository struct {
@@ -25,10 +25,10 @@ type mockTokenRepository struct {
 }
 
 func (m *mockTokenRepository) Store(accessToken interface{}) error { return nil }
-func (m *mockTokenRepository) GetToken() (*iamclientmodels.OauthmodelTokenResponseV3, error) {
+func (m *mockTokenRepository) GetToken() (*repository.Token, error) {
 	args := m.Called()
 
-	return args.Get(0).(*iamclientmodels.OauthmodelTokenResponseV3), args.Error(1)
+	return args.Get(0).(*repository.Token), args.Error(1)
 }
 func (m *mockTokenRepository) RemoveToken() error            { return nil }
 func (m *mockTokenRepository) TokenIssuedTimeUTC() time.Time { return time.Time{} }
@@ -172,7 +172,7 @@ func TestAuthInfoWriterBearer_All(t *testing.T) {
 	}
 
 	accToken := accessToken
-	token := &iamclientmodels.OauthmodelTokenResponseV3{AccessToken: &accToken}
+	token := &repository.Token{AccessToken: &accToken}
 	tokenRepo := &mockTokenRepository{}
 	tokenRepo.On("GetToken").Return(token, nil)
 

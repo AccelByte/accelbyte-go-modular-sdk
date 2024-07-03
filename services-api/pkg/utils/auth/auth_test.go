@@ -8,12 +8,11 @@ import (
 	"testing"
 	"time"
 
-	"github.com/stretchr/testify/assert"
-
-	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclientmodels"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/constant"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils/testutils"
+	"github.com/stretchr/testify/assert"
 )
 
 func TestDefaultConfigRepositoryImpl(t *testing.T) {
@@ -50,7 +49,7 @@ func TestTokenRepositoryImpl(t *testing.T) {
 		// existing token value not affected because Store operation failed
 		tkn, err := tokenRepo.GetToken()
 		assert.NoError(t, err)
-		assert.Equal(t, &iamclientmodels.OauthmodelTokenResponseV3{}, tkn)
+		assert.Equal(t, &repository.Token{}, tkn)
 
 		err = tokenRepo.RemoveToken()
 		assert.NoError(t, err)
@@ -68,13 +67,13 @@ func TestTokenRepositoryImpl(t *testing.T) {
 
 		tkn, err := tokenRepo.GetToken()
 		assert.Error(t, err)
-		assert.Nil(t, tkn)
+		assert.Empty(t, tkn)
 	})
 
 	t.Run("Valid access token object", func(t *testing.T) {
 		tokenRepo := DefaultTokenRepositoryImpl()
 		accessTokenStr := "<my-random-access-token-here>"
-		accessToken := &iamclientmodels.OauthmodelTokenResponseV3{
+		accessToken := &repository.Token{
 			AccessToken: &accessTokenStr,
 			DisplayName: "accelbyte",
 		}

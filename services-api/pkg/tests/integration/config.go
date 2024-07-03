@@ -9,7 +9,6 @@ import (
 	"os"
 	"time"
 
-	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclientmodels"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils/connectionutils"
 )
@@ -47,7 +46,7 @@ func (connManager *ConnectionManagerImpl) Close() error {
 
 type TokenRepositoryPhantAuthImpl struct {
 	IssuedTime  *time.Time
-	AccessToken *iamclientmodels.OauthmodelTokenResponseV3
+	AccessToken *repository.Token
 }
 
 type ConfigRepositoryPhantAuthImpl struct {
@@ -75,12 +74,12 @@ func (t *TokenRepositoryPhantAuthImpl) Store(accessToken interface{}) error {
 	return nil
 }
 
-func (t *TokenRepositoryPhantAuthImpl) GetToken() (*iamclientmodels.OauthmodelTokenResponseV3, error) {
+func (t *TokenRepositoryPhantAuthImpl) GetToken() (*repository.Token, error) {
 	return t.AccessToken, nil
 }
 
 func (t *TokenRepositoryPhantAuthImpl) RemoveToken() error {
-	t.AccessToken = &iamclientmodels.OauthmodelTokenResponseV3{}
+	t.AccessToken = &repository.Token{}
 
 	return nil
 }

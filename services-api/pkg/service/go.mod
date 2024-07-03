@@ -2,11 +2,6 @@ module github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/service
 
 go 1.18
 
-replace (
-	github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk => ../../../iam-sdk
-	github.com/AccelByte/accelbyte-go-modular-sdk/services-api => ../../../services-api
-)
-
 require (
 	github.com/AccelByte/accelbyte-go-modular-sdk/services-api v0.1.0-alpha.3
 	github.com/gorilla/websocket v1.5.0
