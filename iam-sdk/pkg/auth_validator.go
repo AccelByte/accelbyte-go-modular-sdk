@@ -9,10 +9,13 @@ import (
 	"crypto/rsa"
 	"encoding/base64"
 	"encoding/binary"
+	"encoding/json"
 	"errors"
 	"fmt"
+	"io/ioutil"
 	"log"
 	"math/big"
+	"net/http"
 	"strings"
 	"time"
 
@@ -20,8 +23,6 @@ import (
 	"github.com/AccelByte/go-jose/jwt"
 	"github.com/patrickmn/go-cache"
 
-	basic "github.com/AccelByte/accelbyte-go-modular-sdk/basic-sdk/pkg"
-	namespace_ "github.com/AccelByte/accelbyte-go-modular-sdk/basic-sdk/pkg/basicclient/namespace"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/o_auth2_0"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/roles"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclientmodels"
@@ -468,28 +469,45 @@ func (v *TokenValidator) fetchNamespaceContextFromCache(keyNamespace string) err
 }
 
 func (v *TokenValidator) fetchNamespaceContext(keyNamespace string) error {
-	if v.AuthService.ConfigRepository != nil {
-		namespaceService := &basic.NamespaceService{
-			Client:           basic.NewBasicClient(v.AuthService.ConfigRepository),
-			ConfigRepository: v.AuthService.ConfigRepository,
-			TokenRepository:  v.AuthService.TokenRepository,
+	var token string
+	if v.AuthService.TokenRepository != nil {
+		t, errT := v.AuthService.TokenRepository.GetToken()
+		if errT != nil {
+			return errors.New("empty token")
 		}
-		resp, err := namespaceService.GetNamespaceContextShort(&namespace_.GetNamespaceContextParams{
-			Namespace: keyNamespace,
-		})
-		if err != nil {
-			return err
+		token = *t.AccessToken
+	}
+	url := fmt.Sprintf("%s/basic/v1/admin/namespaces/%s/context", v.AuthService.ConfigRepository.GetJusticeBaseUrl(), keyNamespace)
+	if token != "" {
+		resp, errResp := utils.SimpleHTTPCall(utils.GetClient(), url, "GET", fmt.Sprintf("Bearer %s", token), "", nil)
+		if errResp != nil {
+			return errResp
 		}
+		respBody, errRespBody := ioutil.ReadAll(resp.Body)
+		if errRespBody != nil {
+			return errRespBody
+		}
+		if resp.StatusCode == http.StatusOK {
+			nResp := &NamespaceContext{}
+			err := json.Unmarshal(respBody, nResp)
+			if err != nil {
+				return err
+			}
 
-		v.namespaceContextsCache.Set(keyNamespace, &NamespaceContext{
-			Namespace:          resp.Namespace,
-			Type:               resp.Type,
-			PublisherNamespace: resp.PublisherNamespace,
-			StudioNamespace:    resp.StudioNamespace,
-		}, utils.GetNamespaceContextExpirationTime())
+			v.namespaceContextsCache.Set(keyNamespace, &NamespaceContext{
+				Namespace:          nResp.Namespace,
+				Type:               nResp.Type,
+				PublisherNamespace: nResp.PublisherNamespace,
+				StudioNamespace:    nResp.StudioNamespace,
+			}, utils.GetNamespaceContextExpirationTime())
+
+			return nil
+		} else {
+			return nil
+		}
 	}
 
-	return nil
+	return errors.New("requesting namespace context but token is empty")
 }
 
 func (v *TokenValidator) validatePermissions(permissions []Permission, resource string, action int) bool {

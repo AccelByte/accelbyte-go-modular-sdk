@@ -15,7 +15,7 @@ import (
 	"github.com/AccelByte/go-jose"
 	"github.com/AccelByte/go-jose/jwt"
 	"github.com/stretchr/testify/assert"
-	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
+
 	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclientmodels"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils/auth"
