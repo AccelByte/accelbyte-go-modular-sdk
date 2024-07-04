@@ -61,7 +61,7 @@ require (
 	github.com/AccelByte/accelbyte-go-modular-sdk/qosm-sdk v0.1.0-alpha.1
 	github.com/AccelByte/accelbyte-go-modular-sdk/reporting-sdk v0.1.0-alpha.1
 	github.com/AccelByte/accelbyte-go-modular-sdk/seasonpass-sdk v0.1.0-alpha.1
-	github.com/AccelByte/accelbyte-go-modular-sdk/services-api v0.1.0-alpha.3
+	github.com/AccelByte/accelbyte-go-modular-sdk/services-api v0.1.0-alpha.4
 	github.com/AccelByte/accelbyte-go-modular-sdk/session-sdk v0.1.0-alpha.1
 	github.com/AccelByte/accelbyte-go-modular-sdk/sessionbrowser-sdk v0.1.0-alpha.1
 	github.com/AccelByte/accelbyte-go-modular-sdk/sessionhistory-sdk v0.1.0-alpha.1

@@ -1,3 +1,5 @@
+github.com/AccelByte/accelbyte-go-modular-sdk/services-api v0.1.0-alpha.4 h1:IyxOkzlr+rMqBnrgaaR4T2fqi1FBZ7sm7bFVvBzkW7E=
+github.com/AccelByte/accelbyte-go-modular-sdk/services-api v0.1.0-alpha.4/go.mod h1:0Z29Rse0ooaLFmkoO+W9xz1UKWQLP9hd4hVTGLnQ/pg=
 github.com/BurntSushi/toml v0.3.1/go.mod h1:xHWCNGjB5oqiDr8zfno3MHue2Ht5sIBksp03qcyfWMU=
 github.com/PuerkitoBio/purell v1.1.0/go.mod h1:c11w/QuzBsJSee3cPx9rAFu61PvFxuPbtSwDGJws/X0=
 github.com/PuerkitoBio/purell v1.1.1 h1:WEQqlqaGbrPkxLJWfBwQmfEAE1Z7ONdDLqrN38tNFfI=

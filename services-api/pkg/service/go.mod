@@ -3,13 +3,12 @@ module github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/service
 go 1.18
 
 require (
-	github.com/AccelByte/accelbyte-go-modular-sdk/services-api v0.1.0-alpha.3
+	github.com/AccelByte/accelbyte-go-modular-sdk/services-api v0.1.0-alpha.4
 	github.com/gorilla/websocket v1.5.0
 	github.com/sirupsen/logrus v1.9.0
 )
 
 require (
-	github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk v0.1.0-alpha.15 // indirect
 	github.com/PuerkitoBio/purell v1.1.1 // indirect
 	github.com/PuerkitoBio/urlesc v0.0.0-20170810143723-de5bf2ad4578 // indirect
 	github.com/asaskevich/govalidator v0.0.0-20210307081110-f21760c49a8d // indirect
@@ -25,6 +24,7 @@ require (
 	github.com/go-openapi/strfmt v0.21.1 // indirect
 	github.com/go-openapi/swag v0.21.1 // indirect
 	github.com/go-openapi/validate v0.21.0 // indirect
+	github.com/golang-jwt/jwt v3.2.2+incompatible // indirect
 	github.com/google/uuid v1.3.0 // indirect
 	github.com/josharian/intern v1.0.0 // indirect
 	github.com/mailru/easyjson v0.7.7 // indirect

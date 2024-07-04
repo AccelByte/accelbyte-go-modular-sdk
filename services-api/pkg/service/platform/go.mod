@@ -13,7 +13,7 @@ replace (
 
 require (
 	github.com/AccelByte/accelbyte-go-modular-sdk/platform-sdk v0.0.0
-	github.com/AccelByte/accelbyte-go-modular-sdk/services-api v0.1.0-alpha.3
+	github.com/AccelByte/accelbyte-go-modular-sdk/services-api v0.1.0-alpha.4
 	github.com/go-openapi/runtime v0.19.29
 )
 

@@ -4,10 +4,8 @@ module github.com/AccelByte/accelbyte-go-modular-sdk/sessionbrowser-sdk
 
 go 1.18
 
-replace github.com/AccelByte/accelbyte-go-modular-sdk/services-api => ../services-api
-
 require (
-	github.com/AccelByte/accelbyte-go-modular-sdk/services-api v0.1.0-alpha.3
+	github.com/AccelByte/accelbyte-go-modular-sdk/services-api v0.1.0-alpha.4
 	github.com/go-openapi/errors v0.20.2
 	github.com/go-openapi/runtime v0.19.29
 	github.com/go-openapi/strfmt v0.21.1
