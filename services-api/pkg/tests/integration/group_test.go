@@ -17,6 +17,7 @@ import (
 	group "github.com/AccelByte/accelbyte-go-modular-sdk/group-sdk/pkg"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/group-sdk/pkg/groupclient/configuration"
 	group_ "github.com/AccelByte/accelbyte-go-modular-sdk/group-sdk/pkg/groupclient/group"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/group-sdk/pkg/groupclient/group_member"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/group-sdk/pkg/groupclientmodels"
 )
 
@@ -26,6 +27,10 @@ var (
 		TokenRepository: tokenRepository,
 	}
 	groupService = &group.GroupService{
+		Client:          group.NewGroupClient(auth.DefaultConfigRepositoryImpl()),
+		TokenRepository: tokenRepository,
+	}
+	groupMemberService = &group.GroupMemberService{
 		Client:          group.NewGroupClient(auth.DefaultConfigRepositoryImpl()),
 		TokenRepository: tokenRepository,
 	}
@@ -81,6 +86,26 @@ func TestIntegrationGroup(t *testing.T) {
 	groupPredefinedRules = append(groupPredefinedRules, groupPredefinedRule)
 
 	configurationCode = checkGlobalConfig()
+
+	inputGetUserGroup := &group_member.GetUserGroupInformationPublicV2Params{
+		Namespace: namespace,
+		Limit:     &limit,
+		Offset:    &offset,
+	}
+	getUserGroup, errGetUserGroup := groupMemberService.GetUserGroupInformationPublicV2Short(inputGetUserGroup)
+
+	if errGetUserGroup == nil {
+		for _, data := range getUserGroup.Data {
+			inputLeave := &group_member.LeaveGroupPublicV2Params{
+				GroupID:   *data.GroupID,
+				Namespace: namespace,
+			}
+			_, leaveGroupErr := groupMemberService.LeaveGroupPublicV2Short(inputLeave)
+			if leaveGroupErr != nil {
+				assert.FailNow(t, leaveGroupErr.Error())
+			}
+		}
+	}
 
 	// CASE Create a group
 	// needs to use a token user who are not already joined a group
