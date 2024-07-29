@@ -36,6 +36,50 @@ func GetClient() http.Client {
 	}
 }
 
+// Function to upload a binary file
+func UploadBinaryFile(url string, token, filePath string) (*http.Response, error) {
+	body := new(bytes.Buffer)
+	writer := multipart.NewWriter(body)
+	file, err := ReadByChunks(filePath)
+	if err != nil {
+		logrus.Error("file open error. ", err.Error())
+
+		return nil, err
+	}
+	defer file.Close()
+
+	resp, err := SimpleHTTPCall(GetClient(), url, http.MethodPost, "Bearer "+token, writer.FormDataContentType(), body)
+	if err != nil {
+		return nil, err
+	}
+
+	return resp, nil
+}
+
+func DownloadBinary(endpoint, token, filePath string) (*http.Response, error) {
+	resp, err := SimpleHTTPCall(GetClient(), endpoint, http.MethodGet, "Bearer "+token, "application/octet-stream", nil)
+	if err != nil {
+		return nil, err
+	}
+
+	file, err := os.Create(filePath)
+	if err != nil {
+		logrus.Error("file create error. ", err.Error())
+
+		return nil, err
+	}
+	defer file.Close()
+
+	_, err = io.Copy(file, resp.Body)
+	if err != nil {
+		logrus.Error("file write error. ", err.Error())
+
+		return nil, err
+	}
+
+	return resp, nil
+}
+
 func SimpleHTTPCall(client http.Client, endpoint, httpMethod, authorizationValue, contentType string, requestBody io.Reader) (*http.Response, error) {
 	req, err := http.NewRequest(httpMethod, endpoint, requestBody)
 	if err != nil {
@@ -44,10 +88,9 @@ func SimpleHTTPCall(client http.Client, endpoint, httpMethod, authorizationValue
 		return nil, err
 	}
 
+	req.Header.Set("Content-Type", "application/json")
 	if contentType != "" {
-		req.Header.Set("Content-Type", contentType)
-	} else {
-		req.Header.Set("Content-Type", "application/json")
+		req.Header.Add("Content-Type", contentType)
 	}
 	req.Header.Set("Authorization", authorizationValue)
 	resp, err := client.Do(req)
