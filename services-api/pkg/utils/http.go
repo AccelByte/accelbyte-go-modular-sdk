@@ -37,7 +37,7 @@ func GetClient() http.Client {
 }
 
 // Function to upload a binary file
-func UploadBinaryFile(url string, token, filePath string) (*http.Response, error) {
+func UploadBinaryFile(url, token, filePath string) (*http.Response, error) {
 	body := new(bytes.Buffer)
 	writer := multipart.NewWriter(body)
 	file, err := ReadByChunks(filePath)
