@@ -18,6 +18,8 @@ import (
 
 // Helper function to set up a mock server
 func setupMockServer(t *testing.T, method string, content string) *httptest.Server {
+	t.Helper()
+
 	return httptest.NewServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 		if r.Method != method {
 			t.Errorf("Expected '%s' request, got '%s'", method, r.Method)
@@ -40,6 +42,8 @@ func setupMockServer(t *testing.T, method string, content string) *httptest.Serv
 
 // Helper function to create a temporary file for binary upload
 func createTempFile(t *testing.T, content string) *os.File {
+	t.Helper()
+
 	file, err := os.CreateTemp("", "upload-test-*.bin")
 	if err != nil {
 		t.Fatalf("Failed to create temp file: %v", err)
