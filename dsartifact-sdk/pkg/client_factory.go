@@ -15,6 +15,12 @@ import (
 
 func NewDsartifactClient(configRepository repository.ConfigRepository) *dsartifactclient.JusticeDsartifactService {
 	baseURL := strings.TrimSuffix(configRepository.GetJusticeBaseUrl(), "/")
+
+	if extendedConfigRepository, ok := configRepository.(repository.ExtendedConfigRepository); ok {
+		baseURL = extendedConfigRepository.GetCustomBasePath("/dsartifact")
+		baseURL = strings.TrimSuffix(baseURL, "/")
+	}
+
 	if len(baseURL) > 0 {
 		baseURLSplit := strings.Split(baseURL, "://")
 		httpClientConfig := &dsartifactclient.TransportConfig{

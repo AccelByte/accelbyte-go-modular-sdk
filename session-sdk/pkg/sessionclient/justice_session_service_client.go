@@ -17,6 +17,7 @@ import (
 
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/session-sdk/pkg/sessionclient/certificate"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/session-sdk/pkg/sessionclient/config"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/session-sdk/pkg/sessionclient/configuration_template"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/session-sdk/pkg/sessionclient/d_s_m_c_default_configuration"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/session-sdk/pkg/sessionclient/environment_variable"
@@ -94,6 +95,7 @@ func New(transport runtime.ClientTransport, runtime *httptransport.Runtime, form
 	cli.Transport = transport
 	cli.Runtime = runtime
 	cli.Certificate = certificate.New(transport, formats)
+	cli.Config = config.New(transport, formats)
 	cli.ConfigurationTemplate = configuration_template.New(transport, formats)
 	cli.DsmcDefaultConfiguration = d_s_m_c_default_configuration.New(transport, formats)
 	cli.EnvironmentVariable = environment_variable.New(transport, formats)
@@ -170,6 +172,8 @@ func (cfg *TransportConfig) WithSchemes(schemes []string) *TransportConfig {
 type JusticeSessionService struct {
 	Certificate certificate.ClientService
 
+	Config config.ClientService
+
 	ConfigurationTemplate configuration_template.ClientService
 
 	DsmcDefaultConfiguration d_s_m_c_default_configuration.ClientService
@@ -204,6 +208,7 @@ type JusticeSessionService struct {
 func (c *JusticeSessionService) SetTransport(transport runtime.ClientTransport) {
 	c.Transport = transport
 	c.Certificate.SetTransport(transport)
+	c.Config.SetTransport(transport)
 	c.ConfigurationTemplate.SetTransport(transport)
 	c.DsmcDefaultConfiguration.SetTransport(transport)
 	c.EnvironmentVariable.SetTransport(transport)

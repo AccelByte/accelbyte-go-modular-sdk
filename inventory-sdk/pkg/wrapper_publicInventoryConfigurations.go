@@ -13,7 +13,6 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils/auth"
-	"github.com/go-openapi/runtime/client"
 )
 
 type PublicInventoryConfigurationsService struct {
@@ -36,26 +35,6 @@ func (aaa *PublicInventoryConfigurationsService) GetAuthSession() auth.Session {
 		aaa.ConfigRepository,
 		nil,
 	}
-}
-
-// Deprecated: 2022-01-10 - Please use PublicListInventoryConfigurationsShort instead.
-func (aaa *PublicInventoryConfigurationsService) PublicListInventoryConfigurations(input *public_inventory_configurations.PublicListInventoryConfigurationsParams) (*inventoryclientmodels.ApimodelsListInventoryConfigurationsResp, error) {
-	token, err := aaa.TokenRepository.GetToken()
-	if err != nil {
-		return nil, err
-	}
-	ok, badRequest, internalServerError, err := aaa.Client.PublicInventoryConfigurations.PublicListInventoryConfigurations(input, client.BearerToken(*token.AccessToken))
-	if badRequest != nil {
-		return nil, badRequest
-	}
-	if internalServerError != nil {
-		return nil, internalServerError
-	}
-	if err != nil {
-		return nil, err
-	}
-
-	return ok.GetPayload(), nil
 }
 
 func (aaa *PublicInventoryConfigurationsService) PublicListInventoryConfigurationsShort(input *public_inventory_configurations.PublicListInventoryConfigurationsParams) (*inventoryclientmodels.ApimodelsListInventoryConfigurationsResp, error) {

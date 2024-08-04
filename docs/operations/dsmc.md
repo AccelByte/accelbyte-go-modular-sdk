@@ -27,11 +27,9 @@
 |---|---|---|---|---|---|
 | `/dsmcontroller/admin/images` | PUT | UpdateImageShort | [UpdateImageShort](../../dsmc-sdk/pkg/dsmcclient/image_config/image_config_client.go) | [UpdateImageShort](../../dsmc-sdk/pkg/wrapper_imageConfig.go) | [UpdateImageShort](../../samples/cli/cmd/dsmc/imageConfig/updateImage.go) |
 | `/dsmcontroller/admin/images` | POST | CreateImageShort | [CreateImageShort](../../dsmc-sdk/pkg/dsmcclient/image_config/image_config_client.go) | [CreateImageShort](../../dsmc-sdk/pkg/wrapper_imageConfig.go) | [CreateImageShort](../../samples/cli/cmd/dsmc/imageConfig/createImage.go) |
-| `/dsmcontroller/admin/images/import` | POST | ImportImagesShort | [ImportImagesShort](../../dsmc-sdk/pkg/dsmcclient/image_config/image_config_client.go) | [ImportImagesShort](../../dsmc-sdk/pkg/wrapper_imageConfig.go) | [ImportImagesShort](../../samples/cli/cmd/dsmc/imageConfig/importImages.go) |
 | `/dsmcontroller/admin/images/patches` | POST | CreateImagePatchShort | [CreateImagePatchShort](../../dsmc-sdk/pkg/dsmcclient/image_config/image_config_client.go) | [CreateImagePatchShort](../../dsmc-sdk/pkg/wrapper_imageConfig.go) | [CreateImagePatchShort](../../samples/cli/cmd/dsmc/imageConfig/createImagePatch.go) |
 | `/dsmcontroller/admin/namespaces/{namespace}/images` | GET | ListImagesShort | [ListImagesShort](../../dsmc-sdk/pkg/dsmcclient/image_config/image_config_client.go) | [ListImagesShort](../../dsmc-sdk/pkg/wrapper_imageConfig.go) | [ListImagesShort](../../samples/cli/cmd/dsmc/imageConfig/listImages.go) |
 | `/dsmcontroller/admin/namespaces/{namespace}/images` | DELETE | DeleteImageShort | [DeleteImageShort](../../dsmc-sdk/pkg/dsmcclient/image_config/image_config_client.go) | [DeleteImageShort](../../dsmc-sdk/pkg/wrapper_imageConfig.go) | [DeleteImageShort](../../samples/cli/cmd/dsmc/imageConfig/deleteImage.go) |
-| `/dsmcontroller/admin/namespaces/{namespace}/images/export` | GET | ExportImagesShort | [ExportImagesShort](../../dsmc-sdk/pkg/dsmcclient/image_config/image_config_client.go) | [ExportImagesShort](../../dsmc-sdk/pkg/wrapper_imageConfig.go) | [ExportImagesShort](../../samples/cli/cmd/dsmc/imageConfig/exportImages.go) |
 | `/dsmcontroller/admin/namespaces/{namespace}/images/limit` | GET | GetImageLimitShort | [GetImageLimitShort](../../dsmc-sdk/pkg/dsmcclient/image_config/image_config_client.go) | [GetImageLimitShort](../../dsmc-sdk/pkg/wrapper_imageConfig.go) | [GetImageLimitShort](../../samples/cli/cmd/dsmc/imageConfig/getImageLimit.go) |
 | `/dsmcontroller/admin/namespaces/{namespace}/images/patches` | DELETE | DeleteImagePatchShort | [DeleteImagePatchShort](../../dsmc-sdk/pkg/dsmcclient/image_config/image_config_client.go) | [DeleteImagePatchShort](../../dsmc-sdk/pkg/wrapper_imageConfig.go) | [DeleteImagePatchShort](../../samples/cli/cmd/dsmc/imageConfig/deleteImagePatch.go) |
 | `/dsmcontroller/admin/namespaces/{namespace}/images/versions/{version}` | GET | GetImageDetailShort | [GetImageDetailShort](../../dsmc-sdk/pkg/dsmcclient/image_config/image_config_client.go) | [GetImageDetailShort](../../dsmc-sdk/pkg/wrapper_imageConfig.go) | [GetImageDetailShort](../../samples/cli/cmd/dsmc/imageConfig/getImageDetail.go) |
@@ -56,6 +54,26 @@
 | `/dsmcontroller/namespaces/{namespace}/configs/pods/{name}` | POST | CreatePodConfigClientShort | [CreatePodConfigClientShort](../../dsmc-sdk/pkg/dsmcclient/pod_config/pod_config_client.go) | [CreatePodConfigClientShort](../../dsmc-sdk/pkg/wrapper_podConfig.go) | [CreatePodConfigClientShort](../../samples/cli/cmd/dsmc/podConfig/createPodConfigClient.go) |
 | `/dsmcontroller/namespaces/{namespace}/configs/pods/{name}` | DELETE | DeletePodConfigClientShort | [DeletePodConfigClientShort](../../dsmc-sdk/pkg/dsmcclient/pod_config/pod_config_client.go) | [DeletePodConfigClientShort](../../dsmc-sdk/pkg/wrapper_podConfig.go) | [DeletePodConfigClientShort](../../samples/cli/cmd/dsmc/podConfig/deletePodConfigClient.go) |
 
+### Admin Wrapper:  [Admin](../../dsmc-sdk/pkg/wrapper_admin.go)
+| Endpoint | Method | ID | Class | Wrapper | Example |
+|---|---|---|---|---|---|
+| `/dsmcontroller/admin/namespace/{namespace}/workers` | GET | GetWorkerConfigShort | [GetWorkerConfigShort](../../dsmc-sdk/pkg/dsmcclient/admin/admin_client.go) | [GetWorkerConfigShort](../../dsmc-sdk/pkg/wrapper_admin.go) | [GetWorkerConfigShort](../../samples/cli/cmd/dsmc/admin/getWorkerConfig.go) |
+| `/dsmcontroller/admin/namespace/{namespace}/workers` | PUT | UpdateWorkerConfigShort | [UpdateWorkerConfigShort](../../dsmc-sdk/pkg/dsmcclient/admin/admin_client.go) | [UpdateWorkerConfigShort](../../dsmc-sdk/pkg/wrapper_admin.go) | [UpdateWorkerConfigShort](../../samples/cli/cmd/dsmc/admin/updateWorkerConfig.go) |
+| `/dsmcontroller/admin/namespace/{namespace}/workers` | POST | CreateWorkerConfigShort | [CreateWorkerConfigShort](../../dsmc-sdk/pkg/dsmcclient/admin/admin_client.go) | [CreateWorkerConfigShort](../../dsmc-sdk/pkg/wrapper_admin.go) | [CreateWorkerConfigShort](../../samples/cli/cmd/dsmc/admin/createWorkerConfig.go) |
+| `/dsmcontroller/admin/namespaces/{namespace}/manual/buffer/add` | POST | AddBufferShort | [AddBufferShort](../../dsmc-sdk/pkg/dsmcclient/admin/admin_client.go) | [AddBufferShort](../../dsmc-sdk/pkg/wrapper_admin.go) | [AddBufferShort](../../samples/cli/cmd/dsmc/admin/addBuffer.go) |
+| `/dsmcontroller/admin/namespaces/{namespace}/servers` | GET | ListServerShort | [ListServerShort](../../dsmc-sdk/pkg/dsmcclient/admin/admin_client.go) | [ListServerShort](../../dsmc-sdk/pkg/wrapper_admin.go) | [ListServerShort](../../samples/cli/cmd/dsmc/admin/listServer.go) |
+| `/dsmcontroller/admin/namespaces/{namespace}/servers/count` | GET | CountServerShort | [CountServerShort](../../dsmc-sdk/pkg/dsmcclient/admin/admin_client.go) | [CountServerShort](../../dsmc-sdk/pkg/wrapper_admin.go) | [CountServerShort](../../samples/cli/cmd/dsmc/admin/countServer.go) |
+| `/dsmcontroller/admin/namespaces/{namespace}/servers/count/detailed` | GET | CountServerDetailedShort | [CountServerDetailedShort](../../dsmc-sdk/pkg/dsmcclient/admin/admin_client.go) | [CountServerDetailedShort](../../dsmc-sdk/pkg/wrapper_admin.go) | [CountServerDetailedShort](../../samples/cli/cmd/dsmc/admin/countServerDetailed.go) |
+| `/dsmcontroller/admin/namespaces/{namespace}/servers/local` | GET | ListLocalServerShort | [ListLocalServerShort](../../dsmc-sdk/pkg/dsmcclient/admin/admin_client.go) | [ListLocalServerShort](../../dsmc-sdk/pkg/wrapper_admin.go) | [ListLocalServerShort](../../samples/cli/cmd/dsmc/admin/listLocalServer.go) |
+| `/dsmcontroller/admin/namespaces/{namespace}/servers/local/{name}` | DELETE | DeleteLocalServerShort | [DeleteLocalServerShort](../../dsmc-sdk/pkg/dsmcclient/admin/admin_client.go) | [DeleteLocalServerShort](../../dsmc-sdk/pkg/wrapper_admin.go) | [DeleteLocalServerShort](../../samples/cli/cmd/dsmc/admin/deleteLocalServer.go) |
+| `/dsmcontroller/admin/namespaces/{namespace}/servers/{podName}` | GET | GetServerShort | [GetServerShort](../../dsmc-sdk/pkg/dsmcclient/admin/admin_client.go) | [GetServerShort](../../dsmc-sdk/pkg/wrapper_admin.go) | [GetServerShort](../../samples/cli/cmd/dsmc/admin/getServer.go) |
+| `/dsmcontroller/admin/namespaces/{namespace}/servers/{podName}` | DELETE | DeleteServerShort | [DeleteServerShort](../../dsmc-sdk/pkg/dsmcclient/admin/admin_client.go) | [DeleteServerShort](../../dsmc-sdk/pkg/wrapper_admin.go) | [DeleteServerShort](../../samples/cli/cmd/dsmc/admin/deleteServer.go) |
+| `/dsmcontroller/admin/namespaces/{namespace}/sessions` | GET | ListSessionShort | [ListSessionShort](../../dsmc-sdk/pkg/dsmcclient/admin/admin_client.go) | [ListSessionShort](../../dsmc-sdk/pkg/wrapper_admin.go) | [ListSessionShort](../../samples/cli/cmd/dsmc/admin/listSession.go) |
+| `/dsmcontroller/admin/namespaces/{namespace}/sessions/count` | GET | CountSessionShort | [CountSessionShort](../../dsmc-sdk/pkg/dsmcclient/admin/admin_client.go) | [CountSessionShort](../../dsmc-sdk/pkg/wrapper_admin.go) | [CountSessionShort](../../samples/cli/cmd/dsmc/admin/countSession.go) |
+| `/dsmcontroller/admin/namespaces/{namespace}/sessions/{sessionID}` | DELETE | DeleteSessionShort | [DeleteSessionShort](../../dsmc-sdk/pkg/dsmcclient/admin/admin_client.go) | [DeleteSessionShort](../../dsmc-sdk/pkg/wrapper_admin.go) | [DeleteSessionShort](../../samples/cli/cmd/dsmc/admin/deleteSession.go) |
+| `/dsmcontroller/admin/namespaces/{namespace}/workers/ghost` | GET | RunGhostCleanerRequestHandlerShort | [RunGhostCleanerRequestHandlerShort](../../dsmc-sdk/pkg/dsmcclient/admin/admin_client.go) | [RunGhostCleanerRequestHandlerShort](../../dsmc-sdk/pkg/wrapper_admin.go) | [RunGhostCleanerRequestHandlerShort](../../samples/cli/cmd/dsmc/admin/runGhostCleanerRequestHandler.go) |
+| `/dsmcontroller/admin/namespaces/{namespace}/workers/zombie` | POST | RunZombieCleanerRequestHandlerShort | [RunZombieCleanerRequestHandlerShort](../../dsmc-sdk/pkg/dsmcclient/admin/admin_client.go) | [RunZombieCleanerRequestHandlerShort](../../dsmc-sdk/pkg/wrapper_admin.go) | [RunZombieCleanerRequestHandlerShort](../../samples/cli/cmd/dsmc/admin/runZombieCleanerRequestHandler.go) |
+
 ### Deployment Config Wrapper:  [DeploymentConfig](../../dsmc-sdk/pkg/wrapper_deploymentConfig.go)
 | Endpoint | Method | ID | Class | Wrapper | Example |
 |---|---|---|---|---|---|
@@ -73,28 +91,17 @@
 | `/dsmcontroller/admin/namespaces/{namespace}/configs/deployments/{deployment}/overrides/versions/{version}/regions/{region}` | POST | CreateOverrideRegionOverrideShort | [CreateOverrideRegionOverrideShort](../../dsmc-sdk/pkg/dsmcclient/deployment_config/deployment_config_client.go) | [CreateOverrideRegionOverrideShort](../../dsmc-sdk/pkg/wrapper_deploymentConfig.go) | [CreateOverrideRegionOverrideShort](../../samples/cli/cmd/dsmc/deploymentConfig/createOverrideRegionOverride.go) |
 | `/dsmcontroller/admin/namespaces/{namespace}/configs/deployments/{deployment}/overrides/versions/{version}/regions/{region}` | DELETE | DeleteOverrideRegionOverrideShort | [DeleteOverrideRegionOverrideShort](../../dsmc-sdk/pkg/dsmcclient/deployment_config/deployment_config_client.go) | [DeleteOverrideRegionOverrideShort](../../dsmc-sdk/pkg/wrapper_deploymentConfig.go) | [DeleteOverrideRegionOverrideShort](../../samples/cli/cmd/dsmc/deploymentConfig/deleteOverrideRegionOverride.go) |
 | `/dsmcontroller/admin/namespaces/{namespace}/configs/deployments/{deployment}/overrides/versions/{version}/regions/{region}` | PATCH | UpdateOverrideRegionOverrideShort | [UpdateOverrideRegionOverrideShort](../../dsmc-sdk/pkg/dsmcclient/deployment_config/deployment_config_client.go) | [UpdateOverrideRegionOverrideShort](../../dsmc-sdk/pkg/wrapper_deploymentConfig.go) | [UpdateOverrideRegionOverrideShort](../../samples/cli/cmd/dsmc/deploymentConfig/updateOverrideRegionOverride.go) |
+| `/dsmcontroller/admin/namespaces/{namespace}/configs/deployments/{deployment}/versions/{version}/queues` | DELETE | DeleteCreatingServerCountQueueShort | [DeleteCreatingServerCountQueueShort](../../dsmc-sdk/pkg/dsmcclient/deployment_config/deployment_config_client.go) | [DeleteCreatingServerCountQueueShort](../../dsmc-sdk/pkg/wrapper_deploymentConfig.go) | [DeleteCreatingServerCountQueueShort](../../samples/cli/cmd/dsmc/deploymentConfig/deleteCreatingServerCountQueue.go) |
 | `/dsmcontroller/namespaces/{namespace}/configs/deployments` | GET | GetAllDeploymentClientShort | [GetAllDeploymentClientShort](../../dsmc-sdk/pkg/dsmcclient/deployment_config/deployment_config_client.go) | [GetAllDeploymentClientShort](../../dsmc-sdk/pkg/wrapper_deploymentConfig.go) | [GetAllDeploymentClientShort](../../samples/cli/cmd/dsmc/deploymentConfig/getAllDeploymentClient.go) |
+| `/dsmcontroller/namespaces/{namespace}/configs/deployments/{deployment}` | GET | GetDeploymentClientShort | [GetDeploymentClientShort](../../dsmc-sdk/pkg/dsmcclient/deployment_config/deployment_config_client.go) | [GetDeploymentClientShort](../../dsmc-sdk/pkg/wrapper_deploymentConfig.go) | [GetDeploymentClientShort](../../samples/cli/cmd/dsmc/deploymentConfig/getDeploymentClient.go) |
 | `/dsmcontroller/namespaces/{namespace}/configs/deployments/{deployment}` | POST | CreateDeploymentClientShort | [CreateDeploymentClientShort](../../dsmc-sdk/pkg/dsmcclient/deployment_config/deployment_config_client.go) | [CreateDeploymentClientShort](../../dsmc-sdk/pkg/wrapper_deploymentConfig.go) | [CreateDeploymentClientShort](../../samples/cli/cmd/dsmc/deploymentConfig/createDeploymentClient.go) |
 | `/dsmcontroller/namespaces/{namespace}/configs/deployments/{deployment}` | DELETE | DeleteDeploymentClientShort | [DeleteDeploymentClientShort](../../dsmc-sdk/pkg/dsmcclient/deployment_config/deployment_config_client.go) | [DeleteDeploymentClientShort](../../dsmc-sdk/pkg/wrapper_deploymentConfig.go) | [DeleteDeploymentClientShort](../../samples/cli/cmd/dsmc/deploymentConfig/deleteDeploymentClient.go) |
-
-### Admin Wrapper:  [Admin](../../dsmc-sdk/pkg/wrapper_admin.go)
-| Endpoint | Method | ID | Class | Wrapper | Example |
-|---|---|---|---|---|---|
-| `/dsmcontroller/admin/namespaces/{namespace}/servers` | GET | ListServerShort | [ListServerShort](../../dsmc-sdk/pkg/dsmcclient/admin/admin_client.go) | [ListServerShort](../../dsmc-sdk/pkg/wrapper_admin.go) | [ListServerShort](../../samples/cli/cmd/dsmc/admin/listServer.go) |
-| `/dsmcontroller/admin/namespaces/{namespace}/servers/count` | GET | CountServerShort | [CountServerShort](../../dsmc-sdk/pkg/dsmcclient/admin/admin_client.go) | [CountServerShort](../../dsmc-sdk/pkg/wrapper_admin.go) | [CountServerShort](../../samples/cli/cmd/dsmc/admin/countServer.go) |
-| `/dsmcontroller/admin/namespaces/{namespace}/servers/count/detailed` | GET | CountServerDetailedShort | [CountServerDetailedShort](../../dsmc-sdk/pkg/dsmcclient/admin/admin_client.go) | [CountServerDetailedShort](../../dsmc-sdk/pkg/wrapper_admin.go) | [CountServerDetailedShort](../../samples/cli/cmd/dsmc/admin/countServerDetailed.go) |
-| `/dsmcontroller/admin/namespaces/{namespace}/servers/local` | GET | ListLocalServerShort | [ListLocalServerShort](../../dsmc-sdk/pkg/dsmcclient/admin/admin_client.go) | [ListLocalServerShort](../../dsmc-sdk/pkg/wrapper_admin.go) | [ListLocalServerShort](../../samples/cli/cmd/dsmc/admin/listLocalServer.go) |
-| `/dsmcontroller/admin/namespaces/{namespace}/servers/local/{name}` | DELETE | DeleteLocalServerShort | [DeleteLocalServerShort](../../dsmc-sdk/pkg/dsmcclient/admin/admin_client.go) | [DeleteLocalServerShort](../../dsmc-sdk/pkg/wrapper_admin.go) | [DeleteLocalServerShort](../../samples/cli/cmd/dsmc/admin/deleteLocalServer.go) |
-| `/dsmcontroller/admin/namespaces/{namespace}/servers/{podName}` | GET | GetServerShort | [GetServerShort](../../dsmc-sdk/pkg/dsmcclient/admin/admin_client.go) | [GetServerShort](../../dsmc-sdk/pkg/wrapper_admin.go) | [GetServerShort](../../samples/cli/cmd/dsmc/admin/getServer.go) |
-| `/dsmcontroller/admin/namespaces/{namespace}/servers/{podName}` | DELETE | DeleteServerShort | [DeleteServerShort](../../dsmc-sdk/pkg/dsmcclient/admin/admin_client.go) | [DeleteServerShort](../../dsmc-sdk/pkg/wrapper_admin.go) | [DeleteServerShort](../../samples/cli/cmd/dsmc/admin/deleteServer.go) |
-| `/dsmcontroller/admin/namespaces/{namespace}/sessions` | GET | ListSessionShort | [ListSessionShort](../../dsmc-sdk/pkg/dsmcclient/admin/admin_client.go) | [ListSessionShort](../../dsmc-sdk/pkg/wrapper_admin.go) | [ListSessionShort](../../samples/cli/cmd/dsmc/admin/listSession.go) |
-| `/dsmcontroller/admin/namespaces/{namespace}/sessions/count` | GET | CountSessionShort | [CountSessionShort](../../dsmc-sdk/pkg/dsmcclient/admin/admin_client.go) | [CountSessionShort](../../dsmc-sdk/pkg/wrapper_admin.go) | [CountSessionShort](../../samples/cli/cmd/dsmc/admin/countSession.go) |
-| `/dsmcontroller/admin/namespaces/{namespace}/sessions/{sessionID}` | DELETE | DeleteSessionShort | [DeleteSessionShort](../../dsmc-sdk/pkg/dsmcclient/admin/admin_client.go) | [DeleteSessionShort](../../dsmc-sdk/pkg/wrapper_admin.go) | [DeleteSessionShort](../../samples/cli/cmd/dsmc/admin/deleteSession.go) |
 
 ### Server Wrapper:  [Server](../../dsmc-sdk/pkg/wrapper_server.go)
 | Endpoint | Method | ID | Class | Wrapper | Example |
 |---|---|---|---|---|---|
 | `/dsmcontroller/namespaces/{namespace}/servers` | GET | ListServerClientShort | [ListServerClientShort](../../dsmc-sdk/pkg/dsmcclient/server/server_client.go) | [ListServerClientShort](../../dsmc-sdk/pkg/wrapper_server.go) | [ListServerClientShort](../../samples/cli/cmd/dsmc/server/listServerClient.go) |
+| `/dsmcontroller/namespaces/{namespace}/servers/count/detailed` | GET | CountServerDetailedClientShort | [CountServerDetailedClientShort](../../dsmc-sdk/pkg/dsmcclient/server/server_client.go) | [CountServerDetailedClientShort](../../dsmc-sdk/pkg/wrapper_server.go) | [CountServerDetailedClientShort](../../samples/cli/cmd/dsmc/server/countServerDetailedClient.go) |
 | `/dsmcontroller/namespaces/{namespace}/servers/heartbeat` | PUT | ServerHeartbeatShort | [ServerHeartbeatShort](../../dsmc-sdk/pkg/dsmcclient/server/server_client.go) | [ServerHeartbeatShort](../../dsmc-sdk/pkg/wrapper_server.go) | [ServerHeartbeatShort](../../samples/cli/cmd/dsmc/server/serverHeartbeat.go) |
 | `/dsmcontroller/namespaces/{namespace}/servers/local/deregister` | POST | DeregisterLocalServerShort | [DeregisterLocalServerShort](../../dsmc-sdk/pkg/dsmcclient/server/server_client.go) | [DeregisterLocalServerShort](../../dsmc-sdk/pkg/wrapper_server.go) | [DeregisterLocalServerShort](../../samples/cli/cmd/dsmc/server/deregisterLocalServer.go) |
 | `/dsmcontroller/namespaces/{namespace}/servers/local/register` | POST | RegisterLocalServerShort | [RegisterLocalServerShort](../../dsmc-sdk/pkg/dsmcclient/server/server_client.go) | [RegisterLocalServerShort](../../dsmc-sdk/pkg/wrapper_server.go) | [RegisterLocalServerShort](../../samples/cli/cmd/dsmc/server/registerLocalServer.go) |
@@ -131,6 +138,8 @@
 | Model Struct | Class |
 |---|---|
 | `log.AppMessageDeclaration` | [LogAppMessageDeclaration ](../../dsmc-sdk/pkg/dsmcclientmodels/log_app_message_declaration.go) |
+| `models.AddBufferRequest` | [ModelsAddBufferRequest ](../../dsmc-sdk/pkg/dsmcclientmodels/models_add_buffer_request.go) |
+| `models.AddBufferResponse` | [ModelsAddBufferResponse ](../../dsmc-sdk/pkg/dsmcclientmodels/models_add_buffer_response.go) |
 | `models.AllocationEvent` | [ModelsAllocationEvent ](../../dsmc-sdk/pkg/dsmcclientmodels/models_allocation_event.go) |
 | `models.ClaimSessionRequest` | [ModelsClaimSessionRequest ](../../dsmc-sdk/pkg/dsmcclientmodels/models_claim_session_request.go) |
 | `models.CountServerResponse` | [ModelsCountServerResponse ](../../dsmc-sdk/pkg/dsmcclientmodels/models_count_server_response.go) |
@@ -148,6 +157,7 @@
 | `models.DSHeartbeatRequest` | [ModelsDSHeartbeatRequest ](../../dsmc-sdk/pkg/dsmcclientmodels/models_d_s_heartbeat_request.go) |
 | `models.DSMConfigRecord` | [ModelsDSMConfigRecord ](../../dsmc-sdk/pkg/dsmcclientmodels/models_d_s_m_config_record.go) |
 | `models.DefaultProvider` | [ModelsDefaultProvider ](../../dsmc-sdk/pkg/dsmcclientmodels/models_default_provider.go) |
+| `models.DeleteZombieRequest` | [ModelsDeleteZombieRequest ](../../dsmc-sdk/pkg/dsmcclientmodels/models_delete_zombie_request.go) |
 | `models.DeploymentConfigOverride` | [ModelsDeploymentConfigOverride ](../../dsmc-sdk/pkg/dsmcclientmodels/models_deployment_config_override.go) |
 | `models.DeploymentWithOverride` | [ModelsDeploymentWithOverride ](../../dsmc-sdk/pkg/dsmcclientmodels/models_deployment_with_override.go) |
 | `models.DeregisterLocalServerRequest` | [ModelsDeregisterLocalServerRequest ](../../dsmc-sdk/pkg/dsmcclientmodels/models_deregister_local_server_request.go) |
@@ -156,7 +166,7 @@
 | `models.GetImageLimitResponse` | [ModelsGetImageLimitResponse ](../../dsmc-sdk/pkg/dsmcclientmodels/models_get_image_limit_response.go) |
 | `models.GetImageLimitResponseData` | [ModelsGetImageLimitResponseData ](../../dsmc-sdk/pkg/dsmcclientmodels/models_get_image_limit_response_data.go) |
 | `models.GetImagePatchDetailResponse` | [ModelsGetImagePatchDetailResponse ](../../dsmc-sdk/pkg/dsmcclientmodels/models_get_image_patch_detail_response.go) |
-| `models.ImageRecord` | [ModelsImageRecord ](../../dsmc-sdk/pkg/dsmcclientmodels/models_image_record.go) |
+| `models.ImageRecordResponse` | [ModelsImageRecordResponse ](../../dsmc-sdk/pkg/dsmcclientmodels/models_image_record_response.go) |
 | `models.ImageRecordUpdate` | [ModelsImageRecordUpdate ](../../dsmc-sdk/pkg/dsmcclientmodels/models_image_record_update.go) |
 | `models.ImageReplication` | [ModelsImageReplication ](../../dsmc-sdk/pkg/dsmcclientmodels/models_image_replication.go) |
 | `models.ImportResponse` | [ModelsImportResponse ](../../dsmc-sdk/pkg/dsmcclientmodels/models_import_response.go) |
@@ -171,6 +181,7 @@
 | `models.MatchResult.notification_payload` | [ModelsMatchResultNotificationPayload ](../../dsmc-sdk/pkg/dsmcclientmodels/models_match_result_notification_payload.go) |
 | `models.PagingCursor` | [ModelsPagingCursor ](../../dsmc-sdk/pkg/dsmcclientmodels/models_paging_cursor.go) |
 | `models.PatchImageRecord` | [ModelsPatchImageRecord ](../../dsmc-sdk/pkg/dsmcclientmodels/models_patch_image_record.go) |
+| `models.PatchImageRecordResponse` | [ModelsPatchImageRecordResponse ](../../dsmc-sdk/pkg/dsmcclientmodels/models_patch_image_record_response.go) |
 | `models.PodConfigRecord` | [ModelsPodConfigRecord ](../../dsmc-sdk/pkg/dsmcclientmodels/models_pod_config_record.go) |
 | `models.PodCountConfigOverride` | [ModelsPodCountConfigOverride ](../../dsmc-sdk/pkg/dsmcclientmodels/models_pod_count_config_override.go) |
 | `models.RegisterLocalServerRequest` | [ModelsRegisterLocalServerRequest ](../../dsmc-sdk/pkg/dsmcclientmodels/models_register_local_server_request.go) |
@@ -181,6 +192,7 @@
 | `models.RequestMatchingAlly` | [ModelsRequestMatchingAlly ](../../dsmc-sdk/pkg/dsmcclientmodels/models_request_matching_ally.go) |
 | `models.Server` | [ModelsServer ](../../dsmc-sdk/pkg/dsmcclientmodels/models_server.go) |
 | `models.ServerDeploymentConfigSessionTimeoutResponse` | [ModelsServerDeploymentConfigSessionTimeoutResponse ](../../dsmc-sdk/pkg/dsmcclientmodels/models_server_deployment_config_session_timeout_response.go) |
+| `models.ServerDetailsResponse` | [ModelsServerDetailsResponse ](../../dsmc-sdk/pkg/dsmcclientmodels/models_server_details_response.go) |
 | `models.ServerSessionResponse` | [ModelsServerSessionResponse ](../../dsmc-sdk/pkg/dsmcclientmodels/models_server_session_response.go) |
 | `models.Session` | [ModelsSession ](../../dsmc-sdk/pkg/dsmcclientmodels/models_session.go) |
 | `models.SessionResponse` | [ModelsSessionResponse ](../../dsmc-sdk/pkg/dsmcclientmodels/models_session_response.go) |
@@ -192,4 +204,6 @@
 | `models.UpdatePodConfigRequest` | [ModelsUpdatePodConfigRequest ](../../dsmc-sdk/pkg/dsmcclientmodels/models_update_pod_config_request.go) |
 | `models.UpdatePortRequest` | [ModelsUpdatePortRequest ](../../dsmc-sdk/pkg/dsmcclientmodels/models_update_port_request.go) |
 | `models.UpdateRegionOverrideRequest` | [ModelsUpdateRegionOverrideRequest ](../../dsmc-sdk/pkg/dsmcclientmodels/models_update_region_override_request.go) |
+| `models.WorkerConfig` | [ModelsWorkerConfig ](../../dsmc-sdk/pkg/dsmcclientmodels/models_worker_config.go) |
+| `models.WorkerConfigRequest` | [ModelsWorkerConfigRequest ](../../dsmc-sdk/pkg/dsmcclientmodels/models_worker_config_request.go) |
 | `response.Error` | [ResponseError ](../../dsmc-sdk/pkg/dsmcclientmodels/response_error.go) |

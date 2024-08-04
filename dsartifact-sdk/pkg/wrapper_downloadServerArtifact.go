@@ -13,7 +13,6 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils/auth"
-	"github.com/go-openapi/runtime/client"
 )
 
 type DownloadServerArtifactService struct {
@@ -36,46 +35,6 @@ func (aaa *DownloadServerArtifactService) GetAuthSession() auth.Session {
 		aaa.ConfigRepository,
 		nil,
 	}
-}
-
-// Deprecated: 2022-01-10 - Please use DownloadServerArtifactsShort instead.
-func (aaa *DownloadServerArtifactService) DownloadServerArtifacts(input *download_server_artifact.DownloadServerArtifactsParams) error {
-	token, err := aaa.TokenRepository.GetToken()
-	if err != nil {
-		return err
-	}
-	_, notFound, internalServerError, err := aaa.Client.DownloadServerArtifact.DownloadServerArtifacts(input, client.BearerToken(*token.AccessToken))
-	if notFound != nil {
-		return notFound
-	}
-	if internalServerError != nil {
-		return internalServerError
-	}
-	if err != nil {
-		return err
-	}
-
-	return nil
-}
-
-// Deprecated: 2022-01-10 - Please use CheckServerArtifactShort instead.
-func (aaa *DownloadServerArtifactService) CheckServerArtifact(input *download_server_artifact.CheckServerArtifactParams) (*dsartifactclientmodels.ModelsArtifactFileStatus, error) {
-	token, err := aaa.TokenRepository.GetToken()
-	if err != nil {
-		return nil, err
-	}
-	ok, notFound, internalServerError, err := aaa.Client.DownloadServerArtifact.CheckServerArtifact(input, client.BearerToken(*token.AccessToken))
-	if notFound != nil {
-		return nil, notFound
-	}
-	if internalServerError != nil {
-		return nil, internalServerError
-	}
-	if err != nil {
-		return nil, err
-	}
-
-	return ok.GetPayload(), nil
 }
 
 func (aaa *DownloadServerArtifactService) DownloadServerArtifactsShort(input *download_server_artifact.DownloadServerArtifactsParams) error {

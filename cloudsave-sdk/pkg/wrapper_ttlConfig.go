@@ -12,7 +12,6 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils/auth"
-	"github.com/go-openapi/runtime/client"
 )
 
 type TTLConfigService struct {
@@ -35,64 +34,6 @@ func (aaa *TTLConfigService) GetAuthSession() auth.Session {
 		aaa.ConfigRepository,
 		nil,
 	}
-}
-
-// Deprecated: 2022-01-10 - Please use DeleteGameBinaryRecordTTLConfigShort instead.
-func (aaa *TTLConfigService) DeleteGameBinaryRecordTTLConfig(input *ttl_config.DeleteGameBinaryRecordTTLConfigParams) error {
-	token, err := aaa.TokenRepository.GetToken()
-	if err != nil {
-		return err
-	}
-	_, badRequest, unauthorized, forbidden, notFound, internalServerError, err := aaa.Client.TTLConfig.DeleteGameBinaryRecordTTLConfig(input, client.BearerToken(*token.AccessToken))
-	if badRequest != nil {
-		return badRequest
-	}
-	if unauthorized != nil {
-		return unauthorized
-	}
-	if forbidden != nil {
-		return forbidden
-	}
-	if notFound != nil {
-		return notFound
-	}
-	if internalServerError != nil {
-		return internalServerError
-	}
-	if err != nil {
-		return err
-	}
-
-	return nil
-}
-
-// Deprecated: 2022-01-10 - Please use DeleteGameRecordTTLConfigShort instead.
-func (aaa *TTLConfigService) DeleteGameRecordTTLConfig(input *ttl_config.DeleteGameRecordTTLConfigParams) error {
-	token, err := aaa.TokenRepository.GetToken()
-	if err != nil {
-		return err
-	}
-	_, badRequest, unauthorized, forbidden, notFound, internalServerError, err := aaa.Client.TTLConfig.DeleteGameRecordTTLConfig(input, client.BearerToken(*token.AccessToken))
-	if badRequest != nil {
-		return badRequest
-	}
-	if unauthorized != nil {
-		return unauthorized
-	}
-	if forbidden != nil {
-		return forbidden
-	}
-	if notFound != nil {
-		return notFound
-	}
-	if internalServerError != nil {
-		return internalServerError
-	}
-	if err != nil {
-		return err
-	}
-
-	return nil
 }
 
 func (aaa *TTLConfigService) DeleteGameBinaryRecordTTLConfigShort(input *ttl_config.DeleteGameBinaryRecordTTLConfigParams) error {

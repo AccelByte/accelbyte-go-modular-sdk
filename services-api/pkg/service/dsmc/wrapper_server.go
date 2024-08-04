@@ -13,7 +13,6 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils/auth"
-	"github.com/go-openapi/runtime/client"
 )
 
 // ServerService this is use for compatibility with latest modular sdk only
@@ -40,208 +39,6 @@ func (aaa *ServerService) GetAuthSession() auth.Session {
 	}
 }
 
-// Deprecated: 2022-01-10 - Please use ListServerClientShort instead.
-func (aaa *ServerService) ListServerClient(input *server.ListServerClientParams) (*dsmcclientmodels.ModelsListServerResponse, error) {
-	token, err := aaa.TokenRepository.GetToken()
-	if err != nil {
-		return nil, err
-	}
-	ok, unauthorized, internalServerError, err := aaa.Client.Server.ListServerClient(input, client.BearerToken(*token.AccessToken))
-	if unauthorized != nil {
-		return nil, unauthorized
-	}
-	if internalServerError != nil {
-		return nil, internalServerError
-	}
-	if err != nil {
-		return nil, err
-	}
-
-	return ok.GetPayload(), nil
-}
-
-// Deprecated: 2022-01-10 - Please use ServerHeartbeatShort instead.
-func (aaa *ServerService) ServerHeartbeat(input *server.ServerHeartbeatParams) error {
-	token, err := aaa.TokenRepository.GetToken()
-	if err != nil {
-		return err
-	}
-	_, badRequest, unauthorized, notFound, internalServerError, err := aaa.Client.Server.ServerHeartbeat(input, client.BearerToken(*token.AccessToken))
-	if badRequest != nil {
-		return badRequest
-	}
-	if unauthorized != nil {
-		return unauthorized
-	}
-	if notFound != nil {
-		return notFound
-	}
-	if internalServerError != nil {
-		return internalServerError
-	}
-	if err != nil {
-		return err
-	}
-
-	return nil
-}
-
-// Deprecated: 2022-01-10 - Please use DeregisterLocalServerShort instead.
-func (aaa *ServerService) DeregisterLocalServer(input *server.DeregisterLocalServerParams) error {
-	token, err := aaa.TokenRepository.GetToken()
-	if err != nil {
-		return err
-	}
-	_, badRequest, unauthorized, internalServerError, err := aaa.Client.Server.DeregisterLocalServer(input, client.BearerToken(*token.AccessToken))
-	if badRequest != nil {
-		return badRequest
-	}
-	if unauthorized != nil {
-		return unauthorized
-	}
-	if internalServerError != nil {
-		return internalServerError
-	}
-	if err != nil {
-		return err
-	}
-
-	return nil
-}
-
-// Deprecated: 2022-01-10 - Please use RegisterLocalServerShort instead.
-func (aaa *ServerService) RegisterLocalServer(input *server.RegisterLocalServerParams) (*dsmcclientmodels.ModelsServer, error) {
-	token, err := aaa.TokenRepository.GetToken()
-	if err != nil {
-		return nil, err
-	}
-	ok, badRequest, unauthorized, conflict, internalServerError, err := aaa.Client.Server.RegisterLocalServer(input, client.BearerToken(*token.AccessToken))
-	if badRequest != nil {
-		return nil, badRequest
-	}
-	if unauthorized != nil {
-		return nil, unauthorized
-	}
-	if conflict != nil {
-		return nil, conflict
-	}
-	if internalServerError != nil {
-		return nil, internalServerError
-	}
-	if err != nil {
-		return nil, err
-	}
-
-	return ok.GetPayload(), nil
-}
-
-// Deprecated: 2022-01-10 - Please use RegisterServerShort instead.
-func (aaa *ServerService) RegisterServer(input *server.RegisterServerParams) (*dsmcclientmodels.ModelsServer, error) {
-	token, err := aaa.TokenRepository.GetToken()
-	if err != nil {
-		return nil, err
-	}
-	ok, badRequest, unauthorized, notFound, conflict, internalServerError, err := aaa.Client.Server.RegisterServer(input, client.BearerToken(*token.AccessToken))
-	if badRequest != nil {
-		return nil, badRequest
-	}
-	if unauthorized != nil {
-		return nil, unauthorized
-	}
-	if notFound != nil {
-		return nil, notFound
-	}
-	if conflict != nil {
-		return nil, conflict
-	}
-	if internalServerError != nil {
-		return nil, internalServerError
-	}
-	if err != nil {
-		return nil, err
-	}
-
-	return ok.GetPayload(), nil
-}
-
-// Deprecated: 2022-01-10 - Please use ShutdownServerShort instead.
-func (aaa *ServerService) ShutdownServer(input *server.ShutdownServerParams) error {
-	token, err := aaa.TokenRepository.GetToken()
-	if err != nil {
-		return err
-	}
-	_, badRequest, unauthorized, notFound, internalServerError, err := aaa.Client.Server.ShutdownServer(input, client.BearerToken(*token.AccessToken))
-	if badRequest != nil {
-		return badRequest
-	}
-	if unauthorized != nil {
-		return unauthorized
-	}
-	if notFound != nil {
-		return notFound
-	}
-	if internalServerError != nil {
-		return internalServerError
-	}
-	if err != nil {
-		return err
-	}
-
-	return nil
-}
-
-// Deprecated: 2022-01-10 - Please use GetServerSessionTimeoutShort instead.
-func (aaa *ServerService) GetServerSessionTimeout(input *server.GetServerSessionTimeoutParams) (*dsmcclientmodels.ModelsServerDeploymentConfigSessionTimeoutResponse, error) {
-	token, err := aaa.TokenRepository.GetToken()
-	if err != nil {
-		return nil, err
-	}
-	ok, badRequest, unauthorized, notFound, internalServerError, err := aaa.Client.Server.GetServerSessionTimeout(input, client.BearerToken(*token.AccessToken))
-	if badRequest != nil {
-		return nil, badRequest
-	}
-	if unauthorized != nil {
-		return nil, unauthorized
-	}
-	if notFound != nil {
-		return nil, notFound
-	}
-	if internalServerError != nil {
-		return nil, internalServerError
-	}
-	if err != nil {
-		return nil, err
-	}
-
-	return ok.GetPayload(), nil
-}
-
-// Deprecated: 2022-01-10 - Please use GetServerSessionShort instead.
-func (aaa *ServerService) GetServerSession(input *server.GetServerSessionParams) (*dsmcclientmodels.ModelsServerSessionResponse, error) {
-	token, err := aaa.TokenRepository.GetToken()
-	if err != nil {
-		return nil, err
-	}
-	ok, badRequest, unauthorized, notFound, internalServerError, err := aaa.Client.Server.GetServerSession(input, client.BearerToken(*token.AccessToken))
-	if badRequest != nil {
-		return nil, badRequest
-	}
-	if unauthorized != nil {
-		return nil, unauthorized
-	}
-	if notFound != nil {
-		return nil, notFound
-	}
-	if internalServerError != nil {
-		return nil, internalServerError
-	}
-	if err != nil {
-		return nil, err
-	}
-
-	return ok.GetPayload(), nil
-}
-
 func (aaa *ServerService) ListServerClientShort(input *server.ListServerClientParams) (*dsmcclientmodels.ModelsListServerResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
@@ -265,6 +62,36 @@ func (aaa *ServerService) ListServerClientShort(input *server.ListServerClientPa
 	}
 
 	ok, err := aaa.Client.Server.ListServerClientShort(input, authInfoWriter)
+	if err != nil {
+		return nil, err
+	}
+
+	return ok.GetPayload(), nil
+}
+
+func (aaa *ServerService) CountServerDetailedClientShort(input *server.CountServerDetailedClientParams) (*dsmcclientmodels.ModelsDetailedCountServerResponse, error) {
+	authInfoWriter := input.AuthInfoWriter
+	if authInfoWriter == nil {
+		security := [][]string{
+			{"bearer"},
+		}
+		authInfoWriter = auth.AuthInfoWriter(aaa.GetAuthSession(), security, "")
+	}
+	if input.RetryPolicy == nil {
+		input.RetryPolicy = &utils.Retry{
+			MaxTries:   utils.MaxTries,
+			Backoff:    utils.NewConstantBackoff(0),
+			Transport:  aaa.Client.Runtime.Transport,
+			RetryCodes: utils.RetryCodes,
+		}
+	}
+	if tempFlightIdServer != nil {
+		input.XFlightId = tempFlightIdServer
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	}
+
+	ok, err := aaa.Client.Server.CountServerDetailedClientShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
 	}

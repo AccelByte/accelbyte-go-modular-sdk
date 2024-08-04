@@ -30,9 +30,12 @@ type ModelPredicate struct {
 	ParameterName *string `json:"parameterName"`
 
 	// parametertype
-	// Enum: ['ACHIEVEMENT', 'STATISTIC', 'USERACCOUNT']
+	// Enum: ['ACHIEVEMENT', 'ENTITLEMENT', 'STATISTIC', 'STATISTIC_CYCLE', 'USERACCOUNT']
 	// Required: true
 	ParameterType *string `json:"parameterType"`
+
+	// statcycleid
+	StatCycleID string `json:"statCycleId,omitempty"`
 
 	// targetvalue
 	// Required: true
@@ -128,7 +131,7 @@ var modelPredicateTypeParameterTypePropEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["ACHIEVEMENT", "STATISTIC", "USERACCOUNT"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["ACHIEVEMENT", "ENTITLEMENT", "STATISTIC", "STATISTIC_CYCLE", "USERACCOUNT"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
@@ -141,8 +144,14 @@ const (
 	// ModelPredicateParameterTypeACHIEVEMENT captures enum value "ACHIEVEMENT"
 	ModelPredicateParameterTypeACHIEVEMENT string = "ACHIEVEMENT"
 
+	// ModelPredicateParameterTypeENTITLEMENT captures enum value "ENTITLEMENT"
+	ModelPredicateParameterTypeENTITLEMENT string = "ENTITLEMENT"
+
 	// ModelPredicateParameterTypeSTATISTIC captures enum value "STATISTIC"
 	ModelPredicateParameterTypeSTATISTIC string = "STATISTIC"
+
+	// ModelPredicateParameterTypeSTATISTICCYCLE captures enum value "STATISTIC_CYCLE"
+	ModelPredicateParameterTypeSTATISTICCYCLE string = "STATISTIC_CYCLE"
 
 	// ModelPredicateParameterTypeUSERACCOUNT captures enum value "USERACCOUNT"
 	ModelPredicateParameterTypeUSERACCOUNT string = "USERACCOUNT"

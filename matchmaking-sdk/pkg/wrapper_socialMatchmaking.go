@@ -13,7 +13,6 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils/auth"
-	"github.com/go-openapi/runtime/client"
 )
 
 type SocialMatchmakingService struct {
@@ -36,35 +35,6 @@ func (aaa *SocialMatchmakingService) GetAuthSession() auth.Session {
 		aaa.ConfigRepository,
 		nil,
 	}
-}
-
-// Deprecated: 2022-01-10 - Please use UpdatePlayTimeWeightShort instead.
-func (aaa *SocialMatchmakingService) UpdatePlayTimeWeight(input *social_matchmaking.UpdatePlayTimeWeightParams) (*matchmakingclientmodels.ModelsUpdatePlayerPlaytimeWeightResponse, error) {
-	token, err := aaa.TokenRepository.GetToken()
-	if err != nil {
-		return nil, err
-	}
-	ok, badRequest, unauthorized, forbidden, notFound, internalServerError, err := aaa.Client.SocialMatchmaking.UpdatePlayTimeWeight(input, client.BearerToken(*token.AccessToken))
-	if badRequest != nil {
-		return nil, badRequest
-	}
-	if unauthorized != nil {
-		return nil, unauthorized
-	}
-	if forbidden != nil {
-		return nil, forbidden
-	}
-	if notFound != nil {
-		return nil, notFound
-	}
-	if internalServerError != nil {
-		return nil, internalServerError
-	}
-	if err != nil {
-		return nil, err
-	}
-
-	return ok.GetPayload(), nil
 }
 
 func (aaa *SocialMatchmakingService) UpdatePlayTimeWeightShort(input *social_matchmaking.UpdatePlayTimeWeightParams) (*matchmakingclientmodels.ModelsUpdatePlayerPlaytimeWeightResponse, error) {

@@ -30,79 +30,12 @@ type Client struct {
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	GeneratedUploadURL(params *GeneratedUploadURLParams, authInfo runtime.ClientAuthInfoWriter) (*GeneratedUploadURLOK, *GeneratedUploadURLBadRequest, *GeneratedUploadURLUnauthorized, *GeneratedUploadURLForbidden, *GeneratedUploadURLInternalServerError, error)
 	GeneratedUploadURLShort(params *GeneratedUploadURLParams, authInfo runtime.ClientAuthInfoWriter) (*GeneratedUploadURLOK, error)
-	GeneratedUserUploadContentURL(params *GeneratedUserUploadContentURLParams, authInfo runtime.ClientAuthInfoWriter) (*GeneratedUserUploadContentURLOK, *GeneratedUserUploadContentURLBadRequest, *GeneratedUserUploadContentURLUnauthorized, *GeneratedUserUploadContentURLForbidden, *GeneratedUserUploadContentURLConflict, *GeneratedUserUploadContentURLInternalServerError, error)
 	GeneratedUserUploadContentURLShort(params *GeneratedUserUploadContentURLParams, authInfo runtime.ClientAuthInfoWriter) (*GeneratedUserUploadContentURLOK, error)
-	PublicGeneratedUploadURL(params *PublicGeneratedUploadURLParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGeneratedUploadURLOK, *PublicGeneratedUploadURLBadRequest, *PublicGeneratedUploadURLUnauthorized, *PublicGeneratedUploadURLForbidden, *PublicGeneratedUploadURLInternalServerError, error)
 	PublicGeneratedUploadURLShort(params *PublicGeneratedUploadURLParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGeneratedUploadURLOK, error)
-	PublicGeneratedUserUploadContentURL(params *PublicGeneratedUserUploadContentURLParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGeneratedUserUploadContentURLOK, *PublicGeneratedUserUploadContentURLBadRequest, *PublicGeneratedUserUploadContentURLUnauthorized, *PublicGeneratedUserUploadContentURLForbidden, *PublicGeneratedUserUploadContentURLConflict, *PublicGeneratedUserUploadContentURLInternalServerError, error)
 	PublicGeneratedUserUploadContentURLShort(params *PublicGeneratedUserUploadContentURLParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGeneratedUserUploadContentURLOK, error)
 
 	SetTransport(transport runtime.ClientTransport)
-}
-
-/*
-Deprecated: 2022-08-10 - Use GeneratedUploadURLShort instead.
-
-GeneratedUploadURL generate upload url
-Generate an upload URL. It's valid for 10 minutes.
-Other detail info:
-
-  * Action code : 11101
-  *  Returns : URL data
-*/
-func (a *Client) GeneratedUploadURL(params *GeneratedUploadURLParams, authInfo runtime.ClientAuthInfoWriter) (*GeneratedUploadURLOK, *GeneratedUploadURLBadRequest, *GeneratedUploadURLUnauthorized, *GeneratedUploadURLForbidden, *GeneratedUploadURLInternalServerError, error) {
-	// TODO: Validate the params before sending
-	if params == nil {
-		params = NewGeneratedUploadURLParams()
-	}
-
-	if params.Context == nil {
-		params.Context = context.Background()
-	}
-
-	if params.RetryPolicy != nil {
-		params.SetHTTPClientTransport(params.RetryPolicy)
-	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
-		ID:                 "generatedUploadUrl",
-		Method:             "POST",
-		PathPattern:        "/basic/v1/admin/namespaces/{namespace}/folders/{folder}/files",
-		ProducesMediaTypes: []string{"application/json"},
-		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
-		Params:             params,
-		Reader:             &GeneratedUploadURLReader{formats: a.formats},
-		AuthInfo:           authInfo,
-		Context:            params.Context,
-		Client:             params.HTTPClient,
-	})
-	if err != nil {
-		return nil, nil, nil, nil, nil, err
-	}
-
-	switch v := result.(type) {
-
-	case *GeneratedUploadURLOK:
-		return v, nil, nil, nil, nil, nil
-
-	case *GeneratedUploadURLBadRequest:
-		return nil, v, nil, nil, nil, nil
-
-	case *GeneratedUploadURLUnauthorized:
-		return nil, nil, v, nil, nil, nil
-
-	case *GeneratedUploadURLForbidden:
-		return nil, nil, nil, v, nil, nil
-
-	case *GeneratedUploadURLInternalServerError:
-		return nil, nil, nil, nil, v, nil
-
-	default:
-		return nil, nil, nil, nil, nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
-	}
 }
 
 /*
@@ -163,74 +96,6 @@ func (a *Client) GeneratedUploadURLShort(params *GeneratedUploadURLParams, authI
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
-	}
-}
-
-/*
-Deprecated: 2022-08-10 - Use GeneratedUserUploadContentURLShort instead.
-
-GeneratedUserUploadContentURL generate upload url for user content
-Generate an upload URL for user content. It's valid for 10 minutes.
-Other detail info:
-
-  * Action code : 11102
-  *  Default maximum file count per user : 10 files
-  *  Default maximum file size per user : 104857600 bytes
-  *  Returns : URL data
-*/
-func (a *Client) GeneratedUserUploadContentURL(params *GeneratedUserUploadContentURLParams, authInfo runtime.ClientAuthInfoWriter) (*GeneratedUserUploadContentURLOK, *GeneratedUserUploadContentURLBadRequest, *GeneratedUserUploadContentURLUnauthorized, *GeneratedUserUploadContentURLForbidden, *GeneratedUserUploadContentURLConflict, *GeneratedUserUploadContentURLInternalServerError, error) {
-	// TODO: Validate the params before sending
-	if params == nil {
-		params = NewGeneratedUserUploadContentURLParams()
-	}
-
-	if params.Context == nil {
-		params.Context = context.Background()
-	}
-
-	if params.RetryPolicy != nil {
-		params.SetHTTPClientTransport(params.RetryPolicy)
-	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
-		ID:                 "generatedUserUploadContentUrl",
-		Method:             "POST",
-		PathPattern:        "/basic/v1/admin/namespaces/{namespace}/users/{userId}/files",
-		ProducesMediaTypes: []string{"application/json"},
-		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
-		Params:             params,
-		Reader:             &GeneratedUserUploadContentURLReader{formats: a.formats},
-		AuthInfo:           authInfo,
-		Context:            params.Context,
-		Client:             params.HTTPClient,
-	})
-	if err != nil {
-		return nil, nil, nil, nil, nil, nil, err
-	}
-
-	switch v := result.(type) {
-
-	case *GeneratedUserUploadContentURLOK:
-		return v, nil, nil, nil, nil, nil, nil
-
-	case *GeneratedUserUploadContentURLBadRequest:
-		return nil, v, nil, nil, nil, nil, nil
-
-	case *GeneratedUserUploadContentURLUnauthorized:
-		return nil, nil, v, nil, nil, nil, nil
-
-	case *GeneratedUserUploadContentURLForbidden:
-		return nil, nil, nil, v, nil, nil, nil
-
-	case *GeneratedUserUploadContentURLConflict:
-		return nil, nil, nil, nil, v, nil, nil
-
-	case *GeneratedUserUploadContentURLInternalServerError:
-		return nil, nil, nil, nil, nil, v, nil
-
-	default:
-		return nil, nil, nil, nil, nil, nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
 	}
 }
 
@@ -300,69 +165,6 @@ func (a *Client) GeneratedUserUploadContentURLShort(params *GeneratedUserUploadC
 }
 
 /*
-Deprecated: 2022-08-10 - Use PublicGeneratedUploadURLShort instead.
-
-PublicGeneratedUploadURL generate upload url
-Generate an upload URL. It's valid for 10 minutes.
-Other detail info:
-
-  * Action code : 11101
-  *  Returns : URL data
-*/
-func (a *Client) PublicGeneratedUploadURL(params *PublicGeneratedUploadURLParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGeneratedUploadURLOK, *PublicGeneratedUploadURLBadRequest, *PublicGeneratedUploadURLUnauthorized, *PublicGeneratedUploadURLForbidden, *PublicGeneratedUploadURLInternalServerError, error) {
-	// TODO: Validate the params before sending
-	if params == nil {
-		params = NewPublicGeneratedUploadURLParams()
-	}
-
-	if params.Context == nil {
-		params.Context = context.Background()
-	}
-
-	if params.RetryPolicy != nil {
-		params.SetHTTPClientTransport(params.RetryPolicy)
-	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
-		ID:                 "publicGeneratedUploadUrl",
-		Method:             "POST",
-		PathPattern:        "/basic/v1/public/namespaces/{namespace}/folders/{folder}/files",
-		ProducesMediaTypes: []string{"application/json"},
-		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
-		Params:             params,
-		Reader:             &PublicGeneratedUploadURLReader{formats: a.formats},
-		AuthInfo:           authInfo,
-		Context:            params.Context,
-		Client:             params.HTTPClient,
-	})
-	if err != nil {
-		return nil, nil, nil, nil, nil, err
-	}
-
-	switch v := result.(type) {
-
-	case *PublicGeneratedUploadURLOK:
-		return v, nil, nil, nil, nil, nil
-
-	case *PublicGeneratedUploadURLBadRequest:
-		return nil, v, nil, nil, nil, nil
-
-	case *PublicGeneratedUploadURLUnauthorized:
-		return nil, nil, v, nil, nil, nil
-
-	case *PublicGeneratedUploadURLForbidden:
-		return nil, nil, nil, v, nil, nil
-
-	case *PublicGeneratedUploadURLInternalServerError:
-		return nil, nil, nil, nil, v, nil
-
-	default:
-		return nil, nil, nil, nil, nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
-	}
-}
-
-/*
 PublicGeneratedUploadURLShort generate upload url
 Generate an upload URL. It's valid for 10 minutes.
 Other detail info:
@@ -420,76 +222,6 @@ func (a *Client) PublicGeneratedUploadURLShort(params *PublicGeneratedUploadURLP
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
-	}
-}
-
-/*
-Deprecated: 2022-08-10 - Use PublicGeneratedUserUploadContentURLShort instead.
-
-PublicGeneratedUserUploadContentURL generate upload url for user content
-Generate an upload URL for user content. It's valid for 10 minutes.
-There are 2 kinds of storage limitation per user : maximum file count and maximum file size.
-The threshold of those limitations is different between upload category that is used.
-Other detail info:
-
-  * Action code : 11102
-  *  Default maximum file count per user : 10 files
-  *  Default maximum file size per user : 104857600 bytes
-  *  Returns : URL data
-*/
-func (a *Client) PublicGeneratedUserUploadContentURL(params *PublicGeneratedUserUploadContentURLParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGeneratedUserUploadContentURLOK, *PublicGeneratedUserUploadContentURLBadRequest, *PublicGeneratedUserUploadContentURLUnauthorized, *PublicGeneratedUserUploadContentURLForbidden, *PublicGeneratedUserUploadContentURLConflict, *PublicGeneratedUserUploadContentURLInternalServerError, error) {
-	// TODO: Validate the params before sending
-	if params == nil {
-		params = NewPublicGeneratedUserUploadContentURLParams()
-	}
-
-	if params.Context == nil {
-		params.Context = context.Background()
-	}
-
-	if params.RetryPolicy != nil {
-		params.SetHTTPClientTransport(params.RetryPolicy)
-	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
-		ID:                 "publicGeneratedUserUploadContentUrl",
-		Method:             "POST",
-		PathPattern:        "/basic/v1/public/namespaces/{namespace}/users/{userId}/files",
-		ProducesMediaTypes: []string{"application/json"},
-		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
-		Params:             params,
-		Reader:             &PublicGeneratedUserUploadContentURLReader{formats: a.formats},
-		AuthInfo:           authInfo,
-		Context:            params.Context,
-		Client:             params.HTTPClient,
-	})
-	if err != nil {
-		return nil, nil, nil, nil, nil, nil, err
-	}
-
-	switch v := result.(type) {
-
-	case *PublicGeneratedUserUploadContentURLOK:
-		return v, nil, nil, nil, nil, nil, nil
-
-	case *PublicGeneratedUserUploadContentURLBadRequest:
-		return nil, v, nil, nil, nil, nil, nil
-
-	case *PublicGeneratedUserUploadContentURLUnauthorized:
-		return nil, nil, v, nil, nil, nil, nil
-
-	case *PublicGeneratedUserUploadContentURLForbidden:
-		return nil, nil, nil, v, nil, nil, nil
-
-	case *PublicGeneratedUserUploadContentURLConflict:
-		return nil, nil, nil, nil, v, nil, nil
-
-	case *PublicGeneratedUserUploadContentURLInternalServerError:
-		return nil, nil, nil, nil, nil, v, nil
-
-	default:
-		return nil, nil, nil, nil, nil, nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
 	}
 }
 

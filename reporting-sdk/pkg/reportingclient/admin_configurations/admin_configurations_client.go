@@ -30,63 +30,10 @@ type Client struct {
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	Get(params *GetParams, authInfo runtime.ClientAuthInfoWriter) (*GetOK, *GetInternalServerError, error)
 	GetShort(params *GetParams, authInfo runtime.ClientAuthInfoWriter) (*GetOK, error)
-	Upsert(params *UpsertParams, authInfo runtime.ClientAuthInfoWriter) (*UpsertOK, *UpsertBadRequest, *UpsertInternalServerError, error)
 	UpsertShort(params *UpsertParams, authInfo runtime.ClientAuthInfoWriter) (*UpsertOK, error)
 
 	SetTransport(transport runtime.ClientTransport)
-}
-
-/*
-Deprecated: 2022-08-10 - Use GetShort instead.
-
-Get get configuration
-TimeInterval is in nanoseconds.
-When there's no configuration set, the response is the default value (configurable through envar).
-*/
-func (a *Client) Get(params *GetParams, authInfo runtime.ClientAuthInfoWriter) (*GetOK, *GetInternalServerError, error) {
-	// TODO: Validate the params before sending
-	if params == nil {
-		params = NewGetParams()
-	}
-
-	if params.Context == nil {
-		params.Context = context.Background()
-	}
-
-	if params.RetryPolicy != nil {
-		params.SetHTTPClientTransport(params.RetryPolicy)
-	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
-		ID:                 "Get",
-		Method:             "GET",
-		PathPattern:        "/reporting/v1/admin/namespaces/{namespace}/configurations",
-		ProducesMediaTypes: []string{"application/json"},
-		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
-		Params:             params,
-		Reader:             &GetReader{formats: a.formats},
-		AuthInfo:           authInfo,
-		Context:            params.Context,
-		Client:             params.HTTPClient,
-	})
-	if err != nil {
-		return nil, nil, err
-	}
-
-	switch v := result.(type) {
-
-	case *GetOK:
-		return v, nil, nil
-
-	case *GetInternalServerError:
-		return nil, v, nil
-
-	default:
-		return nil, nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
-	}
 }
 
 /*
@@ -138,61 +85,6 @@ func (a *Client) GetShort(params *GetParams, authInfo runtime.ClientAuthInfoWrit
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
-	}
-}
-
-/*
-Deprecated: 2022-08-10 - Use UpsertShort instead.
-
-Upsert create/update configuration
-The behaviour of this endpoint is upsert based on the namespace.
-So, you can use this for both creating & updating the configuration.
-TimeInterval is in nanoseconds.
-*/
-func (a *Client) Upsert(params *UpsertParams, authInfo runtime.ClientAuthInfoWriter) (*UpsertOK, *UpsertBadRequest, *UpsertInternalServerError, error) {
-	// TODO: Validate the params before sending
-	if params == nil {
-		params = NewUpsertParams()
-	}
-
-	if params.Context == nil {
-		params.Context = context.Background()
-	}
-
-	if params.RetryPolicy != nil {
-		params.SetHTTPClientTransport(params.RetryPolicy)
-	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
-		ID:                 "Upsert",
-		Method:             "POST",
-		PathPattern:        "/reporting/v1/admin/namespaces/{namespace}/configurations",
-		ProducesMediaTypes: []string{"application/json"},
-		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
-		Params:             params,
-		Reader:             &UpsertReader{formats: a.formats},
-		AuthInfo:           authInfo,
-		Context:            params.Context,
-		Client:             params.HTTPClient,
-	})
-	if err != nil {
-		return nil, nil, nil, err
-	}
-
-	switch v := result.(type) {
-
-	case *UpsertOK:
-		return v, nil, nil, nil
-
-	case *UpsertBadRequest:
-		return nil, v, nil, nil
-
-	case *UpsertInternalServerError:
-		return nil, nil, v, nil
-
-	default:
-		return nil, nil, nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
 	}
 }
 

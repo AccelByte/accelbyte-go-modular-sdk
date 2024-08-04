@@ -13,7 +13,6 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils/auth"
-	"github.com/go-openapi/runtime/client"
 )
 
 type BaseLegalPoliciesWithNamespaceService struct {
@@ -36,108 +35,6 @@ func (aaa *BaseLegalPoliciesWithNamespaceService) GetAuthSession() auth.Session 
 		aaa.ConfigRepository,
 		nil,
 	}
-}
-
-// Deprecated: 2022-01-10 - Please use RetrieveAllLegalPoliciesByNamespaceShort instead.
-func (aaa *BaseLegalPoliciesWithNamespaceService) RetrieveAllLegalPoliciesByNamespace(input *base_legal_policies_with_namespace.RetrieveAllLegalPoliciesByNamespaceParams) ([]*legalclientmodels.RetrieveBasePolicyResponse, error) {
-	token, err := aaa.TokenRepository.GetToken()
-	if err != nil {
-		return nil, err
-	}
-	ok, err := aaa.Client.BaseLegalPoliciesWithNamespace.RetrieveAllLegalPoliciesByNamespace(input, client.BearerToken(*token.AccessToken))
-	if err != nil {
-		return nil, err
-	}
-
-	return ok.GetPayload(), nil
-}
-
-// Deprecated: 2022-01-10 - Please use CreatePolicy1Short instead.
-func (aaa *BaseLegalPoliciesWithNamespaceService) CreatePolicy1(input *base_legal_policies_with_namespace.CreatePolicy1Params) (*legalclientmodels.CreateBasePolicyResponse, error) {
-	token, err := aaa.TokenRepository.GetToken()
-	if err != nil {
-		return nil, err
-	}
-	created, badRequest, conflict, unprocessableEntity, err := aaa.Client.BaseLegalPoliciesWithNamespace.CreatePolicy1(input, client.BearerToken(*token.AccessToken))
-	if badRequest != nil {
-		return nil, badRequest
-	}
-	if conflict != nil {
-		return nil, conflict
-	}
-	if unprocessableEntity != nil {
-		return nil, unprocessableEntity
-	}
-	if err != nil {
-		return nil, err
-	}
-
-	return created.GetPayload(), nil
-}
-
-// Deprecated: 2022-01-10 - Please use RetrieveSinglePolicy1Short instead.
-func (aaa *BaseLegalPoliciesWithNamespaceService) RetrieveSinglePolicy1(input *base_legal_policies_with_namespace.RetrieveSinglePolicy1Params) (*legalclientmodels.RetrieveBasePolicyResponse, error) {
-	token, err := aaa.TokenRepository.GetToken()
-	if err != nil {
-		return nil, err
-	}
-	ok, notFound, err := aaa.Client.BaseLegalPoliciesWithNamespace.RetrieveSinglePolicy1(input, client.BearerToken(*token.AccessToken))
-	if notFound != nil {
-		return nil, notFound
-	}
-	if err != nil {
-		return nil, err
-	}
-
-	return ok.GetPayload(), nil
-}
-
-// Deprecated: 2022-01-10 - Please use PartialUpdatePolicy1Short instead.
-func (aaa *BaseLegalPoliciesWithNamespaceService) PartialUpdatePolicy1(input *base_legal_policies_with_namespace.PartialUpdatePolicy1Params) (*legalclientmodels.UpdateBasePolicyResponse, error) {
-	token, err := aaa.TokenRepository.GetToken()
-	if err != nil {
-		return nil, err
-	}
-	ok, badRequest, err := aaa.Client.BaseLegalPoliciesWithNamespace.PartialUpdatePolicy1(input, client.BearerToken(*token.AccessToken))
-	if badRequest != nil {
-		return nil, badRequest
-	}
-	if err != nil {
-		return nil, err
-	}
-
-	return ok.GetPayload(), nil
-}
-
-// Deprecated: 2022-01-10 - Please use RetrievePolicyCountry1Short instead.
-func (aaa *BaseLegalPoliciesWithNamespaceService) RetrievePolicyCountry1(input *base_legal_policies_with_namespace.RetrievePolicyCountry1Params) (*legalclientmodels.RetrievePolicyResponse, error) {
-	token, err := aaa.TokenRepository.GetToken()
-	if err != nil {
-		return nil, err
-	}
-	ok, notFound, err := aaa.Client.BaseLegalPoliciesWithNamespace.RetrievePolicyCountry1(input, client.BearerToken(*token.AccessToken))
-	if notFound != nil {
-		return nil, notFound
-	}
-	if err != nil {
-		return nil, err
-	}
-
-	return ok.GetPayload(), nil
-}
-
-// Deprecated: 2022-01-10 - Please use RetrieveAllPolicyTypes1Short instead.
-func (aaa *BaseLegalPoliciesWithNamespaceService) RetrieveAllPolicyTypes1(input *base_legal_policies_with_namespace.RetrieveAllPolicyTypes1Params) ([]*legalclientmodels.RetrievePolicyTypeResponse, error) {
-	token, err := aaa.TokenRepository.GetToken()
-	if err != nil {
-		return nil, err
-	}
-	ok, err := aaa.Client.BaseLegalPoliciesWithNamespace.RetrieveAllPolicyTypes1(input, client.BearerToken(*token.AccessToken))
-	if err != nil {
-		return nil, err
-	}
-
-	return ok.GetPayload(), nil
 }
 
 func (aaa *BaseLegalPoliciesWithNamespaceService) RetrieveAllLegalPoliciesByNamespaceShort(input *base_legal_policies_with_namespace.RetrieveAllLegalPoliciesByNamespaceParams) ([]*legalclientmodels.RetrieveBasePolicyResponse, error) {

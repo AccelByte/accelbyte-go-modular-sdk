@@ -30,84 +30,10 @@ type Client struct {
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	GetLikedContent(params *GetLikedContentParams, authInfo runtime.ClientAuthInfoWriter) (*GetLikedContentOK, *GetLikedContentBadRequest, *GetLikedContentUnauthorized, *GetLikedContentInternalServerError, error)
 	GetLikedContentShort(params *GetLikedContentParams, authInfo runtime.ClientAuthInfoWriter) (*GetLikedContentOK, error)
-	UpdateContentLikeStatus(params *UpdateContentLikeStatusParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateContentLikeStatusOK, *UpdateContentLikeStatusBadRequest, *UpdateContentLikeStatusUnauthorized, *UpdateContentLikeStatusNotFound, *UpdateContentLikeStatusInternalServerError, error)
 	UpdateContentLikeStatusShort(params *UpdateContentLikeStatusParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateContentLikeStatusOK, error)
 
 	SetTransport(transport runtime.ClientTransport)
-}
-
-/*
-Deprecated: 2022-08-10 - Use GetLikedContentShort instead.
-
-GetLikedContent get liked contents
-For advance tag filtering supports & as AND operator and | as OR operator and parentheses ( ) for priority. e.g:
-
-
-*tags=red*
-*tags=red&animal;*
-*tags=red|animal*
-*tags=red&animal;|wild*
-*tags=red&(animal|wild)*
-
-The precedence of logical operator is AND > OR, so if no parentheses, AND logical operator will be executed first.
-
-Allowed character for operand: alphanumeric, underscore _ and dash -
-
-Allowed character for operator: & | ( )
-
-
-**Please note that value of tags query param should be URL encoded**
-*/
-func (a *Client) GetLikedContent(params *GetLikedContentParams, authInfo runtime.ClientAuthInfoWriter) (*GetLikedContentOK, *GetLikedContentBadRequest, *GetLikedContentUnauthorized, *GetLikedContentInternalServerError, error) {
-	// TODO: Validate the params before sending
-	if params == nil {
-		params = NewGetLikedContentParams()
-	}
-
-	if params.Context == nil {
-		params.Context = context.Background()
-	}
-
-	if params.RetryPolicy != nil {
-		params.SetHTTPClientTransport(params.RetryPolicy)
-	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
-		ID:                 "GetLikedContent",
-		Method:             "GET",
-		PathPattern:        "/ugc/v1/public/namespaces/{namespace}/contents/liked",
-		ProducesMediaTypes: []string{"application/json"},
-		ConsumesMediaTypes: []string{"application/json", "application/octet-stream"},
-		Schemes:            []string{"https"},
-		Params:             params,
-		Reader:             &GetLikedContentReader{formats: a.formats},
-		AuthInfo:           authInfo,
-		Context:            params.Context,
-		Client:             params.HTTPClient,
-	})
-	if err != nil {
-		return nil, nil, nil, nil, err
-	}
-
-	switch v := result.(type) {
-
-	case *GetLikedContentOK:
-		return v, nil, nil, nil, nil
-
-	case *GetLikedContentBadRequest:
-		return nil, v, nil, nil, nil
-
-	case *GetLikedContentUnauthorized:
-		return nil, nil, v, nil, nil
-
-	case *GetLikedContentInternalServerError:
-		return nil, nil, nil, v, nil
-
-	default:
-		return nil, nil, nil, nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
-	}
 }
 
 /*
@@ -178,65 +104,6 @@ func (a *Client) GetLikedContentShort(params *GetLikedContentParams, authInfo ru
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
-	}
-}
-
-/*
-Deprecated: 2022-08-10 - Use UpdateContentLikeStatusShort instead.
-
-UpdateContentLikeStatus update like/unlike status to a content
-This endpoint will update like/unlike state from a content
-*/
-func (a *Client) UpdateContentLikeStatus(params *UpdateContentLikeStatusParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateContentLikeStatusOK, *UpdateContentLikeStatusBadRequest, *UpdateContentLikeStatusUnauthorized, *UpdateContentLikeStatusNotFound, *UpdateContentLikeStatusInternalServerError, error) {
-	// TODO: Validate the params before sending
-	if params == nil {
-		params = NewUpdateContentLikeStatusParams()
-	}
-
-	if params.Context == nil {
-		params.Context = context.Background()
-	}
-
-	if params.RetryPolicy != nil {
-		params.SetHTTPClientTransport(params.RetryPolicy)
-	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
-		ID:                 "UpdateContentLikeStatus",
-		Method:             "PUT",
-		PathPattern:        "/ugc/v1/public/namespaces/{namespace}/contents/{contentId}/like",
-		ProducesMediaTypes: []string{"application/json"},
-		ConsumesMediaTypes: []string{"application/json", "application/octet-stream"},
-		Schemes:            []string{"https"},
-		Params:             params,
-		Reader:             &UpdateContentLikeStatusReader{formats: a.formats},
-		AuthInfo:           authInfo,
-		Context:            params.Context,
-		Client:             params.HTTPClient,
-	})
-	if err != nil {
-		return nil, nil, nil, nil, nil, err
-	}
-
-	switch v := result.(type) {
-
-	case *UpdateContentLikeStatusOK:
-		return v, nil, nil, nil, nil, nil
-
-	case *UpdateContentLikeStatusBadRequest:
-		return nil, v, nil, nil, nil, nil
-
-	case *UpdateContentLikeStatusUnauthorized:
-		return nil, nil, v, nil, nil, nil
-
-	case *UpdateContentLikeStatusNotFound:
-		return nil, nil, nil, v, nil, nil
-
-	case *UpdateContentLikeStatusInternalServerError:
-		return nil, nil, nil, nil, v, nil
-
-	default:
-		return nil, nil, nil, nil, nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
 	}
 }
 

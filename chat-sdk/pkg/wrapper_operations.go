@@ -13,7 +13,6 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils/auth"
-	"github.com/go-openapi/runtime/client"
 )
 
 type OperationsService struct {
@@ -36,23 +35,6 @@ func (aaa *OperationsService) GetAuthSession() auth.Session {
 		aaa.ConfigRepository,
 		nil,
 	}
-}
-
-// Deprecated: 2022-01-10 - Please use PublicGetMessagesShort instead.
-func (aaa *OperationsService) PublicGetMessages(input *operations.PublicGetMessagesParams) ([]*chatclientmodels.LogAppMessageDeclaration, error) {
-	token, err := aaa.TokenRepository.GetToken()
-	if err != nil {
-		return nil, err
-	}
-	ok, internalServerError, err := aaa.Client.Operations.PublicGetMessages(input, client.BearerToken(*token.AccessToken))
-	if internalServerError != nil {
-		return nil, internalServerError
-	}
-	if err != nil {
-		return nil, err
-	}
-
-	return ok.GetPayload(), nil
 }
 
 func (aaa *OperationsService) PublicGetMessagesShort(input *operations.PublicGetMessagesParams) ([]*chatclientmodels.LogAppMessageDeclaration, error) {

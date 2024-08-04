@@ -13,7 +13,6 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/ugc-sdk/pkg/ugcclient"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/ugc-sdk/pkg/ugcclient/public_follow"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/ugc-sdk/pkg/ugcclientmodels"
-	"github.com/go-openapi/runtime/client"
 )
 
 type PublicFollowService struct {
@@ -36,121 +35,6 @@ func (aaa *PublicFollowService) GetAuthSession() auth.Session {
 		aaa.ConfigRepository,
 		nil,
 	}
-}
-
-// Deprecated: 2022-01-10 - Please use GetFollowedContentShort instead.
-func (aaa *PublicFollowService) GetFollowedContent(input *public_follow.GetFollowedContentParams) (*ugcclientmodels.ModelsPaginatedContentDownloadResponse, error) {
-	token, err := aaa.TokenRepository.GetToken()
-	if err != nil {
-		return nil, err
-	}
-	ok, badRequest, unauthorized, internalServerError, err := aaa.Client.PublicFollow.GetFollowedContent(input, client.BearerToken(*token.AccessToken))
-	if badRequest != nil {
-		return nil, badRequest
-	}
-	if unauthorized != nil {
-		return nil, unauthorized
-	}
-	if internalServerError != nil {
-		return nil, internalServerError
-	}
-	if err != nil {
-		return nil, err
-	}
-
-	return ok.GetPayload(), nil
-}
-
-// Deprecated: 2022-01-10 - Please use GetFollowedUsersShort instead.
-func (aaa *PublicFollowService) GetFollowedUsers(input *public_follow.GetFollowedUsersParams) (*ugcclientmodels.ModelsPaginatedCreatorOverviewResponse, error) {
-	token, err := aaa.TokenRepository.GetToken()
-	if err != nil {
-		return nil, err
-	}
-	ok, badRequest, unauthorized, internalServerError, err := aaa.Client.PublicFollow.GetFollowedUsers(input, client.BearerToken(*token.AccessToken))
-	if badRequest != nil {
-		return nil, badRequest
-	}
-	if unauthorized != nil {
-		return nil, unauthorized
-	}
-	if internalServerError != nil {
-		return nil, internalServerError
-	}
-	if err != nil {
-		return nil, err
-	}
-
-	return ok.GetPayload(), nil
-}
-
-// Deprecated: 2022-01-10 - Please use UpdateUserFollowStatusShort instead.
-func (aaa *PublicFollowService) UpdateUserFollowStatus(input *public_follow.UpdateUserFollowStatusParams) (*ugcclientmodels.ModelsUserFollowResponse, error) {
-	token, err := aaa.TokenRepository.GetToken()
-	if err != nil {
-		return nil, err
-	}
-	ok, badRequest, unauthorized, internalServerError, err := aaa.Client.PublicFollow.UpdateUserFollowStatus(input, client.BearerToken(*token.AccessToken))
-	if badRequest != nil {
-		return nil, badRequest
-	}
-	if unauthorized != nil {
-		return nil, unauthorized
-	}
-	if internalServerError != nil {
-		return nil, internalServerError
-	}
-	if err != nil {
-		return nil, err
-	}
-
-	return ok.GetPayload(), nil
-}
-
-// Deprecated: 2022-01-10 - Please use GetPublicFollowersShort instead.
-func (aaa *PublicFollowService) GetPublicFollowers(input *public_follow.GetPublicFollowersParams) (*ugcclientmodels.ModelsPaginatedCreatorOverviewResponse, error) {
-	token, err := aaa.TokenRepository.GetToken()
-	if err != nil {
-		return nil, err
-	}
-	ok, badRequest, unauthorized, internalServerError, err := aaa.Client.PublicFollow.GetPublicFollowers(input, client.BearerToken(*token.AccessToken))
-	if badRequest != nil {
-		return nil, badRequest
-	}
-	if unauthorized != nil {
-		return nil, unauthorized
-	}
-	if internalServerError != nil {
-		return nil, internalServerError
-	}
-	if err != nil {
-		return nil, err
-	}
-
-	return ok.GetPayload(), nil
-}
-
-// Deprecated: 2022-01-10 - Please use GetPublicFollowingShort instead.
-func (aaa *PublicFollowService) GetPublicFollowing(input *public_follow.GetPublicFollowingParams) (*ugcclientmodels.ModelsPaginatedCreatorOverviewResponse, error) {
-	token, err := aaa.TokenRepository.GetToken()
-	if err != nil {
-		return nil, err
-	}
-	ok, badRequest, unauthorized, internalServerError, err := aaa.Client.PublicFollow.GetPublicFollowing(input, client.BearerToken(*token.AccessToken))
-	if badRequest != nil {
-		return nil, badRequest
-	}
-	if unauthorized != nil {
-		return nil, unauthorized
-	}
-	if internalServerError != nil {
-		return nil, internalServerError
-	}
-	if err != nil {
-		return nil, err
-	}
-
-	return ok.GetPayload(), nil
 }
 
 func (aaa *PublicFollowService) GetFollowedContentShort(input *public_follow.GetFollowedContentParams) (*ugcclientmodels.ModelsPaginatedContentDownloadResponse, error) {

@@ -30,69 +30,12 @@ type Client struct {
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	AdminFindActionList(params *AdminFindActionListParams, authInfo runtime.ClientAuthInfoWriter) (*AdminFindActionListOK, *AdminFindActionListBadRequest, *AdminFindActionListInternalServerError, error)
 	AdminFindActionListShort(params *AdminFindActionListParams, authInfo runtime.ClientAuthInfoWriter) (*AdminFindActionListOK, error)
-	AdminCreateModAction(params *AdminCreateModActionParams, authInfo runtime.ClientAuthInfoWriter) (*AdminCreateModActionCreated, *AdminCreateModActionBadRequest, *AdminCreateModActionInternalServerError, error)
 	AdminCreateModActionShort(params *AdminCreateModActionParams, authInfo runtime.ClientAuthInfoWriter) (*AdminCreateModActionCreated, error)
-	AdminFindExtensionCategoryList(params *AdminFindExtensionCategoryListParams, authInfo runtime.ClientAuthInfoWriter) (*AdminFindExtensionCategoryListOK, *AdminFindExtensionCategoryListBadRequest, *AdminFindExtensionCategoryListInternalServerError, error)
 	AdminFindExtensionCategoryListShort(params *AdminFindExtensionCategoryListParams, authInfo runtime.ClientAuthInfoWriter) (*AdminFindExtensionCategoryListOK, error)
-	AdminCreateExtensionCategory(params *AdminCreateExtensionCategoryParams, authInfo runtime.ClientAuthInfoWriter) (*AdminCreateExtensionCategoryCreated, *AdminCreateExtensionCategoryBadRequest, *AdminCreateExtensionCategoryInternalServerError, error)
 	AdminCreateExtensionCategoryShort(params *AdminCreateExtensionCategoryParams, authInfo runtime.ClientAuthInfoWriter) (*AdminCreateExtensionCategoryCreated, error)
 
 	SetTransport(transport runtime.ClientTransport)
-}
-
-/*
-Deprecated: 2022-08-10 - Use AdminFindActionListShort instead.
-
-AdminFindActionList find auto moderation action list
-Get a list of auto moderation actions
-*/
-func (a *Client) AdminFindActionList(params *AdminFindActionListParams, authInfo runtime.ClientAuthInfoWriter) (*AdminFindActionListOK, *AdminFindActionListBadRequest, *AdminFindActionListInternalServerError, error) {
-	// TODO: Validate the params before sending
-	if params == nil {
-		params = NewAdminFindActionListParams()
-	}
-
-	if params.Context == nil {
-		params.Context = context.Background()
-	}
-
-	if params.RetryPolicy != nil {
-		params.SetHTTPClientTransport(params.RetryPolicy)
-	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
-		ID:                 "adminFindActionList",
-		Method:             "GET",
-		PathPattern:        "/reporting/v1/admin/extensionActions",
-		ProducesMediaTypes: []string{"application/json"},
-		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
-		Params:             params,
-		Reader:             &AdminFindActionListReader{formats: a.formats},
-		AuthInfo:           authInfo,
-		Context:            params.Context,
-		Client:             params.HTTPClient,
-	})
-	if err != nil {
-		return nil, nil, nil, err
-	}
-
-	switch v := result.(type) {
-
-	case *AdminFindActionListOK:
-		return v, nil, nil, nil
-
-	case *AdminFindActionListBadRequest:
-		return nil, v, nil, nil
-
-	case *AdminFindActionListInternalServerError:
-		return nil, nil, v, nil
-
-	default:
-		return nil, nil, nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
-	}
 }
 
 /*
@@ -145,59 +88,6 @@ func (a *Client) AdminFindActionListShort(params *AdminFindActionListParams, aut
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
-	}
-}
-
-/*
-Deprecated: 2022-08-10 - Use AdminCreateModActionShort instead.
-
-AdminCreateModAction create auto moderation action data
-Create auto moderation action
-*/
-func (a *Client) AdminCreateModAction(params *AdminCreateModActionParams, authInfo runtime.ClientAuthInfoWriter) (*AdminCreateModActionCreated, *AdminCreateModActionBadRequest, *AdminCreateModActionInternalServerError, error) {
-	// TODO: Validate the params before sending
-	if params == nil {
-		params = NewAdminCreateModActionParams()
-	}
-
-	if params.Context == nil {
-		params.Context = context.Background()
-	}
-
-	if params.RetryPolicy != nil {
-		params.SetHTTPClientTransport(params.RetryPolicy)
-	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
-		ID:                 "adminCreateModAction",
-		Method:             "POST",
-		PathPattern:        "/reporting/v1/admin/extensionActions",
-		ProducesMediaTypes: []string{"application/json"},
-		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
-		Params:             params,
-		Reader:             &AdminCreateModActionReader{formats: a.formats},
-		AuthInfo:           authInfo,
-		Context:            params.Context,
-		Client:             params.HTTPClient,
-	})
-	if err != nil {
-		return nil, nil, nil, err
-	}
-
-	switch v := result.(type) {
-
-	case *AdminCreateModActionCreated:
-		return v, nil, nil, nil
-
-	case *AdminCreateModActionBadRequest:
-		return nil, v, nil, nil
-
-	case *AdminCreateModActionInternalServerError:
-		return nil, nil, v, nil
-
-	default:
-		return nil, nil, nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
 	}
 }
 
@@ -255,59 +145,6 @@ func (a *Client) AdminCreateModActionShort(params *AdminCreateModActionParams, a
 }
 
 /*
-Deprecated: 2022-08-10 - Use AdminFindExtensionCategoryListShort instead.
-
-AdminFindExtensionCategoryList find extension category list
-Get a list of extension category data with the specified name
-*/
-func (a *Client) AdminFindExtensionCategoryList(params *AdminFindExtensionCategoryListParams, authInfo runtime.ClientAuthInfoWriter) (*AdminFindExtensionCategoryListOK, *AdminFindExtensionCategoryListBadRequest, *AdminFindExtensionCategoryListInternalServerError, error) {
-	// TODO: Validate the params before sending
-	if params == nil {
-		params = NewAdminFindExtensionCategoryListParams()
-	}
-
-	if params.Context == nil {
-		params.Context = context.Background()
-	}
-
-	if params.RetryPolicy != nil {
-		params.SetHTTPClientTransport(params.RetryPolicy)
-	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
-		ID:                 "adminFindExtensionCategoryList",
-		Method:             "GET",
-		PathPattern:        "/reporting/v1/admin/extensionCategories",
-		ProducesMediaTypes: []string{"application/json"},
-		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
-		Params:             params,
-		Reader:             &AdminFindExtensionCategoryListReader{formats: a.formats},
-		AuthInfo:           authInfo,
-		Context:            params.Context,
-		Client:             params.HTTPClient,
-	})
-	if err != nil {
-		return nil, nil, nil, err
-	}
-
-	switch v := result.(type) {
-
-	case *AdminFindExtensionCategoryListOK:
-		return v, nil, nil, nil
-
-	case *AdminFindExtensionCategoryListBadRequest:
-		return nil, v, nil, nil
-
-	case *AdminFindExtensionCategoryListInternalServerError:
-		return nil, nil, v, nil
-
-	default:
-		return nil, nil, nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
-	}
-}
-
-/*
 AdminFindExtensionCategoryListShort find extension category list
 Get a list of extension category data with the specified name
 */
@@ -357,59 +194,6 @@ func (a *Client) AdminFindExtensionCategoryListShort(params *AdminFindExtensionC
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
-	}
-}
-
-/*
-Deprecated: 2022-08-10 - Use AdminCreateExtensionCategoryShort instead.
-
-AdminCreateExtensionCategory create extension category
-Create extension category data
-*/
-func (a *Client) AdminCreateExtensionCategory(params *AdminCreateExtensionCategoryParams, authInfo runtime.ClientAuthInfoWriter) (*AdminCreateExtensionCategoryCreated, *AdminCreateExtensionCategoryBadRequest, *AdminCreateExtensionCategoryInternalServerError, error) {
-	// TODO: Validate the params before sending
-	if params == nil {
-		params = NewAdminCreateExtensionCategoryParams()
-	}
-
-	if params.Context == nil {
-		params.Context = context.Background()
-	}
-
-	if params.RetryPolicy != nil {
-		params.SetHTTPClientTransport(params.RetryPolicy)
-	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
-		ID:                 "adminCreateExtensionCategory",
-		Method:             "POST",
-		PathPattern:        "/reporting/v1/admin/extensionCategories",
-		ProducesMediaTypes: []string{"application/json"},
-		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
-		Params:             params,
-		Reader:             &AdminCreateExtensionCategoryReader{formats: a.formats},
-		AuthInfo:           authInfo,
-		Context:            params.Context,
-		Client:             params.HTTPClient,
-	})
-	if err != nil {
-		return nil, nil, nil, err
-	}
-
-	switch v := result.(type) {
-
-	case *AdminCreateExtensionCategoryCreated:
-		return v, nil, nil, nil
-
-	case *AdminCreateExtensionCategoryBadRequest:
-		return nil, v, nil, nil
-
-	case *AdminCreateExtensionCategoryInternalServerError:
-		return nil, nil, v, nil
-
-	default:
-		return nil, nil, nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
 	}
 }
 

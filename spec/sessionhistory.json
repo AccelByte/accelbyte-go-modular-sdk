@@ -3,14 +3,14 @@
   "info": {
     "description": "Justice Session History Service",
     "title": "justice-session-history-service",
-    "version": "1.9.4"
+    "version": "1.11.1"
   },
   "schemes": [
     "https"
   ],
   "externalDocs": {
     "description": "API Docs",
-    "url": "https://demo.accelbyte.io/sessionhistory/apidocs"
+    "url": "https://stage.accelbyte.io/sessionhistory/apidocs"
   },
   "securityDefinitions": {
     "HasPermission": {
@@ -38,6 +38,9 @@
     "/healthz": {
       "get": {
         "operationId": "GetHealthcheckInfo",
+        "produces": [
+          "application/json"
+        ],
         "responses": {
           "200": {
             "description": "OK"
@@ -47,12 +50,16 @@
           {
             "authorization": []
           }
-        ]
+        ],
+        "x-errorCodes": {}
       }
     },
     "/sessionhistory/healthz": {
       "get": {
         "operationId": "GetHealthcheckInfoV1",
+        "produces": [
+          "application/json"
+        ],
         "responses": {
           "200": {
             "description": "OK"
@@ -61,6 +68,114 @@
         "security": [
           {
             "authorization": []
+          }
+        ],
+        "x-errorCodes": {}
+      }
+    },
+    "/sessionhistory/v1/admin/config/log": {
+      "get": {
+        "consumes": [
+          "application/json"
+        ],
+        "description": "Get Log Configuration.\u0026lt;br\u0026gt;",
+        "operationId": "adminGetLogConfig",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/logconfig.Configuration"
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "schema": {
+              "$ref": "#/definitions/response.Error"
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "schema": {
+              "$ref": "#/definitions/response.Error"
+            }
+          }
+        },
+        "security": [
+          {
+            "authorization": []
+          }
+        ],
+        "summary": "Get Log Configuration",
+        "tags": [
+          "Config"
+        ],
+        "x-errorCodes": {},
+        "x-security": [
+          {
+            "userPermissions": [
+              "ADMIN:CONFIG:LOG [READ]"
+            ]
+          }
+        ]
+      },
+      "patch": {
+        "consumes": [
+          "application/json"
+        ],
+        "description": "Update Log Configuration.\u0026lt;br\u0026gt;",
+        "operationId": "adminPatchUpdateLogConfig",
+        "parameters": [
+          {
+            "description": "Optional values can be omitted and will update partially",
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/logconfig.Configuration"
+            }
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/logconfig.Configuration"
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "schema": {
+              "$ref": "#/definitions/response.Error"
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "schema": {
+              "$ref": "#/definitions/response.Error"
+            }
+          }
+        },
+        "security": [
+          {
+            "authorization": []
+          }
+        ],
+        "summary": "Patch Update Log Configuration",
+        "tags": [
+          "Config"
+        ],
+        "x-errorCodes": {},
+        "x-security": [
+          {
+            "userPermissions": [
+              "ADMIN:CONFIG:LOG [UPDATE]"
+            ]
           }
         ]
       }
@@ -78,6 +193,12 @@
             "in": "path",
             "name": "namespace",
             "required": true,
+            "type": "string"
+          },
+          {
+            "description": "End date time in RFC 3339 format: 2024-08-01T15:05:19Z",
+            "in": "query",
+            "name": "endDate",
             "type": "string"
           },
           {
@@ -107,9 +228,15 @@
             "type": "string"
           },
           {
-            "description": "Order result by specific attribute. Supported: expiredAt (default)",
+            "description": "Order result by specific attribute. Supported: createdAt (default)",
             "in": "query",
             "name": "orderBy",
+            "type": "string"
+          },
+          {
+            "description": "Start date time in RFC 3339 format: 2024-08-01T15:05:19Z",
+            "in": "query",
+            "name": "startDate",
             "type": "string"
           },
           {
@@ -163,6 +290,7 @@
         "tags": [
           "Game Session Detail"
         ],
+        "x-errorCodes": {},
         "x-security": [
           {
             "userPermissions": [
@@ -245,6 +373,7 @@
         "tags": [
           "Game Session Detail"
         ],
+        "x-errorCodes": {},
         "x-security": [
           {
             "userPermissions": [
@@ -358,6 +487,7 @@
         "tags": [
           "Game Session Detail"
         ],
+        "x-errorCodes": {},
         "x-security": [
           {
             "userPermissions": [
@@ -434,6 +564,7 @@
         "tags": [
           "Game Session Detail"
         ],
+        "x-errorCodes": {},
         "x-security": [
           {
             "userPermissions": [
@@ -510,6 +641,7 @@
         "tags": [
           "Game Session Detail"
         ],
+        "x-errorCodes": {},
         "x-security": [
           {
             "userPermissions": [
@@ -555,7 +687,7 @@
             "type": "string"
           },
           {
-            "description": "Order result by specific attribute. Supported: expiredAt (default)",
+            "description": "Order result by specific attribute. Supported: createdAt (default)",
             "in": "query",
             "name": "orderBy",
             "type": "string"
@@ -617,6 +749,7 @@
         "tags": [
           "Game Session Detail"
         ],
+        "x-errorCodes": {},
         "x-security": [
           {
             "userPermissions": [
@@ -699,6 +832,7 @@
         "tags": [
           "Game Session Detail"
         ],
+        "x-errorCodes": {},
         "x-security": [
           {
             "userPermissions": [
@@ -724,7 +858,7 @@
             "type": "string"
           },
           {
-            "description": "End Date 2024-05-06T03:48:23Z",
+            "description": "End Date 2024-08-01T15:05:19Z",
             "in": "query",
             "name": "endDate",
             "type": "string"
@@ -768,7 +902,7 @@
             "type": "string"
           },
           {
-            "description": "Start Date 2024-05-06T03:48:23Z",
+            "description": "Start Date 2024-08-01T15:05:19Z",
             "in": "query",
             "name": "startDate",
             "type": "string"
@@ -824,6 +958,7 @@
         "tags": [
           "Game Session Detail"
         ],
+        "x-errorCodes": {},
         "x-security": [
           {
             "userPermissions": [
@@ -900,10 +1035,107 @@
         "tags": [
           "Game Session Detail"
         ],
+        "x-errorCodes": {},
         "x-security": [
           {
             "userPermissions": [
               "ADMIN:NAMESPACE:{namespace}:SESSION:HISTORY [READ]"
+            ]
+          }
+        ]
+      }
+    },
+    "/sessionhistory/v1/public/namespaces/{namespace}/users/me/gamesessions": {
+      "get": {
+        "consumes": [
+          "application/json"
+        ],
+        "description": "Get all game sessions history for current user.",
+        "operationId": "publicQueryGameSessionMe",
+        "parameters": [
+          {
+            "description": "namespace of the game",
+            "in": "path",
+            "name": "namespace",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "default": 20,
+            "description": "Pagination limit",
+            "in": "query",
+            "name": "limit",
+            "type": "integer"
+          },
+          {
+            "default": 0,
+            "description": "Pagination offset",
+            "in": "query",
+            "name": "offset",
+            "type": "integer"
+          },
+          {
+            "description": "Order of the result. Supported: desc (default), asc",
+            "in": "query",
+            "name": "order",
+            "type": "string"
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/apimodels.GameSessionDetailQueryResponse"
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "schema": {
+              "$ref": "#/definitions/response.Error"
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "schema": {
+              "$ref": "#/definitions/response.Error"
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "schema": {
+              "$ref": "#/definitions/response.Error"
+            }
+          },
+          "429": {
+            "description": "Too Many Requests",
+            "schema": {
+              "$ref": "#/definitions/response.Error"
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "schema": {
+              "$ref": "#/definitions/response.Error"
+            }
+          }
+        },
+        "security": [
+          {
+            "authorization": []
+          }
+        ],
+        "summary": "Get all game sessions history for current user.",
+        "tags": [
+          "Game Session Detail"
+        ],
+        "x-errorCodes": {},
+        "x-security": [
+          {
+            "userPermissions": [
+              "NAMESPACE:{namespace}:SESSION:HISTORY [READ]"
             ]
           }
         ]
@@ -932,14 +1164,14 @@
             "type": "string"
           },
           {
-            "description": "End date time: 2024-05-06T03:48:23Z",
+            "description": "End date time: 2024-08-01T15:05:19Z",
             "in": "query",
             "name": "endDate",
             "required": true,
             "type": "string"
           },
           {
-            "description": "Start date time. Format: 2024-05-06T03:48:23Z",
+            "description": "Start date time. Format: 2024-08-01T15:05:19Z",
             "in": "query",
             "name": "startDate",
             "required": true,
@@ -996,6 +1228,7 @@
         "tags": [
           "XRay"
         ],
+        "x-errorCodes": {},
         "x-security": [
           {
             "userPermissions": [
@@ -1035,14 +1268,14 @@
             "type": "string"
           },
           {
-            "description": "End date time: 2024-05-06T03:48:23Z",
+            "description": "End date time: 2024-08-01T15:05:19Z",
             "in": "query",
             "name": "endDate",
             "required": true,
             "type": "string"
           },
           {
-            "description": "Start date time. Format: 2024-05-06T03:48:23Z",
+            "description": "Start date time. Format: 2024-08-01T15:05:19Z",
             "in": "query",
             "name": "startDate",
             "required": true,
@@ -1121,6 +1354,7 @@
         "tags": [
           "XRay"
         ],
+        "x-errorCodes": {},
         "x-security": [
           {
             "userPermissions": [
@@ -1217,6 +1451,7 @@
         "tags": [
           "XRay"
         ],
+        "x-errorCodes": {},
         "x-security": [
           {
             "userPermissions": [
@@ -1313,6 +1548,7 @@
         "tags": [
           "XRay"
         ],
+        "x-errorCodes": {},
         "x-security": [
           {
             "userPermissions": [
@@ -1409,6 +1645,7 @@
         "tags": [
           "XRay"
         ],
+        "x-errorCodes": {},
         "x-security": [
           {
             "userPermissions": [
@@ -1491,6 +1728,7 @@
         "tags": [
           "XRay"
         ],
+        "x-errorCodes": {},
         "x-security": [
           {
             "userPermissions": [
@@ -1573,6 +1811,7 @@
         "tags": [
           "XRay"
         ],
+        "x-errorCodes": {},
         "x-security": [
           {
             "userPermissions": [
@@ -1598,14 +1837,14 @@
             "type": "string"
           },
           {
-            "description": "End date time: 2024-05-06T03:48:23Z",
+            "description": "End date time: 2024-08-01T15:05:19Z",
             "in": "query",
             "name": "endDate",
             "required": true,
             "type": "string"
           },
           {
-            "description": "Start date time. Format: 2024-05-06T03:48:23Z",
+            "description": "Start date time. Format: 2024-08-01T15:05:19Z",
             "in": "query",
             "name": "startDate",
             "required": true,
@@ -1662,6 +1901,7 @@
         "tags": [
           "XRay"
         ],
+        "x-errorCodes": {},
         "x-security": [
           {
             "userPermissions": [
@@ -1687,14 +1927,14 @@
             "type": "string"
           },
           {
-            "description": "End date time: 2024-05-06T03:48:23Z",
+            "description": "End date time: 2024-08-01T15:05:19Z",
             "in": "query",
             "name": "endDate",
             "required": true,
             "type": "string"
           },
           {
-            "description": "Start date time. Format: 2024-05-06T03:48:23Z",
+            "description": "Start date time. Format: 2024-08-01T15:05:19Z",
             "in": "query",
             "name": "startDate",
             "required": true,
@@ -1751,6 +1991,7 @@
         "tags": [
           "XRay"
         ],
+        "x-errorCodes": {},
         "x-security": [
           {
             "userPermissions": [
@@ -1776,14 +2017,14 @@
             "type": "string"
           },
           {
-            "description": "End date time: 2024-05-06T03:48:23Z",
+            "description": "End date time: 2024-08-01T15:05:19Z",
             "in": "query",
             "name": "endDate",
             "required": true,
             "type": "string"
           },
           {
-            "description": "Start date time. Format: 2024-05-06T03:48:23Z",
+            "description": "Start date time. Format: 2024-08-01T15:05:19Z",
             "in": "query",
             "name": "startDate",
             "required": true,
@@ -1840,6 +2081,7 @@
         "tags": [
           "XRay"
         ],
+        "x-errorCodes": {},
         "x-security": [
           {
             "userPermissions": [
@@ -1865,14 +2107,14 @@
             "type": "string"
           },
           {
-            "description": "End date time: 2024-05-06T03:48:23Z",
+            "description": "End date time: 2024-08-01T15:05:19Z",
             "in": "query",
             "name": "endDate",
             "required": true,
             "type": "string"
           },
           {
-            "description": "Start date time. Format: 2024-05-06T03:48:23Z",
+            "description": "Start date time. Format: 2024-08-01T15:05:19Z",
             "in": "query",
             "name": "startDate",
             "required": true,
@@ -1929,6 +2171,7 @@
         "tags": [
           "XRay"
         ],
+        "x-errorCodes": {},
         "x-security": [
           {
             "userPermissions": [
@@ -1954,14 +2197,14 @@
             "type": "string"
           },
           {
-            "description": "End date time: 2024-05-06T03:48:23Z",
+            "description": "End date time: 2024-08-01T15:05:19Z",
             "in": "query",
             "name": "endDate",
             "required": true,
             "type": "string"
           },
           {
-            "description": "Start date time. Format: 2024-05-06T03:48:23Z",
+            "description": "Start date time. Format: 2024-08-01T15:05:19Z",
             "in": "query",
             "name": "startDate",
             "required": true,
@@ -2024,6 +2267,7 @@
         "tags": [
           "XRay"
         ],
+        "x-errorCodes": {},
         "x-security": [
           {
             "userPermissions": [
@@ -2049,14 +2293,14 @@
             "type": "string"
           },
           {
-            "description": "End date time: 2024-05-06T03:48:23Z",
+            "description": "End date time: 2024-08-01T15:05:19Z",
             "in": "query",
             "name": "endDate",
             "required": true,
             "type": "string"
           },
           {
-            "description": "Start date time. Format: 2024-05-06T03:48:23Z",
+            "description": "Start date time. Format: 2024-08-01T15:05:19Z",
             "in": "query",
             "name": "startDate",
             "required": true,
@@ -2119,6 +2363,7 @@
         "tags": [
           "XRay"
         ],
+        "x-errorCodes": {},
         "x-security": [
           {
             "userPermissions": [
@@ -2144,14 +2389,14 @@
             "type": "string"
           },
           {
-            "description": "End date time: 2024-05-06T03:48:23Z",
+            "description": "End date time: 2024-08-01T15:05:19Z",
             "in": "query",
             "name": "endDate",
             "required": true,
             "type": "string"
           },
           {
-            "description": "Start date time. Format: 2024-05-06T03:48:23Z",
+            "description": "Start date time. Format: 2024-08-01T15:05:19Z",
             "in": "query",
             "name": "startDate",
             "required": true,
@@ -2208,6 +2453,7 @@
         "tags": [
           "XRay"
         ],
+        "x-errorCodes": {},
         "x-security": [
           {
             "userPermissions": [
@@ -2233,14 +2479,14 @@
             "type": "string"
           },
           {
-            "description": "End date time: 2024-05-06T03:48:23Z",
+            "description": "End date time: 2024-08-01T15:05:19Z",
             "in": "query",
             "name": "endDate",
             "required": true,
             "type": "string"
           },
           {
-            "description": "Start date time. Format: 2024-05-06T03:48:23Z",
+            "description": "Start date time. Format: 2024-08-01T15:05:19Z",
             "in": "query",
             "name": "startDate",
             "required": true,
@@ -2303,6 +2549,7 @@
         "tags": [
           "XRay"
         ],
+        "x-errorCodes": {},
         "x-security": [
           {
             "userPermissions": [
@@ -2328,14 +2575,14 @@
             "type": "string"
           },
           {
-            "description": "End date time: 2024-05-06T03:48:23Z",
+            "description": "End date time: 2024-08-01T15:05:19Z",
             "in": "query",
             "name": "endDate",
             "required": true,
             "type": "string"
           },
           {
-            "description": "Start date time. Format: 2024-05-06T03:48:23Z",
+            "description": "Start date time. Format: 2024-08-01T15:05:19Z",
             "in": "query",
             "name": "startDate",
             "required": true,
@@ -2398,6 +2645,7 @@
         "tags": [
           "XRay"
         ],
+        "x-errorCodes": {},
         "x-security": [
           {
             "userPermissions": [
@@ -2423,14 +2671,14 @@
             "type": "string"
           },
           {
-            "description": "End date time: 2024-05-06T03:48:23Z",
+            "description": "End date time: 2024-08-01T15:05:19Z",
             "in": "query",
             "name": "endDate",
             "required": true,
             "type": "string"
           },
           {
-            "description": "Start date time. Format: 2024-05-06T03:48:23Z",
+            "description": "Start date time. Format: 2024-08-01T15:05:19Z",
             "in": "query",
             "name": "startDate",
             "required": true,
@@ -2493,6 +2741,7 @@
         "tags": [
           "XRay"
         ],
+        "x-errorCodes": {},
         "x-security": [
           {
             "userPermissions": [
@@ -2518,14 +2767,14 @@
             "type": "string"
           },
           {
-            "description": "End date time: 2024-05-06T03:48:23Z",
+            "description": "End date time: 2024-08-01T15:05:19Z",
             "in": "query",
             "name": "endDate",
             "required": true,
             "type": "string"
           },
           {
-            "description": "Start date time. Format: 2024-05-06T03:48:23Z",
+            "description": "Start date time. Format: 2024-08-01T15:05:19Z",
             "in": "query",
             "name": "startDate",
             "required": true,
@@ -2588,10 +2837,90 @@
         "tags": [
           "XRay"
         ],
+        "x-errorCodes": {},
         "x-security": [
           {
             "userPermissions": [
               "ADMIN:NAMESPACE:{namespace}:SESSION:HISTORY [READ]"
+            ]
+          }
+        ]
+      }
+    },
+    "/sessionhistory/v2/admin/namespaces/{namespace}/xray/tickets": {
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "description": "Create ticket observability request\nRequest body details (all attributes are optional):\nTimestamp \t\t\t\t  : timestamp when calling this endpoint           \nAction    \t\t\t\t  : support one of the following value: \n\t\t\t\t\t\t    1. \u0026#34;started\u0026#34;\n\t\t\t\t\t\t    2. \u0026#34;matchFound\u0026#34;\n\t\t\t\t\t\t    3. \u0026#34;matchNotFound\u0026#34;\n\t\t\t\t\t\t    4. \u0026#34;flexed\u0026#34;\n\t\t\t\t\t\t    5  \u0026#34;canceled\u0026#34;\n\t\t\t\t\t\t    6. \u0026#34;expired\u0026#34;        \nPartyID\t\t\t\t\t  : ticket Party ID            \nMatchID\t\t\t\t\t  : match ID will be filled only when match found\nNamespace           \t  : ticket current namespace\nGameMode            \t  : ticket current matchpool\nActiveAllianceRule  \t  : current active alliance ruleset \nActiveMatchingRule  \t  : current active matching ruleset\nFunction            \t  : name of the function that called the endpoint \nIteration           \t  : total iteration before match found\nTimeToMatchSec      \t  : time to match (in seconds) will be filled only when match found \nUnmatchReason       \t  : reason when unable to find match\nRemainingTickets    \t  : remaining ticket when unable to find match\nRemainingPlayersPerTicket : remaining players when unable to find match\nUnbackfillReason          : reason when unable to backfill\nIsBackfillMatch        \t  : flag to distinguish between new match and backfill match\nIsRuleSetFlexed       \t  : flag if ruleset is getting flexed\nTickID          \t\t  : tick id for the matchmaking tick\nSessionTickID \t\t\t  : session tick id for differentiate session when doing matches\n",
+        "operationId": "createXrayTicketObservability",
+        "parameters": [
+          {
+            "description": "Create ticket observability request",
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/apimodels.XRayTicketObservabilityRequest"
+            }
+          },
+          {
+            "description": "namespace of the game",
+            "in": "path",
+            "name": "namespace",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/apimodels.XRayTicketObservabilityResponse"
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "schema": {
+              "$ref": "#/definitions/response.Error"
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "schema": {
+              "$ref": "#/definitions/response.Error"
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "schema": {
+              "$ref": "#/definitions/response.Error"
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "schema": {
+              "$ref": "#/definitions/response.Error"
+            }
+          }
+        },
+        "security": [
+          {
+            "authorization": []
+          }
+        ],
+        "summary": "Create ticket observability request",
+        "tags": [
+          "XRay"
+        ],
+        "x-errorCodes": {},
+        "x-security": [
+          {
+            "userPermissions": [
+              "ADMIN:NAMESPACE:{namespace}:SESSION:HISTORY [CREATE]"
             ]
           }
         ]
@@ -2620,14 +2949,14 @@
             "type": "string"
           },
           {
-            "description": "End date time: 2024-05-06T03:48:23Z",
+            "description": "End date time: 2024-08-01T15:05:19Z",
             "in": "query",
             "name": "endDate",
             "required": true,
             "type": "string"
           },
           {
-            "description": "Start date time. Format: 2024-05-06T03:48:23Z",
+            "description": "Start date time. Format: 2024-08-01T15:05:19Z",
             "in": "query",
             "name": "startDate",
             "required": true,
@@ -2698,6 +3027,7 @@
         "tags": [
           "XRay"
         ],
+        "x-errorCodes": {},
         "x-security": [
           {
             "userPermissions": [
@@ -2730,14 +3060,14 @@
             "type": "string"
           },
           {
-            "description": "End date time: 2024-05-06T03:48:23Z",
+            "description": "End date time: 2024-08-01T15:05:19Z",
             "in": "query",
             "name": "endDate",
             "required": true,
             "type": "string"
           },
           {
-            "description": "Start date time. Format: 2024-05-06T03:48:23Z",
+            "description": "Start date time. Format: 2024-08-01T15:05:19Z",
             "in": "query",
             "name": "startDate",
             "required": true,
@@ -2808,6 +3138,7 @@
         "tags": [
           "XRay"
         ],
+        "x-errorCodes": {},
         "x-security": [
           {
             "userPermissions": [
@@ -3768,6 +4099,10 @@
           "type": "string",
           "x-nullable": true
         },
+        "IsPivot": {
+          "type": "boolean",
+          "x-omitempty": false
+        },
         "Latencies": {
           "additionalProperties": {
             "type": "integer"
@@ -3792,13 +4127,120 @@
         "ProposedProposal": {
           "$ref": "#/definitions/models.ProposedProposal"
         },
+        "RegionPreference": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
         "TicketAttributes": {
           "type": "object"
         },
         "TicketID": {
           "type": "string"
+        },
+        "TimeToMatch": {
+          "format": "double",
+          "type": "number"
         }
       }
+    },
+    "apimodels.XRayTicketObservabilityRequest": {
+      "properties": {
+        "action": {
+          "type": "string"
+        },
+        "activeAllianceRule": {
+          "$ref": "#/definitions/models.AllianceRule"
+        },
+        "activeMatchingRule": {
+          "items": {
+            "$ref": "#/definitions/models.MatchingRule"
+          },
+          "type": "array"
+        },
+        "function": {
+          "type": "string"
+        },
+        "gameMode": {
+          "type": "string"
+        },
+        "isBackfillMatch": {
+          "type": "boolean",
+          "x-omitempty": false
+        },
+        "isRuleSetFlexed": {
+          "type": "boolean",
+          "x-omitempty": false
+        },
+        "iteration": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "matchID": {
+          "type": "string"
+        },
+        "namespace": {
+          "type": "string"
+        },
+        "partyID": {
+          "type": "string"
+        },
+        "remainingPlayersPerTicket": {
+          "items": {
+            "format": "int32",
+            "type": "integer"
+          },
+          "type": "array"
+        },
+        "remainingTickets": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "sessionTickID": {
+          "type": "string"
+        },
+        "tickID": {
+          "format": "int64",
+          "type": "integer"
+        },
+        "timeToMatchSec": {
+          "format": "double",
+          "type": "number"
+        },
+        "timestamp": {
+          "format": "date-time",
+          "type": "string",
+          "x-nullable": false
+        },
+        "unbackfillReason": {
+          "type": "string"
+        },
+        "unmatchReason": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "action",
+        "gameMode",
+        "isBackfillMatch",
+        "isRuleSetFlexed",
+        "namespace",
+        "partyID",
+        "sessionTickID",
+        "tickID",
+        "timestamp"
+      ]
+    },
+    "apimodels.XRayTicketObservabilityResponse": {
+      "properties": {
+        "ticketID": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "ticketID"
+      ]
     },
     "apimodels.XRayTicketQueryResponse": {
       "properties": {
@@ -3819,13 +4261,34 @@
     },
     "apimodels.XRayTicketResult": {
       "properties": {
+        "elapsedTime": {
+          "format": "double",
+          "type": "number"
+        },
         "id": {
           "type": "string"
+        },
+        "isBackfill": {
+          "type": "boolean",
+          "x-omitempty": false
+        },
+        "isPivot": {
+          "type": "boolean",
+          "x-omitempty": false
         },
         "matchpool": {
           "type": "string"
         },
+        "memberAttributes": {
+          "type": "object"
+        },
         "podName": {
+          "type": "string"
+        },
+        "reason": {
+          "type": "string"
+        },
+        "region": {
           "type": "string"
         },
         "tickId": {
@@ -3841,12 +4304,19 @@
           "format": "date-time",
           "type": "string",
           "x-nullable": false
+        },
+        "totalPlayers": {
+          "format": "int32",
+          "type": "integer"
         }
       },
       "required": [
+        "elapsedTime",
         "id",
         "matchpool",
         "podName",
+        "reason",
+        "region",
         "tickId",
         "ticketId",
         "ticketStatus",
@@ -3878,6 +4348,22 @@
       "required": [
         "data"
       ]
+    },
+    "logconfig.Configuration": {
+      "properties": {
+        "logLevel": {
+          "enum": [
+            "debug",
+            "error",
+            "fatal",
+            "info",
+            "panic",
+            "trace",
+            "warning"
+          ],
+          "type": "string"
+        }
+      }
     },
     "models.AllianceRule": {
       "properties": {
@@ -4152,6 +4638,9 @@
         "MatchAttributes": {
           "type": "object"
         },
+        "PivotID": {
+          "type": "string"
+        },
         "RegionPreference": {
           "items": {
             "type": "string"
@@ -4169,9 +4658,67 @@
         },
         "Tickets": {
           "items": {
-            "$ref": "#/definitions/models.Ticket"
+            "$ref": "#/definitions/models.MatchTicket"
           },
           "type": "array"
+        },
+        "Timestamp": {
+          "format": "date-time",
+          "type": "string",
+          "x-nullable": true
+        }
+      }
+    },
+    "models.MatchTicket": {
+      "properties": {
+        "CreatedAt": {
+          "format": "date-time",
+          "type": "string",
+          "x-nullable": true
+        },
+        "IsPivot": {
+          "type": "boolean",
+          "x-omitempty": false
+        },
+        "Latencies": {
+          "additionalProperties": {
+            "type": "integer"
+          },
+          "type": "object"
+        },
+        "MatchPool": {
+          "type": "string"
+        },
+        "Namespace": {
+          "type": "string"
+        },
+        "PartySessionID": {
+          "type": "string"
+        },
+        "Players": {
+          "items": {
+            "$ref": "#/definitions/models.PlayerData"
+          },
+          "type": "array"
+        },
+        "ProposedProposal": {
+          "$ref": "#/definitions/models.ProposedProposal"
+        },
+        "RegionPreference": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "TicketAttributes": {
+          "type": "object"
+        },
+        "TicketID": {
+          "type": "string"
+        },
+        "TimeToMatch": {
+          "format": "double",
+          "type": "number"
         }
       }
     },
@@ -4620,6 +5167,10 @@
           },
           "type": "array"
         },
+        "elapsedTime": {
+          "format": "double",
+          "type": "number"
+        },
         "function": {
           "type": "string"
         },
@@ -4627,6 +5178,10 @@
           "type": "string"
         },
         "isBackfillMatch": {
+          "type": "boolean",
+          "x-omitempty": false
+        },
+        "isPivot": {
           "type": "boolean",
           "x-omitempty": false
         },
@@ -4640,6 +5195,12 @@
         },
         "matchID": {
           "type": "string"
+        },
+        "matchedRegion": {
+          "type": "string"
+        },
+        "memberAttributes": {
+          "type": "object"
         },
         "namespace": {
           "type": "string"
@@ -4680,6 +5241,10 @@
           "type": "string",
           "x-nullable": false
         },
+        "totalPlayers": {
+          "format": "int32",
+          "type": "integer"
+        },
         "unbackfillReason": {
           "type": "string"
         },
@@ -4691,13 +5256,17 @@
         "action",
         "gameMode",
         "isBackfillMatch",
+        "isPivot",
         "isRuleSetFlexed",
+        "matchedRegion",
+        "memberAttributes",
         "namespace",
         "partyID",
         "podName",
         "sessionTickID",
         "tickID",
-        "timestamp"
+        "timestamp",
+        "totalPlayers"
       ]
     },
     "models.TicketObservability": {
@@ -4780,13 +5349,13 @@
   },
   "x-docs": {
     "alias": "sessionhistory",
-    "host": "https://demo.accelbyte.io",
+    "host": "https://stage.accelbyte.io",
     "path": "/sessionhistory/apidocs/api.json"
   },
   "x-version": {
-    "buildDate": "2024-04-23T07:50:50+00:00",
-    "gitHash": "1c39039443e4db7c1dd166554505309757aa437a",
-    "version": "1.9.4",
-    "version-roles-seeding": "0.0.39"
+    "buildDate": "2024-07-25T04:22:37+00:00",
+    "gitHash": "c8e99e55876f692a5c38a521bfad50b123749cca",
+    "version": "1.11.1",
+    "version-roles-seeding": "1.2.56"
   }
 }

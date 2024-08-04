@@ -13,7 +13,6 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils/auth"
-	"github.com/go-openapi/runtime/client"
 )
 
 // TicketService this is use for compatibility with latest modular sdk only
@@ -38,103 +37,6 @@ func (aaa *TicketService) GetAuthSession() auth.Session {
 		aaa.ConfigRepository,
 		nil,
 	}
-}
-
-// Deprecated: 2022-01-10 - Please use GetTicketDynamicShort instead.
-func (aaa *TicketService) GetTicketDynamic(input *ticket.GetTicketDynamicParams) (*platformclientmodels.TicketDynamicInfo, error) {
-	token, err := aaa.TokenRepository.GetToken()
-	if err != nil {
-		return nil, err
-	}
-	ok, notFound, err := aaa.Client.Ticket.GetTicketDynamic(input, client.BearerToken(*token.AccessToken))
-	if notFound != nil {
-		return nil, notFound
-	}
-	if err != nil {
-		return nil, err
-	}
-
-	return ok.GetPayload(), nil
-}
-
-// Deprecated: 2022-01-10 - Please use DecreaseTicketSaleShort instead.
-func (aaa *TicketService) DecreaseTicketSale(input *ticket.DecreaseTicketSaleParams) error {
-	token, err := aaa.TokenRepository.GetToken()
-	if err != nil {
-		return err
-	}
-	_, notFound, unprocessableEntity, err := aaa.Client.Ticket.DecreaseTicketSale(input, client.BearerToken(*token.AccessToken))
-	if notFound != nil {
-		return notFound
-	}
-	if unprocessableEntity != nil {
-		return unprocessableEntity
-	}
-	if err != nil {
-		return err
-	}
-
-	return nil
-}
-
-// Deprecated: 2022-01-10 - Please use GetTicketBoothIDShort instead.
-func (aaa *TicketService) GetTicketBoothID(input *ticket.GetTicketBoothIDParams) (*platformclientmodels.TicketBoothID, error) {
-	token, err := aaa.TokenRepository.GetToken()
-	if err != nil {
-		return nil, err
-	}
-	ok, notFound, err := aaa.Client.Ticket.GetTicketBoothID(input, client.BearerToken(*token.AccessToken))
-	if notFound != nil {
-		return nil, notFound
-	}
-	if err != nil {
-		return nil, err
-	}
-
-	return ok.GetPayload(), nil
-}
-
-// Deprecated: 2022-01-10 - Please use IncreaseTicketSaleShort instead.
-func (aaa *TicketService) IncreaseTicketSale(input *ticket.IncreaseTicketSaleParams) (*platformclientmodels.TicketSaleIncrementResult, error) {
-	token, err := aaa.TokenRepository.GetToken()
-	if err != nil {
-		return nil, err
-	}
-	ok, notFound, unprocessableEntity, err := aaa.Client.Ticket.IncreaseTicketSale(input, client.BearerToken(*token.AccessToken))
-	if notFound != nil {
-		return nil, notFound
-	}
-	if unprocessableEntity != nil {
-		return nil, unprocessableEntity
-	}
-	if err != nil {
-		return nil, err
-	}
-
-	return ok.GetPayload(), nil
-}
-
-// Deprecated: 2022-01-10 - Please use AcquireUserTicketShort instead.
-func (aaa *TicketService) AcquireUserTicket(input *ticket.AcquireUserTicketParams) (*platformclientmodels.TicketAcquireResult, error) {
-	token, err := aaa.TokenRepository.GetToken()
-	if err != nil {
-		return nil, err
-	}
-	ok, notFound, conflict, unprocessableEntity, err := aaa.Client.Ticket.AcquireUserTicket(input, client.BearerToken(*token.AccessToken))
-	if notFound != nil {
-		return nil, notFound
-	}
-	if conflict != nil {
-		return nil, conflict
-	}
-	if unprocessableEntity != nil {
-		return nil, unprocessableEntity
-	}
-	if err != nil {
-		return nil, err
-	}
-
-	return ok.GetPayload(), nil
 }
 
 func (aaa *TicketService) GetTicketDynamicShort(input *ticket.GetTicketDynamicParams) (*platformclientmodels.TicketDynamicInfo, error) {

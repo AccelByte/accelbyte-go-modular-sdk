@@ -13,7 +13,6 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils/auth"
-	"github.com/go-openapi/runtime/client"
 )
 
 type PublicReportsService struct {
@@ -36,32 +35,6 @@ func (aaa *PublicReportsService) GetAuthSession() auth.Session {
 		aaa.ConfigRepository,
 		nil,
 	}
-}
-
-// Deprecated: 2022-01-10 - Please use SubmitReportShort instead.
-func (aaa *PublicReportsService) SubmitReport(input *public_reports.SubmitReportParams) (*reportingclientmodels.RestapiSubmitReportResponse, error) {
-	token, err := aaa.TokenRepository.GetToken()
-	if err != nil {
-		return nil, err
-	}
-	created, badRequest, conflict, tooManyRequests, internalServerError, err := aaa.Client.PublicReports.SubmitReport(input, client.BearerToken(*token.AccessToken))
-	if badRequest != nil {
-		return nil, badRequest
-	}
-	if conflict != nil {
-		return nil, conflict
-	}
-	if tooManyRequests != nil {
-		return nil, tooManyRequests
-	}
-	if internalServerError != nil {
-		return nil, internalServerError
-	}
-	if err != nil {
-		return nil, err
-	}
-
-	return created.GetPayload(), nil
 }
 
 func (aaa *PublicReportsService) SubmitReportShort(input *public_reports.SubmitReportParams) (*reportingclientmodels.RestapiSubmitReportResponse, error) {

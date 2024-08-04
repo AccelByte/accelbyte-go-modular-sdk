@@ -13,7 +13,6 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils/auth"
-	"github.com/go-openapi/runtime/client"
 )
 
 // PluginConfigService this is use for compatibility with latest modular sdk only
@@ -38,116 +37,6 @@ func (aaa *PluginConfigService) GetAuthSession() auth.Session {
 		aaa.ConfigRepository,
 		nil,
 	}
-}
-
-// Deprecated: 2022-01-10 - Please use GetPluginConfigShort instead.
-func (aaa *PluginConfigService) GetPluginConfig(input *plugin_config.GetPluginConfigParams) (*cloudsaveclientmodels.ModelsPluginResponse, error) {
-	token, err := aaa.TokenRepository.GetToken()
-	if err != nil {
-		return nil, err
-	}
-	ok, unauthorized, forbidden, notFound, internalServerError, err := aaa.Client.PluginConfig.GetPluginConfig(input, client.BearerToken(*token.AccessToken))
-	if unauthorized != nil {
-		return nil, unauthorized
-	}
-	if forbidden != nil {
-		return nil, forbidden
-	}
-	if notFound != nil {
-		return nil, notFound
-	}
-	if internalServerError != nil {
-		return nil, internalServerError
-	}
-	if err != nil {
-		return nil, err
-	}
-
-	return ok.GetPayload(), nil
-}
-
-// Deprecated: 2022-01-10 - Please use CreatePluginConfigShort instead.
-func (aaa *PluginConfigService) CreatePluginConfig(input *plugin_config.CreatePluginConfigParams) (*cloudsaveclientmodels.ModelsPluginResponse, error) {
-	token, err := aaa.TokenRepository.GetToken()
-	if err != nil {
-		return nil, err
-	}
-	created, badRequest, unauthorized, forbidden, conflict, internalServerError, err := aaa.Client.PluginConfig.CreatePluginConfig(input, client.BearerToken(*token.AccessToken))
-	if badRequest != nil {
-		return nil, badRequest
-	}
-	if unauthorized != nil {
-		return nil, unauthorized
-	}
-	if forbidden != nil {
-		return nil, forbidden
-	}
-	if conflict != nil {
-		return nil, conflict
-	}
-	if internalServerError != nil {
-		return nil, internalServerError
-	}
-	if err != nil {
-		return nil, err
-	}
-
-	return created.GetPayload(), nil
-}
-
-// Deprecated: 2022-01-10 - Please use DeletePluginConfigShort instead.
-func (aaa *PluginConfigService) DeletePluginConfig(input *plugin_config.DeletePluginConfigParams) error {
-	token, err := aaa.TokenRepository.GetToken()
-	if err != nil {
-		return err
-	}
-	_, unauthorized, forbidden, notFound, internalServerError, err := aaa.Client.PluginConfig.DeletePluginConfig(input, client.BearerToken(*token.AccessToken))
-	if unauthorized != nil {
-		return unauthorized
-	}
-	if forbidden != nil {
-		return forbidden
-	}
-	if notFound != nil {
-		return notFound
-	}
-	if internalServerError != nil {
-		return internalServerError
-	}
-	if err != nil {
-		return err
-	}
-
-	return nil
-}
-
-// Deprecated: 2022-01-10 - Please use UpdatePluginConfigShort instead.
-func (aaa *PluginConfigService) UpdatePluginConfig(input *plugin_config.UpdatePluginConfigParams) (*cloudsaveclientmodels.ModelsPluginResponse, error) {
-	token, err := aaa.TokenRepository.GetToken()
-	if err != nil {
-		return nil, err
-	}
-	ok, badRequest, unauthorized, forbidden, notFound, internalServerError, err := aaa.Client.PluginConfig.UpdatePluginConfig(input, client.BearerToken(*token.AccessToken))
-	if badRequest != nil {
-		return nil, badRequest
-	}
-	if unauthorized != nil {
-		return nil, unauthorized
-	}
-	if forbidden != nil {
-		return nil, forbidden
-	}
-	if notFound != nil {
-		return nil, notFound
-	}
-	if internalServerError != nil {
-		return nil, internalServerError
-	}
-	if err != nil {
-		return nil, err
-	}
-
-	return ok.GetPayload(), nil
 }
 
 func (aaa *PluginConfigService) GetPluginConfigShort(input *plugin_config.GetPluginConfigParams) (*cloudsaveclientmodels.ModelsPluginResponse, error) {

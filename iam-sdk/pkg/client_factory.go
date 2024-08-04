@@ -15,6 +15,12 @@ import (
 
 func NewIamClient(configRepository repository.ConfigRepository) *iamclient.JusticeIamService {
 	baseURL := strings.TrimSuffix(configRepository.GetJusticeBaseUrl(), "/")
+
+	if extendedConfigRepository, ok := configRepository.(repository.ExtendedConfigRepository); ok {
+		baseURL = extendedConfigRepository.GetCustomBasePath("/iam")
+		baseURL = strings.TrimSuffix(baseURL, "/")
+	}
+
 	if len(baseURL) > 0 {
 		baseURLSplit := strings.Split(baseURL, "://")
 		httpClientConfig := &iamclient.TransportConfig{

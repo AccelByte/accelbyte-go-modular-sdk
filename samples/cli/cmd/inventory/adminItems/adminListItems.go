@@ -28,7 +28,6 @@ var AdminListItemsCmd = &cobra.Command{
 		namespace, _ := cmd.Flags().GetString("namespace")
 		limit, _ := cmd.Flags().GetInt64("limit")
 		offset, _ := cmd.Flags().GetInt64("offset")
-		qtyGte, _ := cmd.Flags().GetInt64("qtyGte")
 		sortBy, _ := cmd.Flags().GetString("sortBy")
 		sourceItemId, _ := cmd.Flags().GetString("sourceItemId")
 		tags, _ := cmd.Flags().GetString("tags")
@@ -37,7 +36,6 @@ var AdminListItemsCmd = &cobra.Command{
 			Namespace:    namespace,
 			Limit:        &limit,
 			Offset:       &offset,
-			QtyGte:       &qtyGte,
 			SortBy:       &sortBy,
 			SourceItemID: &sourceItemId,
 			Tags:         &tags,
@@ -62,7 +60,6 @@ func init() {
 	_ = AdminListItemsCmd.MarkFlagRequired("namespace")
 	AdminListItemsCmd.Flags().Int64("limit", 20, "Limit")
 	AdminListItemsCmd.Flags().Int64("offset", 0, "Offset")
-	AdminListItemsCmd.Flags().Int64("qtyGte", 1, "Qty gte")
 	AdminListItemsCmd.Flags().String("sortBy", "", "Sort by")
 	AdminListItemsCmd.Flags().String("sourceItemId", "", "Source item id")
 	AdminListItemsCmd.Flags().String("tags", "", "Tags")

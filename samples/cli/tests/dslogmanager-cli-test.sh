@@ -32,7 +32,7 @@ eval_tap() {
 }
 
 echo "TAP version 13"
-echo "1..8"
+echo "1..9"
 
 #- 1 Login
 samples/cli/sample-apps login \
@@ -51,78 +51,84 @@ touch "tmp.dat"
 #- 2 GetServerLogs
 samples/cli/sample-apps Dslogmanager getServerLogs \
     --namespace $AB_NAMESPACE \
-    --podName '9SUwVSFn' \
-    --logType 'SkgOAIUk' \
-    --offset '1' \
-    --origin 'B9qJKDdo' \
+    --podName 'LQsJVooA' \
+    --logType 'f8nIKcak' \
+    --offset '65' \
+    --origin 'FkV8124X' \
     > test.out 2>&1
 eval_tap $? 2 'GetServerLogs' test.out
 
 #- 3 ListTerminatedServers
 samples/cli/sample-apps Dslogmanager listTerminatedServers \
     --namespace $AB_NAMESPACE \
-    --deployment 'urZ5mwox' \
-    --endDate 'bM7IYTIb' \
-    --gameMode 'TapHRE4l' \
-    --limit '1' \
-    --next 'o28EuThx' \
-    --partyId 'ITecN6TQ' \
-    --podName 'ApZSfUnk' \
-    --previous 'CV5Nro6f' \
-    --provider 'iz9malN2' \
-    --region 'KiwlzSHx' \
-    --sessionId '8SOs9M30' \
-    --source 'XJaKROnn' \
-    --startDate 'EGepijqV' \
-    --status 'diCrJUkx' \
-    --userId 'Q2aGvDW6' \
+    --deployment 'F97bu0q8' \
+    --endDate 'RJjf5y2u' \
+    --gameMode 'OxFW8jfk' \
+    --limit '89' \
+    --next 'F1Y0DHeI' \
+    --partyId 'VXwSv3wT' \
+    --podName 'fMzpWTdi' \
+    --previous 'skUwtSvu' \
+    --provider '795rj5pT' \
+    --region 'Jkv5DsCI' \
+    --sessionId 'WBD1VDFs' \
+    --source 'XHt6qTyp' \
+    --startDate 'Mh3WxsWE' \
+    --status 'IuRTl2Fi' \
+    --userId 'zCx8eQ2G' \
     > test.out 2>&1
 eval_tap $? 3 'ListTerminatedServers' test.out
 
 #- 4 DownloadServerLogs
 samples/cli/sample-apps Dslogmanager downloadServerLogs \
     --namespace $AB_NAMESPACE \
-    --podName 'ztBPD0Or' \
+    --podName 'tn6HYbOW' \
     > test.out 2>&1
 eval_tap $? 4 'DownloadServerLogs' test.out
 
 #- 5 CheckServerLogs
 samples/cli/sample-apps Dslogmanager checkServerLogs \
     --namespace $AB_NAMESPACE \
-    --podName 'rYR8LsAG' \
+    --podName 'RSkHv4dN' \
     > test.out 2>&1
 eval_tap $? 5 'CheckServerLogs' test.out
 
 #- 6 BatchDownloadServerLogs
 samples/cli/sample-apps Dslogmanager batchDownloadServerLogs \
-    --body '{"Downloads": [{"alloc_id": "7hYKCHvW", "namespace": "7v1qckcg", "pod_name": "rQtQVJuS"}, {"alloc_id": "GclPrmHb", "namespace": "XobLWAU4", "pod_name": "WrzFIMb0"}, {"alloc_id": "OoMqOt8S", "namespace": "sxIE99hO", "pod_name": "Vj8c1iu8"}]}' \
+    --body '{"Downloads": [{"alloc_id": "qZUwVO8D", "namespace": "70Wv1m8C", "pod_name": "5oBlhVax"}, {"alloc_id": "uwhFYMTT", "namespace": "aFErd3n7", "pod_name": "TTyjSEui"}, {"alloc_id": "OX5SC62H", "namespace": "wP50343t", "pod_name": "r8nnFIBn"}]}' \
     > test.out 2>&1
 eval_tap $? 6 'BatchDownloadServerLogs' test.out
 
-#- 7 ListAllTerminatedServers
-samples/cli/sample-apps Dslogmanager listAllTerminatedServers \
-    --deployment 'kYEM4NB8' \
-    --endDate 'hJsLTf3i' \
-    --gameMode '7BTnWyCM' \
-    --limit '20' \
-    --namespace '4IGq6hn0' \
-    --next 'rS0dJn6M' \
-    --partyId 'zLMUNkWe' \
-    --podName 'Skpul23J' \
-    --previous 'D0ddqC8w' \
-    --provider 'ETFGWNCl' \
-    --region 'JVPR2MX4' \
-    --sessionId 'DXJylDzh' \
-    --startDate 'yJnao7M4' \
-    --status '49ilHmzl' \
-    --userId 'qSOSLV0q' \
+#- 7 ListMetadataServers
+samples/cli/sample-apps Dslogmanager listMetadataServers \
+    --body '{"pod_names": ["QC1NjCVG", "Mp2vr49C", "0tB7bSAy"]}' \
     > test.out 2>&1
-eval_tap $? 7 'ListAllTerminatedServers' test.out
+eval_tap $? 7 'ListMetadataServers' test.out
 
-#- 8 PublicGetMessages
+#- 8 ListAllTerminatedServers
+samples/cli/sample-apps Dslogmanager listAllTerminatedServers \
+    --deployment 'ddUx61qt' \
+    --endDate '5tUHwAZt' \
+    --gameMode 'wntebdLW' \
+    --limit '56' \
+    --namespace 'E6MsD73O' \
+    --next '618JWmJt' \
+    --partyId 'ohxPhZn0' \
+    --podName 'nuSoYyZF' \
+    --previous 'KR4e37xQ' \
+    --provider 'jxmw9HQp' \
+    --region '4r1dn6jB' \
+    --sessionId 'm6DMNnry' \
+    --startDate 'QLYrpQcJ' \
+    --status 'QlcLtssz' \
+    --userId 'HnknEjmy' \
+    > test.out 2>&1
+eval_tap $? 8 'ListAllTerminatedServers' test.out
+
+#- 9 PublicGetMessages
 samples/cli/sample-apps Dslogmanager publicGetMessages \
     > test.out 2>&1
-eval_tap $? 8 'PublicGetMessages' test.out
+eval_tap $? 9 'PublicGetMessages' test.out
 
 
 rm -f "tmp.dat"

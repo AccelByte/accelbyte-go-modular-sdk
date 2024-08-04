@@ -13,7 +13,6 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils/auth"
-	"github.com/go-openapi/runtime/client"
 )
 
 // AdminInventoryConfigurationsService this is use for compatibility with latest modular sdk only
@@ -38,121 +37,6 @@ func (aaa *AdminInventoryConfigurationsService) GetAuthSession() auth.Session {
 		aaa.ConfigRepository,
 		nil,
 	}
-}
-
-// Deprecated: 2022-01-10 - Please use AdminListInventoryConfigurationsShort instead.
-func (aaa *AdminInventoryConfigurationsService) AdminListInventoryConfigurations(input *admin_inventory_configurations.AdminListInventoryConfigurationsParams) (*inventoryclientmodels.ApimodelsListInventoryConfigurationsResp, error) {
-	token, err := aaa.TokenRepository.GetToken()
-	if err != nil {
-		return nil, err
-	}
-	ok, badRequest, internalServerError, err := aaa.Client.AdminInventoryConfigurations.AdminListInventoryConfigurations(input, client.BearerToken(*token.AccessToken))
-	if badRequest != nil {
-		return nil, badRequest
-	}
-	if internalServerError != nil {
-		return nil, internalServerError
-	}
-	if err != nil {
-		return nil, err
-	}
-
-	return ok.GetPayload(), nil
-}
-
-// Deprecated: 2022-01-10 - Please use AdminCreateInventoryConfigurationShort instead.
-func (aaa *AdminInventoryConfigurationsService) AdminCreateInventoryConfiguration(input *admin_inventory_configurations.AdminCreateInventoryConfigurationParams) (*inventoryclientmodels.ApimodelsInventoryConfigurationResp, error) {
-	token, err := aaa.TokenRepository.GetToken()
-	if err != nil {
-		return nil, err
-	}
-	created, badRequest, conflict, internalServerError, err := aaa.Client.AdminInventoryConfigurations.AdminCreateInventoryConfiguration(input, client.BearerToken(*token.AccessToken))
-	if badRequest != nil {
-		return nil, badRequest
-	}
-	if conflict != nil {
-		return nil, conflict
-	}
-	if internalServerError != nil {
-		return nil, internalServerError
-	}
-	if err != nil {
-		return nil, err
-	}
-
-	return created.GetPayload(), nil
-}
-
-// Deprecated: 2022-01-10 - Please use AdminGetInventoryConfigurationShort instead.
-func (aaa *AdminInventoryConfigurationsService) AdminGetInventoryConfiguration(input *admin_inventory_configurations.AdminGetInventoryConfigurationParams) (*inventoryclientmodels.ApimodelsInventoryConfigurationResp, error) {
-	token, err := aaa.TokenRepository.GetToken()
-	if err != nil {
-		return nil, err
-	}
-	ok, badRequest, notFound, internalServerError, err := aaa.Client.AdminInventoryConfigurations.AdminGetInventoryConfiguration(input, client.BearerToken(*token.AccessToken))
-	if badRequest != nil {
-		return nil, badRequest
-	}
-	if notFound != nil {
-		return nil, notFound
-	}
-	if internalServerError != nil {
-		return nil, internalServerError
-	}
-	if err != nil {
-		return nil, err
-	}
-
-	return ok.GetPayload(), nil
-}
-
-// Deprecated: 2022-01-10 - Please use AdminUpdateInventoryConfigurationShort instead.
-func (aaa *AdminInventoryConfigurationsService) AdminUpdateInventoryConfiguration(input *admin_inventory_configurations.AdminUpdateInventoryConfigurationParams) (*inventoryclientmodels.ApimodelsInventoryConfigurationResp, error) {
-	token, err := aaa.TokenRepository.GetToken()
-	if err != nil {
-		return nil, err
-	}
-	ok, badRequest, notFound, conflict, internalServerError, err := aaa.Client.AdminInventoryConfigurations.AdminUpdateInventoryConfiguration(input, client.BearerToken(*token.AccessToken))
-	if badRequest != nil {
-		return nil, badRequest
-	}
-	if notFound != nil {
-		return nil, notFound
-	}
-	if conflict != nil {
-		return nil, conflict
-	}
-	if internalServerError != nil {
-		return nil, internalServerError
-	}
-	if err != nil {
-		return nil, err
-	}
-
-	return ok.GetPayload(), nil
-}
-
-// Deprecated: 2022-01-10 - Please use AdminDeleteInventoryConfigurationShort instead.
-func (aaa *AdminInventoryConfigurationsService) AdminDeleteInventoryConfiguration(input *admin_inventory_configurations.AdminDeleteInventoryConfigurationParams) error {
-	token, err := aaa.TokenRepository.GetToken()
-	if err != nil {
-		return err
-	}
-	_, badRequest, notFound, internalServerError, err := aaa.Client.AdminInventoryConfigurations.AdminDeleteInventoryConfiguration(input, client.BearerToken(*token.AccessToken))
-	if badRequest != nil {
-		return badRequest
-	}
-	if notFound != nil {
-		return notFound
-	}
-	if internalServerError != nil {
-		return internalServerError
-	}
-	if err != nil {
-		return err
-	}
-
-	return nil
 }
 
 func (aaa *AdminInventoryConfigurationsService) AdminListInventoryConfigurationsShort(input *admin_inventory_configurations.AdminListInventoryConfigurationsParams) (*inventoryclientmodels.ApimodelsListInventoryConfigurationsResp, error) {

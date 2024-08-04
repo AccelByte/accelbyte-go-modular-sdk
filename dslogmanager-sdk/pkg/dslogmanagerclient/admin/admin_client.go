@@ -30,73 +30,9 @@ type Client struct {
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	GetServerLogs(params *GetServerLogsParams, authInfo runtime.ClientAuthInfoWriter) (*GetServerLogsOK, *GetServerLogsBadRequest, *GetServerLogsUnauthorized, *GetServerLogsNotFound, *GetServerLogsInternalServerError, error)
 	GetServerLogsShort(params *GetServerLogsParams, authInfo runtime.ClientAuthInfoWriter) (*GetServerLogsOK, error)
 
 	SetTransport(transport runtime.ClientTransport)
-}
-
-/*
-Deprecated: 2022-08-10 - Use GetServerLogsShort instead.
-
-GetServerLogs queries server logs
-Required permission: ADMIN:NAMESPACE:{namespace}:DSM:SERVER [READ]
-
-Required scope: social
-
-This endpoint queries a specified dedicated server's logs.
-*/
-func (a *Client) GetServerLogs(params *GetServerLogsParams, authInfo runtime.ClientAuthInfoWriter) (*GetServerLogsOK, *GetServerLogsBadRequest, *GetServerLogsUnauthorized, *GetServerLogsNotFound, *GetServerLogsInternalServerError, error) {
-	// TODO: Validate the params before sending
-	if params == nil {
-		params = NewGetServerLogsParams()
-	}
-
-	if params.Context == nil {
-		params.Context = context.Background()
-	}
-
-	if params.RetryPolicy != nil {
-		params.SetHTTPClientTransport(params.RetryPolicy)
-	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
-		ID:                 "getServerLogs",
-		Method:             "GET",
-		PathPattern:        "/dslogmanager/admin/namespaces/{namespace}/servers/{podName}/logs",
-		ProducesMediaTypes: []string{"application/json"},
-		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
-		Params:             params,
-		Reader:             &GetServerLogsReader{formats: a.formats},
-		AuthInfo:           authInfo,
-		Context:            params.Context,
-		Client:             params.HTTPClient,
-	})
-	if err != nil {
-		return nil, nil, nil, nil, nil, err
-	}
-
-	switch v := result.(type) {
-
-	case *GetServerLogsOK:
-		return v, nil, nil, nil, nil, nil
-
-	case *GetServerLogsBadRequest:
-		return nil, v, nil, nil, nil, nil
-
-	case *GetServerLogsUnauthorized:
-		return nil, nil, v, nil, nil, nil
-
-	case *GetServerLogsNotFound:
-		return nil, nil, nil, v, nil, nil
-
-	case *GetServerLogsInternalServerError:
-		return nil, nil, nil, nil, v, nil
-
-	default:
-		return nil, nil, nil, nil, nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
-	}
 }
 
 /*

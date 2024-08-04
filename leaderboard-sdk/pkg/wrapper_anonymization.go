@@ -12,7 +12,6 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils/auth"
-	"github.com/go-openapi/runtime/client"
 )
 
 type AnonymizationService struct {
@@ -35,29 +34,6 @@ func (aaa *AnonymizationService) GetAuthSession() auth.Session {
 		aaa.ConfigRepository,
 		nil,
 	}
-}
-
-// Deprecated: 2022-01-10 - Please use AdminAnonymizeUserLeaderboardAdminV1Short instead.
-func (aaa *AnonymizationService) AdminAnonymizeUserLeaderboardAdminV1(input *anonymization.AdminAnonymizeUserLeaderboardAdminV1Params) error {
-	token, err := aaa.TokenRepository.GetToken()
-	if err != nil {
-		return err
-	}
-	_, unauthorized, forbidden, internalServerError, err := aaa.Client.Anonymization.AdminAnonymizeUserLeaderboardAdminV1(input, client.BearerToken(*token.AccessToken))
-	if unauthorized != nil {
-		return unauthorized
-	}
-	if forbidden != nil {
-		return forbidden
-	}
-	if internalServerError != nil {
-		return internalServerError
-	}
-	if err != nil {
-		return err
-	}
-
-	return nil
 }
 
 func (aaa *AnonymizationService) AdminAnonymizeUserLeaderboardAdminV1Short(input *anonymization.AdminAnonymizeUserLeaderboardAdminV1Params) error {

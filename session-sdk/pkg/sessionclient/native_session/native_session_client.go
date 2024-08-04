@@ -30,63 +30,9 @@ type Client struct {
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	AdminGetListNativeSession(params *AdminGetListNativeSessionParams, authInfo runtime.ClientAuthInfoWriter) (*AdminGetListNativeSessionOK, *AdminGetListNativeSessionUnauthorized, *AdminGetListNativeSessionForbidden, error)
 	AdminGetListNativeSessionShort(params *AdminGetListNativeSessionParams, authInfo runtime.ClientAuthInfoWriter) (*AdminGetListNativeSessionOK, error)
 
 	SetTransport(transport runtime.ClientTransport)
-}
-
-/*
-Deprecated: 2022-08-10 - Use AdminGetListNativeSessionShort instead.
-
-AdminGetListNativeSession list of native sessions.
-List of native sessions.
-*/
-func (a *Client) AdminGetListNativeSession(params *AdminGetListNativeSessionParams, authInfo runtime.ClientAuthInfoWriter) (*AdminGetListNativeSessionOK, *AdminGetListNativeSessionUnauthorized, *AdminGetListNativeSessionForbidden, error) {
-	// TODO: Validate the params before sending
-	if params == nil {
-		params = NewAdminGetListNativeSessionParams()
-	}
-
-	if params.Context == nil {
-		params.Context = context.Background()
-	}
-
-	if params.RetryPolicy != nil {
-		params.SetHTTPClientTransport(params.RetryPolicy)
-	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
-		ID:                 "adminGetListNativeSession",
-		Method:             "GET",
-		PathPattern:        "/session/v1/admin/namespaces/{namespace}/native-sessions",
-		ProducesMediaTypes: []string{"application/json"},
-		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
-		Params:             params,
-		Reader:             &AdminGetListNativeSessionReader{formats: a.formats},
-		AuthInfo:           authInfo,
-		Context:            params.Context,
-		Client:             params.HTTPClient,
-	})
-	if err != nil {
-		return nil, nil, nil, err
-	}
-
-	switch v := result.(type) {
-
-	case *AdminGetListNativeSessionOK:
-		return v, nil, nil, nil
-
-	case *AdminGetListNativeSessionUnauthorized:
-		return nil, v, nil, nil
-
-	case *AdminGetListNativeSessionForbidden:
-		return nil, nil, v, nil
-
-	default:
-		return nil, nil, nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
-	}
 }
 
 /*

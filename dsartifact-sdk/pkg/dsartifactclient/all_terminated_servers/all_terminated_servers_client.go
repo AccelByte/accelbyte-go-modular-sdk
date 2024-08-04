@@ -30,70 +30,9 @@ type Client struct {
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	ListTerminatedServers(params *ListTerminatedServersParams, authInfo runtime.ClientAuthInfoWriter) (*ListTerminatedServersOK, *ListTerminatedServersBadRequest, *ListTerminatedServersUnauthorized, *ListTerminatedServersInternalServerError, error)
 	ListTerminatedServersShort(params *ListTerminatedServersParams, authInfo runtime.ClientAuthInfoWriter) (*ListTerminatedServersOK, error)
 
 	SetTransport(transport runtime.ClientTransport)
-}
-
-/*
-Deprecated: 2022-08-10 - Use ListTerminatedServersShort instead.
-
-ListTerminatedServers retrieve all terminated servers
-```
-Required permission: ADMIN:NAMESPACE:{namespace}:DSAM:SERVER [READ]
-
-This endpoint used to retrieve terminated servers in all namespace
-```
-*/
-func (a *Client) ListTerminatedServers(params *ListTerminatedServersParams, authInfo runtime.ClientAuthInfoWriter) (*ListTerminatedServersOK, *ListTerminatedServersBadRequest, *ListTerminatedServersUnauthorized, *ListTerminatedServersInternalServerError, error) {
-	// TODO: Validate the params before sending
-	if params == nil {
-		params = NewListTerminatedServersParams()
-	}
-
-	if params.Context == nil {
-		params.Context = context.Background()
-	}
-
-	if params.RetryPolicy != nil {
-		params.SetHTTPClientTransport(params.RetryPolicy)
-	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
-		ID:                 "listTerminatedServers",
-		Method:             "GET",
-		PathPattern:        "/dsartifact/servers/search",
-		ProducesMediaTypes: []string{"application/json"},
-		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
-		Params:             params,
-		Reader:             &ListTerminatedServersReader{formats: a.formats},
-		AuthInfo:           authInfo,
-		Context:            params.Context,
-		Client:             params.HTTPClient,
-	})
-	if err != nil {
-		return nil, nil, nil, nil, err
-	}
-
-	switch v := result.(type) {
-
-	case *ListTerminatedServersOK:
-		return v, nil, nil, nil, nil
-
-	case *ListTerminatedServersBadRequest:
-		return nil, v, nil, nil, nil
-
-	case *ListTerminatedServersUnauthorized:
-		return nil, nil, v, nil, nil
-
-	case *ListTerminatedServersInternalServerError:
-		return nil, nil, nil, v, nil
-
-	default:
-		return nil, nil, nil, nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
-	}
 }
 
 /*

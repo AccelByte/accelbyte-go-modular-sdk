@@ -21,14 +21,16 @@ var TokenGrantV4Cmd = &cobra.Command{
 	Long:  `Token grant V4`,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		oAuth20V4Service := &iam.OAuth20v4Service{
-			Client:          iam.NewIamClient(&repository.ConfigRepositoryImpl{}),
-			TokenRepository: &repository.TokenRepositoryImpl{},
+			Client:           iam.NewIamClient(&repository.ConfigRepositoryImpl{}),
+			ConfigRepository: &repository.ConfigRepositoryImpl{},
+			TokenRepository:  &repository.TokenRepositoryImpl{},
 		}
 		grantType, _ := cmd.Flags().GetString("grantType")
 		authTrustId, _ := cmd.Flags().GetString("authTrustId")
 		deviceId, _ := cmd.Flags().GetString("deviceId")
 		additionalData, _ := cmd.Flags().GetString("additionalData")
 		clientId, _ := cmd.Flags().GetString("clientId")
+		clientSecret, _ := cmd.Flags().GetString("clientSecret")
 		code, _ := cmd.Flags().GetString("code")
 		codeVerifier, _ := cmd.Flags().GetString("codeVerifier")
 		extendNamespace, _ := cmd.Flags().GetString("extendNamespace")
@@ -45,6 +47,7 @@ var TokenGrantV4Cmd = &cobra.Command{
 			DeviceID:            &deviceId,
 			AdditionalData:      &additionalData,
 			ClientID:            &clientId,
+			ClientSecret:        &clientSecret,
 			Code:                &code,
 			CodeVerifier:        &codeVerifier,
 			ExtendNamespace:     &extendNamespace,
@@ -76,6 +79,7 @@ func init() {
 	TokenGrantV4Cmd.Flags().String("deviceId", "", "Device id")
 	TokenGrantV4Cmd.Flags().String("additionalData", "", "Additional data")
 	TokenGrantV4Cmd.Flags().String("clientId", "", "Client id")
+	TokenGrantV4Cmd.Flags().String("clientSecret", "", "Client secret")
 	TokenGrantV4Cmd.Flags().String("code", "", "Code")
 	TokenGrantV4Cmd.Flags().String("codeVerifier", "", "Code verifier")
 	TokenGrantV4Cmd.Flags().String("extendNamespace", "", "Extend namespace")

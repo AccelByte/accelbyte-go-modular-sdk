@@ -13,7 +13,6 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils/auth"
-	"github.com/go-openapi/runtime/client"
 )
 
 // PublicService this is use for compatibility with latest modular sdk only
@@ -38,48 +37,6 @@ func (aaa *PublicService) GetAuthSession() auth.Session {
 		aaa.ConfigRepository,
 		nil,
 	}
-}
-
-// Deprecated: 2022-01-10 - Please use GetDefaultProviderShort instead.
-func (aaa *PublicService) GetDefaultProvider(input *public.GetDefaultProviderParams) (*dsmcclientmodels.ModelsDefaultProvider, error) {
-	token, err := aaa.TokenRepository.GetToken()
-	if err != nil {
-		return nil, err
-	}
-	ok, err := aaa.Client.Public.GetDefaultProvider(input, client.BearerToken(*token.AccessToken))
-	if err != nil {
-		return nil, err
-	}
-
-	return ok.GetPayload(), nil
-}
-
-// Deprecated: 2022-01-10 - Please use ListProvidersShort instead.
-func (aaa *PublicService) ListProviders(input *public.ListProvidersParams) ([]string, error) {
-	token, err := aaa.TokenRepository.GetToken()
-	if err != nil {
-		return nil, err
-	}
-	ok, err := aaa.Client.Public.ListProviders(input, client.BearerToken(*token.AccessToken))
-	if err != nil {
-		return nil, err
-	}
-
-	return ok.GetPayload(), nil
-}
-
-// Deprecated: 2022-01-10 - Please use ListProvidersByRegionShort instead.
-func (aaa *PublicService) ListProvidersByRegion(input *public.ListProvidersByRegionParams) ([]string, error) {
-	token, err := aaa.TokenRepository.GetToken()
-	if err != nil {
-		return nil, err
-	}
-	ok, err := aaa.Client.Public.ListProvidersByRegion(input, client.BearerToken(*token.AccessToken))
-	if err != nil {
-		return nil, err
-	}
-
-	return ok.GetPayload(), nil
 }
 
 func (aaa *PublicService) GetDefaultProviderShort(input *public.GetDefaultProviderParams) (*dsmcclientmodels.ModelsDefaultProvider, error) {

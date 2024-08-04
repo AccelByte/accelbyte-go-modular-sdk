@@ -13,7 +13,6 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils/auth"
-	"github.com/go-openapi/runtime/client"
 )
 
 // AdminTagsService this is use for compatibility with latest modular sdk only
@@ -38,69 +37,6 @@ func (aaa *AdminTagsService) GetAuthSession() auth.Session {
 		aaa.ConfigRepository,
 		nil,
 	}
-}
-
-// Deprecated: 2022-01-10 - Please use AdminListTagsShort instead.
-func (aaa *AdminTagsService) AdminListTags(input *admin_tags.AdminListTagsParams) (*inventoryclientmodels.ApimodelsListTagsResp, error) {
-	token, err := aaa.TokenRepository.GetToken()
-	if err != nil {
-		return nil, err
-	}
-	ok, badRequest, internalServerError, err := aaa.Client.AdminTags.AdminListTags(input, client.BearerToken(*token.AccessToken))
-	if badRequest != nil {
-		return nil, badRequest
-	}
-	if internalServerError != nil {
-		return nil, internalServerError
-	}
-	if err != nil {
-		return nil, err
-	}
-
-	return ok.GetPayload(), nil
-}
-
-// Deprecated: 2022-01-10 - Please use AdminCreateTagShort instead.
-func (aaa *AdminTagsService) AdminCreateTag(input *admin_tags.AdminCreateTagParams) (*inventoryclientmodels.ApimodelsCreateTagResp, error) {
-	token, err := aaa.TokenRepository.GetToken()
-	if err != nil {
-		return nil, err
-	}
-	created, badRequest, conflict, internalServerError, err := aaa.Client.AdminTags.AdminCreateTag(input, client.BearerToken(*token.AccessToken))
-	if badRequest != nil {
-		return nil, badRequest
-	}
-	if conflict != nil {
-		return nil, conflict
-	}
-	if internalServerError != nil {
-		return nil, internalServerError
-	}
-	if err != nil {
-		return nil, err
-	}
-
-	return created.GetPayload(), nil
-}
-
-// Deprecated: 2022-01-10 - Please use AdminDeleteTagShort instead.
-func (aaa *AdminTagsService) AdminDeleteTag(input *admin_tags.AdminDeleteTagParams) error {
-	token, err := aaa.TokenRepository.GetToken()
-	if err != nil {
-		return err
-	}
-	_, notFound, internalServerError, err := aaa.Client.AdminTags.AdminDeleteTag(input, client.BearerToken(*token.AccessToken))
-	if notFound != nil {
-		return notFound
-	}
-	if internalServerError != nil {
-		return internalServerError
-	}
-	if err != nil {
-		return err
-	}
-
-	return nil
 }
 
 func (aaa *AdminTagsService) AdminListTagsShort(input *admin_tags.AdminListTagsParams) (*inventoryclientmodels.ApimodelsListTagsResp, error) {

@@ -12,7 +12,6 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils/auth"
-	"github.com/go-openapi/runtime/client"
 )
 
 type AnonymizationService struct {
@@ -35,26 +34,6 @@ func (aaa *AnonymizationService) GetAuthSession() auth.Session {
 		aaa.ConfigRepository,
 		nil,
 	}
-}
-
-// Deprecated: 2022-01-10 - Please use AdminAnonymizeUserAchievementShort instead.
-func (aaa *AnonymizationService) AdminAnonymizeUserAchievement(input *anonymization.AdminAnonymizeUserAchievementParams) error {
-	token, err := aaa.TokenRepository.GetToken()
-	if err != nil {
-		return err
-	}
-	_, unauthorized, internalServerError, err := aaa.Client.Anonymization.AdminAnonymizeUserAchievement(input, client.BearerToken(*token.AccessToken))
-	if unauthorized != nil {
-		return unauthorized
-	}
-	if internalServerError != nil {
-		return internalServerError
-	}
-	if err != nil {
-		return err
-	}
-
-	return nil
 }
 
 func (aaa *AnonymizationService) AdminAnonymizeUserAchievementShort(input *anonymization.AdminAnonymizeUserAchievementParams) error {

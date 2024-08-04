@@ -13,7 +13,6 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/session-sdk/pkg/sessionclient"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/session-sdk/pkg/sessionclient/recent_player"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/session-sdk/pkg/sessionclientmodels"
-	"github.com/go-openapi/runtime/client"
 )
 
 // RecentPlayerService this is use for compatibility with latest modular sdk only
@@ -38,110 +37,6 @@ func (aaa *RecentPlayerService) GetAuthSession() auth.Session {
 		aaa.ConfigRepository,
 		nil,
 	}
-}
-
-// Deprecated: 2022-01-10 - Please use AdminGetRecentPlayerShort instead.
-func (aaa *RecentPlayerService) AdminGetRecentPlayer(input *recent_player.AdminGetRecentPlayerParams) (*sessionclientmodels.ModelsRecentPlayerQueryResponse, error) {
-	token, err := aaa.TokenRepository.GetToken()
-	if err != nil {
-		return nil, err
-	}
-	ok, badRequest, unauthorized, notFound, internalServerError, err := aaa.Client.RecentPlayer.AdminGetRecentPlayer(input, client.BearerToken(*token.AccessToken))
-	if badRequest != nil {
-		return nil, badRequest
-	}
-	if unauthorized != nil {
-		return nil, unauthorized
-	}
-	if notFound != nil {
-		return nil, notFound
-	}
-	if internalServerError != nil {
-		return nil, internalServerError
-	}
-	if err != nil {
-		return nil, err
-	}
-
-	return ok.GetPayload(), nil
-}
-
-// Deprecated: 2022-01-10 - Please use AdminGetRecentTeamPlayerShort instead.
-func (aaa *RecentPlayerService) AdminGetRecentTeamPlayer(input *recent_player.AdminGetRecentTeamPlayerParams) (*sessionclientmodels.ModelsRecentPlayerQueryResponse, error) {
-	token, err := aaa.TokenRepository.GetToken()
-	if err != nil {
-		return nil, err
-	}
-	ok, badRequest, unauthorized, notFound, internalServerError, err := aaa.Client.RecentPlayer.AdminGetRecentTeamPlayer(input, client.BearerToken(*token.AccessToken))
-	if badRequest != nil {
-		return nil, badRequest
-	}
-	if unauthorized != nil {
-		return nil, unauthorized
-	}
-	if notFound != nil {
-		return nil, notFound
-	}
-	if internalServerError != nil {
-		return nil, internalServerError
-	}
-	if err != nil {
-		return nil, err
-	}
-
-	return ok.GetPayload(), nil
-}
-
-// Deprecated: 2022-01-10 - Please use PublicGetRecentPlayerShort instead.
-func (aaa *RecentPlayerService) PublicGetRecentPlayer(input *recent_player.PublicGetRecentPlayerParams) (*sessionclientmodels.ModelsRecentPlayerQueryResponse, error) {
-	token, err := aaa.TokenRepository.GetToken()
-	if err != nil {
-		return nil, err
-	}
-	ok, badRequest, unauthorized, notFound, internalServerError, err := aaa.Client.RecentPlayer.PublicGetRecentPlayer(input, client.BearerToken(*token.AccessToken))
-	if badRequest != nil {
-		return nil, badRequest
-	}
-	if unauthorized != nil {
-		return nil, unauthorized
-	}
-	if notFound != nil {
-		return nil, notFound
-	}
-	if internalServerError != nil {
-		return nil, internalServerError
-	}
-	if err != nil {
-		return nil, err
-	}
-
-	return ok.GetPayload(), nil
-}
-
-// Deprecated: 2022-01-10 - Please use PublicGetRecentTeamPlayerShort instead.
-func (aaa *RecentPlayerService) PublicGetRecentTeamPlayer(input *recent_player.PublicGetRecentTeamPlayerParams) (*sessionclientmodels.ModelsRecentPlayerQueryResponse, error) {
-	token, err := aaa.TokenRepository.GetToken()
-	if err != nil {
-		return nil, err
-	}
-	ok, badRequest, unauthorized, notFound, internalServerError, err := aaa.Client.RecentPlayer.PublicGetRecentTeamPlayer(input, client.BearerToken(*token.AccessToken))
-	if badRequest != nil {
-		return nil, badRequest
-	}
-	if unauthorized != nil {
-		return nil, unauthorized
-	}
-	if notFound != nil {
-		return nil, notFound
-	}
-	if internalServerError != nil {
-		return nil, internalServerError
-	}
-	if err != nil {
-		return nil, err
-	}
-
-	return ok.GetPayload(), nil
 }
 
 func (aaa *RecentPlayerService) AdminGetRecentPlayerShort(input *recent_player.AdminGetRecentPlayerParams) (*sessionclientmodels.ModelsRecentPlayerQueryResponse, error) {

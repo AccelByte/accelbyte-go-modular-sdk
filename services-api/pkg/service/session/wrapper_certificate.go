@@ -13,7 +13,6 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/session-sdk/pkg/sessionclient"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/session-sdk/pkg/sessionclient/certificate"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/session-sdk/pkg/sessionclientmodels"
-	"github.com/go-openapi/runtime/client"
 )
 
 // CertificateService this is use for compatibility with latest modular sdk only
@@ -38,35 +37,6 @@ func (aaa *CertificateService) GetAuthSession() auth.Session {
 		aaa.ConfigRepository,
 		nil,
 	}
-}
-
-// Deprecated: 2022-01-10 - Please use HandleUploadXboxPFXCertificateShort instead.
-func (aaa *CertificateService) HandleUploadXboxPFXCertificate(input *certificate.HandleUploadXboxPFXCertificateParams) (*sessionclientmodels.ModelsPlatformCredentials, error) {
-	token, err := aaa.TokenRepository.GetToken()
-	if err != nil {
-		return nil, err
-	}
-	ok, badRequest, unauthorized, forbidden, notFound, internalServerError, err := aaa.Client.Certificate.HandleUploadXboxPFXCertificate(input, client.BearerToken(*token.AccessToken))
-	if badRequest != nil {
-		return nil, badRequest
-	}
-	if unauthorized != nil {
-		return nil, unauthorized
-	}
-	if forbidden != nil {
-		return nil, forbidden
-	}
-	if notFound != nil {
-		return nil, notFound
-	}
-	if internalServerError != nil {
-		return nil, internalServerError
-	}
-	if err != nil {
-		return nil, err
-	}
-
-	return ok.GetPayload(), nil
 }
 
 func (aaa *CertificateService) HandleUploadXboxPFXCertificateShort(input *certificate.HandleUploadXboxPFXCertificateParams) (*sessionclientmodels.ModelsPlatformCredentials, error) {

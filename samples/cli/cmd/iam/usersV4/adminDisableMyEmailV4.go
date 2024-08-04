@@ -7,8 +7,11 @@
 package usersV4
 
 import (
+	"encoding/json"
+
 	iam "github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/users_v4"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclientmodels"
 	"github.com/AccelByte/sample-apps/pkg/repository"
 	"github.com/sirupsen/logrus"
 	"github.com/spf13/cobra"
@@ -24,7 +27,15 @@ var AdminDisableMyEmailV4Cmd = &cobra.Command{
 			Client:          iam.NewIamClient(&repository.ConfigRepositoryImpl{}),
 			TokenRepository: &repository.TokenRepositoryImpl{},
 		}
-		input := &users_v4.AdminDisableMyEmailV4Params{}
+		bodyString := cmd.Flag("body").Value.String()
+		var body *iamclientmodels.ModelDisableMFARequest
+		errBody := json.Unmarshal([]byte(bodyString), &body)
+		if errBody != nil {
+			return errBody
+		}
+		input := &users_v4.AdminDisableMyEmailV4Params{
+			Body: body,
+		}
 		errNoContent := usersV4Service.AdminDisableMyEmailV4Short(input)
 		if errNoContent != nil {
 			logrus.Error(errNoContent)
@@ -39,4 +50,6 @@ var AdminDisableMyEmailV4Cmd = &cobra.Command{
 }
 
 func init() {
+	AdminDisableMyEmailV4Cmd.Flags().String("body", "", "Body")
+	_ = AdminDisableMyEmailV4Cmd.MarkFlagRequired("body")
 }

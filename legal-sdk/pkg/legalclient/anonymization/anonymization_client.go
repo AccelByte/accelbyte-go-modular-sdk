@@ -30,60 +30,9 @@ type Client struct {
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	AnonymizeUserAgreement(params *AnonymizeUserAgreementParams, authInfo runtime.ClientAuthInfoWriter) (*AnonymizeUserAgreementNoContent, *AnonymizeUserAgreementNotFound, error)
 	AnonymizeUserAgreementShort(params *AnonymizeUserAgreementParams, authInfo runtime.ClientAuthInfoWriter) (*AnonymizeUserAgreementNoContent, error)
 
 	SetTransport(transport runtime.ClientTransport)
-}
-
-/*
-Deprecated: 2022-08-10 - Use AnonymizeUserAgreementShort instead.
-
-AnonymizeUserAgreement anonymize user's agreement record
-This API will anonymize agreement record for specified user.
-*/
-func (a *Client) AnonymizeUserAgreement(params *AnonymizeUserAgreementParams, authInfo runtime.ClientAuthInfoWriter) (*AnonymizeUserAgreementNoContent, *AnonymizeUserAgreementNotFound, error) {
-	// TODO: Validate the params before sending
-	if params == nil {
-		params = NewAnonymizeUserAgreementParams()
-	}
-
-	if params.Context == nil {
-		params.Context = context.Background()
-	}
-
-	if params.RetryPolicy != nil {
-		params.SetHTTPClientTransport(params.RetryPolicy)
-	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
-		ID:                 "anonymizeUserAgreement",
-		Method:             "DELETE",
-		PathPattern:        "/agreement/admin/users/{userId}/anonymization/agreements",
-		ProducesMediaTypes: []string{"application/json"},
-		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
-		Params:             params,
-		Reader:             &AnonymizeUserAgreementReader{formats: a.formats},
-		AuthInfo:           authInfo,
-		Context:            params.Context,
-		Client:             params.HTTPClient,
-	})
-	if err != nil {
-		return nil, nil, err
-	}
-
-	switch v := result.(type) {
-
-	case *AnonymizeUserAgreementNoContent:
-		return v, nil, nil
-
-	case *AnonymizeUserAgreementNotFound:
-		return nil, v, nil
-
-	default:
-		return nil, nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
-	}
 }
 
 /*

@@ -13,7 +13,6 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils/auth"
-	"github.com/go-openapi/runtime/client"
 )
 
 type PolicyVersionsWithNamespaceService struct {
@@ -36,80 +35,6 @@ func (aaa *PolicyVersionsWithNamespaceService) GetAuthSession() auth.Session {
 		aaa.ConfigRepository,
 		nil,
 	}
-}
-
-// Deprecated: 2022-01-10 - Please use UpdatePolicyVersion1Short instead.
-func (aaa *PolicyVersionsWithNamespaceService) UpdatePolicyVersion1(input *policy_versions_with_namespace.UpdatePolicyVersion1Params) (*legalclientmodels.UpdatePolicyVersionResponse, error) {
-	token, err := aaa.TokenRepository.GetToken()
-	if err != nil {
-		return nil, err
-	}
-	ok, badRequest, conflict, err := aaa.Client.PolicyVersionsWithNamespace.UpdatePolicyVersion1(input, client.BearerToken(*token.AccessToken))
-	if badRequest != nil {
-		return nil, badRequest
-	}
-	if conflict != nil {
-		return nil, conflict
-	}
-	if err != nil {
-		return nil, err
-	}
-
-	return ok.GetPayload(), nil
-}
-
-// Deprecated: 2022-01-10 - Please use PublishPolicyVersion1Short instead.
-func (aaa *PolicyVersionsWithNamespaceService) PublishPolicyVersion1(input *policy_versions_with_namespace.PublishPolicyVersion1Params) error {
-	token, err := aaa.TokenRepository.GetToken()
-	if err != nil {
-		return err
-	}
-	_, badRequest, conflict, err := aaa.Client.PolicyVersionsWithNamespace.PublishPolicyVersion1(input, client.BearerToken(*token.AccessToken))
-	if badRequest != nil {
-		return badRequest
-	}
-	if conflict != nil {
-		return conflict
-	}
-	if err != nil {
-		return err
-	}
-
-	return nil
-}
-
-// Deprecated: 2022-01-10 - Please use RetrieveSinglePolicyVersion1Short instead.
-func (aaa *PolicyVersionsWithNamespaceService) RetrieveSinglePolicyVersion1(input *policy_versions_with_namespace.RetrieveSinglePolicyVersion1Params) ([]*legalclientmodels.RetrievePolicyVersionResponse, error) {
-	token, err := aaa.TokenRepository.GetToken()
-	if err != nil {
-		return nil, err
-	}
-	ok, notFound, err := aaa.Client.PolicyVersionsWithNamespace.RetrieveSinglePolicyVersion1(input, client.BearerToken(*token.AccessToken))
-	if notFound != nil {
-		return nil, notFound
-	}
-	if err != nil {
-		return nil, err
-	}
-
-	return ok.GetPayload(), nil
-}
-
-// Deprecated: 2022-01-10 - Please use CreatePolicyVersion1Short instead.
-func (aaa *PolicyVersionsWithNamespaceService) CreatePolicyVersion1(input *policy_versions_with_namespace.CreatePolicyVersion1Params) (*legalclientmodels.CreatePolicyVersionResponse, error) {
-	token, err := aaa.TokenRepository.GetToken()
-	if err != nil {
-		return nil, err
-	}
-	created, badRequest, err := aaa.Client.PolicyVersionsWithNamespace.CreatePolicyVersion1(input, client.BearerToken(*token.AccessToken))
-	if badRequest != nil {
-		return nil, badRequest
-	}
-	if err != nil {
-		return nil, err
-	}
-
-	return created.GetPayload(), nil
 }
 
 func (aaa *PolicyVersionsWithNamespaceService) UpdatePolicyVersion1Short(input *policy_versions_with_namespace.UpdatePolicyVersion1Params) (*legalclientmodels.UpdatePolicyVersionResponse, error) {

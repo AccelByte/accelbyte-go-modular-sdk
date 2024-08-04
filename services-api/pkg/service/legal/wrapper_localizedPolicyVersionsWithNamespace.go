@@ -13,7 +13,6 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils/auth"
-	"github.com/go-openapi/runtime/client"
 )
 
 // LocalizedPolicyVersionsWithNamespaceService this is use for compatibility with latest modular sdk only
@@ -38,118 +37,6 @@ func (aaa *LocalizedPolicyVersionsWithNamespaceService) GetAuthSession() auth.Se
 		aaa.ConfigRepository,
 		nil,
 	}
-}
-
-// Deprecated: 2022-01-10 - Please use RetrieveLocalizedPolicyVersions1Short instead.
-func (aaa *LocalizedPolicyVersionsWithNamespaceService) RetrieveLocalizedPolicyVersions1(input *localized_policy_versions_with_namespace.RetrieveLocalizedPolicyVersions1Params) ([]*legalclientmodels.RetrieveLocalizedPolicyVersionResponse, error) {
-	token, err := aaa.TokenRepository.GetToken()
-	if err != nil {
-		return nil, err
-	}
-	ok, err := aaa.Client.LocalizedPolicyVersionsWithNamespace.RetrieveLocalizedPolicyVersions1(input, client.BearerToken(*token.AccessToken))
-	if err != nil {
-		return nil, err
-	}
-
-	return ok.GetPayload(), nil
-}
-
-// Deprecated: 2022-01-10 - Please use CreateLocalizedPolicyVersion1Short instead.
-func (aaa *LocalizedPolicyVersionsWithNamespaceService) CreateLocalizedPolicyVersion1(input *localized_policy_versions_with_namespace.CreateLocalizedPolicyVersion1Params) (*legalclientmodels.CreateLocalizedPolicyVersionResponse, error) {
-	token, err := aaa.TokenRepository.GetToken()
-	if err != nil {
-		return nil, err
-	}
-	created, badRequest, conflict, err := aaa.Client.LocalizedPolicyVersionsWithNamespace.CreateLocalizedPolicyVersion1(input, client.BearerToken(*token.AccessToken))
-	if badRequest != nil {
-		return nil, badRequest
-	}
-	if conflict != nil {
-		return nil, conflict
-	}
-	if err != nil {
-		return nil, err
-	}
-
-	return created.GetPayload(), nil
-}
-
-// Deprecated: 2022-01-10 - Please use RetrieveSingleLocalizedPolicyVersion1Short instead.
-func (aaa *LocalizedPolicyVersionsWithNamespaceService) RetrieveSingleLocalizedPolicyVersion1(input *localized_policy_versions_with_namespace.RetrieveSingleLocalizedPolicyVersion1Params) (*legalclientmodels.RetrieveLocalizedPolicyVersionResponse, error) {
-	token, err := aaa.TokenRepository.GetToken()
-	if err != nil {
-		return nil, err
-	}
-	ok, notFound, err := aaa.Client.LocalizedPolicyVersionsWithNamespace.RetrieveSingleLocalizedPolicyVersion1(input, client.BearerToken(*token.AccessToken))
-	if notFound != nil {
-		return nil, notFound
-	}
-	if err != nil {
-		return nil, err
-	}
-
-	return ok.GetPayload(), nil
-}
-
-// Deprecated: 2022-01-10 - Please use UpdateLocalizedPolicyVersion1Short instead.
-func (aaa *LocalizedPolicyVersionsWithNamespaceService) UpdateLocalizedPolicyVersion1(input *localized_policy_versions_with_namespace.UpdateLocalizedPolicyVersion1Params) (*legalclientmodels.UpdateLocalizedPolicyVersionResponse, error) {
-	token, err := aaa.TokenRepository.GetToken()
-	if err != nil {
-		return nil, err
-	}
-	ok, badRequest, err := aaa.Client.LocalizedPolicyVersionsWithNamespace.UpdateLocalizedPolicyVersion1(input, client.BearerToken(*token.AccessToken))
-	if badRequest != nil {
-		return nil, badRequest
-	}
-	if err != nil {
-		return nil, err
-	}
-
-	return ok.GetPayload(), nil
-}
-
-// Deprecated: 2022-01-10 - Please use RequestPresignedURL1Short instead.
-func (aaa *LocalizedPolicyVersionsWithNamespaceService) RequestPresignedURL1(input *localized_policy_versions_with_namespace.RequestPresignedURL1Params) (*legalclientmodels.UploadLocalizedPolicyVersionAttachmentResponse, error) {
-	token, err := aaa.TokenRepository.GetToken()
-	if err != nil {
-		return nil, err
-	}
-	created, badRequest, err := aaa.Client.LocalizedPolicyVersionsWithNamespace.RequestPresignedURL1(input, client.BearerToken(*token.AccessToken))
-	if badRequest != nil {
-		return nil, badRequest
-	}
-	if err != nil {
-		return nil, err
-	}
-
-	return created.GetPayload(), nil
-}
-
-// Deprecated: 2022-01-10 - Please use SetDefaultPolicy1Short instead.
-func (aaa *LocalizedPolicyVersionsWithNamespaceService) SetDefaultPolicy1(input *localized_policy_versions_with_namespace.SetDefaultPolicy1Params) error {
-	token, err := aaa.TokenRepository.GetToken()
-	if err != nil {
-		return err
-	}
-	_, err = aaa.Client.LocalizedPolicyVersionsWithNamespace.SetDefaultPolicy1(input, client.BearerToken(*token.AccessToken))
-	if err != nil {
-		return err
-	}
-
-	return nil
-}
-
-// Deprecated: 2022-01-10 - Please use RetrieveSingleLocalizedPolicyVersion3Short instead.
-func (aaa *LocalizedPolicyVersionsWithNamespaceService) RetrieveSingleLocalizedPolicyVersion3(input *localized_policy_versions_with_namespace.RetrieveSingleLocalizedPolicyVersion3Params) (*legalclientmodels.RetrieveLocalizedPolicyVersionPublicResponse, error) {
-	ok, notFound, err := aaa.Client.LocalizedPolicyVersionsWithNamespace.RetrieveSingleLocalizedPolicyVersion3(input)
-	if notFound != nil {
-		return nil, notFound
-	}
-	if err != nil {
-		return nil, err
-	}
-
-	return ok.GetPayload(), nil
 }
 
 func (aaa *LocalizedPolicyVersionsWithNamespaceService) RetrieveLocalizedPolicyVersions1Short(input *localized_policy_versions_with_namespace.RetrieveLocalizedPolicyVersions1Params) ([]*legalclientmodels.RetrieveLocalizedPolicyVersionResponse, error) {

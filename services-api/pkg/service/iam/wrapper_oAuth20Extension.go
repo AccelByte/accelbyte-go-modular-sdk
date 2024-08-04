@@ -15,7 +15,6 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils/auth"
-	"github.com/go-openapi/runtime/client"
 )
 
 // OAuth20ExtensionService this is use for compatibility with latest modular sdk only
@@ -40,207 +39,6 @@ func (aaa *OAuth20ExtensionService) GetAuthSession() auth.Session {
 		aaa.ConfigRepository,
 		nil,
 	}
-}
-
-// Deprecated: 2022-01-10 - Please use UserAuthenticationV3Short instead.
-func (aaa *OAuth20ExtensionService) UserAuthenticationV3(input *o_auth2_0_extension.UserAuthenticationV3Params) (string, error) {
-	clientID := aaa.ConfigRepository.GetClientId()
-	clientSecret := aaa.ConfigRepository.GetClientSecret()
-	found, err := aaa.Client.OAuth20Extension.UserAuthenticationV3(input, client.BasicAuth(clientID, clientSecret))
-	if err != nil {
-		return "", err
-	}
-
-	parsedURL, err := url.Parse(found.Location)
-	if err != nil {
-		return "", err
-	}
-	query, err := url.ParseQuery(parsedURL.RawQuery)
-	if err != nil {
-		return "", err
-	}
-	code := query["code"][0]
-
-	return code, nil
-}
-
-// Deprecated: 2022-01-10 - Please use AuthenticationWithPlatformLinkV3Short instead.
-func (aaa *OAuth20ExtensionService) AuthenticationWithPlatformLinkV3(input *o_auth2_0_extension.AuthenticationWithPlatformLinkV3Params) (*iamclientmodels.OauthmodelTokenResponseV3, error) {
-	token, err := aaa.TokenRepository.GetToken()
-	if err != nil {
-		return nil, err
-	}
-	ok, badRequest, unauthorized, forbidden, conflict, err := aaa.Client.OAuth20Extension.AuthenticationWithPlatformLinkV3(input, client.BearerToken(*token.AccessToken))
-	if badRequest != nil {
-		return nil, badRequest
-	}
-	if unauthorized != nil {
-		return nil, unauthorized
-	}
-	if forbidden != nil {
-		return nil, forbidden
-	}
-	if conflict != nil {
-		return nil, conflict
-	}
-	if err != nil {
-		return nil, err
-	}
-
-	return ok.GetPayload(), nil
-}
-
-// Deprecated: 2022-01-10 - Please use GenerateTokenByNewHeadlessAccountV3Short instead.
-func (aaa *OAuth20ExtensionService) GenerateTokenByNewHeadlessAccountV3(input *o_auth2_0_extension.GenerateTokenByNewHeadlessAccountV3Params) (*iamclientmodels.OauthmodelTokenResponseV3, error) {
-	token, err := aaa.TokenRepository.GetToken()
-	if err != nil {
-		return nil, err
-	}
-	ok, badRequest, unauthorized, notFound, err := aaa.Client.OAuth20Extension.GenerateTokenByNewHeadlessAccountV3(input, client.BearerToken(*token.AccessToken))
-	if badRequest != nil {
-		return nil, badRequest
-	}
-	if unauthorized != nil {
-		return nil, unauthorized
-	}
-	if notFound != nil {
-		return nil, notFound
-	}
-	if err != nil {
-		return nil, err
-	}
-
-	return ok.GetPayload(), nil
-}
-
-// Deprecated: 2022-01-10 - Please use RequestOneTimeLinkingCodeV3Short instead.
-func (aaa *OAuth20ExtensionService) RequestOneTimeLinkingCodeV3(input *o_auth2_0_extension.RequestOneTimeLinkingCodeV3Params) (*iamclientmodels.OauthmodelOneTimeLinkingCodeResponse, error) {
-	token, err := aaa.TokenRepository.GetToken()
-	if err != nil {
-		return nil, err
-	}
-	ok, err := aaa.Client.OAuth20Extension.RequestOneTimeLinkingCodeV3(input, client.BearerToken(*token.AccessToken))
-	if err != nil {
-		return nil, err
-	}
-
-	return ok.GetPayload(), nil
-}
-
-// Deprecated: 2022-01-10 - Please use ValidateOneTimeLinkingCodeV3Short instead.
-func (aaa *OAuth20ExtensionService) ValidateOneTimeLinkingCodeV3(input *o_auth2_0_extension.ValidateOneTimeLinkingCodeV3Params) (*iamclientmodels.OauthmodelOneTimeLinkingCodeValidationResponse, error) {
-	ok, err := aaa.Client.OAuth20Extension.ValidateOneTimeLinkingCodeV3(input)
-	if err != nil {
-		return nil, err
-	}
-
-	return ok.GetPayload(), nil
-}
-
-// Deprecated: 2022-01-10 - Please use RequestTokenByOneTimeLinkCodeResponseV3Short instead.
-func (aaa *OAuth20ExtensionService) RequestTokenByOneTimeLinkCodeResponseV3(input *o_auth2_0_extension.RequestTokenByOneTimeLinkCodeResponseV3Params) (*iamclientmodels.OauthmodelTokenResponseV3, error) {
-	ok, err := aaa.Client.OAuth20Extension.RequestTokenByOneTimeLinkCodeResponseV3(input)
-	if err != nil {
-		return nil, err
-	}
-
-	return ok.GetPayload(), nil
-}
-
-// Deprecated: 2022-01-10 - Please use GetCountryLocationV3Short instead.
-func (aaa *OAuth20ExtensionService) GetCountryLocationV3(input *o_auth2_0_extension.GetCountryLocationV3Params) (*iamclientmodels.OauthmodelCountryLocationResponse, error) {
-	token, err := aaa.TokenRepository.GetToken()
-	if err != nil {
-		return nil, err
-	}
-	ok, err := aaa.Client.OAuth20Extension.GetCountryLocationV3(input, client.BearerToken(*token.AccessToken))
-	if err != nil {
-		return nil, err
-	}
-
-	return ok.GetPayload(), nil
-}
-
-// Deprecated: 2022-01-10 - Please use LogoutShort instead.
-func (aaa *OAuth20ExtensionService) Logout(input *o_auth2_0_extension.LogoutParams) error {
-	token, err := aaa.TokenRepository.GetToken()
-	if err != nil {
-		return err
-	}
-	_, err = aaa.Client.OAuth20Extension.Logout(input, client.BearerToken(*token.AccessToken))
-	if err != nil {
-		return err
-	}
-
-	return nil
-}
-
-// Deprecated: 2022-01-10 - Please use RequestTokenExchangeCodeV3Short instead.
-func (aaa *OAuth20ExtensionService) RequestTokenExchangeCodeV3(input *o_auth2_0_extension.RequestTokenExchangeCodeV3Params) (*iamclientmodels.OauthmodelTargetTokenCodeResponse, error) {
-	token, err := aaa.TokenRepository.GetToken()
-	if err != nil {
-		return nil, err
-	}
-	ok, err := aaa.Client.OAuth20Extension.RequestTokenExchangeCodeV3(input, client.BearerToken(*token.AccessToken))
-	if err != nil {
-		return nil, err
-	}
-
-	return ok.GetPayload(), nil
-}
-
-// Deprecated: 2022-01-10 - Please use PlatformAuthenticationV3Short instead.
-func (aaa *OAuth20ExtensionService) PlatformAuthenticationV3(input *o_auth2_0_extension.PlatformAuthenticationV3Params) (string, error) {
-	token, err := aaa.TokenRepository.GetToken()
-	if err != nil {
-		return "", err
-	}
-	found, err := aaa.Client.OAuth20Extension.PlatformAuthenticationV3(input, client.BearerToken(*token.AccessToken))
-	if err != nil {
-		return "", err
-	}
-
-	return found.Location, nil
-}
-
-// Deprecated: 2022-01-10 - Please use PlatformTokenRefreshV3Short instead.
-func (aaa *OAuth20ExtensionService) PlatformTokenRefreshV3(input *o_auth2_0_extension.PlatformTokenRefreshV3Params) (*iamclientmodels.OauthmodelPlatformTokenRefreshResponseV3, error) {
-	token, err := aaa.TokenRepository.GetToken()
-	if err != nil {
-		return nil, err
-	}
-	ok, badRequest, unauthorized, forbidden, serviceUnavailable, err := aaa.Client.OAuth20Extension.PlatformTokenRefreshV3(input, client.BearerToken(*token.AccessToken))
-	if badRequest != nil {
-		return nil, badRequest
-	}
-	if unauthorized != nil {
-		return nil, unauthorized
-	}
-	if forbidden != nil {
-		return nil, forbidden
-	}
-	if serviceUnavailable != nil {
-		return nil, serviceUnavailable
-	}
-	if err != nil {
-		return nil, err
-	}
-
-	return ok.GetPayload(), nil
-}
-
-// Deprecated: 2022-01-10 - Please use RequestTargetTokenResponseV3Short instead.
-func (aaa *OAuth20ExtensionService) RequestTargetTokenResponseV3(input *o_auth2_0_extension.RequestTargetTokenResponseV3Params) (*iamclientmodels.OauthmodelTokenResponseV3, error) {
-	token, err := aaa.TokenRepository.GetToken()
-	if err != nil {
-		return nil, err
-	}
-	ok, err := aaa.Client.OAuth20Extension.RequestTargetTokenResponseV3(input, client.BearerToken(*token.AccessToken))
-	if err != nil {
-		return nil, err
-	}
-
-	return ok.GetPayload(), nil
 }
 
 func (aaa *OAuth20ExtensionService) UserAuthenticationV3Short(input *o_auth2_0_extension.UserAuthenticationV3Params) (string, error) {
@@ -317,7 +115,7 @@ func (aaa *OAuth20ExtensionService) GenerateTokenByNewHeadlessAccountV3Short(inp
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
-			{"bearer"},
+			{"basic"},
 		}
 		authInfoWriter = auth.AuthInfoWriter(aaa.GetAuthSession(), security, "")
 	}
@@ -573,7 +371,7 @@ func (aaa *OAuth20ExtensionService) RequestTargetTokenResponseV3Short(input *o_a
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
-			{"bearer"},
+			{"basic"},
 		}
 		authInfoWriter = auth.AuthInfoWriter(aaa.GetAuthSession(), security, "")
 	}

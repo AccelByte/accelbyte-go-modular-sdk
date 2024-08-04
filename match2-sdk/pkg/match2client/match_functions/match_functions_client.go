@@ -30,72 +30,12 @@ type Client struct {
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	MatchFunctionList(params *MatchFunctionListParams, authInfo runtime.ClientAuthInfoWriter) (*MatchFunctionListOK, *MatchFunctionListUnauthorized, *MatchFunctionListForbidden, *MatchFunctionListInternalServerError, error)
 	MatchFunctionListShort(params *MatchFunctionListParams, authInfo runtime.ClientAuthInfoWriter) (*MatchFunctionListOK, error)
-	CreateMatchFunction(params *CreateMatchFunctionParams, authInfo runtime.ClientAuthInfoWriter) (*CreateMatchFunctionCreated, *CreateMatchFunctionBadRequest, *CreateMatchFunctionUnauthorized, *CreateMatchFunctionForbidden, *CreateMatchFunctionConflict, *CreateMatchFunctionInternalServerError, error)
 	CreateMatchFunctionShort(params *CreateMatchFunctionParams, authInfo runtime.ClientAuthInfoWriter) (*CreateMatchFunctionCreated, error)
-	UpdateMatchFunction(params *UpdateMatchFunctionParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateMatchFunctionOK, *UpdateMatchFunctionBadRequest, *UpdateMatchFunctionUnauthorized, *UpdateMatchFunctionNotFound, *UpdateMatchFunctionConflict, *UpdateMatchFunctionInternalServerError, error)
 	UpdateMatchFunctionShort(params *UpdateMatchFunctionParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateMatchFunctionOK, error)
-	DeleteMatchFunction(params *DeleteMatchFunctionParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteMatchFunctionOK, *DeleteMatchFunctionUnauthorized, *DeleteMatchFunctionForbidden, *DeleteMatchFunctionNotFound, *DeleteMatchFunctionInternalServerError, error)
 	DeleteMatchFunctionShort(params *DeleteMatchFunctionParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteMatchFunctionOK, error)
 
 	SetTransport(transport runtime.ClientTransport)
-}
-
-/*
-Deprecated: 2022-08-10 - Use MatchFunctionListShort instead.
-
-MatchFunctionList list existing match functions
-List existing match functions.
-*/
-func (a *Client) MatchFunctionList(params *MatchFunctionListParams, authInfo runtime.ClientAuthInfoWriter) (*MatchFunctionListOK, *MatchFunctionListUnauthorized, *MatchFunctionListForbidden, *MatchFunctionListInternalServerError, error) {
-	// TODO: Validate the params before sending
-	if params == nil {
-		params = NewMatchFunctionListParams()
-	}
-
-	if params.Context == nil {
-		params.Context = context.Background()
-	}
-
-	if params.RetryPolicy != nil {
-		params.SetHTTPClientTransport(params.RetryPolicy)
-	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
-		ID:                 "MatchFunctionList",
-		Method:             "GET",
-		PathPattern:        "/match2/v1/namespaces/{namespace}/match-functions",
-		ProducesMediaTypes: []string{"application/json"},
-		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
-		Params:             params,
-		Reader:             &MatchFunctionListReader{formats: a.formats},
-		AuthInfo:           authInfo,
-		Context:            params.Context,
-		Client:             params.HTTPClient,
-	})
-	if err != nil {
-		return nil, nil, nil, nil, err
-	}
-
-	switch v := result.(type) {
-
-	case *MatchFunctionListOK:
-		return v, nil, nil, nil, nil
-
-	case *MatchFunctionListUnauthorized:
-		return nil, v, nil, nil, nil
-
-	case *MatchFunctionListForbidden:
-		return nil, nil, v, nil, nil
-
-	case *MatchFunctionListInternalServerError:
-		return nil, nil, nil, v, nil
-
-	default:
-		return nil, nil, nil, nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
-	}
 }
 
 /*
@@ -150,68 +90,6 @@ func (a *Client) MatchFunctionListShort(params *MatchFunctionListParams, authInf
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
-	}
-}
-
-/*
-Deprecated: 2022-08-10 - Use CreateMatchFunctionShort instead.
-
-CreateMatchFunction create a match function
-Creates a new matchmaking function.
-*/
-func (a *Client) CreateMatchFunction(params *CreateMatchFunctionParams, authInfo runtime.ClientAuthInfoWriter) (*CreateMatchFunctionCreated, *CreateMatchFunctionBadRequest, *CreateMatchFunctionUnauthorized, *CreateMatchFunctionForbidden, *CreateMatchFunctionConflict, *CreateMatchFunctionInternalServerError, error) {
-	// TODO: Validate the params before sending
-	if params == nil {
-		params = NewCreateMatchFunctionParams()
-	}
-
-	if params.Context == nil {
-		params.Context = context.Background()
-	}
-
-	if params.RetryPolicy != nil {
-		params.SetHTTPClientTransport(params.RetryPolicy)
-	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
-		ID:                 "CreateMatchFunction",
-		Method:             "POST",
-		PathPattern:        "/match2/v1/namespaces/{namespace}/match-functions",
-		ProducesMediaTypes: []string{"application/json"},
-		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
-		Params:             params,
-		Reader:             &CreateMatchFunctionReader{formats: a.formats},
-		AuthInfo:           authInfo,
-		Context:            params.Context,
-		Client:             params.HTTPClient,
-	})
-	if err != nil {
-		return nil, nil, nil, nil, nil, nil, err
-	}
-
-	switch v := result.(type) {
-
-	case *CreateMatchFunctionCreated:
-		return v, nil, nil, nil, nil, nil, nil
-
-	case *CreateMatchFunctionBadRequest:
-		return nil, v, nil, nil, nil, nil, nil
-
-	case *CreateMatchFunctionUnauthorized:
-		return nil, nil, v, nil, nil, nil, nil
-
-	case *CreateMatchFunctionForbidden:
-		return nil, nil, nil, v, nil, nil, nil
-
-	case *CreateMatchFunctionConflict:
-		return nil, nil, nil, nil, v, nil, nil
-
-	case *CreateMatchFunctionInternalServerError:
-		return nil, nil, nil, nil, nil, v, nil
-
-	default:
-		return nil, nil, nil, nil, nil, nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
 	}
 }
 
@@ -275,68 +153,6 @@ func (a *Client) CreateMatchFunctionShort(params *CreateMatchFunctionParams, aut
 }
 
 /*
-Deprecated: 2022-08-10 - Use UpdateMatchFunctionShort instead.
-
-UpdateMatchFunction update a match function
-Update existing matchmaking function.
-*/
-func (a *Client) UpdateMatchFunction(params *UpdateMatchFunctionParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateMatchFunctionOK, *UpdateMatchFunctionBadRequest, *UpdateMatchFunctionUnauthorized, *UpdateMatchFunctionNotFound, *UpdateMatchFunctionConflict, *UpdateMatchFunctionInternalServerError, error) {
-	// TODO: Validate the params before sending
-	if params == nil {
-		params = NewUpdateMatchFunctionParams()
-	}
-
-	if params.Context == nil {
-		params.Context = context.Background()
-	}
-
-	if params.RetryPolicy != nil {
-		params.SetHTTPClientTransport(params.RetryPolicy)
-	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
-		ID:                 "UpdateMatchFunction",
-		Method:             "PUT",
-		PathPattern:        "/match2/v1/namespaces/{namespace}/match-functions/{name}",
-		ProducesMediaTypes: []string{"application/json"},
-		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
-		Params:             params,
-		Reader:             &UpdateMatchFunctionReader{formats: a.formats},
-		AuthInfo:           authInfo,
-		Context:            params.Context,
-		Client:             params.HTTPClient,
-	})
-	if err != nil {
-		return nil, nil, nil, nil, nil, nil, err
-	}
-
-	switch v := result.(type) {
-
-	case *UpdateMatchFunctionOK:
-		return v, nil, nil, nil, nil, nil, nil
-
-	case *UpdateMatchFunctionBadRequest:
-		return nil, v, nil, nil, nil, nil, nil
-
-	case *UpdateMatchFunctionUnauthorized:
-		return nil, nil, v, nil, nil, nil, nil
-
-	case *UpdateMatchFunctionNotFound:
-		return nil, nil, nil, v, nil, nil, nil
-
-	case *UpdateMatchFunctionConflict:
-		return nil, nil, nil, nil, v, nil, nil
-
-	case *UpdateMatchFunctionInternalServerError:
-		return nil, nil, nil, nil, nil, v, nil
-
-	default:
-		return nil, nil, nil, nil, nil, nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
-	}
-}
-
-/*
 UpdateMatchFunctionShort update a match function
 Update existing matchmaking function.
 */
@@ -392,65 +208,6 @@ func (a *Client) UpdateMatchFunctionShort(params *UpdateMatchFunctionParams, aut
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
-	}
-}
-
-/*
-Deprecated: 2022-08-10 - Use DeleteMatchFunctionShort instead.
-
-DeleteMatchFunction delete a match function
-Deletes an existing match function.
-*/
-func (a *Client) DeleteMatchFunction(params *DeleteMatchFunctionParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteMatchFunctionOK, *DeleteMatchFunctionUnauthorized, *DeleteMatchFunctionForbidden, *DeleteMatchFunctionNotFound, *DeleteMatchFunctionInternalServerError, error) {
-	// TODO: Validate the params before sending
-	if params == nil {
-		params = NewDeleteMatchFunctionParams()
-	}
-
-	if params.Context == nil {
-		params.Context = context.Background()
-	}
-
-	if params.RetryPolicy != nil {
-		params.SetHTTPClientTransport(params.RetryPolicy)
-	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
-		ID:                 "DeleteMatchFunction",
-		Method:             "DELETE",
-		PathPattern:        "/match2/v1/namespaces/{namespace}/match-functions/{name}",
-		ProducesMediaTypes: []string{"application/json"},
-		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
-		Params:             params,
-		Reader:             &DeleteMatchFunctionReader{formats: a.formats},
-		AuthInfo:           authInfo,
-		Context:            params.Context,
-		Client:             params.HTTPClient,
-	})
-	if err != nil {
-		return nil, nil, nil, nil, nil, err
-	}
-
-	switch v := result.(type) {
-
-	case *DeleteMatchFunctionOK:
-		return v, nil, nil, nil, nil, nil
-
-	case *DeleteMatchFunctionUnauthorized:
-		return nil, v, nil, nil, nil, nil
-
-	case *DeleteMatchFunctionForbidden:
-		return nil, nil, v, nil, nil, nil
-
-	case *DeleteMatchFunctionNotFound:
-		return nil, nil, nil, v, nil, nil
-
-	case *DeleteMatchFunctionInternalServerError:
-		return nil, nil, nil, nil, v, nil
-
-	default:
-		return nil, nil, nil, nil, nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
 	}
 }
 

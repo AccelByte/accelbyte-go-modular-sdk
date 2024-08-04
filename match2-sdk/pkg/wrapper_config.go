@@ -13,7 +13,6 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils/auth"
-	"github.com/go-openapi/runtime/client"
 )
 
 type ConfigService struct {
@@ -38,22 +37,29 @@ func (aaa *ConfigService) GetAuthSession() auth.Session {
 	}
 }
 
-// Deprecated: 2022-01-10 - Please use AdminGetAllConfigV1Short instead.
-func (aaa *ConfigService) AdminGetAllConfigV1(input *config.AdminGetAllConfigV1Params) (*match2clientmodels.APINamespaceConfigList, error) {
-	token, err := aaa.TokenRepository.GetToken()
-	if err != nil {
-		return nil, err
+func (aaa *ConfigService) AdminGetLogConfigShort(input *config.AdminGetLogConfigParams) (*match2clientmodels.LogconfigConfiguration, error) {
+	authInfoWriter := input.AuthInfoWriter
+	if authInfoWriter == nil {
+		security := [][]string{
+			{"bearer"},
+		}
+		authInfoWriter = auth.AuthInfoWriter(aaa.GetAuthSession(), security, "")
 	}
-	ok, unauthorized, forbidden, internalServerError, err := aaa.Client.Config.AdminGetAllConfigV1(input, client.BearerToken(*token.AccessToken))
-	if unauthorized != nil {
-		return nil, unauthorized
+	if input.RetryPolicy == nil {
+		input.RetryPolicy = &utils.Retry{
+			MaxTries:   utils.MaxTries,
+			Backoff:    utils.NewConstantBackoff(0),
+			Transport:  aaa.Client.Runtime.Transport,
+			RetryCodes: utils.RetryCodes,
+		}
 	}
-	if forbidden != nil {
-		return nil, forbidden
+	if tempFlightIdConfig != nil {
+		input.XFlightId = tempFlightIdConfig
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
 	}
-	if internalServerError != nil {
-		return nil, internalServerError
-	}
+
+	ok, err := aaa.Client.Config.AdminGetLogConfigShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
 	}
@@ -61,45 +67,29 @@ func (aaa *ConfigService) AdminGetAllConfigV1(input *config.AdminGetAllConfigV1P
 	return ok.GetPayload(), nil
 }
 
-// Deprecated: 2022-01-10 - Please use AdminGetConfigV1Short instead.
-func (aaa *ConfigService) AdminGetConfigV1(input *config.AdminGetConfigV1Params) (*match2clientmodels.ConfigmodelsNamespaceConfig, error) {
-	token, err := aaa.TokenRepository.GetToken()
-	if err != nil {
-		return nil, err
+func (aaa *ConfigService) AdminPatchUpdateLogConfigShort(input *config.AdminPatchUpdateLogConfigParams) (*match2clientmodels.LogconfigConfiguration, error) {
+	authInfoWriter := input.AuthInfoWriter
+	if authInfoWriter == nil {
+		security := [][]string{
+			{"bearer"},
+		}
+		authInfoWriter = auth.AuthInfoWriter(aaa.GetAuthSession(), security, "")
 	}
-	ok, unauthorized, forbidden, internalServerError, err := aaa.Client.Config.AdminGetConfigV1(input, client.BearerToken(*token.AccessToken))
-	if unauthorized != nil {
-		return nil, unauthorized
+	if input.RetryPolicy == nil {
+		input.RetryPolicy = &utils.Retry{
+			MaxTries:   utils.MaxTries,
+			Backoff:    utils.NewConstantBackoff(0),
+			Transport:  aaa.Client.Runtime.Transport,
+			RetryCodes: utils.RetryCodes,
+		}
 	}
-	if forbidden != nil {
-		return nil, forbidden
-	}
-	if internalServerError != nil {
-		return nil, internalServerError
-	}
-	if err != nil {
-		return nil, err
+	if tempFlightIdConfig != nil {
+		input.XFlightId = tempFlightIdConfig
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
 	}
 
-	return ok.GetPayload(), nil
-}
-
-// Deprecated: 2022-01-10 - Please use AdminPatchConfigV1Short instead.
-func (aaa *ConfigService) AdminPatchConfigV1(input *config.AdminPatchConfigV1Params) (*match2clientmodels.ConfigmodelsNamespaceConfig, error) {
-	token, err := aaa.TokenRepository.GetToken()
-	if err != nil {
-		return nil, err
-	}
-	ok, unauthorized, forbidden, internalServerError, err := aaa.Client.Config.AdminPatchConfigV1(input, client.BearerToken(*token.AccessToken))
-	if unauthorized != nil {
-		return nil, unauthorized
-	}
-	if forbidden != nil {
-		return nil, forbidden
-	}
-	if internalServerError != nil {
-		return nil, internalServerError
-	}
+	ok, err := aaa.Client.Config.AdminPatchUpdateLogConfigShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
 	}

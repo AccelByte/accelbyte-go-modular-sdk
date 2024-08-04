@@ -38,6 +38,8 @@
 | Endpoint | Method | ID | Class | Wrapper | Example |
 |---|---|---|---|---|---|
 | `/lobby/v1/admin/config` | GET | AdminGetAllConfigV1Short | [AdminGetAllConfigV1Short](../../lobby-sdk/pkg/lobbyclient/config/config_client.go) | [AdminGetAllConfigV1Short](../../lobby-sdk/pkg/wrapper_config.go) | [AdminGetAllConfigV1Short](../../samples/cli/cmd/lobby/config/adminGetAllConfigV1.go) |
+| `/lobby/v1/admin/config/log` | GET | AdminGetLogConfigShort | [AdminGetLogConfigShort](../../lobby-sdk/pkg/lobbyclient/config/config_client.go) | [AdminGetLogConfigShort](../../lobby-sdk/pkg/wrapper_config.go) | [AdminGetLogConfigShort](../../samples/cli/cmd/lobby/config/adminGetLogConfig.go) |
+| `/lobby/v1/admin/config/log` | PATCH | AdminPatchUpdateLogConfigShort | [AdminPatchUpdateLogConfigShort](../../lobby-sdk/pkg/lobbyclient/config/config_client.go) | [AdminPatchUpdateLogConfigShort](../../lobby-sdk/pkg/wrapper_config.go) | [AdminPatchUpdateLogConfigShort](../../samples/cli/cmd/lobby/config/adminPatchUpdateLogConfig.go) |
 | `/lobby/v1/admin/config/namespaces/{namespace}` | GET | AdminGetConfigV1Short | [AdminGetConfigV1Short](../../lobby-sdk/pkg/lobbyclient/config/config_client.go) | [AdminGetConfigV1Short](../../lobby-sdk/pkg/wrapper_config.go) | [AdminGetConfigV1Short](../../samples/cli/cmd/lobby/config/adminGetConfigV1.go) |
 | `/lobby/v1/admin/config/namespaces/{namespace}` | PUT | AdminUpdateConfigV1Short | [AdminUpdateConfigV1Short](../../lobby-sdk/pkg/lobbyclient/config/config_client.go) | [AdminUpdateConfigV1Short](../../lobby-sdk/pkg/wrapper_config.go) | [AdminUpdateConfigV1Short](../../samples/cli/cmd/lobby/config/adminUpdateConfigV1.go) |
 | `/lobby/v1/admin/config/namespaces/{namespace}/export` | GET | AdminExportConfigV1Short | [AdminExportConfigV1Short](../../lobby-sdk/pkg/lobbyclient/config/config_client.go) | [AdminExportConfigV1Short](../../lobby-sdk/pkg/wrapper_config.go) | [AdminExportConfigV1Short](../../samples/cli/cmd/lobby/config/adminExportConfigV1.go) |
@@ -119,6 +121,7 @@
 | `/lobby/v1/admin/player/namespaces/{namespace}/users/{userId}/blocked` | GET | AdminGetPlayerBlockedPlayersV1Short | [AdminGetPlayerBlockedPlayersV1Short](../../lobby-sdk/pkg/lobbyclient/player/player_client.go) | [AdminGetPlayerBlockedPlayersV1Short](../../lobby-sdk/pkg/wrapper_player.go) | [AdminGetPlayerBlockedPlayersV1Short](../../samples/cli/cmd/lobby/player/adminGetPlayerBlockedPlayersV1.go) |
 | `/lobby/v1/admin/player/namespaces/{namespace}/users/{userId}/blocked-by` | GET | AdminGetPlayerBlockedByPlayersV1Short | [AdminGetPlayerBlockedByPlayersV1Short](../../lobby-sdk/pkg/lobbyclient/player/player_client.go) | [AdminGetPlayerBlockedByPlayersV1Short](../../lobby-sdk/pkg/wrapper_player.go) | [AdminGetPlayerBlockedByPlayersV1Short](../../samples/cli/cmd/lobby/player/adminGetPlayerBlockedByPlayersV1.go) |
 | `/lobby/v1/admin/player/namespaces/{namespace}/users/{userId}/bulk/block` | POST | AdminBulkBlockPlayersV1Short | [AdminBulkBlockPlayersV1Short](../../lobby-sdk/pkg/lobbyclient/player/player_client.go) | [AdminBulkBlockPlayersV1Short](../../lobby-sdk/pkg/wrapper_player.go) | [AdminBulkBlockPlayersV1Short](../../samples/cli/cmd/lobby/player/adminBulkBlockPlayersV1.go) |
+| `/lobby/v1/admin/player/namespaces/{namespace}/users/{userId}/bulk/unblock` | DELETE | AdminBulkUnblockPlayersV1Short | [AdminBulkUnblockPlayersV1Short](../../lobby-sdk/pkg/lobbyclient/player/player_client.go) | [AdminBulkUnblockPlayersV1Short](../../lobby-sdk/pkg/wrapper_player.go) | [AdminBulkUnblockPlayersV1Short](../../samples/cli/cmd/lobby/player/adminBulkUnblockPlayersV1.go) |
 | `/lobby/v1/public/player/namespaces/{namespace}/users/me/block` | POST | PublicPlayerBlockPlayersV1Short | [PublicPlayerBlockPlayersV1Short](../../lobby-sdk/pkg/lobbyclient/player/player_client.go) | [PublicPlayerBlockPlayersV1Short](../../lobby-sdk/pkg/wrapper_player.go) | [PublicPlayerBlockPlayersV1Short](../../samples/cli/cmd/lobby/player/publicPlayerBlockPlayersV1.go) |
 | `/lobby/v1/public/player/namespaces/{namespace}/users/me/blocked` | GET | PublicGetPlayerBlockedPlayersV1Short | [PublicGetPlayerBlockedPlayersV1Short](../../lobby-sdk/pkg/lobbyclient/player/player_client.go) | [PublicGetPlayerBlockedPlayersV1Short](../../lobby-sdk/pkg/wrapper_player.go) | [PublicGetPlayerBlockedPlayersV1Short](../../samples/cli/cmd/lobby/player/publicGetPlayerBlockedPlayersV1.go) |
 | `/lobby/v1/public/player/namespaces/{namespace}/users/me/blocked-by` | GET | PublicGetPlayerBlockedByPlayersV1Short | [PublicGetPlayerBlockedByPlayersV1Short](../../lobby-sdk/pkg/lobbyclient/player/player_client.go) | [PublicGetPlayerBlockedByPlayersV1Short](../../lobby-sdk/pkg/wrapper_player.go) | [PublicGetPlayerBlockedByPlayersV1Short](../../samples/cli/cmd/lobby/player/publicGetPlayerBlockedByPlayersV1.go) |
@@ -153,6 +156,7 @@
 | Endpoint | Method | ID | Class | Wrapper | Example |
 |---|---|---|---|---|---|
 | `/lobby/v1/public/presence/namespaces/{namespace}/users/presence` | GET | UsersPresenceHandlerV1Short | [UsersPresenceHandlerV1Short](../../lobby-sdk/pkg/lobbyclient/presence/presence_client.go) | [UsersPresenceHandlerV1Short](../../lobby-sdk/pkg/wrapper_presence.go) | [UsersPresenceHandlerV1Short](../../samples/cli/cmd/lobby/presence/usersPresenceHandlerV1.go) |
+| `/lobby/v1/public/presence/namespaces/{namespace}/users/presence` | POST | UsersPresenceHandlerV2Short | [UsersPresenceHandlerV2Short](../../lobby-sdk/pkg/lobbyclient/presence/presence_client.go) | [UsersPresenceHandlerV2Short](../../lobby-sdk/pkg/wrapper_presence.go) | [UsersPresenceHandlerV2Short](../../samples/cli/cmd/lobby/presence/usersPresenceHandlerV2.go) |
 
 
 &nbsp;  
@@ -164,6 +168,7 @@
 | `handlers.GetUsersPresenceResponse` | [HandlersGetUsersPresenceResponse ](../../lobby-sdk/pkg/lobbyclientmodels/handlers_get_users_presence_response.go) |
 | `handlers.UserPresence` | [HandlersUserPresence ](../../lobby-sdk/pkg/lobbyclientmodels/handlers_user_presence.go) |
 | `log.AppMessageDeclaration` | [LogAppMessageDeclaration ](../../lobby-sdk/pkg/lobbyclientmodels/log_app_message_declaration.go) |
+| `logconfig.Configuration` | [LogconfigConfiguration ](../../lobby-sdk/pkg/lobbyclientmodels/logconfig_configuration.go) |
 | `model.BulkFriendsRequest` | [ModelBulkFriendsRequest ](../../lobby-sdk/pkg/lobbyclientmodels/model_bulk_friends_request.go) |
 | `model.BulkFriendsResponse` | [ModelBulkFriendsResponse ](../../lobby-sdk/pkg/lobbyclientmodels/model_bulk_friends_response.go) |
 | `model.BulkUsersFreeFormNotificationRequestV1` | [ModelBulkUsersFreeFormNotificationRequestV1 ](../../lobby-sdk/pkg/lobbyclientmodels/model_bulk_users_free_form_notification_request_v1.go) |
@@ -200,6 +205,7 @@
 | `model.OutgoingFriendsWithTimeData` | [ModelOutgoingFriendsWithTimeData ](../../lobby-sdk/pkg/lobbyclientmodels/model_outgoing_friends_with_time_data.go) |
 | `model.Pagination` | [ModelPagination ](../../lobby-sdk/pkg/lobbyclientmodels/model_pagination.go) |
 | `model.PutGlobalConfigurationRequest` | [ModelPutGlobalConfigurationRequest ](../../lobby-sdk/pkg/lobbyclientmodels/model_put_global_configuration_request.go) |
+| `model.RequestUserPresence` | [ModelRequestUserPresence ](../../lobby-sdk/pkg/lobbyclientmodels/model_request_user_presence.go) |
 | `model.TemplateContent` | [ModelTemplateContent ](../../lobby-sdk/pkg/lobbyclientmodels/model_template_content.go) |
 | `model.TemplateLocalization` | [ModelTemplateLocalization ](../../lobby-sdk/pkg/lobbyclientmodels/model_template_localization.go) |
 | `model.TemplateLocalizationResponse` | [ModelTemplateLocalizationResponse ](../../lobby-sdk/pkg/lobbyclientmodels/model_template_localization_response.go) |
@@ -245,6 +251,7 @@
 | `models.GetPlayerSessionAttributeResponse` | [ModelsGetPlayerSessionAttributeResponse ](../../lobby-sdk/pkg/lobbyclientmodels/models_get_player_session_attribute_response.go) |
 | `models.ImportConfigResponse` | [ModelsImportConfigResponse ](../../lobby-sdk/pkg/lobbyclientmodels/models_import_config_response.go) |
 | `models.ListBlockedPlayerRequest` | [ModelsListBlockedPlayerRequest ](../../lobby-sdk/pkg/lobbyclientmodels/models_list_blocked_player_request.go) |
+| `models.ListUnblockPlayerRequest` | [ModelsListUnblockPlayerRequest ](../../lobby-sdk/pkg/lobbyclientmodels/models_list_unblock_player_request.go) |
 | `models.PartyData` | [ModelsPartyData ](../../lobby-sdk/pkg/lobbyclientmodels/models_party_data.go) |
 | `models.PartyPUTCustomAttributesRequest` | [ModelsPartyPUTCustomAttributesRequest ](../../lobby-sdk/pkg/lobbyclientmodels/models_party_p_u_t_custom_attributes_request.go) |
 | `models.PartyPUTLimitSizeRequest` | [ModelsPartyPUTLimitSizeRequest ](../../lobby-sdk/pkg/lobbyclientmodels/models_party_p_u_t_limit_size_request.go) |

@@ -21,6 +21,9 @@ type ApimodelsConfigurationTemplateResponse struct {
 	// psnbaseurl
 	PSNBaseURL string `json:"PSNBaseUrl,omitempty"`
 
+	// appname
+	AppName string `json:"appName,omitempty"`
+
 	// attributes
 	Attributes interface{} `json:"attributes,omitempty"`
 
@@ -38,12 +41,18 @@ type ApimodelsConfigurationTemplateResponse struct {
 	// Required: true
 	CreatedAt *string `json:"createdAt"`
 
+	// customurlgrpc
+	CustomURLGRPC string `json:"customURLGRPC,omitempty"`
+
 	// deployment
 	// Required: true
 	Deployment *string `json:"deployment"`
 
 	// disablecodegeneration
 	DisableCodeGeneration bool `json:"disableCodeGeneration"`
+
+	// disableresendinvite
+	DisableResendInvite bool `json:"disableResendInvite"`
 
 	// dsmanualsetready
 	DsManualSetReady bool `json:"dsManualSetReady"`

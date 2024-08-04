@@ -3,14 +3,14 @@
   "info": {
     "description": "Justice Matchmaking Service",
     "title": "Justice Match Service v2",
-    "version": "2.19.2"
+    "version": "2.25.0"
   },
   "schemes": [
     "https"
   ],
   "externalDocs": {
     "description": "API Docs",
-    "url": "https://demo.accelbyte.io/match2/apidocs"
+    "url": "https://stage.accelbyte.io/match2/apidocs"
   },
   "securityDefinitions": {
     "HasPermission": {
@@ -38,6 +38,9 @@
     "/healthz": {
       "get": {
         "operationId": "GetHealthcheckInfo",
+        "produces": [
+          "application/json"
+        ],
         "responses": {
           "200": {
             "description": "OK"
@@ -47,12 +50,16 @@
           {
             "authorization": []
           }
-        ]
+        ],
+        "x-errorCodes": {}
       }
     },
     "/match2/healthz": {
       "get": {
         "operationId": "GetHealthcheckInfoV1",
+        "produces": [
+          "application/json"
+        ],
         "responses": {
           "200": {
             "description": "OK"
@@ -61,6 +68,87 @@
         "security": [
           {
             "authorization": []
+          }
+        ],
+        "x-errorCodes": {}
+      }
+    },
+    "/match2/v1/admin/config/log": {
+      "get": {
+        "description": "Get Log Configuration.\u0026lt;br\u0026gt;",
+        "operationId": "adminGetLogConfig",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/logconfig.Configuration"
+            }
+          }
+        },
+        "security": [
+          {
+            "authorization": []
+          }
+        ],
+        "summary": "Get Log Configuration",
+        "tags": [
+          "Config"
+        ],
+        "x-errorCodes": {},
+        "x-security": [
+          {
+            "userPermissions": [
+              "ADMIN:CONFIG:LOG [READ]"
+            ]
+          }
+        ]
+      },
+      "patch": {
+        "consumes": [
+          "application/json"
+        ],
+        "description": "Update Log Configuration.\u0026lt;br\u0026gt;",
+        "operationId": "adminPatchUpdateLogConfig",
+        "parameters": [
+          {
+            "description": "Optional values can be omitted and will update partially",
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/logconfig.Configuration"
+            }
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/logconfig.Configuration"
+            }
+          }
+        },
+        "security": [
+          {
+            "authorization": []
+          }
+        ],
+        "summary": "Patch Update Log Configuration",
+        "tags": [
+          "Config"
+        ],
+        "x-errorCodes": {},
+        "x-security": [
+          {
+            "userPermissions": [
+              "ADMIN:CONFIG:LOG [UPDATE]"
+            ]
           }
         ]
       }
@@ -111,6 +199,7 @@
           "Config",
           "admin"
         ],
+        "x-errorCodes": {},
         "x-security": [
           {
             "userPermissions": [
@@ -175,6 +264,7 @@
           "Config",
           "admin"
         ],
+        "x-errorCodes": {},
         "x-security": [
           {
             "userPermissions": [
@@ -245,6 +335,7 @@
           "Config",
           "admin"
         ],
+        "x-errorCodes": {},
         "x-security": [
           {
             "userPermissions": [
@@ -294,6 +385,7 @@
           "Environment-Variables",
           "admin"
         ],
+        "x-errorCodes": {},
         "x-security": [
           {
             "userPermissions": [
@@ -384,6 +476,7 @@
           "Backfill",
           "public"
         ],
+        "x-errorCodes": {},
         "x-security": [
           {
             "userPermissions": [
@@ -467,6 +560,7 @@
           "Backfill",
           "public"
         ],
+        "x-errorCodes": {},
         "x-security": [
           {
             "userPermissions": [
@@ -541,6 +635,7 @@
           "Backfill",
           "public"
         ],
+        "x-errorCodes": {},
         "x-security": [
           {
             "userPermissions": [
@@ -622,6 +717,7 @@
           "Backfill",
           "public"
         ],
+        "x-errorCodes": {},
         "x-security": [
           {
             "userPermissions": [
@@ -713,6 +809,7 @@
           "Backfill",
           "public"
         ],
+        "x-errorCodes": {},
         "x-security": [
           {
             "userPermissions": [
@@ -801,6 +898,7 @@
           "Backfill",
           "public"
         ],
+        "x-errorCodes": {},
         "x-security": [
           {
             "userPermissions": [
@@ -879,6 +977,7 @@
           "Match-Functions",
           "admin"
         ],
+        "x-errorCodes": {},
         "x-security": [
           {
             "userPermissions": [
@@ -958,6 +1057,7 @@
           "Match-Functions",
           "admin"
         ],
+        "x-errorCodes": {},
         "x-security": [
           {
             "userPermissions": [
@@ -1032,6 +1132,7 @@
           "Match-Functions",
           "admin"
         ],
+        "x-errorCodes": {},
         "x-security": [
           {
             "userPermissions": [
@@ -1121,6 +1222,7 @@
           "Match-Functions",
           "admin"
         ],
+        "x-errorCodes": {},
         "x-security": [
           {
             "userPermissions": [
@@ -1205,6 +1307,7 @@
           "Match-Pools",
           "admin"
         ],
+        "x-errorCodes": {},
         "x-security": [
           {
             "userPermissions": [
@@ -1284,6 +1387,7 @@
           "Match-Pools",
           "admin"
         ],
+        "x-errorCodes": {},
         "x-security": [
           {
             "userPermissions": [
@@ -1358,6 +1462,7 @@
           "Match-Pools",
           "admin"
         ],
+        "x-errorCodes": {},
         "x-security": [
           {
             "userPermissions": [
@@ -1427,6 +1532,7 @@
           "Match-Pools",
           "admin"
         ],
+        "x-errorCodes": {},
         "x-security": [
           {
             "userPermissions": [
@@ -1516,6 +1622,7 @@
           "Match-Pools",
           "admin"
         ],
+        "x-errorCodes": {},
         "x-security": [
           {
             "userPermissions": [
@@ -1593,6 +1700,7 @@
           "Match-Pools",
           "public"
         ],
+        "x-errorCodes": {},
         "x-security": [
           {
             "userPermissions": [
@@ -1670,6 +1778,7 @@
           "Match-Pools",
           "admin"
         ],
+        "x-errorCodes": {},
         "x-security": [
           {
             "userPermissions": [
@@ -1761,6 +1870,7 @@
           "Match-Pools",
           "admin"
         ],
+        "x-errorCodes": {},
         "x-security": [
           {
             "userPermissions": [
@@ -1851,6 +1961,7 @@
           "Match-Tickets",
           "public"
         ],
+        "x-errorCodes": {},
         "x-security": [
           {
             "userPermissions": [
@@ -1933,6 +2044,7 @@
           "Match-Tickets",
           "public"
         ],
+        "x-errorCodes": {},
         "x-security": [
           {
             "userPermissions": [
@@ -2007,6 +2119,7 @@
           "Match-Tickets",
           "public"
         ],
+        "x-errorCodes": {},
         "x-security": [
           {
             "userPermissions": [
@@ -2082,6 +2195,7 @@
           "Match-Tickets",
           "public"
         ],
+        "x-errorCodes": {},
         "x-security": [
           {
             "userPermissions": [
@@ -2166,6 +2280,7 @@
           "Rule-Sets",
           "admin"
         ],
+        "x-errorCodes": {},
         "x-security": [
           {
             "userPermissions": [
@@ -2245,6 +2360,7 @@
           "Rule-Sets",
           "admin"
         ],
+        "x-errorCodes": {},
         "x-security": [
           {
             "userPermissions": [
@@ -2319,6 +2435,7 @@
           "Rule-Sets",
           "admin"
         ],
+        "x-errorCodes": {},
         "x-security": [
           {
             "userPermissions": [
@@ -2388,6 +2505,7 @@
           "Rule-Sets",
           "admin"
         ],
+        "x-errorCodes": {},
         "x-security": [
           {
             "userPermissions": [
@@ -2477,6 +2595,7 @@
           "Rule-Sets",
           "admin"
         ],
+        "x-errorCodes": {},
         "x-security": [
           {
             "userPermissions": [
@@ -2498,7 +2617,8 @@
           {
             "authorization": []
           }
-        ]
+        ],
+        "x-errorCodes": {}
       }
     }
   },
@@ -2906,6 +3026,10 @@
         },
         "sessionID": {
           "type": "string"
+        },
+        "storage": {
+          "description": "leader session storage",
+          "type": "object"
         }
       },
       "required": [
@@ -2931,6 +3055,10 @@
     },
     "api.MatchTicketStatus": {
       "properties": {
+        "isActive": {
+          "type": "boolean",
+          "x-omitempty": false
+        },
         "matchFound": {
           "type": "boolean",
           "x-omitempty": false
@@ -2997,6 +3125,13 @@
     },
     "api.PatchNamespaceConfigRequest": {
       "properties": {
+        "extraPlatforms": {
+          "description": "additional platforms that will be included in the cross_platform attribute alongside the login method",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
         "platformGroup": {
           "additionalProperties": {
             "items": {
@@ -3163,6 +3298,12 @@
     },
     "configmodels.NamespaceConfig": {
       "properties": {
+        "extraPlatforms": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
         "namespace": {
           "type": "string"
         },
@@ -3179,6 +3320,22 @@
       "required": [
         "namespace"
       ]
+    },
+    "logconfig.Configuration": {
+      "properties": {
+        "logLevel": {
+          "enum": [
+            "debug",
+            "error",
+            "fatal",
+            "info",
+            "panic",
+            "trace",
+            "warning"
+          ],
+          "type": "string"
+        }
+      }
     },
     "matchmaker.MatchTicketRecord": {
       "properties": {
@@ -3275,6 +3432,14 @@
           "type": "string",
           "x-nullable": false
         },
+        "IsActive": {
+          "type": "boolean",
+          "x-omitempty": false
+        },
+        "IsPivot": {
+          "type": "boolean",
+          "x-omitempty": false
+        },
         "Latencies": {
           "additionalProperties": {
             "type": "integer"
@@ -3304,10 +3469,15 @@
         },
         "TicketID": {
           "type": "string"
+        },
+        "TicketInformation": {
+          "type": "object"
         }
       },
       "required": [
         "CreatedAt",
+        "IsActive",
+        "IsPivot",
         "Latencies",
         "MatchPool",
         "Namespace",
@@ -3315,7 +3485,8 @@
         "Players",
         "ProposedProposal",
         "TicketAttributes",
-        "TicketID"
+        "TicketID",
+        "TicketInformation"
       ]
     },
     "models.Configuration": {
@@ -3659,13 +3830,13 @@
   },
   "x-docs": {
     "alias": "match2",
-    "host": "https://demo.accelbyte.io",
+    "host": "https://stage.accelbyte.io",
     "path": "/match2/apidocs/api.json"
   },
   "x-version": {
-    "buildDate": "2024-04-24T13:27:15+00:00",
-    "gitHash": "4ccfec3f6a087acdd285c09b02b42d50f04503ca",
-    "version": "2.19.2",
-    "version-roles-seeding": "1.2.17"
+    "buildDate": "2024-08-01T04:53:28+00:00",
+    "gitHash": "06cdb32403f6412456898d2104cd468a2d19b69e",
+    "version": "2.25.0",
+    "version-roles-seeding": "1.2.36"
   }
 }

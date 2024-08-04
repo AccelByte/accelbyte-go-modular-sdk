@@ -15,6 +15,12 @@ import (
 
 func NewQosmClient(configRepository repository.ConfigRepository) *qosmclient.JusticeQosmService {
 	baseURL := strings.TrimSuffix(configRepository.GetJusticeBaseUrl(), "/")
+
+	if extendedConfigRepository, ok := configRepository.(repository.ExtendedConfigRepository); ok {
+		baseURL = extendedConfigRepository.GetCustomBasePath("/qosm")
+		baseURL = strings.TrimSuffix(baseURL, "/")
+	}
+
 	if len(baseURL) > 0 {
 		baseURLSplit := strings.Split(baseURL, "://")
 		httpClientConfig := &qosmclient.TransportConfig{

@@ -13,7 +13,6 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils/auth"
-	"github.com/go-openapi/runtime/client"
 )
 
 // ConfigService this is use for compatibility with latest modular sdk only
@@ -38,46 +37,6 @@ func (aaa *ConfigService) GetAuthSession() auth.Session {
 		aaa.ConfigRepository,
 		nil,
 	}
-}
-
-// Deprecated: 2022-01-10 - Please use AdminGetConfigValueV3Short instead.
-func (aaa *ConfigService) AdminGetConfigValueV3(input *config.AdminGetConfigValueV3Params) (*iamclientmodels.ModelConfigValueResponseV3, error) {
-	token, err := aaa.TokenRepository.GetToken()
-	if err != nil {
-		return nil, err
-	}
-	ok, badRequest, internalServerError, err := aaa.Client.Config.AdminGetConfigValueV3(input, client.BearerToken(*token.AccessToken))
-	if badRequest != nil {
-		return nil, badRequest
-	}
-	if internalServerError != nil {
-		return nil, internalServerError
-	}
-	if err != nil {
-		return nil, err
-	}
-
-	return ok.GetPayload(), nil
-}
-
-// Deprecated: 2022-01-10 - Please use PublicGetConfigValueV3Short instead.
-func (aaa *ConfigService) PublicGetConfigValueV3(input *config.PublicGetConfigValueV3Params) (*iamclientmodels.ModelConfigValueResponseV3, error) {
-	token, err := aaa.TokenRepository.GetToken()
-	if err != nil {
-		return nil, err
-	}
-	ok, badRequest, internalServerError, err := aaa.Client.Config.PublicGetConfigValueV3(input, client.BearerToken(*token.AccessToken))
-	if badRequest != nil {
-		return nil, badRequest
-	}
-	if internalServerError != nil {
-		return nil, internalServerError
-	}
-	if err != nil {
-		return nil, err
-	}
-
-	return ok.GetPayload(), nil
 }
 
 func (aaa *ConfigService) AdminGetConfigValueV3Short(input *config.AdminGetConfigValueV3Params) (*iamclientmodels.ModelConfigValueResponseV3, error) {

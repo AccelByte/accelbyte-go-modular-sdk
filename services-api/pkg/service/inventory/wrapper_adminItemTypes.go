@@ -13,7 +13,6 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils/auth"
-	"github.com/go-openapi/runtime/client"
 )
 
 // AdminItemTypesService this is use for compatibility with latest modular sdk only
@@ -38,69 +37,6 @@ func (aaa *AdminItemTypesService) GetAuthSession() auth.Session {
 		aaa.ConfigRepository,
 		nil,
 	}
-}
-
-// Deprecated: 2022-01-10 - Please use AdminListItemTypesShort instead.
-func (aaa *AdminItemTypesService) AdminListItemTypes(input *admin_item_types.AdminListItemTypesParams) (*inventoryclientmodels.ApimodelsListItemTypesResp, error) {
-	token, err := aaa.TokenRepository.GetToken()
-	if err != nil {
-		return nil, err
-	}
-	ok, badRequest, internalServerError, err := aaa.Client.AdminItemTypes.AdminListItemTypes(input, client.BearerToken(*token.AccessToken))
-	if badRequest != nil {
-		return nil, badRequest
-	}
-	if internalServerError != nil {
-		return nil, internalServerError
-	}
-	if err != nil {
-		return nil, err
-	}
-
-	return ok.GetPayload(), nil
-}
-
-// Deprecated: 2022-01-10 - Please use AdminCreateItemTypeShort instead.
-func (aaa *AdminItemTypesService) AdminCreateItemType(input *admin_item_types.AdminCreateItemTypeParams) (*inventoryclientmodels.ApimodelsCreateItemTypeResp, error) {
-	token, err := aaa.TokenRepository.GetToken()
-	if err != nil {
-		return nil, err
-	}
-	created, badRequest, conflict, internalServerError, err := aaa.Client.AdminItemTypes.AdminCreateItemType(input, client.BearerToken(*token.AccessToken))
-	if badRequest != nil {
-		return nil, badRequest
-	}
-	if conflict != nil {
-		return nil, conflict
-	}
-	if internalServerError != nil {
-		return nil, internalServerError
-	}
-	if err != nil {
-		return nil, err
-	}
-
-	return created.GetPayload(), nil
-}
-
-// Deprecated: 2022-01-10 - Please use AdminDeleteItemTypeShort instead.
-func (aaa *AdminItemTypesService) AdminDeleteItemType(input *admin_item_types.AdminDeleteItemTypeParams) error {
-	token, err := aaa.TokenRepository.GetToken()
-	if err != nil {
-		return err
-	}
-	_, notFound, internalServerError, err := aaa.Client.AdminItemTypes.AdminDeleteItemType(input, client.BearerToken(*token.AccessToken))
-	if notFound != nil {
-		return notFound
-	}
-	if internalServerError != nil {
-		return internalServerError
-	}
-	if err != nil {
-		return err
-	}
-
-	return nil
 }
 
 func (aaa *AdminItemTypesService) AdminListItemTypesShort(input *admin_item_types.AdminListItemTypesParams) (*inventoryclientmodels.ApimodelsListItemTypesResp, error) {

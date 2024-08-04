@@ -13,7 +13,6 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils/auth"
-	"github.com/go-openapi/runtime/client"
 )
 
 type DevelopmentService struct {
@@ -36,107 +35,6 @@ func (aaa *DevelopmentService) GetAuthSession() auth.Session {
 		aaa.ConfigRepository,
 		nil,
 	}
-}
-
-// Deprecated: 2022-01-10 - Please use DevelopmentServerConfigurationListShort instead.
-func (aaa *DevelopmentService) DevelopmentServerConfigurationList(input *development.DevelopmentServerConfigurationListParams) (*amsclientmodels.APIDevelopmentServerConfigurationListResponse, error) {
-	token, err := aaa.TokenRepository.GetToken()
-	if err != nil {
-		return nil, err
-	}
-	ok, unauthorized, forbidden, internalServerError, err := aaa.Client.Development.DevelopmentServerConfigurationList(input, client.BearerToken(*token.AccessToken))
-	if unauthorized != nil {
-		return nil, unauthorized
-	}
-	if forbidden != nil {
-		return nil, forbidden
-	}
-	if internalServerError != nil {
-		return nil, internalServerError
-	}
-	if err != nil {
-		return nil, err
-	}
-
-	return ok.GetPayload(), nil
-}
-
-// Deprecated: 2022-01-10 - Please use DevelopmentServerConfigurationCreateShort instead.
-func (aaa *DevelopmentService) DevelopmentServerConfigurationCreate(input *development.DevelopmentServerConfigurationCreateParams) (*amsclientmodels.APIDevelopmentServerConfigurationCreateResponse, error) {
-	token, err := aaa.TokenRepository.GetToken()
-	if err != nil {
-		return nil, err
-	}
-	created, badRequest, unauthorized, forbidden, internalServerError, err := aaa.Client.Development.DevelopmentServerConfigurationCreate(input, client.BearerToken(*token.AccessToken))
-	if badRequest != nil {
-		return nil, badRequest
-	}
-	if unauthorized != nil {
-		return nil, unauthorized
-	}
-	if forbidden != nil {
-		return nil, forbidden
-	}
-	if internalServerError != nil {
-		return nil, internalServerError
-	}
-	if err != nil {
-		return nil, err
-	}
-
-	return created.GetPayload(), nil
-}
-
-// Deprecated: 2022-01-10 - Please use DevelopmentServerConfigurationGetShort instead.
-func (aaa *DevelopmentService) DevelopmentServerConfigurationGet(input *development.DevelopmentServerConfigurationGetParams) (*amsclientmodels.APIDevelopmentServerConfigurationGetResponse, error) {
-	token, err := aaa.TokenRepository.GetToken()
-	if err != nil {
-		return nil, err
-	}
-	ok, unauthorized, forbidden, notFound, internalServerError, err := aaa.Client.Development.DevelopmentServerConfigurationGet(input, client.BearerToken(*token.AccessToken))
-	if unauthorized != nil {
-		return nil, unauthorized
-	}
-	if forbidden != nil {
-		return nil, forbidden
-	}
-	if notFound != nil {
-		return nil, notFound
-	}
-	if internalServerError != nil {
-		return nil, internalServerError
-	}
-	if err != nil {
-		return nil, err
-	}
-
-	return ok.GetPayload(), nil
-}
-
-// Deprecated: 2022-01-10 - Please use DevelopmentServerConfigurationDeleteShort instead.
-func (aaa *DevelopmentService) DevelopmentServerConfigurationDelete(input *development.DevelopmentServerConfigurationDeleteParams) error {
-	token, err := aaa.TokenRepository.GetToken()
-	if err != nil {
-		return err
-	}
-	_, unauthorized, forbidden, notFound, internalServerError, err := aaa.Client.Development.DevelopmentServerConfigurationDelete(input, client.BearerToken(*token.AccessToken))
-	if unauthorized != nil {
-		return unauthorized
-	}
-	if forbidden != nil {
-		return forbidden
-	}
-	if notFound != nil {
-		return notFound
-	}
-	if internalServerError != nil {
-		return internalServerError
-	}
-	if err != nil {
-		return err
-	}
-
-	return nil
 }
 
 func (aaa *DevelopmentService) DevelopmentServerConfigurationListShort(input *development.DevelopmentServerConfigurationListParams) (*amsclientmodels.APIDevelopmentServerConfigurationListResponse, error) {

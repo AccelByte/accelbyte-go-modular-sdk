@@ -30,68 +30,9 @@ type Client struct {
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	AdminAnonymizeUserLeaderboardAdminV1(params *AdminAnonymizeUserLeaderboardAdminV1Params, authInfo runtime.ClientAuthInfoWriter) (*AdminAnonymizeUserLeaderboardAdminV1NoContent, *AdminAnonymizeUserLeaderboardAdminV1Unauthorized, *AdminAnonymizeUserLeaderboardAdminV1Forbidden, *AdminAnonymizeUserLeaderboardAdminV1InternalServerError, error)
 	AdminAnonymizeUserLeaderboardAdminV1Short(params *AdminAnonymizeUserLeaderboardAdminV1Params, authInfo runtime.ClientAuthInfoWriter) (*AdminAnonymizeUserLeaderboardAdminV1NoContent, error)
 
 	SetTransport(transport runtime.ClientTransport)
-}
-
-/*
-Deprecated: 2022-08-10 - Use AdminAnonymizeUserLeaderboardAdminV1Short instead.
-
-AdminAnonymizeUserLeaderboardAdminV1 anonymize user's leaderboard
-
-
-This API will delete specified user leaderboard
-*/
-func (a *Client) AdminAnonymizeUserLeaderboardAdminV1(params *AdminAnonymizeUserLeaderboardAdminV1Params, authInfo runtime.ClientAuthInfoWriter) (*AdminAnonymizeUserLeaderboardAdminV1NoContent, *AdminAnonymizeUserLeaderboardAdminV1Unauthorized, *AdminAnonymizeUserLeaderboardAdminV1Forbidden, *AdminAnonymizeUserLeaderboardAdminV1InternalServerError, error) {
-	// TODO: Validate the params before sending
-	if params == nil {
-		params = NewAdminAnonymizeUserLeaderboardAdminV1Params()
-	}
-
-	if params.Context == nil {
-		params.Context = context.Background()
-	}
-
-	if params.RetryPolicy != nil {
-		params.SetHTTPClientTransport(params.RetryPolicy)
-	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
-		ID:                 "adminAnonymizeUserLeaderboardAdminV1",
-		Method:             "DELETE",
-		PathPattern:        "/leaderboard/v1/admin/namespaces/{namespace}/users/{userId}/anonymization/leaderboards",
-		ProducesMediaTypes: []string{"application/json"},
-		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
-		Params:             params,
-		Reader:             &AdminAnonymizeUserLeaderboardAdminV1Reader{formats: a.formats},
-		AuthInfo:           authInfo,
-		Context:            params.Context,
-		Client:             params.HTTPClient,
-	})
-	if err != nil {
-		return nil, nil, nil, nil, err
-	}
-
-	switch v := result.(type) {
-
-	case *AdminAnonymizeUserLeaderboardAdminV1NoContent:
-		return v, nil, nil, nil, nil
-
-	case *AdminAnonymizeUserLeaderboardAdminV1Unauthorized:
-		return nil, v, nil, nil, nil
-
-	case *AdminAnonymizeUserLeaderboardAdminV1Forbidden:
-		return nil, nil, v, nil, nil
-
-	case *AdminAnonymizeUserLeaderboardAdminV1InternalServerError:
-		return nil, nil, nil, v, nil
-
-	default:
-		return nil, nil, nil, nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
-	}
 }
 
 /*

@@ -13,7 +13,6 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils/auth"
-	"github.com/go-openapi/runtime/client"
 )
 
 // UserVisibilityV3Service this is use for compatibility with latest modular sdk only
@@ -38,110 +37,6 @@ func (aaa *UserVisibilityV3Service) GetAuthSession() auth.Session {
 		aaa.ConfigRepository,
 		nil,
 	}
-}
-
-// Deprecated: 2022-01-10 - Please use GetHiddenUsersV3Short instead.
-func (aaa *UserVisibilityV3Service) GetHiddenUsersV3(input *user_visibility_v3.GetHiddenUsersV3Params) (*leaderboardclientmodels.ModelsGetHiddenUserResponse, error) {
-	token, err := aaa.TokenRepository.GetToken()
-	if err != nil {
-		return nil, err
-	}
-	ok, badRequest, unauthorized, forbidden, internalServerError, err := aaa.Client.UserVisibilityV3.GetHiddenUsersV3(input, client.BearerToken(*token.AccessToken))
-	if badRequest != nil {
-		return nil, badRequest
-	}
-	if unauthorized != nil {
-		return nil, unauthorized
-	}
-	if forbidden != nil {
-		return nil, forbidden
-	}
-	if internalServerError != nil {
-		return nil, internalServerError
-	}
-	if err != nil {
-		return nil, err
-	}
-
-	return ok.GetPayload(), nil
-}
-
-// Deprecated: 2022-01-10 - Please use GetUserVisibilityStatusV3Short instead.
-func (aaa *UserVisibilityV3Service) GetUserVisibilityStatusV3(input *user_visibility_v3.GetUserVisibilityStatusV3Params) (*leaderboardclientmodels.ModelsGetUserVisibilityResponse, error) {
-	token, err := aaa.TokenRepository.GetToken()
-	if err != nil {
-		return nil, err
-	}
-	ok, badRequest, unauthorized, forbidden, internalServerError, err := aaa.Client.UserVisibilityV3.GetUserVisibilityStatusV3(input, client.BearerToken(*token.AccessToken))
-	if badRequest != nil {
-		return nil, badRequest
-	}
-	if unauthorized != nil {
-		return nil, unauthorized
-	}
-	if forbidden != nil {
-		return nil, forbidden
-	}
-	if internalServerError != nil {
-		return nil, internalServerError
-	}
-	if err != nil {
-		return nil, err
-	}
-
-	return ok.GetPayload(), nil
-}
-
-// Deprecated: 2022-01-10 - Please use SetUserLeaderboardVisibilityV3Short instead.
-func (aaa *UserVisibilityV3Service) SetUserLeaderboardVisibilityV3(input *user_visibility_v3.SetUserLeaderboardVisibilityV3Params) (*leaderboardclientmodels.ModelsGetUserVisibilityResponse, error) {
-	token, err := aaa.TokenRepository.GetToken()
-	if err != nil {
-		return nil, err
-	}
-	ok, badRequest, unauthorized, forbidden, internalServerError, err := aaa.Client.UserVisibilityV3.SetUserLeaderboardVisibilityV3(input, client.BearerToken(*token.AccessToken))
-	if badRequest != nil {
-		return nil, badRequest
-	}
-	if unauthorized != nil {
-		return nil, unauthorized
-	}
-	if forbidden != nil {
-		return nil, forbidden
-	}
-	if internalServerError != nil {
-		return nil, internalServerError
-	}
-	if err != nil {
-		return nil, err
-	}
-
-	return ok.GetPayload(), nil
-}
-
-// Deprecated: 2022-01-10 - Please use SetUserVisibilityV3Short instead.
-func (aaa *UserVisibilityV3Service) SetUserVisibilityV3(input *user_visibility_v3.SetUserVisibilityV3Params) (*leaderboardclientmodels.ModelsGetUserVisibilityResponse, error) {
-	token, err := aaa.TokenRepository.GetToken()
-	if err != nil {
-		return nil, err
-	}
-	ok, badRequest, unauthorized, forbidden, internalServerError, err := aaa.Client.UserVisibilityV3.SetUserVisibilityV3(input, client.BearerToken(*token.AccessToken))
-	if badRequest != nil {
-		return nil, badRequest
-	}
-	if unauthorized != nil {
-		return nil, unauthorized
-	}
-	if forbidden != nil {
-		return nil, forbidden
-	}
-	if internalServerError != nil {
-		return nil, internalServerError
-	}
-	if err != nil {
-		return nil, err
-	}
-
-	return ok.GetPayload(), nil
 }
 
 func (aaa *UserVisibilityV3Service) GetHiddenUsersV3Short(input *user_visibility_v3.GetHiddenUsersV3Params) (*leaderboardclientmodels.ModelsGetHiddenUserResponse, error) {

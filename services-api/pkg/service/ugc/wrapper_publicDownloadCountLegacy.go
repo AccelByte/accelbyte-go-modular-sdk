@@ -13,7 +13,6 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/ugc-sdk/pkg/ugcclient"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/ugc-sdk/pkg/ugcclient/public_download_count_legacy"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/ugc-sdk/pkg/ugcclientmodels"
-	"github.com/go-openapi/runtime/client"
 )
 
 // PublicDownloadCountLegacyService this is use for compatibility with latest modular sdk only
@@ -38,29 +37,6 @@ func (aaa *PublicDownloadCountLegacyService) GetAuthSession() auth.Session {
 		aaa.ConfigRepository,
 		nil,
 	}
-}
-
-// Deprecated: 2022-01-10 - Please use AddDownloadCountShort instead.
-func (aaa *PublicDownloadCountLegacyService) AddDownloadCount(input *public_download_count_legacy.AddDownloadCountParams) (*ugcclientmodels.ModelsAddDownloadCountResponse, error) {
-	token, err := aaa.TokenRepository.GetToken()
-	if err != nil {
-		return nil, err
-	}
-	ok, unauthorized, notFound, internalServerError, err := aaa.Client.PublicDownloadCountLegacy.AddDownloadCount(input, client.BearerToken(*token.AccessToken))
-	if unauthorized != nil {
-		return nil, unauthorized
-	}
-	if notFound != nil {
-		return nil, notFound
-	}
-	if internalServerError != nil {
-		return nil, internalServerError
-	}
-	if err != nil {
-		return nil, err
-	}
-
-	return ok.GetPayload(), nil
 }
 
 func (aaa *PublicDownloadCountLegacyService) AddDownloadCountShort(input *public_download_count_legacy.AddDownloadCountParams) (*ugcclientmodels.ModelsAddDownloadCountResponse, error) {

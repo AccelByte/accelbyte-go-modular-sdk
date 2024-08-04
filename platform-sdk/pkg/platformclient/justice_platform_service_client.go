@@ -38,6 +38,8 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/platform-sdk/pkg/platformclient/payment_config"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/platform-sdk/pkg/platformclient/payment_dedicated"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/platform-sdk/pkg/platformclient/payment_station"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/platform-sdk/pkg/platformclient/platform"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/platform-sdk/pkg/platformclient/platform_account_closure"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/platform-sdk/pkg/platformclient/revocation"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/platform-sdk/pkg/platformclient/reward"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/platform-sdk/pkg/platformclient/section"
@@ -136,6 +138,8 @@ func New(transport runtime.ClientTransport, runtime *httptransport.Runtime, form
 	cli.PaymentCallbackConfig = payment_callback_config.New(transport, formats)
 	cli.PaymentConfig = payment_config.New(transport, formats)
 	cli.PaymentStation = payment_station.New(transport, formats)
+	cli.Platform = platform.New(transport, formats)
+	cli.PlatformAccountClosure = platform_account_closure.New(transport, formats)
 	cli.Revocation = revocation.New(transport, formats)
 	cli.Reward = reward.New(transport, formats)
 	cli.Section = section.New(transport, formats)
@@ -254,6 +258,10 @@ type JusticePlatformService struct {
 
 	PaymentStation payment_station.ClientService
 
+	Platform platform.ClientService
+
+	PlatformAccountClosure platform_account_closure.ClientService
+
 	Revocation revocation.ClientService
 
 	Reward reward.ClientService
@@ -306,6 +314,8 @@ func (c *JusticePlatformService) SetTransport(transport runtime.ClientTransport)
 	c.PaymentCallbackConfig.SetTransport(transport)
 	c.PaymentConfig.SetTransport(transport)
 	c.PaymentStation.SetTransport(transport)
+	c.Platform.SetTransport(transport)
+	c.PlatformAccountClosure.SetTransport(transport)
 	c.Revocation.SetTransport(transport)
 	c.Reward.SetTransport(transport)
 	c.Section.SetTransport(transport)

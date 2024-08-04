@@ -3,14 +3,14 @@
   "info": {
     "description": "Manage AMS Fleets",
     "title": "fleet-commander",
-    "version": "1.17.0"
+    "version": "1.22.1"
   },
   "schemes": [
     "https"
   ],
   "externalDocs": {
     "description": "API Docs",
-    "url": "https://demo.accelbyte.io/ams/apidocs"
+    "url": "https://stage.accelbyte.io/ams/apidocs"
   },
   "securityDefinitions": {
     "HasPermission": {
@@ -21,10 +21,13 @@
         "ADMIN:NAMESPACE:{namespace}:AMS:ARTIFACT [READ]": "ADMIN:NAMESPACE:{namespace}:AMS:ARTIFACT [READ]",
         "ADMIN:NAMESPACE:{namespace}:AMS:ARTIFACT [UPDATE]": "ADMIN:NAMESPACE:{namespace}:AMS:ARTIFACT [UPDATE]",
         "ADMIN:NAMESPACE:{namespace}:AMS:DS:LOGS [READ]": "ADMIN:NAMESPACE:{namespace}:AMS:DS:LOGS [READ]",
+        "ADMIN:NAMESPACE:{namespace}:AMS:IMAGE [DELETE]": "ADMIN:NAMESPACE:{namespace}:AMS:IMAGE [DELETE]",
+        "ADMIN:NAMESPACE:{namespace}:AMS:IMAGE [READ]": "ADMIN:NAMESPACE:{namespace}:AMS:IMAGE [READ]",
+        "ADMIN:NAMESPACE:{namespace}:AMS:IMAGE [UPDATE]": "ADMIN:NAMESPACE:{namespace}:AMS:IMAGE [UPDATE]",
+        "ADMIN:NAMESPACE:{namespace}:ARMADA [DELETE]": "ADMIN:NAMESPACE:{namespace}:ARMADA [DELETE]",
         "ADMIN:NAMESPACE:{namespace}:ARMADA [READ]": "ADMIN:NAMESPACE:{namespace}:ARMADA [READ]",
         "ADMIN:NAMESPACE:{namespace}:ARMADA:ACCOUNT [CREATE]": "ADMIN:NAMESPACE:{namespace}:ARMADA:ACCOUNT [CREATE]",
         "ADMIN:NAMESPACE:{namespace}:ARMADA:ACCOUNT [READ]": "ADMIN:NAMESPACE:{namespace}:ARMADA:ACCOUNT [READ]",
-        "ADMIN:NAMESPACE:{namespace}:ARMADA:ACCOUNT [UPDATE]": "ADMIN:NAMESPACE:{namespace}:ARMADA:ACCOUNT [UPDATE]",
         "ADMIN:NAMESPACE:{namespace}:ARMADA:FLEET [CREATE]": "ADMIN:NAMESPACE:{namespace}:ARMADA:FLEET [CREATE]",
         "ADMIN:NAMESPACE:{namespace}:ARMADA:FLEET [DELETE]": "ADMIN:NAMESPACE:{namespace}:ARMADA:FLEET [DELETE]",
         "ADMIN:NAMESPACE:{namespace}:ARMADA:FLEET [READ]": "ADMIN:NAMESPACE:{namespace}:ARMADA:FLEET [READ]",
@@ -95,7 +98,8 @@
         "summary": "checks if fleet commander can auth with AMS",
         "tags": [
           "Auth"
-        ]
+        ],
+        "x-errorCodes": {}
       }
     },
     "/ams/healthz": {
@@ -117,7 +121,8 @@
         "summary": "Health check",
         "tags": [
           "Fleet Commander"
-        ]
+        ],
+        "x-errorCodes": {}
       }
     },
     "/ams/v1/admin/namespaces/{namespace}/account": {
@@ -182,7 +187,8 @@
         "summary": "get the account associated with the namespace",
         "tags": [
           "Account"
-        ]
+        ],
+        "x-errorCodes": {}
       },
       "post": {
         "consumes": [
@@ -247,7 +253,8 @@
         "summary": "create a new AMS account",
         "tags": [
           "Account"
-        ]
+        ],
+        "x-errorCodes": {}
       }
     },
     "/ams/v1/admin/namespaces/{namespace}/account/link": {
@@ -312,7 +319,8 @@
         "summary": "get a link to account token",
         "tags": [
           "Account"
-        ]
+        ],
+        "x-errorCodes": {}
       },
       "post": {
         "consumes": [
@@ -377,10 +385,93 @@
         "summary": "link an account to a namespace",
         "tags": [
           "Account"
-        ]
+        ],
+        "x-errorCodes": {}
       }
     },
     "/ams/v1/admin/namespaces/{namespace}/artifacts": {
+      "delete": {
+        "consumes": [
+          "application/json"
+        ],
+        "description": "Required Permission: ADMIN:NAMESPACE:{namespace}:ARMADA [DELETE]",
+        "operationId": "ArtifactBulkDelete",
+        "parameters": [
+          {
+            "description": "namespace of the game",
+            "in": "path",
+            "name": "namespace",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "artifact type (can be repeated)",
+            "in": "query",
+            "name": "artifactType",
+            "type": "string"
+          },
+          {
+            "description": "fleet ID (can be repeated)",
+            "in": "query",
+            "name": "fleetId",
+            "type": "string"
+          },
+          {
+            "description": "uploaded before date",
+            "format": "date",
+            "in": "query",
+            "name": "uploadedBefore",
+            "pattern": "^(\\d{4})-(0[1-9]|1[0-2])-(0[1-9]|[12][0-9]|3[01])$",
+            "type": "string",
+            "x-nullable": true
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "202": {
+            "description": "delete received"
+          },
+          "400": {
+            "description": "bad request",
+            "schema": {
+              "$ref": "#/definitions/response.ErrorResponse"
+            }
+          },
+          "401": {
+            "description": "no authorization provided",
+            "schema": {
+              "$ref": "#/definitions/response.ErrorResponse"
+            }
+          },
+          "403": {
+            "description": "insufficient permissions",
+            "schema": {
+              "$ref": "#/definitions/response.ErrorResponse"
+            }
+          },
+          "500": {
+            "description": "internal server error",
+            "schema": {
+              "$ref": "#/definitions/response.ErrorResponse"
+            }
+          }
+        },
+        "security": [
+          {
+            "HasPermission": [
+              "ADMIN:NAMESPACE:{namespace}:ARMADA [DELETE]"
+            ],
+            "authorization": []
+          }
+        ],
+        "summary": "delete artifacts that match criteria in bulk. all artifacts matching any one criteria will be deleted. at least 1 parameter is required.",
+        "tags": [
+          "Artifacts"
+        ],
+        "x-errorCodes": {}
+      },
       "get": {
         "consumes": [
           "application/json"
@@ -517,7 +608,8 @@
         "summary": "get all artifacts matching the provided criteria",
         "tags": [
           "Artifacts"
-        ]
+        ],
+        "x-errorCodes": {}
       }
     },
     "/ams/v1/admin/namespaces/{namespace}/artifacts/usage": {
@@ -576,7 +668,8 @@
         "summary": "retrieve artifact storage usage for the namespace",
         "tags": [
           "Artifacts"
-        ]
+        ],
+        "x-errorCodes": {}
       }
     },
     "/ams/v1/admin/namespaces/{namespace}/artifacts/{artifactID}": {
@@ -651,7 +744,8 @@
         "summary": "delete a specified artifact",
         "tags": [
           "Artifacts"
-        ]
+        ],
+        "x-errorCodes": {}
       }
     },
     "/ams/v1/admin/namespaces/{namespace}/artifacts/{artifactID}/url": {
@@ -729,7 +823,8 @@
         "summary": "get a signed URL for a specific artifact",
         "tags": [
           "Artifacts"
-        ]
+        ],
+        "x-errorCodes": {}
       }
     },
     "/ams/v1/admin/namespaces/{namespace}/development/server-configurations": {
@@ -804,7 +899,8 @@
         "summary": "lists development server configurations with pagination",
         "tags": [
           "Development"
-        ]
+        ],
+        "x-errorCodes": {}
       },
       "post": {
         "consumes": [
@@ -875,7 +971,8 @@
         "summary": "create a new development server configuration",
         "tags": [
           "Development"
-        ]
+        ],
+        "x-errorCodes": {}
       }
     },
     "/ams/v1/admin/namespaces/{namespace}/development/server-configurations/{developmentServerConfigID}": {
@@ -944,7 +1041,8 @@
         "summary": "delete a development server configuration",
         "tags": [
           "Development"
-        ]
+        ],
+        "x-errorCodes": {}
       },
       "get": {
         "consumes": [
@@ -1014,7 +1112,8 @@
         "summary": "get a development server configuration",
         "tags": [
           "Development"
-        ]
+        ],
+        "x-errorCodes": {}
       }
     },
     "/ams/v1/admin/namespaces/{namespace}/fleets": {
@@ -1061,7 +1160,8 @@
         "summary": "list all fleets in a namespace",
         "tags": [
           "Fleets"
-        ]
+        ],
+        "x-errorCodes": {}
       },
       "post": {
         "consumes": [
@@ -1132,7 +1232,8 @@
         "summary": "create a fleet",
         "tags": [
           "Fleets"
-        ]
+        ],
+        "x-errorCodes": {}
       }
     },
     "/ams/v1/admin/namespaces/{namespace}/fleets/{fleetID}": {
@@ -1207,7 +1308,8 @@
         "summary": "delete a fleet",
         "tags": [
           "Fleets"
-        ]
+        ],
+        "x-errorCodes": {}
       },
       "get": {
         "consumes": [
@@ -1283,7 +1385,8 @@
         "summary": "get a fleet",
         "tags": [
           "Fleets"
-        ]
+        ],
+        "x-errorCodes": {}
       },
       "put": {
         "consumes": [
@@ -1364,7 +1467,8 @@
         "summary": "update a fleet -– overrides current data",
         "tags": [
           "Fleets"
-        ]
+        ],
+        "x-errorCodes": {}
       }
     },
     "/ams/v1/admin/namespaces/{namespace}/fleets/{fleetID}/artifacts-sampling-rules": {
@@ -1442,7 +1546,8 @@
         "summary": "get the sampling rules for a fleet",
         "tags": [
           "Artifacts"
-        ]
+        ],
+        "x-errorCodes": {}
       },
       "put": {
         "consumes": [
@@ -1526,7 +1631,8 @@
         "summary": "set sampling rules for a fleet",
         "tags": [
           "Artifacts"
-        ]
+        ],
+        "x-errorCodes": {}
       }
     },
     "/ams/v1/admin/namespaces/{namespace}/fleets/{fleetID}/servers": {
@@ -1604,7 +1710,8 @@
         "summary": "get server details \u0026 counts for a fleet",
         "tags": [
           "Fleets"
-        ]
+        ],
+        "x-errorCodes": {}
       }
     },
     "/ams/v1/admin/namespaces/{namespace}/fleets/{fleetID}/servers/history": {
@@ -1718,7 +1825,8 @@
         "summary": "get history records of a dedicated server in a fleet",
         "tags": [
           "Servers"
-        ]
+        ],
+        "x-errorCodes": {}
       }
     },
     "/ams/v1/admin/namespaces/{namespace}/images": {
@@ -1726,7 +1834,7 @@
         "consumes": [
           "application/json"
         ],
-        "description": "Returns images which exist (uploaded, uploading, or building) in the linked account. This route fails if no account is linked\n\nRequired Permission: ADMIN:NAMESPACE:{namespace}:ARMADA:ACCOUNT [READ]",
+        "description": "Returns images which exist (uploaded, uploading, or building) in the linked account. This route fails if no account is linked\n\nRequired Permission: ADMIN:NAMESPACE:{namespace}:AMS:IMAGE [READ]",
         "operationId": "ImageList",
         "parameters": [
           {
@@ -1775,7 +1883,7 @@
         "security": [
           {
             "HasPermission": [
-              "ADMIN:NAMESPACE:{namespace}:ARMADA:ACCOUNT [READ]"
+              "ADMIN:NAMESPACE:{namespace}:AMS:IMAGE [READ]"
             ],
             "authorization": []
           }
@@ -1783,15 +1891,156 @@
         "summary": "get a list of existing images",
         "tags": [
           "Images"
-        ]
+        ],
+        "x-errorCodes": {}
       }
     },
-    "/ams/v1/admin/namespaces/{namespace}/images/{imageID}": {
+    "/ams/v1/admin/namespaces/{namespace}/images-storage": {
       "get": {
         "consumes": [
           "application/json"
         ],
-        "description": "Required Permission: ADMIN:NAMESPACE:{namespace}:ARMADA:ACCOUNT [READ]",
+        "description": "Returns information regarding the account\u0026#39;s usage for images storage including the free tier quota\n\nRequired Permission: ADMIN:NAMESPACE:{namespace}:AMS:IMAGE [READ]",
+        "operationId": "ImagesStorage",
+        "parameters": [
+          {
+            "description": "namespace of the game",
+            "in": "path",
+            "name": "namespace",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "success",
+            "schema": {
+              "$ref": "#/definitions/api.ImageStorage"
+            }
+          },
+          "401": {
+            "description": "no authorization provided",
+            "schema": {
+              "$ref": "#/definitions/response.ErrorResponse"
+            }
+          },
+          "403": {
+            "description": "insufficient permissions",
+            "schema": {
+              "$ref": "#/definitions/response.ErrorResponse"
+            }
+          },
+          "404": {
+            "description": "account not linked",
+            "schema": {
+              "$ref": "#/definitions/response.ErrorResponse"
+            }
+          },
+          "500": {
+            "description": "internal server error",
+            "schema": {
+              "$ref": "#/definitions/response.ErrorResponse"
+            }
+          }
+        },
+        "security": [
+          {
+            "HasPermission": [
+              "ADMIN:NAMESPACE:{namespace}:AMS:IMAGE [READ]"
+            ],
+            "authorization": []
+          }
+        ],
+        "summary": "get current usage for images storage",
+        "tags": [
+          "Images"
+        ],
+        "x-errorCodes": {}
+      }
+    },
+    "/ams/v1/admin/namespaces/{namespace}/images/{imageID}": {
+      "delete": {
+        "consumes": [
+          "application/json"
+        ],
+        "description": "Marks an image for deletion. The image will stop being available for fleets and will eventually be deleted.\n\nRequired Permission: ADMIN:NAMESPACE:{namespace}:AMS:IMAGE [DELETE]",
+        "operationId": "ImageMarkForDeletion",
+        "parameters": [
+          {
+            "description": "the id of the image",
+            "in": "path",
+            "name": "imageID",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "namespace of the game",
+            "in": "path",
+            "name": "namespace",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "202": {
+            "description": "success"
+          },
+          "401": {
+            "description": "no authorization provided",
+            "schema": {
+              "$ref": "#/definitions/response.ErrorResponse"
+            }
+          },
+          "403": {
+            "description": "insufficient permissions",
+            "schema": {
+              "$ref": "#/definitions/response.ErrorResponse"
+            }
+          },
+          "404": {
+            "description": "image doesn't exist",
+            "schema": {
+              "$ref": "#/definitions/response.ErrorResponse"
+            }
+          },
+          "412": {
+            "description": "image is being used by 1 or more fleets",
+            "schema": {
+              "$ref": "#/definitions/response.ErrorResponse"
+            }
+          },
+          "500": {
+            "description": "internal server error",
+            "schema": {
+              "$ref": "#/definitions/response.ErrorResponse"
+            }
+          }
+        },
+        "security": [
+          {
+            "HasPermission": [
+              "ADMIN:NAMESPACE:{namespace}:AMS:IMAGE [DELETE]"
+            ],
+            "authorization": []
+          }
+        ],
+        "summary": "mark the image for deletion",
+        "tags": [
+          "Images"
+        ],
+        "x-errorCodes": {}
+      },
+      "get": {
+        "consumes": [
+          "application/json"
+        ],
+        "description": "Required Permission: ADMIN:NAMESPACE:{namespace}:AMS:IMAGE [READ]",
         "operationId": "ImageGet",
         "parameters": [
           {
@@ -1847,7 +2096,7 @@
         "security": [
           {
             "HasPermission": [
-              "ADMIN:NAMESPACE:{namespace}:ARMADA:ACCOUNT [READ]"
+              "ADMIN:NAMESPACE:{namespace}:AMS:IMAGE [READ]"
             ],
             "authorization": []
           }
@@ -1855,13 +2104,14 @@
         "summary": "get image details.",
         "tags": [
           "Images"
-        ]
+        ],
+        "x-errorCodes": {}
       },
       "patch": {
         "consumes": [
           "application/json"
         ],
-        "description": "This allows editing of the image name, toggling `IsProtected`, or adding \u0026amp; removal of tags\n\nRequired Permission: ADMIN:NAMESPACE:{namespace}:ARMADA:ACCOUNT [UPDATE]",
+        "description": "This allows editing of the image name, toggling `IsProtected`, or adding \u0026amp; removal of tags\n\nRequired Permission: ADMIN:NAMESPACE:{namespace}:AMS:IMAGE [UPDATE]",
         "operationId": "ImagePatch",
         "parameters": [
           {
@@ -1925,7 +2175,7 @@
         "security": [
           {
             "HasPermission": [
-              "ADMIN:NAMESPACE:{namespace}:ARMADA:ACCOUNT [UPDATE]"
+              "ADMIN:NAMESPACE:{namespace}:AMS:IMAGE [UPDATE]"
             ],
             "authorization": []
           }
@@ -1933,7 +2183,81 @@
         "summary": "edit the image",
         "tags": [
           "Images"
-        ]
+        ],
+        "x-errorCodes": {}
+      }
+    },
+    "/ams/v1/admin/namespaces/{namespace}/images/{imageID}/restore": {
+      "post": {
+        "description": "Unmarks an image for deletion. The image will be available for fleets.\n\nRequired Permission: ADMIN:NAMESPACE:{namespace}:AMS:IMAGE [DELETE]",
+        "operationId": "ImageUnmarkForDeletion",
+        "parameters": [
+          {
+            "description": "the id of the image",
+            "in": "path",
+            "name": "imageID",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "namespace of the game",
+            "in": "path",
+            "name": "namespace",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "202": {
+            "description": "success"
+          },
+          "401": {
+            "description": "no authorization provided",
+            "schema": {
+              "$ref": "#/definitions/response.ErrorResponse"
+            }
+          },
+          "403": {
+            "description": "insufficient permissions",
+            "schema": {
+              "$ref": "#/definitions/response.ErrorResponse"
+            }
+          },
+          "404": {
+            "description": "image doesn't exist",
+            "schema": {
+              "$ref": "#/definitions/response.ErrorResponse"
+            }
+          },
+          "412": {
+            "description": "image wasn't marked for deletion",
+            "schema": {
+              "$ref": "#/definitions/response.ErrorResponse"
+            }
+          },
+          "500": {
+            "description": "internal server error",
+            "schema": {
+              "$ref": "#/definitions/response.ErrorResponse"
+            }
+          }
+        },
+        "security": [
+          {
+            "HasPermission": [
+              "ADMIN:NAMESPACE:{namespace}:AMS:IMAGE [DELETE]"
+            ],
+            "authorization": []
+          }
+        ],
+        "summary": "unmarks the image for deletion",
+        "tags": [
+          "Images"
+        ],
+        "x-errorCodes": {}
       }
     },
     "/ams/v1/admin/namespaces/{namespace}/qos": {
@@ -2004,7 +2328,8 @@
         "summary": "get a list of available AMS QoS regions",
         "tags": [
           "AMS QoS"
-        ]
+        ],
+        "x-errorCodes": {}
       }
     },
     "/ams/v1/admin/namespaces/{namespace}/qos/{region}": {
@@ -2087,7 +2412,8 @@
         "summary": "update the status of a QoS region",
         "tags": [
           "AMS QoS"
-        ]
+        ],
+        "x-errorCodes": {}
       }
     },
     "/ams/v1/admin/namespaces/{namespace}/regions": {
@@ -2146,7 +2472,8 @@
         "summary": "get a list of the available AMS regions",
         "tags": [
           "AMS Info"
-        ]
+        ],
+        "x-errorCodes": {}
       }
     },
     "/ams/v1/admin/namespaces/{namespace}/servers/{serverID}": {
@@ -2218,7 +2545,8 @@
         "summary": "get information about a dedicated server",
         "tags": [
           "Servers"
-        ]
+        ],
+        "x-errorCodes": {}
       }
     },
     "/ams/v1/admin/namespaces/{namespace}/servers/{serverID}/connectioninfo": {
@@ -2290,7 +2618,8 @@
         "summary": "get connection info for a dedicated server",
         "tags": [
           "Servers"
-        ]
+        ],
+        "x-errorCodes": {}
       }
     },
     "/ams/v1/admin/namespaces/{namespace}/servers/{serverID}/history": {
@@ -2362,7 +2691,8 @@
         "summary": "get history records of a dedicated server",
         "tags": [
           "Servers"
-        ]
+        ],
+        "x-errorCodes": {}
       }
     },
     "/ams/v1/admin/namespaces/{namespace}/supported-instances": {
@@ -2421,7 +2751,8 @@
         "summary": "get a list of available VM configurations",
         "tags": [
           "AMS Info"
-        ]
+        ],
+        "x-errorCodes": {}
       }
     },
     "/ams/v1/namespaces/{namespace}/account": {
@@ -2486,7 +2817,8 @@
         "summary": "get the account associated with the namespace",
         "tags": [
           "Account"
-        ]
+        ],
+        "x-errorCodes": {}
       }
     },
     "/ams/v1/namespaces/{namespace}/fleets/{fleetID}/claim": {
@@ -2572,7 +2904,8 @@
         "summary": "claim a dedicated server from a fleet",
         "tags": [
           "Fleets"
-        ]
+        ],
+        "x-errorCodes": {}
       }
     },
     "/ams/v1/namespaces/{namespace}/local/{watchdogID}/connect": {
@@ -2614,7 +2947,8 @@
         "summary": "connect a local watchdog",
         "tags": [
           "Watchdogs"
-        ]
+        ],
+        "x-errorCodes": {}
       }
     },
     "/ams/v1/namespaces/{namespace}/servers/claim": {
@@ -2693,7 +3027,8 @@
         "summary": "claim a dedicated server",
         "tags": [
           "Fleets"
-        ]
+        ],
+        "x-errorCodes": {}
       }
     },
     "/ams/v1/namespaces/{namespace}/watchdogs/{watchdogID}/connect": {
@@ -2735,7 +3070,8 @@
         "summary": "connect a watchdog",
         "tags": [
           "Watchdogs"
-        ]
+        ],
+        "x-errorCodes": {}
       }
     },
     "/ams/v1/upload-url": {
@@ -2757,7 +3093,8 @@
         "summary": "get an URL for uploading an image",
         "tags": [
           "AMS Info"
-        ]
+        ],
+        "x-errorCodes": {}
       }
     },
     "/ams/version": {
@@ -2779,7 +3116,8 @@
         "summary": "Version info",
         "tags": [
           "Fleet Commander"
-        ]
+        ],
+        "x-errorCodes": {}
       }
     },
     "/healthz": {
@@ -2801,7 +3139,8 @@
         "summary": "Health check",
         "tags": [
           "Fleet Commander"
-        ]
+        ],
+        "x-errorCodes": {}
       }
     }
   },
@@ -3355,6 +3694,9 @@
             "$ref": "#/definitions/api.RegionConfig"
           },
           "type": "array"
+        },
+        "samplingRules": {
+          "$ref": "#/definitions/api.FleetArtifactsSampleRules"
         }
       },
       "required": [
@@ -3366,7 +3708,8 @@
         "isLocal",
         "name",
         "onDemand",
-        "regions"
+        "regions",
+        "samplingRules"
       ]
     },
     "api.FleetListItemResponse": {
@@ -3699,6 +4042,9 @@
         "createdAt": {
           "$ref": "#/definitions/time.Time"
         },
+        "deleteAt": {
+          "$ref": "#/definitions/api.Time"
+        },
         "executable": {
           "type": "string"
         },
@@ -3740,6 +4086,7 @@
       },
       "required": [
         "createdAt",
+        "deleteAt",
         "executable",
         "id",
         "isProtected",
@@ -3769,6 +4116,9 @@
       "properties": {
         "createdAt": {
           "$ref": "#/definitions/time.Time"
+        },
+        "deleteAt": {
+          "$ref": "#/definitions/api.Time"
         },
         "executable": {
           "type": "string"
@@ -3809,6 +4159,7 @@
       },
       "required": [
         "createdAt",
+        "deleteAt",
         "executable",
         "id",
         "isProtected",
@@ -3819,6 +4170,27 @@
         "tags",
         "uploadedAt",
         "uploadedBy"
+      ]
+    },
+    "api.ImageStorage": {
+      "properties": {
+        "currentMarkedForDeletionBytes": {
+          "format": "int64",
+          "type": "integer"
+        },
+        "currentUsageBytes": {
+          "format": "int64",
+          "type": "integer"
+        },
+        "quotaBytes": {
+          "format": "int64",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "currentMarkedForDeletionBytes",
+        "currentUsageBytes",
+        "quotaBytes"
       ]
     },
     "api.ImageUpdate": {
@@ -4011,6 +4383,10 @@
           "format": "int32",
           "type": "integer"
         },
+        "dynamicBuffer": {
+          "type": "boolean",
+          "x-omitempty": false
+        },
         "maxServerCount": {
           "format": "int32",
           "type": "integer"
@@ -4025,6 +4401,7 @@
       },
       "required": [
         "bufferSize",
+        "dynamicBuffer",
         "maxServerCount",
         "minServerCount",
         "region"
@@ -4199,14 +4576,14 @@
   },
   "x-docs": {
     "alias": "ams",
-    "host": "https://demo.accelbyte.io",
+    "host": "https://stage.accelbyte.io",
     "path": "/ams/apidocs/api.json"
   },
   "x-version": {
-    "buildDate": "2024-05-02T23:07:44+00:00",
-    "gitHash": "d78ff58a1c093757ea6c54dc6b26515a16b78ead",
+    "buildDate": "2024-08-01T06:12:53+00:00",
+    "gitHash": "77943f23a0ecc742fd95bf6e20e3bc7d2cb06a44",
     "name": "fleet-commander",
-    "version": "1.17.0",
-    "version-roles-seeding": "1.2.31"
+    "version": "1.22.1",
+    "version-roles-seeding": "1.2.40"
   }
 }

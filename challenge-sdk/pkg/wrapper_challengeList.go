@@ -13,7 +13,6 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils/auth"
-	"github.com/go-openapi/runtime/client"
 )
 
 type ChallengeListService struct {
@@ -36,52 +35,6 @@ func (aaa *ChallengeListService) GetAuthSession() auth.Session {
 		aaa.ConfigRepository,
 		nil,
 	}
-}
-
-// Deprecated: 2022-01-10 - Please use GetChallengesShort instead.
-func (aaa *ChallengeListService) GetChallenges(input *challenge_list.GetChallengesParams) (*challengeclientmodels.ModelListChallengeResponse, error) {
-	token, err := aaa.TokenRepository.GetToken()
-	if err != nil {
-		return nil, err
-	}
-	ok, unauthorized, forbidden, internalServerError, err := aaa.Client.ChallengeList.GetChallenges(input, client.BearerToken(*token.AccessToken))
-	if unauthorized != nil {
-		return nil, unauthorized
-	}
-	if forbidden != nil {
-		return nil, forbidden
-	}
-	if internalServerError != nil {
-		return nil, internalServerError
-	}
-	if err != nil {
-		return nil, err
-	}
-
-	return ok.GetPayload(), nil
-}
-
-// Deprecated: 2022-01-10 - Please use PublicGetScheduledGoalsShort instead.
-func (aaa *ChallengeListService) PublicGetScheduledGoals(input *challenge_list.PublicGetScheduledGoalsParams) (*challengeclientmodels.ModelGetGoalsResponse, error) {
-	token, err := aaa.TokenRepository.GetToken()
-	if err != nil {
-		return nil, err
-	}
-	ok, unauthorized, forbidden, internalServerError, err := aaa.Client.ChallengeList.PublicGetScheduledGoals(input, client.BearerToken(*token.AccessToken))
-	if unauthorized != nil {
-		return nil, unauthorized
-	}
-	if forbidden != nil {
-		return nil, forbidden
-	}
-	if internalServerError != nil {
-		return nil, internalServerError
-	}
-	if err != nil {
-		return nil, err
-	}
-
-	return ok.GetPayload(), nil
 }
 
 func (aaa *ChallengeListService) GetChallengesShort(input *challenge_list.GetChallengesParams) (*challengeclientmodels.ModelListChallengeResponse, error) {

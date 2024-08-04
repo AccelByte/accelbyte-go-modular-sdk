@@ -13,7 +13,6 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils/auth"
-	"github.com/go-openapi/runtime/client"
 )
 
 type AdminReportsService struct {
@@ -36,46 +35,6 @@ func (aaa *AdminReportsService) GetAuthSession() auth.Session {
 		aaa.ConfigRepository,
 		nil,
 	}
-}
-
-// Deprecated: 2022-01-10 - Please use ListReportsShort instead.
-func (aaa *AdminReportsService) ListReports(input *admin_reports.ListReportsParams) (*reportingclientmodels.RestapiReportListResponse, error) {
-	token, err := aaa.TokenRepository.GetToken()
-	if err != nil {
-		return nil, err
-	}
-	ok, internalServerError, err := aaa.Client.AdminReports.ListReports(input, client.BearerToken(*token.AccessToken))
-	if internalServerError != nil {
-		return nil, internalServerError
-	}
-	if err != nil {
-		return nil, err
-	}
-
-	return ok.GetPayload(), nil
-}
-
-// Deprecated: 2022-01-10 - Please use AdminSubmitReportShort instead.
-func (aaa *AdminReportsService) AdminSubmitReport(input *admin_reports.AdminSubmitReportParams) (*reportingclientmodels.RestapiSubmitReportResponse, error) {
-	token, err := aaa.TokenRepository.GetToken()
-	if err != nil {
-		return nil, err
-	}
-	created, badRequest, conflict, internalServerError, err := aaa.Client.AdminReports.AdminSubmitReport(input, client.BearerToken(*token.AccessToken))
-	if badRequest != nil {
-		return nil, badRequest
-	}
-	if conflict != nil {
-		return nil, conflict
-	}
-	if internalServerError != nil {
-		return nil, internalServerError
-	}
-	if err != nil {
-		return nil, err
-	}
-
-	return created.GetPayload(), nil
 }
 
 func (aaa *AdminReportsService) ListReportsShort(input *admin_reports.ListReportsParams) (*reportingclientmodels.RestapiReportListResponse, error) {

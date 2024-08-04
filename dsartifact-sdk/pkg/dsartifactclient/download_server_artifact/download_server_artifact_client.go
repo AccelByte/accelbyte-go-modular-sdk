@@ -30,69 +30,10 @@ type Client struct {
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	DownloadServerArtifacts(params *DownloadServerArtifactsParams, authInfo runtime.ClientAuthInfoWriter) (*DownloadServerArtifactsOK, *DownloadServerArtifactsNotFound, *DownloadServerArtifactsInternalServerError, error)
 	DownloadServerArtifactsShort(params *DownloadServerArtifactsParams, authInfo runtime.ClientAuthInfoWriter) (*DownloadServerArtifactsOK, error)
-	CheckServerArtifact(params *CheckServerArtifactParams, authInfo runtime.ClientAuthInfoWriter) (*CheckServerArtifactOK, *CheckServerArtifactNotFound, *CheckServerArtifactInternalServerError, error)
 	CheckServerArtifactShort(params *CheckServerArtifactParams, authInfo runtime.ClientAuthInfoWriter) (*CheckServerArtifactOK, error)
 
 	SetTransport(transport runtime.ClientTransport)
-}
-
-/*
-Deprecated: 2022-08-10 - Use DownloadServerArtifactsShort instead.
-
-DownloadServerArtifacts download dedicated server artifact files
-Required permission: ADMIN:NAMESPACE:{namespace}:DSAM:ARTIFACT [READ]
-
-Required scope: social
-
-This endpoint will download dedicated server's Artifact file (.zip).
-*/
-func (a *Client) DownloadServerArtifacts(params *DownloadServerArtifactsParams, authInfo runtime.ClientAuthInfoWriter) (*DownloadServerArtifactsOK, *DownloadServerArtifactsNotFound, *DownloadServerArtifactsInternalServerError, error) {
-	// TODO: Validate the params before sending
-	if params == nil {
-		params = NewDownloadServerArtifactsParams()
-	}
-
-	if params.Context == nil {
-		params.Context = context.Background()
-	}
-
-	if params.RetryPolicy != nil {
-		params.SetHTTPClientTransport(params.RetryPolicy)
-	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
-		ID:                 "downloadServerArtifacts",
-		Method:             "GET",
-		PathPattern:        "/dsartifact/namespaces/{namespace}/servers/{podName}/artifacts/download",
-		ProducesMediaTypes: []string{"application/json", "text/x-log"},
-		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
-		Params:             params,
-		Reader:             &DownloadServerArtifactsReader{formats: a.formats},
-		AuthInfo:           authInfo,
-		Context:            params.Context,
-		Client:             params.HTTPClient,
-	})
-	if err != nil {
-		return nil, nil, nil, err
-	}
-
-	switch v := result.(type) {
-
-	case *DownloadServerArtifactsOK:
-		return v, nil, nil, nil
-
-	case *DownloadServerArtifactsNotFound:
-		return nil, v, nil, nil
-
-	case *DownloadServerArtifactsInternalServerError:
-		return nil, nil, v, nil
-
-	default:
-		return nil, nil, nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
-	}
 }
 
 /*
@@ -149,67 +90,6 @@ func (a *Client) DownloadServerArtifactsShort(params *DownloadServerArtifactsPar
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
-	}
-}
-
-/*
-Deprecated: 2022-08-10 - Use CheckServerArtifactShort instead.
-
-CheckServerArtifact check dedicated server artifacts files existence
-Required permission: ADMIN:NAMESPACE:{namespace}:DSAM:ARTIFACT [READ]
-
-Required scope: social
-
-This endpoint will check artifact file existence before download file.
-
-This endpoint will return the artifact status.
-
-The possible status is : 'Empty', 'In Queue', 'Uploading', 'Ready', 'Failed'
-*/
-func (a *Client) CheckServerArtifact(params *CheckServerArtifactParams, authInfo runtime.ClientAuthInfoWriter) (*CheckServerArtifactOK, *CheckServerArtifactNotFound, *CheckServerArtifactInternalServerError, error) {
-	// TODO: Validate the params before sending
-	if params == nil {
-		params = NewCheckServerArtifactParams()
-	}
-
-	if params.Context == nil {
-		params.Context = context.Background()
-	}
-
-	if params.RetryPolicy != nil {
-		params.SetHTTPClientTransport(params.RetryPolicy)
-	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
-		ID:                 "checkServerArtifact",
-		Method:             "GET",
-		PathPattern:        "/dsartifact/namespaces/{namespace}/servers/{podName}/artifacts/exists",
-		ProducesMediaTypes: []string{"application/json", "text/x-log"},
-		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
-		Params:             params,
-		Reader:             &CheckServerArtifactReader{formats: a.formats},
-		AuthInfo:           authInfo,
-		Context:            params.Context,
-		Client:             params.HTTPClient,
-	})
-	if err != nil {
-		return nil, nil, nil, err
-	}
-
-	switch v := result.(type) {
-
-	case *CheckServerArtifactOK:
-		return v, nil, nil, nil
-
-	case *CheckServerArtifactNotFound:
-		return nil, v, nil, nil
-
-	case *CheckServerArtifactInternalServerError:
-		return nil, nil, v, nil
-
-	default:
-		return nil, nil, nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
 	}
 }
 

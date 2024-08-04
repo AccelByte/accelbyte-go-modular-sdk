@@ -47,6 +47,12 @@ type ModelThirdPartyLoginPlatformCredentialRequest struct {
 	// Required: true
 	ClientID *string `json:"ClientId"`
 
+	// specify which string fields need set empty value.
+	EmptyStrFieldList []string `json:"EmptyStrFieldList,omitempty"`
+
+	// a flag indicates whether enable server license validation
+	EnableServerLicenseValidation bool `json:"EnableServerLicenseValidation"`
+
 	// environment
 	// Required: true
 	Environment *string `json:"Environment"`
@@ -58,6 +64,9 @@ type ModelThirdPartyLoginPlatformCredentialRequest struct {
 	// genericoauthflow
 	// Required: true
 	GenericOauthFlow *bool `json:"GenericOauthFlow"`
+
+	// a flag indicates whether need to include puid in access token claim
+	IncludePUID bool `json:"IncludePUID"`
 
 	// isactive
 	// Required: true
@@ -74,6 +83,9 @@ type ModelThirdPartyLoginPlatformCredentialRequest struct {
 	// apple key id
 	// Required: true
 	KeyID *string `json:"KeyID"`
+
+	// login method logo url
+	LogoURL string `json:"LogoURL,omitempty"`
 
 	// A json containing credentials for netflix integration. Only for netflix platformId
 	// Required: true

@@ -30,69 +30,10 @@ type Client struct {
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	AdminGetMemberActiveSession(params *AdminGetMemberActiveSessionParams, authInfo runtime.ClientAuthInfoWriter) (*AdminGetMemberActiveSessionOK, *AdminGetMemberActiveSessionBadRequest, *AdminGetMemberActiveSessionUnauthorized, *AdminGetMemberActiveSessionInternalServerError, error)
 	AdminGetMemberActiveSessionShort(params *AdminGetMemberActiveSessionParams, authInfo runtime.ClientAuthInfoWriter) (*AdminGetMemberActiveSessionOK, error)
-	AdminReconcileMaxActiveSession(params *AdminReconcileMaxActiveSessionParams, authInfo runtime.ClientAuthInfoWriter) (*AdminReconcileMaxActiveSessionOK, *AdminReconcileMaxActiveSessionBadRequest, *AdminReconcileMaxActiveSessionUnauthorized, *AdminReconcileMaxActiveSessionInternalServerError, error)
 	AdminReconcileMaxActiveSessionShort(params *AdminReconcileMaxActiveSessionParams, authInfo runtime.ClientAuthInfoWriter) (*AdminReconcileMaxActiveSessionOK, error)
 
 	SetTransport(transport runtime.ClientTransport)
-}
-
-/*
-Deprecated: 2022-08-10 - Use AdminGetMemberActiveSessionShort instead.
-
-AdminGetMemberActiveSession get member active session.
-
-Get Member Active Session.
-*/
-func (a *Client) AdminGetMemberActiveSession(params *AdminGetMemberActiveSessionParams, authInfo runtime.ClientAuthInfoWriter) (*AdminGetMemberActiveSessionOK, *AdminGetMemberActiveSessionBadRequest, *AdminGetMemberActiveSessionUnauthorized, *AdminGetMemberActiveSessionInternalServerError, error) {
-	// TODO: Validate the params before sending
-	if params == nil {
-		params = NewAdminGetMemberActiveSessionParams()
-	}
-
-	if params.Context == nil {
-		params.Context = context.Background()
-	}
-
-	if params.RetryPolicy != nil {
-		params.SetHTTPClientTransport(params.RetryPolicy)
-	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
-		ID:                 "adminGetMemberActiveSession",
-		Method:             "GET",
-		PathPattern:        "/session/v1/admin/namespaces/{namespace}/configurations/{name}/memberactivesession/{userId}",
-		ProducesMediaTypes: []string{"application/json"},
-		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
-		Params:             params,
-		Reader:             &AdminGetMemberActiveSessionReader{formats: a.formats},
-		AuthInfo:           authInfo,
-		Context:            params.Context,
-		Client:             params.HTTPClient,
-	})
-	if err != nil {
-		return nil, nil, nil, nil, err
-	}
-
-	switch v := result.(type) {
-
-	case *AdminGetMemberActiveSessionOK:
-		return v, nil, nil, nil, nil
-
-	case *AdminGetMemberActiveSessionBadRequest:
-		return nil, v, nil, nil, nil
-
-	case *AdminGetMemberActiveSessionUnauthorized:
-		return nil, nil, v, nil, nil
-
-	case *AdminGetMemberActiveSessionInternalServerError:
-		return nil, nil, nil, v, nil
-
-	default:
-		return nil, nil, nil, nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
-	}
 }
 
 /*
@@ -148,63 +89,6 @@ func (a *Client) AdminGetMemberActiveSessionShort(params *AdminGetMemberActiveSe
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
-	}
-}
-
-/*
-Deprecated: 2022-08-10 - Use AdminReconcileMaxActiveSessionShort instead.
-
-AdminReconcileMaxActiveSession reconcile max active session.
-
-Reconcile Max Active Session.
-*/
-func (a *Client) AdminReconcileMaxActiveSession(params *AdminReconcileMaxActiveSessionParams, authInfo runtime.ClientAuthInfoWriter) (*AdminReconcileMaxActiveSessionOK, *AdminReconcileMaxActiveSessionBadRequest, *AdminReconcileMaxActiveSessionUnauthorized, *AdminReconcileMaxActiveSessionInternalServerError, error) {
-	// TODO: Validate the params before sending
-	if params == nil {
-		params = NewAdminReconcileMaxActiveSessionParams()
-	}
-
-	if params.Context == nil {
-		params.Context = context.Background()
-	}
-
-	if params.RetryPolicy != nil {
-		params.SetHTTPClientTransport(params.RetryPolicy)
-	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
-		ID:                 "adminReconcileMaxActiveSession",
-		Method:             "POST",
-		PathPattern:        "/session/v1/admin/namespaces/{namespace}/configurations/{name}/reconcile",
-		ProducesMediaTypes: []string{"application/json"},
-		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
-		Params:             params,
-		Reader:             &AdminReconcileMaxActiveSessionReader{formats: a.formats},
-		AuthInfo:           authInfo,
-		Context:            params.Context,
-		Client:             params.HTTPClient,
-	})
-	if err != nil {
-		return nil, nil, nil, nil, err
-	}
-
-	switch v := result.(type) {
-
-	case *AdminReconcileMaxActiveSessionOK:
-		return v, nil, nil, nil, nil
-
-	case *AdminReconcileMaxActiveSessionBadRequest:
-		return nil, v, nil, nil, nil
-
-	case *AdminReconcileMaxActiveSessionUnauthorized:
-		return nil, nil, v, nil, nil
-
-	case *AdminReconcileMaxActiveSessionInternalServerError:
-		return nil, nil, nil, v, nil
-
-	default:
-		return nil, nil, nil, nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
 	}
 }
 

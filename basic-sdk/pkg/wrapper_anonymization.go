@@ -12,7 +12,6 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils/auth"
-	"github.com/go-openapi/runtime/client"
 )
 
 type AnonymizationService struct {
@@ -35,29 +34,6 @@ func (aaa *AnonymizationService) GetAuthSession() auth.Session {
 		aaa.ConfigRepository,
 		nil,
 	}
-}
-
-// Deprecated: 2022-01-10 - Please use AnonymizeUserProfileShort instead.
-func (aaa *AnonymizationService) AnonymizeUserProfile(input *anonymization.AnonymizeUserProfileParams) error {
-	token, err := aaa.TokenRepository.GetToken()
-	if err != nil {
-		return err
-	}
-	_, badRequest, unauthorized, forbidden, err := aaa.Client.Anonymization.AnonymizeUserProfile(input, client.BearerToken(*token.AccessToken))
-	if badRequest != nil {
-		return badRequest
-	}
-	if unauthorized != nil {
-		return unauthorized
-	}
-	if forbidden != nil {
-		return forbidden
-	}
-	if err != nil {
-		return err
-	}
-
-	return nil
 }
 
 func (aaa *AnonymizationService) AnonymizeUserProfileShort(input *anonymization.AnonymizeUserProfileParams) error {

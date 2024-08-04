@@ -13,7 +13,6 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/ugc-sdk/pkg/ugcclient"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/ugc-sdk/pkg/ugcclient/admin_config"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/ugc-sdk/pkg/ugcclientmodels"
-	"github.com/go-openapi/runtime/client"
 )
 
 // AdminConfigService this is use for compatibility with latest modular sdk only
@@ -38,58 +37,6 @@ func (aaa *AdminConfigService) GetAuthSession() auth.Session {
 		aaa.ConfigRepository,
 		nil,
 	}
-}
-
-// Deprecated: 2022-01-10 - Please use AdminGetConfigsShort instead.
-func (aaa *AdminConfigService) AdminGetConfigs(input *admin_config.AdminGetConfigsParams) (*ugcclientmodels.ModelsPaginatedGetConfigsResponse, error) {
-	token, err := aaa.TokenRepository.GetToken()
-	if err != nil {
-		return nil, err
-	}
-	ok, badRequest, unauthorized, forbidden, internalServerError, err := aaa.Client.AdminConfig.AdminGetConfigs(input, client.BearerToken(*token.AccessToken))
-	if badRequest != nil {
-		return nil, badRequest
-	}
-	if unauthorized != nil {
-		return nil, unauthorized
-	}
-	if forbidden != nil {
-		return nil, forbidden
-	}
-	if internalServerError != nil {
-		return nil, internalServerError
-	}
-	if err != nil {
-		return nil, err
-	}
-
-	return ok.GetPayload(), nil
-}
-
-// Deprecated: 2022-01-10 - Please use AdminUpdateConfigShort instead.
-func (aaa *AdminConfigService) AdminUpdateConfig(input *admin_config.AdminUpdateConfigParams) error {
-	token, err := aaa.TokenRepository.GetToken()
-	if err != nil {
-		return err
-	}
-	_, badRequest, unauthorized, forbidden, internalServerError, err := aaa.Client.AdminConfig.AdminUpdateConfig(input, client.BearerToken(*token.AccessToken))
-	if badRequest != nil {
-		return badRequest
-	}
-	if unauthorized != nil {
-		return unauthorized
-	}
-	if forbidden != nil {
-		return forbidden
-	}
-	if internalServerError != nil {
-		return internalServerError
-	}
-	if err != nil {
-		return err
-	}
-
-	return nil
 }
 
 func (aaa *AdminConfigService) AdminGetConfigsShort(input *admin_config.AdminGetConfigsParams) (*ugcclientmodels.ModelsPaginatedGetConfigsResponse, error) {

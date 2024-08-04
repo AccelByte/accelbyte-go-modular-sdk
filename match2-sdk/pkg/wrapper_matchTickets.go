@@ -13,7 +13,6 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils/auth"
-	"github.com/go-openapi/runtime/client"
 )
 
 type MatchTicketsService struct {
@@ -36,113 +35,6 @@ func (aaa *MatchTicketsService) GetAuthSession() auth.Session {
 		aaa.ConfigRepository,
 		nil,
 	}
-}
-
-// Deprecated: 2022-01-10 - Please use CreateMatchTicketShort instead.
-func (aaa *MatchTicketsService) CreateMatchTicket(input *match_tickets.CreateMatchTicketParams) (*match2clientmodels.APIMatchTicketResponse, error) {
-	token, err := aaa.TokenRepository.GetToken()
-	if err != nil {
-		return nil, err
-	}
-	created, badRequest, unauthorized, forbidden, notFound, conflict, internalServerError, err := aaa.Client.MatchTickets.CreateMatchTicket(input, client.BearerToken(*token.AccessToken))
-	if badRequest != nil {
-		return nil, badRequest
-	}
-	if unauthorized != nil {
-		return nil, unauthorized
-	}
-	if forbidden != nil {
-		return nil, forbidden
-	}
-	if notFound != nil {
-		return nil, notFound
-	}
-	if conflict != nil {
-		return nil, conflict
-	}
-	if internalServerError != nil {
-		return nil, internalServerError
-	}
-	if err != nil {
-		return nil, err
-	}
-
-	return created.GetPayload(), nil
-}
-
-// Deprecated: 2022-01-10 - Please use GetMyMatchTicketsShort instead.
-func (aaa *MatchTicketsService) GetMyMatchTickets(input *match_tickets.GetMyMatchTicketsParams) (*match2clientmodels.APIMatchTicketStatuses, error) {
-	token, err := aaa.TokenRepository.GetToken()
-	if err != nil {
-		return nil, err
-	}
-	ok, unauthorized, forbidden, internalServerError, err := aaa.Client.MatchTickets.GetMyMatchTickets(input, client.BearerToken(*token.AccessToken))
-	if unauthorized != nil {
-		return nil, unauthorized
-	}
-	if forbidden != nil {
-		return nil, forbidden
-	}
-	if internalServerError != nil {
-		return nil, internalServerError
-	}
-	if err != nil {
-		return nil, err
-	}
-
-	return ok.GetPayload(), nil
-}
-
-// Deprecated: 2022-01-10 - Please use MatchTicketDetailsShort instead.
-func (aaa *MatchTicketsService) MatchTicketDetails(input *match_tickets.MatchTicketDetailsParams) (*match2clientmodels.APIMatchTicketStatus, error) {
-	token, err := aaa.TokenRepository.GetToken()
-	if err != nil {
-		return nil, err
-	}
-	ok, unauthorized, forbidden, notFound, internalServerError, err := aaa.Client.MatchTickets.MatchTicketDetails(input, client.BearerToken(*token.AccessToken))
-	if unauthorized != nil {
-		return nil, unauthorized
-	}
-	if forbidden != nil {
-		return nil, forbidden
-	}
-	if notFound != nil {
-		return nil, notFound
-	}
-	if internalServerError != nil {
-		return nil, internalServerError
-	}
-	if err != nil {
-		return nil, err
-	}
-
-	return ok.GetPayload(), nil
-}
-
-// Deprecated: 2022-01-10 - Please use DeleteMatchTicketShort instead.
-func (aaa *MatchTicketsService) DeleteMatchTicket(input *match_tickets.DeleteMatchTicketParams) error {
-	token, err := aaa.TokenRepository.GetToken()
-	if err != nil {
-		return err
-	}
-	_, unauthorized, forbidden, notFound, internalServerError, err := aaa.Client.MatchTickets.DeleteMatchTicket(input, client.BearerToken(*token.AccessToken))
-	if unauthorized != nil {
-		return unauthorized
-	}
-	if forbidden != nil {
-		return forbidden
-	}
-	if notFound != nil {
-		return notFound
-	}
-	if internalServerError != nil {
-		return internalServerError
-	}
-	if err != nil {
-		return err
-	}
-
-	return nil
 }
 
 func (aaa *MatchTicketsService) CreateMatchTicketShort(input *match_tickets.CreateMatchTicketParams) (*match2clientmodels.APIMatchTicketResponse, error) {

@@ -13,7 +13,6 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/ugc-sdk/pkg/ugcclient"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/ugc-sdk/pkg/ugcclient/public_creator"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/ugc-sdk/pkg/ugcclientmodels"
-	"github.com/go-openapi/runtime/client"
 )
 
 // PublicCreatorService this is use for compatibility with latest modular sdk only
@@ -38,52 +37,6 @@ func (aaa *PublicCreatorService) GetAuthSession() auth.Session {
 		aaa.ConfigRepository,
 		nil,
 	}
-}
-
-// Deprecated: 2022-01-10 - Please use PublicSearchCreatorShort instead.
-func (aaa *PublicCreatorService) PublicSearchCreator(input *public_creator.PublicSearchCreatorParams) (*ugcclientmodels.ModelsPaginatedCreatorOverviewResponse, error) {
-	token, err := aaa.TokenRepository.GetToken()
-	if err != nil {
-		return nil, err
-	}
-	ok, badRequest, unauthorized, internalServerError, err := aaa.Client.PublicCreator.PublicSearchCreator(input, client.BearerToken(*token.AccessToken))
-	if badRequest != nil {
-		return nil, badRequest
-	}
-	if unauthorized != nil {
-		return nil, unauthorized
-	}
-	if internalServerError != nil {
-		return nil, internalServerError
-	}
-	if err != nil {
-		return nil, err
-	}
-
-	return ok.GetPayload(), nil
-}
-
-// Deprecated: 2022-01-10 - Please use PublicGetCreatorShort instead.
-func (aaa *PublicCreatorService) PublicGetCreator(input *public_creator.PublicGetCreatorParams) (*ugcclientmodels.ModelsCreatorResponse, error) {
-	token, err := aaa.TokenRepository.GetToken()
-	if err != nil {
-		return nil, err
-	}
-	ok, unauthorized, notFound, internalServerError, err := aaa.Client.PublicCreator.PublicGetCreator(input, client.BearerToken(*token.AccessToken))
-	if unauthorized != nil {
-		return nil, unauthorized
-	}
-	if notFound != nil {
-		return nil, notFound
-	}
-	if internalServerError != nil {
-		return nil, internalServerError
-	}
-	if err != nil {
-		return nil, err
-	}
-
-	return ok.GetPayload(), nil
 }
 
 func (aaa *PublicCreatorService) PublicSearchCreatorShort(input *public_creator.PublicSearchCreatorParams) (*ugcclientmodels.ModelsPaginatedCreatorOverviewResponse, error) {

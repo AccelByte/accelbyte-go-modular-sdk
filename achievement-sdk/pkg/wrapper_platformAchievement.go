@@ -13,7 +13,6 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils/auth"
-	"github.com/go-openapi/runtime/client"
 )
 
 type PlatformAchievementService struct {
@@ -36,29 +35,6 @@ func (aaa *PlatformAchievementService) GetAuthSession() auth.Session {
 		aaa.ConfigRepository,
 		nil,
 	}
-}
-
-// Deprecated: 2022-01-10 - Please use BulkCreatePSNEventShort instead.
-func (aaa *PlatformAchievementService) BulkCreatePSNEvent(input *platform_achievement.BulkCreatePSNEventParams) (*achievementclientmodels.ModelsBulkCreatePSNEventResponse, error) {
-	token, err := aaa.TokenRepository.GetToken()
-	if err != nil {
-		return nil, err
-	}
-	ok, unauthorized, forbidden, internalServerError, err := aaa.Client.PlatformAchievement.BulkCreatePSNEvent(input, client.BearerToken(*token.AccessToken))
-	if unauthorized != nil {
-		return nil, unauthorized
-	}
-	if forbidden != nil {
-		return nil, forbidden
-	}
-	if internalServerError != nil {
-		return nil, internalServerError
-	}
-	if err != nil {
-		return nil, err
-	}
-
-	return ok.GetPayload(), nil
 }
 
 func (aaa *PlatformAchievementService) BulkCreatePSNEventShort(input *platform_achievement.BulkCreatePSNEventParams) (*achievementclientmodels.ModelsBulkCreatePSNEventResponse, error) {

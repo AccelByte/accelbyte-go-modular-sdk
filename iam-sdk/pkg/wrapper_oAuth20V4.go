@@ -13,7 +13,6 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils/auth"
-	"github.com/go-openapi/runtime/client"
 )
 
 type OAuth20v4Service struct {
@@ -36,185 +35,6 @@ func (aaa *OAuth20v4Service) GetAuthSession() auth.Session {
 		aaa.ConfigRepository,
 		nil,
 	}
-}
-
-// Deprecated: 2022-01-10 - Please use AuthenticationWithPlatformLinkV4Short instead.
-func (aaa *OAuth20v4Service) AuthenticationWithPlatformLinkV4(input *o_auth2_0_v4.AuthenticationWithPlatformLinkV4Params) (*iamclientmodels.OauthmodelTokenResponseV3, error) {
-	token, err := aaa.TokenRepository.GetToken()
-	if err != nil {
-		return nil, err
-	}
-	ok, accepted, badRequest, unauthorized, forbidden, conflict, err := aaa.Client.OAuth20V4.AuthenticationWithPlatformLinkV4(input, client.BearerToken(*token.AccessToken))
-	if accepted != nil {
-		return nil, accepted
-	}
-	if badRequest != nil {
-		return nil, badRequest
-	}
-	if unauthorized != nil {
-		return nil, unauthorized
-	}
-	if forbidden != nil {
-		return nil, forbidden
-	}
-	if conflict != nil {
-		return nil, conflict
-	}
-	if err != nil {
-		return nil, err
-	}
-
-	return ok.GetPayload(), nil
-}
-
-// Deprecated: 2022-01-10 - Please use GenerateTokenByNewHeadlessAccountV4Short instead.
-func (aaa *OAuth20v4Service) GenerateTokenByNewHeadlessAccountV4(input *o_auth2_0_v4.GenerateTokenByNewHeadlessAccountV4Params) (*iamclientmodels.OauthmodelTokenResponseV3, error) {
-	token, err := aaa.TokenRepository.GetToken()
-	if err != nil {
-		return nil, err
-	}
-	ok, accepted, badRequest, unauthorized, notFound, err := aaa.Client.OAuth20V4.GenerateTokenByNewHeadlessAccountV4(input, client.BearerToken(*token.AccessToken))
-	if accepted != nil {
-		return nil, accepted
-	}
-	if badRequest != nil {
-		return nil, badRequest
-	}
-	if unauthorized != nil {
-		return nil, unauthorized
-	}
-	if notFound != nil {
-		return nil, notFound
-	}
-	if err != nil {
-		return nil, err
-	}
-
-	return ok.GetPayload(), nil
-}
-
-// Deprecated: 2022-01-10 - Please use Verify2FACodeV4Short instead.
-func (aaa *OAuth20v4Service) Verify2FACodeV4(input *o_auth2_0_v4.Verify2FACodeV4Params) (*iamclientmodels.OauthmodelTokenResponseV3, error) {
-	token, err := aaa.TokenRepository.GetToken()
-	if err != nil {
-		return nil, err
-	}
-	ok, accepted, unauthorized, err := aaa.Client.OAuth20V4.Verify2FACodeV4(input, client.BearerToken(*token.AccessToken))
-	if accepted != nil {
-		return nil, accepted
-	}
-	if unauthorized != nil {
-		return nil, unauthorized
-	}
-	if err != nil {
-		return nil, err
-	}
-
-	return ok.GetPayload(), nil
-}
-
-// Deprecated: 2022-01-10 - Please use PlatformTokenGrantV4Short instead.
-func (aaa *OAuth20v4Service) PlatformTokenGrantV4(input *o_auth2_0_v4.PlatformTokenGrantV4Params) (*iamclientmodels.OauthmodelTokenResponseV3, error) {
-	token, err := aaa.TokenRepository.GetToken()
-	if err != nil {
-		return nil, err
-	}
-	ok, accepted, badRequest, unauthorized, forbidden, serviceUnavailable, err := aaa.Client.OAuth20V4.PlatformTokenGrantV4(input, client.BearerToken(*token.AccessToken))
-	if accepted != nil {
-		return nil, accepted
-	}
-	if badRequest != nil {
-		return nil, badRequest
-	}
-	if unauthorized != nil {
-		return nil, unauthorized
-	}
-	if forbidden != nil {
-		return nil, forbidden
-	}
-	if serviceUnavailable != nil {
-		return nil, serviceUnavailable
-	}
-	if err != nil {
-		return nil, err
-	}
-
-	return ok.GetPayload(), nil
-}
-
-// Deprecated: 2022-01-10 - Please use SimultaneousLoginV4Short instead.
-func (aaa *OAuth20v4Service) SimultaneousLoginV4(input *o_auth2_0_v4.SimultaneousLoginV4Params) (*iamclientmodels.OauthmodelTokenResponseV3, error) {
-	token, err := aaa.TokenRepository.GetToken()
-	if err != nil {
-		return nil, err
-	}
-	ok, accepted, badRequest, unauthorized, conflict, internalServerError, err := aaa.Client.OAuth20V4.SimultaneousLoginV4(input, client.BearerToken(*token.AccessToken))
-	if accepted != nil {
-		return nil, accepted
-	}
-	if badRequest != nil {
-		return nil, badRequest
-	}
-	if unauthorized != nil {
-		return nil, unauthorized
-	}
-	if conflict != nil {
-		return nil, conflict
-	}
-	if internalServerError != nil {
-		return nil, internalServerError
-	}
-	if err != nil {
-		return nil, err
-	}
-
-	return ok.GetPayload(), nil
-}
-
-// Deprecated: 2022-01-10 - Please use TokenGrantV4Short instead.
-func (aaa *OAuth20v4Service) TokenGrantV4(input *o_auth2_0_v4.TokenGrantV4Params) (*iamclientmodels.OauthmodelTokenWithDeviceCookieResponseV3, error) {
-	token, err := aaa.TokenRepository.GetToken()
-	if err != nil {
-		return nil, err
-	}
-	ok, accepted, badRequest, unauthorized, forbidden, tooManyRequests, err := aaa.Client.OAuth20V4.TokenGrantV4(input, client.BearerToken(*token.AccessToken))
-	if accepted != nil {
-		return nil, accepted
-	}
-	if badRequest != nil {
-		return nil, badRequest
-	}
-	if unauthorized != nil {
-		return nil, unauthorized
-	}
-	if forbidden != nil {
-		return nil, forbidden
-	}
-	if tooManyRequests != nil {
-		return nil, tooManyRequests
-	}
-	if err != nil {
-		return nil, err
-	}
-
-	return ok.GetPayload(), nil
-}
-
-// Deprecated: 2022-01-10 - Please use RequestTargetTokenResponseV4Short instead.
-func (aaa *OAuth20v4Service) RequestTargetTokenResponseV4(input *o_auth2_0_v4.RequestTargetTokenResponseV4Params) (*iamclientmodels.OauthmodelTokenResponseV3, error) {
-	token, err := aaa.TokenRepository.GetToken()
-	if err != nil {
-		return nil, err
-	}
-	ok, accepted, err := aaa.Client.OAuth20V4.RequestTargetTokenResponseV4(input, client.BearerToken(*token.AccessToken))
-	if accepted != nil {
-		return nil, accepted
-	}
-	if err != nil {
-		return nil, err
-	}
-
-	return ok.GetPayload(), nil
 }
 
 func (aaa *OAuth20v4Service) AuthenticationWithPlatformLinkV4Short(input *o_auth2_0_v4.AuthenticationWithPlatformLinkV4Params) (*iamclientmodels.OauthmodelTokenResponseV3, error) {
@@ -311,7 +131,7 @@ func (aaa *OAuth20v4Service) PlatformTokenGrantV4Short(input *o_auth2_0_v4.Platf
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
-			{"bearer"},
+			{"basic"},
 		}
 		authInfoWriter = auth.AuthInfoWriter(aaa.GetAuthSession(), security, "")
 	}
@@ -371,7 +191,7 @@ func (aaa *OAuth20v4Service) TokenGrantV4Short(input *o_auth2_0_v4.TokenGrantV4P
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
-			{"bearer"},
+			{"basic"},
 		}
 		authInfoWriter = auth.AuthInfoWriter(aaa.GetAuthSession(), security, "")
 	}

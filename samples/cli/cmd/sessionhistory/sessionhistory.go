@@ -7,6 +7,7 @@
 package sessionhistory
 
 import (
+	"github.com/AccelByte/sample-apps/cmd/sessionhistory/config"
 	"github.com/AccelByte/sample-apps/cmd/sessionhistory/gameSessionDetail"
 	"github.com/AccelByte/sample-apps/cmd/sessionhistory/operations"
 	"github.com/AccelByte/sample-apps/cmd/sessionhistory/xRay"
@@ -22,6 +23,8 @@ var SessionhistoryCmd = &cobra.Command{
 func init() {
 	SessionhistoryCmd.AddCommand(operations.GetHealthcheckInfoCmd)
 	SessionhistoryCmd.AddCommand(operations.GetHealthcheckInfoV1Cmd)
+	SessionhistoryCmd.AddCommand(config.AdminGetLogConfigCmd)
+	SessionhistoryCmd.AddCommand(config.AdminPatchUpdateLogConfigCmd)
 	SessionhistoryCmd.AddCommand(gameSessionDetail.AdminQueryGameSessionDetailCmd)
 	SessionhistoryCmd.AddCommand(gameSessionDetail.GetGameSessionDetailCmd)
 	SessionhistoryCmd.AddCommand(gameSessionDetail.AdminQueryMatchmakingDetailCmd)
@@ -31,6 +34,7 @@ func init() {
 	SessionhistoryCmd.AddCommand(gameSessionDetail.GetPartyDetailCmd)
 	SessionhistoryCmd.AddCommand(gameSessionDetail.AdminQueryTicketDetailCmd)
 	SessionhistoryCmd.AddCommand(gameSessionDetail.AdminTicketDetailGetByTicketIDCmd)
+	SessionhistoryCmd.AddCommand(gameSessionDetail.PublicQueryGameSessionMeCmd)
 	SessionhistoryCmd.AddCommand(xRay.QueryXrayMatchPoolCmd)
 	SessionhistoryCmd.AddCommand(xRay.QueryDetailTickMatchPoolCmd)
 	SessionhistoryCmd.AddCommand(xRay.QueryDetailTickMatchPoolMatchesCmd)
@@ -49,6 +53,7 @@ func init() {
 	SessionhistoryCmd.AddCommand(xRay.QueryTotalMatchmakingCreatedCmd)
 	SessionhistoryCmd.AddCommand(xRay.QueryTotalMatchmakingExpiredCmd)
 	SessionhistoryCmd.AddCommand(xRay.QueryTotalMatchmakingMatchTicketCmd)
+	SessionhistoryCmd.AddCommand(xRay.CreateXrayTicketObservabilityCmd)
 	SessionhistoryCmd.AddCommand(xRay.QueryXrayTimelineByTicketIDCmd)
 	SessionhistoryCmd.AddCommand(xRay.QueryXrayTimelineByUserIDCmd)
 }

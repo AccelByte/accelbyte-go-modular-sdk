@@ -30,26 +30,23 @@ type Client struct {
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	AdminGetAllConfigV1(params *AdminGetAllConfigV1Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetAllConfigV1OK, *AdminGetAllConfigV1Unauthorized, *AdminGetAllConfigV1Forbidden, *AdminGetAllConfigV1InternalServerError, error)
+	AdminGetLogConfigShort(params *AdminGetLogConfigParams, authInfo runtime.ClientAuthInfoWriter) (*AdminGetLogConfigOK, error)
+	AdminPatchUpdateLogConfigShort(params *AdminPatchUpdateLogConfigParams, authInfo runtime.ClientAuthInfoWriter) (*AdminPatchUpdateLogConfigOK, error)
 	AdminGetAllConfigV1Short(params *AdminGetAllConfigV1Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetAllConfigV1OK, error)
-	AdminGetConfigV1(params *AdminGetConfigV1Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetConfigV1OK, *AdminGetConfigV1Unauthorized, *AdminGetConfigV1Forbidden, *AdminGetConfigV1InternalServerError, error)
 	AdminGetConfigV1Short(params *AdminGetConfigV1Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetConfigV1OK, error)
-	AdminPatchConfigV1(params *AdminPatchConfigV1Params, authInfo runtime.ClientAuthInfoWriter) (*AdminPatchConfigV1OK, *AdminPatchConfigV1Unauthorized, *AdminPatchConfigV1Forbidden, *AdminPatchConfigV1InternalServerError, error)
 	AdminPatchConfigV1Short(params *AdminPatchConfigV1Params, authInfo runtime.ClientAuthInfoWriter) (*AdminPatchConfigV1OK, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
 
 /*
-Deprecated: 2022-08-10 - Use AdminGetAllConfigV1Short instead.
-
-AdminGetAllConfigV1 admin get all namespaces config
-Get matchmaking config of all namespaces. Will only return namespace configs than have been updated.
+AdminGetLogConfigShort get log configuration
+Get Log Configuration.
 */
-func (a *Client) AdminGetAllConfigV1(params *AdminGetAllConfigV1Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetAllConfigV1OK, *AdminGetAllConfigV1Unauthorized, *AdminGetAllConfigV1Forbidden, *AdminGetAllConfigV1InternalServerError, error) {
+func (a *Client) AdminGetLogConfigShort(params *AdminGetLogConfigParams, authInfo runtime.ClientAuthInfoWriter) (*AdminGetLogConfigOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
-		params = NewAdminGetAllConfigV1Params()
+		params = NewAdminGetLogConfigParams()
 	}
 
 	if params.Context == nil {
@@ -60,39 +57,83 @@ func (a *Client) AdminGetAllConfigV1(params *AdminGetAllConfigV1Params, authInfo
 		params.SetHTTPClientTransport(params.RetryPolicy)
 	}
 
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
+	}
+
 	result, err := a.transport.Submit(&runtime.ClientOperation{
-		ID:                 "adminGetAllConfigV1",
+		ID:                 "adminGetLogConfig",
 		Method:             "GET",
-		PathPattern:        "/match2/v1/config",
+		PathPattern:        "/match2/v1/admin/config/log",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"https"},
 		Params:             params,
-		Reader:             &AdminGetAllConfigV1Reader{formats: a.formats},
+		Reader:             &AdminGetLogConfigReader{formats: a.formats},
 		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	})
 	if err != nil {
-		return nil, nil, nil, nil, err
+		return nil, err
 	}
 
 	switch v := result.(type) {
 
-	case *AdminGetAllConfigV1OK:
-		return v, nil, nil, nil, nil
-
-	case *AdminGetAllConfigV1Unauthorized:
-		return nil, v, nil, nil, nil
-
-	case *AdminGetAllConfigV1Forbidden:
-		return nil, nil, v, nil, nil
-
-	case *AdminGetAllConfigV1InternalServerError:
-		return nil, nil, nil, v, nil
+	case *AdminGetLogConfigOK:
+		return v, nil
 
 	default:
-		return nil, nil, nil, nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
+		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
+	}
+}
+
+/*
+AdminPatchUpdateLogConfigShort patch update log configuration
+Update Log Configuration.
+*/
+func (a *Client) AdminPatchUpdateLogConfigShort(params *AdminPatchUpdateLogConfigParams, authInfo runtime.ClientAuthInfoWriter) (*AdminPatchUpdateLogConfigOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewAdminPatchUpdateLogConfigParams()
+	}
+
+	if params.Context == nil {
+		params.Context = context.Background()
+	}
+
+	if params.RetryPolicy != nil {
+		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
+	}
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "adminPatchUpdateLogConfig",
+		Method:             "PATCH",
+		PathPattern:        "/match2/v1/admin/config/log",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &AdminPatchUpdateLogConfigReader{formats: a.formats},
+		AuthInfo:           authInfo,
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+
+	switch v := result.(type) {
+
+	case *AdminPatchUpdateLogConfigOK:
+		return v, nil
+
+	default:
+		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
 	}
 }
 
@@ -152,62 +193,6 @@ func (a *Client) AdminGetAllConfigV1Short(params *AdminGetAllConfigV1Params, aut
 }
 
 /*
-Deprecated: 2022-08-10 - Use AdminGetConfigV1Short instead.
-
-AdminGetConfigV1 admin get namespace config
-Get matchmaking config of a namespaces.
-*/
-func (a *Client) AdminGetConfigV1(params *AdminGetConfigV1Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetConfigV1OK, *AdminGetConfigV1Unauthorized, *AdminGetConfigV1Forbidden, *AdminGetConfigV1InternalServerError, error) {
-	// TODO: Validate the params before sending
-	if params == nil {
-		params = NewAdminGetConfigV1Params()
-	}
-
-	if params.Context == nil {
-		params.Context = context.Background()
-	}
-
-	if params.RetryPolicy != nil {
-		params.SetHTTPClientTransport(params.RetryPolicy)
-	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
-		ID:                 "adminGetConfigV1",
-		Method:             "GET",
-		PathPattern:        "/match2/v1/config/namespaces/{namespace}",
-		ProducesMediaTypes: []string{"application/json"},
-		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
-		Params:             params,
-		Reader:             &AdminGetConfigV1Reader{formats: a.formats},
-		AuthInfo:           authInfo,
-		Context:            params.Context,
-		Client:             params.HTTPClient,
-	})
-	if err != nil {
-		return nil, nil, nil, nil, err
-	}
-
-	switch v := result.(type) {
-
-	case *AdminGetConfigV1OK:
-		return v, nil, nil, nil, nil
-
-	case *AdminGetConfigV1Unauthorized:
-		return nil, v, nil, nil, nil
-
-	case *AdminGetConfigV1Forbidden:
-		return nil, nil, v, nil, nil
-
-	case *AdminGetConfigV1InternalServerError:
-		return nil, nil, nil, v, nil
-
-	default:
-		return nil, nil, nil, nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
-	}
-}
-
-/*
 AdminGetConfigV1Short admin get namespace config
 Get matchmaking config of a namespaces.
 */
@@ -259,62 +244,6 @@ func (a *Client) AdminGetConfigV1Short(params *AdminGetConfigV1Params, authInfo 
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
-	}
-}
-
-/*
-Deprecated: 2022-08-10 - Use AdminPatchConfigV1Short instead.
-
-AdminPatchConfigV1 admin patch update namespace config
-Patch update matchmaking config of a namespaces. Partially update matchmaking config, will only update value that defined on the request.
-*/
-func (a *Client) AdminPatchConfigV1(params *AdminPatchConfigV1Params, authInfo runtime.ClientAuthInfoWriter) (*AdminPatchConfigV1OK, *AdminPatchConfigV1Unauthorized, *AdminPatchConfigV1Forbidden, *AdminPatchConfigV1InternalServerError, error) {
-	// TODO: Validate the params before sending
-	if params == nil {
-		params = NewAdminPatchConfigV1Params()
-	}
-
-	if params.Context == nil {
-		params.Context = context.Background()
-	}
-
-	if params.RetryPolicy != nil {
-		params.SetHTTPClientTransport(params.RetryPolicy)
-	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
-		ID:                 "adminPatchConfigV1",
-		Method:             "PATCH",
-		PathPattern:        "/match2/v1/config/namespaces/{namespace}",
-		ProducesMediaTypes: []string{"application/json"},
-		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
-		Params:             params,
-		Reader:             &AdminPatchConfigV1Reader{formats: a.formats},
-		AuthInfo:           authInfo,
-		Context:            params.Context,
-		Client:             params.HTTPClient,
-	})
-	if err != nil {
-		return nil, nil, nil, nil, err
-	}
-
-	switch v := result.(type) {
-
-	case *AdminPatchConfigV1OK:
-		return v, nil, nil, nil, nil
-
-	case *AdminPatchConfigV1Unauthorized:
-		return nil, v, nil, nil, nil
-
-	case *AdminPatchConfigV1Forbidden:
-		return nil, nil, v, nil, nil
-
-	case *AdminPatchConfigV1InternalServerError:
-		return nil, nil, nil, v, nil
-
-	default:
-		return nil, nil, nil, nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
 	}
 }
 

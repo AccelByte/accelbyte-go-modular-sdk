@@ -13,7 +13,6 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils/auth"
-	"github.com/go-openapi/runtime/client"
 )
 
 // ModerationService this is use for compatibility with latest modular sdk only
@@ -38,93 +37,6 @@ func (aaa *ModerationService) GetAuthSession() auth.Session {
 		aaa.ConfigRepository,
 		nil,
 	}
-}
-
-// Deprecated: 2022-01-10 - Please use AdminGetChatSnapshotShort instead.
-func (aaa *ModerationService) AdminGetChatSnapshot(input *moderation.AdminGetChatSnapshotParams) (*chatclientmodels.ModelsChatSnapshots, error) {
-	token, err := aaa.TokenRepository.GetToken()
-	if err != nil {
-		return nil, err
-	}
-	ok, badRequest, unauthorized, forbidden, notFound, internalServerError, err := aaa.Client.Moderation.AdminGetChatSnapshot(input, client.BearerToken(*token.AccessToken))
-	if badRequest != nil {
-		return nil, badRequest
-	}
-	if unauthorized != nil {
-		return nil, unauthorized
-	}
-	if forbidden != nil {
-		return nil, forbidden
-	}
-	if notFound != nil {
-		return nil, notFound
-	}
-	if internalServerError != nil {
-		return nil, internalServerError
-	}
-	if err != nil {
-		return nil, err
-	}
-
-	return ok.GetPayload(), nil
-}
-
-// Deprecated: 2022-01-10 - Please use AdminDeleteChatSnapshotShort instead.
-func (aaa *ModerationService) AdminDeleteChatSnapshot(input *moderation.AdminDeleteChatSnapshotParams) error {
-	token, err := aaa.TokenRepository.GetToken()
-	if err != nil {
-		return err
-	}
-	_, badRequest, unauthorized, forbidden, notFound, internalServerError, err := aaa.Client.Moderation.AdminDeleteChatSnapshot(input, client.BearerToken(*token.AccessToken))
-	if badRequest != nil {
-		return badRequest
-	}
-	if unauthorized != nil {
-		return unauthorized
-	}
-	if forbidden != nil {
-		return forbidden
-	}
-	if notFound != nil {
-		return notFound
-	}
-	if internalServerError != nil {
-		return internalServerError
-	}
-	if err != nil {
-		return err
-	}
-
-	return nil
-}
-
-// Deprecated: 2022-01-10 - Please use PublicGetChatSnapshotShort instead.
-func (aaa *ModerationService) PublicGetChatSnapshot(input *moderation.PublicGetChatSnapshotParams) (*chatclientmodels.ModelsChatSnapshots, error) {
-	token, err := aaa.TokenRepository.GetToken()
-	if err != nil {
-		return nil, err
-	}
-	ok, badRequest, unauthorized, forbidden, notFound, internalServerError, err := aaa.Client.Moderation.PublicGetChatSnapshot(input, client.BearerToken(*token.AccessToken))
-	if badRequest != nil {
-		return nil, badRequest
-	}
-	if unauthorized != nil {
-		return nil, unauthorized
-	}
-	if forbidden != nil {
-		return nil, forbidden
-	}
-	if notFound != nil {
-		return nil, notFound
-	}
-	if internalServerError != nil {
-		return nil, internalServerError
-	}
-	if err != nil {
-		return nil, err
-	}
-
-	return ok.GetPayload(), nil
 }
 
 func (aaa *ModerationService) AdminGetChatSnapshotShort(input *moderation.AdminGetChatSnapshotParams) (*chatclientmodels.ModelsChatSnapshots, error) {

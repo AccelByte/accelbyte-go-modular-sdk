@@ -30,72 +30,18 @@ type Client struct {
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	QueryFulfillmentHistories(params *QueryFulfillmentHistoriesParams, authInfo runtime.ClientAuthInfoWriter) (*QueryFulfillmentHistoriesOK, error)
 	QueryFulfillmentHistoriesShort(params *QueryFulfillmentHistoriesParams, authInfo runtime.ClientAuthInfoWriter) (*QueryFulfillmentHistoriesOK, error)
-	FulfillItem(params *FulfillItemParams, authInfo runtime.ClientAuthInfoWriter) (*FulfillItemOK, *FulfillItemBadRequest, *FulfillItemNotFound, *FulfillItemConflict, error)
 	FulfillItemShort(params *FulfillItemParams, authInfo runtime.ClientAuthInfoWriter) (*FulfillItemOK, error)
-	RedeemCode(params *RedeemCodeParams, authInfo runtime.ClientAuthInfoWriter) (*RedeemCodeOK, *RedeemCodeBadRequest, *RedeemCodeNotFound, *RedeemCodeConflict, error)
 	RedeemCodeShort(params *RedeemCodeParams, authInfo runtime.ClientAuthInfoWriter) (*RedeemCodeOK, error)
-	PreCheckFulfillItem(params *PreCheckFulfillItemParams, authInfo runtime.ClientAuthInfoWriter) (*PreCheckFulfillItemOK, *PreCheckFulfillItemBadRequest, *PreCheckFulfillItemNotFound, error)
 	PreCheckFulfillItemShort(params *PreCheckFulfillItemParams, authInfo runtime.ClientAuthInfoWriter) (*PreCheckFulfillItemOK, error)
-	FulfillRewards(params *FulfillRewardsParams, authInfo runtime.ClientAuthInfoWriter) (*FulfillRewardsNoContent, *FulfillRewardsBadRequest, *FulfillRewardsNotFound, *FulfillRewardsConflict, error)
 	FulfillRewardsShort(params *FulfillRewardsParams, authInfo runtime.ClientAuthInfoWriter) (*FulfillRewardsNoContent, error)
-	PublicRedeemCode(params *PublicRedeemCodeParams, authInfo runtime.ClientAuthInfoWriter) (*PublicRedeemCodeOK, *PublicRedeemCodeBadRequest, *PublicRedeemCodeNotFound, *PublicRedeemCodeConflict, *PublicRedeemCodeTooManyRequests, error)
 	PublicRedeemCodeShort(params *PublicRedeemCodeParams, authInfo runtime.ClientAuthInfoWriter) (*PublicRedeemCodeOK, error)
-	FulfillRewardsV2(params *FulfillRewardsV2Params, authInfo runtime.ClientAuthInfoWriter) (*FulfillRewardsV2OK, *FulfillRewardsV2BadRequest, *FulfillRewardsV2NotFound, *FulfillRewardsV2Conflict, error)
+	QueryFulfillmentsShort(params *QueryFulfillmentsParams, authInfo runtime.ClientAuthInfoWriter) (*QueryFulfillmentsOK, error)
 	FulfillRewardsV2Short(params *FulfillRewardsV2Params, authInfo runtime.ClientAuthInfoWriter) (*FulfillRewardsV2OK, error)
+	FulfillItemsShort(params *FulfillItemsParams, authInfo runtime.ClientAuthInfoWriter) (*FulfillItemsOK, error)
+	RevokeItemsShort(params *RevokeItemsParams, authInfo runtime.ClientAuthInfoWriter) (*RevokeItemsOK, error)
 
 	SetTransport(transport runtime.ClientTransport)
-}
-
-/*
-Deprecated: 2022-08-10 - Use QueryFulfillmentHistoriesShort instead.
-
-QueryFulfillmentHistories query fulfillment histories
-Query fulfillment histories in a namespace.
-Other detail info:
-
-  * Returns : query fulfillment history
-*/
-func (a *Client) QueryFulfillmentHistories(params *QueryFulfillmentHistoriesParams, authInfo runtime.ClientAuthInfoWriter) (*QueryFulfillmentHistoriesOK, error) {
-	// TODO: Validate the params before sending
-	if params == nil {
-		params = NewQueryFulfillmentHistoriesParams()
-	}
-
-	if params.Context == nil {
-		params.Context = context.Background()
-	}
-
-	if params.RetryPolicy != nil {
-		params.SetHTTPClientTransport(params.RetryPolicy)
-	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
-		ID:                 "queryFulfillmentHistories",
-		Method:             "GET",
-		PathPattern:        "/platform/admin/namespaces/{namespace}/fulfillment/history",
-		ProducesMediaTypes: []string{"application/json"},
-		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
-		Params:             params,
-		Reader:             &QueryFulfillmentHistoriesReader{formats: a.formats},
-		AuthInfo:           authInfo,
-		Context:            params.Context,
-		Client:             params.HTTPClient,
-	})
-	if err != nil {
-		return nil, err
-	}
-
-	switch v := result.(type) {
-
-	case *QueryFulfillmentHistoriesOK:
-		return v, nil
-
-	default:
-		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
-	}
 }
 
 /*
@@ -147,65 +93,6 @@ func (a *Client) QueryFulfillmentHistoriesShort(params *QueryFulfillmentHistorie
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
-	}
-}
-
-/*
-Deprecated: 2022-08-10 - Use FulfillItemShort instead.
-
-FulfillItem fulfill item
-Fulfill item.
-Other detail info:
-
-  * Returns : fulfillment result
-*/
-func (a *Client) FulfillItem(params *FulfillItemParams, authInfo runtime.ClientAuthInfoWriter) (*FulfillItemOK, *FulfillItemBadRequest, *FulfillItemNotFound, *FulfillItemConflict, error) {
-	// TODO: Validate the params before sending
-	if params == nil {
-		params = NewFulfillItemParams()
-	}
-
-	if params.Context == nil {
-		params.Context = context.Background()
-	}
-
-	if params.RetryPolicy != nil {
-		params.SetHTTPClientTransport(params.RetryPolicy)
-	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
-		ID:                 "fulfillItem",
-		Method:             "POST",
-		PathPattern:        "/platform/admin/namespaces/{namespace}/users/{userId}/fulfillment",
-		ProducesMediaTypes: []string{"application/json"},
-		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
-		Params:             params,
-		Reader:             &FulfillItemReader{formats: a.formats},
-		AuthInfo:           authInfo,
-		Context:            params.Context,
-		Client:             params.HTTPClient,
-	})
-	if err != nil {
-		return nil, nil, nil, nil, err
-	}
-
-	switch v := result.(type) {
-
-	case *FulfillItemOK:
-		return v, nil, nil, nil, nil
-
-	case *FulfillItemBadRequest:
-		return nil, v, nil, nil, nil
-
-	case *FulfillItemNotFound:
-		return nil, nil, v, nil, nil
-
-	case *FulfillItemConflict:
-		return nil, nil, nil, v, nil
-
-	default:
-		return nil, nil, nil, nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
 	}
 }
 
@@ -268,65 +155,6 @@ func (a *Client) FulfillItemShort(params *FulfillItemParams, authInfo runtime.Cl
 }
 
 /*
-Deprecated: 2022-08-10 - Use RedeemCodeShort instead.
-
-RedeemCode redeem campaign code
-Redeem campaign code.
-Other detail info:
-
-  * Returns : fulfillment result
-*/
-func (a *Client) RedeemCode(params *RedeemCodeParams, authInfo runtime.ClientAuthInfoWriter) (*RedeemCodeOK, *RedeemCodeBadRequest, *RedeemCodeNotFound, *RedeemCodeConflict, error) {
-	// TODO: Validate the params before sending
-	if params == nil {
-		params = NewRedeemCodeParams()
-	}
-
-	if params.Context == nil {
-		params.Context = context.Background()
-	}
-
-	if params.RetryPolicy != nil {
-		params.SetHTTPClientTransport(params.RetryPolicy)
-	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
-		ID:                 "redeemCode",
-		Method:             "POST",
-		PathPattern:        "/platform/admin/namespaces/{namespace}/users/{userId}/fulfillment/code",
-		ProducesMediaTypes: []string{"application/json"},
-		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
-		Params:             params,
-		Reader:             &RedeemCodeReader{formats: a.formats},
-		AuthInfo:           authInfo,
-		Context:            params.Context,
-		Client:             params.HTTPClient,
-	})
-	if err != nil {
-		return nil, nil, nil, nil, err
-	}
-
-	switch v := result.(type) {
-
-	case *RedeemCodeOK:
-		return v, nil, nil, nil, nil
-
-	case *RedeemCodeBadRequest:
-		return nil, v, nil, nil, nil
-
-	case *RedeemCodeNotFound:
-		return nil, nil, v, nil, nil
-
-	case *RedeemCodeConflict:
-		return nil, nil, nil, v, nil
-
-	default:
-		return nil, nil, nil, nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
-	}
-}
-
-/*
 RedeemCodeShort redeem campaign code
 Redeem campaign code.
 Other detail info:
@@ -381,62 +209,6 @@ func (a *Client) RedeemCodeShort(params *RedeemCodeParams, authInfo runtime.Clie
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
-	}
-}
-
-/*
-Deprecated: 2022-08-10 - Use PreCheckFulfillItemShort instead.
-
-PreCheckFulfillItem pre check fulfillment items
-Retrieve and check fulfillment items based on the provided request.
-Other detail info:
-
-  * Returns : list of fulfillment items
-*/
-func (a *Client) PreCheckFulfillItem(params *PreCheckFulfillItemParams, authInfo runtime.ClientAuthInfoWriter) (*PreCheckFulfillItemOK, *PreCheckFulfillItemBadRequest, *PreCheckFulfillItemNotFound, error) {
-	// TODO: Validate the params before sending
-	if params == nil {
-		params = NewPreCheckFulfillItemParams()
-	}
-
-	if params.Context == nil {
-		params.Context = context.Background()
-	}
-
-	if params.RetryPolicy != nil {
-		params.SetHTTPClientTransport(params.RetryPolicy)
-	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
-		ID:                 "preCheckFulfillItem",
-		Method:             "POST",
-		PathPattern:        "/platform/admin/namespaces/{namespace}/users/{userId}/fulfillment/preCheck",
-		ProducesMediaTypes: []string{"application/json"},
-		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
-		Params:             params,
-		Reader:             &PreCheckFulfillItemReader{formats: a.formats},
-		AuthInfo:           authInfo,
-		Context:            params.Context,
-		Client:             params.HTTPClient,
-	})
-	if err != nil {
-		return nil, nil, nil, err
-	}
-
-	switch v := result.(type) {
-
-	case *PreCheckFulfillItemOK:
-		return v, nil, nil, nil
-
-	case *PreCheckFulfillItemBadRequest:
-		return nil, v, nil, nil
-
-	case *PreCheckFulfillItemNotFound:
-		return nil, nil, v, nil
-
-	default:
-		return nil, nil, nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
 	}
 }
 
@@ -497,65 +269,6 @@ func (a *Client) PreCheckFulfillItemShort(params *PreCheckFulfillItemParams, aut
 }
 
 /*
-Deprecated: 2022-08-10 - Use FulfillRewardsShort instead.
-
-FulfillRewards fulfill rewards without content
- [SERVICE COMMUNICATION ONLY] Fulfill rewards.
-Other detail info:
-
-  * Returns : fulfillment result
-*/
-func (a *Client) FulfillRewards(params *FulfillRewardsParams, authInfo runtime.ClientAuthInfoWriter) (*FulfillRewardsNoContent, *FulfillRewardsBadRequest, *FulfillRewardsNotFound, *FulfillRewardsConflict, error) {
-	// TODO: Validate the params before sending
-	if params == nil {
-		params = NewFulfillRewardsParams()
-	}
-
-	if params.Context == nil {
-		params.Context = context.Background()
-	}
-
-	if params.RetryPolicy != nil {
-		params.SetHTTPClientTransport(params.RetryPolicy)
-	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
-		ID:                 "fulfillRewards",
-		Method:             "POST",
-		PathPattern:        "/platform/admin/namespaces/{namespace}/users/{userId}/fulfillment/rewards",
-		ProducesMediaTypes: []string{"application/json"},
-		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
-		Params:             params,
-		Reader:             &FulfillRewardsReader{formats: a.formats},
-		AuthInfo:           authInfo,
-		Context:            params.Context,
-		Client:             params.HTTPClient,
-	})
-	if err != nil {
-		return nil, nil, nil, nil, err
-	}
-
-	switch v := result.(type) {
-
-	case *FulfillRewardsNoContent:
-		return v, nil, nil, nil, nil
-
-	case *FulfillRewardsBadRequest:
-		return nil, v, nil, nil, nil
-
-	case *FulfillRewardsNotFound:
-		return nil, nil, v, nil, nil
-
-	case *FulfillRewardsConflict:
-		return nil, nil, nil, v, nil
-
-	default:
-		return nil, nil, nil, nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
-	}
-}
-
-/*
 FulfillRewardsShort fulfill rewards without content
  [SERVICE COMMUNICATION ONLY] Fulfill rewards.
 Other detail info:
@@ -610,68 +323,6 @@ func (a *Client) FulfillRewardsShort(params *FulfillRewardsParams, authInfo runt
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
-	}
-}
-
-/*
-Deprecated: 2022-08-10 - Use PublicRedeemCodeShort instead.
-
-PublicRedeemCode redeem campaign code
-Redeem campaign code, this api have rate limit, default: only allow request once per user in 2 seconds
-Other detail info:
-
-  * Returns : fulfillment result
-*/
-func (a *Client) PublicRedeemCode(params *PublicRedeemCodeParams, authInfo runtime.ClientAuthInfoWriter) (*PublicRedeemCodeOK, *PublicRedeemCodeBadRequest, *PublicRedeemCodeNotFound, *PublicRedeemCodeConflict, *PublicRedeemCodeTooManyRequests, error) {
-	// TODO: Validate the params before sending
-	if params == nil {
-		params = NewPublicRedeemCodeParams()
-	}
-
-	if params.Context == nil {
-		params.Context = context.Background()
-	}
-
-	if params.RetryPolicy != nil {
-		params.SetHTTPClientTransport(params.RetryPolicy)
-	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
-		ID:                 "publicRedeemCode",
-		Method:             "POST",
-		PathPattern:        "/platform/public/namespaces/{namespace}/users/{userId}/fulfillment/code",
-		ProducesMediaTypes: []string{"application/json"},
-		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
-		Params:             params,
-		Reader:             &PublicRedeemCodeReader{formats: a.formats},
-		AuthInfo:           authInfo,
-		Context:            params.Context,
-		Client:             params.HTTPClient,
-	})
-	if err != nil {
-		return nil, nil, nil, nil, nil, err
-	}
-
-	switch v := result.(type) {
-
-	case *PublicRedeemCodeOK:
-		return v, nil, nil, nil, nil, nil
-
-	case *PublicRedeemCodeBadRequest:
-		return nil, v, nil, nil, nil, nil
-
-	case *PublicRedeemCodeNotFound:
-		return nil, nil, v, nil, nil, nil
-
-	case *PublicRedeemCodeConflict:
-		return nil, nil, nil, v, nil, nil
-
-	case *PublicRedeemCodeTooManyRequests:
-		return nil, nil, nil, nil, v, nil
-
-	default:
-		return nil, nil, nil, nil, nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
 	}
 }
 
@@ -736,19 +387,16 @@ func (a *Client) PublicRedeemCodeShort(params *PublicRedeemCodeParams, authInfo 
 }
 
 /*
-Deprecated: 2022-08-10 - Use FulfillRewardsV2Short instead.
-
-FulfillRewardsV2 fulfill rewards
- [SERVICE COMMUNICATION ONLY] Fulfill rewards.
+QueryFulfillmentsShort query fulfillments
+ [Not Supported Yet In Starter] Query fulfillments in a namespace.
 Other detail info:
 
-  * Returns : fulfillment result
-  *  rewards Item unsupported Type : SUBSCRIPTION
+  * Returns : query fulfillments
 */
-func (a *Client) FulfillRewardsV2(params *FulfillRewardsV2Params, authInfo runtime.ClientAuthInfoWriter) (*FulfillRewardsV2OK, *FulfillRewardsV2BadRequest, *FulfillRewardsV2NotFound, *FulfillRewardsV2Conflict, error) {
+func (a *Client) QueryFulfillmentsShort(params *QueryFulfillmentsParams, authInfo runtime.ClientAuthInfoWriter) (*QueryFulfillmentsOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
-		params = NewFulfillRewardsV2Params()
+		params = NewQueryFulfillmentsParams()
 	}
 
 	if params.Context == nil {
@@ -759,39 +407,34 @@ func (a *Client) FulfillRewardsV2(params *FulfillRewardsV2Params, authInfo runti
 		params.SetHTTPClientTransport(params.RetryPolicy)
 	}
 
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
+	}
+
 	result, err := a.transport.Submit(&runtime.ClientOperation{
-		ID:                 "fulfillRewardsV2",
-		Method:             "POST",
-		PathPattern:        "/platform/v2/admin/namespaces/{namespace}/users/{userId}/fulfillment/rewards",
+		ID:                 "queryFulfillments",
+		Method:             "GET",
+		PathPattern:        "/platform/v2/admin/namespaces/{namespace}/fulfillments",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"https"},
 		Params:             params,
-		Reader:             &FulfillRewardsV2Reader{formats: a.formats},
+		Reader:             &QueryFulfillmentsReader{formats: a.formats},
 		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	})
 	if err != nil {
-		return nil, nil, nil, nil, err
+		return nil, err
 	}
 
 	switch v := result.(type) {
 
-	case *FulfillRewardsV2OK:
-		return v, nil, nil, nil, nil
-
-	case *FulfillRewardsV2BadRequest:
-		return nil, v, nil, nil, nil
-
-	case *FulfillRewardsV2NotFound:
-		return nil, nil, v, nil, nil
-
-	case *FulfillRewardsV2Conflict:
-		return nil, nil, nil, v, nil
+	case *QueryFulfillmentsOK:
+		return v, nil
 
 	default:
-		return nil, nil, nil, nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
+		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
 	}
 }
 
@@ -847,6 +490,120 @@ func (a *Client) FulfillRewardsV2Short(params *FulfillRewardsV2Params, authInfo 
 	case *FulfillRewardsV2NotFound:
 		return nil, v
 	case *FulfillRewardsV2Conflict:
+		return nil, v
+
+	default:
+		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
+	}
+}
+
+/*
+FulfillItemsShort fulfill items by transactionid
+ [Not Supported Yet In Starter] Fulfill items by transactionId.
+Other detail info:
+
+  * Returns : fulfillment v2 result
+*/
+func (a *Client) FulfillItemsShort(params *FulfillItemsParams, authInfo runtime.ClientAuthInfoWriter) (*FulfillItemsOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewFulfillItemsParams()
+	}
+
+	if params.Context == nil {
+		params.Context = context.Background()
+	}
+
+	if params.RetryPolicy != nil {
+		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
+	}
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "fulfillItems",
+		Method:             "PUT",
+		PathPattern:        "/platform/v2/admin/namespaces/{namespace}/users/{userId}/fulfillments/{transactionId}",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &FulfillItemsReader{formats: a.formats},
+		AuthInfo:           authInfo,
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+
+	switch v := result.(type) {
+
+	case *FulfillItemsOK:
+		return v, nil
+	case *FulfillItemsBadRequest:
+		return nil, v
+	case *FulfillItemsNotFound:
+		return nil, v
+	case *FulfillItemsConflict:
+		return nil, v
+
+	default:
+		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
+	}
+}
+
+/*
+RevokeItemsShort revoke items by transactionid
+ [Not Supported Yet In Starter] Revoke items by transactionId.
+Other detail info:
+
+  * Returns : revoke fulfillment v2 result
+*/
+func (a *Client) RevokeItemsShort(params *RevokeItemsParams, authInfo runtime.ClientAuthInfoWriter) (*RevokeItemsOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewRevokeItemsParams()
+	}
+
+	if params.Context == nil {
+		params.Context = context.Background()
+	}
+
+	if params.RetryPolicy != nil {
+		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
+	}
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "revokeItems",
+		Method:             "PUT",
+		PathPattern:        "/platform/v2/admin/namespaces/{namespace}/users/{userId}/fulfillments/{transactionId}/revoke",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &RevokeItemsReader{formats: a.formats},
+		AuthInfo:           authInfo,
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+
+	switch v := result.(type) {
+
+	case *RevokeItemsOK:
+		return v, nil
+	case *RevokeItemsNotFound:
+		return nil, v
+	case *RevokeItemsConflict:
 		return nil, v
 
 	default:

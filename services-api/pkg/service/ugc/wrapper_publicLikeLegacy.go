@@ -13,7 +13,6 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/ugc-sdk/pkg/ugcclient"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/ugc-sdk/pkg/ugcclient/public_like_legacy"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/ugc-sdk/pkg/ugcclientmodels"
-	"github.com/go-openapi/runtime/client"
 )
 
 // PublicLikeLegacyService this is use for compatibility with latest modular sdk only
@@ -38,55 +37,6 @@ func (aaa *PublicLikeLegacyService) GetAuthSession() auth.Session {
 		aaa.ConfigRepository,
 		nil,
 	}
-}
-
-// Deprecated: 2022-01-10 - Please use GetLikedContentShort instead.
-func (aaa *PublicLikeLegacyService) GetLikedContent(input *public_like_legacy.GetLikedContentParams) (*ugcclientmodels.ModelsPaginatedContentDownloadResponse, error) {
-	token, err := aaa.TokenRepository.GetToken()
-	if err != nil {
-		return nil, err
-	}
-	ok, badRequest, unauthorized, internalServerError, err := aaa.Client.PublicLikeLegacy.GetLikedContent(input, client.BearerToken(*token.AccessToken))
-	if badRequest != nil {
-		return nil, badRequest
-	}
-	if unauthorized != nil {
-		return nil, unauthorized
-	}
-	if internalServerError != nil {
-		return nil, internalServerError
-	}
-	if err != nil {
-		return nil, err
-	}
-
-	return ok.GetPayload(), nil
-}
-
-// Deprecated: 2022-01-10 - Please use UpdateContentLikeStatusShort instead.
-func (aaa *PublicLikeLegacyService) UpdateContentLikeStatus(input *public_like_legacy.UpdateContentLikeStatusParams) (*ugcclientmodels.ModelsContentLikeResponse, error) {
-	token, err := aaa.TokenRepository.GetToken()
-	if err != nil {
-		return nil, err
-	}
-	ok, badRequest, unauthorized, notFound, internalServerError, err := aaa.Client.PublicLikeLegacy.UpdateContentLikeStatus(input, client.BearerToken(*token.AccessToken))
-	if badRequest != nil {
-		return nil, badRequest
-	}
-	if unauthorized != nil {
-		return nil, unauthorized
-	}
-	if notFound != nil {
-		return nil, notFound
-	}
-	if internalServerError != nil {
-		return nil, internalServerError
-	}
-	if err != nil {
-		return nil, err
-	}
-
-	return ok.GetPayload(), nil
 }
 
 func (aaa *PublicLikeLegacyService) GetLikedContentShort(input *public_like_legacy.GetLikedContentParams) (*ugcclientmodels.ModelsPaginatedContentDownloadResponse, error) {

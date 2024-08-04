@@ -30,62 +30,10 @@ type Client struct {
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	PublicGetPaymentAccounts(params *PublicGetPaymentAccountsParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGetPaymentAccountsOK, error)
 	PublicGetPaymentAccountsShort(params *PublicGetPaymentAccountsParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGetPaymentAccountsOK, error)
-	PublicDeletePaymentAccount(params *PublicDeletePaymentAccountParams, authInfo runtime.ClientAuthInfoWriter) (*PublicDeletePaymentAccountNoContent, error)
 	PublicDeletePaymentAccountShort(params *PublicDeletePaymentAccountParams, authInfo runtime.ClientAuthInfoWriter) (*PublicDeletePaymentAccountNoContent, error)
 
 	SetTransport(transport runtime.ClientTransport)
-}
-
-/*
-Deprecated: 2022-08-10 - Use PublicGetPaymentAccountsShort instead.
-
-PublicGetPaymentAccounts get payment accounts
- [Not Supported Yet In Starter] Get payment accounts.
-Other detail info:
-
-  * Returns : Payment account list
-*/
-func (a *Client) PublicGetPaymentAccounts(params *PublicGetPaymentAccountsParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGetPaymentAccountsOK, error) {
-	// TODO: Validate the params before sending
-	if params == nil {
-		params = NewPublicGetPaymentAccountsParams()
-	}
-
-	if params.Context == nil {
-		params.Context = context.Background()
-	}
-
-	if params.RetryPolicy != nil {
-		params.SetHTTPClientTransport(params.RetryPolicy)
-	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
-		ID:                 "publicGetPaymentAccounts",
-		Method:             "GET",
-		PathPattern:        "/platform/public/namespaces/{namespace}/users/{userId}/payment/accounts",
-		ProducesMediaTypes: []string{"application/json"},
-		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
-		Params:             params,
-		Reader:             &PublicGetPaymentAccountsReader{formats: a.formats},
-		AuthInfo:           authInfo,
-		Context:            params.Context,
-		Client:             params.HTTPClient,
-	})
-	if err != nil {
-		return nil, err
-	}
-
-	switch v := result.(type) {
-
-	case *PublicGetPaymentAccountsOK:
-		return v, nil
-
-	default:
-		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
-	}
 }
 
 /*
@@ -133,56 +81,6 @@ func (a *Client) PublicGetPaymentAccountsShort(params *PublicGetPaymentAccountsP
 	switch v := result.(type) {
 
 	case *PublicGetPaymentAccountsOK:
-		return v, nil
-
-	default:
-		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
-	}
-}
-
-/*
-Deprecated: 2022-08-10 - Use PublicDeletePaymentAccountShort instead.
-
-PublicDeletePaymentAccount delete payment account
- [Not Supported Yet In Starter] Delete payment account.
-Other detail info:
-
-  * Returns :
-*/
-func (a *Client) PublicDeletePaymentAccount(params *PublicDeletePaymentAccountParams, authInfo runtime.ClientAuthInfoWriter) (*PublicDeletePaymentAccountNoContent, error) {
-	// TODO: Validate the params before sending
-	if params == nil {
-		params = NewPublicDeletePaymentAccountParams()
-	}
-
-	if params.Context == nil {
-		params.Context = context.Background()
-	}
-
-	if params.RetryPolicy != nil {
-		params.SetHTTPClientTransport(params.RetryPolicy)
-	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
-		ID:                 "publicDeletePaymentAccount",
-		Method:             "DELETE",
-		PathPattern:        "/platform/public/namespaces/{namespace}/users/{userId}/payment/accounts/{type}/{id}",
-		ProducesMediaTypes: []string{"application/json"},
-		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
-		Params:             params,
-		Reader:             &PublicDeletePaymentAccountReader{formats: a.formats},
-		AuthInfo:           authInfo,
-		Context:            params.Context,
-		Client:             params.HTTPClient,
-	})
-	if err != nil {
-		return nil, err
-	}
-
-	switch v := result.(type) {
-
-	case *PublicDeletePaymentAccountNoContent:
 		return v, nil
 
 	default:

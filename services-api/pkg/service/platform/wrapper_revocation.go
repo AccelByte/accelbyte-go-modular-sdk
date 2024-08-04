@@ -13,7 +13,6 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils/auth"
-	"github.com/go-openapi/runtime/client"
 )
 
 // RevocationService this is use for compatibility with latest modular sdk only
@@ -38,79 +37,6 @@ func (aaa *RevocationService) GetAuthSession() auth.Session {
 		aaa.ConfigRepository,
 		nil,
 	}
-}
-
-// Deprecated: 2022-01-10 - Please use GetRevocationConfigShort instead.
-func (aaa *RevocationService) GetRevocationConfig(input *revocation.GetRevocationConfigParams) (*platformclientmodels.RevocationConfigInfo, error) {
-	token, err := aaa.TokenRepository.GetToken()
-	if err != nil {
-		return nil, err
-	}
-	ok, notFound, err := aaa.Client.Revocation.GetRevocationConfig(input, client.BearerToken(*token.AccessToken))
-	if notFound != nil {
-		return nil, notFound
-	}
-	if err != nil {
-		return nil, err
-	}
-
-	return ok.GetPayload(), nil
-}
-
-// Deprecated: 2022-01-10 - Please use UpdateRevocationConfigShort instead.
-func (aaa *RevocationService) UpdateRevocationConfig(input *revocation.UpdateRevocationConfigParams) (*platformclientmodels.RevocationConfigInfo, error) {
-	token, err := aaa.TokenRepository.GetToken()
-	if err != nil {
-		return nil, err
-	}
-	ok, err := aaa.Client.Revocation.UpdateRevocationConfig(input, client.BearerToken(*token.AccessToken))
-	if err != nil {
-		return nil, err
-	}
-
-	return ok.GetPayload(), nil
-}
-
-// Deprecated: 2022-01-10 - Please use DeleteRevocationConfigShort instead.
-func (aaa *RevocationService) DeleteRevocationConfig(input *revocation.DeleteRevocationConfigParams) error {
-	token, err := aaa.TokenRepository.GetToken()
-	if err != nil {
-		return err
-	}
-	_, err = aaa.Client.Revocation.DeleteRevocationConfig(input, client.BearerToken(*token.AccessToken))
-	if err != nil {
-		return err
-	}
-
-	return nil
-}
-
-// Deprecated: 2022-01-10 - Please use QueryRevocationHistoriesShort instead.
-func (aaa *RevocationService) QueryRevocationHistories(input *revocation.QueryRevocationHistoriesParams) (*platformclientmodels.RevocationHistoryPagingSlicedResult, error) {
-	token, err := aaa.TokenRepository.GetToken()
-	if err != nil {
-		return nil, err
-	}
-	ok, err := aaa.Client.Revocation.QueryRevocationHistories(input, client.BearerToken(*token.AccessToken))
-	if err != nil {
-		return nil, err
-	}
-
-	return ok.GetPayload(), nil
-}
-
-// Deprecated: 2022-01-10 - Please use DoRevocationShort instead.
-func (aaa *RevocationService) DoRevocation(input *revocation.DoRevocationParams) (*platformclientmodels.RevocationResult, error) {
-	token, err := aaa.TokenRepository.GetToken()
-	if err != nil {
-		return nil, err
-	}
-	ok, err := aaa.Client.Revocation.DoRevocation(input, client.BearerToken(*token.AccessToken))
-	if err != nil {
-		return nil, err
-	}
-
-	return ok.GetPayload(), nil
 }
 
 func (aaa *RevocationService) GetRevocationConfigShort(input *revocation.GetRevocationConfigParams) (*platformclientmodels.RevocationConfigInfo, error) {

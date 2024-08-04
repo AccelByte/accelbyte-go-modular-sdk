@@ -13,7 +13,6 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils/auth"
-	"github.com/go-openapi/runtime/client"
 )
 
 type TerminatedServersService struct {
@@ -36,29 +35,6 @@ func (aaa *TerminatedServersService) GetAuthSession() auth.Session {
 		aaa.ConfigRepository,
 		nil,
 	}
-}
-
-// Deprecated: 2022-01-10 - Please use ListTerminatedServersWithNamespaceShort instead.
-func (aaa *TerminatedServersService) ListTerminatedServersWithNamespace(input *terminated_servers.ListTerminatedServersWithNamespaceParams) (*dsartifactclientmodels.ModelsListTerminatedServersResponse, error) {
-	token, err := aaa.TokenRepository.GetToken()
-	if err != nil {
-		return nil, err
-	}
-	ok, badRequest, unauthorized, internalServerError, err := aaa.Client.TerminatedServers.ListTerminatedServersWithNamespace(input, client.BearerToken(*token.AccessToken))
-	if badRequest != nil {
-		return nil, badRequest
-	}
-	if unauthorized != nil {
-		return nil, unauthorized
-	}
-	if internalServerError != nil {
-		return nil, internalServerError
-	}
-	if err != nil {
-		return nil, err
-	}
-
-	return ok.GetPayload(), nil
 }
 
 func (aaa *TerminatedServersService) ListTerminatedServersWithNamespaceShort(input *terminated_servers.ListTerminatedServersWithNamespaceParams) (*dsartifactclientmodels.ModelsListTerminatedServersResponse, error) {

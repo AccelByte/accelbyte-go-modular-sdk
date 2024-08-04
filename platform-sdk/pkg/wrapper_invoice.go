@@ -15,7 +15,6 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils/auth"
-	"github.com/go-openapi/runtime/client"
 )
 
 type InvoiceService struct {
@@ -38,37 +37,6 @@ func (aaa *InvoiceService) GetAuthSession() auth.Session {
 		aaa.ConfigRepository,
 		nil,
 	}
-}
-
-// Deprecated: 2022-01-10 - Please use DownloadInvoiceDetailsShort instead.
-func (aaa *InvoiceService) DownloadInvoiceDetails(input *invoice.DownloadInvoiceDetailsParams, writer io.Writer) (io.Writer, error) {
-	token, err := aaa.TokenRepository.GetToken()
-	if err != nil {
-		return nil, err
-	}
-	ok, err := aaa.Client.Invoice.DownloadInvoiceDetails(input, client.BearerToken(*token.AccessToken), writer)
-	if err != nil {
-		return nil, err
-	}
-
-	return ok.GetPayload(), nil
-}
-
-// Deprecated: 2022-01-10 - Please use GenerateInvoiceSummaryShort instead.
-func (aaa *InvoiceService) GenerateInvoiceSummary(input *invoice.GenerateInvoiceSummaryParams) (*platformclientmodels.InvoiceSummary, error) {
-	token, err := aaa.TokenRepository.GetToken()
-	if err != nil {
-		return nil, err
-	}
-	ok, unprocessableEntity, err := aaa.Client.Invoice.GenerateInvoiceSummary(input, client.BearerToken(*token.AccessToken))
-	if unprocessableEntity != nil {
-		return nil, unprocessableEntity
-	}
-	if err != nil {
-		return nil, err
-	}
-
-	return ok.GetPayload(), nil
 }
 
 func (aaa *InvoiceService) DownloadInvoiceDetailsShort(input *invoice.DownloadInvoiceDetailsParams, writer io.Writer) (io.Writer, error) {

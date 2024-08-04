@@ -30,67 +30,11 @@ type Client struct {
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	AdminListGlobalConfiguration(params *AdminListGlobalConfigurationParams, authInfo runtime.ClientAuthInfoWriter) (*AdminListGlobalConfigurationOK, *AdminListGlobalConfigurationUnauthorized, *AdminListGlobalConfigurationForbidden, error)
 	AdminListGlobalConfigurationShort(params *AdminListGlobalConfigurationParams, authInfo runtime.ClientAuthInfoWriter) (*AdminListGlobalConfigurationOK, error)
-	AdminUpdateGlobalConfiguration(params *AdminUpdateGlobalConfigurationParams, authInfo runtime.ClientAuthInfoWriter) (*AdminUpdateGlobalConfigurationOK, *AdminUpdateGlobalConfigurationUnauthorized, *AdminUpdateGlobalConfigurationForbidden, error)
 	AdminUpdateGlobalConfigurationShort(params *AdminUpdateGlobalConfigurationParams, authInfo runtime.ClientAuthInfoWriter) (*AdminUpdateGlobalConfigurationOK, error)
-	AdminDeleteGlobalConfiguration(params *AdminDeleteGlobalConfigurationParams, authInfo runtime.ClientAuthInfoWriter) (*AdminDeleteGlobalConfigurationNoContent, *AdminDeleteGlobalConfigurationUnauthorized, *AdminDeleteGlobalConfigurationForbidden, error)
 	AdminDeleteGlobalConfigurationShort(params *AdminDeleteGlobalConfigurationParams, authInfo runtime.ClientAuthInfoWriter) (*AdminDeleteGlobalConfigurationNoContent, error)
 
 	SetTransport(transport runtime.ClientTransport)
-}
-
-/*
-Deprecated: 2022-08-10 - Use AdminListGlobalConfigurationShort instead.
-
-AdminListGlobalConfiguration record of global configuration data.
-Record of global configuration data.
-*/
-func (a *Client) AdminListGlobalConfiguration(params *AdminListGlobalConfigurationParams, authInfo runtime.ClientAuthInfoWriter) (*AdminListGlobalConfigurationOK, *AdminListGlobalConfigurationUnauthorized, *AdminListGlobalConfigurationForbidden, error) {
-	// TODO: Validate the params before sending
-	if params == nil {
-		params = NewAdminListGlobalConfigurationParams()
-	}
-
-	if params.Context == nil {
-		params.Context = context.Background()
-	}
-
-	if params.RetryPolicy != nil {
-		params.SetHTTPClientTransport(params.RetryPolicy)
-	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
-		ID:                 "adminListGlobalConfiguration",
-		Method:             "GET",
-		PathPattern:        "/session/v1/admin/global-configurations",
-		ProducesMediaTypes: []string{"application/json"},
-		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
-		Params:             params,
-		Reader:             &AdminListGlobalConfigurationReader{formats: a.formats},
-		AuthInfo:           authInfo,
-		Context:            params.Context,
-		Client:             params.HTTPClient,
-	})
-	if err != nil {
-		return nil, nil, nil, err
-	}
-
-	switch v := result.(type) {
-
-	case *AdminListGlobalConfigurationOK:
-		return v, nil, nil, nil
-
-	case *AdminListGlobalConfigurationUnauthorized:
-		return nil, v, nil, nil
-
-	case *AdminListGlobalConfigurationForbidden:
-		return nil, nil, v, nil
-
-	default:
-		return nil, nil, nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
-	}
 }
 
 /*
@@ -147,59 +91,6 @@ func (a *Client) AdminListGlobalConfigurationShort(params *AdminListGlobalConfig
 }
 
 /*
-Deprecated: 2022-08-10 - Use AdminUpdateGlobalConfigurationShort instead.
-
-AdminUpdateGlobalConfiguration upsert global configuration data.
-Upsert global configuration data.
-*/
-func (a *Client) AdminUpdateGlobalConfiguration(params *AdminUpdateGlobalConfigurationParams, authInfo runtime.ClientAuthInfoWriter) (*AdminUpdateGlobalConfigurationOK, *AdminUpdateGlobalConfigurationUnauthorized, *AdminUpdateGlobalConfigurationForbidden, error) {
-	// TODO: Validate the params before sending
-	if params == nil {
-		params = NewAdminUpdateGlobalConfigurationParams()
-	}
-
-	if params.Context == nil {
-		params.Context = context.Background()
-	}
-
-	if params.RetryPolicy != nil {
-		params.SetHTTPClientTransport(params.RetryPolicy)
-	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
-		ID:                 "adminUpdateGlobalConfiguration",
-		Method:             "PUT",
-		PathPattern:        "/session/v1/admin/global-configurations",
-		ProducesMediaTypes: []string{"application/json"},
-		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
-		Params:             params,
-		Reader:             &AdminUpdateGlobalConfigurationReader{formats: a.formats},
-		AuthInfo:           authInfo,
-		Context:            params.Context,
-		Client:             params.HTTPClient,
-	})
-	if err != nil {
-		return nil, nil, nil, err
-	}
-
-	switch v := result.(type) {
-
-	case *AdminUpdateGlobalConfigurationOK:
-		return v, nil, nil, nil
-
-	case *AdminUpdateGlobalConfigurationUnauthorized:
-		return nil, v, nil, nil
-
-	case *AdminUpdateGlobalConfigurationForbidden:
-		return nil, nil, v, nil
-
-	default:
-		return nil, nil, nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
-	}
-}
-
-/*
 AdminUpdateGlobalConfigurationShort upsert global configuration data.
 Upsert global configuration data.
 */
@@ -249,59 +140,6 @@ func (a *Client) AdminUpdateGlobalConfigurationShort(params *AdminUpdateGlobalCo
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
-	}
-}
-
-/*
-Deprecated: 2022-08-10 - Use AdminDeleteGlobalConfigurationShort instead.
-
-AdminDeleteGlobalConfiguration delete of global configuration data.
-Delete of global configuration data.
-*/
-func (a *Client) AdminDeleteGlobalConfiguration(params *AdminDeleteGlobalConfigurationParams, authInfo runtime.ClientAuthInfoWriter) (*AdminDeleteGlobalConfigurationNoContent, *AdminDeleteGlobalConfigurationUnauthorized, *AdminDeleteGlobalConfigurationForbidden, error) {
-	// TODO: Validate the params before sending
-	if params == nil {
-		params = NewAdminDeleteGlobalConfigurationParams()
-	}
-
-	if params.Context == nil {
-		params.Context = context.Background()
-	}
-
-	if params.RetryPolicy != nil {
-		params.SetHTTPClientTransport(params.RetryPolicy)
-	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
-		ID:                 "adminDeleteGlobalConfiguration",
-		Method:             "DELETE",
-		PathPattern:        "/session/v1/admin/global-configurations",
-		ProducesMediaTypes: []string{"application/json"},
-		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
-		Params:             params,
-		Reader:             &AdminDeleteGlobalConfigurationReader{formats: a.formats},
-		AuthInfo:           authInfo,
-		Context:            params.Context,
-		Client:             params.HTTPClient,
-	})
-	if err != nil {
-		return nil, nil, nil, err
-	}
-
-	switch v := result.(type) {
-
-	case *AdminDeleteGlobalConfigurationNoContent:
-		return v, nil, nil, nil
-
-	case *AdminDeleteGlobalConfigurationUnauthorized:
-		return nil, v, nil, nil
-
-	case *AdminDeleteGlobalConfigurationForbidden:
-		return nil, nil, v, nil
-
-	default:
-		return nil, nil, nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
 	}
 }
 

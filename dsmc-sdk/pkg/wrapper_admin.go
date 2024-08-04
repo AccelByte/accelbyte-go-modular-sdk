@@ -13,7 +13,6 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils/auth"
-	"github.com/go-openapi/runtime/client"
 )
 
 type AdminService struct {
@@ -38,39 +37,29 @@ func (aaa *AdminService) GetAuthSession() auth.Session {
 	}
 }
 
-// Deprecated: 2022-01-10 - Please use ListServerShort instead.
-func (aaa *AdminService) ListServer(input *admin.ListServerParams) (*dsmcclientmodels.ModelsListServerResponse, error) {
-	token, err := aaa.TokenRepository.GetToken()
-	if err != nil {
-		return nil, err
+func (aaa *AdminService) GetWorkerConfigShort(input *admin.GetWorkerConfigParams) (*dsmcclientmodels.ModelsWorkerConfig, error) {
+	authInfoWriter := input.AuthInfoWriter
+	if authInfoWriter == nil {
+		security := [][]string{
+			{"bearer"},
+		}
+		authInfoWriter = auth.AuthInfoWriter(aaa.GetAuthSession(), security, "")
 	}
-	ok, unauthorized, internalServerError, err := aaa.Client.Admin.ListServer(input, client.BearerToken(*token.AccessToken))
-	if unauthorized != nil {
-		return nil, unauthorized
+	if input.RetryPolicy == nil {
+		input.RetryPolicy = &utils.Retry{
+			MaxTries:   utils.MaxTries,
+			Backoff:    utils.NewConstantBackoff(0),
+			Transport:  aaa.Client.Runtime.Transport,
+			RetryCodes: utils.RetryCodes,
+		}
 	}
-	if internalServerError != nil {
-		return nil, internalServerError
-	}
-	if err != nil {
-		return nil, err
+	if tempFlightIdAdmin != nil {
+		input.XFlightId = tempFlightIdAdmin
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
 	}
 
-	return ok.GetPayload(), nil
-}
-
-// Deprecated: 2022-01-10 - Please use CountServerShort instead.
-func (aaa *AdminService) CountServer(input *admin.CountServerParams) (*dsmcclientmodels.ModelsCountServerResponse, error) {
-	token, err := aaa.TokenRepository.GetToken()
-	if err != nil {
-		return nil, err
-	}
-	ok, unauthorized, internalServerError, err := aaa.Client.Admin.CountServer(input, client.BearerToken(*token.AccessToken))
-	if unauthorized != nil {
-		return nil, unauthorized
-	}
-	if internalServerError != nil {
-		return nil, internalServerError
-	}
+	ok, err := aaa.Client.Admin.GetWorkerConfigShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
 	}
@@ -78,59 +67,29 @@ func (aaa *AdminService) CountServer(input *admin.CountServerParams) (*dsmcclien
 	return ok.GetPayload(), nil
 }
 
-// Deprecated: 2022-01-10 - Please use CountServerDetailedShort instead.
-func (aaa *AdminService) CountServerDetailed(input *admin.CountServerDetailedParams) (*dsmcclientmodels.ModelsDetailedCountServerResponse, error) {
-	token, err := aaa.TokenRepository.GetToken()
-	if err != nil {
-		return nil, err
+func (aaa *AdminService) UpdateWorkerConfigShort(input *admin.UpdateWorkerConfigParams) error {
+	authInfoWriter := input.AuthInfoWriter
+	if authInfoWriter == nil {
+		security := [][]string{
+			{"bearer"},
+		}
+		authInfoWriter = auth.AuthInfoWriter(aaa.GetAuthSession(), security, "")
 	}
-	ok, unauthorized, internalServerError, err := aaa.Client.Admin.CountServerDetailed(input, client.BearerToken(*token.AccessToken))
-	if unauthorized != nil {
-		return nil, unauthorized
+	if input.RetryPolicy == nil {
+		input.RetryPolicy = &utils.Retry{
+			MaxTries:   utils.MaxTries,
+			Backoff:    utils.NewConstantBackoff(0),
+			Transport:  aaa.Client.Runtime.Transport,
+			RetryCodes: utils.RetryCodes,
+		}
 	}
-	if internalServerError != nil {
-		return nil, internalServerError
-	}
-	if err != nil {
-		return nil, err
-	}
-
-	return ok.GetPayload(), nil
-}
-
-// Deprecated: 2022-01-10 - Please use ListLocalServerShort instead.
-func (aaa *AdminService) ListLocalServer(input *admin.ListLocalServerParams) (*dsmcclientmodels.ModelsListServerResponse, error) {
-	token, err := aaa.TokenRepository.GetToken()
-	if err != nil {
-		return nil, err
-	}
-	ok, unauthorized, internalServerError, err := aaa.Client.Admin.ListLocalServer(input, client.BearerToken(*token.AccessToken))
-	if unauthorized != nil {
-		return nil, unauthorized
-	}
-	if internalServerError != nil {
-		return nil, internalServerError
-	}
-	if err != nil {
-		return nil, err
+	if tempFlightIdAdmin != nil {
+		input.XFlightId = tempFlightIdAdmin
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
 	}
 
-	return ok.GetPayload(), nil
-}
-
-// Deprecated: 2022-01-10 - Please use DeleteLocalServerShort instead.
-func (aaa *AdminService) DeleteLocalServer(input *admin.DeleteLocalServerParams) error {
-	token, err := aaa.TokenRepository.GetToken()
-	if err != nil {
-		return err
-	}
-	_, unauthorized, internalServerError, err := aaa.Client.Admin.DeleteLocalServer(input, client.BearerToken(*token.AccessToken))
-	if unauthorized != nil {
-		return unauthorized
-	}
-	if internalServerError != nil {
-		return internalServerError
-	}
+	_, err := aaa.Client.Admin.UpdateWorkerConfigShort(input, authInfoWriter)
 	if err != nil {
 		return err
 	}
@@ -138,110 +97,64 @@ func (aaa *AdminService) DeleteLocalServer(input *admin.DeleteLocalServerParams)
 	return nil
 }
 
-// Deprecated: 2022-01-10 - Please use GetServerShort instead.
-func (aaa *AdminService) GetServer(input *admin.GetServerParams) (*dsmcclientmodels.ModelsServer, error) {
-	token, err := aaa.TokenRepository.GetToken()
+func (aaa *AdminService) CreateWorkerConfigShort(input *admin.CreateWorkerConfigParams) (*dsmcclientmodels.ModelsWorkerConfig, error) {
+	authInfoWriter := input.AuthInfoWriter
+	if authInfoWriter == nil {
+		security := [][]string{
+			{"bearer"},
+		}
+		authInfoWriter = auth.AuthInfoWriter(aaa.GetAuthSession(), security, "")
+	}
+	if input.RetryPolicy == nil {
+		input.RetryPolicy = &utils.Retry{
+			MaxTries:   utils.MaxTries,
+			Backoff:    utils.NewConstantBackoff(0),
+			Transport:  aaa.Client.Runtime.Transport,
+			RetryCodes: utils.RetryCodes,
+		}
+	}
+	if tempFlightIdAdmin != nil {
+		input.XFlightId = tempFlightIdAdmin
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	}
+
+	created, err := aaa.Client.Admin.CreateWorkerConfigShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
 	}
-	ok, unauthorized, notFound, internalServerError, err := aaa.Client.Admin.GetServer(input, client.BearerToken(*token.AccessToken))
-	if unauthorized != nil {
-		return nil, unauthorized
+
+	return created.GetPayload(), nil
+}
+
+func (aaa *AdminService) AddBufferShort(input *admin.AddBufferParams) (*dsmcclientmodels.ModelsAddBufferResponse, error) {
+	authInfoWriter := input.AuthInfoWriter
+	if authInfoWriter == nil {
+		security := [][]string{
+			{"bearer"},
+		}
+		authInfoWriter = auth.AuthInfoWriter(aaa.GetAuthSession(), security, "")
 	}
-	if notFound != nil {
-		return nil, notFound
+	if input.RetryPolicy == nil {
+		input.RetryPolicy = &utils.Retry{
+			MaxTries:   utils.MaxTries,
+			Backoff:    utils.NewConstantBackoff(0),
+			Transport:  aaa.Client.Runtime.Transport,
+			RetryCodes: utils.RetryCodes,
+		}
 	}
-	if internalServerError != nil {
-		return nil, internalServerError
+	if tempFlightIdAdmin != nil {
+		input.XFlightId = tempFlightIdAdmin
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
 	}
+
+	ok, err := aaa.Client.Admin.AddBufferShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
 	}
 
 	return ok.GetPayload(), nil
-}
-
-// Deprecated: 2022-01-10 - Please use DeleteServerShort instead.
-func (aaa *AdminService) DeleteServer(input *admin.DeleteServerParams) error {
-	token, err := aaa.TokenRepository.GetToken()
-	if err != nil {
-		return err
-	}
-	_, unauthorized, notFound, internalServerError, err := aaa.Client.Admin.DeleteServer(input, client.BearerToken(*token.AccessToken))
-	if unauthorized != nil {
-		return unauthorized
-	}
-	if notFound != nil {
-		return notFound
-	}
-	if internalServerError != nil {
-		return internalServerError
-	}
-	if err != nil {
-		return err
-	}
-
-	return nil
-}
-
-// Deprecated: 2022-01-10 - Please use ListSessionShort instead.
-func (aaa *AdminService) ListSession(input *admin.ListSessionParams) (*dsmcclientmodels.ModelsListSessionResponse, error) {
-	token, err := aaa.TokenRepository.GetToken()
-	if err != nil {
-		return nil, err
-	}
-	ok, unauthorized, internalServerError, err := aaa.Client.Admin.ListSession(input, client.BearerToken(*token.AccessToken))
-	if unauthorized != nil {
-		return nil, unauthorized
-	}
-	if internalServerError != nil {
-		return nil, internalServerError
-	}
-	if err != nil {
-		return nil, err
-	}
-
-	return ok.GetPayload(), nil
-}
-
-// Deprecated: 2022-01-10 - Please use CountSessionShort instead.
-func (aaa *AdminService) CountSession(input *admin.CountSessionParams) (*dsmcclientmodels.ModelsCountSessionResponse, error) {
-	token, err := aaa.TokenRepository.GetToken()
-	if err != nil {
-		return nil, err
-	}
-	ok, unauthorized, internalServerError, err := aaa.Client.Admin.CountSession(input, client.BearerToken(*token.AccessToken))
-	if unauthorized != nil {
-		return nil, unauthorized
-	}
-	if internalServerError != nil {
-		return nil, internalServerError
-	}
-	if err != nil {
-		return nil, err
-	}
-
-	return ok.GetPayload(), nil
-}
-
-// Deprecated: 2022-01-10 - Please use DeleteSessionShort instead.
-func (aaa *AdminService) DeleteSession(input *admin.DeleteSessionParams) error {
-	token, err := aaa.TokenRepository.GetToken()
-	if err != nil {
-		return err
-	}
-	_, unauthorized, internalServerError, err := aaa.Client.Admin.DeleteSession(input, client.BearerToken(*token.AccessToken))
-	if unauthorized != nil {
-		return unauthorized
-	}
-	if internalServerError != nil {
-		return internalServerError
-	}
-	if err != nil {
-		return err
-	}
-
-	return nil
 }
 
 func (aaa *AdminService) ListServerShort(input *admin.ListServerParams) (*dsmcclientmodels.ModelsListServerResponse, error) {
@@ -394,7 +307,7 @@ func (aaa *AdminService) DeleteLocalServerShort(input *admin.DeleteLocalServerPa
 	return nil
 }
 
-func (aaa *AdminService) GetServerShort(input *admin.GetServerParams) (*dsmcclientmodels.ModelsServer, error) {
+func (aaa *AdminService) GetServerShort(input *admin.GetServerParams) (*dsmcclientmodels.ModelsServerDetailsResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -537,6 +450,66 @@ func (aaa *AdminService) DeleteSessionShort(input *admin.DeleteSessionParams) er
 	}
 
 	_, err := aaa.Client.Admin.DeleteSessionShort(input, authInfoWriter)
+	if err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (aaa *AdminService) RunGhostCleanerRequestHandlerShort(input *admin.RunGhostCleanerRequestHandlerParams) error {
+	authInfoWriter := input.AuthInfoWriter
+	if authInfoWriter == nil {
+		security := [][]string{
+			{"bearer"},
+		}
+		authInfoWriter = auth.AuthInfoWriter(aaa.GetAuthSession(), security, "")
+	}
+	if input.RetryPolicy == nil {
+		input.RetryPolicy = &utils.Retry{
+			MaxTries:   utils.MaxTries,
+			Backoff:    utils.NewConstantBackoff(0),
+			Transport:  aaa.Client.Runtime.Transport,
+			RetryCodes: utils.RetryCodes,
+		}
+	}
+	if tempFlightIdAdmin != nil {
+		input.XFlightId = tempFlightIdAdmin
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	}
+
+	_, err := aaa.Client.Admin.RunGhostCleanerRequestHandlerShort(input, authInfoWriter)
+	if err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (aaa *AdminService) RunZombieCleanerRequestHandlerShort(input *admin.RunZombieCleanerRequestHandlerParams) error {
+	authInfoWriter := input.AuthInfoWriter
+	if authInfoWriter == nil {
+		security := [][]string{
+			{"bearer"},
+		}
+		authInfoWriter = auth.AuthInfoWriter(aaa.GetAuthSession(), security, "")
+	}
+	if input.RetryPolicy == nil {
+		input.RetryPolicy = &utils.Retry{
+			MaxTries:   utils.MaxTries,
+			Backoff:    utils.NewConstantBackoff(0),
+			Transport:  aaa.Client.Runtime.Transport,
+			RetryCodes: utils.RetryCodes,
+		}
+	}
+	if tempFlightIdAdmin != nil {
+		input.XFlightId = tempFlightIdAdmin
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	}
+
+	_, err := aaa.Client.Admin.RunZombieCleanerRequestHandlerShort(input, authInfoWriter)
 	if err != nil {
 		return err
 	}

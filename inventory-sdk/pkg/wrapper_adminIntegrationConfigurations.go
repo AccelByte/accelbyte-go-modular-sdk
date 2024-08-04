@@ -13,7 +13,6 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils/auth"
-	"github.com/go-openapi/runtime/client"
 )
 
 type AdminIntegrationConfigurationsService struct {
@@ -36,101 +35,6 @@ func (aaa *AdminIntegrationConfigurationsService) GetAuthSession() auth.Session 
 		aaa.ConfigRepository,
 		nil,
 	}
-}
-
-// Deprecated: 2022-01-10 - Please use AdminListIntegrationConfigurationsShort instead.
-func (aaa *AdminIntegrationConfigurationsService) AdminListIntegrationConfigurations(input *admin_integration_configurations.AdminListIntegrationConfigurationsParams) (*inventoryclientmodels.ApimodelsListIntegrationConfigurationsResp, error) {
-	token, err := aaa.TokenRepository.GetToken()
-	if err != nil {
-		return nil, err
-	}
-	ok, badRequest, internalServerError, err := aaa.Client.AdminIntegrationConfigurations.AdminListIntegrationConfigurations(input, client.BearerToken(*token.AccessToken))
-	if badRequest != nil {
-		return nil, badRequest
-	}
-	if internalServerError != nil {
-		return nil, internalServerError
-	}
-	if err != nil {
-		return nil, err
-	}
-
-	return ok.GetPayload(), nil
-}
-
-// Deprecated: 2022-01-10 - Please use AdminCreateIntegrationConfigurationShort instead.
-func (aaa *AdminIntegrationConfigurationsService) AdminCreateIntegrationConfiguration(input *admin_integration_configurations.AdminCreateIntegrationConfigurationParams) (*inventoryclientmodels.ApimodelsIntegrationConfigurationResp, error) {
-	token, err := aaa.TokenRepository.GetToken()
-	if err != nil {
-		return nil, err
-	}
-	created, badRequest, conflict, internalServerError, err := aaa.Client.AdminIntegrationConfigurations.AdminCreateIntegrationConfiguration(input, client.BearerToken(*token.AccessToken))
-	if badRequest != nil {
-		return nil, badRequest
-	}
-	if conflict != nil {
-		return nil, conflict
-	}
-	if internalServerError != nil {
-		return nil, internalServerError
-	}
-	if err != nil {
-		return nil, err
-	}
-
-	return created.GetPayload(), nil
-}
-
-// Deprecated: 2022-01-10 - Please use AdminUpdateIntegrationConfigurationShort instead.
-func (aaa *AdminIntegrationConfigurationsService) AdminUpdateIntegrationConfiguration(input *admin_integration_configurations.AdminUpdateIntegrationConfigurationParams) (*inventoryclientmodels.ApimodelsIntegrationConfigurationResp, error) {
-	token, err := aaa.TokenRepository.GetToken()
-	if err != nil {
-		return nil, err
-	}
-	ok, badRequest, notFound, conflict, internalServerError, err := aaa.Client.AdminIntegrationConfigurations.AdminUpdateIntegrationConfiguration(input, client.BearerToken(*token.AccessToken))
-	if badRequest != nil {
-		return nil, badRequest
-	}
-	if notFound != nil {
-		return nil, notFound
-	}
-	if conflict != nil {
-		return nil, conflict
-	}
-	if internalServerError != nil {
-		return nil, internalServerError
-	}
-	if err != nil {
-		return nil, err
-	}
-
-	return ok.GetPayload(), nil
-}
-
-// Deprecated: 2022-01-10 - Please use AdminUpdateStatusIntegrationConfigurationShort instead.
-func (aaa *AdminIntegrationConfigurationsService) AdminUpdateStatusIntegrationConfiguration(input *admin_integration_configurations.AdminUpdateStatusIntegrationConfigurationParams) (*inventoryclientmodels.ApimodelsIntegrationConfigurationResp, error) {
-	token, err := aaa.TokenRepository.GetToken()
-	if err != nil {
-		return nil, err
-	}
-	ok, badRequest, notFound, conflict, internalServerError, err := aaa.Client.AdminIntegrationConfigurations.AdminUpdateStatusIntegrationConfiguration(input, client.BearerToken(*token.AccessToken))
-	if badRequest != nil {
-		return nil, badRequest
-	}
-	if notFound != nil {
-		return nil, notFound
-	}
-	if conflict != nil {
-		return nil, conflict
-	}
-	if internalServerError != nil {
-		return nil, internalServerError
-	}
-	if err != nil {
-		return nil, err
-	}
-
-	return ok.GetPayload(), nil
 }
 
 func (aaa *AdminIntegrationConfigurationsService) AdminListIntegrationConfigurationsShort(input *admin_integration_configurations.AdminListIntegrationConfigurationsParams) (*inventoryclientmodels.ApimodelsListIntegrationConfigurationsResp, error) {

@@ -12,7 +12,6 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils/auth"
-	"github.com/go-openapi/runtime/client"
 )
 
 // AnonymizationService this is use for compatibility with latest modular sdk only
@@ -37,23 +36,6 @@ func (aaa *AnonymizationService) GetAuthSession() auth.Session {
 		aaa.ConfigRepository,
 		nil,
 	}
-}
-
-// Deprecated: 2022-01-10 - Please use AnonymizeUserAgreementShort instead.
-func (aaa *AnonymizationService) AnonymizeUserAgreement(input *anonymization.AnonymizeUserAgreementParams) error {
-	token, err := aaa.TokenRepository.GetToken()
-	if err != nil {
-		return err
-	}
-	_, notFound, err := aaa.Client.Anonymization.AnonymizeUserAgreement(input, client.BearerToken(*token.AccessToken))
-	if notFound != nil {
-		return notFound
-	}
-	if err != nil {
-		return err
-	}
-
-	return nil
 }
 
 func (aaa *AnonymizationService) AnonymizeUserAgreementShort(input *anonymization.AnonymizeUserAgreementParams) error {

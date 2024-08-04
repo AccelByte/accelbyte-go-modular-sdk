@@ -13,7 +13,6 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils/auth"
-	"github.com/go-openapi/runtime/client"
 )
 
 type InputValidationsService struct {
@@ -36,108 +35,6 @@ func (aaa *InputValidationsService) GetAuthSession() auth.Session {
 		aaa.ConfigRepository,
 		nil,
 	}
-}
-
-// Deprecated: 2022-01-10 - Please use AdminGetInputValidationsShort instead.
-func (aaa *InputValidationsService) AdminGetInputValidations(input *input_validations.AdminGetInputValidationsParams) (*iamclientmodels.ModelInputValidationsResponse, error) {
-	token, err := aaa.TokenRepository.GetToken()
-	if err != nil {
-		return nil, err
-	}
-	ok, unauthorized, forbidden, err := aaa.Client.InputValidations.AdminGetInputValidations(input, client.BearerToken(*token.AccessToken))
-	if unauthorized != nil {
-		return nil, unauthorized
-	}
-	if forbidden != nil {
-		return nil, forbidden
-	}
-	if err != nil {
-		return nil, err
-	}
-
-	return ok.GetPayload(), nil
-}
-
-// Deprecated: 2022-01-10 - Please use AdminUpdateInputValidationsShort instead.
-func (aaa *InputValidationsService) AdminUpdateInputValidations(input *input_validations.AdminUpdateInputValidationsParams) error {
-	token, err := aaa.TokenRepository.GetToken()
-	if err != nil {
-		return err
-	}
-	_, unauthorized, forbidden, notFound, err := aaa.Client.InputValidations.AdminUpdateInputValidations(input, client.BearerToken(*token.AccessToken))
-	if unauthorized != nil {
-		return unauthorized
-	}
-	if forbidden != nil {
-		return forbidden
-	}
-	if notFound != nil {
-		return notFound
-	}
-	if err != nil {
-		return err
-	}
-
-	return nil
-}
-
-// Deprecated: 2022-01-10 - Please use AdminResetInputValidationsShort instead.
-func (aaa *InputValidationsService) AdminResetInputValidations(input *input_validations.AdminResetInputValidationsParams) error {
-	token, err := aaa.TokenRepository.GetToken()
-	if err != nil {
-		return err
-	}
-	_, unauthorized, forbidden, notFound, err := aaa.Client.InputValidations.AdminResetInputValidations(input, client.BearerToken(*token.AccessToken))
-	if unauthorized != nil {
-		return unauthorized
-	}
-	if forbidden != nil {
-		return forbidden
-	}
-	if notFound != nil {
-		return notFound
-	}
-	if err != nil {
-		return err
-	}
-
-	return nil
-}
-
-// Deprecated: 2022-01-10 - Please use PublicGetInputValidationsShort instead.
-func (aaa *InputValidationsService) PublicGetInputValidations(input *input_validations.PublicGetInputValidationsParams) (*iamclientmodels.ModelInputValidationsPublicResponse, error) {
-	ok, notFound, internalServerError, err := aaa.Client.InputValidations.PublicGetInputValidations(input)
-	if notFound != nil {
-		return nil, notFound
-	}
-	if internalServerError != nil {
-		return nil, internalServerError
-	}
-	if err != nil {
-		return nil, err
-	}
-
-	return ok.GetPayload(), nil
-}
-
-// Deprecated: 2022-01-10 - Please use PublicGetInputValidationByFieldShort instead.
-func (aaa *InputValidationsService) PublicGetInputValidationByField(input *input_validations.PublicGetInputValidationByFieldParams) (*iamclientmodels.ModelInputValidationConfigVersion, error) {
-	token, err := aaa.TokenRepository.GetToken()
-	if err != nil {
-		return nil, err
-	}
-	ok, notFound, internalServerError, err := aaa.Client.InputValidations.PublicGetInputValidationByField(input, client.BearerToken(*token.AccessToken))
-	if notFound != nil {
-		return nil, notFound
-	}
-	if internalServerError != nil {
-		return nil, internalServerError
-	}
-	if err != nil {
-		return nil, err
-	}
-
-	return ok.GetPayload(), nil
 }
 
 func (aaa *InputValidationsService) AdminGetInputValidationsShort(input *input_validations.AdminGetInputValidationsParams) (*iamclientmodels.ModelInputValidationsResponse, error) {

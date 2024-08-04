@@ -13,7 +13,6 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils/auth"
-	"github.com/go-openapi/runtime/client"
 )
 
 type ClawbackService struct {
@@ -36,34 +35,6 @@ func (aaa *ClawbackService) GetAuthSession() auth.Session {
 		aaa.ConfigRepository,
 		nil,
 	}
-}
-
-// Deprecated: 2022-01-10 - Please use QueryIAPClawbackHistoryShort instead.
-func (aaa *ClawbackService) QueryIAPClawbackHistory(input *clawback.QueryIAPClawbackHistoryParams) (*platformclientmodels.IAPClawbackPagingSlicedResult, error) {
-	token, err := aaa.TokenRepository.GetToken()
-	if err != nil {
-		return nil, err
-	}
-	ok, err := aaa.Client.Clawback.QueryIAPClawbackHistory(input, client.BearerToken(*token.AccessToken))
-	if err != nil {
-		return nil, err
-	}
-
-	return ok.GetPayload(), nil
-}
-
-// Deprecated: 2022-01-10 - Please use MockPlayStationStreamEventShort instead.
-func (aaa *ClawbackService) MockPlayStationStreamEvent(input *clawback.MockPlayStationStreamEventParams) (*platformclientmodels.ClawbackInfo, error) {
-	token, err := aaa.TokenRepository.GetToken()
-	if err != nil {
-		return nil, err
-	}
-	ok, err := aaa.Client.Clawback.MockPlayStationStreamEvent(input, client.BearerToken(*token.AccessToken))
-	if err != nil {
-		return nil, err
-	}
-
-	return ok.GetPayload(), nil
 }
 
 func (aaa *ClawbackService) QueryIAPClawbackHistoryShort(input *clawback.QueryIAPClawbackHistoryParams) (*platformclientmodels.IAPClawbackPagingSlicedResult, error) {

@@ -13,7 +13,6 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/ugc-sdk/pkg/ugcclient"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/ugc-sdk/pkg/ugcclient/admin_staging_content"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/ugc-sdk/pkg/ugcclientmodels"
-	"github.com/go-openapi/runtime/client"
 )
 
 // AdminStagingContentService this is use for compatibility with latest modular sdk only
@@ -38,113 +37,6 @@ func (aaa *AdminStagingContentService) GetAuthSession() auth.Session {
 		aaa.ConfigRepository,
 		nil,
 	}
-}
-
-// Deprecated: 2022-01-10 - Please use AdminListStagingContentsShort instead.
-func (aaa *AdminStagingContentService) AdminListStagingContents(input *admin_staging_content.AdminListStagingContentsParams) (*ugcclientmodels.ModelsPaginatedListStagingContentResponse, error) {
-	token, err := aaa.TokenRepository.GetToken()
-	if err != nil {
-		return nil, err
-	}
-	ok, badRequest, unauthorized, forbidden, internalServerError, err := aaa.Client.AdminStagingContent.AdminListStagingContents(input, client.BearerToken(*token.AccessToken))
-	if badRequest != nil {
-		return nil, badRequest
-	}
-	if unauthorized != nil {
-		return nil, unauthorized
-	}
-	if forbidden != nil {
-		return nil, forbidden
-	}
-	if internalServerError != nil {
-		return nil, internalServerError
-	}
-	if err != nil {
-		return nil, err
-	}
-
-	return ok.GetPayload(), nil
-}
-
-// Deprecated: 2022-01-10 - Please use AdminGetStagingContentByIDShort instead.
-func (aaa *AdminStagingContentService) AdminGetStagingContentByID(input *admin_staging_content.AdminGetStagingContentByIDParams) (*ugcclientmodels.ModelsStagingContentResponse, error) {
-	token, err := aaa.TokenRepository.GetToken()
-	if err != nil {
-		return nil, err
-	}
-	ok, unauthorized, forbidden, notFound, internalServerError, err := aaa.Client.AdminStagingContent.AdminGetStagingContentByID(input, client.BearerToken(*token.AccessToken))
-	if unauthorized != nil {
-		return nil, unauthorized
-	}
-	if forbidden != nil {
-		return nil, forbidden
-	}
-	if notFound != nil {
-		return nil, notFound
-	}
-	if internalServerError != nil {
-		return nil, internalServerError
-	}
-	if err != nil {
-		return nil, err
-	}
-
-	return ok.GetPayload(), nil
-}
-
-// Deprecated: 2022-01-10 - Please use AdminApproveStagingContentShort instead.
-func (aaa *AdminStagingContentService) AdminApproveStagingContent(input *admin_staging_content.AdminApproveStagingContentParams) (*ugcclientmodels.ModelsStagingContentResponse, error) {
-	token, err := aaa.TokenRepository.GetToken()
-	if err != nil {
-		return nil, err
-	}
-	ok, badRequest, unauthorized, forbidden, notFound, internalServerError, err := aaa.Client.AdminStagingContent.AdminApproveStagingContent(input, client.BearerToken(*token.AccessToken))
-	if badRequest != nil {
-		return nil, badRequest
-	}
-	if unauthorized != nil {
-		return nil, unauthorized
-	}
-	if forbidden != nil {
-		return nil, forbidden
-	}
-	if notFound != nil {
-		return nil, notFound
-	}
-	if internalServerError != nil {
-		return nil, internalServerError
-	}
-	if err != nil {
-		return nil, err
-	}
-
-	return ok.GetPayload(), nil
-}
-
-// Deprecated: 2022-01-10 - Please use AdminListUserStagingContentsShort instead.
-func (aaa *AdminStagingContentService) AdminListUserStagingContents(input *admin_staging_content.AdminListUserStagingContentsParams) (*ugcclientmodels.ModelsPaginatedListStagingContentResponse, error) {
-	token, err := aaa.TokenRepository.GetToken()
-	if err != nil {
-		return nil, err
-	}
-	ok, badRequest, unauthorized, forbidden, internalServerError, err := aaa.Client.AdminStagingContent.AdminListUserStagingContents(input, client.BearerToken(*token.AccessToken))
-	if badRequest != nil {
-		return nil, badRequest
-	}
-	if unauthorized != nil {
-		return nil, unauthorized
-	}
-	if forbidden != nil {
-		return nil, forbidden
-	}
-	if internalServerError != nil {
-		return nil, internalServerError
-	}
-	if err != nil {
-		return nil, err
-	}
-
-	return ok.GetPayload(), nil
 }
 
 func (aaa *AdminStagingContentService) AdminListStagingContentsShort(input *admin_staging_content.AdminListStagingContentsParams) (*ugcclientmodels.ModelsPaginatedListStagingContentResponse, error) {

@@ -13,7 +13,6 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/ugc-sdk/pkg/ugcclient"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/ugc-sdk/pkg/ugcclient/public_download_count_v2"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/ugc-sdk/pkg/ugcclientmodels"
-	"github.com/go-openapi/runtime/client"
 )
 
 // PublicDownloadCountV2Service this is use for compatibility with latest modular sdk only
@@ -38,55 +37,6 @@ func (aaa *PublicDownloadCountV2Service) GetAuthSession() auth.Session {
 		aaa.ConfigRepository,
 		nil,
 	}
-}
-
-// Deprecated: 2022-01-10 - Please use PublicAddDownloadCountV2Short instead.
-func (aaa *PublicDownloadCountV2Service) PublicAddDownloadCountV2(input *public_download_count_v2.PublicAddDownloadCountV2Params) (*ugcclientmodels.ModelsAddDownloadCountResponse, error) {
-	token, err := aaa.TokenRepository.GetToken()
-	if err != nil {
-		return nil, err
-	}
-	ok, unauthorized, notFound, tooManyRequests, internalServerError, err := aaa.Client.PublicDownloadCountV2.PublicAddDownloadCountV2(input, client.BearerToken(*token.AccessToken))
-	if unauthorized != nil {
-		return nil, unauthorized
-	}
-	if notFound != nil {
-		return nil, notFound
-	}
-	if tooManyRequests != nil {
-		return nil, tooManyRequests
-	}
-	if internalServerError != nil {
-		return nil, internalServerError
-	}
-	if err != nil {
-		return nil, err
-	}
-
-	return ok.GetPayload(), nil
-}
-
-// Deprecated: 2022-01-10 - Please use PublicListContentDownloaderV2Short instead.
-func (aaa *PublicDownloadCountV2Service) PublicListContentDownloaderV2(input *public_download_count_v2.PublicListContentDownloaderV2Params) (*ugcclientmodels.ModelsPaginatedContentDownloaderResponse, error) {
-	token, err := aaa.TokenRepository.GetToken()
-	if err != nil {
-		return nil, err
-	}
-	ok, badRequest, unauthorized, internalServerError, err := aaa.Client.PublicDownloadCountV2.PublicListContentDownloaderV2(input, client.BearerToken(*token.AccessToken))
-	if badRequest != nil {
-		return nil, badRequest
-	}
-	if unauthorized != nil {
-		return nil, unauthorized
-	}
-	if internalServerError != nil {
-		return nil, internalServerError
-	}
-	if err != nil {
-		return nil, err
-	}
-
-	return ok.GetPayload(), nil
 }
 
 func (aaa *PublicDownloadCountV2Service) PublicAddDownloadCountV2Short(input *public_download_count_v2.PublicAddDownloadCountV2Params) (*ugcclientmodels.ModelsAddDownloadCountResponse, error) {

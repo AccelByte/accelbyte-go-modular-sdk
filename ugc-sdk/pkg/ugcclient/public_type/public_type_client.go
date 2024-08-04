@@ -30,66 +30,9 @@ type Client struct {
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	GetType(params *GetTypeParams, authInfo runtime.ClientAuthInfoWriter) (*GetTypeOK, *GetTypeBadRequest, *GetTypeUnauthorized, *GetTypeInternalServerError, error)
 	GetTypeShort(params *GetTypeParams, authInfo runtime.ClientAuthInfoWriter) (*GetTypeOK, error)
 
 	SetTransport(transport runtime.ClientTransport)
-}
-
-/*
-Deprecated: 2022-08-10 - Use GetTypeShort instead.
-
-GetType get types
-Get available types paginated
-*/
-func (a *Client) GetType(params *GetTypeParams, authInfo runtime.ClientAuthInfoWriter) (*GetTypeOK, *GetTypeBadRequest, *GetTypeUnauthorized, *GetTypeInternalServerError, error) {
-	// TODO: Validate the params before sending
-	if params == nil {
-		params = NewGetTypeParams()
-	}
-
-	if params.Context == nil {
-		params.Context = context.Background()
-	}
-
-	if params.RetryPolicy != nil {
-		params.SetHTTPClientTransport(params.RetryPolicy)
-	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
-		ID:                 "GetType",
-		Method:             "GET",
-		PathPattern:        "/ugc/v1/public/namespaces/{namespace}/types",
-		ProducesMediaTypes: []string{"application/json"},
-		ConsumesMediaTypes: []string{"application/json", "application/octet-stream"},
-		Schemes:            []string{"https"},
-		Params:             params,
-		Reader:             &GetTypeReader{formats: a.formats},
-		AuthInfo:           authInfo,
-		Context:            params.Context,
-		Client:             params.HTTPClient,
-	})
-	if err != nil {
-		return nil, nil, nil, nil, err
-	}
-
-	switch v := result.(type) {
-
-	case *GetTypeOK:
-		return v, nil, nil, nil, nil
-
-	case *GetTypeBadRequest:
-		return nil, v, nil, nil, nil
-
-	case *GetTypeUnauthorized:
-		return nil, nil, v, nil, nil
-
-	case *GetTypeInternalServerError:
-		return nil, nil, nil, v, nil
-
-	default:
-		return nil, nil, nil, nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
-	}
 }
 
 /*

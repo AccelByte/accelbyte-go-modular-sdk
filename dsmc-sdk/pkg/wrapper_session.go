@@ -13,7 +13,6 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils/auth"
-	"github.com/go-openapi/runtime/client"
 )
 
 type SessionService struct {
@@ -36,119 +35,6 @@ func (aaa *SessionService) GetAuthSession() auth.Session {
 		aaa.ConfigRepository,
 		nil,
 	}
-}
-
-// Deprecated: 2022-01-10 - Please use CreateSessionShort instead.
-func (aaa *SessionService) CreateSession(input *session.CreateSessionParams) (*dsmcclientmodels.ModelsSessionResponse, error) {
-	token, err := aaa.TokenRepository.GetToken()
-	if err != nil {
-		return nil, err
-	}
-	ok, badRequest, unauthorized, notFound, conflict, internalServerError, serviceUnavailable, err := aaa.Client.Session.CreateSession(input, client.BearerToken(*token.AccessToken))
-	if badRequest != nil {
-		return nil, badRequest
-	}
-	if unauthorized != nil {
-		return nil, unauthorized
-	}
-	if notFound != nil {
-		return nil, notFound
-	}
-	if conflict != nil {
-		return nil, conflict
-	}
-	if internalServerError != nil {
-		return nil, internalServerError
-	}
-	if serviceUnavailable != nil {
-		return nil, serviceUnavailable
-	}
-	if err != nil {
-		return nil, err
-	}
-
-	return ok.GetPayload(), nil
-}
-
-// Deprecated: 2022-01-10 - Please use ClaimServerShort instead.
-func (aaa *SessionService) ClaimServer(input *session.ClaimServerParams) error {
-	token, err := aaa.TokenRepository.GetToken()
-	if err != nil {
-		return err
-	}
-	_, unauthorized, notFound, conflict, tooEarly, internalServerError, serviceUnavailable, err := aaa.Client.Session.ClaimServer(input, client.BearerToken(*token.AccessToken))
-	if unauthorized != nil {
-		return unauthorized
-	}
-	if notFound != nil {
-		return notFound
-	}
-	if conflict != nil {
-		return conflict
-	}
-	if tooEarly != nil {
-		return tooEarly
-	}
-	if internalServerError != nil {
-		return internalServerError
-	}
-	if serviceUnavailable != nil {
-		return serviceUnavailable
-	}
-	if err != nil {
-		return err
-	}
-
-	return nil
-}
-
-// Deprecated: 2022-01-10 - Please use GetSessionShort instead.
-func (aaa *SessionService) GetSession(input *session.GetSessionParams) (*dsmcclientmodels.ModelsSessionResponse, error) {
-	token, err := aaa.TokenRepository.GetToken()
-	if err != nil {
-		return nil, err
-	}
-	ok, unauthorized, notFound, internalServerError, err := aaa.Client.Session.GetSession(input, client.BearerToken(*token.AccessToken))
-	if unauthorized != nil {
-		return nil, unauthorized
-	}
-	if notFound != nil {
-		return nil, notFound
-	}
-	if internalServerError != nil {
-		return nil, internalServerError
-	}
-	if err != nil {
-		return nil, err
-	}
-
-	return ok.GetPayload(), nil
-}
-
-// Deprecated: 2022-01-10 - Please use CancelSessionShort instead.
-func (aaa *SessionService) CancelSession(input *session.CancelSessionParams) error {
-	token, err := aaa.TokenRepository.GetToken()
-	if err != nil {
-		return err
-	}
-	_, unauthorized, notFound, unprocessableEntity, internalServerError, err := aaa.Client.Session.CancelSession(input, client.BearerToken(*token.AccessToken))
-	if unauthorized != nil {
-		return unauthorized
-	}
-	if notFound != nil {
-		return notFound
-	}
-	if unprocessableEntity != nil {
-		return unprocessableEntity
-	}
-	if internalServerError != nil {
-		return internalServerError
-	}
-	if err != nil {
-		return err
-	}
-
-	return nil
 }
 
 func (aaa *SessionService) CreateSessionShort(input *session.CreateSessionParams) (*dsmcclientmodels.ModelsSessionResponse, error) {

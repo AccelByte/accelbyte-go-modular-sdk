@@ -13,7 +13,6 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/session-sdk/pkg/sessionclient"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/session-sdk/pkg/sessionclient/global_configuration"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/session-sdk/pkg/sessionclientmodels"
-	"github.com/go-openapi/runtime/client"
 )
 
 type GlobalConfigurationService struct {
@@ -36,66 +35,6 @@ func (aaa *GlobalConfigurationService) GetAuthSession() auth.Session {
 		aaa.ConfigRepository,
 		nil,
 	}
-}
-
-// Deprecated: 2022-01-10 - Please use AdminListGlobalConfigurationShort instead.
-func (aaa *GlobalConfigurationService) AdminListGlobalConfiguration(input *global_configuration.AdminListGlobalConfigurationParams) (*sessionclientmodels.ApimodelsGlobalConfigurationResponse, error) {
-	token, err := aaa.TokenRepository.GetToken()
-	if err != nil {
-		return nil, err
-	}
-	ok, unauthorized, forbidden, err := aaa.Client.GlobalConfiguration.AdminListGlobalConfiguration(input, client.BearerToken(*token.AccessToken))
-	if unauthorized != nil {
-		return nil, unauthorized
-	}
-	if forbidden != nil {
-		return nil, forbidden
-	}
-	if err != nil {
-		return nil, err
-	}
-
-	return ok.GetPayload(), nil
-}
-
-// Deprecated: 2022-01-10 - Please use AdminUpdateGlobalConfigurationShort instead.
-func (aaa *GlobalConfigurationService) AdminUpdateGlobalConfiguration(input *global_configuration.AdminUpdateGlobalConfigurationParams) (*sessionclientmodels.ApimodelsGlobalConfigurationResponse, error) {
-	token, err := aaa.TokenRepository.GetToken()
-	if err != nil {
-		return nil, err
-	}
-	ok, unauthorized, forbidden, err := aaa.Client.GlobalConfiguration.AdminUpdateGlobalConfiguration(input, client.BearerToken(*token.AccessToken))
-	if unauthorized != nil {
-		return nil, unauthorized
-	}
-	if forbidden != nil {
-		return nil, forbidden
-	}
-	if err != nil {
-		return nil, err
-	}
-
-	return ok.GetPayload(), nil
-}
-
-// Deprecated: 2022-01-10 - Please use AdminDeleteGlobalConfigurationShort instead.
-func (aaa *GlobalConfigurationService) AdminDeleteGlobalConfiguration(input *global_configuration.AdminDeleteGlobalConfigurationParams) (string, error) {
-	token, err := aaa.TokenRepository.GetToken()
-	if err != nil {
-		return "", err
-	}
-	noContent, unauthorized, forbidden, err := aaa.Client.GlobalConfiguration.AdminDeleteGlobalConfiguration(input, client.BearerToken(*token.AccessToken))
-	if unauthorized != nil {
-		return "", unauthorized
-	}
-	if forbidden != nil {
-		return "", forbidden
-	}
-	if err != nil {
-		return "", err
-	}
-
-	return noContent.GetPayload(), nil
 }
 
 func (aaa *GlobalConfigurationService) AdminListGlobalConfigurationShort(input *global_configuration.AdminListGlobalConfigurationParams) (*sessionclientmodels.ApimodelsGlobalConfigurationResponse, error) {

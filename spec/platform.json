@@ -8,7 +8,7 @@
     },
     "description": "Justice Platform Service",
     "title": "justice-platform-service",
-    "version": "4.51.0"
+    "version": "4.54.0"
   },
   "schemes": [
     "https"
@@ -84,6 +84,12 @@
       "name": "PaymentStation"
     },
     {
+      "name": "Platform"
+    },
+    {
+      "name": "Platform Account Closure"
+    },
+    {
       "name": "Revocation"
     },
     {
@@ -119,7 +125,7 @@
   ],
   "externalDocs": {
     "description": "API Docs",
-    "url": "https://demo.accelbyte.io/platform"
+    "url": "https://stage.accelbyte.io/platform"
   },
   "securityDefinitions": {
     "HasPermission": {
@@ -5313,7 +5319,7 @@
             }
           },
           "409": {
-            "description": "\u003ctable\u003e\u003ctr\u003e\u003ctd\u003eErrorCode\u003c/td\u003e\u003ctd\u003eErrorMessage\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e30173\u003c/td\u003e\u003ctd\u003ePublished store can't modify content\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e30175\u003c/td\u003e\u003ctd\u003eDuplicated currencyCode [{currencyCode}] in Region [{region}]\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e30373\u003c/td\u003e\u003ctd\u003eItemType [{itemType}] is not allowed in namespace [{namespace}]\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e30376\u003c/td\u003e\u003ctd\u003ePublisher namespace don’t allow sellback item\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e30377\u003c/td\u003e\u003ctd\u003eThis item type [{itemType}] don’t allow sellback\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e30378\u003c/td\u003e\u003ctd\u003eSale price don’t allow real currency [{currencyCode}]\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e30380\u003c/td\u003e\u003ctd\u003eBox item [{itemId}] duration and end date can’t be set at the same time\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e30381\u003c/td\u003e\u003ctd\u003eCurrency [{currency}] is not set for bundle Item [{itemId}] in region [{region}]\u003c/td\u003e\u003c/tr\u003e\u003c/table\u003e",
+            "description": "\u003ctable\u003e\u003ctr\u003e\u003ctd\u003eErrorCode\u003c/td\u003e\u003ctd\u003eErrorMessage\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e30173\u003c/td\u003e\u003ctd\u003ePublished store can't modify content\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e30175\u003c/td\u003e\u003ctd\u003eDuplicated currencyCode [{currencyCode}] in Region [{region}]\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e30373\u003c/td\u003e\u003ctd\u003eItemType [{itemType}] is not allowed in namespace [{namespace}]\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e30376\u003c/td\u003e\u003ctd\u003ePublisher namespace don’t allow sellback item\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e30377\u003c/td\u003e\u003ctd\u003eThis item type [{itemType}] don’t allow sellback\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e30378\u003c/td\u003e\u003ctd\u003eSale price don’t allow real currency [{currencyCode}]\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e30380\u003c/td\u003e\u003ctd\u003eBox item [{itemId}] duration and end date can’t be set at the same time\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e30381\u003c/td\u003e\u003ctd\u003eCurrency [{currency}] is not set for bundle Item [{itemId}] in region [{region}]\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e30383\u003c/td\u003e\u003ctd\u003eItem app id [{appId}] already exists in namespace [{namespace}] item [{itemId}]\u003c/td\u003e\u003c/tr\u003e\u003c/table\u003e",
             "schema": {
               "$ref": "#/definitions/ErrorEntity"
             }
@@ -6833,7 +6839,7 @@
             }
           },
           "409": {
-            "description": "\u003ctable\u003e\u003ctr\u003e\u003ctd\u003eErrorCode\u003c/td\u003e\u003ctd\u003eErrorMessage\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e30371\u003c/td\u003e\u003ctd\u003eItem maxCount not allow reduce\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e30372\u003c/td\u003e\u003ctd\u003eItemType is not updatable\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e30173\u003c/td\u003e\u003ctd\u003ePublished store can't modify content\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e30175\u003c/td\u003e\u003ctd\u003eDuplicated currencyCode [{currencyCode}] in Region [{region}]\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e30374\u003c/td\u003e\u003ctd\u003eItem sku [{sku}] already exists in namespace [{namespace}]\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e30376\u003c/td\u003e\u003ctd\u003ePublisher namespace don’t allow sellback item\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e30377\u003c/td\u003e\u003ctd\u003eThis item type [{itemType}] don’t allow sellback\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e30378\u003c/td\u003e\u003ctd\u003eSale price don’t allow real currency [{currencyCode}]\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e30379\u003c/td\u003e\u003ctd\u003eItem sku is not updatable\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e30380\u003c/td\u003e\u003ctd\u003eBox item [{itemId}] duration and end date can’t be set at the same time\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e30381\u003c/td\u003e\u003ctd\u003eCurrency [{currency}] is not set for bundle Item [{itemId}] in region [{region}]\u003c/td\u003e\u003c/tr\u003e\u003c/table\u003e",
+            "description": "\u003ctable\u003e\u003ctr\u003e\u003ctd\u003eErrorCode\u003c/td\u003e\u003ctd\u003eErrorMessage\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e30371\u003c/td\u003e\u003ctd\u003eItem maxCount not allow reduce\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e30372\u003c/td\u003e\u003ctd\u003eItemType is not updatable\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e30173\u003c/td\u003e\u003ctd\u003ePublished store can't modify content\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e30175\u003c/td\u003e\u003ctd\u003eDuplicated currencyCode [{currencyCode}] in Region [{region}]\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e30374\u003c/td\u003e\u003ctd\u003eItem sku [{sku}] already exists in namespace [{namespace}]\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e30376\u003c/td\u003e\u003ctd\u003ePublisher namespace don’t allow sellback item\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e30377\u003c/td\u003e\u003ctd\u003eThis item type [{itemType}] don’t allow sellback\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e30378\u003c/td\u003e\u003ctd\u003eSale price don’t allow real currency [{currencyCode}]\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e30379\u003c/td\u003e\u003ctd\u003eItem sku is not updatable\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e30380\u003c/td\u003e\u003ctd\u003eBox item [{itemId}] duration and end date can’t be set at the same time\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e30381\u003c/td\u003e\u003ctd\u003eCurrency [{currency}] is not set for bundle Item [{itemId}] in region [{region}]\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e30383\u003c/td\u003e\u003ctd\u003eItem app id [{appId}] already exists in namespace [{namespace}] item [{itemId}]\u003c/td\u003e\u003c/tr\u003e\u003c/table\u003e",
             "schema": {
               "$ref": "#/definitions/ErrorEntity"
             }
@@ -8441,6 +8447,96 @@
         }
       }
     },
+    "/platform/admin/namespaces/{namespace}/payment/config/domains": {
+      "get": {
+        "description": "\u0026lt;b\u0026gt;[Not Supported Yet In Starter]\u0026lt;/b\u0026gt;Get payment domain whitelist config by namespace.\u0026lt;br\u0026gt;Other detail info: \u0026lt;ul\u0026gt;\u0026lt;li\u0026gt;\u0026lt;i\u0026gt;Returns\u0026lt;/i\u0026gt;: payment domain whitelist config info\u0026lt;/li\u0026gt;\u0026lt;/ul\u0026gt;",
+        "operationId": "getPaymentMerchantConfig",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "namespace",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$ref": "#/definitions/PaymentDomainWhitelistConfigInfo"
+            }
+          }
+        },
+        "security": [
+          {
+            "authorization": []
+          }
+        ],
+        "summary": "Get payment domain whitelist config",
+        "tags": [
+          "PaymentConfig"
+        ],
+        "x-security": {
+          "userPermissions": "ADMIN:PAYMENT:CONFIG [READ]"
+        }
+      },
+      "put": {
+        "consumes": [
+          "application/json"
+        ],
+        "description": "\u0026lt;b\u0026gt;[Not Supported Yet In Starter]\u0026lt;/b\u0026gt;Update payment provider config by namespace.\u0026lt;br\u0026gt;\u0026lt;pre\u0026gt;\u0026lt;p\u0026gt;\u0026lt;strong\u0026gt;Request Body Parameters:\u0026lt;/strong\u0026gt;\u0026lt;/p\u0026gt;\u0026lt;pre\u0026gt;\u0026lt;table\u0026gt;\u0026lt;tr\u0026gt;\u0026lt;td\u0026gt;Parameter\u0026lt;/td\u0026gt;\u0026lt;td\u0026gt;Type\u0026lt;/td\u0026gt;\u0026lt;td\u0026gt;Required\u0026lt;/td\u0026gt;\u0026lt;td\u0026gt;Description\u0026lt;/td\u0026gt;\u0026lt;/tr\u0026gt;\u0026lt;tr\u0026gt;\u0026lt;td\u0026gt;domains\u0026lt;/td\u0026gt;\u0026lt;td\u0026gt;String\u0026lt;/td\u0026gt;\u0026lt;td\u0026gt;Yes\u0026lt;/td\u0026gt;\u0026lt;td\u0026gt;list of domains to whitelist for the return URL.\u0026lt;/td\u0026gt;\u0026lt;/tr\u0026gt;\u0026lt;/table\u0026gt;\u0026lt;/pre\u0026gt;Other detail info: \u0026lt;ul\u0026gt;\u0026lt;li\u0026gt;\u0026lt;i\u0026gt;Validation\u0026lt;/i\u0026gt;: the domain should include the protocol (http/https), but the whitelist check will only compare the host part (www.example.com)\u0026lt;/li\u0026gt;\u0026lt;li\u0026gt;\u0026lt;i\u0026gt;Returns\u0026lt;/i\u0026gt;: payment domain whitelist config\u0026lt;/li\u0026gt;\u0026lt;/ul\u0026gt;",
+        "operationId": "updatePaymentDomainWhitelistConfig",
+        "parameters": [
+          {
+            "description": "namespace",
+            "in": "path",
+            "name": "namespace",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": false,
+            "schema": {
+              "$ref": "#/definitions/PaymentDomainWhitelistConfigEdit"
+            }
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$ref": "#/definitions/PaymentDomainWhitelistConfigInfo"
+            }
+          },
+          "422": {
+            "description": "\u003ctable\u003e\u003ctr\u003e\u003ctd\u003eErrorCode\u003c/td\u003e\u003ctd\u003eErrorMessage\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e20002\u003c/td\u003e\u003ctd\u003evalidation error\u003c/td\u003e\u003c/tr\u003e\u003c/table\u003e",
+            "schema": {
+              "$ref": "#/definitions/ValidationErrorEntity"
+            }
+          }
+        },
+        "security": [
+          {
+            "authorization": []
+          }
+        ],
+        "summary": "Update payment domain whitelist config",
+        "tags": [
+          "PaymentConfig"
+        ],
+        "x-security": {
+          "userPermissions": "ADMIN:PAYMENT:CONFIG [UPDATE]"
+        }
+      }
+    },
     "/platform/admin/namespaces/{namespace}/payment/notifications": {
       "get": {
         "description": "\u0026lt;b\u0026gt;[Not Supported Yet In Starter]\u0026lt;/b\u0026gt;Query payment notifications.\u0026lt;br\u0026gt;Other detail info: \u0026lt;ul\u0026gt;\u0026lt;li\u0026gt;\u0026lt;i\u0026gt;Returns\u0026lt;/i\u0026gt;: Payment notifications\u0026lt;/li\u0026gt;\u0026lt;/ul\u0026gt;",
@@ -8478,6 +8574,7 @@
               "ADYEN",
               "ALIPAY",
               "CHECKOUT",
+              "NEONPAY",
               "PAYPAL",
               "STRIPE",
               "WALLET",
@@ -9072,6 +9169,114 @@
         ],
         "x-security": {
           "userPermissions": "ADMIN:NAMESPACE:{namespace}:PAYMENT [READ]"
+        }
+      }
+    },
+    "/platform/admin/namespaces/{namespace}/platforms/psn/entitlements/{entitlementLabel}/ownership": {
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "description": "Get user psn entitlement ownership by entitlement label.",
+        "operationId": "getPsnEntitlementOwnership",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "entitlementLabel",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "namespace",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": false,
+            "schema": {
+              "$ref": "#/definitions/PsnEntitlementOwnershipRequest"
+            }
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$ref": "#/definitions/Ownership"
+            }
+          }
+        },
+        "security": [
+          {
+            "authorization": []
+          }
+        ],
+        "summary": "Get user psn entitlement ownership by entitlement label",
+        "tags": [
+          "Platform"
+        ],
+        "x-security": {
+          "userPermissions": "ADMIN:NAMESPACE:{namespace}:INTEGRATION [READ]"
+        }
+      }
+    },
+    "/platform/admin/namespaces/{namespace}/platforms/xbl/entitlements/{productSku}/ownership": {
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "description": "Get Xbox entitlement ownership by product sku.",
+        "operationId": "getXboxEntitlementOwnership",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "namespace",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "productSku",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": false,
+            "schema": {
+              "$ref": "#/definitions/XblEntitlementOwnershipRequest"
+            }
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$ref": "#/definitions/PlatformOwnership"
+            }
+          }
+        },
+        "security": [
+          {
+            "authorization": []
+          }
+        ],
+        "summary": "Get Xbox entitlement ownership by product sku.",
+        "tags": [
+          "Platform"
+        ],
+        "x-security": {
+          "userPermissions": "ADMIN:NAMESPACE:{namespace}:INTEGRATION [READ]"
         }
       }
     },
@@ -13622,7 +13827,7 @@
     },
     "/platform/admin/namespaces/{namespace}/users/{userId}/dlc/records": {
       "get": {
-        "description": "Get user dlc records.\u0026lt;br\u0026gt;Other detail info: \u0026lt;ul\u0026gt;\u0026lt;li\u0026gt;\u0026lt;i\u0026gt;Returns\u0026lt;/i\u0026gt;: user dlc\u0026lt;/li\u0026gt;\u0026lt;/ul\u0026gt;",
+        "description": "Get user dlc records.\u0026lt;br\u0026gt;Note: includeAllNamespaces means this endpoint will return user dlcs from all namespace, example scenario isadmin may need to check the user dlcs before unlink a 3rd party account, so the user dlcs should be from all namespaces because unlinking is a platform level action \u0026lt;br\u0026gt;Other detail info: \u0026lt;ul\u0026gt;\u0026lt;li\u0026gt;\u0026lt;i\u0026gt;Returns\u0026lt;/i\u0026gt;: user dlc\u0026lt;/li\u0026gt;\u0026lt;/ul\u0026gt;",
         "operationId": "getUserDLC",
         "parameters": [
           {
@@ -13635,6 +13840,24 @@
             "in": "path",
             "name": "userId",
             "required": true,
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "includeAllNamespaces",
+            "required": false,
+            "type": "boolean",
+            "x-omitempty": false
+          },
+          {
+            "enum": [
+              "FULFILLED",
+              "REVOKED",
+              "REVOKE_FAILED"
+            ],
+            "in": "query",
+            "name": "status",
+            "required": false,
             "type": "string"
           },
           {
@@ -16214,7 +16437,7 @@
             }
           },
           "409": {
-            "description": "\u003ctable\u003e\u003ctr\u003e\u003ctd\u003eErrorCode\u003c/td\u003e\u003ctd\u003eErrorMessage\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e20024\u003c/td\u003e\u003ctd\u003einsufficient inventory capacity (max. slots)\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e32175\u003c/td\u003e\u003ctd\u003eExceed item [{itemId}] max count [{maxCount}] per user\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e32176\u003c/td\u003e\u003ctd\u003eExceed item [{itemId}] max count [{maxCount}]\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e32178\u003c/td\u003e\u003ctd\u003eUser [{userId}] already owned all durable items in flexible bundle [{bundleId}], namespace: [{namespace}]\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e31177\u003c/td\u003e\u003ctd\u003ePermanent item already owned\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e49183\u003c/td\u003e\u003ctd\u003ePass item does not match published season pass\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e49184\u003c/td\u003e\u003ctd\u003eTier item does not match published season tier\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e49185\u003c/td\u003e\u003ctd\u003eSeason has not started\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e49186\u003c/td\u003e\u003ctd\u003ePass already owned\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e49187\u003c/td\u003e\u003ctd\u003eExceed max tier count\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e20006\u003c/td\u003e\u003ctd\u003eoptimistic lock\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e37172\u003c/td\u003e\u003ctd\u003eCampaign [{campaignId}] is inactive in namespace [{namespace}]\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e37173\u003c/td\u003e\u003ctd\u003eCode [{code}] is inactive in namespace [{namespace}]\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e37174\u003c/td\u003e\u003ctd\u003eExceeded max redeem count per code [{maxCount}]\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e37175\u003c/td\u003e\u003ctd\u003eExceeded max redeem count per code per user [{maxCount}]\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e37177\u003c/td\u003e\u003ctd\u003eCode redemption not started\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e37178\u003c/td\u003e\u003ctd\u003eCode redemption already ended\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e37179\u003c/td\u003e\u003ctd\u003eExceeded max redeem count per campaign per user [{maxCount}]\u003c/td\u003e\u003c/tr\u003e\u003c/table\u003e",
+            "description": "\u003ctable\u003e\u003ctr\u003e\u003ctd\u003eErrorCode\u003c/td\u003e\u003ctd\u003eErrorMessage\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e20024\u003c/td\u003e\u003ctd\u003einsufficient inventory capacity (max. slots)\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e32175\u003c/td\u003e\u003ctd\u003eExceed item [{itemId}] max count [{maxCount}] per user\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e32176\u003c/td\u003e\u003ctd\u003eExceed item [{itemId}] max count [{maxCount}]\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e32178\u003c/td\u003e\u003ctd\u003eUser [{userId}] already owned all durable items in flexible bundle [{bundleId}], namespace: [{namespace}]\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e31177\u003c/td\u003e\u003ctd\u003ePermanent item already owned\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e49183\u003c/td\u003e\u003ctd\u003ePass item does not match published season pass\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e49184\u003c/td\u003e\u003ctd\u003eTier item does not match published season tier\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e49185\u003c/td\u003e\u003ctd\u003eSeason has not started\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e49186\u003c/td\u003e\u003ctd\u003ePass already owned\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e49187\u003c/td\u003e\u003ctd\u003eExceed max tier count\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e20006\u003c/td\u003e\u003ctd\u003eoptimistic lock\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e37172\u003c/td\u003e\u003ctd\u003eCampaign [{campaignId}] is inactive in namespace [{namespace}]\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e37173\u003c/td\u003e\u003ctd\u003eCode [{code}] is inactive in namespace [{namespace}]\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e37174\u003c/td\u003e\u003ctd\u003eExceeded max redeem count per code [{maxCount}]\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e37175\u003c/td\u003e\u003ctd\u003eExceeded max redeem count per code per user [{maxCount}]\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e37177\u003c/td\u003e\u003ctd\u003eCode redemption not started\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e37178\u003c/td\u003e\u003ctd\u003eCode redemption already ended\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e37179\u003c/td\u003e\u003ctd\u003eExceeded max redeem count per campaign per user [{maxCount}]\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e30771\u003c/td\u003e\u003ctd\u003eItem [{itemId}] not found in User Section [{sectionId}], UserId [{userId}], Namespace [{namespace}]\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e30772\u003c/td\u003e\u003ctd\u003eSection [{sectionId}] is not available or expired\u003c/td\u003e\u003c/tr\u003e\u003c/table\u003e",
             "schema": {
               "$ref": "#/definitions/ErrorEntity"
             }
@@ -16875,6 +17098,52 @@
         ],
         "x-security": {
           "userPermissions": "ADMIN:NAMESPACE:{namespace}:USER:{userId}:PAYMENT [UPDATE]"
+        }
+      }
+    },
+    "/platform/admin/namespaces/{namespace}/users/{userId}/platform/closure/history": {
+      "get": {
+        "description": "Get user platform account closure history.\u0026lt;br\u0026gt;",
+        "operationId": "getUserPlatformAccountClosureHistories",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "namespace",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "userId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "items": {
+                "$ref": "#/definitions/PlatformAccountClosureHistoryInfo"
+              },
+              "type": "array"
+            }
+          }
+        },
+        "security": [
+          {
+            "authorization": []
+          }
+        ],
+        "summary": "Get user platform account closure history",
+        "tags": [
+          "Platform Account Closure"
+        ],
+        "x-security": {
+          "userPermissions": "ADMIN:NAMESPACE:{namespace}:USER:{userId}:INTEGRATION [READ]"
         }
       }
     },
@@ -19621,6 +19890,56 @@
         }
       }
     },
+    "/platform/admin/payment/config/merchant/neonpayconfig/test": {
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "description": "\u0026lt;b\u0026gt;[Not Supported Yet In Starter]\u0026lt;/b\u0026gt;Check Neon Pay configuration, Reference: \u0026lt;a href=\u0026#34;https://docs.neonpay.com/docs/checkout\u0026#34;\u0026gt;Neon Pay Document\u0026lt;/a\u0026gt;.\u0026lt;h4\u0026gt;Check List:\u0026lt;/h4\u0026gt; \u0026lt;ul\u0026gt;\u0026lt;li\u0026gt;apiKey\u0026lt;/li\u0026gt;\u0026lt;li\u0026gt;webhookSecretKey\u0026lt;/li\u0026gt;\u0026lt;/ul\u0026gt;Other detail info: \u0026lt;ul\u0026gt;\u0026lt;li\u0026gt;\u0026lt;i\u0026gt;Returns\u0026lt;/i\u0026gt;: test result\u0026lt;/li\u0026gt;\u0026lt;/ul\u0026gt;",
+        "operationId": "testNeonPayConfig",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": false,
+            "schema": {
+              "$ref": "#/definitions/NeonPayConfig"
+            }
+          },
+          {
+            "default": true,
+            "in": "query",
+            "name": "sandbox",
+            "required": false,
+            "type": "boolean",
+            "x-omitempty": false
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$ref": "#/definitions/TestResult"
+            }
+          }
+        },
+        "security": [
+          {
+            "authorization": []
+          }
+        ],
+        "summary": "Test Neon Pay configuration",
+        "tags": [
+          "PaymentConfig"
+        ],
+        "x-security": {
+          "userPermissions": "ADMIN:PAYMENT:CONFIG [UPDATE]"
+        }
+      }
+    },
     "/platform/admin/payment/config/merchant/paypalconfig/test": {
       "post": {
         "consumes": [
@@ -19808,7 +20127,7 @@
     "/platform/admin/payment/config/merchant/{id}": {
       "get": {
         "description": "\u0026lt;b\u0026gt;[Not Supported Yet In Starter]\u0026lt;/b\u0026gt;Get payment merchant config by id.\u0026lt;br\u0026gt;Other detail info: \u0026lt;ul\u0026gt;\u0026lt;li\u0026gt;\u0026lt;i\u0026gt;Returns\u0026lt;/i\u0026gt;: payment merchant config info\u0026lt;/li\u0026gt;\u0026lt;/ul\u0026gt;",
-        "operationId": "getPaymentMerchantConfig",
+        "operationId": "getPaymentMerchantConfig_1",
         "parameters": [
           {
             "in": "path",
@@ -20212,6 +20531,130 @@
           }
         ],
         "summary": "Test checkout.com configuration by id",
+        "tags": [
+          "PaymentConfig"
+        ],
+        "x-security": {
+          "userPermissions": "ADMIN:PAYMENT:CONFIG [READ]"
+        }
+      }
+    },
+    "/platform/admin/payment/config/merchant/{id}/neonpayconfig": {
+      "put": {
+        "consumes": [
+          "application/json"
+        ],
+        "description": "\u0026lt;b\u0026gt;[Not Supported Yet In Starter]\u0026lt;/b\u0026gt;Update Neon Pay config.\u0026lt;br\u0026gt;Other detail info: \u0026lt;ul\u0026gt;\u0026lt;li\u0026gt;\u0026lt;i\u0026gt;Returns\u0026lt;/i\u0026gt;: updated payment merchant config\u0026lt;/li\u0026gt;\u0026lt;/ul\u0026gt;",
+        "operationId": "updateNeonPayConfig",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": false,
+            "schema": {
+              "$ref": "#/definitions/NeonPayConfig"
+            }
+          },
+          {
+            "default": true,
+            "in": "query",
+            "name": "sandbox",
+            "required": false,
+            "type": "boolean",
+            "x-omitempty": false
+          },
+          {
+            "default": false,
+            "in": "query",
+            "name": "validate",
+            "required": false,
+            "type": "boolean",
+            "x-omitempty": false
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$ref": "#/definitions/PaymentMerchantConfigInfo"
+            }
+          },
+          "404": {
+            "description": "\u003ctable\u003e\u003ctr\u003e\u003ctd\u003eErrorCode\u003c/td\u003e\u003ctd\u003eErrorMessage\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e33242\u003c/td\u003e\u003ctd\u003ePayment merchant config [{id}] does not exist\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e33221\u003c/td\u003e\u003ctd\u003eUpdate [{paymentProvider}] config in payment merchant config [{id}] failed with message [{errMsg}]\u003c/td\u003e\u003c/tr\u003e\u003c/table\u003e",
+            "schema": {
+              "$ref": "#/definitions/ErrorEntity"
+            }
+          }
+        },
+        "security": [
+          {
+            "authorization": []
+          }
+        ],
+        "summary": "Update Neon Pay config",
+        "tags": [
+          "PaymentConfig"
+        ],
+        "x-security": {
+          "userPermissions": "ADMIN:PAYMENT:CONFIG [UPDATE]"
+        }
+      }
+    },
+    "/platform/admin/payment/config/merchant/{id}/neonpayconfig/test": {
+      "get": {
+        "consumes": [
+          "application/json"
+        ],
+        "description": "\u0026lt;b\u0026gt;[Not Supported Yet In Starter]\u0026lt;/b\u0026gt;Test Neon Pay configuration in payment merchant config. Other detail info: \u0026lt;ul\u0026gt;\u0026lt;li\u0026gt;\u0026lt;i\u0026gt;Returns\u0026lt;/i\u0026gt;: test result\u0026lt;/li\u0026gt;\u0026lt;/ul\u0026gt;",
+        "operationId": "testNeonPayConfigById",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "default": true,
+            "in": "query",
+            "name": "sandbox",
+            "required": false,
+            "type": "boolean",
+            "x-omitempty": false
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$ref": "#/definitions/TestResult"
+            }
+          },
+          "404": {
+            "description": "\u003ctable\u003e\u003ctr\u003e\u003ctd\u003eErrorCode\u003c/td\u003e\u003ctd\u003eErrorMessage\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e33242\u003c/td\u003e\u003ctd\u003ePayment merchant config [{id}] does not exist\u003c/td\u003e\u003c/tr\u003e\u003c/table\u003e",
+            "schema": {
+              "$ref": "#/definitions/ErrorEntity"
+            }
+          }
+        },
+        "security": [
+          {
+            "authorization": []
+          }
+        ],
+        "summary": "Test Neon Pay configuration by id",
         "tags": [
           "PaymentConfig"
         ],
@@ -20926,6 +21369,7 @@
                   "ADYEN",
                   "ALIPAY",
                   "CHECKOUT",
+                  "NEONPAY",
                   "PAYPAL",
                   "STRIPE",
                   "WALLET",
@@ -21022,6 +21466,7 @@
                   "ADYEN",
                   "ALIPAY",
                   "CHECKOUT",
+                  "NEONPAY",
                   "PAYPAL",
                   "STRIPE",
                   "WALLET",
@@ -22547,6 +22992,7 @@
               "ADYEN",
               "ALIPAY",
               "CHECKOUT",
+              "NEONPAY",
               "PAYPAL",
               "STRIPE",
               "WALLET",
@@ -22595,7 +23041,7 @@
         "consumes": [
           "application/json"
         ],
-        "description": "\u0026lt;b\u0026gt;[Not Supported Yet In Starter]\u0026lt;/b\u0026gt;Get payment url.\u0026lt;br\u0026gt;Other detail info: \u0026lt;ul\u0026gt;\u0026lt;li\u0026gt;\u0026lt;i\u0026gt;Returns\u0026lt;/i\u0026gt;: Get payment link\u0026lt;/li\u0026gt;\u0026lt;/ul\u0026gt;",
+        "description": "\u0026lt;b\u0026gt;[Not Supported Yet In Starter]\u0026lt;/b\u0026gt;Get payment url.\u0026lt;br\u0026gt;Other detail info: \u0026lt;ul\u0026gt;\u0026lt;li\u0026gt;For Neon Pay payment provider, the \u0026#39;neonPayConfig\u0026#39; field can be used to provide success and cancel URL. If \u0026#39;neonPayConfig\u0026#39; field is not present, the \u0026#39;returnUrl\u0026#39; will be used for both success and cancel URL.\u0026lt;/li\u0026gt;\u0026lt;li\u0026gt;\u0026lt;i\u0026gt;Returns\u0026lt;/i\u0026gt;: Get payment link\u0026lt;/li\u0026gt;\u0026lt;/ul\u0026gt;",
         "operationId": "publicGetPaymentUrl",
         "parameters": [
           {
@@ -22624,7 +23070,7 @@
             }
           },
           "400": {
-            "description": "\u003ctable\u003e\u003ctr\u003e\u003ctd\u003eErrorCode\u003c/td\u003e\u003ctd\u003eErrorMessage\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e33321\u003c/td\u003e\u003ctd\u003ePayment provider [{paymentProvider}] not support currency [{currency}]\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e33322\u003c/td\u003e\u003ctd\u003ePayment provider [{paymentProvider}] not supported\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e33332\u003c/td\u003e\u003ctd\u003eAmount too small, please contact administrator\u003c/td\u003e\u003c/tr\u003e\u003c/table\u003e",
+            "description": "\u003ctable\u003e\u003ctr\u003e\u003ctd\u003eErrorCode\u003c/td\u003e\u003ctd\u003eErrorMessage\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e33321\u003c/td\u003e\u003ctd\u003ePayment provider [{paymentProvider}] not support currency [{currency}]\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e33322\u003c/td\u003e\u003ctd\u003ePayment provider [{paymentProvider}] not supported\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e33332\u003c/td\u003e\u003ctd\u003eAmount too small, please contact administrator\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e33333\u003c/td\u003e\u003ctd\u003eNeon Pay checkout payment order [{paymentOrderNo}] failed with message [{errMsg}]\u003c/td\u003e\u003c/tr\u003e\u003c/table\u003e",
             "schema": {
               "$ref": "#/definitions/ErrorEntity"
             }
@@ -22780,6 +23226,7 @@
               "ADYEN",
               "ALIPAY",
               "CHECKOUT",
+              "NEONPAY",
               "PAYPAL",
               "STRIPE",
               "WALLET",
@@ -22897,6 +23344,7 @@
               "ADYEN",
               "ALIPAY",
               "CHECKOUT",
+              "NEONPAY",
               "PAYPAL",
               "STRIPE",
               "WALLET",
@@ -23010,6 +23458,7 @@
               "ADYEN",
               "ALIPAY",
               "CHECKOUT",
+              "NEONPAY",
               "PAYPAL",
               "STRIPE",
               "WALLET",
@@ -23147,6 +23596,7 @@
               "ADYEN",
               "ALIPAY",
               "CHECKOUT",
+              "NEONPAY",
               "PAYPAL",
               "STRIPE",
               "WALLET",
@@ -26103,7 +26553,7 @@
             }
           },
           "400": {
-            "description": "\u003ctable\u003e\u003ctr\u003e\u003ctd\u003eErrorCode\u003c/td\u003e\u003ctd\u003eErrorMessage\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e20018\u003c/td\u003e\u003ctd\u003eecommerce item type not supported\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e32121\u003c/td\u003e\u003ctd\u003eOrder price mismatch\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e32122\u003c/td\u003e\u003ctd\u003eItem type [{itemType}] does not support\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e32123\u003c/td\u003e\u003ctd\u003eItem is not purchasable\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e32125\u003c/td\u003e\u003ctd\u003eThe user does not meet the purchase conditions\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e32126\u003c/td\u003e\u003ctd\u003eSection ID is required for placing this order\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e35123\u003c/td\u003e\u003ctd\u003eWallet [{walletId}] is inactive\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e35124\u003c/td\u003e\u003ctd\u003eWallet [{currencyCode}] has insufficient balance\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e38121\u003c/td\u003e\u003ctd\u003eDuplicate permanent item exists\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e32127\u003c/td\u003e\u003ctd\u003eDiscount code [{code}] can't be used on this item: {tips}\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e32128\u003c/td\u003e\u003ctd\u003eDiscount code [{code}] can not be used with other code together\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e32129\u003c/td\u003e\u003ctd\u003eCan't use discount code on free order\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e32130\u003c/td\u003e\u003ctd\u003eThe total discount amount cannot exceed the order price\u003c/td\u003e\u003c/tr\u003e\u003c/table\u003e",
+            "description": "\u003ctable\u003e\u003ctr\u003e\u003ctd\u003eErrorCode\u003c/td\u003e\u003ctd\u003eErrorMessage\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e20018\u003c/td\u003e\u003ctd\u003eecommerce item type not supported\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e32121\u003c/td\u003e\u003ctd\u003eOrder price mismatch\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e32122\u003c/td\u003e\u003ctd\u003eItem type [{itemType}] does not support\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e32123\u003c/td\u003e\u003ctd\u003eItem is not purchasable\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e32125\u003c/td\u003e\u003ctd\u003eThe user does not meet the purchase conditions\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e32126\u003c/td\u003e\u003ctd\u003eSection ID is required for placing this order\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e35123\u003c/td\u003e\u003ctd\u003eWallet [{walletId}] is inactive\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e35124\u003c/td\u003e\u003ctd\u003eWallet [{currencyCode}] has insufficient balance\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e38121\u003c/td\u003e\u003ctd\u003eDuplicate permanent item exists\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e32124\u003c/td\u003e\u003ctd\u003eInvalid currency namespace\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e32127\u003c/td\u003e\u003ctd\u003eDiscount code [{code}] can't be used on this item: {tips}\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e32128\u003c/td\u003e\u003ctd\u003eDiscount code [{code}] can not be used with other code together\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e32129\u003c/td\u003e\u003ctd\u003eCan't use discount code on free order\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e32130\u003c/td\u003e\u003ctd\u003eThe total discount amount cannot exceed the order price\u003c/td\u003e\u003c/tr\u003e\u003c/table\u003e",
             "schema": {
               "$ref": "#/definitions/ErrorEntity"
             }
@@ -26121,7 +26571,7 @@
             }
           },
           "409": {
-            "description": "\u003ctable\u003e\u003ctr\u003e\u003ctd\u003eErrorCode\u003c/td\u003e\u003ctd\u003eErrorMessage\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e20024\u003c/td\u003e\u003ctd\u003einsufficient inventory capacity (max. slots)\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e32175\u003c/td\u003e\u003ctd\u003eExceed item [{itemId}] max count [{maxCount}] per user\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e32176\u003c/td\u003e\u003ctd\u003eExceed item [{itemId}] max count [{maxCount}]\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e31177\u003c/td\u003e\u003ctd\u003ePermanent item already owned\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e32178\u003c/td\u003e\u003ctd\u003eUser [{userId}] already owned all durable items in flexible bundle [{bundleId}], namespace: [{namespace}]\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e49183\u003c/td\u003e\u003ctd\u003ePass item does not match published season pass\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e49184\u003c/td\u003e\u003ctd\u003eTier item does not match published season tier\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e49185\u003c/td\u003e\u003ctd\u003eSeason has not started\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e49186\u003c/td\u003e\u003ctd\u003ePass already owned\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e49187\u003c/td\u003e\u003ctd\u003eExceed max tier count\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e20006\u003c/td\u003e\u003ctd\u003eoptimistic lock\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e37172\u003c/td\u003e\u003ctd\u003eCampaign [{campaignId}] is inactive in namespace [{namespace}]\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e37173\u003c/td\u003e\u003ctd\u003eCode [{code}] is inactive in namespace [{namespace}]\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e37174\u003c/td\u003e\u003ctd\u003eExceeded max redeem count per code [{maxCount}]\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e37175\u003c/td\u003e\u003ctd\u003eExceeded max redeem count per code per user [{maxCount}]\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e37177\u003c/td\u003e\u003ctd\u003eCode redemption not started\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e37178\u003c/td\u003e\u003ctd\u003eCode redemption already ended\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e37179\u003c/td\u003e\u003ctd\u003eExceeded max redeem count per campaign per user [{maxCount}]\u003c/td\u003e\u003c/tr\u003e\u003c/table\u003e",
+            "description": "\u003ctable\u003e\u003ctr\u003e\u003ctd\u003eErrorCode\u003c/td\u003e\u003ctd\u003eErrorMessage\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e20024\u003c/td\u003e\u003ctd\u003einsufficient inventory capacity (max. slots)\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e32175\u003c/td\u003e\u003ctd\u003eExceed item [{itemId}] max count [{maxCount}] per user\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e32176\u003c/td\u003e\u003ctd\u003eExceed item [{itemId}] max count [{maxCount}]\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e31177\u003c/td\u003e\u003ctd\u003ePermanent item already owned\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e32178\u003c/td\u003e\u003ctd\u003eUser [{userId}] already owned all durable items in flexible bundle [{bundleId}], namespace: [{namespace}]\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e49183\u003c/td\u003e\u003ctd\u003ePass item does not match published season pass\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e49184\u003c/td\u003e\u003ctd\u003eTier item does not match published season tier\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e49185\u003c/td\u003e\u003ctd\u003eSeason has not started\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e49186\u003c/td\u003e\u003ctd\u003ePass already owned\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e49187\u003c/td\u003e\u003ctd\u003eExceed max tier count\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e20006\u003c/td\u003e\u003ctd\u003eoptimistic lock\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e37172\u003c/td\u003e\u003ctd\u003eCampaign [{campaignId}] is inactive in namespace [{namespace}]\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e37173\u003c/td\u003e\u003ctd\u003eCode [{code}] is inactive in namespace [{namespace}]\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e37174\u003c/td\u003e\u003ctd\u003eExceeded max redeem count per code [{maxCount}]\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e37175\u003c/td\u003e\u003ctd\u003eExceeded max redeem count per code per user [{maxCount}]\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e37177\u003c/td\u003e\u003ctd\u003eCode redemption not started\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e37178\u003c/td\u003e\u003ctd\u003eCode redemption already ended\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e37179\u003c/td\u003e\u003ctd\u003eExceeded max redeem count per campaign per user [{maxCount}]\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e30771\u003c/td\u003e\u003ctd\u003eItem [{itemId}] not found in User Section [{sectionId}], UserId [{userId}], Namespace [{namespace}]\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e30772\u003c/td\u003e\u003ctd\u003eSection [{sectionId}] is not available or expired\u003c/td\u003e\u003c/tr\u003e\u003c/table\u003e",
             "schema": {
               "$ref": "#/definitions/ErrorEntity"
             }
@@ -27356,10 +27806,149 @@
         }
       }
     },
+    "/platform/public/users/me/dlc/content": {
+      "get": {
+        "description": "Get user dlc reward contents. If includeAllNamespaces is false, will only return the dlc synced from the current namespace\u0026lt;br\u0026gt;Other detail info: \u0026lt;ul\u0026gt;\u0026lt;li\u0026gt;\u0026lt;i\u0026gt;Returns\u0026lt;/i\u0026gt;: user dlc\u0026lt;/li\u0026gt;\u0026lt;/ul\u0026gt;",
+        "operationId": "publicGetMyDLCContent",
+        "parameters": [
+          {
+            "enum": [
+              "EPICGAMES",
+              "OCULUS",
+              "PSN",
+              "STEAM",
+              "XBOX"
+            ],
+            "in": "query",
+            "name": "type",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "includeAllNamespaces",
+            "required": false,
+            "type": "boolean",
+            "x-omitempty": false
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$ref": "#/definitions/SimpleUserDLCRewardContentsResponse"
+            }
+          }
+        },
+        "security": [
+          {
+            "authorization": []
+          }
+        ],
+        "summary": "Get user dlc reward contents",
+        "tags": [
+          "DLC"
+        ]
+      }
+    },
+    "/platform/v2/admin/namespaces/{namespace}/fulfillments": {
+      "get": {
+        "description": "\u0026lt;b\u0026gt;[Not Supported Yet In Starter]\u0026lt;/b\u0026gt; Query fulfillments in a namespace.\u0026lt;br\u0026gt;Other detail info: \u0026lt;ul\u0026gt;\u0026lt;li\u0026gt;\u0026lt;i\u0026gt;Returns\u0026lt;/i\u0026gt;: query fulfillments\u0026lt;/li\u0026gt;\u0026lt;/ul\u0026gt;",
+        "operationId": "queryFulfillments",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "namespace",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "end time is exclusive, using ISO 8601 format e.g. yyyy-MM-dd'T'HH:mm:ssZZ",
+            "in": "query",
+            "name": "endTime",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "default": 20,
+            "format": "int32",
+            "in": "query",
+            "name": "limit",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "default": 0,
+            "format": "int32",
+            "in": "query",
+            "name": "offset",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "description": "start time is inclusive, using ISO 8601 format e.g. yyyy-MM-dd'T'HH:mm:ssZZ",
+            "in": "query",
+            "name": "startTime",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "enum": [
+              "FULFILLED",
+              "FULFILL_FAILED",
+              "REVOKED",
+              "REVOKE_FAILED"
+            ],
+            "in": "query",
+            "name": "state",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "transactionId",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "userId",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$ref": "#/definitions/FulfillmentHistoryPagingSlicedResult"
+            }
+          }
+        },
+        "security": [
+          {
+            "authorization": []
+          }
+        ],
+        "summary": "Query fulfillments",
+        "tags": [
+          "Fulfillment"
+        ],
+        "x-security": {
+          "userPermissions": "ADMIN:NAMESPACE:{namespace}:FULFILLMENT [READ]"
+        }
+      }
+    },
     "/platform/v2/admin/namespaces/{namespace}/items/byCriteria": {
       "get": {
         "description": "This API is used to query items by criteria within a store.\u0026lt;p\u0026gt;The behaviour for itemStatus query parameter:\u0026lt;li\u0026gt;TRUE: Show only ACTIVE items\u0026lt;/li\u0026gt;\u0026lt;li\u0026gt;FALSE: Show only INACTIVE items\u0026lt;/li\u0026gt;\u0026lt;li\u0026gt;Not provided: show both ACTIVE and INACTIVE items\u0026lt;/li\u0026gt;Other detail info: \u0026lt;ul\u0026gt;\u0026lt;li\u0026gt;\u0026lt;i\u0026gt;Returns\u0026lt;/i\u0026gt;: the list of items\u0026lt;/li\u0026gt;\u0026lt;/ul\u0026gt;",
-        "operationId": "queryItems_1",
+        "operationId": "queryItemsV2",
         "parameters": [
           {
             "in": "path",
@@ -27433,23 +28022,27 @@
             "type": "string"
           },
           {
-            "enum": [
-              "APP",
-              "BUNDLE",
-              "CODE",
-              "COINS",
-              "EXTENSION",
-              "INGAMEITEM",
-              "LOOTBOX",
-              "MEDIA",
-              "OPTIONBOX",
-              "SEASON",
-              "SUBSCRIPTION"
-            ],
+            "collectionFormat": "multi",
             "in": "query",
+            "items": {
+              "enum": [
+                "APP",
+                "BUNDLE",
+                "CODE",
+                "COINS",
+                "EXTENSION",
+                "INGAMEITEM",
+                "LOOTBOX",
+                "MEDIA",
+                "OPTIONBOX",
+                "SEASON",
+                "SUBSCRIPTION"
+              ],
+              "type": "string"
+            },
             "name": "itemType",
             "required": false,
-            "type": "string"
+            "type": "array"
           },
           {
             "default": 20,
@@ -27783,6 +28376,148 @@
         ],
         "x-security": {
           "userPermissions": "ADMIN:NAMESPACE:{namespace}:USER:{userId}:FULFILLMENT [CREATE]"
+        }
+      }
+    },
+    "/platform/v2/admin/namespaces/{namespace}/users/{userId}/fulfillments/{transactionId}": {
+      "put": {
+        "consumes": [
+          "application/json"
+        ],
+        "description": "\u0026lt;b\u0026gt;[Not Supported Yet In Starter]\u0026lt;/b\u0026gt; Fulfill items by transactionId.\u0026lt;br\u0026gt;Other detail info: \u0026lt;ul\u0026gt;\u0026lt;li\u0026gt;\u0026lt;i\u0026gt;Returns\u0026lt;/i\u0026gt;: fulfillment v2 result\u0026lt;/li\u0026gt;\u0026lt;/ul\u0026gt;",
+        "operationId": "fulfillItems",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "namespace",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "transactionId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "userId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": false,
+            "schema": {
+              "$ref": "#/definitions/FulfillmentV2Request"
+            }
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$ref": "#/definitions/FulfillmentV2Result"
+            }
+          },
+          "400": {
+            "description": "\u003ctable\u003e\u003ctr\u003e\u003ctd\u003eErrorCode\u003c/td\u003e\u003ctd\u003eErrorMessage\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e35123\u003c/td\u003e\u003ctd\u003eWallet [{walletId}] is inactive\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e38121\u003c/td\u003e\u003ctd\u003eDuplicate permanent item exists\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e38122\u003c/td\u003e\u003ctd\u003eSubscription endDate required\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e38128\u003c/td\u003e\u003ctd\u003eCannot retry fulfillment with different payload. Please check the items list.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e38129\u003c/td\u003e\u003ctd\u003eCannot combine same item [{itemId}] with different [{fieldName}] value\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e38130\u003c/td\u003e\u003ctd\u003eCannot fulfill item with type [{itemType}] in item [{itemIdentity}]\u003c/td\u003e\u003c/tr\u003e\u003c/table\u003e",
+            "schema": {
+              "$ref": "#/definitions/ErrorEntity"
+            }
+          },
+          "404": {
+            "description": "\u003ctable\u003e\u003ctr\u003e\u003ctd\u003eErrorCode\u003c/td\u003e\u003ctd\u003eErrorMessage\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e30341\u003c/td\u003e\u003ctd\u003eItem [{itemId}] does not exist in namespace [{namespace}]\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e30343\u003c/td\u003e\u003ctd\u003eItem of sku [{sku}] does not exist\u003c/td\u003e\u003c/tr\u003e\u003c/table\u003e",
+            "schema": {
+              "$ref": "#/definitions/ErrorEntity"
+            }
+          },
+          "409": {
+            "description": "\u003ctable\u003e\u003ctr\u003e\u003ctd\u003eErrorCode\u003c/td\u003e\u003ctd\u003eErrorMessage\u003c/td\u003e\u003c/tr\u003e\u003c/table\u003e",
+            "schema": {
+              "$ref": "#/definitions/FulfillmentV2Result"
+            }
+          }
+        },
+        "security": [
+          {
+            "authorization": []
+          }
+        ],
+        "summary": "Fulfill items by transactionId",
+        "tags": [
+          "Fulfillment"
+        ],
+        "x-security": {
+          "userPermissions": "ADMIN:NAMESPACE:{namespace}:USER:{userId}:FULFILLMENT [UPDATE]"
+        }
+      }
+    },
+    "/platform/v2/admin/namespaces/{namespace}/users/{userId}/fulfillments/{transactionId}/revoke": {
+      "put": {
+        "consumes": [
+          "application/json"
+        ],
+        "description": "\u0026lt;b\u0026gt;[Not Supported Yet In Starter]\u0026lt;/b\u0026gt; Revoke items by transactionId.\u0026lt;br\u0026gt;Other detail info: \u0026lt;ul\u0026gt;\u0026lt;li\u0026gt;\u0026lt;i\u0026gt;Returns\u0026lt;/i\u0026gt;: revoke fulfillment v2 result\u0026lt;/li\u0026gt;\u0026lt;/ul\u0026gt;",
+        "operationId": "revokeItems",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "namespace",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "transactionId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "userId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$ref": "#/definitions/RevokeFulfillmentV2Result"
+            }
+          },
+          "404": {
+            "description": "\u003ctable\u003e\u003ctr\u003e\u003ctd\u003eErrorCode\u003c/td\u003e\u003ctd\u003eErrorMessage\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e38145\u003c/td\u003e\u003ctd\u003eFulfillment with transactionId [{transactionId}] does not exist\u003c/td\u003e\u003c/tr\u003e\u003c/table\u003e",
+            "schema": {
+              "$ref": "#/definitions/ErrorEntity"
+            }
+          },
+          "409": {
+            "description": "\u003ctable\u003e\u003ctr\u003e\u003ctd\u003eErrorCode\u003c/td\u003e\u003ctd\u003eErrorMessage\u003c/td\u003e\u003c/tr\u003e\u003c/table\u003e",
+            "schema": {
+              "$ref": "#/definitions/RevokeFulfillmentV2Result"
+            }
+          }
+        },
+        "security": [
+          {
+            "authorization": []
+          }
+        ],
+        "summary": "Revoke items by transactionId",
+        "tags": [
+          "Fulfillment"
+        ],
+        "x-security": {
+          "userPermissions": "ADMIN:NAMESPACE:{namespace}:USER:{userId}:FULFILLMENT [UPDATE]"
         }
       }
     }
@@ -28635,7 +29370,8 @@
           "enum": [
             "EntitlementPredicate",
             "SeasonPassPredicate",
-            "SeasonTierPredicate"
+            "SeasonTierPredicate",
+            "StatisticCodePredicate"
           ],
           "type": "string"
         },
@@ -28925,6 +29661,7 @@
             "ADYEN",
             "ALIPAY",
             "CHECKOUT",
+            "NEONPAY",
             "PAYPAL",
             "STRIPE",
             "WALLET",
@@ -31462,13 +32199,18 @@
         "deductionType": {
           "description": "Deduction type, currently only support discount code",
           "enum": [
-            "DISCOUNT_CODE"
+            "DISCOUNT_CODE",
+            "PAYMENT_DISCOUNT_CODE"
           ],
           "type": "string"
         },
         "discountCodeDeductionDetail": {
           "$ref": "#/definitions/DiscountCodeDeductionDetail",
           "description": "Discount code deduction details"
+        },
+        "discountProviderName": {
+          "description": "Discount provider name",
+          "type": "string"
         }
       },
       "type": "object"
@@ -33495,6 +34237,24 @@
       ],
       "type": "object"
     },
+    "FulfillBundledItemResult": {
+      "properties": {
+        "error": {
+          "type": "string"
+        },
+        "itemId": {
+          "type": "string"
+        },
+        "itemSku": {
+          "type": "string"
+        },
+        "quantity": {
+          "format": "int32",
+          "type": "integer"
+        }
+      },
+      "type": "object"
+    },
     "FulfillCodeRequest": {
       "properties": {
         "code": {
@@ -33514,6 +34274,26 @@
       "required": [
         "code"
       ],
+      "type": "object"
+    },
+    "FulfillItemResult": {
+      "properties": {
+        "error": {
+          "type": "string"
+        },
+        "itemId": {
+          "type": "string"
+        },
+        "itemSku": {
+          "type": "string"
+        },
+        "items": {
+          "items": {
+            "$ref": "#/definitions/FulfillBundledItemResult"
+          },
+          "type": "array"
+        }
+      },
       "type": "object"
     },
     "FulfillmentError": {
@@ -33918,6 +34698,229 @@
           "type": "string"
         }
       },
+      "type": "object"
+    },
+    "FulfillmentStateInfo": {
+      "properties": {
+        "failedList": {
+          "items": {
+            "$ref": "#/definitions/FulfillItemResult"
+          },
+          "type": "array"
+        },
+        "successList": {
+          "items": {
+            "$ref": "#/definitions/FulfillItemResult"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "FulfillmentV2Request": {
+      "description": "A DTO object for fulfillment v2 request API call.",
+      "properties": {
+        "items": {
+          "description": "items",
+          "items": {
+            "$ref": "#/definitions/FulfillmentV2RequestItem"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "FulfillmentV2RequestItem": {
+      "description": "A DTO object for fulfillment v2 request item.",
+      "properties": {
+        "duration": {
+          "description": "duration in seconds, ignored if the endDate is present",
+          "format": "int32",
+          "type": "integer"
+        },
+        "endDate": {
+          "description": "end date time",
+          "format": "date-time",
+          "type": "string",
+          "x-nullable": true
+        },
+        "entitlementCollectionId": {
+          "description": "entitlement collection id, length 1-128",
+          "type": "string"
+        },
+        "entitlementOrigin": {
+          "description": "entitlement origin",
+          "enum": [
+            "Epic",
+            "GooglePlay",
+            "IOS",
+            "Nintendo",
+            "Oculus",
+            "Other",
+            "Playstation",
+            "Steam",
+            "System",
+            "Twitch",
+            "Xbox"
+          ],
+          "type": "string"
+        },
+        "itemId": {
+          "description": "itemId",
+          "type": "string"
+        },
+        "itemSku": {
+          "description": "itemSku",
+          "type": "string"
+        },
+        "language": {
+          "description": "language",
+          "type": "string"
+        },
+        "metadata": {
+          "additionalProperties": {
+            "type": "object"
+          },
+          "description": "metadata",
+          "type": "object"
+        },
+        "orderNo": {
+          "description": "orderNo",
+          "type": "string"
+        },
+        "origin": {
+          "description": "origin",
+          "enum": [
+            "Epic",
+            "GooglePlay",
+            "IOS",
+            "Nintendo",
+            "Oculus",
+            "Other",
+            "Playstation",
+            "Steam",
+            "System",
+            "Twitch",
+            "Xbox"
+          ],
+          "type": "string"
+        },
+        "quantity": {
+          "description": "quantity",
+          "format": "int32",
+          "type": "integer"
+        },
+        "region": {
+          "description": "region",
+          "type": "string"
+        },
+        "source": {
+          "description": "source",
+          "enum": [
+            "ACHIEVEMENT",
+            "CONSUME_ENTITLEMENT",
+            "DLC",
+            "EXPIRATION",
+            "GIFT",
+            "IAP",
+            "IAP_CHARGEBACK_REVERSED",
+            "ORDER_REVOCATION",
+            "OTHER",
+            "PAYMENT",
+            "PROMOTION",
+            "PURCHASE",
+            "REDEEM_CODE",
+            "REFERRAL_BONUS",
+            "REWARD",
+            "SELL_BACK"
+          ],
+          "type": "string"
+        },
+        "startDate": {
+          "description": "start date time",
+          "format": "date-time",
+          "type": "string",
+          "x-nullable": true
+        },
+        "storeId": {
+          "description": "storeId",
+          "type": "string"
+        }
+      },
+      "required": [
+        "quantity"
+      ],
+      "type": "object"
+    },
+    "FulfillmentV2Result": {
+      "properties": {
+        "creditSummaries": {
+          "description": "credit granted",
+          "items": {
+            "$ref": "#/definitions/CreditSummary"
+          },
+          "type": "array"
+        },
+        "entitlementSummaries": {
+          "description": "entitlement granted",
+          "items": {
+            "$ref": "#/definitions/EntitlementSummary"
+          },
+          "type": "array"
+        },
+        "id": {
+          "description": "fulfillment id",
+          "type": "string"
+        },
+        "items": {
+          "description": "item",
+          "items": {
+            "$ref": "#/definitions/FulfillmentItem"
+          },
+          "type": "array"
+        },
+        "namespace": {
+          "description": "namespace",
+          "type": "string"
+        },
+        "state": {
+          "description": "state",
+          "enum": [
+            "FULFILLED",
+            "FULFILL_FAILED",
+            "REVOKED",
+            "REVOKE_FAILED"
+          ],
+          "type": "string"
+        },
+        "stateInfo": {
+          "$ref": "#/definitions/FulfillmentStateInfo",
+          "description": "stateInfo"
+        },
+        "subscriptionSummaries": {
+          "description": "affected subscriptions",
+          "items": {
+            "$ref": "#/definitions/SubscriptionSummary"
+          },
+          "type": "array"
+        },
+        "transactionId": {
+          "description": "transactionId",
+          "type": "string"
+        },
+        "userId": {
+          "description": "userId",
+          "type": "string"
+        }
+      },
+      "required": [
+        "items",
+        "namespace",
+        "state",
+        "stateInfo",
+        "transactionId",
+        "userId"
+      ],
       "type": "object"
     },
     "FullAppInfo": {
@@ -35754,7 +36757,7 @@
           "type": "string"
         },
         "tags": {
-          "description": "Tags, allowed characters from a-zA-Z0-9:_- with length range from 1 to 30, should start and end in upper/lowercase/number, an item has max 5 tags.",
+          "description": "Tags, allowed characters from a-zA-Z0-9:_- with length range from 1 to 30, should start and end in upper/lowercase/number, an item has max 20 tags.",
           "items": {
             "type": "string"
           },
@@ -36920,7 +37923,7 @@
           "type": "string"
         },
         "tags": {
-          "description": "Tags, allowed characters from a-zA-Z0-9:_- with length range from 1 to 30, should start and end in upper/lowercase/number, an item has max 5 tags.",
+          "description": "Tags, allowed characters from a-zA-Z0-9:_- with length range from 1 to 30, should start and end in upper/lowercase/number, an item has max 20 tags.",
           "items": {
             "type": "string"
           },
@@ -37429,6 +38432,20 @@
       ],
       "type": "object"
     },
+    "NeonPayConfig": {
+      "description": "A DTO object for updating Neon Pay config.",
+      "properties": {
+        "apiKey": {
+          "description": "api key",
+          "type": "string"
+        },
+        "webhookSecretKey": {
+          "description": "webhook secret key",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
     "NotificationProcessResult": {
       "properties": {
         "code": {
@@ -37712,6 +38729,9 @@
         "orderNo": {
           "type": "string"
         },
+        "paymentData": {
+          "$ref": "#/definitions/PaymentData"
+        },
         "paymentMethod": {
           "type": "string"
         },
@@ -37727,6 +38747,7 @@
             "ADYEN",
             "ALIPAY",
             "CHECKOUT",
+            "NEONPAY",
             "PAYPAL",
             "STRIPE",
             "WALLET",
@@ -38242,6 +39263,7 @@
             "ADYEN",
             "ALIPAY",
             "CHECKOUT",
+            "NEONPAY",
             "PAYPAL",
             "STRIPE",
             "WALLET",
@@ -38631,6 +39653,66 @@
       },
       "type": "object"
     },
+    "PaymentData": {
+      "properties": {
+        "discountAmount": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "discountCode": {
+          "type": "string"
+        },
+        "subtotalPrice": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "tax": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "totalPrice": {
+          "format": "int32",
+          "type": "integer"
+        }
+      },
+      "type": "object"
+    },
+    "PaymentDomainWhitelistConfigEdit": {
+      "description": "A DTO object for updating payment domain whitelist config",
+      "properties": {
+        "domains": {
+          "description": "domains",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        }
+      },
+      "required": [
+        "domains"
+      ],
+      "type": "object"
+    },
+    "PaymentDomainWhitelistConfigInfo": {
+      "properties": {
+        "domains": {
+          "description": "domains",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "namespace": {
+          "description": "namespace",
+          "type": "string"
+        }
+      },
+      "required": [
+        "domains",
+        "namespace"
+      ],
+      "type": "object"
+    },
     "PaymentMerchantConfigInfo": {
       "properties": {
         "adyenConfig": {
@@ -38666,6 +39748,14 @@
         "id": {
           "description": "id",
           "type": "string"
+        },
+        "neonPayConfig": {
+          "$ref": "#/definitions/NeonPayConfig",
+          "description": "neonPayConfig"
+        },
+        "neonPaySandboxConfig": {
+          "$ref": "#/definitions/NeonPayConfig",
+          "description": "neonPaySandboxConfig"
         },
         "payPalConfig": {
           "$ref": "#/definitions/PayPalConfig",
@@ -38721,6 +39811,7 @@
             "ADYEN",
             "ALIPAY",
             "CHECKOUT",
+            "NEONPAY",
             "PAYPAL",
             "STRIPE",
             "WALLET",
@@ -38766,6 +39857,7 @@
             "ADYEN",
             "ALIPAY",
             "CHECKOUT",
+            "NEONPAY",
             "PAYPAL",
             "STRIPE",
             "WALLET",
@@ -38867,6 +39959,18 @@
           "type": "boolean",
           "x-omitempty": false
         },
+        "checkoutUrl": {
+          "type": "string"
+        },
+        "checkoutUrlExpiredAt": {
+          "format": "date-time",
+          "type": "string",
+          "x-nullable": true
+        },
+        "checkoutUrlValid": {
+          "type": "boolean",
+          "x-omitempty": false
+        },
         "createdAt": {
           "format": "date-time",
           "type": "string",
@@ -38923,12 +40027,18 @@
         "namespace": {
           "type": "string"
         },
+        "neonPayConfig": {
+          "$ref": "#/definitions/PaymentOrderNeonPayConfig"
+        },
         "notifyUrl": {
           "type": "string"
         },
         "omitNotification": {
           "type": "boolean",
           "x-omitempty": false
+        },
+        "paymentData": {
+          "$ref": "#/definitions/PaymentData"
         },
         "paymentMethod": {
           "type": "string"
@@ -38945,6 +40055,7 @@
             "ADYEN",
             "ALIPAY",
             "CHECKOUT",
+            "NEONPAY",
             "PAYPAL",
             "STRIPE",
             "WALLET",
@@ -39088,6 +40199,7 @@
             "ADYEN",
             "ALIPAY",
             "CHECKOUT",
+            "NEONPAY",
             "PAYPAL",
             "STRIPE",
             "WALLET",
@@ -39484,6 +40596,7 @@
             "ADYEN",
             "ALIPAY",
             "CHECKOUT",
+            "NEONPAY",
             "PAYPAL",
             "STRIPE",
             "WALLET",
@@ -39636,6 +40749,23 @@
       ],
       "type": "object"
     },
+    "PaymentOrderNeonPayConfig": {
+      "properties": {
+        "cancelUrl": {
+          "description": "cancelUrl",
+          "type": "string"
+        },
+        "successUrl": {
+          "description": "successUrl",
+          "type": "string"
+        }
+      },
+      "required": [
+        "cancelUrl",
+        "successUrl"
+      ],
+      "type": "object"
+    },
     "PaymentOrderNotifySimulation": {
       "properties": {
         "amount": {
@@ -39661,6 +40791,7 @@
             "ADYEN",
             "ALIPAY",
             "CHECKOUT",
+            "NEONPAY",
             "PAYPAL",
             "STRIPE",
             "WALLET",
@@ -39842,6 +40973,9 @@
           "description": "aggregate payment provider, allow empty value",
           "enum": [
             "ADYEN",
+            "CHECKOUT",
+            "NEONPAY",
+            "STRIPE",
             "XSOLLA"
           ],
           "type": "string"
@@ -39865,6 +40999,7 @@
               "ADYEN",
               "ALIPAY",
               "CHECKOUT",
+              "NEONPAY",
               "PAYPAL",
               "STRIPE",
               "WALLET",
@@ -39903,6 +41038,7 @@
           "enum": [
             "ADYEN",
             "CHECKOUT",
+            "NEONPAY",
             "STRIPE",
             "XSOLLA"
           ],
@@ -39935,6 +41071,7 @@
               "ADYEN",
               "ALIPAY",
               "CHECKOUT",
+              "NEONPAY",
               "PAYPAL",
               "STRIPE",
               "WALLET",
@@ -40090,6 +41227,7 @@
             "ADYEN",
             "ALIPAY",
             "CHECKOUT",
+            "NEONPAY",
             "PAYPAL",
             "STRIPE",
             "WALLET",
@@ -40131,6 +41269,10 @@
     },
     "PaymentUrlCreate": {
       "properties": {
+        "neonPayConfig": {
+          "$ref": "#/definitions/PaymentOrderNeonPayConfig",
+          "description": "neonPayConfig"
+        },
         "paymentOrderNo": {
           "description": "payment order number",
           "type": "string"
@@ -40141,6 +41283,7 @@
             "ADYEN",
             "ALIPAY",
             "CHECKOUT",
+            "NEONPAY",
             "PAYPAL",
             "STRIPE",
             "WALLET",
@@ -40179,6 +41322,63 @@
           "type": "string"
         }
       },
+      "type": "object"
+    },
+    "PlatformAccountClosureHistoryInfo": {
+      "properties": {
+        "entitlements": {
+          "description": "entitlements",
+          "items": {
+            "$ref": "#/definitions/SimpleEntitlement"
+          },
+          "type": "array"
+        },
+        "id": {
+          "description": "history id",
+          "type": "string"
+        },
+        "namespace": {
+          "description": "namespace",
+          "type": "string"
+        },
+        "platform": {
+          "description": "3rd party platform",
+          "type": "string"
+        },
+        "progression": {
+          "description": "history progression",
+          "enum": [
+            "IN_PROGRESS",
+            "SUCCESS"
+          ],
+          "type": "string"
+        },
+        "userDlcS": {
+          "description": "user dlcs",
+          "items": {
+            "$ref": "#/definitions/SimpleUserDLC"
+          },
+          "type": "array"
+        },
+        "userId": {
+          "description": "user id",
+          "type": "string"
+        },
+        "wallets": {
+          "description": "wallets",
+          "items": {
+            "$ref": "#/definitions/SimpleWallet"
+          },
+          "type": "array"
+        }
+      },
+      "required": [
+        "id",
+        "namespace",
+        "platform",
+        "progression",
+        "userId"
+      ],
       "type": "object"
     },
     "PlatformDLCConfigInfo": {
@@ -40227,6 +41427,19 @@
       },
       "type": "object"
     },
+    "PlatformOwnership": {
+      "properties": {
+        "owned": {
+          "description": "ownership",
+          "type": "boolean",
+          "x-omitempty": false
+        }
+      },
+      "required": [
+        "owned"
+      ],
+      "type": "object"
+    },
     "PlatformReward": {
       "properties": {
         "currency": {
@@ -40273,6 +41486,9 @@
     "PlatformRewardItem": {
       "properties": {
         "itemId": {
+          "type": "string"
+        },
+        "itemName": {
           "type": "string"
         },
         "itemSku": {
@@ -40346,6 +41562,10 @@
             "ACTIVE",
             "INACTIVE"
           ],
+          "type": "string"
+        },
+        "transactionId": {
+          "description": "transaction id",
           "type": "string"
         },
         "userId": {
@@ -40948,6 +42168,10 @@
           "format": "int32",
           "type": "integer"
         },
+        "code": {
+          "description": "code",
+          "type": "string"
+        },
         "comparison": {
           "description": "comparison",
           "enum": [
@@ -40971,7 +42195,8 @@
           "enum": [
             "EntitlementPredicate",
             "SeasonPassPredicate",
-            "SeasonTierPredicate"
+            "SeasonTierPredicate",
+            "StatisticCodePredicate"
           ],
           "type": "string"
         },
@@ -41014,6 +42239,18 @@
           "description": "is validated",
           "type": "boolean",
           "x-omitempty": false
+        }
+      },
+      "type": "object"
+    },
+    "PsnEntitlementOwnershipRequest": {
+      "properties": {
+        "accessToken": {
+          "type": "string"
+        },
+        "serviceLabel": {
+          "format": "int32",
+          "type": "integer"
         }
       },
       "type": "object"
@@ -41833,6 +43070,10 @@
           "description": "source meta info, like DLC transaction id, order no.",
           "type": "object"
         },
+        "reason": {
+          "description": "reason why the entries need to be revoked",
+          "type": "string"
+        },
         "revokeEntries": {
           "description": "revoke entries",
           "items": {
@@ -41982,6 +43223,78 @@
           "type": "string"
         }
       },
+      "type": "object"
+    },
+    "RevokeFulfillmentV2Result": {
+      "properties": {
+        "creditRevocations": {
+          "description": "credit revocations",
+          "items": {
+            "$ref": "#/definitions/CreditRevocation"
+          },
+          "type": "array"
+        },
+        "entitlementRevocations": {
+          "description": "entitlement revocations",
+          "items": {
+            "$ref": "#/definitions/EntitlementRevocation"
+          },
+          "type": "array"
+        },
+        "id": {
+          "description": "revocation history id",
+          "type": "string"
+        },
+        "itemRevocations": {
+          "description": "item revocations",
+          "items": {
+            "$ref": "#/definitions/ItemRevocation"
+          },
+          "type": "array"
+        },
+        "items": {
+          "description": "item",
+          "items": {
+            "$ref": "#/definitions/FulfillmentItem"
+          },
+          "type": "array"
+        },
+        "namespace": {
+          "description": "namespace",
+          "type": "string"
+        },
+        "state": {
+          "description": "state",
+          "enum": [
+            "FULFILLED",
+            "FULFILL_FAILED",
+            "REVOKED",
+            "REVOKE_FAILED"
+          ],
+          "type": "string"
+        },
+        "stateInfo": {
+          "$ref": "#/definitions/FulfillmentStateInfo",
+          "description": "stateInfo"
+        },
+        "transactionId": {
+          "description": "transactionId",
+          "type": "string"
+        },
+        "userId": {
+          "description": "userId",
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "items",
+        "namespace",
+        "state",
+        "stateInfo",
+        "transactionId",
+        "userId"
+      ],
       "type": "object"
     },
     "RevokeItem": {
@@ -42826,6 +44139,123 @@
       "properties": {
         "grpcServerAddress": {
           "description": "plugin grpc server address: \u003chost\u003e:\u003cport\u003e",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "SimpleDLCRewardItem": {
+      "properties": {
+        "itemName": {
+          "description": "item name",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "SimpleEntitlement": {
+      "properties": {
+        "entitlementId": {
+          "type": "string"
+        },
+        "grantedCode": {
+          "type": "string"
+        },
+        "itemId": {
+          "type": "string"
+        },
+        "itemNamespace": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "namespace": {
+          "type": "string"
+        },
+        "origin": {
+          "type": "string"
+        },
+        "sku": {
+          "type": "string"
+        },
+        "useCount": {
+          "format": "int32",
+          "type": "integer"
+        }
+      },
+      "type": "object"
+    },
+    "SimpleUserDLC": {
+      "properties": {
+        "dlcId": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "SimpleUserDLCRewardContent": {
+      "properties": {
+        "currency": {
+          "$ref": "#/definitions/PlatformRewardCurrency",
+          "description": "currency"
+        },
+        "item": {
+          "$ref": "#/definitions/SimpleDLCRewardItem",
+          "description": "item"
+        },
+        "obtainedAt": {
+          "description": "time when this dlc item was obtained",
+          "format": "date-time",
+          "type": "string",
+          "x-nullable": true
+        },
+        "quantity": {
+          "description": "quantity if type is ITEM, amount if type is CURRENCY",
+          "format": "int32",
+          "type": "integer"
+        },
+        "type": {
+          "description": "reward type",
+          "enum": [
+            "CURRENCY",
+            "ITEM"
+          ],
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "SimpleUserDLCRewardContentsResponse": {
+      "properties": {
+        "data": {
+          "items": {
+            "$ref": "#/definitions/SimpleUserDLCRewardContent"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "SimpleWallet": {
+      "properties": {
+        "balance": {
+          "format": "int64",
+          "type": "integer"
+        },
+        "balanceOrigin": {
+          "type": "string"
+        },
+        "currencyCode": {
+          "type": "string"
+        },
+        "timeLimitedBalances": {
+          "items": {
+            "$ref": "#/definitions/TimeLimitedBalance"
+          },
+          "type": "array"
+        },
+        "walletId": {
           "type": "string"
         }
       },
@@ -44410,6 +45840,10 @@
           "description": "Random string",
           "type": "string"
         },
+        "paymentData": {
+          "$ref": "#/definitions/PaymentData",
+          "description": "payment data"
+        },
         "paymentMethod": {
           "description": "Payment method",
           "type": "string"
@@ -44429,6 +45863,7 @@
             "ADYEN",
             "ALIPAY",
             "CHECKOUT",
+            "NEONPAY",
             "PAYPAL",
             "STRIPE",
             "WALLET",
@@ -44589,6 +46024,9 @@
           "type": "boolean",
           "x-omitempty": false
         },
+        "paymentData": {
+          "$ref": "#/definitions/PaymentData"
+        },
         "paymentMethod": {
           "type": "string"
         },
@@ -44605,6 +46043,7 @@
             "ADYEN",
             "ALIPAY",
             "CHECKOUT",
+            "NEONPAY",
             "PAYPAL",
             "STRIPE",
             "WALLET",
@@ -45347,6 +46786,17 @@
       },
       "type": "object"
     },
+    "XblEntitlementOwnershipRequest": {
+      "properties": {
+        "delegationToken": {
+          "type": "string"
+        },
+        "sandboxId": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
     "XblIAPConfigInfo": {
       "properties": {
         "businessPartnerCertExpiredTime": {
@@ -45601,21 +47051,21 @@
   },
   "x-docs": {
     "alias": "platform",
-    "host": "https://demo.accelbyte.io",
+    "host": "https://stage.accelbyte.io",
     "path": "/platform/swagger.json"
   },
   "x-version": {
     "buildBy": "Gradle 6.9.1",
-    "buildDate": "2024-05-06T01:42:45+00:00",
-    "buildID": "4.51.0",
+    "buildDate": "2024-08-01T06:37:09+00:00",
+    "buildID": "4.54.0",
     "buildJDK": "1.8.0_232 (Eclipse OpenJ9 openj9-0.17.0)",
-    "buildOS": "Linux amd64 5.10.214-202.855.amzn2.x86_64",
+    "buildOS": "Linux amd64 5.10.220-209.869.amzn2.x86_64",
     "gitBranchName": "release-candidate",
-    "gitHash": "3c90bc9f6e",
-    "gitTag": "4.51.0",
+    "gitHash": "17e2bc6b8d",
+    "gitTag": "4.54.0",
     "name": "justice-platform-service",
-    "realm": "demo",
-    "version": "4.51.0",
-    "version-roles-seeding": "1.2.8"
+    "realm": "staging",
+    "version": "4.54.0",
+    "version-roles-seeding": "1.2.55"
   }
 }

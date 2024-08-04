@@ -12,7 +12,6 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils/auth"
-	"github.com/go-openapi/runtime/client"
 )
 
 // PoliciesWithNamespaceService this is use for compatibility with latest modular sdk only
@@ -37,40 +36,6 @@ func (aaa *PoliciesWithNamespaceService) GetAuthSession() auth.Session {
 		aaa.ConfigRepository,
 		nil,
 	}
-}
-
-// Deprecated: 2022-01-10 - Please use UpdatePolicy1Short instead.
-func (aaa *PoliciesWithNamespaceService) UpdatePolicy1(input *policies_with_namespace.UpdatePolicy1Params) error {
-	token, err := aaa.TokenRepository.GetToken()
-	if err != nil {
-		return err
-	}
-	_, badRequest, err := aaa.Client.PoliciesWithNamespace.UpdatePolicy1(input, client.BearerToken(*token.AccessToken))
-	if badRequest != nil {
-		return badRequest
-	}
-	if err != nil {
-		return err
-	}
-
-	return nil
-}
-
-// Deprecated: 2022-01-10 - Please use SetDefaultPolicy3Short instead.
-func (aaa *PoliciesWithNamespaceService) SetDefaultPolicy3(input *policies_with_namespace.SetDefaultPolicy3Params) error {
-	token, err := aaa.TokenRepository.GetToken()
-	if err != nil {
-		return err
-	}
-	_, badRequest, err := aaa.Client.PoliciesWithNamespace.SetDefaultPolicy3(input, client.BearerToken(*token.AccessToken))
-	if badRequest != nil {
-		return badRequest
-	}
-	if err != nil {
-		return err
-	}
-
-	return nil
 }
 
 func (aaa *PoliciesWithNamespaceService) UpdatePolicy1Short(input *policies_with_namespace.UpdatePolicy1Params) error {

@@ -12,6 +12,12 @@
 | `/healthz` | GET | GetHealthcheckInfoShort | [GetHealthcheckInfoShort](../../sessionhistory-sdk/pkg/sessionhistoryclient/operations/operations_client.go) | [GetHealthcheckInfoShort](../../sessionhistory-sdk/pkg/wrapper_operations.go) | [GetHealthcheckInfoShort](../../samples/cli/cmd/sessionhistory/operations/getHealthcheckInfo.go) |
 | `/sessionhistory/healthz` | GET | GetHealthcheckInfoV1Short | [GetHealthcheckInfoV1Short](../../sessionhistory-sdk/pkg/sessionhistoryclient/operations/operations_client.go) | [GetHealthcheckInfoV1Short](../../sessionhistory-sdk/pkg/wrapper_operations.go) | [GetHealthcheckInfoV1Short](../../samples/cli/cmd/sessionhistory/operations/getHealthcheckInfoV1.go) |
 
+### Config Wrapper:  [Config](../../sessionhistory-sdk/pkg/wrapper_config.go)
+| Endpoint | Method | ID | Class | Wrapper | Example |
+|---|---|---|---|---|---|
+| `/sessionhistory/v1/admin/config/log` | GET | AdminGetLogConfigShort | [AdminGetLogConfigShort](../../sessionhistory-sdk/pkg/sessionhistoryclient/config/config_client.go) | [AdminGetLogConfigShort](../../sessionhistory-sdk/pkg/wrapper_config.go) | [AdminGetLogConfigShort](../../samples/cli/cmd/sessionhistory/config/adminGetLogConfig.go) |
+| `/sessionhistory/v1/admin/config/log` | PATCH | AdminPatchUpdateLogConfigShort | [AdminPatchUpdateLogConfigShort](../../sessionhistory-sdk/pkg/sessionhistoryclient/config/config_client.go) | [AdminPatchUpdateLogConfigShort](../../sessionhistory-sdk/pkg/wrapper_config.go) | [AdminPatchUpdateLogConfigShort](../../samples/cli/cmd/sessionhistory/config/adminPatchUpdateLogConfig.go) |
+
 ### Game Session Detail Wrapper:  [GameSessionDetail](../../sessionhistory-sdk/pkg/wrapper_gameSessionDetail.go)
 | Endpoint | Method | ID | Class | Wrapper | Example |
 |---|---|---|---|---|---|
@@ -24,6 +30,7 @@
 | `/sessionhistory/v1/admin/namespaces/{namespace}/parties/{sessionId}` | GET | GetPartyDetailShort | [GetPartyDetailShort](../../sessionhistory-sdk/pkg/sessionhistoryclient/game_session_detail/game_session_detail_client.go) | [GetPartyDetailShort](../../sessionhistory-sdk/pkg/wrapper_gameSessionDetail.go) | [GetPartyDetailShort](../../samples/cli/cmd/sessionhistory/gameSessionDetail/getPartyDetail.go) |
 | `/sessionhistory/v1/admin/namespaces/{namespace}/tickets` | GET | AdminQueryTicketDetailShort | [AdminQueryTicketDetailShort](../../sessionhistory-sdk/pkg/sessionhistoryclient/game_session_detail/game_session_detail_client.go) | [AdminQueryTicketDetailShort](../../sessionhistory-sdk/pkg/wrapper_gameSessionDetail.go) | [AdminQueryTicketDetailShort](../../samples/cli/cmd/sessionhistory/gameSessionDetail/adminQueryTicketDetail.go) |
 | `/sessionhistory/v1/admin/namespaces/{namespace}/tickets/{ticketId}` | GET | AdminTicketDetailGetByTicketIDShort | [AdminTicketDetailGetByTicketIDShort](../../sessionhistory-sdk/pkg/sessionhistoryclient/game_session_detail/game_session_detail_client.go) | [AdminTicketDetailGetByTicketIDShort](../../sessionhistory-sdk/pkg/wrapper_gameSessionDetail.go) | [AdminTicketDetailGetByTicketIDShort](../../samples/cli/cmd/sessionhistory/gameSessionDetail/adminTicketDetailGetByTicketID.go) |
+| `/sessionhistory/v1/public/namespaces/{namespace}/users/me/gamesessions` | GET | PublicQueryGameSessionMeShort | [PublicQueryGameSessionMeShort](../../sessionhistory-sdk/pkg/sessionhistoryclient/game_session_detail/game_session_detail_client.go) | [PublicQueryGameSessionMeShort](../../sessionhistory-sdk/pkg/wrapper_gameSessionDetail.go) | [PublicQueryGameSessionMeShort](../../samples/cli/cmd/sessionhistory/gameSessionDetail/publicQueryGameSessionMe.go) |
 
 ### XRay Wrapper:  [XRay](../../sessionhistory-sdk/pkg/wrapper_xRay.go)
 | Endpoint | Method | ID | Class | Wrapper | Example |
@@ -46,6 +53,7 @@
 | `/sessionhistory/v2/admin/namespaces/{namespace}/xray/metrics/total-ticket-created` | GET | QueryTotalMatchmakingCreatedShort | [QueryTotalMatchmakingCreatedShort](../../sessionhistory-sdk/pkg/sessionhistoryclient/x_ray/x_ray_client.go) | [QueryTotalMatchmakingCreatedShort](../../sessionhistory-sdk/pkg/wrapper_xRay.go) | [QueryTotalMatchmakingCreatedShort](../../samples/cli/cmd/sessionhistory/xRay/queryTotalMatchmakingCreated.go) |
 | `/sessionhistory/v2/admin/namespaces/{namespace}/xray/metrics/total-ticket-expired` | GET | QueryTotalMatchmakingExpiredShort | [QueryTotalMatchmakingExpiredShort](../../sessionhistory-sdk/pkg/sessionhistoryclient/x_ray/x_ray_client.go) | [QueryTotalMatchmakingExpiredShort](../../sessionhistory-sdk/pkg/wrapper_xRay.go) | [QueryTotalMatchmakingExpiredShort](../../samples/cli/cmd/sessionhistory/xRay/queryTotalMatchmakingExpired.go) |
 | `/sessionhistory/v2/admin/namespaces/{namespace}/xray/metrics/total-ticket-match` | GET | QueryTotalMatchmakingMatchTicketShort | [QueryTotalMatchmakingMatchTicketShort](../../sessionhistory-sdk/pkg/sessionhistoryclient/x_ray/x_ray_client.go) | [QueryTotalMatchmakingMatchTicketShort](../../sessionhistory-sdk/pkg/wrapper_xRay.go) | [QueryTotalMatchmakingMatchTicketShort](../../samples/cli/cmd/sessionhistory/xRay/queryTotalMatchmakingMatchTicket.go) |
+| `/sessionhistory/v2/admin/namespaces/{namespace}/xray/tickets` | POST | CreateXrayTicketObservabilityShort | [CreateXrayTicketObservabilityShort](../../sessionhistory-sdk/pkg/sessionhistoryclient/x_ray/x_ray_client.go) | [CreateXrayTicketObservabilityShort](../../sessionhistory-sdk/pkg/wrapper_xRay.go) | [CreateXrayTicketObservabilityShort](../../samples/cli/cmd/sessionhistory/xRay/createXrayTicketObservability.go) |
 | `/sessionhistory/v2/admin/namespaces/{namespace}/xray/tickets/{ticketId}` | GET | QueryXrayTimelineByTicketIDShort | [QueryXrayTimelineByTicketIDShort](../../sessionhistory-sdk/pkg/sessionhistoryclient/x_ray/x_ray_client.go) | [QueryXrayTimelineByTicketIDShort](../../sessionhistory-sdk/pkg/wrapper_xRay.go) | [QueryXrayTimelineByTicketIDShort](../../samples/cli/cmd/sessionhistory/xRay/queryXrayTimelineByTicketID.go) |
 | `/sessionhistory/v2/admin/namespaces/{namespace}/xray/users/{userId}/tickets` | GET | QueryXrayTimelineByUserIDShort | [QueryXrayTimelineByUserIDShort](../../sessionhistory-sdk/pkg/sessionhistoryclient/x_ray/x_ray_client.go) | [QueryXrayTimelineByUserIDShort](../../sessionhistory-sdk/pkg/wrapper_xRay.go) | [QueryXrayTimelineByUserIDShort](../../samples/cli/cmd/sessionhistory/xRay/queryXrayTimelineByUserID.go) |
 
@@ -99,10 +107,13 @@
 | `apimodels.XRayMatchTicketHistoryQueryResponse` | [ApimodelsXRayMatchTicketHistoryQueryResponse ](../../sessionhistory-sdk/pkg/sessionhistoryclientmodels/apimodels_x_ray_match_ticket_history_query_response.go) |
 | `apimodels.XRayMatchesQueryResponse` | [ApimodelsXRayMatchesQueryResponse ](../../sessionhistory-sdk/pkg/sessionhistoryclientmodels/apimodels_x_ray_matches_query_response.go) |
 | `apimodels.XRayTicketMatchesResult` | [ApimodelsXRayTicketMatchesResult ](../../sessionhistory-sdk/pkg/sessionhistoryclientmodels/apimodels_x_ray_ticket_matches_result.go) |
+| `apimodels.XRayTicketObservabilityRequest` | [ApimodelsXRayTicketObservabilityRequest ](../../sessionhistory-sdk/pkg/sessionhistoryclientmodels/apimodels_x_ray_ticket_observability_request.go) |
+| `apimodels.XRayTicketObservabilityResponse` | [ApimodelsXRayTicketObservabilityResponse ](../../sessionhistory-sdk/pkg/sessionhistoryclientmodels/apimodels_x_ray_ticket_observability_response.go) |
 | `apimodels.XRayTicketQueryResponse` | [ApimodelsXRayTicketQueryResponse ](../../sessionhistory-sdk/pkg/sessionhistoryclientmodels/apimodels_x_ray_ticket_query_response.go) |
 | `apimodels.XRayTicketResult` | [ApimodelsXRayTicketResult ](../../sessionhistory-sdk/pkg/sessionhistoryclientmodels/apimodels_x_ray_ticket_result.go) |
 | `apimodels.XRayTotalActiveSessionQueryResponse` | [ApimodelsXRayTotalActiveSessionQueryResponse ](../../sessionhistory-sdk/pkg/sessionhistoryclientmodels/apimodels_x_ray_total_active_session_query_response.go) |
 | `apimodels.XRayTotalPlayerPersessionAVGQueryResponse` | [ApimodelsXRayTotalPlayerPersessionAVGQueryResponse ](../../sessionhistory-sdk/pkg/sessionhistoryclientmodels/apimodels_x_ray_total_player_persession_a_v_g_query_response.go) |
+| `logconfig.Configuration` | [LogconfigConfiguration ](../../sessionhistory-sdk/pkg/sessionhistoryclientmodels/logconfig_configuration.go) |
 | `models.AllianceRule` | [ModelsAllianceRule ](../../sessionhistory-sdk/pkg/sessionhistoryclientmodels/models_alliance_rule.go) |
 | `models.BackfillProposal` | [ModelsBackfillProposal ](../../sessionhistory-sdk/pkg/sessionhistoryclientmodels/models_backfill_proposal.go) |
 | `models.BackfillTicket` | [ModelsBackfillTicket ](../../sessionhistory-sdk/pkg/sessionhistoryclientmodels/models_backfill_ticket.go) |
@@ -111,6 +122,7 @@
 | `models.GameSession` | [ModelsGameSession ](../../sessionhistory-sdk/pkg/sessionhistoryclientmodels/models_game_session.go) |
 | `models.GameSessionTeam` | [ModelsGameSessionTeam ](../../sessionhistory-sdk/pkg/sessionhistoryclientmodels/models_game_session_team.go) |
 | `models.Match` | [ModelsMatch ](../../sessionhistory-sdk/pkg/sessionhistoryclientmodels/models_match.go) |
+| `models.MatchTicket` | [ModelsMatchTicket ](../../sessionhistory-sdk/pkg/sessionhistoryclientmodels/models_match_ticket.go) |
 | `models.MatchingAlly` | [ModelsMatchingAlly ](../../sessionhistory-sdk/pkg/sessionhistoryclientmodels/models_matching_ally.go) |
 | `models.MatchingParty` | [ModelsMatchingParty ](../../sessionhistory-sdk/pkg/sessionhistoryclientmodels/models_matching_party.go) |
 | `models.MatchingRule` | [ModelsMatchingRule ](../../sessionhistory-sdk/pkg/sessionhistoryclientmodels/models_matching_rule.go) |

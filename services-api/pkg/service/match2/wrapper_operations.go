@@ -12,7 +12,6 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils/auth"
-	"github.com/go-openapi/runtime/client"
 )
 
 // OperationsService this is use for compatibility with latest modular sdk only
@@ -37,48 +36,6 @@ func (aaa *OperationsService) GetAuthSession() auth.Session {
 		aaa.ConfigRepository,
 		nil,
 	}
-}
-
-// Deprecated: 2022-01-10 - Please use GetHealthcheckInfoShort instead.
-func (aaa *OperationsService) GetHealthcheckInfo(input *operations.GetHealthcheckInfoParams) error {
-	token, err := aaa.TokenRepository.GetToken()
-	if err != nil {
-		return err
-	}
-	_, err = aaa.Client.Operations.GetHealthcheckInfo(input, client.BearerToken(*token.AccessToken))
-	if err != nil {
-		return err
-	}
-
-	return nil
-}
-
-// Deprecated: 2022-01-10 - Please use GetHealthcheckInfoV1Short instead.
-func (aaa *OperationsService) GetHealthcheckInfoV1(input *operations.GetHealthcheckInfoV1Params) error {
-	token, err := aaa.TokenRepository.GetToken()
-	if err != nil {
-		return err
-	}
-	_, err = aaa.Client.Operations.GetHealthcheckInfoV1(input, client.BearerToken(*token.AccessToken))
-	if err != nil {
-		return err
-	}
-
-	return nil
-}
-
-// Deprecated: 2022-01-10 - Please use VersionCheckHandlerShort instead.
-func (aaa *OperationsService) VersionCheckHandler(input *operations.VersionCheckHandlerParams) error {
-	token, err := aaa.TokenRepository.GetToken()
-	if err != nil {
-		return err
-	}
-	_, err = aaa.Client.Operations.VersionCheckHandler(input, client.BearerToken(*token.AccessToken))
-	if err != nil {
-		return err
-	}
-
-	return nil
 }
 
 func (aaa *OperationsService) GetHealthcheckInfoShort(input *operations.GetHealthcheckInfoParams) error {

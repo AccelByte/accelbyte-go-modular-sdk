@@ -21,8 +21,9 @@ var RequestTargetTokenResponseV3Cmd = &cobra.Command{
 	Long:  `Request target token response V3`,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		oAuth20ExtensionService := &iam.OAuth20ExtensionService{
-			Client:          iam.NewIamClient(&repository.ConfigRepositoryImpl{}),
-			TokenRepository: &repository.TokenRepositoryImpl{},
+			Client:           iam.NewIamClient(&repository.ConfigRepositoryImpl{}),
+			ConfigRepository: &repository.ConfigRepositoryImpl{},
+			TokenRepository:  &repository.TokenRepositoryImpl{},
 		}
 		code, _ := cmd.Flags().GetString("code")
 		additionalData, _ := cmd.Flags().GetString("additionalData")

@@ -13,7 +13,6 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils/auth"
-	"github.com/go-openapi/runtime/client"
 )
 
 type PublicService struct {
@@ -36,40 +35,6 @@ func (aaa *PublicService) GetAuthSession() auth.Session {
 		aaa.ConfigRepository,
 		nil,
 	}
-}
-
-// Deprecated: 2022-01-10 - Please use ListServerPerNamespaceShort instead.
-func (aaa *PublicService) ListServerPerNamespace(input *public.ListServerPerNamespaceParams) (*qosmclientmodels.ModelsListServerResponse, error) {
-	token, err := aaa.TokenRepository.GetToken()
-	if err != nil {
-		return nil, err
-	}
-	ok, internalServerError, err := aaa.Client.Public.ListServerPerNamespace(input, client.BearerToken(*token.AccessToken))
-	if internalServerError != nil {
-		return nil, internalServerError
-	}
-	if err != nil {
-		return nil, err
-	}
-
-	return ok.GetPayload(), nil
-}
-
-// Deprecated: 2022-01-10 - Please use ListServerShort instead.
-func (aaa *PublicService) ListServer(input *public.ListServerParams) (*qosmclientmodels.ModelsListServerResponse, error) {
-	token, err := aaa.TokenRepository.GetToken()
-	if err != nil {
-		return nil, err
-	}
-	ok, internalServerError, err := aaa.Client.Public.ListServer(input, client.BearerToken(*token.AccessToken))
-	if internalServerError != nil {
-		return nil, internalServerError
-	}
-	if err != nil {
-		return nil, err
-	}
-
-	return ok.GetPayload(), nil
 }
 
 func (aaa *PublicService) ListServerPerNamespaceShort(input *public.ListServerPerNamespaceParams) (*qosmclientmodels.ModelsListServerResponse, error) {

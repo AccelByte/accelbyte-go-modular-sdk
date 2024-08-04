@@ -13,7 +13,6 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils/auth"
-	"github.com/go-openapi/runtime/client"
 )
 
 type AgreementWithNamespaceService struct {
@@ -36,91 +35,6 @@ func (aaa *AgreementWithNamespaceService) GetAuthSession() auth.Session {
 		aaa.ConfigRepository,
 		nil,
 	}
-}
-
-// Deprecated: 2022-01-10 - Please use RetrieveAcceptedAgreementsForMultiUsersShort instead.
-func (aaa *AgreementWithNamespaceService) RetrieveAcceptedAgreementsForMultiUsers(input *agreement_with_namespace.RetrieveAcceptedAgreementsForMultiUsersParams) ([]*legalclientmodels.UserAgreementsResponse, error) {
-	token, err := aaa.TokenRepository.GetToken()
-	if err != nil {
-		return nil, err
-	}
-	ok, err := aaa.Client.AgreementWithNamespace.RetrieveAcceptedAgreementsForMultiUsers(input, client.BearerToken(*token.AccessToken))
-	if err != nil {
-		return nil, err
-	}
-
-	return ok.GetPayload(), nil
-}
-
-// Deprecated: 2022-01-10 - Please use RetrieveAcceptedAgreements1Short instead.
-func (aaa *AgreementWithNamespaceService) RetrieveAcceptedAgreements1(input *agreement_with_namespace.RetrieveAcceptedAgreements1Params) ([]*legalclientmodels.RetrieveAcceptedAgreementResponse, error) {
-	token, err := aaa.TokenRepository.GetToken()
-	if err != nil {
-		return nil, err
-	}
-	ok, err := aaa.Client.AgreementWithNamespace.RetrieveAcceptedAgreements1(input, client.BearerToken(*token.AccessToken))
-	if err != nil {
-		return nil, err
-	}
-
-	return ok.GetPayload(), nil
-}
-
-// Deprecated: 2022-01-10 - Please use RetrieveAllUsersByPolicyVersion1Short instead.
-func (aaa *AgreementWithNamespaceService) RetrieveAllUsersByPolicyVersion1(input *agreement_with_namespace.RetrieveAllUsersByPolicyVersion1Params) (*legalclientmodels.PagedRetrieveUserAcceptedAgreementResponse, error) {
-	token, err := aaa.TokenRepository.GetToken()
-	if err != nil {
-		return nil, err
-	}
-	ok, notFound, err := aaa.Client.AgreementWithNamespace.RetrieveAllUsersByPolicyVersion1(input, client.BearerToken(*token.AccessToken))
-	if notFound != nil {
-		return nil, notFound
-	}
-	if err != nil {
-		return nil, err
-	}
-
-	return ok.GetPayload(), nil
-}
-
-// Deprecated: 2022-01-10 - Please use DownloadExportedAgreementsInCSVShort instead.
-func (aaa *AgreementWithNamespaceService) DownloadExportedAgreementsInCSV(input *agreement_with_namespace.DownloadExportedAgreementsInCSVParams) (*legalclientmodels.DownloadExportedAgreementsInCSVResponse, error) {
-	token, err := aaa.TokenRepository.GetToken()
-	if err != nil {
-		return nil, err
-	}
-	ok, notFound, err := aaa.Client.AgreementWithNamespace.DownloadExportedAgreementsInCSV(input, client.BearerToken(*token.AccessToken))
-	if notFound != nil {
-		return nil, notFound
-	}
-	if err != nil {
-		return nil, err
-	}
-
-	return ok.GetPayload(), nil
-}
-
-// Deprecated: 2022-01-10 - Please use InitiateExportAgreementsToCSVShort instead.
-func (aaa *AgreementWithNamespaceService) InitiateExportAgreementsToCSV(input *agreement_with_namespace.InitiateExportAgreementsToCSVParams) (*legalclientmodels.InitiateExportAgreementsToCSVResponse, error) {
-	token, err := aaa.TokenRepository.GetToken()
-	if err != nil {
-		return nil, err
-	}
-	ok, badRequest, notFound, conflict, err := aaa.Client.AgreementWithNamespace.InitiateExportAgreementsToCSV(input, client.BearerToken(*token.AccessToken))
-	if badRequest != nil {
-		return nil, badRequest
-	}
-	if notFound != nil {
-		return nil, notFound
-	}
-	if conflict != nil {
-		return nil, conflict
-	}
-	if err != nil {
-		return nil, err
-	}
-
-	return ok.GetPayload(), nil
 }
 
 func (aaa *AgreementWithNamespaceService) RetrieveAcceptedAgreementsForMultiUsersShort(input *agreement_with_namespace.RetrieveAcceptedAgreementsForMultiUsersParams) ([]*legalclientmodels.UserAgreementsResponse, error) {

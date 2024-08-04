@@ -30,85 +30,20 @@ type Client struct {
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	AdminGetChallenges(params *AdminGetChallengesParams, authInfo runtime.ClientAuthInfoWriter) (*AdminGetChallengesOK, *AdminGetChallengesUnauthorized, *AdminGetChallengesForbidden, *AdminGetChallengesInternalServerError, error)
 	AdminGetChallengesShort(params *AdminGetChallengesParams, authInfo runtime.ClientAuthInfoWriter) (*AdminGetChallengesOK, error)
-	AdminCreateChallenge(params *AdminCreateChallengeParams, authInfo runtime.ClientAuthInfoWriter) (*AdminCreateChallengeCreated, *AdminCreateChallengeUnauthorized, *AdminCreateChallengeForbidden, *AdminCreateChallengeConflict, *AdminCreateChallengeUnprocessableEntity, *AdminCreateChallengeInternalServerError, error)
 	AdminCreateChallengeShort(params *AdminCreateChallengeParams, authInfo runtime.ClientAuthInfoWriter) (*AdminCreateChallengeCreated, error)
-	AdminGetChallenge(params *AdminGetChallengeParams, authInfo runtime.ClientAuthInfoWriter) (*AdminGetChallengeOK, *AdminGetChallengeUnauthorized, *AdminGetChallengeForbidden, *AdminGetChallengeNotFound, *AdminGetChallengeInternalServerError, error)
 	AdminGetChallengeShort(params *AdminGetChallengeParams, authInfo runtime.ClientAuthInfoWriter) (*AdminGetChallengeOK, error)
-	AdminUpdateChallenge(params *AdminUpdateChallengeParams, authInfo runtime.ClientAuthInfoWriter) (*AdminUpdateChallengeOK, *AdminUpdateChallengeUnauthorized, *AdminUpdateChallengeForbidden, *AdminUpdateChallengeNotFound, *AdminUpdateChallengeUnprocessableEntity, *AdminUpdateChallengeInternalServerError, error)
 	AdminUpdateChallengeShort(params *AdminUpdateChallengeParams, authInfo runtime.ClientAuthInfoWriter) (*AdminUpdateChallengeOK, error)
-	AdminDeleteChallenge(params *AdminDeleteChallengeParams, authInfo runtime.ClientAuthInfoWriter) (*AdminDeleteChallengeNoContent, *AdminDeleteChallengeBadRequest, *AdminDeleteChallengeUnauthorized, *AdminDeleteChallengeForbidden, *AdminDeleteChallengeNotFound, *AdminDeleteChallengeInternalServerError, error)
 	AdminDeleteChallengeShort(params *AdminDeleteChallengeParams, authInfo runtime.ClientAuthInfoWriter) (*AdminDeleteChallengeNoContent, error)
-	AdminGetPeriods(params *AdminGetPeriodsParams, authInfo runtime.ClientAuthInfoWriter) (*AdminGetPeriodsOK, *AdminGetPeriodsUnauthorized, *AdminGetPeriodsForbidden, *AdminGetPeriodsNotFound, *AdminGetPeriodsInternalServerError, error)
 	AdminGetPeriodsShort(params *AdminGetPeriodsParams, authInfo runtime.ClientAuthInfoWriter) (*AdminGetPeriodsOK, error)
-	AdminRandomizeChallenge(params *AdminRandomizeChallengeParams, authInfo runtime.ClientAuthInfoWriter) (*AdminRandomizeChallengeOK, *AdminRandomizeChallengeUnauthorized, *AdminRandomizeChallengeForbidden, *AdminRandomizeChallengeNotFound, *AdminRandomizeChallengeInternalServerError, error)
 	AdminRandomizeChallengeShort(params *AdminRandomizeChallengeParams, authInfo runtime.ClientAuthInfoWriter) (*AdminRandomizeChallengeOK, error)
-	AdminDeleteTiedChallenge(params *AdminDeleteTiedChallengeParams, authInfo runtime.ClientAuthInfoWriter) (*AdminDeleteTiedChallengeNoContent, *AdminDeleteTiedChallengeBadRequest, *AdminDeleteTiedChallengeUnauthorized, *AdminDeleteTiedChallengeForbidden, *AdminDeleteTiedChallengeNotFound, *AdminDeleteTiedChallengeInternalServerError, error)
 	AdminDeleteTiedChallengeShort(params *AdminDeleteTiedChallengeParams, authInfo runtime.ClientAuthInfoWriter) (*AdminDeleteTiedChallengeNoContent, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
 
 /*
-Deprecated: 2022-08-10 - Use AdminGetChallengesShort instead.
-
-AdminGetChallenges list challenges
-  * Required permission: ADMIN:NAMESPACE:{namespace}:CHALLENGE [READ]
-*/
-func (a *Client) AdminGetChallenges(params *AdminGetChallengesParams, authInfo runtime.ClientAuthInfoWriter) (*AdminGetChallengesOK, *AdminGetChallengesUnauthorized, *AdminGetChallengesForbidden, *AdminGetChallengesInternalServerError, error) {
-	// TODO: Validate the params before sending
-	if params == nil {
-		params = NewAdminGetChallengesParams()
-	}
-
-	if params.Context == nil {
-		params.Context = context.Background()
-	}
-
-	if params.RetryPolicy != nil {
-		params.SetHTTPClientTransport(params.RetryPolicy)
-	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
-		ID:                 "adminGetChallenges",
-		Method:             "GET",
-		PathPattern:        "/challenge/v1/admin/namespaces/{namespace}/challenges",
-		ProducesMediaTypes: []string{"application/json"},
-		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
-		Params:             params,
-		Reader:             &AdminGetChallengesReader{formats: a.formats},
-		AuthInfo:           authInfo,
-		Context:            params.Context,
-		Client:             params.HTTPClient,
-	})
-	if err != nil {
-		return nil, nil, nil, nil, err
-	}
-
-	switch v := result.(type) {
-
-	case *AdminGetChallengesOK:
-		return v, nil, nil, nil, nil
-
-	case *AdminGetChallengesUnauthorized:
-		return nil, v, nil, nil, nil
-
-	case *AdminGetChallengesForbidden:
-		return nil, nil, v, nil, nil
-
-	case *AdminGetChallengesInternalServerError:
-		return nil, nil, nil, v, nil
-
-	default:
-		return nil, nil, nil, nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
-	}
-}
-
-/*
 AdminGetChallengesShort list challenges
-
   * Required permission: ADMIN:NAMESPACE:{namespace}:CHALLENGE [READ]
 */
 func (a *Client) AdminGetChallengesShort(params *AdminGetChallengesParams, authInfo runtime.ClientAuthInfoWriter) (*AdminGetChallengesOK, error) {
@@ -163,89 +98,8 @@ func (a *Client) AdminGetChallengesShort(params *AdminGetChallengesParams, authI
 }
 
 /*
-Deprecated: 2022-08-10 - Use AdminCreateChallengeShort instead.
-
-AdminCreateChallenge create new challenge
-
-  * Required permission: ADMIN:NAMESPACE:{namespace}:CHALLENGE [CREATE]
-
-Challenge is a collection of goals that can be completed by players. Challenge can have rules that specify what and when goals will be available for players to be taken.
-
-Request body:
-
-  * code: only lowercase letters, numbers, and the separator - are allowed; must start and end with letter
-  * name: name of the challenge
-  * description: text describing about the challenge (optional)
-  * startDate: timestamp of when the challenge is started
-  * endDate: timestamp of when the challenge is ended (optional)
-  * endAfter: describe number of period challenge will be retired after (optional)
-To configure challenge that never end, leave the endDate and endAfter field null/empty.
-  * repeatAfter: describe number of period challenge's goals will be repeated after. Leave it empty if you don't want to repeat the challenge.
-  * rotation: describe how long goals in a challenge will be available for players to progress before rotated with another goals. (DAILY|WEEKLY|MONTHLY|NONE)
-  * activeGoalsPerRotation: number of goals per rotation (currently only applicable for RANDOMIZE assignment)
-  * assignmentRule: describe how the goals will be assigned and scheduled to users. (FIXED|RANDOMIZED|UNSCHEDULED)
-  * goalsVisibility: describe whether users can see all goals under challenge, or only active goal in one rotation period only. (SHOWALL|PERIODONLY)
-*/
-func (a *Client) AdminCreateChallenge(params *AdminCreateChallengeParams, authInfo runtime.ClientAuthInfoWriter) (*AdminCreateChallengeCreated, *AdminCreateChallengeUnauthorized, *AdminCreateChallengeForbidden, *AdminCreateChallengeConflict, *AdminCreateChallengeUnprocessableEntity, *AdminCreateChallengeInternalServerError, error) {
-	// TODO: Validate the params before sending
-	if params == nil {
-		params = NewAdminCreateChallengeParams()
-	}
-
-	if params.Context == nil {
-		params.Context = context.Background()
-	}
-
-	if params.RetryPolicy != nil {
-		params.SetHTTPClientTransport(params.RetryPolicy)
-	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
-		ID:                 "adminCreateChallenge",
-		Method:             "POST",
-		PathPattern:        "/challenge/v1/admin/namespaces/{namespace}/challenges",
-		ProducesMediaTypes: []string{"application/json"},
-		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
-		Params:             params,
-		Reader:             &AdminCreateChallengeReader{formats: a.formats},
-		AuthInfo:           authInfo,
-		Context:            params.Context,
-		Client:             params.HTTPClient,
-	})
-	if err != nil {
-		return nil, nil, nil, nil, nil, nil, err
-	}
-
-	switch v := result.(type) {
-
-	case *AdminCreateChallengeCreated:
-		return v, nil, nil, nil, nil, nil, nil
-
-	case *AdminCreateChallengeUnauthorized:
-		return nil, v, nil, nil, nil, nil, nil
-
-	case *AdminCreateChallengeForbidden:
-		return nil, nil, v, nil, nil, nil, nil
-
-	case *AdminCreateChallengeConflict:
-		return nil, nil, nil, v, nil, nil, nil
-
-	case *AdminCreateChallengeUnprocessableEntity:
-		return nil, nil, nil, nil, v, nil, nil
-
-	case *AdminCreateChallengeInternalServerError:
-		return nil, nil, nil, nil, nil, v, nil
-
-	default:
-		return nil, nil, nil, nil, nil, nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
-	}
-}
-
-/*
 AdminCreateChallengeShort create new challenge
 
-
   * Required permission: ADMIN:NAMESPACE:{namespace}:CHALLENGE [CREATE]
 
 Challenge is a collection of goals that can be completed by players. Challenge can have rules that specify what and when goals will be available for players to be taken.
@@ -264,6 +118,13 @@ To configure challenge that never end, leave the endDate and endAfter field null
   * activeGoalsPerRotation: number of goals per rotation (currently only applicable for RANDOMIZE assignment)
   * assignmentRule: describe how the goals will be assigned and scheduled to users. (FIXED|RANDOMIZED|UNSCHEDULED)
   * goalsVisibility: describe whether users can see all goals under challenge, or only active goal in one rotation period only. (SHOWALL|PERIODONLY)
+  * resetConfig: describe when rotation reset will happen (optional).
+    * resetTime: Reset time must follow hours:minutes in 24 hours format (e.g. 01:30, 23:15) and in UTC timezone. Default to "00:00"
+    * resetDay: Reset Day follows the ISO-8601 standard, from 1 (Monday) to 7 (Sunday). Default to 1 in WEEKLY rotation.
+    * resetDate: Reset Date must be a number 1 - 31. Default to 1 in MONTHLY rotation.
+  * randomizedPerRotation:
+    * true: each goal will be randomly assigned to multiple periods
+    * false: a goal will only be assigned to one period
 */
 func (a *Client) AdminCreateChallengeShort(params *AdminCreateChallengeParams, authInfo runtime.ClientAuthInfoWriter) (*AdminCreateChallengeCreated, error) {
 	// TODO: Validate the params before sending
@@ -304,6 +165,8 @@ func (a *Client) AdminCreateChallengeShort(params *AdminCreateChallengeParams, a
 
 	case *AdminCreateChallengeCreated:
 		return v, nil
+	case *AdminCreateChallengeBadRequest:
+		return nil, v
 	case *AdminCreateChallengeUnauthorized:
 		return nil, v
 	case *AdminCreateChallengeForbidden:
@@ -321,68 +184,8 @@ func (a *Client) AdminCreateChallengeShort(params *AdminCreateChallengeParams, a
 }
 
 /*
-Deprecated: 2022-08-10 - Use AdminGetChallengeShort instead.
-
-AdminGetChallenge get a challenge
-
-
-  * Required permission: ADMIN:NAMESPACE:{namespace}:CHALLENGE [READ]
-*/
-func (a *Client) AdminGetChallenge(params *AdminGetChallengeParams, authInfo runtime.ClientAuthInfoWriter) (*AdminGetChallengeOK, *AdminGetChallengeUnauthorized, *AdminGetChallengeForbidden, *AdminGetChallengeNotFound, *AdminGetChallengeInternalServerError, error) {
-	// TODO: Validate the params before sending
-	if params == nil {
-		params = NewAdminGetChallengeParams()
-	}
-
-	if params.Context == nil {
-		params.Context = context.Background()
-	}
-
-	if params.RetryPolicy != nil {
-		params.SetHTTPClientTransport(params.RetryPolicy)
-	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
-		ID:                 "adminGetChallenge",
-		Method:             "GET",
-		PathPattern:        "/challenge/v1/admin/namespaces/{namespace}/challenges/{challengeCode}",
-		ProducesMediaTypes: []string{"application/json"},
-		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
-		Params:             params,
-		Reader:             &AdminGetChallengeReader{formats: a.formats},
-		AuthInfo:           authInfo,
-		Context:            params.Context,
-		Client:             params.HTTPClient,
-	})
-	if err != nil {
-		return nil, nil, nil, nil, nil, err
-	}
-
-	switch v := result.(type) {
-
-	case *AdminGetChallengeOK:
-		return v, nil, nil, nil, nil, nil
-
-	case *AdminGetChallengeUnauthorized:
-		return nil, v, nil, nil, nil, nil
-
-	case *AdminGetChallengeForbidden:
-		return nil, nil, v, nil, nil, nil
-
-	case *AdminGetChallengeNotFound:
-		return nil, nil, nil, v, nil, nil
-
-	case *AdminGetChallengeInternalServerError:
-		return nil, nil, nil, nil, v, nil
-
-	default:
-		return nil, nil, nil, nil, nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
-	}
-}
-
-/*
 AdminGetChallengeShort get a challenge
+
 
   * Required permission: ADMIN:NAMESPACE:{namespace}:CHALLENGE [READ]
 */
@@ -440,83 +243,8 @@ func (a *Client) AdminGetChallengeShort(params *AdminGetChallengeParams, authInf
 }
 
 /*
-Deprecated: 2022-08-10 - Use AdminUpdateChallengeShort instead.
-
-AdminUpdateChallenge update a challenge
-
-  * Required permission: ADMIN:NAMESPACE:{namespace}:CHALLENGE [UPDATE]
-
-
-
-Request body:
-
-  * name: name of the challenge
-  * description: text describing about the challenge (optional)
-  * startDate: timestamp of when the challenge is started
-  * endDate: timestamp of when the challenge is ended (optional)
-  * endAfter: describe number of period challenge will be retired after (optional)
-To configure challenge that never end, leave the endDate and endAfter field null/empty.
-*/
-func (a *Client) AdminUpdateChallenge(params *AdminUpdateChallengeParams, authInfo runtime.ClientAuthInfoWriter) (*AdminUpdateChallengeOK, *AdminUpdateChallengeUnauthorized, *AdminUpdateChallengeForbidden, *AdminUpdateChallengeNotFound, *AdminUpdateChallengeUnprocessableEntity, *AdminUpdateChallengeInternalServerError, error) {
-	// TODO: Validate the params before sending
-	if params == nil {
-		params = NewAdminUpdateChallengeParams()
-	}
-
-	if params.Context == nil {
-		params.Context = context.Background()
-	}
-
-	if params.RetryPolicy != nil {
-		params.SetHTTPClientTransport(params.RetryPolicy)
-	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
-		ID:                 "adminUpdateChallenge",
-		Method:             "PUT",
-		PathPattern:        "/challenge/v1/admin/namespaces/{namespace}/challenges/{challengeCode}",
-		ProducesMediaTypes: []string{"application/json"},
-		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
-		Params:             params,
-		Reader:             &AdminUpdateChallengeReader{formats: a.formats},
-		AuthInfo:           authInfo,
-		Context:            params.Context,
-		Client:             params.HTTPClient,
-	})
-	if err != nil {
-		return nil, nil, nil, nil, nil, nil, err
-	}
-
-	switch v := result.(type) {
-
-	case *AdminUpdateChallengeOK:
-		return v, nil, nil, nil, nil, nil, nil
-
-	case *AdminUpdateChallengeUnauthorized:
-		return nil, v, nil, nil, nil, nil, nil
-
-	case *AdminUpdateChallengeForbidden:
-		return nil, nil, v, nil, nil, nil, nil
-
-	case *AdminUpdateChallengeNotFound:
-		return nil, nil, nil, v, nil, nil, nil
-
-	case *AdminUpdateChallengeUnprocessableEntity:
-		return nil, nil, nil, nil, v, nil, nil
-
-	case *AdminUpdateChallengeInternalServerError:
-		return nil, nil, nil, nil, nil, v, nil
-
-	default:
-		return nil, nil, nil, nil, nil, nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
-	}
-}
-
-/*
 AdminUpdateChallengeShort update a challenge
 
-
   * Required permission: ADMIN:NAMESPACE:{namespace}:CHALLENGE [UPDATE]
 
 
@@ -529,6 +257,18 @@ Request body:
   * endDate: timestamp of when the challenge is ended (optional)
   * endAfter: describe number of period challenge will be retired after (optional)
 To configure challenge that never end, leave the endDate and endAfter field null/empty.
+  * repeatAfter: describe number of period challenge's goals will be repeated after. Leave it empty if you don't want to repeat the challenge.
+  * rotation: describe how long goals in a challenge will be available for players to progress before rotated with another goals. (DAILY|WEEKLY|MONTHLY|NONE)
+  * activeGoalsPerRotation: number of goals per rotation (currently only applicable for RANDOMIZE assignment)
+  * assignmentRule: describe how the goals will be assigned and scheduled to users. (FIXED|RANDOMIZED|UNSCHEDULED)
+  * goalsVisibility: describe whether users can see all goals under challenge, or only active goal in one rotation period only. (SHOWALL|PERIODONLY)
+  * resetConfig: describe when rotation reset will happen (optional).
+    * resetTime: Reset time must follow hours:minutes in 24 hours format (e.g. 01:30, 23:15) and in UTC timezone. Default to "00:00"
+    * resetDay: Reset Day follows the ISO-8601 standard, from 1 (Monday) to 7 (Sunday). Default to 1 in WEEKLY rotation.
+    * resetDate: Reset Date must be a number 1 - 31. Default to 1 in MONTHLY rotation.
+  * randomizedPerRotation:
+    * true: each goal will be randomly assigned to multiple periods
+    * false: a goal will only be assigned to one period
 */
 func (a *Client) AdminUpdateChallengeShort(params *AdminUpdateChallengeParams, authInfo runtime.ClientAuthInfoWriter) (*AdminUpdateChallengeOK, error) {
 	// TODO: Validate the params before sending
@@ -569,6 +309,8 @@ func (a *Client) AdminUpdateChallengeShort(params *AdminUpdateChallengeParams, a
 
 	case *AdminUpdateChallengeOK:
 		return v, nil
+	case *AdminUpdateChallengeBadRequest:
+		return nil, v
 	case *AdminUpdateChallengeUnauthorized:
 		return nil, v
 	case *AdminUpdateChallengeForbidden:
@@ -586,71 +328,8 @@ func (a *Client) AdminUpdateChallengeShort(params *AdminUpdateChallengeParams, a
 }
 
 /*
-Deprecated: 2022-08-10 - Use AdminDeleteChallengeShort instead.
-
-AdminDeleteChallenge delete a challenge
-
-
-  * Required permission: ADMIN:NAMESPACE:{namespace}:CHALLENGE [DELETE]
-*/
-func (a *Client) AdminDeleteChallenge(params *AdminDeleteChallengeParams, authInfo runtime.ClientAuthInfoWriter) (*AdminDeleteChallengeNoContent, *AdminDeleteChallengeBadRequest, *AdminDeleteChallengeUnauthorized, *AdminDeleteChallengeForbidden, *AdminDeleteChallengeNotFound, *AdminDeleteChallengeInternalServerError, error) {
-	// TODO: Validate the params before sending
-	if params == nil {
-		params = NewAdminDeleteChallengeParams()
-	}
-
-	if params.Context == nil {
-		params.Context = context.Background()
-	}
-
-	if params.RetryPolicy != nil {
-		params.SetHTTPClientTransport(params.RetryPolicy)
-	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
-		ID:                 "adminDeleteChallenge",
-		Method:             "DELETE",
-		PathPattern:        "/challenge/v1/admin/namespaces/{namespace}/challenges/{challengeCode}",
-		ProducesMediaTypes: []string{"application/json"},
-		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
-		Params:             params,
-		Reader:             &AdminDeleteChallengeReader{formats: a.formats},
-		AuthInfo:           authInfo,
-		Context:            params.Context,
-		Client:             params.HTTPClient,
-	})
-	if err != nil {
-		return nil, nil, nil, nil, nil, nil, err
-	}
-
-	switch v := result.(type) {
-
-	case *AdminDeleteChallengeNoContent:
-		return v, nil, nil, nil, nil, nil, nil
-
-	case *AdminDeleteChallengeBadRequest:
-		return nil, v, nil, nil, nil, nil, nil
-
-	case *AdminDeleteChallengeUnauthorized:
-		return nil, nil, v, nil, nil, nil, nil
-
-	case *AdminDeleteChallengeForbidden:
-		return nil, nil, nil, v, nil, nil, nil
-
-	case *AdminDeleteChallengeNotFound:
-		return nil, nil, nil, nil, v, nil, nil
-
-	case *AdminDeleteChallengeInternalServerError:
-		return nil, nil, nil, nil, nil, v, nil
-
-	default:
-		return nil, nil, nil, nil, nil, nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
-	}
-}
-
-/*
 AdminDeleteChallengeShort delete a challenge
+
 
   * Required permission: ADMIN:NAMESPACE:{namespace}:CHALLENGE [DELETE]
 */
@@ -706,66 +385,6 @@ func (a *Client) AdminDeleteChallengeShort(params *AdminDeleteChallengeParams, a
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
-	}
-}
-
-/*
-Deprecated: 2022-08-10 - Use AdminGetPeriodsShort instead.
-
-AdminGetPeriods get challenge's periods
-
-  * Required permission: ADMIN:NAMESPACE:{namespace}:CHALLENGE [READ]
-*/
-func (a *Client) AdminGetPeriods(params *AdminGetPeriodsParams, authInfo runtime.ClientAuthInfoWriter) (*AdminGetPeriodsOK, *AdminGetPeriodsUnauthorized, *AdminGetPeriodsForbidden, *AdminGetPeriodsNotFound, *AdminGetPeriodsInternalServerError, error) {
-	// TODO: Validate the params before sending
-	if params == nil {
-		params = NewAdminGetPeriodsParams()
-	}
-
-	if params.Context == nil {
-		params.Context = context.Background()
-	}
-
-	if params.RetryPolicy != nil {
-		params.SetHTTPClientTransport(params.RetryPolicy)
-	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
-		ID:                 "adminGetPeriods",
-		Method:             "GET",
-		PathPattern:        "/challenge/v1/admin/namespaces/{namespace}/challenges/{challengeCode}/periods",
-		ProducesMediaTypes: []string{"application/json"},
-		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
-		Params:             params,
-		Reader:             &AdminGetPeriodsReader{formats: a.formats},
-		AuthInfo:           authInfo,
-		Context:            params.Context,
-		Client:             params.HTTPClient,
-	})
-	if err != nil {
-		return nil, nil, nil, nil, nil, err
-	}
-
-	switch v := result.(type) {
-
-	case *AdminGetPeriodsOK:
-		return v, nil, nil, nil, nil, nil
-
-	case *AdminGetPeriodsUnauthorized:
-		return nil, v, nil, nil, nil, nil
-
-	case *AdminGetPeriodsForbidden:
-		return nil, nil, v, nil, nil, nil
-
-	case *AdminGetPeriodsNotFound:
-		return nil, nil, nil, v, nil, nil
-
-	case *AdminGetPeriodsInternalServerError:
-		return nil, nil, nil, nil, v, nil
-
-	default:
-		return nil, nil, nil, nil, nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
 	}
 }
 
@@ -828,73 +447,11 @@ func (a *Client) AdminGetPeriodsShort(params *AdminGetPeriodsParams, authInfo ru
 }
 
 /*
-Deprecated: 2022-08-10 - Use AdminRandomizeChallengeShort instead.
-
-AdminRandomizeChallenge randomize goals of a challenge
-
-  * Required permission: ADMIN:NAMESPACE:{namespace}:CHALLENGE [UPDATE]
-
-This is a utility endpoint to execute randomize goals schedule on challenge that the assignmentRule is RANDOMIZED.
-*/
-func (a *Client) AdminRandomizeChallenge(params *AdminRandomizeChallengeParams, authInfo runtime.ClientAuthInfoWriter) (*AdminRandomizeChallengeOK, *AdminRandomizeChallengeUnauthorized, *AdminRandomizeChallengeForbidden, *AdminRandomizeChallengeNotFound, *AdminRandomizeChallengeInternalServerError, error) {
-	// TODO: Validate the params before sending
-	if params == nil {
-		params = NewAdminRandomizeChallengeParams()
-	}
-
-	if params.Context == nil {
-		params.Context = context.Background()
-	}
-
-	if params.RetryPolicy != nil {
-		params.SetHTTPClientTransport(params.RetryPolicy)
-	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
-		ID:                 "adminRandomizeChallenge",
-		Method:             "POST",
-		PathPattern:        "/challenge/v1/admin/namespaces/{namespace}/challenges/{challengeCode}/randomize",
-		ProducesMediaTypes: []string{"application/json"},
-		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
-		Params:             params,
-		Reader:             &AdminRandomizeChallengeReader{formats: a.formats},
-		AuthInfo:           authInfo,
-		Context:            params.Context,
-		Client:             params.HTTPClient,
-	})
-	if err != nil {
-		return nil, nil, nil, nil, nil, err
-	}
-
-	switch v := result.(type) {
-
-	case *AdminRandomizeChallengeOK:
-		return v, nil, nil, nil, nil, nil
-
-	case *AdminRandomizeChallengeUnauthorized:
-		return nil, v, nil, nil, nil, nil
-
-	case *AdminRandomizeChallengeForbidden:
-		return nil, nil, v, nil, nil, nil
-
-	case *AdminRandomizeChallengeNotFound:
-		return nil, nil, nil, v, nil, nil
-
-	case *AdminRandomizeChallengeInternalServerError:
-		return nil, nil, nil, nil, v, nil
-
-	default:
-		return nil, nil, nil, nil, nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
-	}
-}
-
-/*
 AdminRandomizeChallengeShort randomize goals of a challenge
 
   * Required permission: ADMIN:NAMESPACE:{namespace}:CHALLENGE [UPDATE]
 
-This is a utility endpoint to execute randomize goals schedule on challenge that the assignmentRule is RANDOMIZED.
+This is a utility endpoint to execute randomize goals schedule on challenge that the assignmentRule is RANDOMIZED and RandomizePerRotation assigned with true.
 */
 func (a *Client) AdminRandomizeChallengeShort(params *AdminRandomizeChallengeParams, authInfo runtime.ClientAuthInfoWriter) (*AdminRandomizeChallengeOK, error) {
 	// TODO: Validate the params before sending
@@ -935,6 +492,8 @@ func (a *Client) AdminRandomizeChallengeShort(params *AdminRandomizeChallengePar
 
 	case *AdminRandomizeChallengeOK:
 		return v, nil
+	case *AdminRandomizeChallengeBadRequest:
+		return nil, v
 	case *AdminRandomizeChallengeUnauthorized:
 		return nil, v
 	case *AdminRandomizeChallengeForbidden:
@@ -946,70 +505,6 @@ func (a *Client) AdminRandomizeChallengeShort(params *AdminRandomizeChallengePar
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
-	}
-}
-
-/*
-Deprecated: 2022-08-10 - Use AdminDeleteTiedChallengeShort instead.
-
-AdminDeleteTiedChallenge delete tied challenge
-
-  * Required permission: ADMIN:NAMESPACE:{namespace}:CHALLENGE [DELETE]
-  * This endpoint will delete the combination of related data: CHALLENGES, GOALS, SCHEDULES, PLAYER PROGRESSIONS
-*/
-func (a *Client) AdminDeleteTiedChallenge(params *AdminDeleteTiedChallengeParams, authInfo runtime.ClientAuthInfoWriter) (*AdminDeleteTiedChallengeNoContent, *AdminDeleteTiedChallengeBadRequest, *AdminDeleteTiedChallengeUnauthorized, *AdminDeleteTiedChallengeForbidden, *AdminDeleteTiedChallengeNotFound, *AdminDeleteTiedChallengeInternalServerError, error) {
-	// TODO: Validate the params before sending
-	if params == nil {
-		params = NewAdminDeleteTiedChallengeParams()
-	}
-
-	if params.Context == nil {
-		params.Context = context.Background()
-	}
-
-	if params.RetryPolicy != nil {
-		params.SetHTTPClientTransport(params.RetryPolicy)
-	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
-		ID:                 "adminDeleteTiedChallenge",
-		Method:             "DELETE",
-		PathPattern:        "/challenge/v1/admin/namespaces/{namespace}/challenges/{challengeCode}/tied",
-		ProducesMediaTypes: []string{"application/json"},
-		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
-		Params:             params,
-		Reader:             &AdminDeleteTiedChallengeReader{formats: a.formats},
-		AuthInfo:           authInfo,
-		Context:            params.Context,
-		Client:             params.HTTPClient,
-	})
-	if err != nil {
-		return nil, nil, nil, nil, nil, nil, err
-	}
-
-	switch v := result.(type) {
-
-	case *AdminDeleteTiedChallengeNoContent:
-		return v, nil, nil, nil, nil, nil, nil
-
-	case *AdminDeleteTiedChallengeBadRequest:
-		return nil, v, nil, nil, nil, nil, nil
-
-	case *AdminDeleteTiedChallengeUnauthorized:
-		return nil, nil, v, nil, nil, nil, nil
-
-	case *AdminDeleteTiedChallengeForbidden:
-		return nil, nil, nil, v, nil, nil, nil
-
-	case *AdminDeleteTiedChallengeNotFound:
-		return nil, nil, nil, nil, v, nil, nil
-
-	case *AdminDeleteTiedChallengeInternalServerError:
-		return nil, nil, nil, nil, nil, v, nil
-
-	default:
-		return nil, nil, nil, nil, nil, nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
 	}
 }
 

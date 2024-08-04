@@ -30,75 +30,16 @@ type Client struct {
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	GetChallenges(params *GetChallengesParams, authInfo runtime.ClientAuthInfoWriter) (*GetChallengesOK, *GetChallengesUnauthorized, *GetChallengesForbidden, *GetChallengesInternalServerError, error)
 	GetChallengesShort(params *GetChallengesParams, authInfo runtime.ClientAuthInfoWriter) (*GetChallengesOK, error)
-	PublicGetScheduledGoals(params *PublicGetScheduledGoalsParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGetScheduledGoalsOK, *PublicGetScheduledGoalsUnauthorized, *PublicGetScheduledGoalsForbidden, *PublicGetScheduledGoalsInternalServerError, error)
 	PublicGetScheduledGoalsShort(params *PublicGetScheduledGoalsParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGetScheduledGoalsOK, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
 
 /*
-Deprecated: 2022-08-10 - Use GetChallengesShort instead.
-
-GetChallenges list challenges
-
-      * Required permission: NAMESPACE:{namespace}:CHALLENGE [READ]
-*/
-func (a *Client) GetChallenges(params *GetChallengesParams, authInfo runtime.ClientAuthInfoWriter) (*GetChallengesOK, *GetChallengesUnauthorized, *GetChallengesForbidden, *GetChallengesInternalServerError, error) {
-	// TODO: Validate the params before sending
-	if params == nil {
-		params = NewGetChallengesParams()
-	}
-
-	if params.Context == nil {
-		params.Context = context.Background()
-	}
-
-	if params.RetryPolicy != nil {
-		params.SetHTTPClientTransport(params.RetryPolicy)
-	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
-		ID:                 "GetChallenges",
-		Method:             "GET",
-		PathPattern:        "/challenge/v1/public/namespaces/{namespace}/challenges",
-		ProducesMediaTypes: []string{"application/json"},
-		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
-		Params:             params,
-		Reader:             &GetChallengesReader{formats: a.formats},
-		AuthInfo:           authInfo,
-		Context:            params.Context,
-		Client:             params.HTTPClient,
-	})
-	if err != nil {
-		return nil, nil, nil, nil, err
-	}
-
-	switch v := result.(type) {
-
-	case *GetChallengesOK:
-		return v, nil, nil, nil, nil
-
-	case *GetChallengesUnauthorized:
-		return nil, v, nil, nil, nil
-
-	case *GetChallengesForbidden:
-		return nil, nil, v, nil, nil
-
-	case *GetChallengesInternalServerError:
-		return nil, nil, nil, v, nil
-
-	default:
-		return nil, nil, nil, nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
-	}
-}
-
-/*
 GetChallengesShort list challenges
 
-      * Required permission: NAMESPACE:{namespace}:CHALLENGE [READ]
+    * Required permission: NAMESPACE:{namespace}:CHALLENGE [READ]
 */
 func (a *Client) GetChallengesShort(params *GetChallengesParams, authInfo runtime.ClientAuthInfoWriter) (*GetChallengesOK, error) {
 	// TODO: Validate the params before sending
@@ -152,66 +93,9 @@ func (a *Client) GetChallengesShort(params *GetChallengesParams, authInfo runtim
 }
 
 /*
-Deprecated: 2022-08-10 - Use PublicGetScheduledGoalsShort instead.
-
-PublicGetScheduledGoals list goals of a challenge
-
-      * Required permission: NAMESPACE:{namespace}:CHALLENGE [READ]
-*/
-func (a *Client) PublicGetScheduledGoals(params *PublicGetScheduledGoalsParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGetScheduledGoalsOK, *PublicGetScheduledGoalsUnauthorized, *PublicGetScheduledGoalsForbidden, *PublicGetScheduledGoalsInternalServerError, error) {
-	// TODO: Validate the params before sending
-	if params == nil {
-		params = NewPublicGetScheduledGoalsParams()
-	}
-
-	if params.Context == nil {
-		params.Context = context.Background()
-	}
-
-	if params.RetryPolicy != nil {
-		params.SetHTTPClientTransport(params.RetryPolicy)
-	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
-		ID:                 "publicGetScheduledGoals",
-		Method:             "GET",
-		PathPattern:        "/challenge/v1/public/namespaces/{namespace}/challenges/{challengeCode}/goals",
-		ProducesMediaTypes: []string{"application/json"},
-		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
-		Params:             params,
-		Reader:             &PublicGetScheduledGoalsReader{formats: a.formats},
-		AuthInfo:           authInfo,
-		Context:            params.Context,
-		Client:             params.HTTPClient,
-	})
-	if err != nil {
-		return nil, nil, nil, nil, err
-	}
-
-	switch v := result.(type) {
-
-	case *PublicGetScheduledGoalsOK:
-		return v, nil, nil, nil, nil
-
-	case *PublicGetScheduledGoalsUnauthorized:
-		return nil, v, nil, nil, nil
-
-	case *PublicGetScheduledGoalsForbidden:
-		return nil, nil, v, nil, nil
-
-	case *PublicGetScheduledGoalsInternalServerError:
-		return nil, nil, nil, v, nil
-
-	default:
-		return nil, nil, nil, nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
-	}
-}
-
-/*
 PublicGetScheduledGoalsShort list goals of a challenge
 
-      * Required permission: NAMESPACE:{namespace}:CHALLENGE [READ]
+    * Required permission: NAMESPACE:{namespace}:CHALLENGE [READ]
 */
 func (a *Client) PublicGetScheduledGoalsShort(params *PublicGetScheduledGoalsParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGetScheduledGoalsOK, error) {
 	// TODO: Validate the params before sending
@@ -255,6 +139,8 @@ func (a *Client) PublicGetScheduledGoalsShort(params *PublicGetScheduledGoalsPar
 	case *PublicGetScheduledGoalsUnauthorized:
 		return nil, v
 	case *PublicGetScheduledGoalsForbidden:
+		return nil, v
+	case *PublicGetScheduledGoalsNotFound:
 		return nil, v
 	case *PublicGetScheduledGoalsInternalServerError:
 		return nil, v

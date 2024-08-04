@@ -12,7 +12,6 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils/auth"
-	"github.com/go-openapi/runtime/client"
 )
 
 type WatchdogsService struct {
@@ -35,34 +34,6 @@ func (aaa *WatchdogsService) GetAuthSession() auth.Session {
 		aaa.ConfigRepository,
 		nil,
 	}
-}
-
-// Deprecated: 2022-01-10 - Please use LocalWatchdogConnectShort instead.
-func (aaa *WatchdogsService) LocalWatchdogConnect(input *watchdogs.LocalWatchdogConnectParams) error {
-	token, err := aaa.TokenRepository.GetToken()
-	if err != nil {
-		return err
-	}
-	_, err = aaa.Client.Watchdogs.LocalWatchdogConnect(input, client.BearerToken(*token.AccessToken))
-	if err != nil {
-		return err
-	}
-
-	return nil
-}
-
-// Deprecated: 2022-01-10 - Please use WatchdogConnectShort instead.
-func (aaa *WatchdogsService) WatchdogConnect(input *watchdogs.WatchdogConnectParams) error {
-	token, err := aaa.TokenRepository.GetToken()
-	if err != nil {
-		return err
-	}
-	_, err = aaa.Client.Watchdogs.WatchdogConnect(input, client.BearerToken(*token.AccessToken))
-	if err != nil {
-		return err
-	}
-
-	return nil
 }
 
 func (aaa *WatchdogsService) LocalWatchdogConnectShort(input *watchdogs.LocalWatchdogConnectParams) error {

@@ -30,94 +30,25 @@ type Client struct {
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	AdminQueryParties(params *AdminQueryPartiesParams, authInfo runtime.ClientAuthInfoWriter) (*AdminQueryPartiesOK, *AdminQueryPartiesBadRequest, *AdminQueryPartiesUnauthorized, *AdminQueryPartiesInternalServerError, error)
 	AdminQueryPartiesShort(params *AdminQueryPartiesParams, authInfo runtime.ClientAuthInfoWriter) (*AdminQueryPartiesOK, error)
-	PublicPartyJoinCode(params *PublicPartyJoinCodeParams, authInfo runtime.ClientAuthInfoWriter) (*PublicPartyJoinCodeOK, *PublicPartyJoinCodeBadRequest, *PublicPartyJoinCodeUnauthorized, *PublicPartyJoinCodeForbidden, *PublicPartyJoinCodeNotFound, *PublicPartyJoinCodeInternalServerError, error)
+	AdminSyncNativeSessionShort(params *AdminSyncNativeSessionParams, authInfo runtime.ClientAuthInfoWriter) (*AdminSyncNativeSessionOK, error)
 	PublicPartyJoinCodeShort(params *PublicPartyJoinCodeParams, authInfo runtime.ClientAuthInfoWriter) (*PublicPartyJoinCodeOK, error)
-	PublicGetParty(params *PublicGetPartyParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGetPartyOK, *PublicGetPartyUnauthorized, *PublicGetPartyNotFound, *PublicGetPartyInternalServerError, error)
 	PublicGetPartyShort(params *PublicGetPartyParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGetPartyOK, error)
-	PublicUpdateParty(params *PublicUpdatePartyParams, authInfo runtime.ClientAuthInfoWriter) (*PublicUpdatePartyOK, *PublicUpdatePartyBadRequest, *PublicUpdatePartyUnauthorized, *PublicUpdatePartyForbidden, *PublicUpdatePartyNotFound, *PublicUpdatePartyInternalServerError, error)
 	PublicUpdatePartyShort(params *PublicUpdatePartyParams, authInfo runtime.ClientAuthInfoWriter) (*PublicUpdatePartyOK, error)
-	PublicPatchUpdateParty(params *PublicPatchUpdatePartyParams, authInfo runtime.ClientAuthInfoWriter) (*PublicPatchUpdatePartyOK, *PublicPatchUpdatePartyBadRequest, *PublicPatchUpdatePartyUnauthorized, *PublicPatchUpdatePartyForbidden, *PublicPatchUpdatePartyNotFound, *PublicPatchUpdatePartyInternalServerError, error)
 	PublicPatchUpdatePartyShort(params *PublicPatchUpdatePartyParams, authInfo runtime.ClientAuthInfoWriter) (*PublicPatchUpdatePartyOK, error)
-	PublicGeneratePartyCode(params *PublicGeneratePartyCodeParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGeneratePartyCodeOK, *PublicGeneratePartyCodeBadRequest, *PublicGeneratePartyCodeUnauthorized, *PublicGeneratePartyCodeForbidden, *PublicGeneratePartyCodeNotFound, *PublicGeneratePartyCodeInternalServerError, error)
 	PublicGeneratePartyCodeShort(params *PublicGeneratePartyCodeParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGeneratePartyCodeOK, error)
-	PublicRevokePartyCode(params *PublicRevokePartyCodeParams, authInfo runtime.ClientAuthInfoWriter) (*PublicRevokePartyCodeNoContent, *PublicRevokePartyCodeBadRequest, *PublicRevokePartyCodeUnauthorized, *PublicRevokePartyCodeForbidden, *PublicRevokePartyCodeNotFound, *PublicRevokePartyCodeInternalServerError, error)
 	PublicRevokePartyCodeShort(params *PublicRevokePartyCodeParams, authInfo runtime.ClientAuthInfoWriter) (*PublicRevokePartyCodeNoContent, error)
-	PublicPartyInvite(params *PublicPartyInviteParams, authInfo runtime.ClientAuthInfoWriter) (*PublicPartyInviteCreated, *PublicPartyInviteNoContent, *PublicPartyInviteBadRequest, *PublicPartyInviteUnauthorized, *PublicPartyInviteNotFound, *PublicPartyInviteInternalServerError, error)
 	PublicPartyInviteShort(params *PublicPartyInviteParams, authInfo runtime.ClientAuthInfoWriter) (*PublicPartyInviteCreated, error)
-	PublicPromotePartyLeader(params *PublicPromotePartyLeaderParams, authInfo runtime.ClientAuthInfoWriter) (*PublicPromotePartyLeaderOK, *PublicPromotePartyLeaderBadRequest, *PublicPromotePartyLeaderUnauthorized, *PublicPromotePartyLeaderForbidden, *PublicPromotePartyLeaderNotFound, *PublicPromotePartyLeaderInternalServerError, error)
 	PublicPromotePartyLeaderShort(params *PublicPromotePartyLeaderParams, authInfo runtime.ClientAuthInfoWriter) (*PublicPromotePartyLeaderOK, error)
-	PublicPartyJoin(params *PublicPartyJoinParams, authInfo runtime.ClientAuthInfoWriter) (*PublicPartyJoinOK, *PublicPartyJoinBadRequest, *PublicPartyJoinUnauthorized, *PublicPartyJoinForbidden, *PublicPartyJoinNotFound, *PublicPartyJoinInternalServerError, error)
 	PublicPartyJoinShort(params *PublicPartyJoinParams, authInfo runtime.ClientAuthInfoWriter) (*PublicPartyJoinOK, error)
-	PublicPartyLeave(params *PublicPartyLeaveParams, authInfo runtime.ClientAuthInfoWriter) (*PublicPartyLeaveNoContent, *PublicPartyLeaveUnauthorized, *PublicPartyLeaveNotFound, *PublicPartyLeaveInternalServerError, error)
 	PublicPartyLeaveShort(params *PublicPartyLeaveParams, authInfo runtime.ClientAuthInfoWriter) (*PublicPartyLeaveNoContent, error)
-	PublicPartyReject(params *PublicPartyRejectParams, authInfo runtime.ClientAuthInfoWriter) (*PublicPartyRejectNoContent, *PublicPartyRejectBadRequest, *PublicPartyRejectUnauthorized, *PublicPartyRejectForbidden, *PublicPartyRejectNotFound, *PublicPartyRejectInternalServerError, error)
 	PublicPartyRejectShort(params *PublicPartyRejectParams, authInfo runtime.ClientAuthInfoWriter) (*PublicPartyRejectNoContent, error)
-	PublicPartyKick(params *PublicPartyKickParams, authInfo runtime.ClientAuthInfoWriter) (*PublicPartyKickOK, *PublicPartyKickBadRequest, *PublicPartyKickUnauthorized, *PublicPartyKickForbidden, *PublicPartyKickNotFound, *PublicPartyKickInternalServerError, error)
+	PublicPartyCancelShort(params *PublicPartyCancelParams, authInfo runtime.ClientAuthInfoWriter) (*PublicPartyCancelNoContent, error)
 	PublicPartyKickShort(params *PublicPartyKickParams, authInfo runtime.ClientAuthInfoWriter) (*PublicPartyKickOK, error)
-	PublicCreateParty(params *PublicCreatePartyParams, authInfo runtime.ClientAuthInfoWriter) (*PublicCreatePartyOK, *PublicCreatePartyBadRequest, *PublicCreatePartyUnauthorized, *PublicCreatePartyInternalServerError, error)
 	PublicCreatePartyShort(params *PublicCreatePartyParams, authInfo runtime.ClientAuthInfoWriter) (*PublicCreatePartyOK, error)
-	PublicQueryMyParties(params *PublicQueryMyPartiesParams, authInfo runtime.ClientAuthInfoWriter) (*PublicQueryMyPartiesOK, *PublicQueryMyPartiesBadRequest, *PublicQueryMyPartiesUnauthorized, *PublicQueryMyPartiesInternalServerError, error)
 	PublicQueryMyPartiesShort(params *PublicQueryMyPartiesParams, authInfo runtime.ClientAuthInfoWriter) (*PublicQueryMyPartiesOK, error)
 
 	SetTransport(transport runtime.ClientTransport)
-}
-
-/*
-Deprecated: 2022-08-10 - Use AdminQueryPartiesShort instead.
-
-AdminQueryParties query parties.
-Query parties.
-*/
-func (a *Client) AdminQueryParties(params *AdminQueryPartiesParams, authInfo runtime.ClientAuthInfoWriter) (*AdminQueryPartiesOK, *AdminQueryPartiesBadRequest, *AdminQueryPartiesUnauthorized, *AdminQueryPartiesInternalServerError, error) {
-	// TODO: Validate the params before sending
-	if params == nil {
-		params = NewAdminQueryPartiesParams()
-	}
-
-	if params.Context == nil {
-		params.Context = context.Background()
-	}
-
-	if params.RetryPolicy != nil {
-		params.SetHTTPClientTransport(params.RetryPolicy)
-	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
-		ID:                 "adminQueryParties",
-		Method:             "GET",
-		PathPattern:        "/session/v1/admin/namespaces/{namespace}/parties",
-		ProducesMediaTypes: []string{"application/json"},
-		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
-		Params:             params,
-		Reader:             &AdminQueryPartiesReader{formats: a.formats},
-		AuthInfo:           authInfo,
-		Context:            params.Context,
-		Client:             params.HTTPClient,
-	})
-	if err != nil {
-		return nil, nil, nil, nil, err
-	}
-
-	switch v := result.(type) {
-
-	case *AdminQueryPartiesOK:
-		return v, nil, nil, nil, nil
-
-	case *AdminQueryPartiesBadRequest:
-		return nil, v, nil, nil, nil
-
-	case *AdminQueryPartiesUnauthorized:
-		return nil, nil, v, nil, nil
-
-	case *AdminQueryPartiesInternalServerError:
-		return nil, nil, nil, v, nil
-
-	default:
-		return nil, nil, nil, nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
-	}
 }
 
 /*
@@ -176,15 +107,13 @@ func (a *Client) AdminQueryPartiesShort(params *AdminQueryPartiesParams, authInf
 }
 
 /*
-Deprecated: 2022-08-10 - Use PublicPartyJoinCodeShort instead.
-
-PublicPartyJoinCode join a party by code.
-Join a party by code. The user can join a party as long as the code is valid
+AdminSyncNativeSessionShort trigger user's active party session to native platform.
+Trigger user's active party session to native platform.
 */
-func (a *Client) PublicPartyJoinCode(params *PublicPartyJoinCodeParams, authInfo runtime.ClientAuthInfoWriter) (*PublicPartyJoinCodeOK, *PublicPartyJoinCodeBadRequest, *PublicPartyJoinCodeUnauthorized, *PublicPartyJoinCodeForbidden, *PublicPartyJoinCodeNotFound, *PublicPartyJoinCodeInternalServerError, error) {
+func (a *Client) AdminSyncNativeSessionShort(params *AdminSyncNativeSessionParams, authInfo runtime.ClientAuthInfoWriter) (*AdminSyncNativeSessionOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
-		params = NewPublicPartyJoinCodeParams()
+		params = NewAdminSyncNativeSessionParams()
 	}
 
 	if params.Context == nil {
@@ -195,45 +124,42 @@ func (a *Client) PublicPartyJoinCode(params *PublicPartyJoinCodeParams, authInfo
 		params.SetHTTPClientTransport(params.RetryPolicy)
 	}
 
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
+	}
+
 	result, err := a.transport.Submit(&runtime.ClientOperation{
-		ID:                 "publicPartyJoinCode",
+		ID:                 "adminSyncNativeSession",
 		Method:             "POST",
-		PathPattern:        "/session/v1/public/namespaces/{namespace}/parties/users/me/join/code",
+		PathPattern:        "/session/v1/admin/namespaces/{namespace}/users/{userId}/native-sync",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"https"},
 		Params:             params,
-		Reader:             &PublicPartyJoinCodeReader{formats: a.formats},
+		Reader:             &AdminSyncNativeSessionReader{formats: a.formats},
 		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	})
 	if err != nil {
-		return nil, nil, nil, nil, nil, nil, err
+		return nil, err
 	}
 
 	switch v := result.(type) {
 
-	case *PublicPartyJoinCodeOK:
-		return v, nil, nil, nil, nil, nil, nil
-
-	case *PublicPartyJoinCodeBadRequest:
-		return nil, v, nil, nil, nil, nil, nil
-
-	case *PublicPartyJoinCodeUnauthorized:
-		return nil, nil, v, nil, nil, nil, nil
-
-	case *PublicPartyJoinCodeForbidden:
-		return nil, nil, nil, v, nil, nil, nil
-
-	case *PublicPartyJoinCodeNotFound:
-		return nil, nil, nil, nil, v, nil, nil
-
-	case *PublicPartyJoinCodeInternalServerError:
-		return nil, nil, nil, nil, nil, v, nil
+	case *AdminSyncNativeSessionOK:
+		return v, nil
+	case *AdminSyncNativeSessionBadRequest:
+		return nil, v
+	case *AdminSyncNativeSessionUnauthorized:
+		return nil, v
+	case *AdminSyncNativeSessionForbidden:
+		return nil, v
+	case *AdminSyncNativeSessionInternalServerError:
+		return nil, v
 
 	default:
-		return nil, nil, nil, nil, nil, nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
+		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
 	}
 }
 
@@ -297,62 +223,6 @@ func (a *Client) PublicPartyJoinCodeShort(params *PublicPartyJoinCodeParams, aut
 }
 
 /*
-Deprecated: 2022-08-10 - Use PublicGetPartyShort instead.
-
-PublicGetParty get party details.
-Get party details.
-*/
-func (a *Client) PublicGetParty(params *PublicGetPartyParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGetPartyOK, *PublicGetPartyUnauthorized, *PublicGetPartyNotFound, *PublicGetPartyInternalServerError, error) {
-	// TODO: Validate the params before sending
-	if params == nil {
-		params = NewPublicGetPartyParams()
-	}
-
-	if params.Context == nil {
-		params.Context = context.Background()
-	}
-
-	if params.RetryPolicy != nil {
-		params.SetHTTPClientTransport(params.RetryPolicy)
-	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
-		ID:                 "publicGetParty",
-		Method:             "GET",
-		PathPattern:        "/session/v1/public/namespaces/{namespace}/parties/{partyId}",
-		ProducesMediaTypes: []string{"application/json"},
-		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
-		Params:             params,
-		Reader:             &PublicGetPartyReader{formats: a.formats},
-		AuthInfo:           authInfo,
-		Context:            params.Context,
-		Client:             params.HTTPClient,
-	})
-	if err != nil {
-		return nil, nil, nil, nil, err
-	}
-
-	switch v := result.(type) {
-
-	case *PublicGetPartyOK:
-		return v, nil, nil, nil, nil
-
-	case *PublicGetPartyUnauthorized:
-		return nil, v, nil, nil, nil
-
-	case *PublicGetPartyNotFound:
-		return nil, nil, v, nil, nil
-
-	case *PublicGetPartyInternalServerError:
-		return nil, nil, nil, v, nil
-
-	default:
-		return nil, nil, nil, nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
-	}
-}
-
-/*
 PublicGetPartyShort get party details.
 Get party details.
 */
@@ -404,78 +274,6 @@ func (a *Client) PublicGetPartyShort(params *PublicGetPartyParams, authInfo runt
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
-	}
-}
-
-/*
-Deprecated: 2022-08-10 - Use PublicUpdatePartyShort instead.
-
-PublicUpdateParty update a party.
-Updates party blob, this endpoint will override stored party data.
-
-Join type can only be updated by the party's leader.
-To update only specified fields, please use following endpoint:
-method : PATCH
-API : /session/v1/public/namespaces/{namespace}/gamesessions/{sessionId}
-
-Reserved attributes key:
-1. preference: used to store preference of the leader and it is non-replaceable to keep the initial behavior of
-the session regardless the leader changes.
-2. NATIVESESSIONTITLE: used for session sync, to define name of session displayed on PlayStation system UI.
-*/
-func (a *Client) PublicUpdateParty(params *PublicUpdatePartyParams, authInfo runtime.ClientAuthInfoWriter) (*PublicUpdatePartyOK, *PublicUpdatePartyBadRequest, *PublicUpdatePartyUnauthorized, *PublicUpdatePartyForbidden, *PublicUpdatePartyNotFound, *PublicUpdatePartyInternalServerError, error) {
-	// TODO: Validate the params before sending
-	if params == nil {
-		params = NewPublicUpdatePartyParams()
-	}
-
-	if params.Context == nil {
-		params.Context = context.Background()
-	}
-
-	if params.RetryPolicy != nil {
-		params.SetHTTPClientTransport(params.RetryPolicy)
-	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
-		ID:                 "publicUpdateParty",
-		Method:             "PUT",
-		PathPattern:        "/session/v1/public/namespaces/{namespace}/parties/{partyId}",
-		ProducesMediaTypes: []string{"application/json"},
-		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
-		Params:             params,
-		Reader:             &PublicUpdatePartyReader{formats: a.formats},
-		AuthInfo:           authInfo,
-		Context:            params.Context,
-		Client:             params.HTTPClient,
-	})
-	if err != nil {
-		return nil, nil, nil, nil, nil, nil, err
-	}
-
-	switch v := result.(type) {
-
-	case *PublicUpdatePartyOK:
-		return v, nil, nil, nil, nil, nil, nil
-
-	case *PublicUpdatePartyBadRequest:
-		return nil, v, nil, nil, nil, nil, nil
-
-	case *PublicUpdatePartyUnauthorized:
-		return nil, nil, v, nil, nil, nil, nil
-
-	case *PublicUpdatePartyForbidden:
-		return nil, nil, nil, v, nil, nil, nil
-
-	case *PublicUpdatePartyNotFound:
-		return nil, nil, nil, nil, v, nil, nil
-
-	case *PublicUpdatePartyInternalServerError:
-		return nil, nil, nil, nil, nil, v, nil
-
-	default:
-		return nil, nil, nil, nil, nil, nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
 	}
 }
 
@@ -540,78 +338,13 @@ func (a *Client) PublicUpdatePartyShort(params *PublicUpdatePartyParams, authInf
 		return nil, v
 	case *PublicUpdatePartyNotFound:
 		return nil, v
+	case *PublicUpdatePartyConflict:
+		return nil, v
 	case *PublicUpdatePartyInternalServerError:
 		return nil, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
-	}
-}
-
-/*
-Deprecated: 2022-08-10 - Use PublicPatchUpdatePartyShort instead.
-
-PublicPatchUpdateParty patch update a party.
-Update specified fields from party data. Note: Join type can only be updated by the party's leader.
-
-Reserved attributes key:
-1. preference: used to store preference of the leader and it is non-replaceable to keep the initial behavior of
-the session regardless the leader changes.
-2. NATIVESESSIONTITLE: used for session sync, to define name of session displayed on PlayStation system UI.
-*/
-func (a *Client) PublicPatchUpdateParty(params *PublicPatchUpdatePartyParams, authInfo runtime.ClientAuthInfoWriter) (*PublicPatchUpdatePartyOK, *PublicPatchUpdatePartyBadRequest, *PublicPatchUpdatePartyUnauthorized, *PublicPatchUpdatePartyForbidden, *PublicPatchUpdatePartyNotFound, *PublicPatchUpdatePartyInternalServerError, error) {
-	// TODO: Validate the params before sending
-	if params == nil {
-		params = NewPublicPatchUpdatePartyParams()
-	}
-
-	if params.Context == nil {
-		params.Context = context.Background()
-	}
-
-	if params.RetryPolicy != nil {
-		params.SetHTTPClientTransport(params.RetryPolicy)
-	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
-		ID:                 "publicPatchUpdateParty",
-		Method:             "PATCH",
-		PathPattern:        "/session/v1/public/namespaces/{namespace}/parties/{partyId}",
-		ProducesMediaTypes: []string{"application/json"},
-		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
-		Params:             params,
-		Reader:             &PublicPatchUpdatePartyReader{formats: a.formats},
-		AuthInfo:           authInfo,
-		Context:            params.Context,
-		Client:             params.HTTPClient,
-	})
-	if err != nil {
-		return nil, nil, nil, nil, nil, nil, err
-	}
-
-	switch v := result.(type) {
-
-	case *PublicPatchUpdatePartyOK:
-		return v, nil, nil, nil, nil, nil, nil
-
-	case *PublicPatchUpdatePartyBadRequest:
-		return nil, v, nil, nil, nil, nil, nil
-
-	case *PublicPatchUpdatePartyUnauthorized:
-		return nil, nil, v, nil, nil, nil, nil
-
-	case *PublicPatchUpdatePartyForbidden:
-		return nil, nil, nil, v, nil, nil, nil
-
-	case *PublicPatchUpdatePartyNotFound:
-		return nil, nil, nil, nil, v, nil, nil
-
-	case *PublicPatchUpdatePartyInternalServerError:
-		return nil, nil, nil, nil, nil, v, nil
-
-	default:
-		return nil, nil, nil, nil, nil, nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
 	}
 }
 
@@ -671,73 +404,13 @@ func (a *Client) PublicPatchUpdatePartyShort(params *PublicPatchUpdatePartyParam
 		return nil, v
 	case *PublicPatchUpdatePartyNotFound:
 		return nil, v
+	case *PublicPatchUpdatePartyConflict:
+		return nil, v
 	case *PublicPatchUpdatePartyInternalServerError:
 		return nil, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
-	}
-}
-
-/*
-Deprecated: 2022-08-10 - Use PublicGeneratePartyCodeShort instead.
-
-PublicGeneratePartyCode generate party code.
-Generate a new code for the party. Only leader can generate a code.
-*/
-func (a *Client) PublicGeneratePartyCode(params *PublicGeneratePartyCodeParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGeneratePartyCodeOK, *PublicGeneratePartyCodeBadRequest, *PublicGeneratePartyCodeUnauthorized, *PublicGeneratePartyCodeForbidden, *PublicGeneratePartyCodeNotFound, *PublicGeneratePartyCodeInternalServerError, error) {
-	// TODO: Validate the params before sending
-	if params == nil {
-		params = NewPublicGeneratePartyCodeParams()
-	}
-
-	if params.Context == nil {
-		params.Context = context.Background()
-	}
-
-	if params.RetryPolicy != nil {
-		params.SetHTTPClientTransport(params.RetryPolicy)
-	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
-		ID:                 "publicGeneratePartyCode",
-		Method:             "POST",
-		PathPattern:        "/session/v1/public/namespaces/{namespace}/parties/{partyId}/code",
-		ProducesMediaTypes: []string{"application/json"},
-		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
-		Params:             params,
-		Reader:             &PublicGeneratePartyCodeReader{formats: a.formats},
-		AuthInfo:           authInfo,
-		Context:            params.Context,
-		Client:             params.HTTPClient,
-	})
-	if err != nil {
-		return nil, nil, nil, nil, nil, nil, err
-	}
-
-	switch v := result.(type) {
-
-	case *PublicGeneratePartyCodeOK:
-		return v, nil, nil, nil, nil, nil, nil
-
-	case *PublicGeneratePartyCodeBadRequest:
-		return nil, v, nil, nil, nil, nil, nil
-
-	case *PublicGeneratePartyCodeUnauthorized:
-		return nil, nil, v, nil, nil, nil, nil
-
-	case *PublicGeneratePartyCodeForbidden:
-		return nil, nil, nil, v, nil, nil, nil
-
-	case *PublicGeneratePartyCodeNotFound:
-		return nil, nil, nil, nil, v, nil, nil
-
-	case *PublicGeneratePartyCodeInternalServerError:
-		return nil, nil, nil, nil, nil, v, nil
-
-	default:
-		return nil, nil, nil, nil, nil, nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
 	}
 }
 
@@ -801,68 +474,6 @@ func (a *Client) PublicGeneratePartyCodeShort(params *PublicGeneratePartyCodePar
 }
 
 /*
-Deprecated: 2022-08-10 - Use PublicRevokePartyCodeShort instead.
-
-PublicRevokePartyCode revoke party code.
-Revoke code of the party. Only leader can revoke a code.
-*/
-func (a *Client) PublicRevokePartyCode(params *PublicRevokePartyCodeParams, authInfo runtime.ClientAuthInfoWriter) (*PublicRevokePartyCodeNoContent, *PublicRevokePartyCodeBadRequest, *PublicRevokePartyCodeUnauthorized, *PublicRevokePartyCodeForbidden, *PublicRevokePartyCodeNotFound, *PublicRevokePartyCodeInternalServerError, error) {
-	// TODO: Validate the params before sending
-	if params == nil {
-		params = NewPublicRevokePartyCodeParams()
-	}
-
-	if params.Context == nil {
-		params.Context = context.Background()
-	}
-
-	if params.RetryPolicy != nil {
-		params.SetHTTPClientTransport(params.RetryPolicy)
-	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
-		ID:                 "publicRevokePartyCode",
-		Method:             "DELETE",
-		PathPattern:        "/session/v1/public/namespaces/{namespace}/parties/{partyId}/code",
-		ProducesMediaTypes: []string{"application/json"},
-		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
-		Params:             params,
-		Reader:             &PublicRevokePartyCodeReader{formats: a.formats},
-		AuthInfo:           authInfo,
-		Context:            params.Context,
-		Client:             params.HTTPClient,
-	})
-	if err != nil {
-		return nil, nil, nil, nil, nil, nil, err
-	}
-
-	switch v := result.(type) {
-
-	case *PublicRevokePartyCodeNoContent:
-		return v, nil, nil, nil, nil, nil, nil
-
-	case *PublicRevokePartyCodeBadRequest:
-		return nil, v, nil, nil, nil, nil, nil
-
-	case *PublicRevokePartyCodeUnauthorized:
-		return nil, nil, v, nil, nil, nil, nil
-
-	case *PublicRevokePartyCodeForbidden:
-		return nil, nil, nil, v, nil, nil, nil
-
-	case *PublicRevokePartyCodeNotFound:
-		return nil, nil, nil, nil, v, nil, nil
-
-	case *PublicRevokePartyCodeInternalServerError:
-		return nil, nil, nil, nil, nil, v, nil
-
-	default:
-		return nil, nil, nil, nil, nil, nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
-	}
-}
-
-/*
 PublicRevokePartyCodeShort revoke party code.
 Revoke code of the party. Only leader can revoke a code.
 */
@@ -918,73 +529,6 @@ func (a *Client) PublicRevokePartyCodeShort(params *PublicRevokePartyCodeParams,
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
-	}
-}
-
-/*
-Deprecated: 2022-08-10 - Use PublicPartyInviteShort instead.
-
-PublicPartyInvite invite a user to a party.
-Invite a user to a party.
-platformID represents the native platform of the invitee. API will return the corresponding native platform's userID.
-supported platforms:
-- STEAM
-- XBOX
-- PSN
-*/
-func (a *Client) PublicPartyInvite(params *PublicPartyInviteParams, authInfo runtime.ClientAuthInfoWriter) (*PublicPartyInviteCreated, *PublicPartyInviteNoContent, *PublicPartyInviteBadRequest, *PublicPartyInviteUnauthorized, *PublicPartyInviteNotFound, *PublicPartyInviteInternalServerError, error) {
-	// TODO: Validate the params before sending
-	if params == nil {
-		params = NewPublicPartyInviteParams()
-	}
-
-	if params.Context == nil {
-		params.Context = context.Background()
-	}
-
-	if params.RetryPolicy != nil {
-		params.SetHTTPClientTransport(params.RetryPolicy)
-	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
-		ID:                 "publicPartyInvite",
-		Method:             "POST",
-		PathPattern:        "/session/v1/public/namespaces/{namespace}/parties/{partyId}/invite",
-		ProducesMediaTypes: []string{"application/json"},
-		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
-		Params:             params,
-		Reader:             &PublicPartyInviteReader{formats: a.formats},
-		AuthInfo:           authInfo,
-		Context:            params.Context,
-		Client:             params.HTTPClient,
-	})
-	if err != nil {
-		return nil, nil, nil, nil, nil, nil, err
-	}
-
-	switch v := result.(type) {
-
-	case *PublicPartyInviteCreated:
-		return v, nil, nil, nil, nil, nil, nil
-
-	case *PublicPartyInviteNoContent:
-		return nil, v, nil, nil, nil, nil, nil
-
-	case *PublicPartyInviteBadRequest:
-		return nil, nil, v, nil, nil, nil, nil
-
-	case *PublicPartyInviteUnauthorized:
-		return nil, nil, nil, v, nil, nil, nil
-
-	case *PublicPartyInviteNotFound:
-		return nil, nil, nil, nil, v, nil, nil
-
-	case *PublicPartyInviteInternalServerError:
-		return nil, nil, nil, nil, nil, v, nil
-
-	default:
-		return nil, nil, nil, nil, nil, nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
 	}
 }
 
@@ -1053,68 +597,6 @@ func (a *Client) PublicPartyInviteShort(params *PublicPartyInviteParams, authInf
 }
 
 /*
-Deprecated: 2022-08-10 - Use PublicPromotePartyLeaderShort instead.
-
-PublicPromotePartyLeader promote new party leader.
-Promotes a party member to be a party leader. Only leader can promote a new leader.
-*/
-func (a *Client) PublicPromotePartyLeader(params *PublicPromotePartyLeaderParams, authInfo runtime.ClientAuthInfoWriter) (*PublicPromotePartyLeaderOK, *PublicPromotePartyLeaderBadRequest, *PublicPromotePartyLeaderUnauthorized, *PublicPromotePartyLeaderForbidden, *PublicPromotePartyLeaderNotFound, *PublicPromotePartyLeaderInternalServerError, error) {
-	// TODO: Validate the params before sending
-	if params == nil {
-		params = NewPublicPromotePartyLeaderParams()
-	}
-
-	if params.Context == nil {
-		params.Context = context.Background()
-	}
-
-	if params.RetryPolicy != nil {
-		params.SetHTTPClientTransport(params.RetryPolicy)
-	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
-		ID:                 "publicPromotePartyLeader",
-		Method:             "POST",
-		PathPattern:        "/session/v1/public/namespaces/{namespace}/parties/{partyId}/leader",
-		ProducesMediaTypes: []string{"application/json"},
-		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
-		Params:             params,
-		Reader:             &PublicPromotePartyLeaderReader{formats: a.formats},
-		AuthInfo:           authInfo,
-		Context:            params.Context,
-		Client:             params.HTTPClient,
-	})
-	if err != nil {
-		return nil, nil, nil, nil, nil, nil, err
-	}
-
-	switch v := result.(type) {
-
-	case *PublicPromotePartyLeaderOK:
-		return v, nil, nil, nil, nil, nil, nil
-
-	case *PublicPromotePartyLeaderBadRequest:
-		return nil, v, nil, nil, nil, nil, nil
-
-	case *PublicPromotePartyLeaderUnauthorized:
-		return nil, nil, v, nil, nil, nil, nil
-
-	case *PublicPromotePartyLeaderForbidden:
-		return nil, nil, nil, v, nil, nil, nil
-
-	case *PublicPromotePartyLeaderNotFound:
-		return nil, nil, nil, nil, v, nil, nil
-
-	case *PublicPromotePartyLeaderInternalServerError:
-		return nil, nil, nil, nil, nil, v, nil
-
-	default:
-		return nil, nil, nil, nil, nil, nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
-	}
-}
-
-/*
 PublicPromotePartyLeaderShort promote new party leader.
 Promotes a party member to be a party leader. Only leader can promote a new leader.
 */
@@ -1170,68 +652,6 @@ func (a *Client) PublicPromotePartyLeaderShort(params *PublicPromotePartyLeaderP
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
-	}
-}
-
-/*
-Deprecated: 2022-08-10 - Use PublicPartyJoinShort instead.
-
-PublicPartyJoin join a party.
-Join a party. The user can either join a party they have been invited to, or any party with an "open" joinable setting.
-*/
-func (a *Client) PublicPartyJoin(params *PublicPartyJoinParams, authInfo runtime.ClientAuthInfoWriter) (*PublicPartyJoinOK, *PublicPartyJoinBadRequest, *PublicPartyJoinUnauthorized, *PublicPartyJoinForbidden, *PublicPartyJoinNotFound, *PublicPartyJoinInternalServerError, error) {
-	// TODO: Validate the params before sending
-	if params == nil {
-		params = NewPublicPartyJoinParams()
-	}
-
-	if params.Context == nil {
-		params.Context = context.Background()
-	}
-
-	if params.RetryPolicy != nil {
-		params.SetHTTPClientTransport(params.RetryPolicy)
-	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
-		ID:                 "publicPartyJoin",
-		Method:             "POST",
-		PathPattern:        "/session/v1/public/namespaces/{namespace}/parties/{partyId}/users/me/join",
-		ProducesMediaTypes: []string{"application/json"},
-		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
-		Params:             params,
-		Reader:             &PublicPartyJoinReader{formats: a.formats},
-		AuthInfo:           authInfo,
-		Context:            params.Context,
-		Client:             params.HTTPClient,
-	})
-	if err != nil {
-		return nil, nil, nil, nil, nil, nil, err
-	}
-
-	switch v := result.(type) {
-
-	case *PublicPartyJoinOK:
-		return v, nil, nil, nil, nil, nil, nil
-
-	case *PublicPartyJoinBadRequest:
-		return nil, v, nil, nil, nil, nil, nil
-
-	case *PublicPartyJoinUnauthorized:
-		return nil, nil, v, nil, nil, nil, nil
-
-	case *PublicPartyJoinForbidden:
-		return nil, nil, nil, v, nil, nil, nil
-
-	case *PublicPartyJoinNotFound:
-		return nil, nil, nil, nil, v, nil, nil
-
-	case *PublicPartyJoinInternalServerError:
-		return nil, nil, nil, nil, nil, v, nil
-
-	default:
-		return nil, nil, nil, nil, nil, nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
 	}
 }
 
@@ -1295,62 +715,6 @@ func (a *Client) PublicPartyJoinShort(params *PublicPartyJoinParams, authInfo ru
 }
 
 /*
-Deprecated: 2022-08-10 - Use PublicPartyLeaveShort instead.
-
-PublicPartyLeave leave a party.
-Leave a party
-*/
-func (a *Client) PublicPartyLeave(params *PublicPartyLeaveParams, authInfo runtime.ClientAuthInfoWriter) (*PublicPartyLeaveNoContent, *PublicPartyLeaveUnauthorized, *PublicPartyLeaveNotFound, *PublicPartyLeaveInternalServerError, error) {
-	// TODO: Validate the params before sending
-	if params == nil {
-		params = NewPublicPartyLeaveParams()
-	}
-
-	if params.Context == nil {
-		params.Context = context.Background()
-	}
-
-	if params.RetryPolicy != nil {
-		params.SetHTTPClientTransport(params.RetryPolicy)
-	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
-		ID:                 "publicPartyLeave",
-		Method:             "DELETE",
-		PathPattern:        "/session/v1/public/namespaces/{namespace}/parties/{partyId}/users/me/leave",
-		ProducesMediaTypes: []string{"application/json"},
-		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
-		Params:             params,
-		Reader:             &PublicPartyLeaveReader{formats: a.formats},
-		AuthInfo:           authInfo,
-		Context:            params.Context,
-		Client:             params.HTTPClient,
-	})
-	if err != nil {
-		return nil, nil, nil, nil, err
-	}
-
-	switch v := result.(type) {
-
-	case *PublicPartyLeaveNoContent:
-		return v, nil, nil, nil, nil
-
-	case *PublicPartyLeaveUnauthorized:
-		return nil, v, nil, nil, nil
-
-	case *PublicPartyLeaveNotFound:
-		return nil, nil, v, nil, nil
-
-	case *PublicPartyLeaveInternalServerError:
-		return nil, nil, nil, v, nil
-
-	default:
-		return nil, nil, nil, nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
-	}
-}
-
-/*
 PublicPartyLeaveShort leave a party.
 Leave a party
 */
@@ -1402,68 +766,6 @@ func (a *Client) PublicPartyLeaveShort(params *PublicPartyLeaveParams, authInfo 
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
-	}
-}
-
-/*
-Deprecated: 2022-08-10 - Use PublicPartyRejectShort instead.
-
-PublicPartyReject reject a party invitation.
-Reject a party invitation.
-*/
-func (a *Client) PublicPartyReject(params *PublicPartyRejectParams, authInfo runtime.ClientAuthInfoWriter) (*PublicPartyRejectNoContent, *PublicPartyRejectBadRequest, *PublicPartyRejectUnauthorized, *PublicPartyRejectForbidden, *PublicPartyRejectNotFound, *PublicPartyRejectInternalServerError, error) {
-	// TODO: Validate the params before sending
-	if params == nil {
-		params = NewPublicPartyRejectParams()
-	}
-
-	if params.Context == nil {
-		params.Context = context.Background()
-	}
-
-	if params.RetryPolicy != nil {
-		params.SetHTTPClientTransport(params.RetryPolicy)
-	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
-		ID:                 "publicPartyReject",
-		Method:             "DELETE",
-		PathPattern:        "/session/v1/public/namespaces/{namespace}/parties/{partyId}/users/me/reject",
-		ProducesMediaTypes: []string{"application/json"},
-		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
-		Params:             params,
-		Reader:             &PublicPartyRejectReader{formats: a.formats},
-		AuthInfo:           authInfo,
-		Context:            params.Context,
-		Client:             params.HTTPClient,
-	})
-	if err != nil {
-		return nil, nil, nil, nil, nil, nil, err
-	}
-
-	switch v := result.(type) {
-
-	case *PublicPartyRejectNoContent:
-		return v, nil, nil, nil, nil, nil, nil
-
-	case *PublicPartyRejectBadRequest:
-		return nil, v, nil, nil, nil, nil, nil
-
-	case *PublicPartyRejectUnauthorized:
-		return nil, nil, v, nil, nil, nil, nil
-
-	case *PublicPartyRejectForbidden:
-		return nil, nil, nil, v, nil, nil, nil
-
-	case *PublicPartyRejectNotFound:
-		return nil, nil, nil, nil, v, nil, nil
-
-	case *PublicPartyRejectInternalServerError:
-		return nil, nil, nil, nil, nil, v, nil
-
-	default:
-		return nil, nil, nil, nil, nil, nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
 	}
 }
 
@@ -1527,15 +829,13 @@ func (a *Client) PublicPartyRejectShort(params *PublicPartyRejectParams, authInf
 }
 
 /*
-Deprecated: 2022-08-10 - Use PublicPartyKickShort instead.
-
-PublicPartyKick kick a player from a party.
-Kick a player from a party. Requires invoker to be the party leader.
+PublicPartyCancelShort cancel a party invitation.
+Cancel a party invitation.
 */
-func (a *Client) PublicPartyKick(params *PublicPartyKickParams, authInfo runtime.ClientAuthInfoWriter) (*PublicPartyKickOK, *PublicPartyKickBadRequest, *PublicPartyKickUnauthorized, *PublicPartyKickForbidden, *PublicPartyKickNotFound, *PublicPartyKickInternalServerError, error) {
+func (a *Client) PublicPartyCancelShort(params *PublicPartyCancelParams, authInfo runtime.ClientAuthInfoWriter) (*PublicPartyCancelNoContent, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
-		params = NewPublicPartyKickParams()
+		params = NewPublicPartyCancelParams()
 	}
 
 	if params.Context == nil {
@@ -1546,45 +846,44 @@ func (a *Client) PublicPartyKick(params *PublicPartyKickParams, authInfo runtime
 		params.SetHTTPClientTransport(params.RetryPolicy)
 	}
 
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
+	}
+
 	result, err := a.transport.Submit(&runtime.ClientOperation{
-		ID:                 "publicPartyKick",
+		ID:                 "publicPartyCancel",
 		Method:             "DELETE",
-		PathPattern:        "/session/v1/public/namespaces/{namespace}/parties/{partyId}/users/{userId}/kick",
+		PathPattern:        "/session/v1/public/namespaces/{namespace}/parties/{partyId}/users/{userId}/cancel",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"https"},
 		Params:             params,
-		Reader:             &PublicPartyKickReader{formats: a.formats},
+		Reader:             &PublicPartyCancelReader{formats: a.formats},
 		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	})
 	if err != nil {
-		return nil, nil, nil, nil, nil, nil, err
+		return nil, err
 	}
 
 	switch v := result.(type) {
 
-	case *PublicPartyKickOK:
-		return v, nil, nil, nil, nil, nil, nil
-
-	case *PublicPartyKickBadRequest:
-		return nil, v, nil, nil, nil, nil, nil
-
-	case *PublicPartyKickUnauthorized:
-		return nil, nil, v, nil, nil, nil, nil
-
-	case *PublicPartyKickForbidden:
-		return nil, nil, nil, v, nil, nil, nil
-
-	case *PublicPartyKickNotFound:
-		return nil, nil, nil, nil, v, nil, nil
-
-	case *PublicPartyKickInternalServerError:
-		return nil, nil, nil, nil, nil, v, nil
+	case *PublicPartyCancelNoContent:
+		return v, nil
+	case *PublicPartyCancelBadRequest:
+		return nil, v
+	case *PublicPartyCancelUnauthorized:
+		return nil, v
+	case *PublicPartyCancelForbidden:
+		return nil, v
+	case *PublicPartyCancelNotFound:
+		return nil, v
+	case *PublicPartyCancelInternalServerError:
+		return nil, v
 
 	default:
-		return nil, nil, nil, nil, nil, nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
+		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
 	}
 }
 
@@ -1648,90 +947,11 @@ func (a *Client) PublicPartyKickShort(params *PublicPartyKickParams, authInfo ru
 }
 
 /*
-Deprecated: 2022-08-10 - Use PublicCreatePartyShort instead.
-
-PublicCreateParty create a party.
-A join code will be autogenerated if the party is joinable.
-Creator will be removed from previous party (if any) and automatically join into the created party as a leader.
-Party members will be sent invitation to join the party.
-Session configuration name is optional.
-Default configuration name if empty:
-{
-"name": "default",
-"type": "NONE",
-"joinability": "OPEN",
-"minPlayers": 1,
-"maxPlayers": 8,
-"inviteTimeout": 60,
-"inactiveTimeout": 60,
-"textChat": false
-}
-
-Supported platforms:
-1. STEAM
-2. PSN
-3. XBOX
-
-Reserved attributes key:
-1. preference: used to store preference of the leader and it is non-replaceable to keep the initial behavior of
-the session regardless the leader changes.
-2. NATIVESESSIONTITLE: used for session sync, to define name of session displayed on PlayStation system UI.
-*/
-func (a *Client) PublicCreateParty(params *PublicCreatePartyParams, authInfo runtime.ClientAuthInfoWriter) (*PublicCreatePartyOK, *PublicCreatePartyBadRequest, *PublicCreatePartyUnauthorized, *PublicCreatePartyInternalServerError, error) {
-	// TODO: Validate the params before sending
-	if params == nil {
-		params = NewPublicCreatePartyParams()
-	}
-
-	if params.Context == nil {
-		params.Context = context.Background()
-	}
-
-	if params.RetryPolicy != nil {
-		params.SetHTTPClientTransport(params.RetryPolicy)
-	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
-		ID:                 "publicCreateParty",
-		Method:             "POST",
-		PathPattern:        "/session/v1/public/namespaces/{namespace}/party",
-		ProducesMediaTypes: []string{"application/json"},
-		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
-		Params:             params,
-		Reader:             &PublicCreatePartyReader{formats: a.formats},
-		AuthInfo:           authInfo,
-		Context:            params.Context,
-		Client:             params.HTTPClient,
-	})
-	if err != nil {
-		return nil, nil, nil, nil, err
-	}
-
-	switch v := result.(type) {
-
-	case *PublicCreatePartyOK:
-		return v, nil, nil, nil, nil
-
-	case *PublicCreatePartyBadRequest:
-		return nil, v, nil, nil, nil
-
-	case *PublicCreatePartyUnauthorized:
-		return nil, nil, v, nil, nil
-
-	case *PublicCreatePartyInternalServerError:
-		return nil, nil, nil, v, nil
-
-	default:
-		return nil, nil, nil, nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
-	}
-}
-
-/*
 PublicCreatePartyShort create a party.
 A join code will be autogenerated if the party is joinable.
-Creator will be removed from previous party (if any) and automatically join into the created party as a leader.
-Party members will be sent invitation to join the party.
+
+A user can be in 1 party at a time, therefore the requester will be removed from their previous party (if any) and automatically added/joined into this newly created party as a leader.
+
 Session configuration name is optional.
 Default configuration name if empty:
 {
@@ -1744,6 +964,16 @@ Default configuration name if empty:
 "inactiveTimeout": 60,
 "textChat": false
 }
+When session configuration "name" is provided, we will refer to the template if these fields are empty:
+- textChat
+- minPlayers
+- maxPlayers
+- inviteTimeout
+- inactiveTimeout
+- type
+- joinability
+- configurationName
+- attributes
 
 Supported platforms:
 1. STEAM
@@ -1754,6 +984,32 @@ Reserved attributes key:
 1. preference: used to store preference of the leader and it is non-replaceable to keep the initial behavior of
 the session regardless the leader changes.
 2. NATIVESESSIONTITLE: used for session sync, to define name of session displayed on PlayStation system UI.
+
+Session has 2 fields for user status: "status" and "statusV2". The "status" is there for backward-compatibility, therefore we encourage to just rely on "statusV2" for the more updated statuses.
+
+User statuses:
+1. INVITED: by default, to join a session (except session with OPEN joinability or if session configuration has "autoJoin" sets to True) a user will receive an invite. The invitee will have the chance to respond within "inviteTimeout" which you can configure through session configuration.
+2. TIMEOUT: when a user is invited to a session, they will receive an invite. Unless "disableResendInvite" sets to True in the session configuration, the user will also receive invite reminder every 30s until they respond to the invite.
+3. REJECTED: when a user rejects an invite. To rejoin an INVITE_ONLY session, they will need to be re-invited and accept the invite.
+4. JOINED: there are few ways of a user to join a session, by invite, direct join (depends on session joinability) or join by code. upon invite, once a user accepts an invite, their status will be changed to JOINED.
+5. LEFT: user can leave a session. in case of party, a user can only be in 1 party at a time. therefore when they decide to create or join another party, they will be automatically removed from their initial party and their status will be changed to LEFT.
+6. KICKED: only party leader can kick a member.
+7. DISCONNECTED: if user still have reserved seat in the session and they disconnect lobby websocket, their status in the session will be changed to DISCONNECTED and field "members.previousStatus" of that user will contains the initial status before they disconnect lobby websocket. the user will be given chance to reconnect within "inactiveTimeout" which you can configure through session configuration.
+8. CONNECTED: when a user reconnect their lobby websocket, their status will change from DISCONNECTED to CONNECTED, only if they previously JOINED session. if they were on INVITED state before the disconnect happened, the user's status will return back to INVITED after they reconnect.
+9. DROPPED: when "inactiveTimeout" is due and user never re-establish their websocket connection, we will drop them from the session.
+10. TERMINATED: only applies to game session. If a game session (match) is ended, DS will end/delete the session and we will mark all remaining users' status to be TERMINATED.
+11. CANCELLED: when a session joinability changes to CLOSED, any remaining invites will be canceled.
+
+User is considered as active if they're present in the session, which their status either CONNECTED or JOINED.
+User has a reserved seat in the session if their status either INVITED, JOINED, CONNECTED, DISCONNECTED. When user's' status change to other than these mentioned statuses, we will release the seat for other players to occupy.
+
+Managing the relation between session and lobby websocket connection:
+- Session relies on lobby to consider player's connection health to our backend. therefore a disruption to lobby websocket will be reflected in the user's status in all of their session(s).
+- If user still have a reserved seat in the session and they disconnect lobby websocket, their status in session(s) will be changed to DISCONNECTED and field "members.previousStatus" of that user will contains the initial status before they disconnect lobby websocket. This "members.previousStatus" used to track user's previous status before they disconnect websocket, since we still reserve a seat for them, therefore this field will be empty again after they websocket.
+- If the disconnected user is the leader of the session they're disconnected from, we will wait until "leaderElectionGracePeriod" is due, to promote the next oldest member as the new leader of the session. You can configure "leaderElectionGracePeriod" through session configuration.
+- The user will be given chance to reconnect within "inactiveTimeout" which you can configure through session configuration. If until "inactiveTimeout" is due and the user doesn't reconnect their websocket, they will be removed from session and their status will change to DROPPED. If the dropped user was the leader of the session, we will promote the next oldest member as leader.
+- By default, we will update user's status to what it was before disconnect, when the user reconnects lobby websocket, unless "manualRejoin" sets to True in the session configuration. When "manualRejoin" is enabled, after lobby websocket reconnect, the game client will need to manually invoke join session again to rejoin the session.
+- If the user was on INVITED state before the disconnect happened, the user's status will return back to INVITED after they reconnect.
 */
 func (a *Client) PublicCreatePartyShort(params *PublicCreatePartyParams, authInfo runtime.ClientAuthInfoWriter) (*PublicCreatePartyOK, error) {
 	// TODO: Validate the params before sending
@@ -1803,62 +1059,6 @@ func (a *Client) PublicCreatePartyShort(params *PublicCreatePartyParams, authInf
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
-	}
-}
-
-/*
-Deprecated: 2022-08-10 - Use PublicQueryMyPartiesShort instead.
-
-PublicQueryMyParties query my parties. require valid jwt.
-Query user's parties. By default, API will return a list of user's active parties.
-*/
-func (a *Client) PublicQueryMyParties(params *PublicQueryMyPartiesParams, authInfo runtime.ClientAuthInfoWriter) (*PublicQueryMyPartiesOK, *PublicQueryMyPartiesBadRequest, *PublicQueryMyPartiesUnauthorized, *PublicQueryMyPartiesInternalServerError, error) {
-	// TODO: Validate the params before sending
-	if params == nil {
-		params = NewPublicQueryMyPartiesParams()
-	}
-
-	if params.Context == nil {
-		params.Context = context.Background()
-	}
-
-	if params.RetryPolicy != nil {
-		params.SetHTTPClientTransport(params.RetryPolicy)
-	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
-		ID:                 "publicQueryMyParties",
-		Method:             "GET",
-		PathPattern:        "/session/v1/public/namespaces/{namespace}/users/me/parties",
-		ProducesMediaTypes: []string{"application/json"},
-		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
-		Params:             params,
-		Reader:             &PublicQueryMyPartiesReader{formats: a.formats},
-		AuthInfo:           authInfo,
-		Context:            params.Context,
-		Client:             params.HTTPClient,
-	})
-	if err != nil {
-		return nil, nil, nil, nil, err
-	}
-
-	switch v := result.(type) {
-
-	case *PublicQueryMyPartiesOK:
-		return v, nil, nil, nil, nil
-
-	case *PublicQueryMyPartiesBadRequest:
-		return nil, v, nil, nil, nil
-
-	case *PublicQueryMyPartiesUnauthorized:
-		return nil, nil, v, nil, nil
-
-	case *PublicQueryMyPartiesInternalServerError:
-		return nil, nil, nil, v, nil
-
-	default:
-		return nil, nil, nil, nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
 	}
 }
 

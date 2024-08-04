@@ -30,70 +30,9 @@ type Client struct {
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	ListTerminatedServersWithNamespace(params *ListTerminatedServersWithNamespaceParams, authInfo runtime.ClientAuthInfoWriter) (*ListTerminatedServersWithNamespaceOK, *ListTerminatedServersWithNamespaceBadRequest, *ListTerminatedServersWithNamespaceUnauthorized, *ListTerminatedServersWithNamespaceInternalServerError, error)
 	ListTerminatedServersWithNamespaceShort(params *ListTerminatedServersWithNamespaceParams, authInfo runtime.ClientAuthInfoWriter) (*ListTerminatedServersWithNamespaceOK, error)
 
 	SetTransport(transport runtime.ClientTransport)
-}
-
-/*
-Deprecated: 2022-08-10 - Use ListTerminatedServersWithNamespaceShort instead.
-
-ListTerminatedServersWithNamespace retrieve all terminated servers in a namespace
-```
-Required permission: ADMIN:NAMESPACE:{namespace}:DSAM:SERVER [READ]
-
-This endpoint used to retrieve terminated servers in a namespace
-```
-*/
-func (a *Client) ListTerminatedServersWithNamespace(params *ListTerminatedServersWithNamespaceParams, authInfo runtime.ClientAuthInfoWriter) (*ListTerminatedServersWithNamespaceOK, *ListTerminatedServersWithNamespaceBadRequest, *ListTerminatedServersWithNamespaceUnauthorized, *ListTerminatedServersWithNamespaceInternalServerError, error) {
-	// TODO: Validate the params before sending
-	if params == nil {
-		params = NewListTerminatedServersWithNamespaceParams()
-	}
-
-	if params.Context == nil {
-		params.Context = context.Background()
-	}
-
-	if params.RetryPolicy != nil {
-		params.SetHTTPClientTransport(params.RetryPolicy)
-	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
-		ID:                 "listTerminatedServersWithNamespace",
-		Method:             "GET",
-		PathPattern:        "/dsartifact/namespaces/{namespace}/servers/search",
-		ProducesMediaTypes: []string{"application/json", "text/x-log"},
-		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
-		Params:             params,
-		Reader:             &ListTerminatedServersWithNamespaceReader{formats: a.formats},
-		AuthInfo:           authInfo,
-		Context:            params.Context,
-		Client:             params.HTTPClient,
-	})
-	if err != nil {
-		return nil, nil, nil, nil, err
-	}
-
-	switch v := result.(type) {
-
-	case *ListTerminatedServersWithNamespaceOK:
-		return v, nil, nil, nil, nil
-
-	case *ListTerminatedServersWithNamespaceBadRequest:
-		return nil, v, nil, nil, nil
-
-	case *ListTerminatedServersWithNamespaceUnauthorized:
-		return nil, nil, v, nil, nil
-
-	case *ListTerminatedServersWithNamespaceInternalServerError:
-		return nil, nil, nil, v, nil
-
-	default:
-		return nil, nil, nil, nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
-	}
 }
 
 /*

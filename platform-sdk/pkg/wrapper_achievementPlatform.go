@@ -13,7 +13,6 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils/auth"
-	"github.com/go-openapi/runtime/client"
 )
 
 type AchievementPlatformService struct {
@@ -36,60 +35,6 @@ func (aaa *AchievementPlatformService) GetAuthSession() auth.Session {
 		aaa.ConfigRepository,
 		nil,
 	}
-}
-
-// Deprecated: 2022-01-10 - Please use UnlockSteamUserAchievementShort instead.
-func (aaa *AchievementPlatformService) UnlockSteamUserAchievement(input *achievement_platform.UnlockSteamUserAchievementParams) error {
-	token, err := aaa.TokenRepository.GetToken()
-	if err != nil {
-		return err
-	}
-	_, badRequest, notFound, err := aaa.Client.AchievementPlatform.UnlockSteamUserAchievement(input, client.BearerToken(*token.AccessToken))
-	if badRequest != nil {
-		return badRequest
-	}
-	if notFound != nil {
-		return notFound
-	}
-	if err != nil {
-		return err
-	}
-
-	return nil
-}
-
-// Deprecated: 2022-01-10 - Please use GetXblUserAchievementsShort instead.
-func (aaa *AchievementPlatformService) GetXblUserAchievements(input *achievement_platform.GetXblUserAchievementsParams) (*platformclientmodels.XblUserAchievements, error) {
-	token, err := aaa.TokenRepository.GetToken()
-	if err != nil {
-		return nil, err
-	}
-	ok, badRequest, err := aaa.Client.AchievementPlatform.GetXblUserAchievements(input, client.BearerToken(*token.AccessToken))
-	if badRequest != nil {
-		return nil, badRequest
-	}
-	if err != nil {
-		return nil, err
-	}
-
-	return ok.GetPayload(), nil
-}
-
-// Deprecated: 2022-01-10 - Please use UpdateXblUserAchievementShort instead.
-func (aaa *AchievementPlatformService) UpdateXblUserAchievement(input *achievement_platform.UpdateXblUserAchievementParams) error {
-	token, err := aaa.TokenRepository.GetToken()
-	if err != nil {
-		return err
-	}
-	_, badRequest, err := aaa.Client.AchievementPlatform.UpdateXblUserAchievement(input, client.BearerToken(*token.AccessToken))
-	if badRequest != nil {
-		return badRequest
-	}
-	if err != nil {
-		return err
-	}
-
-	return nil
 }
 
 func (aaa *AchievementPlatformService) UnlockSteamUserAchievementShort(input *achievement_platform.UnlockSteamUserAchievementParams) error {

@@ -13,7 +13,6 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/sessionhistory-sdk/pkg/sessionhistoryclient"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/sessionhistory-sdk/pkg/sessionhistoryclient/game_session_detail"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/sessionhistory-sdk/pkg/sessionhistoryclientmodels"
-	"github.com/go-openapi/runtime/client"
 )
 
 type GameSessionDetailService struct {
@@ -36,246 +35,6 @@ func (aaa *GameSessionDetailService) GetAuthSession() auth.Session {
 		aaa.ConfigRepository,
 		nil,
 	}
-}
-
-// Deprecated: 2022-01-10 - Please use AdminQueryGameSessionDetailShort instead.
-func (aaa *GameSessionDetailService) AdminQueryGameSessionDetail(input *game_session_detail.AdminQueryGameSessionDetailParams) (*sessionhistoryclientmodels.ApimodelsGameSessionDetailQueryResponse, error) {
-	token, err := aaa.TokenRepository.GetToken()
-	if err != nil {
-		return nil, err
-	}
-	ok, badRequest, unauthorized, forbidden, internalServerError, err := aaa.Client.GameSessionDetail.AdminQueryGameSessionDetail(input, client.BearerToken(*token.AccessToken))
-	if badRequest != nil {
-		return nil, badRequest
-	}
-	if unauthorized != nil {
-		return nil, unauthorized
-	}
-	if forbidden != nil {
-		return nil, forbidden
-	}
-	if internalServerError != nil {
-		return nil, internalServerError
-	}
-	if err != nil {
-		return nil, err
-	}
-
-	return ok.GetPayload(), nil
-}
-
-// Deprecated: 2022-01-10 - Please use GetGameSessionDetailShort instead.
-func (aaa *GameSessionDetailService) GetGameSessionDetail(input *game_session_detail.GetGameSessionDetailParams) (*sessionhistoryclientmodels.ApimodelsGameSessionDetail, error) {
-	token, err := aaa.TokenRepository.GetToken()
-	if err != nil {
-		return nil, err
-	}
-	ok, badRequest, unauthorized, forbidden, notFound, internalServerError, err := aaa.Client.GameSessionDetail.GetGameSessionDetail(input, client.BearerToken(*token.AccessToken))
-	if badRequest != nil {
-		return nil, badRequest
-	}
-	if unauthorized != nil {
-		return nil, unauthorized
-	}
-	if forbidden != nil {
-		return nil, forbidden
-	}
-	if notFound != nil {
-		return nil, notFound
-	}
-	if internalServerError != nil {
-		return nil, internalServerError
-	}
-	if err != nil {
-		return nil, err
-	}
-
-	return ok.GetPayload(), nil
-}
-
-// Deprecated: 2022-01-10 - Please use AdminQueryMatchmakingDetailShort instead.
-func (aaa *GameSessionDetailService) AdminQueryMatchmakingDetail(input *game_session_detail.AdminQueryMatchmakingDetailParams) (*sessionhistoryclientmodels.ApimodelsMatchmakingDetailQueryResponse, error) {
-	token, err := aaa.TokenRepository.GetToken()
-	if err != nil {
-		return nil, err
-	}
-	ok, badRequest, unauthorized, forbidden, internalServerError, err := aaa.Client.GameSessionDetail.AdminQueryMatchmakingDetail(input, client.BearerToken(*token.AccessToken))
-	if badRequest != nil {
-		return nil, badRequest
-	}
-	if unauthorized != nil {
-		return nil, unauthorized
-	}
-	if forbidden != nil {
-		return nil, forbidden
-	}
-	if internalServerError != nil {
-		return nil, internalServerError
-	}
-	if err != nil {
-		return nil, err
-	}
-
-	return ok.GetPayload(), nil
-}
-
-// Deprecated: 2022-01-10 - Please use AdminGetMatchmakingDetailBySessionIDShort instead.
-func (aaa *GameSessionDetailService) AdminGetMatchmakingDetailBySessionID(input *game_session_detail.AdminGetMatchmakingDetailBySessionIDParams) (*sessionhistoryclientmodels.ApimodelsMatchmakingDetail, error) {
-	token, err := aaa.TokenRepository.GetToken()
-	if err != nil {
-		return nil, err
-	}
-	ok, badRequest, unauthorized, forbidden, internalServerError, err := aaa.Client.GameSessionDetail.AdminGetMatchmakingDetailBySessionID(input, client.BearerToken(*token.AccessToken))
-	if badRequest != nil {
-		return nil, badRequest
-	}
-	if unauthorized != nil {
-		return nil, unauthorized
-	}
-	if forbidden != nil {
-		return nil, forbidden
-	}
-	if internalServerError != nil {
-		return nil, internalServerError
-	}
-	if err != nil {
-		return nil, err
-	}
-
-	return ok.GetPayload(), nil
-}
-
-// Deprecated: 2022-01-10 - Please use AdminGetMatchmakingDetailByTicketIDShort instead.
-func (aaa *GameSessionDetailService) AdminGetMatchmakingDetailByTicketID(input *game_session_detail.AdminGetMatchmakingDetailByTicketIDParams) (*sessionhistoryclientmodels.ApimodelsMatchmakingDetail, error) {
-	token, err := aaa.TokenRepository.GetToken()
-	if err != nil {
-		return nil, err
-	}
-	ok, badRequest, unauthorized, forbidden, internalServerError, err := aaa.Client.GameSessionDetail.AdminGetMatchmakingDetailByTicketID(input, client.BearerToken(*token.AccessToken))
-	if badRequest != nil {
-		return nil, badRequest
-	}
-	if unauthorized != nil {
-		return nil, unauthorized
-	}
-	if forbidden != nil {
-		return nil, forbidden
-	}
-	if internalServerError != nil {
-		return nil, internalServerError
-	}
-	if err != nil {
-		return nil, err
-	}
-
-	return ok.GetPayload(), nil
-}
-
-// Deprecated: 2022-01-10 - Please use AdminQueryPartyDetailShort instead.
-func (aaa *GameSessionDetailService) AdminQueryPartyDetail(input *game_session_detail.AdminQueryPartyDetailParams) (*sessionhistoryclientmodels.ApimodelsPartyDetailQueryResponse, error) {
-	token, err := aaa.TokenRepository.GetToken()
-	if err != nil {
-		return nil, err
-	}
-	ok, badRequest, unauthorized, forbidden, internalServerError, err := aaa.Client.GameSessionDetail.AdminQueryPartyDetail(input, client.BearerToken(*token.AccessToken))
-	if badRequest != nil {
-		return nil, badRequest
-	}
-	if unauthorized != nil {
-		return nil, unauthorized
-	}
-	if forbidden != nil {
-		return nil, forbidden
-	}
-	if internalServerError != nil {
-		return nil, internalServerError
-	}
-	if err != nil {
-		return nil, err
-	}
-
-	return ok.GetPayload(), nil
-}
-
-// Deprecated: 2022-01-10 - Please use GetPartyDetailShort instead.
-func (aaa *GameSessionDetailService) GetPartyDetail(input *game_session_detail.GetPartyDetailParams) (*sessionhistoryclientmodels.ApimodelsPartyDetail, error) {
-	token, err := aaa.TokenRepository.GetToken()
-	if err != nil {
-		return nil, err
-	}
-	ok, badRequest, unauthorized, forbidden, notFound, internalServerError, err := aaa.Client.GameSessionDetail.GetPartyDetail(input, client.BearerToken(*token.AccessToken))
-	if badRequest != nil {
-		return nil, badRequest
-	}
-	if unauthorized != nil {
-		return nil, unauthorized
-	}
-	if forbidden != nil {
-		return nil, forbidden
-	}
-	if notFound != nil {
-		return nil, notFound
-	}
-	if internalServerError != nil {
-		return nil, internalServerError
-	}
-	if err != nil {
-		return nil, err
-	}
-
-	return ok.GetPayload(), nil
-}
-
-// Deprecated: 2022-01-10 - Please use AdminQueryTicketDetailShort instead.
-func (aaa *GameSessionDetailService) AdminQueryTicketDetail(input *game_session_detail.AdminQueryTicketDetailParams) (*sessionhistoryclientmodels.ApimodelsTicketDetailQueryResponse, error) {
-	token, err := aaa.TokenRepository.GetToken()
-	if err != nil {
-		return nil, err
-	}
-	ok, badRequest, unauthorized, forbidden, internalServerError, err := aaa.Client.GameSessionDetail.AdminQueryTicketDetail(input, client.BearerToken(*token.AccessToken))
-	if badRequest != nil {
-		return nil, badRequest
-	}
-	if unauthorized != nil {
-		return nil, unauthorized
-	}
-	if forbidden != nil {
-		return nil, forbidden
-	}
-	if internalServerError != nil {
-		return nil, internalServerError
-	}
-	if err != nil {
-		return nil, err
-	}
-
-	return ok.GetPayload(), nil
-}
-
-// Deprecated: 2022-01-10 - Please use AdminTicketDetailGetByTicketIDShort instead.
-func (aaa *GameSessionDetailService) AdminTicketDetailGetByTicketID(input *game_session_detail.AdminTicketDetailGetByTicketIDParams) (*sessionhistoryclientmodels.ApimodelsTicketObservabilityDetail, error) {
-	token, err := aaa.TokenRepository.GetToken()
-	if err != nil {
-		return nil, err
-	}
-	ok, badRequest, unauthorized, forbidden, internalServerError, err := aaa.Client.GameSessionDetail.AdminTicketDetailGetByTicketID(input, client.BearerToken(*token.AccessToken))
-	if badRequest != nil {
-		return nil, badRequest
-	}
-	if unauthorized != nil {
-		return nil, unauthorized
-	}
-	if forbidden != nil {
-		return nil, forbidden
-	}
-	if internalServerError != nil {
-		return nil, internalServerError
-	}
-	if err != nil {
-		return nil, err
-	}
-
-	return ok.GetPayload(), nil
 }
 
 func (aaa *GameSessionDetailService) AdminQueryGameSessionDetailShort(input *game_session_detail.AdminQueryGameSessionDetailParams) (*sessionhistoryclientmodels.ApimodelsGameSessionDetailQueryResponse, error) {
@@ -541,6 +300,36 @@ func (aaa *GameSessionDetailService) AdminTicketDetailGetByTicketIDShort(input *
 	}
 
 	ok, err := aaa.Client.GameSessionDetail.AdminTicketDetailGetByTicketIDShort(input, authInfoWriter)
+	if err != nil {
+		return nil, err
+	}
+
+	return ok.GetPayload(), nil
+}
+
+func (aaa *GameSessionDetailService) PublicQueryGameSessionMeShort(input *game_session_detail.PublicQueryGameSessionMeParams) (*sessionhistoryclientmodels.ApimodelsGameSessionDetailQueryResponse, error) {
+	authInfoWriter := input.AuthInfoWriter
+	if authInfoWriter == nil {
+		security := [][]string{
+			{"bearer"},
+		}
+		authInfoWriter = auth.AuthInfoWriter(aaa.GetAuthSession(), security, "")
+	}
+	if input.RetryPolicy == nil {
+		input.RetryPolicy = &utils.Retry{
+			MaxTries:   utils.MaxTries,
+			Backoff:    utils.NewConstantBackoff(0),
+			Transport:  aaa.Client.Runtime.Transport,
+			RetryCodes: utils.RetryCodes,
+		}
+	}
+	if tempFlightIdGameSessionDetail != nil {
+		input.XFlightId = tempFlightIdGameSessionDetail
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	}
+
+	ok, err := aaa.Client.GameSessionDetail.PublicQueryGameSessionMeShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
 	}

@@ -13,7 +13,6 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils/auth"
-	"github.com/go-openapi/runtime/client"
 )
 
 type PublicReasonsService struct {
@@ -36,43 +35,6 @@ func (aaa *PublicReasonsService) GetAuthSession() auth.Session {
 		aaa.ConfigRepository,
 		nil,
 	}
-}
-
-// Deprecated: 2022-01-10 - Please use PublicListReasonGroupsShort instead.
-func (aaa *PublicReasonsService) PublicListReasonGroups(input *public_reasons.PublicListReasonGroupsParams) (*reportingclientmodels.RestapiReasonGroupListResponse, error) {
-	token, err := aaa.TokenRepository.GetToken()
-	if err != nil {
-		return nil, err
-	}
-	ok, internalServerError, err := aaa.Client.PublicReasons.PublicListReasonGroups(input, client.BearerToken(*token.AccessToken))
-	if internalServerError != nil {
-		return nil, internalServerError
-	}
-	if err != nil {
-		return nil, err
-	}
-
-	return ok.GetPayload(), nil
-}
-
-// Deprecated: 2022-01-10 - Please use PublicGetReasonsShort instead.
-func (aaa *PublicReasonsService) PublicGetReasons(input *public_reasons.PublicGetReasonsParams) (*reportingclientmodels.RestapiPublicReasonListResponse, error) {
-	token, err := aaa.TokenRepository.GetToken()
-	if err != nil {
-		return nil, err
-	}
-	ok, notFound, internalServerError, err := aaa.Client.PublicReasons.PublicGetReasons(input, client.BearerToken(*token.AccessToken))
-	if notFound != nil {
-		return nil, notFound
-	}
-	if internalServerError != nil {
-		return nil, internalServerError
-	}
-	if err != nil {
-		return nil, err
-	}
-
-	return ok.GetPayload(), nil
 }
 
 func (aaa *PublicReasonsService) PublicListReasonGroupsShort(input *public_reasons.PublicListReasonGroupsParams) (*reportingclientmodels.RestapiReasonGroupListResponse, error) {

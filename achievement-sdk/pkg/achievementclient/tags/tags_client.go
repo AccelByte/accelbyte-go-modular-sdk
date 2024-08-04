@@ -30,74 +30,10 @@ type Client struct {
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	AdminListTags(params *AdminListTagsParams, authInfo runtime.ClientAuthInfoWriter) (*AdminListTagsOK, *AdminListTagsBadRequest, *AdminListTagsUnauthorized, *AdminListTagsNotFound, *AdminListTagsInternalServerError, error)
 	AdminListTagsShort(params *AdminListTagsParams, authInfo runtime.ClientAuthInfoWriter) (*AdminListTagsOK, error)
-	PublicListTags(params *PublicListTagsParams, authInfo runtime.ClientAuthInfoWriter) (*PublicListTagsOK, *PublicListTagsBadRequest, *PublicListTagsUnauthorized, *PublicListTagsNotFound, *PublicListTagsInternalServerError, error)
 	PublicListTagsShort(params *PublicListTagsParams, authInfo runtime.ClientAuthInfoWriter) (*PublicListTagsOK, error)
 
 	SetTransport(transport runtime.ClientTransport)
-}
-
-/*
-Deprecated: 2022-08-10 - Use AdminListTagsShort instead.
-
-AdminListTags query tags
-
-
-Required permission
-`ADMIN:NAMESPACE:{namespace}:ACHIEVEMENT [READ]` and scope `social`
-*/
-func (a *Client) AdminListTags(params *AdminListTagsParams, authInfo runtime.ClientAuthInfoWriter) (*AdminListTagsOK, *AdminListTagsBadRequest, *AdminListTagsUnauthorized, *AdminListTagsNotFound, *AdminListTagsInternalServerError, error) {
-	// TODO: Validate the params before sending
-	if params == nil {
-		params = NewAdminListTagsParams()
-	}
-
-	if params.Context == nil {
-		params.Context = context.Background()
-	}
-
-	if params.RetryPolicy != nil {
-		params.SetHTTPClientTransport(params.RetryPolicy)
-	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
-		ID:                 "AdminListTags",
-		Method:             "GET",
-		PathPattern:        "/achievement/v1/admin/namespaces/{namespace}/tags",
-		ProducesMediaTypes: []string{"application/json"},
-		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
-		Params:             params,
-		Reader:             &AdminListTagsReader{formats: a.formats},
-		AuthInfo:           authInfo,
-		Context:            params.Context,
-		Client:             params.HTTPClient,
-	})
-	if err != nil {
-		return nil, nil, nil, nil, nil, err
-	}
-
-	switch v := result.(type) {
-
-	case *AdminListTagsOK:
-		return v, nil, nil, nil, nil, nil
-
-	case *AdminListTagsBadRequest:
-		return nil, v, nil, nil, nil, nil
-
-	case *AdminListTagsUnauthorized:
-		return nil, nil, v, nil, nil, nil
-
-	case *AdminListTagsNotFound:
-		return nil, nil, nil, v, nil, nil
-
-	case *AdminListTagsInternalServerError:
-		return nil, nil, nil, nil, v, nil
-
-	default:
-		return nil, nil, nil, nil, nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
-	}
 }
 
 /*
@@ -157,68 +93,6 @@ func (a *Client) AdminListTagsShort(params *AdminListTagsParams, authInfo runtim
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
-	}
-}
-
-/*
-Deprecated: 2022-08-10 - Use PublicListTagsShort instead.
-
-PublicListTags query tags
-
-
-Required permission
-`NAMESPACE:{namespace}:ACHIEVEMENT [READ]` and scope `social`
-*/
-func (a *Client) PublicListTags(params *PublicListTagsParams, authInfo runtime.ClientAuthInfoWriter) (*PublicListTagsOK, *PublicListTagsBadRequest, *PublicListTagsUnauthorized, *PublicListTagsNotFound, *PublicListTagsInternalServerError, error) {
-	// TODO: Validate the params before sending
-	if params == nil {
-		params = NewPublicListTagsParams()
-	}
-
-	if params.Context == nil {
-		params.Context = context.Background()
-	}
-
-	if params.RetryPolicy != nil {
-		params.SetHTTPClientTransport(params.RetryPolicy)
-	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
-		ID:                 "PublicListTags",
-		Method:             "GET",
-		PathPattern:        "/achievement/v1/public/namespaces/{namespace}/tags",
-		ProducesMediaTypes: []string{"application/json"},
-		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
-		Params:             params,
-		Reader:             &PublicListTagsReader{formats: a.formats},
-		AuthInfo:           authInfo,
-		Context:            params.Context,
-		Client:             params.HTTPClient,
-	})
-	if err != nil {
-		return nil, nil, nil, nil, nil, err
-	}
-
-	switch v := result.(type) {
-
-	case *PublicListTagsOK:
-		return v, nil, nil, nil, nil, nil
-
-	case *PublicListTagsBadRequest:
-		return nil, v, nil, nil, nil, nil
-
-	case *PublicListTagsUnauthorized:
-		return nil, nil, v, nil, nil, nil
-
-	case *PublicListTagsNotFound:
-		return nil, nil, nil, v, nil, nil
-
-	case *PublicListTagsInternalServerError:
-		return nil, nil, nil, nil, v, nil
-
-	default:
-		return nil, nil, nil, nil, nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
 	}
 }
 

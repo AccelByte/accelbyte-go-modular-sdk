@@ -20,6 +20,9 @@ import (
 // swagger:model Apimodels create game session request.
 type ApimodelsCreateGameSessionRequest struct {
 
+	// appname
+	AppName string `json:"appName,omitempty"`
+
 	// attributes
 	// Required: true
 	Attributes interface{} `json:"attributes"`
@@ -38,6 +41,9 @@ type ApimodelsCreateGameSessionRequest struct {
 	// configurationname
 	// Required: true
 	ConfigurationName *string `json:"configurationName"`
+
+	// customurlgrpc
+	CustomURLGRPC string `json:"customURLGRPC,omitempty"`
 
 	// deployment
 	// Required: true
@@ -87,6 +93,9 @@ type ApimodelsCreateGameSessionRequest struct {
 	// servername
 	// Required: true
 	ServerName *string `json:"serverName"`
+
+	// session storage
+	Storage *ApimodelsSessionStorageRequest `json:"storage,omitempty"`
 
 	// teams
 	// Required: true

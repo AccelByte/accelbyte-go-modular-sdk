@@ -14,7 +14,6 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils/auth"
-	"github.com/go-openapi/runtime/client"
 )
 
 // TelemetryService this is use for compatibility with latest modular sdk only
@@ -39,43 +38,6 @@ func (aaa *TelemetryService) GetAuthSession() auth.Session {
 		aaa.ConfigRepository,
 		nil,
 	}
-}
-
-// Deprecated: 2022-01-10 - Please use GetNamespacesGameTelemetryV1AdminNamespacesGetShort instead.
-func (aaa *TelemetryService) GetNamespacesGameTelemetryV1AdminNamespacesGet(input *telemetry.GetNamespacesGameTelemetryV1AdminNamespacesGetParams) (*gametelemetryclientmodels.ListBaseResponseStr, error) {
-	token, err := aaa.TokenRepository.GetToken()
-	if err != nil {
-		return nil, err
-	}
-	ok, internalServerError, err := aaa.Client.Telemetry.GetNamespacesGameTelemetryV1AdminNamespacesGet(input, client.BearerToken(*token.AccessToken))
-	if internalServerError != nil {
-		return nil, internalServerError
-	}
-	if err != nil {
-		return nil, err
-	}
-
-	return ok.GetPayload(), nil
-}
-
-// Deprecated: 2022-01-10 - Please use GetEventsGameTelemetryV1AdminNamespacesNamespaceEventsGetShort instead.
-func (aaa *TelemetryService) GetEventsGameTelemetryV1AdminNamespacesNamespaceEventsGet(input *telemetry.GetEventsGameTelemetryV1AdminNamespacesNamespaceEventsGetParams) (*gametelemetryclientmodels.PagedResponseGetNamespaceEventResponse, error) {
-	token, err := aaa.TokenRepository.GetToken()
-	if err != nil {
-		return nil, err
-	}
-	ok, badRequest, unprocessableEntity, err := aaa.Client.Telemetry.GetEventsGameTelemetryV1AdminNamespacesNamespaceEventsGet(input, client.BearerToken(*token.AccessToken))
-	if badRequest != nil {
-		return nil, badRequest
-	}
-	if unprocessableEntity != nil {
-		return nil, unprocessableEntity
-	}
-	if err != nil {
-		return nil, err
-	}
-
-	return ok.GetPayload(), nil
 }
 
 func (aaa *TelemetryService) GetNamespacesGameTelemetryV1AdminNamespacesGetShort(input *telemetry.GetNamespacesGameTelemetryV1AdminNamespacesGetParams) (*gametelemetryclientmodels.ListBaseResponseStr, error) {

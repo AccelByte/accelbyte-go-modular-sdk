@@ -13,7 +13,6 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils/auth"
-	"github.com/go-openapi/runtime/client"
 )
 
 // ConcurrentRecordService this is use for compatibility with latest modular sdk only
@@ -38,99 +37,6 @@ func (aaa *ConcurrentRecordService) GetAuthSession() auth.Session {
 		aaa.ConfigRepository,
 		nil,
 	}
-}
-
-// Deprecated: 2022-01-10 - Please use PutGameRecordConcurrentHandlerV1Short instead.
-func (aaa *ConcurrentRecordService) PutGameRecordConcurrentHandlerV1(input *concurrent_record.PutGameRecordConcurrentHandlerV1Params) error {
-	token, err := aaa.TokenRepository.GetToken()
-	if err != nil {
-		return err
-	}
-	_, badRequest, unauthorized, forbidden, preconditionFailed, internalServerError, err := aaa.Client.ConcurrentRecord.PutGameRecordConcurrentHandlerV1(input, client.BearerToken(*token.AccessToken))
-	if badRequest != nil {
-		return badRequest
-	}
-	if unauthorized != nil {
-		return unauthorized
-	}
-	if forbidden != nil {
-		return forbidden
-	}
-	if preconditionFailed != nil {
-		return preconditionFailed
-	}
-	if internalServerError != nil {
-		return internalServerError
-	}
-	if err != nil {
-		return err
-	}
-
-	return nil
-}
-
-// Deprecated: 2022-01-10 - Please use PutPlayerRecordConcurrentHandlerV1Short instead.
-func (aaa *ConcurrentRecordService) PutPlayerRecordConcurrentHandlerV1(input *concurrent_record.PutPlayerRecordConcurrentHandlerV1Params) (*cloudsaveclientmodels.ModelsPlayerRecordConcurrentUpdateResponse, error) {
-	token, err := aaa.TokenRepository.GetToken()
-	if err != nil {
-		return nil, err
-	}
-	ok, noContent, badRequest, unauthorized, forbidden, preconditionFailed, internalServerError, err := aaa.Client.ConcurrentRecord.PutPlayerRecordConcurrentHandlerV1(input, client.BearerToken(*token.AccessToken))
-	if noContent != nil {
-		return nil, noContent
-	}
-	if badRequest != nil {
-		return nil, badRequest
-	}
-	if unauthorized != nil {
-		return nil, unauthorized
-	}
-	if forbidden != nil {
-		return nil, forbidden
-	}
-	if preconditionFailed != nil {
-		return nil, preconditionFailed
-	}
-	if internalServerError != nil {
-		return nil, internalServerError
-	}
-	if err != nil {
-		return nil, err
-	}
-
-	return ok.GetPayload(), nil
-}
-
-// Deprecated: 2022-01-10 - Please use PutPlayerPublicRecordConcurrentHandlerV1Short instead.
-func (aaa *ConcurrentRecordService) PutPlayerPublicRecordConcurrentHandlerV1(input *concurrent_record.PutPlayerPublicRecordConcurrentHandlerV1Params) (*cloudsaveclientmodels.ModelsPlayerRecordConcurrentUpdateResponse, error) {
-	token, err := aaa.TokenRepository.GetToken()
-	if err != nil {
-		return nil, err
-	}
-	ok, noContent, badRequest, unauthorized, forbidden, preconditionFailed, internalServerError, err := aaa.Client.ConcurrentRecord.PutPlayerPublicRecordConcurrentHandlerV1(input, client.BearerToken(*token.AccessToken))
-	if noContent != nil {
-		return nil, noContent
-	}
-	if badRequest != nil {
-		return nil, badRequest
-	}
-	if unauthorized != nil {
-		return nil, unauthorized
-	}
-	if forbidden != nil {
-		return nil, forbidden
-	}
-	if preconditionFailed != nil {
-		return nil, preconditionFailed
-	}
-	if internalServerError != nil {
-		return nil, internalServerError
-	}
-	if err != nil {
-		return nil, err
-	}
-
-	return ok.GetPayload(), nil
 }
 
 func (aaa *ConcurrentRecordService) PutGameRecordConcurrentHandlerV1Short(input *concurrent_record.PutGameRecordConcurrentHandlerV1Params) error {

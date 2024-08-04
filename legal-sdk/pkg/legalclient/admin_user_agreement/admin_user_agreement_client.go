@@ -30,57 +30,9 @@ type Client struct {
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	IndirectBulkAcceptVersionedPolicy(params *IndirectBulkAcceptVersionedPolicyParams, authInfo runtime.ClientAuthInfoWriter) (*IndirectBulkAcceptVersionedPolicyCreated, error)
 	IndirectBulkAcceptVersionedPolicyShort(params *IndirectBulkAcceptVersionedPolicyParams, authInfo runtime.ClientAuthInfoWriter) (*IndirectBulkAcceptVersionedPolicyCreated, error)
 
 	SetTransport(transport runtime.ClientTransport)
-}
-
-/*
-Deprecated: 2022-08-10 - Use IndirectBulkAcceptVersionedPolicyShort instead.
-
-IndirectBulkAcceptVersionedPolicy admin bulk accept policy versions
-Accepts many legal policy versions all at once. Supply with localized version policy id and userId to accept an agreement.
-*/
-func (a *Client) IndirectBulkAcceptVersionedPolicy(params *IndirectBulkAcceptVersionedPolicyParams, authInfo runtime.ClientAuthInfoWriter) (*IndirectBulkAcceptVersionedPolicyCreated, error) {
-	// TODO: Validate the params before sending
-	if params == nil {
-		params = NewIndirectBulkAcceptVersionedPolicyParams()
-	}
-
-	if params.Context == nil {
-		params.Context = context.Background()
-	}
-
-	if params.RetryPolicy != nil {
-		params.SetHTTPClientTransport(params.RetryPolicy)
-	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
-		ID:                 "indirectBulkAcceptVersionedPolicy",
-		Method:             "POST",
-		PathPattern:        "/agreement/admin/namespaces/{namespace}/users/{userId}/agreements/policies",
-		ProducesMediaTypes: []string{"application/json"},
-		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
-		Params:             params,
-		Reader:             &IndirectBulkAcceptVersionedPolicyReader{formats: a.formats},
-		AuthInfo:           authInfo,
-		Context:            params.Context,
-		Client:             params.HTTPClient,
-	})
-	if err != nil {
-		return nil, err
-	}
-
-	switch v := result.(type) {
-
-	case *IndirectBulkAcceptVersionedPolicyCreated:
-		return v, nil
-
-	default:
-		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
-	}
 }
 
 /*

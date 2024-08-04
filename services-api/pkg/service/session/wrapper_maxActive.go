@@ -13,7 +13,6 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/session-sdk/pkg/sessionclient"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/session-sdk/pkg/sessionclient/max_active"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/session-sdk/pkg/sessionclientmodels"
-	"github.com/go-openapi/runtime/client"
 )
 
 // MaxActiveService this is use for compatibility with latest modular sdk only
@@ -38,52 +37,6 @@ func (aaa *MaxActiveService) GetAuthSession() auth.Session {
 		aaa.ConfigRepository,
 		nil,
 	}
-}
-
-// Deprecated: 2022-01-10 - Please use AdminGetMemberActiveSessionShort instead.
-func (aaa *MaxActiveService) AdminGetMemberActiveSession(input *max_active.AdminGetMemberActiveSessionParams) (*sessionclientmodels.ModelsMemberActiveSession, error) {
-	token, err := aaa.TokenRepository.GetToken()
-	if err != nil {
-		return nil, err
-	}
-	ok, badRequest, unauthorized, internalServerError, err := aaa.Client.MaxActive.AdminGetMemberActiveSession(input, client.BearerToken(*token.AccessToken))
-	if badRequest != nil {
-		return nil, badRequest
-	}
-	if unauthorized != nil {
-		return nil, unauthorized
-	}
-	if internalServerError != nil {
-		return nil, internalServerError
-	}
-	if err != nil {
-		return nil, err
-	}
-
-	return ok.GetPayload(), nil
-}
-
-// Deprecated: 2022-01-10 - Please use AdminReconcileMaxActiveSessionShort instead.
-func (aaa *MaxActiveService) AdminReconcileMaxActiveSession(input *max_active.AdminReconcileMaxActiveSessionParams) error {
-	token, err := aaa.TokenRepository.GetToken()
-	if err != nil {
-		return err
-	}
-	_, badRequest, unauthorized, internalServerError, err := aaa.Client.MaxActive.AdminReconcileMaxActiveSession(input, client.BearerToken(*token.AccessToken))
-	if badRequest != nil {
-		return badRequest
-	}
-	if unauthorized != nil {
-		return unauthorized
-	}
-	if internalServerError != nil {
-		return internalServerError
-	}
-	if err != nil {
-		return err
-	}
-
-	return nil
 }
 
 func (aaa *MaxActiveService) AdminGetMemberActiveSessionShort(input *max_active.AdminGetMemberActiveSessionParams) (*sessionclientmodels.ModelsMemberActiveSession, error) {

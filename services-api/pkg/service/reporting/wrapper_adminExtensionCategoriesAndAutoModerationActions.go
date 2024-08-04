@@ -13,7 +13,6 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils/auth"
-	"github.com/go-openapi/runtime/client"
 )
 
 // AdminExtensionCategoriesandAutoModerationActionsService this is use for compatibility with latest modular sdk only
@@ -38,86 +37,6 @@ func (aaa *AdminExtensionCategoriesandAutoModerationActionsService) GetAuthSessi
 		aaa.ConfigRepository,
 		nil,
 	}
-}
-
-// Deprecated: 2022-01-10 - Please use AdminFindActionListShort instead.
-func (aaa *AdminExtensionCategoriesandAutoModerationActionsService) AdminFindActionList(input *admin_extension_categories_and_auto_moderation_actions.AdminFindActionListParams) (*reportingclientmodels.RestapiActionListAPIResponse, error) {
-	token, err := aaa.TokenRepository.GetToken()
-	if err != nil {
-		return nil, err
-	}
-	ok, badRequest, internalServerError, err := aaa.Client.AdminExtensionCategoriesAndAutoModerationActions.AdminFindActionList(input, client.BearerToken(*token.AccessToken))
-	if badRequest != nil {
-		return nil, badRequest
-	}
-	if internalServerError != nil {
-		return nil, internalServerError
-	}
-	if err != nil {
-		return nil, err
-	}
-
-	return ok.GetPayload(), nil
-}
-
-// Deprecated: 2022-01-10 - Please use AdminCreateModActionShort instead.
-func (aaa *AdminExtensionCategoriesandAutoModerationActionsService) AdminCreateModAction(input *admin_extension_categories_and_auto_moderation_actions.AdminCreateModActionParams) (*reportingclientmodels.RestapiActionAPIResponse, error) {
-	token, err := aaa.TokenRepository.GetToken()
-	if err != nil {
-		return nil, err
-	}
-	created, badRequest, internalServerError, err := aaa.Client.AdminExtensionCategoriesAndAutoModerationActions.AdminCreateModAction(input, client.BearerToken(*token.AccessToken))
-	if badRequest != nil {
-		return nil, badRequest
-	}
-	if internalServerError != nil {
-		return nil, internalServerError
-	}
-	if err != nil {
-		return nil, err
-	}
-
-	return created.GetPayload(), nil
-}
-
-// Deprecated: 2022-01-10 - Please use AdminFindExtensionCategoryListShort instead.
-func (aaa *AdminExtensionCategoriesandAutoModerationActionsService) AdminFindExtensionCategoryList(input *admin_extension_categories_and_auto_moderation_actions.AdminFindExtensionCategoryListParams) (*reportingclientmodels.RestapiExtensionCategoryListAPIResponse, error) {
-	token, err := aaa.TokenRepository.GetToken()
-	if err != nil {
-		return nil, err
-	}
-	ok, badRequest, internalServerError, err := aaa.Client.AdminExtensionCategoriesAndAutoModerationActions.AdminFindExtensionCategoryList(input, client.BearerToken(*token.AccessToken))
-	if badRequest != nil {
-		return nil, badRequest
-	}
-	if internalServerError != nil {
-		return nil, internalServerError
-	}
-	if err != nil {
-		return nil, err
-	}
-
-	return ok.GetPayload(), nil
-}
-
-// Deprecated: 2022-01-10 - Please use AdminCreateExtensionCategoryShort instead.
-func (aaa *AdminExtensionCategoriesandAutoModerationActionsService) AdminCreateExtensionCategory(input *admin_extension_categories_and_auto_moderation_actions.AdminCreateExtensionCategoryParams) (*reportingclientmodels.RestapiExtensionCategoryAPIResponse, error) {
-	token, err := aaa.TokenRepository.GetToken()
-	if err != nil {
-		return nil, err
-	}
-	created, badRequest, internalServerError, err := aaa.Client.AdminExtensionCategoriesAndAutoModerationActions.AdminCreateExtensionCategory(input, client.BearerToken(*token.AccessToken))
-	if badRequest != nil {
-		return nil, badRequest
-	}
-	if internalServerError != nil {
-		return nil, internalServerError
-	}
-	if err != nil {
-		return nil, err
-	}
-
-	return created.GetPayload(), nil
 }
 
 func (aaa *AdminExtensionCategoriesandAutoModerationActionsService) AdminFindActionListShort(input *admin_extension_categories_and_auto_moderation_actions.AdminFindActionListParams) (*reportingclientmodels.RestapiActionListAPIResponse, error) {

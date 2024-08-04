@@ -8,6 +8,7 @@ package session
 
 import (
 	"github.com/AccelByte/sample-apps/cmd/session/certificate"
+	"github.com/AccelByte/sample-apps/cmd/session/config"
 	"github.com/AccelByte/sample-apps/cmd/session/configurationTemplate"
 	"github.com/AccelByte/sample-apps/cmd/session/dsmcDefaultConfiguration"
 	"github.com/AccelByte/sample-apps/cmd/session/environmentVariable"
@@ -33,6 +34,8 @@ var SessionCmd = &cobra.Command{
 func init() {
 	SessionCmd.AddCommand(operations.GetHealthcheckInfoCmd)
 	SessionCmd.AddCommand(operations.GetHealthcheckInfoV1Cmd)
+	SessionCmd.AddCommand(config.AdminGetLogConfigCmd)
+	SessionCmd.AddCommand(config.AdminPatchUpdateLogConfigCmd)
 	SessionCmd.AddCommand(dsmcDefaultConfiguration.AdminGetDSMCConfigurationDefaultCmd)
 	SessionCmd.AddCommand(environmentVariable.AdminListEnvironmentVariablesCmd)
 	SessionCmd.AddCommand(globalConfiguration.AdminListGlobalConfigurationCmd)
@@ -69,6 +72,7 @@ func init() {
 	SessionCmd.AddCommand(sessionStorage.AdminReadUserSessionStorageCmd)
 	SessionCmd.AddCommand(player.AdminQueryPlayerAttributesCmd)
 	SessionCmd.AddCommand(player.AdminGetPlayerAttributesCmd)
+	SessionCmd.AddCommand(party.AdminSyncNativeSessionCmd)
 	SessionCmd.AddCommand(gameSession.CreateGameSessionCmd)
 	SessionCmd.AddCommand(gameSession.PublicQueryGameSessionsByAttributesCmd)
 	SessionCmd.AddCommand(gameSession.PublicSessionJoinCodeCmd)
@@ -87,6 +91,7 @@ func init() {
 	SessionCmd.AddCommand(gameSession.PublicGameSessionRejectCmd)
 	SessionCmd.AddCommand(gameSession.GetSessionServerSecretCmd)
 	SessionCmd.AddCommand(gameSession.AppendTeamGameSessionCmd)
+	SessionCmd.AddCommand(gameSession.PublicGameSessionCancelCmd)
 	SessionCmd.AddCommand(party.PublicPartyJoinCodeCmd)
 	SessionCmd.AddCommand(party.PublicGetPartyCmd)
 	SessionCmd.AddCommand(party.PublicUpdatePartyCmd)
@@ -98,6 +103,7 @@ func init() {
 	SessionCmd.AddCommand(party.PublicPartyJoinCmd)
 	SessionCmd.AddCommand(party.PublicPartyLeaveCmd)
 	SessionCmd.AddCommand(party.PublicPartyRejectCmd)
+	SessionCmd.AddCommand(party.PublicPartyCancelCmd)
 	SessionCmd.AddCommand(party.PublicPartyKickCmd)
 	SessionCmd.AddCommand(party.PublicCreatePartyCmd)
 	SessionCmd.AddCommand(recentPlayer.PublicGetRecentPlayerCmd)

@@ -44,6 +44,8 @@
 | Endpoint | Method | ID | Class | Wrapper | Example |
 |---|---|---|---|---|---|
 | `/chat/v1/admin/config` | GET | AdminGetAllConfigV1Short | [AdminGetAllConfigV1Short](../../chat-sdk/pkg/chatclient/config/config_client.go) | [AdminGetAllConfigV1Short](../../chat-sdk/pkg/wrapper_config.go) | [AdminGetAllConfigV1Short](../../samples/cli/cmd/chat/config/adminGetAllConfigV1.go) |
+| `/chat/v1/admin/config/log` | GET | AdminGetLogConfigShort | [AdminGetLogConfigShort](../../chat-sdk/pkg/chatclient/config/config_client.go) | [AdminGetLogConfigShort](../../chat-sdk/pkg/wrapper_config.go) | [AdminGetLogConfigShort](../../samples/cli/cmd/chat/config/adminGetLogConfig.go) |
+| `/chat/v1/admin/config/log` | PATCH | AdminPatchUpdateLogConfigShort | [AdminPatchUpdateLogConfigShort](../../chat-sdk/pkg/chatclient/config/config_client.go) | [AdminPatchUpdateLogConfigShort](../../chat-sdk/pkg/wrapper_config.go) | [AdminPatchUpdateLogConfigShort](../../samples/cli/cmd/chat/config/adminPatchUpdateLogConfig.go) |
 | `/chat/v1/admin/config/namespaces/{namespace}` | GET | AdminGetConfigV1Short | [AdminGetConfigV1Short](../../chat-sdk/pkg/chatclient/config/config_client.go) | [AdminGetConfigV1Short](../../chat-sdk/pkg/wrapper_config.go) | [AdminGetConfigV1Short](../../samples/cli/cmd/chat/config/adminGetConfigV1.go) |
 | `/chat/v1/admin/config/namespaces/{namespace}` | PUT | AdminUpdateConfigV1Short | [AdminUpdateConfigV1Short](../../chat-sdk/pkg/chatclient/config/config_client.go) | [AdminUpdateConfigV1Short](../../chat-sdk/pkg/wrapper_config.go) | [AdminUpdateConfigV1Short](../../samples/cli/cmd/chat/config/adminUpdateConfigV1.go) |
 | `/chat/v1/admin/config/namespaces/{namespace}/export` | GET | ExportConfigShort | [ExportConfigShort](../../chat-sdk/pkg/chatclient/config/config_client.go) | [ExportConfigShort](../../chat-sdk/pkg/wrapper_config.go) | [ExportConfigShort](../../samples/cli/cmd/chat/config/exportConfig.go) |
@@ -108,6 +110,7 @@
 | `api.UnmuteUserRequest` | [ApiUnmuteUserRequest ](../../chat-sdk/pkg/chatclientmodels/api_unmute_user_request.go) |
 | `api.UpdateTopicParams` | [ApiUpdateTopicParams ](../../chat-sdk/pkg/chatclientmodels/api_update_topic_params.go) |
 | `log.AppMessageDeclaration` | [LogAppMessageDeclaration ](../../chat-sdk/pkg/chatclientmodels/log_app_message_declaration.go) |
+| `logconfig.Configuration` | [LogconfigConfiguration ](../../chat-sdk/pkg/chatclientmodels/logconfig_configuration.go) |
 | `message.ActionAddUserToTopicResult` | [MessageActionAddUserToTopicResult ](../../chat-sdk/pkg/chatclientmodels/message_action_add_user_to_topic_result.go) |
 | `message.ActionDeleteTopicResult` | [MessageActionDeleteTopicResult ](../../chat-sdk/pkg/chatclientmodels/message_action_delete_topic_result.go) |
 | `models.AddInboxCategoryRequest` | [ModelsAddInboxCategoryRequest ](../../chat-sdk/pkg/chatclientmodels/models_add_inbox_category_request.go) |

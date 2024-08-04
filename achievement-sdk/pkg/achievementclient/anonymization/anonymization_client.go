@@ -30,71 +30,9 @@ type Client struct {
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	AdminAnonymizeUserAchievement(params *AdminAnonymizeUserAchievementParams, authInfo runtime.ClientAuthInfoWriter) (*AdminAnonymizeUserAchievementNoContent, *AdminAnonymizeUserAchievementUnauthorized, *AdminAnonymizeUserAchievementInternalServerError, error)
 	AdminAnonymizeUserAchievementShort(params *AdminAnonymizeUserAchievementParams, authInfo runtime.ClientAuthInfoWriter) (*AdminAnonymizeUserAchievementNoContent, error)
 
 	SetTransport(transport runtime.ClientTransport)
-}
-
-/*
-Deprecated: 2022-08-10 - Use AdminAnonymizeUserAchievementShort instead.
-
-AdminAnonymizeUserAchievement anonymize user's achievement
-
-
-This API will delete specified user achievement
-
-
-
-
-Required permission
-`ADMIN:NAMESPACE:{namespace}:USER:{userId}:ANONYMIZATION [DELETE]`
-*/
-func (a *Client) AdminAnonymizeUserAchievement(params *AdminAnonymizeUserAchievementParams, authInfo runtime.ClientAuthInfoWriter) (*AdminAnonymizeUserAchievementNoContent, *AdminAnonymizeUserAchievementUnauthorized, *AdminAnonymizeUserAchievementInternalServerError, error) {
-	// TODO: Validate the params before sending
-	if params == nil {
-		params = NewAdminAnonymizeUserAchievementParams()
-	}
-
-	if params.Context == nil {
-		params.Context = context.Background()
-	}
-
-	if params.RetryPolicy != nil {
-		params.SetHTTPClientTransport(params.RetryPolicy)
-	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
-		ID:                 "AdminAnonymizeUserAchievement",
-		Method:             "DELETE",
-		PathPattern:        "/achievement/v1/admin/namespaces/{namespace}/users/{userId}/anonymization/achievements",
-		ProducesMediaTypes: []string{"application/json"},
-		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
-		Params:             params,
-		Reader:             &AdminAnonymizeUserAchievementReader{formats: a.formats},
-		AuthInfo:           authInfo,
-		Context:            params.Context,
-		Client:             params.HTTPClient,
-	})
-	if err != nil {
-		return nil, nil, nil, err
-	}
-
-	switch v := result.(type) {
-
-	case *AdminAnonymizeUserAchievementNoContent:
-		return v, nil, nil, nil
-
-	case *AdminAnonymizeUserAchievementUnauthorized:
-		return nil, v, nil, nil
-
-	case *AdminAnonymizeUserAchievementInternalServerError:
-		return nil, nil, v, nil
-
-	default:
-		return nil, nil, nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
-	}
 }
 
 /*

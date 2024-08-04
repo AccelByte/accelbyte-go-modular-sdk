@@ -30,73 +30,12 @@ type Client struct {
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	AdminListIntegrationConfigurations(params *AdminListIntegrationConfigurationsParams, authInfo runtime.ClientAuthInfoWriter) (*AdminListIntegrationConfigurationsOK, *AdminListIntegrationConfigurationsBadRequest, *AdminListIntegrationConfigurationsInternalServerError, error)
 	AdminListIntegrationConfigurationsShort(params *AdminListIntegrationConfigurationsParams, authInfo runtime.ClientAuthInfoWriter) (*AdminListIntegrationConfigurationsOK, error)
-	AdminCreateIntegrationConfiguration(params *AdminCreateIntegrationConfigurationParams, authInfo runtime.ClientAuthInfoWriter) (*AdminCreateIntegrationConfigurationCreated, *AdminCreateIntegrationConfigurationBadRequest, *AdminCreateIntegrationConfigurationConflict, *AdminCreateIntegrationConfigurationInternalServerError, error)
 	AdminCreateIntegrationConfigurationShort(params *AdminCreateIntegrationConfigurationParams, authInfo runtime.ClientAuthInfoWriter) (*AdminCreateIntegrationConfigurationCreated, error)
-	AdminUpdateIntegrationConfiguration(params *AdminUpdateIntegrationConfigurationParams, authInfo runtime.ClientAuthInfoWriter) (*AdminUpdateIntegrationConfigurationOK, *AdminUpdateIntegrationConfigurationBadRequest, *AdminUpdateIntegrationConfigurationNotFound, *AdminUpdateIntegrationConfigurationConflict, *AdminUpdateIntegrationConfigurationInternalServerError, error)
 	AdminUpdateIntegrationConfigurationShort(params *AdminUpdateIntegrationConfigurationParams, authInfo runtime.ClientAuthInfoWriter) (*AdminUpdateIntegrationConfigurationOK, error)
-	AdminUpdateStatusIntegrationConfiguration(params *AdminUpdateStatusIntegrationConfigurationParams, authInfo runtime.ClientAuthInfoWriter) (*AdminUpdateStatusIntegrationConfigurationOK, *AdminUpdateStatusIntegrationConfigurationBadRequest, *AdminUpdateStatusIntegrationConfigurationNotFound, *AdminUpdateStatusIntegrationConfigurationConflict, *AdminUpdateStatusIntegrationConfigurationInternalServerError, error)
 	AdminUpdateStatusIntegrationConfigurationShort(params *AdminUpdateStatusIntegrationConfigurationParams, authInfo runtime.ClientAuthInfoWriter) (*AdminUpdateStatusIntegrationConfigurationOK, error)
 
 	SetTransport(transport runtime.ClientTransport)
-}
-
-/*
-Deprecated: 2022-08-10 - Use AdminListIntegrationConfigurationsShort instead.
-
-AdminListIntegrationConfigurations to list integration configurations
-
-Listing all integration configurations in a namespace.
-The response body will be in the form of standard pagination.
-
-Permission: ADMIN:NAMESPACE:{namespace}:INVENTORY:INTEGRATIONCONFIGURATION [READ]
-*/
-func (a *Client) AdminListIntegrationConfigurations(params *AdminListIntegrationConfigurationsParams, authInfo runtime.ClientAuthInfoWriter) (*AdminListIntegrationConfigurationsOK, *AdminListIntegrationConfigurationsBadRequest, *AdminListIntegrationConfigurationsInternalServerError, error) {
-	// TODO: Validate the params before sending
-	if params == nil {
-		params = NewAdminListIntegrationConfigurationsParams()
-	}
-
-	if params.Context == nil {
-		params.Context = context.Background()
-	}
-
-	if params.RetryPolicy != nil {
-		params.SetHTTPClientTransport(params.RetryPolicy)
-	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
-		ID:                 "AdminListIntegrationConfigurations",
-		Method:             "GET",
-		PathPattern:        "/inventory/v1/admin/namespaces/{namespace}/integrationConfigurations",
-		ProducesMediaTypes: []string{"application/json"},
-		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
-		Params:             params,
-		Reader:             &AdminListIntegrationConfigurationsReader{formats: a.formats},
-		AuthInfo:           authInfo,
-		Context:            params.Context,
-		Client:             params.HTTPClient,
-	})
-	if err != nil {
-		return nil, nil, nil, err
-	}
-
-	switch v := result.(type) {
-
-	case *AdminListIntegrationConfigurationsOK:
-		return v, nil, nil, nil
-
-	case *AdminListIntegrationConfigurationsBadRequest:
-		return nil, v, nil, nil
-
-	case *AdminListIntegrationConfigurationsInternalServerError:
-		return nil, nil, v, nil
-
-	default:
-		return nil, nil, nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
-	}
 }
 
 /*
@@ -153,66 +92,6 @@ func (a *Client) AdminListIntegrationConfigurationsShort(params *AdminListIntegr
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
-	}
-}
-
-/*
-Deprecated: 2022-08-10 - Use AdminCreateIntegrationConfigurationShort instead.
-
-AdminCreateIntegrationConfiguration to create integration configuration
-
-Creating integration configuration.
-There cannot be one duplicate serviceName per namespace.
-
-Permission: ADMIN:NAMESPACE:{namespace}:INVENTORY:INTEGRATIONCONFIGURATION [CREATE]
-*/
-func (a *Client) AdminCreateIntegrationConfiguration(params *AdminCreateIntegrationConfigurationParams, authInfo runtime.ClientAuthInfoWriter) (*AdminCreateIntegrationConfigurationCreated, *AdminCreateIntegrationConfigurationBadRequest, *AdminCreateIntegrationConfigurationConflict, *AdminCreateIntegrationConfigurationInternalServerError, error) {
-	// TODO: Validate the params before sending
-	if params == nil {
-		params = NewAdminCreateIntegrationConfigurationParams()
-	}
-
-	if params.Context == nil {
-		params.Context = context.Background()
-	}
-
-	if params.RetryPolicy != nil {
-		params.SetHTTPClientTransport(params.RetryPolicy)
-	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
-		ID:                 "AdminCreateIntegrationConfiguration",
-		Method:             "POST",
-		PathPattern:        "/inventory/v1/admin/namespaces/{namespace}/integrationConfigurations",
-		ProducesMediaTypes: []string{"application/json"},
-		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
-		Params:             params,
-		Reader:             &AdminCreateIntegrationConfigurationReader{formats: a.formats},
-		AuthInfo:           authInfo,
-		Context:            params.Context,
-		Client:             params.HTTPClient,
-	})
-	if err != nil {
-		return nil, nil, nil, nil, err
-	}
-
-	switch v := result.(type) {
-
-	case *AdminCreateIntegrationConfigurationCreated:
-		return v, nil, nil, nil, nil
-
-	case *AdminCreateIntegrationConfigurationBadRequest:
-		return nil, v, nil, nil, nil
-
-	case *AdminCreateIntegrationConfigurationConflict:
-		return nil, nil, v, nil, nil
-
-	case *AdminCreateIntegrationConfigurationInternalServerError:
-		return nil, nil, nil, v, nil
-
-	default:
-		return nil, nil, nil, nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
 	}
 }
 
@@ -276,69 +155,6 @@ func (a *Client) AdminCreateIntegrationConfigurationShort(params *AdminCreateInt
 }
 
 /*
-Deprecated: 2022-08-10 - Use AdminUpdateIntegrationConfigurationShort instead.
-
-AdminUpdateIntegrationConfiguration to update integration configuration
-
-to update integration configuration
-There cannot be duplicate serviceName per namespace.
-
-Permission: ADMIN:NAMESPACE:{namespace}:INVENTORY:INTEGRATIONCONFIGURATION [UPDATE]
-*/
-func (a *Client) AdminUpdateIntegrationConfiguration(params *AdminUpdateIntegrationConfigurationParams, authInfo runtime.ClientAuthInfoWriter) (*AdminUpdateIntegrationConfigurationOK, *AdminUpdateIntegrationConfigurationBadRequest, *AdminUpdateIntegrationConfigurationNotFound, *AdminUpdateIntegrationConfigurationConflict, *AdminUpdateIntegrationConfigurationInternalServerError, error) {
-	// TODO: Validate the params before sending
-	if params == nil {
-		params = NewAdminUpdateIntegrationConfigurationParams()
-	}
-
-	if params.Context == nil {
-		params.Context = context.Background()
-	}
-
-	if params.RetryPolicy != nil {
-		params.SetHTTPClientTransport(params.RetryPolicy)
-	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
-		ID:                 "AdminUpdateIntegrationConfiguration",
-		Method:             "PUT",
-		PathPattern:        "/inventory/v1/admin/namespaces/{namespace}/integrationConfigurations/{integrationConfigurationId}",
-		ProducesMediaTypes: []string{"application/json"},
-		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
-		Params:             params,
-		Reader:             &AdminUpdateIntegrationConfigurationReader{formats: a.formats},
-		AuthInfo:           authInfo,
-		Context:            params.Context,
-		Client:             params.HTTPClient,
-	})
-	if err != nil {
-		return nil, nil, nil, nil, nil, err
-	}
-
-	switch v := result.(type) {
-
-	case *AdminUpdateIntegrationConfigurationOK:
-		return v, nil, nil, nil, nil, nil
-
-	case *AdminUpdateIntegrationConfigurationBadRequest:
-		return nil, v, nil, nil, nil, nil
-
-	case *AdminUpdateIntegrationConfigurationNotFound:
-		return nil, nil, v, nil, nil, nil
-
-	case *AdminUpdateIntegrationConfigurationConflict:
-		return nil, nil, nil, v, nil, nil
-
-	case *AdminUpdateIntegrationConfigurationInternalServerError:
-		return nil, nil, nil, nil, v, nil
-
-	default:
-		return nil, nil, nil, nil, nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
-	}
-}
-
-/*
 AdminUpdateIntegrationConfigurationShort to update integration configuration
 
 to update integration configuration
@@ -396,69 +212,6 @@ func (a *Client) AdminUpdateIntegrationConfigurationShort(params *AdminUpdateInt
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
-	}
-}
-
-/*
-Deprecated: 2022-08-10 - Use AdminUpdateStatusIntegrationConfigurationShort instead.
-
-AdminUpdateStatusIntegrationConfiguration to update status integration configuration to be active / not active
-
-to update status integration configuration to be Active / Not Active.
-There cannot be duplicate serviceName per namespace.
-
-Permission: ADMIN:NAMESPACE:{namespace}:INVENTORY:INTEGRATIONCONFIGURATION [UPDATE]
-*/
-func (a *Client) AdminUpdateStatusIntegrationConfiguration(params *AdminUpdateStatusIntegrationConfigurationParams, authInfo runtime.ClientAuthInfoWriter) (*AdminUpdateStatusIntegrationConfigurationOK, *AdminUpdateStatusIntegrationConfigurationBadRequest, *AdminUpdateStatusIntegrationConfigurationNotFound, *AdminUpdateStatusIntegrationConfigurationConflict, *AdminUpdateStatusIntegrationConfigurationInternalServerError, error) {
-	// TODO: Validate the params before sending
-	if params == nil {
-		params = NewAdminUpdateStatusIntegrationConfigurationParams()
-	}
-
-	if params.Context == nil {
-		params.Context = context.Background()
-	}
-
-	if params.RetryPolicy != nil {
-		params.SetHTTPClientTransport(params.RetryPolicy)
-	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
-		ID:                 "AdminUpdateStatusIntegrationConfiguration",
-		Method:             "PUT",
-		PathPattern:        "/inventory/v1/admin/namespaces/{namespace}/integrationConfigurations/{integrationConfigurationId}/status",
-		ProducesMediaTypes: []string{"application/json"},
-		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
-		Params:             params,
-		Reader:             &AdminUpdateStatusIntegrationConfigurationReader{formats: a.formats},
-		AuthInfo:           authInfo,
-		Context:            params.Context,
-		Client:             params.HTTPClient,
-	})
-	if err != nil {
-		return nil, nil, nil, nil, nil, err
-	}
-
-	switch v := result.(type) {
-
-	case *AdminUpdateStatusIntegrationConfigurationOK:
-		return v, nil, nil, nil, nil, nil
-
-	case *AdminUpdateStatusIntegrationConfigurationBadRequest:
-		return nil, v, nil, nil, nil, nil
-
-	case *AdminUpdateStatusIntegrationConfigurationNotFound:
-		return nil, nil, v, nil, nil, nil
-
-	case *AdminUpdateStatusIntegrationConfigurationConflict:
-		return nil, nil, nil, v, nil, nil
-
-	case *AdminUpdateStatusIntegrationConfigurationInternalServerError:
-		return nil, nil, nil, nil, v, nil
-
-	default:
-		return nil, nil, nil, nil, nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
 	}
 }
 

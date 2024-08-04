@@ -13,7 +13,6 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils/auth"
-	"github.com/go-openapi/runtime/client"
 )
 
 type MatchmakingOperationsService struct {
@@ -36,65 +35,6 @@ func (aaa *MatchmakingOperationsService) GetAuthSession() auth.Session {
 		aaa.ConfigRepository,
 		nil,
 	}
-}
-
-// Deprecated: 2022-01-10 - Please use GetHealthcheckInfoShort instead.
-func (aaa *MatchmakingOperationsService) GetHealthcheckInfo(input *matchmaking_operations.GetHealthcheckInfoParams) error {
-	token, err := aaa.TokenRepository.GetToken()
-	if err != nil {
-		return err
-	}
-	_, err = aaa.Client.MatchmakingOperations.GetHealthcheckInfo(input, client.BearerToken(*token.AccessToken))
-	if err != nil {
-		return err
-	}
-
-	return nil
-}
-
-// Deprecated: 2022-01-10 - Please use HandlerV3HealthzShort instead.
-func (aaa *MatchmakingOperationsService) HandlerV3Healthz(input *matchmaking_operations.HandlerV3HealthzParams) error {
-	token, err := aaa.TokenRepository.GetToken()
-	if err != nil {
-		return err
-	}
-	_, err = aaa.Client.MatchmakingOperations.HandlerV3Healthz(input, client.BearerToken(*token.AccessToken))
-	if err != nil {
-		return err
-	}
-
-	return nil
-}
-
-// Deprecated: 2022-01-10 - Please use PublicGetMessagesShort instead.
-func (aaa *MatchmakingOperationsService) PublicGetMessages(input *matchmaking_operations.PublicGetMessagesParams) ([]*matchmakingclientmodels.LogAppMessageDeclaration, error) {
-	token, err := aaa.TokenRepository.GetToken()
-	if err != nil {
-		return nil, err
-	}
-	ok, internalServerError, err := aaa.Client.MatchmakingOperations.PublicGetMessages(input, client.BearerToken(*token.AccessToken))
-	if internalServerError != nil {
-		return nil, internalServerError
-	}
-	if err != nil {
-		return nil, err
-	}
-
-	return ok.GetPayload(), nil
-}
-
-// Deprecated: 2022-01-10 - Please use VersionCheckHandlerShort instead.
-func (aaa *MatchmakingOperationsService) VersionCheckHandler(input *matchmaking_operations.VersionCheckHandlerParams) error {
-	token, err := aaa.TokenRepository.GetToken()
-	if err != nil {
-		return err
-	}
-	_, err = aaa.Client.MatchmakingOperations.VersionCheckHandler(input, client.BearerToken(*token.AccessToken))
-	if err != nil {
-		return err
-	}
-
-	return nil
 }
 
 func (aaa *MatchmakingOperationsService) GetHealthcheckInfoShort(input *matchmaking_operations.GetHealthcheckInfoParams) error {

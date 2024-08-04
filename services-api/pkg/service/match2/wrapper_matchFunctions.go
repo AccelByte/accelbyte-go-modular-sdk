@@ -13,7 +13,6 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils/auth"
-	"github.com/go-openapi/runtime/client"
 )
 
 // MatchFunctionsService this is use for compatibility with latest modular sdk only
@@ -38,113 +37,6 @@ func (aaa *MatchFunctionsService) GetAuthSession() auth.Session {
 		aaa.ConfigRepository,
 		nil,
 	}
-}
-
-// Deprecated: 2022-01-10 - Please use MatchFunctionListShort instead.
-func (aaa *MatchFunctionsService) MatchFunctionList(input *match_functions.MatchFunctionListParams) (*match2clientmodels.APIListMatchFunctionsResponse, error) {
-	token, err := aaa.TokenRepository.GetToken()
-	if err != nil {
-		return nil, err
-	}
-	ok, unauthorized, forbidden, internalServerError, err := aaa.Client.MatchFunctions.MatchFunctionList(input, client.BearerToken(*token.AccessToken))
-	if unauthorized != nil {
-		return nil, unauthorized
-	}
-	if forbidden != nil {
-		return nil, forbidden
-	}
-	if internalServerError != nil {
-		return nil, internalServerError
-	}
-	if err != nil {
-		return nil, err
-	}
-
-	return ok.GetPayload(), nil
-}
-
-// Deprecated: 2022-01-10 - Please use CreateMatchFunctionShort instead.
-func (aaa *MatchFunctionsService) CreateMatchFunction(input *match_functions.CreateMatchFunctionParams) error {
-	token, err := aaa.TokenRepository.GetToken()
-	if err != nil {
-		return err
-	}
-	_, badRequest, unauthorized, forbidden, conflict, internalServerError, err := aaa.Client.MatchFunctions.CreateMatchFunction(input, client.BearerToken(*token.AccessToken))
-	if badRequest != nil {
-		return badRequest
-	}
-	if unauthorized != nil {
-		return unauthorized
-	}
-	if forbidden != nil {
-		return forbidden
-	}
-	if conflict != nil {
-		return conflict
-	}
-	if internalServerError != nil {
-		return internalServerError
-	}
-	if err != nil {
-		return err
-	}
-
-	return nil
-}
-
-// Deprecated: 2022-01-10 - Please use UpdateMatchFunctionShort instead.
-func (aaa *MatchFunctionsService) UpdateMatchFunction(input *match_functions.UpdateMatchFunctionParams) (*match2clientmodels.APIMatchFunctionConfig, error) {
-	token, err := aaa.TokenRepository.GetToken()
-	if err != nil {
-		return nil, err
-	}
-	ok, badRequest, unauthorized, notFound, conflict, internalServerError, err := aaa.Client.MatchFunctions.UpdateMatchFunction(input, client.BearerToken(*token.AccessToken))
-	if badRequest != nil {
-		return nil, badRequest
-	}
-	if unauthorized != nil {
-		return nil, unauthorized
-	}
-	if notFound != nil {
-		return nil, notFound
-	}
-	if conflict != nil {
-		return nil, conflict
-	}
-	if internalServerError != nil {
-		return nil, internalServerError
-	}
-	if err != nil {
-		return nil, err
-	}
-
-	return ok.GetPayload(), nil
-}
-
-// Deprecated: 2022-01-10 - Please use DeleteMatchFunctionShort instead.
-func (aaa *MatchFunctionsService) DeleteMatchFunction(input *match_functions.DeleteMatchFunctionParams) error {
-	token, err := aaa.TokenRepository.GetToken()
-	if err != nil {
-		return err
-	}
-	_, unauthorized, forbidden, notFound, internalServerError, err := aaa.Client.MatchFunctions.DeleteMatchFunction(input, client.BearerToken(*token.AccessToken))
-	if unauthorized != nil {
-		return unauthorized
-	}
-	if forbidden != nil {
-		return forbidden
-	}
-	if notFound != nil {
-		return notFound
-	}
-	if internalServerError != nil {
-		return internalServerError
-	}
-	if err != nil {
-		return err
-	}
-
-	return nil
 }
 
 func (aaa *MatchFunctionsService) MatchFunctionListShort(input *match_functions.MatchFunctionListParams) (*match2clientmodels.APIListMatchFunctionsResponse, error) {

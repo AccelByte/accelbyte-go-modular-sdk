@@ -12,6 +12,12 @@
 | `/healthz` | GET | GetHealthcheckInfoShort | [GetHealthcheckInfoShort](../../session-sdk/pkg/sessionclient/operations/operations_client.go) | [GetHealthcheckInfoShort](../../session-sdk/pkg/wrapper_operations.go) | [GetHealthcheckInfoShort](../../samples/cli/cmd/session/operations/getHealthcheckInfo.go) |
 | `/session/healthz` | GET | GetHealthcheckInfoV1Short | [GetHealthcheckInfoV1Short](../../session-sdk/pkg/sessionclient/operations/operations_client.go) | [GetHealthcheckInfoV1Short](../../session-sdk/pkg/wrapper_operations.go) | [GetHealthcheckInfoV1Short](../../samples/cli/cmd/session/operations/getHealthcheckInfoV1.go) |
 
+### Config Wrapper:  [Config](../../session-sdk/pkg/wrapper_config.go)
+| Endpoint | Method | ID | Class | Wrapper | Example |
+|---|---|---|---|---|---|
+| `/session/v1/admin/config/log` | GET | AdminGetLogConfigShort | [AdminGetLogConfigShort](../../session-sdk/pkg/sessionclient/config/config_client.go) | [AdminGetLogConfigShort](../../session-sdk/pkg/wrapper_config.go) | [AdminGetLogConfigShort](../../samples/cli/cmd/session/config/adminGetLogConfig.go) |
+| `/session/v1/admin/config/log` | PATCH | AdminPatchUpdateLogConfigShort | [AdminPatchUpdateLogConfigShort](../../session-sdk/pkg/sessionclient/config/config_client.go) | [AdminPatchUpdateLogConfigShort](../../session-sdk/pkg/wrapper_config.go) | [AdminPatchUpdateLogConfigShort](../../samples/cli/cmd/session/config/adminPatchUpdateLogConfig.go) |
+
 ### DSMC Default Configuration Wrapper:  [DSMCDefaultConfiguration](../../session-sdk/pkg/wrapper_dsmcDefaultConfiguration.go)
 | Endpoint | Method | ID | Class | Wrapper | Example |
 |---|---|---|---|---|---|
@@ -81,6 +87,7 @@
 | `/session/v1/public/namespaces/{namespace}/gamesessions/{sessionId}/reject` | DELETE | PublicGameSessionRejectShort | [PublicGameSessionRejectShort](../../session-sdk/pkg/sessionclient/game_session/game_session_client.go) | [PublicGameSessionRejectShort](../../session-sdk/pkg/wrapper_gameSession.go) | [PublicGameSessionRejectShort](../../samples/cli/cmd/session/gameSession/publicGameSessionReject.go) |
 | `/session/v1/public/namespaces/{namespace}/gamesessions/{sessionId}/secret` | GET | GetSessionServerSecretShort | [GetSessionServerSecretShort](../../session-sdk/pkg/sessionclient/game_session/game_session_client.go) | [GetSessionServerSecretShort](../../session-sdk/pkg/wrapper_gameSession.go) | [GetSessionServerSecretShort](../../samples/cli/cmd/session/gameSession/getSessionServerSecret.go) |
 | `/session/v1/public/namespaces/{namespace}/gamesessions/{sessionId}/teams` | POST | AppendTeamGameSessionShort | [AppendTeamGameSessionShort](../../session-sdk/pkg/sessionclient/game_session/game_session_client.go) | [AppendTeamGameSessionShort](../../session-sdk/pkg/wrapper_gameSession.go) | [AppendTeamGameSessionShort](../../samples/cli/cmd/session/gameSession/appendTeamGameSession.go) |
+| `/session/v1/public/namespaces/{namespace}/gamesessions/{sessionId}/users/{userId}/cancel` | DELETE | PublicGameSessionCancelShort | [PublicGameSessionCancelShort](../../session-sdk/pkg/sessionclient/game_session/game_session_client.go) | [PublicGameSessionCancelShort](../../session-sdk/pkg/wrapper_gameSession.go) | [PublicGameSessionCancelShort](../../samples/cli/cmd/session/gameSession/publicGameSessionCancel.go) |
 | `/session/v1/public/namespaces/{namespace}/users/me/gamesessions` | GET | PublicQueryMyGameSessionsShort | [PublicQueryMyGameSessionsShort](../../session-sdk/pkg/sessionclient/game_session/game_session_client.go) | [PublicQueryMyGameSessionsShort](../../session-sdk/pkg/wrapper_gameSession.go) | [PublicQueryMyGameSessionsShort](../../samples/cli/cmd/session/gameSession/publicQueryMyGameSessions.go) |
 
 ### Native Session Wrapper:  [NativeSession](../../session-sdk/pkg/wrapper_nativeSession.go)
@@ -92,6 +99,7 @@
 | Endpoint | Method | ID | Class | Wrapper | Example |
 |---|---|---|---|---|---|
 | `/session/v1/admin/namespaces/{namespace}/parties` | GET | AdminQueryPartiesShort | [AdminQueryPartiesShort](../../session-sdk/pkg/sessionclient/party/party_client.go) | [AdminQueryPartiesShort](../../session-sdk/pkg/wrapper_party.go) | [AdminQueryPartiesShort](../../samples/cli/cmd/session/party/adminQueryParties.go) |
+| `/session/v1/admin/namespaces/{namespace}/users/{userId}/native-sync` | POST | AdminSyncNativeSessionShort | [AdminSyncNativeSessionShort](../../session-sdk/pkg/sessionclient/party/party_client.go) | [AdminSyncNativeSessionShort](../../session-sdk/pkg/wrapper_party.go) | [AdminSyncNativeSessionShort](../../samples/cli/cmd/session/party/adminSyncNativeSession.go) |
 | `/session/v1/public/namespaces/{namespace}/parties/users/me/join/code` | POST | PublicPartyJoinCodeShort | [PublicPartyJoinCodeShort](../../session-sdk/pkg/sessionclient/party/party_client.go) | [PublicPartyJoinCodeShort](../../session-sdk/pkg/wrapper_party.go) | [PublicPartyJoinCodeShort](../../samples/cli/cmd/session/party/publicPartyJoinCode.go) |
 | `/session/v1/public/namespaces/{namespace}/parties/{partyId}` | GET | PublicGetPartyShort | [PublicGetPartyShort](../../session-sdk/pkg/sessionclient/party/party_client.go) | [PublicGetPartyShort](../../session-sdk/pkg/wrapper_party.go) | [PublicGetPartyShort](../../samples/cli/cmd/session/party/publicGetParty.go) |
 | `/session/v1/public/namespaces/{namespace}/parties/{partyId}` | PUT | PublicUpdatePartyShort | [PublicUpdatePartyShort](../../session-sdk/pkg/sessionclient/party/party_client.go) | [PublicUpdatePartyShort](../../session-sdk/pkg/wrapper_party.go) | [PublicUpdatePartyShort](../../samples/cli/cmd/session/party/publicUpdateParty.go) |
@@ -103,6 +111,7 @@
 | `/session/v1/public/namespaces/{namespace}/parties/{partyId}/users/me/join` | POST | PublicPartyJoinShort | [PublicPartyJoinShort](../../session-sdk/pkg/sessionclient/party/party_client.go) | [PublicPartyJoinShort](../../session-sdk/pkg/wrapper_party.go) | [PublicPartyJoinShort](../../samples/cli/cmd/session/party/publicPartyJoin.go) |
 | `/session/v1/public/namespaces/{namespace}/parties/{partyId}/users/me/leave` | DELETE | PublicPartyLeaveShort | [PublicPartyLeaveShort](../../session-sdk/pkg/sessionclient/party/party_client.go) | [PublicPartyLeaveShort](../../session-sdk/pkg/wrapper_party.go) | [PublicPartyLeaveShort](../../samples/cli/cmd/session/party/publicPartyLeave.go) |
 | `/session/v1/public/namespaces/{namespace}/parties/{partyId}/users/me/reject` | DELETE | PublicPartyRejectShort | [PublicPartyRejectShort](../../session-sdk/pkg/sessionclient/party/party_client.go) | [PublicPartyRejectShort](../../session-sdk/pkg/wrapper_party.go) | [PublicPartyRejectShort](../../samples/cli/cmd/session/party/publicPartyReject.go) |
+| `/session/v1/public/namespaces/{namespace}/parties/{partyId}/users/{userId}/cancel` | DELETE | PublicPartyCancelShort | [PublicPartyCancelShort](../../session-sdk/pkg/sessionclient/party/party_client.go) | [PublicPartyCancelShort](../../session-sdk/pkg/wrapper_party.go) | [PublicPartyCancelShort](../../samples/cli/cmd/session/party/publicPartyCancel.go) |
 | `/session/v1/public/namespaces/{namespace}/parties/{partyId}/users/{userId}/kick` | DELETE | PublicPartyKickShort | [PublicPartyKickShort](../../session-sdk/pkg/sessionclient/party/party_client.go) | [PublicPartyKickShort](../../session-sdk/pkg/wrapper_party.go) | [PublicPartyKickShort](../../samples/cli/cmd/session/party/publicPartyKick.go) |
 | `/session/v1/public/namespaces/{namespace}/party` | POST | PublicCreatePartyShort | [PublicCreatePartyShort](../../session-sdk/pkg/sessionclient/party/party_client.go) | [PublicCreatePartyShort](../../session-sdk/pkg/wrapper_party.go) | [PublicCreatePartyShort](../../samples/cli/cmd/session/party/publicCreateParty.go) |
 | `/session/v1/public/namespaces/{namespace}/users/me/parties` | GET | PublicQueryMyPartiesShort | [PublicQueryMyPartiesShort](../../session-sdk/pkg/sessionclient/party/party_client.go) | [PublicQueryMyPartiesShort](../../session-sdk/pkg/wrapper_party.go) | [PublicQueryMyPartiesShort](../../samples/cli/cmd/session/party/publicQueryMyParties.go) |
@@ -184,6 +193,7 @@
 | `apimodels.ServerSecret` | [ApimodelsServerSecret ](../../session-sdk/pkg/sessionclientmodels/apimodels_server_secret.go) |
 | `apimodels.SessionInviteRequest` | [ApimodelsSessionInviteRequest ](../../session-sdk/pkg/sessionclientmodels/apimodels_session_invite_request.go) |
 | `apimodels.SessionInviteResponse` | [ApimodelsSessionInviteResponse ](../../session-sdk/pkg/sessionclientmodels/apimodels_session_invite_response.go) |
+| `apimodels.SessionStorageRequest` | [ApimodelsSessionStorageRequest ](../../session-sdk/pkg/sessionclientmodels/apimodels_session_storage_request.go) |
 | `apimodels.SetDSReadyRequest` | [ApimodelsSetDSReadyRequest ](../../session-sdk/pkg/sessionclientmodels/apimodels_set_d_s_ready_request.go) |
 | `apimodels.UpdateConfigurationTemplateRequest` | [ApimodelsUpdateConfigurationTemplateRequest ](../../session-sdk/pkg/sessionclientmodels/apimodels_update_configuration_template_request.go) |
 | `apimodels.UpdateGameSessionBackfillRequest` | [ApimodelsUpdateGameSessionBackfillRequest ](../../session-sdk/pkg/sessionclientmodels/apimodels_update_game_session_backfill_request.go) |
@@ -191,6 +201,7 @@
 | `apimodels.UpdateGameSessionRequest` | [ApimodelsUpdateGameSessionRequest ](../../session-sdk/pkg/sessionclientmodels/apimodels_update_game_session_request.go) |
 | `apimodels.UpdatePartyRequest` | [ApimodelsUpdatePartyRequest ](../../session-sdk/pkg/sessionclientmodels/apimodels_update_party_request.go) |
 | `apimodels.UserResponse` | [ApimodelsUserResponse ](../../session-sdk/pkg/sessionclientmodels/apimodels_user_response.go) |
+| `logconfig.Configuration` | [LogconfigConfiguration ](../../session-sdk/pkg/sessionclientmodels/logconfig_configuration.go) |
 | `model.NativeSession` | [ModelNativeSession ](../../session-sdk/pkg/sessionclientmodels/model_native_session.go) |
 | `model.NativeSessionMember` | [ModelNativeSessionMember ](../../session-sdk/pkg/sessionclientmodels/model_native_session_member.go) |
 | `models.DSMConfigRecord` | [ModelsDSMConfigRecord ](../../session-sdk/pkg/sessionclientmodels/models_d_s_m_config_record.go) |

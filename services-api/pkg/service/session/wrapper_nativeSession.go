@@ -13,7 +13,6 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/session-sdk/pkg/sessionclient"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/session-sdk/pkg/sessionclient/native_session"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/session-sdk/pkg/sessionclientmodels"
-	"github.com/go-openapi/runtime/client"
 )
 
 // NativeSessionService this is use for compatibility with latest modular sdk only
@@ -38,26 +37,6 @@ func (aaa *NativeSessionService) GetAuthSession() auth.Session {
 		aaa.ConfigRepository,
 		nil,
 	}
-}
-
-// Deprecated: 2022-01-10 - Please use AdminGetListNativeSessionShort instead.
-func (aaa *NativeSessionService) AdminGetListNativeSession(input *native_session.AdminGetListNativeSessionParams) (*sessionclientmodels.ApimodelsNativeSessionPagingResponse, error) {
-	token, err := aaa.TokenRepository.GetToken()
-	if err != nil {
-		return nil, err
-	}
-	ok, unauthorized, forbidden, err := aaa.Client.NativeSession.AdminGetListNativeSession(input, client.BearerToken(*token.AccessToken))
-	if unauthorized != nil {
-		return nil, unauthorized
-	}
-	if forbidden != nil {
-		return nil, forbidden
-	}
-	if err != nil {
-		return nil, err
-	}
-
-	return ok.GetPayload(), nil
 }
 
 func (aaa *NativeSessionService) AdminGetListNativeSessionShort(input *native_session.AdminGetListNativeSessionParams) (*sessionclientmodels.ApimodelsNativeSessionPagingResponse, error) {

@@ -30,86 +30,14 @@ type Client struct {
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	CreateModerationRule(params *CreateModerationRuleParams, authInfo runtime.ClientAuthInfoWriter) (*CreateModerationRuleCreated, *CreateModerationRuleBadRequest, *CreateModerationRuleConflict, *CreateModerationRuleInternalServerError, error)
 	CreateModerationRuleShort(params *CreateModerationRuleParams, authInfo runtime.ClientAuthInfoWriter) (*CreateModerationRuleCreated, error)
-	UpdateModerationRule(params *UpdateModerationRuleParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateModerationRuleOK, *UpdateModerationRuleBadRequest, *UpdateModerationRuleNotFound, *UpdateModerationRuleConflict, *UpdateModerationRuleInternalServerError, error)
 	UpdateModerationRuleShort(params *UpdateModerationRuleParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateModerationRuleOK, error)
-	DeleteModerationRule(params *DeleteModerationRuleParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteModerationRuleNoContent, *DeleteModerationRuleBadRequest, *DeleteModerationRuleInternalServerError, error)
 	DeleteModerationRuleShort(params *DeleteModerationRuleParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteModerationRuleNoContent, error)
-	UpdateModerationRuleStatus(params *UpdateModerationRuleStatusParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateModerationRuleStatusNoContent, *UpdateModerationRuleStatusBadRequest, *UpdateModerationRuleStatusNotFound, *UpdateModerationRuleStatusInternalServerError, error)
 	UpdateModerationRuleStatusShort(params *UpdateModerationRuleStatusParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateModerationRuleStatusNoContent, error)
-	GetModerationRules(params *GetModerationRulesParams, authInfo runtime.ClientAuthInfoWriter) (*GetModerationRulesOK, *GetModerationRulesBadRequest, *GetModerationRulesNotFound, *GetModerationRulesInternalServerError, error)
 	GetModerationRulesShort(params *GetModerationRulesParams, authInfo runtime.ClientAuthInfoWriter) (*GetModerationRulesOK, error)
-	GetModerationRuleDetails(params *GetModerationRuleDetailsParams, authInfo runtime.ClientAuthInfoWriter) (*GetModerationRuleDetailsOK, *GetModerationRuleDetailsNotFound, *GetModerationRuleDetailsInternalServerError, error)
 	GetModerationRuleDetailsShort(params *GetModerationRuleDetailsParams, authInfo runtime.ClientAuthInfoWriter) (*GetModerationRuleDetailsOK, error)
 
 	SetTransport(transport runtime.ClientTransport)
-}
-
-/*
-Deprecated: 2022-08-10 - Use CreateModerationRuleShort instead.
-
-CreateModerationRule create auto moderation rule
-This endpoint create moderation rule.
-Supported Category: - UGC - USER - CHAT - EXTENSION
-Supported Action (GOING TO DEPRECATE, for replacement please use "actions"):
-
-* HideContent
-
-Supported Actions:
-
-* **hideContent**: Hide the content
-* **banAccount**: Ban the user account
-* **deleteChat**: Delete chat
-*/
-func (a *Client) CreateModerationRule(params *CreateModerationRuleParams, authInfo runtime.ClientAuthInfoWriter) (*CreateModerationRuleCreated, *CreateModerationRuleBadRequest, *CreateModerationRuleConflict, *CreateModerationRuleInternalServerError, error) {
-	// TODO: Validate the params before sending
-	if params == nil {
-		params = NewCreateModerationRuleParams()
-	}
-
-	if params.Context == nil {
-		params.Context = context.Background()
-	}
-
-	if params.RetryPolicy != nil {
-		params.SetHTTPClientTransport(params.RetryPolicy)
-	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
-		ID:                 "createModerationRule",
-		Method:             "POST",
-		PathPattern:        "/reporting/v1/admin/namespaces/{namespace}/rule",
-		ProducesMediaTypes: []string{"application/json"},
-		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
-		Params:             params,
-		Reader:             &CreateModerationRuleReader{formats: a.formats},
-		AuthInfo:           authInfo,
-		Context:            params.Context,
-		Client:             params.HTTPClient,
-	})
-	if err != nil {
-		return nil, nil, nil, nil, err
-	}
-
-	switch v := result.(type) {
-
-	case *CreateModerationRuleCreated:
-		return v, nil, nil, nil, nil
-
-	case *CreateModerationRuleBadRequest:
-		return nil, v, nil, nil, nil
-
-	case *CreateModerationRuleConflict:
-		return nil, nil, v, nil, nil
-
-	case *CreateModerationRuleInternalServerError:
-		return nil, nil, nil, v, nil
-
-	default:
-		return nil, nil, nil, nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
-	}
 }
 
 /*
@@ -174,73 +102,6 @@ func (a *Client) CreateModerationRuleShort(params *CreateModerationRuleParams, a
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
-	}
-}
-
-/*
-Deprecated: 2022-08-10 - Use UpdateModerationRuleShort instead.
-
-UpdateModerationRule update auto moderation rule
-This endpoint update moderation rule.
-Supported Category:- UGC - USER - CHAT - EXTENSION
-Supported Action (GOING TO DEPRECATE, for replacement please use "actions"):
-* HideContent
-
-Supported Actions:
-* **hideContent**: Hide the content
-* **banAccount**: Ban the user account
-* **deleteChat**: Delete chat
-*/
-func (a *Client) UpdateModerationRule(params *UpdateModerationRuleParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateModerationRuleOK, *UpdateModerationRuleBadRequest, *UpdateModerationRuleNotFound, *UpdateModerationRuleConflict, *UpdateModerationRuleInternalServerError, error) {
-	// TODO: Validate the params before sending
-	if params == nil {
-		params = NewUpdateModerationRuleParams()
-	}
-
-	if params.Context == nil {
-		params.Context = context.Background()
-	}
-
-	if params.RetryPolicy != nil {
-		params.SetHTTPClientTransport(params.RetryPolicy)
-	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
-		ID:                 "updateModerationRule",
-		Method:             "PUT",
-		PathPattern:        "/reporting/v1/admin/namespaces/{namespace}/rule/{ruleId}",
-		ProducesMediaTypes: []string{"application/json"},
-		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
-		Params:             params,
-		Reader:             &UpdateModerationRuleReader{formats: a.formats},
-		AuthInfo:           authInfo,
-		Context:            params.Context,
-		Client:             params.HTTPClient,
-	})
-	if err != nil {
-		return nil, nil, nil, nil, nil, err
-	}
-
-	switch v := result.(type) {
-
-	case *UpdateModerationRuleOK:
-		return v, nil, nil, nil, nil, nil
-
-	case *UpdateModerationRuleBadRequest:
-		return nil, v, nil, nil, nil, nil
-
-	case *UpdateModerationRuleNotFound:
-		return nil, nil, v, nil, nil, nil
-
-	case *UpdateModerationRuleConflict:
-		return nil, nil, nil, v, nil, nil
-
-	case *UpdateModerationRuleInternalServerError:
-		return nil, nil, nil, nil, v, nil
-
-	default:
-		return nil, nil, nil, nil, nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
 	}
 }
 
@@ -310,59 +171,6 @@ func (a *Client) UpdateModerationRuleShort(params *UpdateModerationRuleParams, a
 }
 
 /*
-Deprecated: 2022-08-10 - Use DeleteModerationRuleShort instead.
-
-DeleteModerationRule delete auto moderation rule
-This endpoint delete moderation rule.
-*/
-func (a *Client) DeleteModerationRule(params *DeleteModerationRuleParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteModerationRuleNoContent, *DeleteModerationRuleBadRequest, *DeleteModerationRuleInternalServerError, error) {
-	// TODO: Validate the params before sending
-	if params == nil {
-		params = NewDeleteModerationRuleParams()
-	}
-
-	if params.Context == nil {
-		params.Context = context.Background()
-	}
-
-	if params.RetryPolicy != nil {
-		params.SetHTTPClientTransport(params.RetryPolicy)
-	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
-		ID:                 "deleteModerationRule",
-		Method:             "DELETE",
-		PathPattern:        "/reporting/v1/admin/namespaces/{namespace}/rule/{ruleId}",
-		ProducesMediaTypes: []string{"application/json"},
-		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
-		Params:             params,
-		Reader:             &DeleteModerationRuleReader{formats: a.formats},
-		AuthInfo:           authInfo,
-		Context:            params.Context,
-		Client:             params.HTTPClient,
-	})
-	if err != nil {
-		return nil, nil, nil, err
-	}
-
-	switch v := result.(type) {
-
-	case *DeleteModerationRuleNoContent:
-		return v, nil, nil, nil
-
-	case *DeleteModerationRuleBadRequest:
-		return nil, v, nil, nil
-
-	case *DeleteModerationRuleInternalServerError:
-		return nil, nil, v, nil
-
-	default:
-		return nil, nil, nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
-	}
-}
-
-/*
 DeleteModerationRuleShort delete auto moderation rule
 This endpoint delete moderation rule.
 */
@@ -412,62 +220,6 @@ func (a *Client) DeleteModerationRuleShort(params *DeleteModerationRuleParams, a
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
-	}
-}
-
-/*
-Deprecated: 2022-08-10 - Use UpdateModerationRuleStatusShort instead.
-
-UpdateModerationRuleStatus enable/disable auto moderation rule
-This endpoint enable/disable moderation rule status.
-*/
-func (a *Client) UpdateModerationRuleStatus(params *UpdateModerationRuleStatusParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateModerationRuleStatusNoContent, *UpdateModerationRuleStatusBadRequest, *UpdateModerationRuleStatusNotFound, *UpdateModerationRuleStatusInternalServerError, error) {
-	// TODO: Validate the params before sending
-	if params == nil {
-		params = NewUpdateModerationRuleStatusParams()
-	}
-
-	if params.Context == nil {
-		params.Context = context.Background()
-	}
-
-	if params.RetryPolicy != nil {
-		params.SetHTTPClientTransport(params.RetryPolicy)
-	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
-		ID:                 "updateModerationRuleStatus",
-		Method:             "PUT",
-		PathPattern:        "/reporting/v1/admin/namespaces/{namespace}/rule/{ruleId}/status",
-		ProducesMediaTypes: []string{"application/json"},
-		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
-		Params:             params,
-		Reader:             &UpdateModerationRuleStatusReader{formats: a.formats},
-		AuthInfo:           authInfo,
-		Context:            params.Context,
-		Client:             params.HTTPClient,
-	})
-	if err != nil {
-		return nil, nil, nil, nil, err
-	}
-
-	switch v := result.(type) {
-
-	case *UpdateModerationRuleStatusNoContent:
-		return v, nil, nil, nil, nil
-
-	case *UpdateModerationRuleStatusBadRequest:
-		return nil, v, nil, nil, nil
-
-	case *UpdateModerationRuleStatusNotFound:
-		return nil, nil, v, nil, nil
-
-	case *UpdateModerationRuleStatusInternalServerError:
-		return nil, nil, nil, v, nil
-
-	default:
-		return nil, nil, nil, nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
 	}
 }
 
@@ -527,62 +279,6 @@ func (a *Client) UpdateModerationRuleStatusShort(params *UpdateModerationRuleSta
 }
 
 /*
-Deprecated: 2022-08-10 - Use GetModerationRulesShort instead.
-
-GetModerationRules get auto moderation rules
-This endpoint get moderation rules.
-*/
-func (a *Client) GetModerationRules(params *GetModerationRulesParams, authInfo runtime.ClientAuthInfoWriter) (*GetModerationRulesOK, *GetModerationRulesBadRequest, *GetModerationRulesNotFound, *GetModerationRulesInternalServerError, error) {
-	// TODO: Validate the params before sending
-	if params == nil {
-		params = NewGetModerationRulesParams()
-	}
-
-	if params.Context == nil {
-		params.Context = context.Background()
-	}
-
-	if params.RetryPolicy != nil {
-		params.SetHTTPClientTransport(params.RetryPolicy)
-	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
-		ID:                 "getModerationRules",
-		Method:             "GET",
-		PathPattern:        "/reporting/v1/admin/namespaces/{namespace}/rules",
-		ProducesMediaTypes: []string{"application/json"},
-		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
-		Params:             params,
-		Reader:             &GetModerationRulesReader{formats: a.formats},
-		AuthInfo:           authInfo,
-		Context:            params.Context,
-		Client:             params.HTTPClient,
-	})
-	if err != nil {
-		return nil, nil, nil, nil, err
-	}
-
-	switch v := result.(type) {
-
-	case *GetModerationRulesOK:
-		return v, nil, nil, nil, nil
-
-	case *GetModerationRulesBadRequest:
-		return nil, v, nil, nil, nil
-
-	case *GetModerationRulesNotFound:
-		return nil, nil, v, nil, nil
-
-	case *GetModerationRulesInternalServerError:
-		return nil, nil, nil, v, nil
-
-	default:
-		return nil, nil, nil, nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
-	}
-}
-
-/*
 GetModerationRulesShort get auto moderation rules
 This endpoint get moderation rules.
 */
@@ -634,59 +330,6 @@ func (a *Client) GetModerationRulesShort(params *GetModerationRulesParams, authI
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
-	}
-}
-
-/*
-Deprecated: 2022-08-10 - Use GetModerationRuleDetailsShort instead.
-
-GetModerationRuleDetails get auto moderation rule
-This endpoint get moderation rule.
-*/
-func (a *Client) GetModerationRuleDetails(params *GetModerationRuleDetailsParams, authInfo runtime.ClientAuthInfoWriter) (*GetModerationRuleDetailsOK, *GetModerationRuleDetailsNotFound, *GetModerationRuleDetailsInternalServerError, error) {
-	// TODO: Validate the params before sending
-	if params == nil {
-		params = NewGetModerationRuleDetailsParams()
-	}
-
-	if params.Context == nil {
-		params.Context = context.Background()
-	}
-
-	if params.RetryPolicy != nil {
-		params.SetHTTPClientTransport(params.RetryPolicy)
-	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
-		ID:                 "getModerationRuleDetails",
-		Method:             "GET",
-		PathPattern:        "/reporting/v1/admin/namespaces/{namespace}/rules/{ruleId}",
-		ProducesMediaTypes: []string{"application/json"},
-		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
-		Params:             params,
-		Reader:             &GetModerationRuleDetailsReader{formats: a.formats},
-		AuthInfo:           authInfo,
-		Context:            params.Context,
-		Client:             params.HTTPClient,
-	})
-	if err != nil {
-		return nil, nil, nil, err
-	}
-
-	switch v := result.(type) {
-
-	case *GetModerationRuleDetailsOK:
-		return v, nil, nil, nil
-
-	case *GetModerationRuleDetailsNotFound:
-		return nil, v, nil, nil
-
-	case *GetModerationRuleDetailsInternalServerError:
-		return nil, nil, v, nil
-
-	default:
-		return nil, nil, nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
 	}
 }
 

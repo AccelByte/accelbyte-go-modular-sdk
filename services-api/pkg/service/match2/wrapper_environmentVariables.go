@@ -13,7 +13,6 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils/auth"
-	"github.com/go-openapi/runtime/client"
 )
 
 // EnvironmentVariablesService this is use for compatibility with latest modular sdk only
@@ -38,26 +37,6 @@ func (aaa *EnvironmentVariablesService) GetAuthSession() auth.Session {
 		aaa.ConfigRepository,
 		nil,
 	}
-}
-
-// Deprecated: 2022-01-10 - Please use EnvironmentVariableListShort instead.
-func (aaa *EnvironmentVariablesService) EnvironmentVariableList(input *environment_variables.EnvironmentVariableListParams) (*match2clientmodels.APIListEnvironmentVariablesResponse, error) {
-	token, err := aaa.TokenRepository.GetToken()
-	if err != nil {
-		return nil, err
-	}
-	ok, unauthorized, forbidden, err := aaa.Client.EnvironmentVariables.EnvironmentVariableList(input, client.BearerToken(*token.AccessToken))
-	if unauthorized != nil {
-		return nil, unauthorized
-	}
-	if forbidden != nil {
-		return nil, forbidden
-	}
-	if err != nil {
-		return nil, err
-	}
-
-	return ok.GetPayload(), nil
 }
 
 func (aaa *EnvironmentVariablesService) EnvironmentVariableListShort(input *environment_variables.EnvironmentVariableListParams) (*match2clientmodels.APIListEnvironmentVariablesResponse, error) {

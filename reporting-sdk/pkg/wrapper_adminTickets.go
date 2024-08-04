@@ -13,7 +13,6 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils/auth"
-	"github.com/go-openapi/runtime/client"
 )
 
 type AdminTicketsService struct {
@@ -36,114 +35,6 @@ func (aaa *AdminTicketsService) GetAuthSession() auth.Session {
 		aaa.ConfigRepository,
 		nil,
 	}
-}
-
-// Deprecated: 2022-01-10 - Please use ListTicketsShort instead.
-func (aaa *AdminTicketsService) ListTickets(input *admin_tickets.ListTicketsParams) (*reportingclientmodels.RestapiTicketListResponse, error) {
-	token, err := aaa.TokenRepository.GetToken()
-	if err != nil {
-		return nil, err
-	}
-	ok, internalServerError, err := aaa.Client.AdminTickets.ListTickets(input, client.BearerToken(*token.AccessToken))
-	if internalServerError != nil {
-		return nil, internalServerError
-	}
-	if err != nil {
-		return nil, err
-	}
-
-	return ok.GetPayload(), nil
-}
-
-// Deprecated: 2022-01-10 - Please use TicketStatisticShort instead.
-func (aaa *AdminTicketsService) TicketStatistic(input *admin_tickets.TicketStatisticParams) (*reportingclientmodels.RestapiTicketStatisticResponse, error) {
-	token, err := aaa.TokenRepository.GetToken()
-	if err != nil {
-		return nil, err
-	}
-	ok, internalServerError, err := aaa.Client.AdminTickets.TicketStatistic(input, client.BearerToken(*token.AccessToken))
-	if internalServerError != nil {
-		return nil, internalServerError
-	}
-	if err != nil {
-		return nil, err
-	}
-
-	return ok.GetPayload(), nil
-}
-
-// Deprecated: 2022-01-10 - Please use GetTicketDetailShort instead.
-func (aaa *AdminTicketsService) GetTicketDetail(input *admin_tickets.GetTicketDetailParams) (*reportingclientmodels.RestapiTicketResponse, error) {
-	token, err := aaa.TokenRepository.GetToken()
-	if err != nil {
-		return nil, err
-	}
-	ok, notFound, internalServerError, err := aaa.Client.AdminTickets.GetTicketDetail(input, client.BearerToken(*token.AccessToken))
-	if notFound != nil {
-		return nil, notFound
-	}
-	if internalServerError != nil {
-		return nil, internalServerError
-	}
-	if err != nil {
-		return nil, err
-	}
-
-	return ok.GetPayload(), nil
-}
-
-// Deprecated: 2022-01-10 - Please use DeleteTicketShort instead.
-func (aaa *AdminTicketsService) DeleteTicket(input *admin_tickets.DeleteTicketParams) error {
-	token, err := aaa.TokenRepository.GetToken()
-	if err != nil {
-		return err
-	}
-	_, notFound, internalServerError, err := aaa.Client.AdminTickets.DeleteTicket(input, client.BearerToken(*token.AccessToken))
-	if notFound != nil {
-		return notFound
-	}
-	if internalServerError != nil {
-		return internalServerError
-	}
-	if err != nil {
-		return err
-	}
-
-	return nil
-}
-
-// Deprecated: 2022-01-10 - Please use GetReportsByTicketShort instead.
-func (aaa *AdminTicketsService) GetReportsByTicket(input *admin_tickets.GetReportsByTicketParams) (*reportingclientmodels.RestapiReportListResponse, error) {
-	token, err := aaa.TokenRepository.GetToken()
-	if err != nil {
-		return nil, err
-	}
-	ok, internalServerError, err := aaa.Client.AdminTickets.GetReportsByTicket(input, client.BearerToken(*token.AccessToken))
-	if internalServerError != nil {
-		return nil, internalServerError
-	}
-	if err != nil {
-		return nil, err
-	}
-
-	return ok.GetPayload(), nil
-}
-
-// Deprecated: 2022-01-10 - Please use UpdateTicketResolutionsShort instead.
-func (aaa *AdminTicketsService) UpdateTicketResolutions(input *admin_tickets.UpdateTicketResolutionsParams) (*reportingclientmodels.RestapiTicketResponse, error) {
-	token, err := aaa.TokenRepository.GetToken()
-	if err != nil {
-		return nil, err
-	}
-	ok, internalServerError, err := aaa.Client.AdminTickets.UpdateTicketResolutions(input, client.BearerToken(*token.AccessToken))
-	if internalServerError != nil {
-		return nil, internalServerError
-	}
-	if err != nil {
-		return nil, err
-	}
-
-	return ok.GetPayload(), nil
 }
 
 func (aaa *AdminTicketsService) ListTicketsShort(input *admin_tickets.ListTicketsParams) (*reportingclientmodels.RestapiTicketListResponse, error) {

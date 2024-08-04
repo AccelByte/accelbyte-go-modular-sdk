@@ -31,69 +31,11 @@ type Client struct {
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	BatchDownloadServerLogs(params *BatchDownloadServerLogsParams, authInfo runtime.ClientAuthInfoWriter, writer io.Writer) (*BatchDownloadServerLogsOK, *BatchDownloadServerLogsBadRequest, *BatchDownloadServerLogsInternalServerError, error)
 	BatchDownloadServerLogsShort(params *BatchDownloadServerLogsParams, authInfo runtime.ClientAuthInfoWriter, writer io.Writer) (*BatchDownloadServerLogsOK, error)
-	ListAllTerminatedServers(params *ListAllTerminatedServersParams, authInfo runtime.ClientAuthInfoWriter) (*ListAllTerminatedServersOK, *ListAllTerminatedServersBadRequest, *ListAllTerminatedServersUnauthorized, *ListAllTerminatedServersInternalServerError, error)
+	ListMetadataServersShort(params *ListMetadataServersParams, authInfo runtime.ClientAuthInfoWriter) (*ListMetadataServersOK, error)
 	ListAllTerminatedServersShort(params *ListAllTerminatedServersParams, authInfo runtime.ClientAuthInfoWriter) (*ListAllTerminatedServersOK, error)
 
 	SetTransport(transport runtime.ClientTransport)
-}
-
-/*
-Deprecated: 2022-08-10 - Use BatchDownloadServerLogsShort instead.
-
-BatchDownloadServerLogs batch download dedicated server log files
-Required permission: ADMIN:NAMESPACE:{namespace}:DSLM:LOG [READ]
-
-Required scope: social
-
-This endpoint will download dedicated server's log file (.zip).
-*/
-func (a *Client) BatchDownloadServerLogs(params *BatchDownloadServerLogsParams, authInfo runtime.ClientAuthInfoWriter, writer io.Writer) (*BatchDownloadServerLogsOK, *BatchDownloadServerLogsBadRequest, *BatchDownloadServerLogsInternalServerError, error) {
-	// TODO: Validate the params before sending
-	if params == nil {
-		params = NewBatchDownloadServerLogsParams()
-	}
-
-	if params.Context == nil {
-		params.Context = context.Background()
-	}
-
-	if params.RetryPolicy != nil {
-		params.SetHTTPClientTransport(params.RetryPolicy)
-	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
-		ID:                 "batchDownloadServerLogs",
-		Method:             "POST",
-		PathPattern:        "/dslogmanager/servers/logs/download",
-		ProducesMediaTypes: []string{"application/json"},
-		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
-		Params:             params,
-		Reader:             &BatchDownloadServerLogsReader{formats: a.formats, writer: writer},
-		AuthInfo:           authInfo,
-		Context:            params.Context,
-		Client:             params.HTTPClient,
-	})
-	if err != nil {
-		return nil, nil, nil, err
-	}
-
-	switch v := result.(type) {
-
-	case *BatchDownloadServerLogsOK:
-		return v, nil, nil, nil
-
-	case *BatchDownloadServerLogsBadRequest:
-		return nil, v, nil, nil
-
-	case *BatchDownloadServerLogsInternalServerError:
-		return nil, nil, v, nil
-
-	default:
-		return nil, nil, nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
-	}
 }
 
 /*
@@ -154,19 +96,19 @@ func (a *Client) BatchDownloadServerLogsShort(params *BatchDownloadServerLogsPar
 }
 
 /*
-Deprecated: 2022-08-10 - Use ListAllTerminatedServersShort instead.
-
-ListAllTerminatedServers retrieve all terminated servers
+ListMetadataServersShort retrieve metadata servers
 ```
 Required permission: ADMIN:NAMESPACE:{namespace}:DSLM:SERVER [READ]
 
-This endpoint used to retrieve terminated servers in all namespace
+This endpoint used to retrieve metadata servers in a namespace
+
+The namespace filter is will give result exact namespace response
 ```
 */
-func (a *Client) ListAllTerminatedServers(params *ListAllTerminatedServersParams, authInfo runtime.ClientAuthInfoWriter) (*ListAllTerminatedServersOK, *ListAllTerminatedServersBadRequest, *ListAllTerminatedServersUnauthorized, *ListAllTerminatedServersInternalServerError, error) {
+func (a *Client) ListMetadataServersShort(params *ListMetadataServersParams, authInfo runtime.ClientAuthInfoWriter) (*ListMetadataServersOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
-		params = NewListAllTerminatedServersParams()
+		params = NewListMetadataServersParams()
 	}
 
 	if params.Context == nil {
@@ -177,39 +119,40 @@ func (a *Client) ListAllTerminatedServers(params *ListAllTerminatedServersParams
 		params.SetHTTPClientTransport(params.RetryPolicy)
 	}
 
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
+	}
+
 	result, err := a.transport.Submit(&runtime.ClientOperation{
-		ID:                 "listAllTerminatedServers",
-		Method:             "GET",
-		PathPattern:        "/dslogmanager/servers/search",
+		ID:                 "listMetadataServers",
+		Method:             "POST",
+		PathPattern:        "/dslogmanager/servers/metadata",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"https"},
 		Params:             params,
-		Reader:             &ListAllTerminatedServersReader{formats: a.formats},
+		Reader:             &ListMetadataServersReader{formats: a.formats},
 		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	})
 	if err != nil {
-		return nil, nil, nil, nil, err
+		return nil, err
 	}
 
 	switch v := result.(type) {
 
-	case *ListAllTerminatedServersOK:
-		return v, nil, nil, nil, nil
-
-	case *ListAllTerminatedServersBadRequest:
-		return nil, v, nil, nil, nil
-
-	case *ListAllTerminatedServersUnauthorized:
-		return nil, nil, v, nil, nil
-
-	case *ListAllTerminatedServersInternalServerError:
-		return nil, nil, nil, v, nil
+	case *ListMetadataServersOK:
+		return v, nil
+	case *ListMetadataServersBadRequest:
+		return nil, v
+	case *ListMetadataServersUnauthorized:
+		return nil, v
+	case *ListMetadataServersInternalServerError:
+		return nil, v
 
 	default:
-		return nil, nil, nil, nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
+		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
 	}
 }
 

@@ -30,81 +30,15 @@ type Client struct {
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	AdminListPlayerBinaryRecordsV1(params *AdminListPlayerBinaryRecordsV1Params, authInfo runtime.ClientAuthInfoWriter) (*AdminListPlayerBinaryRecordsV1OK, *AdminListPlayerBinaryRecordsV1BadRequest, *AdminListPlayerBinaryRecordsV1Unauthorized, *AdminListPlayerBinaryRecordsV1Forbidden, *AdminListPlayerBinaryRecordsV1InternalServerError, error)
 	AdminListPlayerBinaryRecordsV1Short(params *AdminListPlayerBinaryRecordsV1Params, authInfo runtime.ClientAuthInfoWriter) (*AdminListPlayerBinaryRecordsV1OK, error)
-	AdminPostPlayerBinaryRecordV1(params *AdminPostPlayerBinaryRecordV1Params, authInfo runtime.ClientAuthInfoWriter) (*AdminPostPlayerBinaryRecordV1Created, *AdminPostPlayerBinaryRecordV1BadRequest, *AdminPostPlayerBinaryRecordV1Unauthorized, *AdminPostPlayerBinaryRecordV1Forbidden, *AdminPostPlayerBinaryRecordV1Conflict, *AdminPostPlayerBinaryRecordV1InternalServerError, error)
 	AdminPostPlayerBinaryRecordV1Short(params *AdminPostPlayerBinaryRecordV1Params, authInfo runtime.ClientAuthInfoWriter) (*AdminPostPlayerBinaryRecordV1Created, error)
-	AdminGetPlayerBinaryRecordV1(params *AdminGetPlayerBinaryRecordV1Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetPlayerBinaryRecordV1OK, *AdminGetPlayerBinaryRecordV1Unauthorized, *AdminGetPlayerBinaryRecordV1Forbidden, *AdminGetPlayerBinaryRecordV1NotFound, *AdminGetPlayerBinaryRecordV1InternalServerError, error)
 	AdminGetPlayerBinaryRecordV1Short(params *AdminGetPlayerBinaryRecordV1Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetPlayerBinaryRecordV1OK, error)
-	AdminPutPlayerBinaryRecordV1(params *AdminPutPlayerBinaryRecordV1Params, authInfo runtime.ClientAuthInfoWriter) (*AdminPutPlayerBinaryRecordV1OK, *AdminPutPlayerBinaryRecordV1BadRequest, *AdminPutPlayerBinaryRecordV1Unauthorized, *AdminPutPlayerBinaryRecordV1Forbidden, *AdminPutPlayerBinaryRecordV1NotFound, *AdminPutPlayerBinaryRecordV1InternalServerError, error)
 	AdminPutPlayerBinaryRecordV1Short(params *AdminPutPlayerBinaryRecordV1Params, authInfo runtime.ClientAuthInfoWriter) (*AdminPutPlayerBinaryRecordV1OK, error)
-	AdminDeletePlayerBinaryRecordV1(params *AdminDeletePlayerBinaryRecordV1Params, authInfo runtime.ClientAuthInfoWriter) (*AdminDeletePlayerBinaryRecordV1NoContent, *AdminDeletePlayerBinaryRecordV1Unauthorized, *AdminDeletePlayerBinaryRecordV1Forbidden, *AdminDeletePlayerBinaryRecordV1NotFound, *AdminDeletePlayerBinaryRecordV1InternalServerError, error)
 	AdminDeletePlayerBinaryRecordV1Short(params *AdminDeletePlayerBinaryRecordV1Params, authInfo runtime.ClientAuthInfoWriter) (*AdminDeletePlayerBinaryRecordV1NoContent, error)
-	AdminPutPlayerBinaryRecorMetadataV1(params *AdminPutPlayerBinaryRecorMetadataV1Params, authInfo runtime.ClientAuthInfoWriter) (*AdminPutPlayerBinaryRecorMetadataV1OK, *AdminPutPlayerBinaryRecorMetadataV1BadRequest, *AdminPutPlayerBinaryRecorMetadataV1Unauthorized, *AdminPutPlayerBinaryRecorMetadataV1Forbidden, *AdminPutPlayerBinaryRecorMetadataV1NotFound, *AdminPutPlayerBinaryRecorMetadataV1InternalServerError, error)
 	AdminPutPlayerBinaryRecorMetadataV1Short(params *AdminPutPlayerBinaryRecorMetadataV1Params, authInfo runtime.ClientAuthInfoWriter) (*AdminPutPlayerBinaryRecorMetadataV1OK, error)
-	AdminPostPlayerBinaryPresignedURLV1(params *AdminPostPlayerBinaryPresignedURLV1Params, authInfo runtime.ClientAuthInfoWriter) (*AdminPostPlayerBinaryPresignedURLV1Created, *AdminPostPlayerBinaryPresignedURLV1BadRequest, *AdminPostPlayerBinaryPresignedURLV1Unauthorized, *AdminPostPlayerBinaryPresignedURLV1Forbidden, *AdminPostPlayerBinaryPresignedURLV1NotFound, *AdminPostPlayerBinaryPresignedURLV1InternalServerError, error)
 	AdminPostPlayerBinaryPresignedURLV1Short(params *AdminPostPlayerBinaryPresignedURLV1Params, authInfo runtime.ClientAuthInfoWriter) (*AdminPostPlayerBinaryPresignedURLV1Created, error)
 
 	SetTransport(transport runtime.ClientTransport)
-}
-
-/*
-Deprecated: 2022-08-10 - Use AdminListPlayerBinaryRecordsV1Short instead.
-
-AdminListPlayerBinaryRecordsV1 query player binary records
-Retrieve list of player binary records by namespace.
-*/
-func (a *Client) AdminListPlayerBinaryRecordsV1(params *AdminListPlayerBinaryRecordsV1Params, authInfo runtime.ClientAuthInfoWriter) (*AdminListPlayerBinaryRecordsV1OK, *AdminListPlayerBinaryRecordsV1BadRequest, *AdminListPlayerBinaryRecordsV1Unauthorized, *AdminListPlayerBinaryRecordsV1Forbidden, *AdminListPlayerBinaryRecordsV1InternalServerError, error) {
-	// TODO: Validate the params before sending
-	if params == nil {
-		params = NewAdminListPlayerBinaryRecordsV1Params()
-	}
-
-	if params.Context == nil {
-		params.Context = context.Background()
-	}
-
-	if params.RetryPolicy != nil {
-		params.SetHTTPClientTransport(params.RetryPolicy)
-	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
-		ID:                 "adminListPlayerBinaryRecordsV1",
-		Method:             "GET",
-		PathPattern:        "/cloudsave/v1/admin/namespaces/{namespace}/users/{userId}/binaries",
-		ProducesMediaTypes: []string{"application/json"},
-		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
-		Params:             params,
-		Reader:             &AdminListPlayerBinaryRecordsV1Reader{formats: a.formats},
-		AuthInfo:           authInfo,
-		Context:            params.Context,
-		Client:             params.HTTPClient,
-	})
-	if err != nil {
-		return nil, nil, nil, nil, nil, err
-	}
-
-	switch v := result.(type) {
-
-	case *AdminListPlayerBinaryRecordsV1OK:
-		return v, nil, nil, nil, nil, nil
-
-	case *AdminListPlayerBinaryRecordsV1BadRequest:
-		return nil, v, nil, nil, nil, nil
-
-	case *AdminListPlayerBinaryRecordsV1Unauthorized:
-		return nil, nil, v, nil, nil, nil
-
-	case *AdminListPlayerBinaryRecordsV1Forbidden:
-		return nil, nil, nil, v, nil, nil
-
-	case *AdminListPlayerBinaryRecordsV1InternalServerError:
-		return nil, nil, nil, nil, v, nil
-
-	default:
-		return nil, nil, nil, nil, nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
-	}
 }
 
 /*
@@ -161,79 +95,6 @@ func (a *Client) AdminListPlayerBinaryRecordsV1Short(params *AdminListPlayerBina
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
-	}
-}
-
-/*
-Deprecated: 2022-08-10 - Use AdminPostPlayerBinaryRecordV1Short instead.
-
-AdminPostPlayerBinaryRecordV1 create player binary record
-Create a player binary record.
-
-Other detail info:
-
-`key` should follow these rules:
-1. support uppercase and lowercase letters, numbers, and separators **"-"**, **"_"**, **"."** are allowed
-2. begin and end with letters or numbers
-3. spaces are not allowed
-4. separators must not appears twice in a row
-
-
-Supported file types: jpeg, jpg, png, bmp, gif, mp3, webp, and bin.
-*/
-func (a *Client) AdminPostPlayerBinaryRecordV1(params *AdminPostPlayerBinaryRecordV1Params, authInfo runtime.ClientAuthInfoWriter) (*AdminPostPlayerBinaryRecordV1Created, *AdminPostPlayerBinaryRecordV1BadRequest, *AdminPostPlayerBinaryRecordV1Unauthorized, *AdminPostPlayerBinaryRecordV1Forbidden, *AdminPostPlayerBinaryRecordV1Conflict, *AdminPostPlayerBinaryRecordV1InternalServerError, error) {
-	// TODO: Validate the params before sending
-	if params == nil {
-		params = NewAdminPostPlayerBinaryRecordV1Params()
-	}
-
-	if params.Context == nil {
-		params.Context = context.Background()
-	}
-
-	if params.RetryPolicy != nil {
-		params.SetHTTPClientTransport(params.RetryPolicy)
-	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
-		ID:                 "adminPostPlayerBinaryRecordV1",
-		Method:             "POST",
-		PathPattern:        "/cloudsave/v1/admin/namespaces/{namespace}/users/{userId}/binaries",
-		ProducesMediaTypes: []string{"application/json"},
-		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
-		Params:             params,
-		Reader:             &AdminPostPlayerBinaryRecordV1Reader{formats: a.formats},
-		AuthInfo:           authInfo,
-		Context:            params.Context,
-		Client:             params.HTTPClient,
-	})
-	if err != nil {
-		return nil, nil, nil, nil, nil, nil, err
-	}
-
-	switch v := result.(type) {
-
-	case *AdminPostPlayerBinaryRecordV1Created:
-		return v, nil, nil, nil, nil, nil, nil
-
-	case *AdminPostPlayerBinaryRecordV1BadRequest:
-		return nil, v, nil, nil, nil, nil, nil
-
-	case *AdminPostPlayerBinaryRecordV1Unauthorized:
-		return nil, nil, v, nil, nil, nil, nil
-
-	case *AdminPostPlayerBinaryRecordV1Forbidden:
-		return nil, nil, nil, v, nil, nil, nil
-
-	case *AdminPostPlayerBinaryRecordV1Conflict:
-		return nil, nil, nil, nil, v, nil, nil
-
-	case *AdminPostPlayerBinaryRecordV1InternalServerError:
-		return nil, nil, nil, nil, nil, v, nil
-
-	default:
-		return nil, nil, nil, nil, nil, nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
 	}
 }
 
@@ -308,65 +169,6 @@ func (a *Client) AdminPostPlayerBinaryRecordV1Short(params *AdminPostPlayerBinar
 }
 
 /*
-Deprecated: 2022-08-10 - Use AdminGetPlayerBinaryRecordV1Short instead.
-
-AdminGetPlayerBinaryRecordV1 get player binary record
-Get a player binary record by its key.
-*/
-func (a *Client) AdminGetPlayerBinaryRecordV1(params *AdminGetPlayerBinaryRecordV1Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetPlayerBinaryRecordV1OK, *AdminGetPlayerBinaryRecordV1Unauthorized, *AdminGetPlayerBinaryRecordV1Forbidden, *AdminGetPlayerBinaryRecordV1NotFound, *AdminGetPlayerBinaryRecordV1InternalServerError, error) {
-	// TODO: Validate the params before sending
-	if params == nil {
-		params = NewAdminGetPlayerBinaryRecordV1Params()
-	}
-
-	if params.Context == nil {
-		params.Context = context.Background()
-	}
-
-	if params.RetryPolicy != nil {
-		params.SetHTTPClientTransport(params.RetryPolicy)
-	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
-		ID:                 "adminGetPlayerBinaryRecordV1",
-		Method:             "GET",
-		PathPattern:        "/cloudsave/v1/admin/namespaces/{namespace}/users/{userId}/binaries/{key}",
-		ProducesMediaTypes: []string{"application/json"},
-		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
-		Params:             params,
-		Reader:             &AdminGetPlayerBinaryRecordV1Reader{formats: a.formats},
-		AuthInfo:           authInfo,
-		Context:            params.Context,
-		Client:             params.HTTPClient,
-	})
-	if err != nil {
-		return nil, nil, nil, nil, nil, err
-	}
-
-	switch v := result.(type) {
-
-	case *AdminGetPlayerBinaryRecordV1OK:
-		return v, nil, nil, nil, nil, nil
-
-	case *AdminGetPlayerBinaryRecordV1Unauthorized:
-		return nil, v, nil, nil, nil, nil
-
-	case *AdminGetPlayerBinaryRecordV1Forbidden:
-		return nil, nil, v, nil, nil, nil
-
-	case *AdminGetPlayerBinaryRecordV1NotFound:
-		return nil, nil, nil, v, nil, nil
-
-	case *AdminGetPlayerBinaryRecordV1InternalServerError:
-		return nil, nil, nil, nil, v, nil
-
-	default:
-		return nil, nil, nil, nil, nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
-	}
-}
-
-/*
 AdminGetPlayerBinaryRecordV1Short get player binary record
 Get a player binary record by its key.
 */
@@ -420,68 +222,6 @@ func (a *Client) AdminGetPlayerBinaryRecordV1Short(params *AdminGetPlayerBinaryR
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
-	}
-}
-
-/*
-Deprecated: 2022-08-10 - Use AdminPutPlayerBinaryRecordV1Short instead.
-
-AdminPutPlayerBinaryRecordV1 update player binary record file
-Update a player binary record file by its key
-*/
-func (a *Client) AdminPutPlayerBinaryRecordV1(params *AdminPutPlayerBinaryRecordV1Params, authInfo runtime.ClientAuthInfoWriter) (*AdminPutPlayerBinaryRecordV1OK, *AdminPutPlayerBinaryRecordV1BadRequest, *AdminPutPlayerBinaryRecordV1Unauthorized, *AdminPutPlayerBinaryRecordV1Forbidden, *AdminPutPlayerBinaryRecordV1NotFound, *AdminPutPlayerBinaryRecordV1InternalServerError, error) {
-	// TODO: Validate the params before sending
-	if params == nil {
-		params = NewAdminPutPlayerBinaryRecordV1Params()
-	}
-
-	if params.Context == nil {
-		params.Context = context.Background()
-	}
-
-	if params.RetryPolicy != nil {
-		params.SetHTTPClientTransport(params.RetryPolicy)
-	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
-		ID:                 "adminPutPlayerBinaryRecordV1",
-		Method:             "PUT",
-		PathPattern:        "/cloudsave/v1/admin/namespaces/{namespace}/users/{userId}/binaries/{key}",
-		ProducesMediaTypes: []string{"application/json"},
-		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
-		Params:             params,
-		Reader:             &AdminPutPlayerBinaryRecordV1Reader{formats: a.formats},
-		AuthInfo:           authInfo,
-		Context:            params.Context,
-		Client:             params.HTTPClient,
-	})
-	if err != nil {
-		return nil, nil, nil, nil, nil, nil, err
-	}
-
-	switch v := result.(type) {
-
-	case *AdminPutPlayerBinaryRecordV1OK:
-		return v, nil, nil, nil, nil, nil, nil
-
-	case *AdminPutPlayerBinaryRecordV1BadRequest:
-		return nil, v, nil, nil, nil, nil, nil
-
-	case *AdminPutPlayerBinaryRecordV1Unauthorized:
-		return nil, nil, v, nil, nil, nil, nil
-
-	case *AdminPutPlayerBinaryRecordV1Forbidden:
-		return nil, nil, nil, v, nil, nil, nil
-
-	case *AdminPutPlayerBinaryRecordV1NotFound:
-		return nil, nil, nil, nil, v, nil, nil
-
-	case *AdminPutPlayerBinaryRecordV1InternalServerError:
-		return nil, nil, nil, nil, nil, v, nil
-
-	default:
-		return nil, nil, nil, nil, nil, nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
 	}
 }
 
@@ -545,65 +285,6 @@ func (a *Client) AdminPutPlayerBinaryRecordV1Short(params *AdminPutPlayerBinaryR
 }
 
 /*
-Deprecated: 2022-08-10 - Use AdminDeletePlayerBinaryRecordV1Short instead.
-
-AdminDeletePlayerBinaryRecordV1 delete player binary record
-Delete a player binary record.
-*/
-func (a *Client) AdminDeletePlayerBinaryRecordV1(params *AdminDeletePlayerBinaryRecordV1Params, authInfo runtime.ClientAuthInfoWriter) (*AdminDeletePlayerBinaryRecordV1NoContent, *AdminDeletePlayerBinaryRecordV1Unauthorized, *AdminDeletePlayerBinaryRecordV1Forbidden, *AdminDeletePlayerBinaryRecordV1NotFound, *AdminDeletePlayerBinaryRecordV1InternalServerError, error) {
-	// TODO: Validate the params before sending
-	if params == nil {
-		params = NewAdminDeletePlayerBinaryRecordV1Params()
-	}
-
-	if params.Context == nil {
-		params.Context = context.Background()
-	}
-
-	if params.RetryPolicy != nil {
-		params.SetHTTPClientTransport(params.RetryPolicy)
-	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
-		ID:                 "adminDeletePlayerBinaryRecordV1",
-		Method:             "DELETE",
-		PathPattern:        "/cloudsave/v1/admin/namespaces/{namespace}/users/{userId}/binaries/{key}",
-		ProducesMediaTypes: []string{"application/json"},
-		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
-		Params:             params,
-		Reader:             &AdminDeletePlayerBinaryRecordV1Reader{formats: a.formats},
-		AuthInfo:           authInfo,
-		Context:            params.Context,
-		Client:             params.HTTPClient,
-	})
-	if err != nil {
-		return nil, nil, nil, nil, nil, err
-	}
-
-	switch v := result.(type) {
-
-	case *AdminDeletePlayerBinaryRecordV1NoContent:
-		return v, nil, nil, nil, nil, nil
-
-	case *AdminDeletePlayerBinaryRecordV1Unauthorized:
-		return nil, v, nil, nil, nil, nil
-
-	case *AdminDeletePlayerBinaryRecordV1Forbidden:
-		return nil, nil, v, nil, nil, nil
-
-	case *AdminDeletePlayerBinaryRecordV1NotFound:
-		return nil, nil, nil, v, nil, nil
-
-	case *AdminDeletePlayerBinaryRecordV1InternalServerError:
-		return nil, nil, nil, nil, v, nil
-
-	default:
-		return nil, nil, nil, nil, nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
-	}
-}
-
-/*
 AdminDeletePlayerBinaryRecordV1Short delete player binary record
 Delete a player binary record.
 */
@@ -657,68 +338,6 @@ func (a *Client) AdminDeletePlayerBinaryRecordV1Short(params *AdminDeletePlayerB
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
-	}
-}
-
-/*
-Deprecated: 2022-08-10 - Use AdminPutPlayerBinaryRecorMetadataV1Short instead.
-
-AdminPutPlayerBinaryRecorMetadataV1 update player binary record metadata
-Update a player binary record metadata by its key
-*/
-func (a *Client) AdminPutPlayerBinaryRecorMetadataV1(params *AdminPutPlayerBinaryRecorMetadataV1Params, authInfo runtime.ClientAuthInfoWriter) (*AdminPutPlayerBinaryRecorMetadataV1OK, *AdminPutPlayerBinaryRecorMetadataV1BadRequest, *AdminPutPlayerBinaryRecorMetadataV1Unauthorized, *AdminPutPlayerBinaryRecorMetadataV1Forbidden, *AdminPutPlayerBinaryRecorMetadataV1NotFound, *AdminPutPlayerBinaryRecorMetadataV1InternalServerError, error) {
-	// TODO: Validate the params before sending
-	if params == nil {
-		params = NewAdminPutPlayerBinaryRecorMetadataV1Params()
-	}
-
-	if params.Context == nil {
-		params.Context = context.Background()
-	}
-
-	if params.RetryPolicy != nil {
-		params.SetHTTPClientTransport(params.RetryPolicy)
-	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
-		ID:                 "adminPutPlayerBinaryRecorMetadataV1",
-		Method:             "PUT",
-		PathPattern:        "/cloudsave/v1/admin/namespaces/{namespace}/users/{userId}/binaries/{key}/metadata",
-		ProducesMediaTypes: []string{"application/json"},
-		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
-		Params:             params,
-		Reader:             &AdminPutPlayerBinaryRecorMetadataV1Reader{formats: a.formats},
-		AuthInfo:           authInfo,
-		Context:            params.Context,
-		Client:             params.HTTPClient,
-	})
-	if err != nil {
-		return nil, nil, nil, nil, nil, nil, err
-	}
-
-	switch v := result.(type) {
-
-	case *AdminPutPlayerBinaryRecorMetadataV1OK:
-		return v, nil, nil, nil, nil, nil, nil
-
-	case *AdminPutPlayerBinaryRecorMetadataV1BadRequest:
-		return nil, v, nil, nil, nil, nil, nil
-
-	case *AdminPutPlayerBinaryRecorMetadataV1Unauthorized:
-		return nil, nil, v, nil, nil, nil, nil
-
-	case *AdminPutPlayerBinaryRecorMetadataV1Forbidden:
-		return nil, nil, nil, v, nil, nil, nil
-
-	case *AdminPutPlayerBinaryRecorMetadataV1NotFound:
-		return nil, nil, nil, nil, v, nil, nil
-
-	case *AdminPutPlayerBinaryRecorMetadataV1InternalServerError:
-		return nil, nil, nil, nil, nil, v, nil
-
-	default:
-		return nil, nil, nil, nil, nil, nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
 	}
 }
 
@@ -778,72 +397,6 @@ func (a *Client) AdminPutPlayerBinaryRecorMetadataV1Short(params *AdminPutPlayer
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
-	}
-}
-
-/*
-Deprecated: 2022-08-10 - Use AdminPostPlayerBinaryPresignedURLV1Short instead.
-
-AdminPostPlayerBinaryPresignedURLV1 request presigned url for upload player binary records
-Request presigned URL to upload the binary record to s3.
-
-Other detail info:
-
-Supported file types: jpeg, jpg, png, bmp, gif, mp3, webp, and bin.
-*/
-func (a *Client) AdminPostPlayerBinaryPresignedURLV1(params *AdminPostPlayerBinaryPresignedURLV1Params, authInfo runtime.ClientAuthInfoWriter) (*AdminPostPlayerBinaryPresignedURLV1Created, *AdminPostPlayerBinaryPresignedURLV1BadRequest, *AdminPostPlayerBinaryPresignedURLV1Unauthorized, *AdminPostPlayerBinaryPresignedURLV1Forbidden, *AdminPostPlayerBinaryPresignedURLV1NotFound, *AdminPostPlayerBinaryPresignedURLV1InternalServerError, error) {
-	// TODO: Validate the params before sending
-	if params == nil {
-		params = NewAdminPostPlayerBinaryPresignedURLV1Params()
-	}
-
-	if params.Context == nil {
-		params.Context = context.Background()
-	}
-
-	if params.RetryPolicy != nil {
-		params.SetHTTPClientTransport(params.RetryPolicy)
-	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
-		ID:                 "adminPostPlayerBinaryPresignedURLV1",
-		Method:             "POST",
-		PathPattern:        "/cloudsave/v1/admin/namespaces/{namespace}/users/{userId}/binaries/{key}/presigned",
-		ProducesMediaTypes: []string{"application/json"},
-		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
-		Params:             params,
-		Reader:             &AdminPostPlayerBinaryPresignedURLV1Reader{formats: a.formats},
-		AuthInfo:           authInfo,
-		Context:            params.Context,
-		Client:             params.HTTPClient,
-	})
-	if err != nil {
-		return nil, nil, nil, nil, nil, nil, err
-	}
-
-	switch v := result.(type) {
-
-	case *AdminPostPlayerBinaryPresignedURLV1Created:
-		return v, nil, nil, nil, nil, nil, nil
-
-	case *AdminPostPlayerBinaryPresignedURLV1BadRequest:
-		return nil, v, nil, nil, nil, nil, nil
-
-	case *AdminPostPlayerBinaryPresignedURLV1Unauthorized:
-		return nil, nil, v, nil, nil, nil, nil
-
-	case *AdminPostPlayerBinaryPresignedURLV1Forbidden:
-		return nil, nil, nil, v, nil, nil, nil
-
-	case *AdminPostPlayerBinaryPresignedURLV1NotFound:
-		return nil, nil, nil, nil, v, nil, nil
-
-	case *AdminPostPlayerBinaryPresignedURLV1InternalServerError:
-		return nil, nil, nil, nil, nil, v, nil
-
-	default:
-		return nil, nil, nil, nil, nil, nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
 	}
 }
 

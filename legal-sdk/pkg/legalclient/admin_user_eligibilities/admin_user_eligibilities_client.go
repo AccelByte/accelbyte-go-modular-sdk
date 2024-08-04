@@ -30,61 +30,9 @@ type Client struct {
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	AdminRetrieveEligibilities(params *AdminRetrieveEligibilitiesParams, authInfo runtime.ClientAuthInfoWriter) (*AdminRetrieveEligibilitiesOK, *AdminRetrieveEligibilitiesBadRequest, error)
 	AdminRetrieveEligibilitiesShort(params *AdminRetrieveEligibilitiesParams, authInfo runtime.ClientAuthInfoWriter) (*AdminRetrieveEligibilitiesOK, error)
 
 	SetTransport(transport runtime.ClientTransport)
-}
-
-/*
-Deprecated: 2022-08-10 - Use AdminRetrieveEligibilitiesShort instead.
-
-AdminRetrieveEligibilities check user legal eligibility
-Retrieve the active policies and its conformance status by user.
-This process only supports cross-namespace checking between game namespace and publisher namespace , that means if the active policy already accepted by the same user in publisher namespace, then it will also be considered as eligible in non-publisher namespace.
-*/
-func (a *Client) AdminRetrieveEligibilities(params *AdminRetrieveEligibilitiesParams, authInfo runtime.ClientAuthInfoWriter) (*AdminRetrieveEligibilitiesOK, *AdminRetrieveEligibilitiesBadRequest, error) {
-	// TODO: Validate the params before sending
-	if params == nil {
-		params = NewAdminRetrieveEligibilitiesParams()
-	}
-
-	if params.Context == nil {
-		params.Context = context.Background()
-	}
-
-	if params.RetryPolicy != nil {
-		params.SetHTTPClientTransport(params.RetryPolicy)
-	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
-		ID:                 "adminRetrieveEligibilities",
-		Method:             "GET",
-		PathPattern:        "/agreement/admin/namespaces/{namespace}/users/{userId}/eligibilities",
-		ProducesMediaTypes: []string{"application/json"},
-		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
-		Params:             params,
-		Reader:             &AdminRetrieveEligibilitiesReader{formats: a.formats},
-		AuthInfo:           authInfo,
-		Context:            params.Context,
-		Client:             params.HTTPClient,
-	})
-	if err != nil {
-		return nil, nil, err
-	}
-
-	switch v := result.(type) {
-
-	case *AdminRetrieveEligibilitiesOK:
-		return v, nil, nil
-
-	case *AdminRetrieveEligibilitiesBadRequest:
-		return nil, v, nil
-
-	default:
-		return nil, nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
-	}
 }
 
 /*

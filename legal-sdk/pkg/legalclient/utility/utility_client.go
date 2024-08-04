@@ -30,57 +30,9 @@ type Client struct {
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	CheckReadiness(params *CheckReadinessParams, authInfo runtime.ClientAuthInfoWriter) (*CheckReadinessOK, error)
 	CheckReadinessShort(params *CheckReadinessParams, authInfo runtime.ClientAuthInfoWriter) (*CheckReadinessOK, error)
 
 	SetTransport(transport runtime.ClientTransport)
-}
-
-/*
-Deprecated: 2022-08-10 - Use CheckReadinessShort instead.
-
-CheckReadiness check legal data readiness
-Readiness status defined as at least one legal basePolicy is present and having active basePolicy.
-*/
-func (a *Client) CheckReadiness(params *CheckReadinessParams, authInfo runtime.ClientAuthInfoWriter) (*CheckReadinessOK, error) {
-	// TODO: Validate the params before sending
-	if params == nil {
-		params = NewCheckReadinessParams()
-	}
-
-	if params.Context == nil {
-		params.Context = context.Background()
-	}
-
-	if params.RetryPolicy != nil {
-		params.SetHTTPClientTransport(params.RetryPolicy)
-	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
-		ID:                 "checkReadiness",
-		Method:             "GET",
-		PathPattern:        "/agreement/public/readiness",
-		ProducesMediaTypes: []string{"application/json"},
-		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
-		Params:             params,
-		Reader:             &CheckReadinessReader{formats: a.formats},
-		AuthInfo:           authInfo,
-		Context:            params.Context,
-		Client:             params.HTTPClient,
-	})
-	if err != nil {
-		return nil, err
-	}
-
-	switch v := result.(type) {
-
-	case *CheckReadinessOK:
-		return v, nil
-
-	default:
-		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
-	}
 }
 
 /*

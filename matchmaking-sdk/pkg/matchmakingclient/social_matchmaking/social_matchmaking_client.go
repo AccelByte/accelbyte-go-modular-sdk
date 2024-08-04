@@ -30,74 +30,9 @@ type Client struct {
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	UpdatePlayTimeWeight(params *UpdatePlayTimeWeightParams, authInfo runtime.ClientAuthInfoWriter) (*UpdatePlayTimeWeightOK, *UpdatePlayTimeWeightBadRequest, *UpdatePlayTimeWeightUnauthorized, *UpdatePlayTimeWeightForbidden, *UpdatePlayTimeWeightNotFound, *UpdatePlayTimeWeightInternalServerError, error)
 	UpdatePlayTimeWeightShort(params *UpdatePlayTimeWeightParams, authInfo runtime.ClientAuthInfoWriter) (*UpdatePlayTimeWeightOK, error)
 
 	SetTransport(transport runtime.ClientTransport)
-}
-
-/*
-Deprecated: 2022-08-10 - Use UpdatePlayTimeWeightShort instead.
-
-UpdatePlayTimeWeight update player -- playtime connection weight
-Update a connection weight between player and playtime.
-
-This endpoint is intended to be called by admin for debugging purpose on social matchmaking rule.
-*/
-func (a *Client) UpdatePlayTimeWeight(params *UpdatePlayTimeWeightParams, authInfo runtime.ClientAuthInfoWriter) (*UpdatePlayTimeWeightOK, *UpdatePlayTimeWeightBadRequest, *UpdatePlayTimeWeightUnauthorized, *UpdatePlayTimeWeightForbidden, *UpdatePlayTimeWeightNotFound, *UpdatePlayTimeWeightInternalServerError, error) {
-	// TODO: Validate the params before sending
-	if params == nil {
-		params = NewUpdatePlayTimeWeightParams()
-	}
-
-	if params.Context == nil {
-		params.Context = context.Background()
-	}
-
-	if params.RetryPolicy != nil {
-		params.SetHTTPClientTransport(params.RetryPolicy)
-	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
-		ID:                 "UpdatePlayTimeWeight",
-		Method:             "PATCH",
-		PathPattern:        "/matchmaking/social/playtime/namespaces/{namespace}/weight",
-		ProducesMediaTypes: []string{"application/json"},
-		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
-		Params:             params,
-		Reader:             &UpdatePlayTimeWeightReader{formats: a.formats},
-		AuthInfo:           authInfo,
-		Context:            params.Context,
-		Client:             params.HTTPClient,
-	})
-	if err != nil {
-		return nil, nil, nil, nil, nil, nil, err
-	}
-
-	switch v := result.(type) {
-
-	case *UpdatePlayTimeWeightOK:
-		return v, nil, nil, nil, nil, nil, nil
-
-	case *UpdatePlayTimeWeightBadRequest:
-		return nil, v, nil, nil, nil, nil, nil
-
-	case *UpdatePlayTimeWeightUnauthorized:
-		return nil, nil, v, nil, nil, nil, nil
-
-	case *UpdatePlayTimeWeightForbidden:
-		return nil, nil, nil, v, nil, nil, nil
-
-	case *UpdatePlayTimeWeightNotFound:
-		return nil, nil, nil, nil, v, nil, nil
-
-	case *UpdatePlayTimeWeightInternalServerError:
-		return nil, nil, nil, nil, nil, v, nil
-
-	default:
-		return nil, nil, nil, nil, nil, nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
-	}
 }
 
 /*

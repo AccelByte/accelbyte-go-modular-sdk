@@ -13,7 +13,6 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils/auth"
-	"github.com/go-openapi/runtime/client"
 )
 
 // ArtifactsService this is use for compatibility with latest modular sdk only
@@ -38,171 +37,6 @@ func (aaa *ArtifactsService) GetAuthSession() auth.Session {
 		aaa.ConfigRepository,
 		nil,
 	}
-}
-
-// Deprecated: 2022-01-10 - Please use ArtifactGetShort instead.
-func (aaa *ArtifactsService) ArtifactGet(input *artifacts.ArtifactGetParams) (*amsclientmodels.APIArtifactListResponse, error) {
-	token, err := aaa.TokenRepository.GetToken()
-	if err != nil {
-		return nil, err
-	}
-	ok, badRequest, unauthorized, forbidden, internalServerError, err := aaa.Client.Artifacts.ArtifactGet(input, client.BearerToken(*token.AccessToken))
-	if badRequest != nil {
-		return nil, badRequest
-	}
-	if unauthorized != nil {
-		return nil, unauthorized
-	}
-	if forbidden != nil {
-		return nil, forbidden
-	}
-	if internalServerError != nil {
-		return nil, internalServerError
-	}
-	if err != nil {
-		return nil, err
-	}
-
-	return ok.GetPayload(), nil
-}
-
-// Deprecated: 2022-01-10 - Please use ArtifactUsageGetShort instead.
-func (aaa *ArtifactsService) ArtifactUsageGet(input *artifacts.ArtifactUsageGetParams) (*amsclientmodels.APIArtifactUsageResponse, error) {
-	token, err := aaa.TokenRepository.GetToken()
-	if err != nil {
-		return nil, err
-	}
-	ok, unauthorized, forbidden, internalServerError, err := aaa.Client.Artifacts.ArtifactUsageGet(input, client.BearerToken(*token.AccessToken))
-	if unauthorized != nil {
-		return nil, unauthorized
-	}
-	if forbidden != nil {
-		return nil, forbidden
-	}
-	if internalServerError != nil {
-		return nil, internalServerError
-	}
-	if err != nil {
-		return nil, err
-	}
-
-	return ok.GetPayload(), nil
-}
-
-// Deprecated: 2022-01-10 - Please use ArtifactDeleteShort instead.
-func (aaa *ArtifactsService) ArtifactDelete(input *artifacts.ArtifactDeleteParams) error {
-	token, err := aaa.TokenRepository.GetToken()
-	if err != nil {
-		return err
-	}
-	_, badRequest, unauthorized, forbidden, notFound, internalServerError, err := aaa.Client.Artifacts.ArtifactDelete(input, client.BearerToken(*token.AccessToken))
-	if badRequest != nil {
-		return badRequest
-	}
-	if unauthorized != nil {
-		return unauthorized
-	}
-	if forbidden != nil {
-		return forbidden
-	}
-	if notFound != nil {
-		return notFound
-	}
-	if internalServerError != nil {
-		return internalServerError
-	}
-	if err != nil {
-		return err
-	}
-
-	return nil
-}
-
-// Deprecated: 2022-01-10 - Please use ArtifactGetURLShort instead.
-func (aaa *ArtifactsService) ArtifactGetURL(input *artifacts.ArtifactGetURLParams) (*amsclientmodels.APIArtifactURLResponse, error) {
-	token, err := aaa.TokenRepository.GetToken()
-	if err != nil {
-		return nil, err
-	}
-	ok, badRequest, unauthorized, forbidden, notFound, internalServerError, err := aaa.Client.Artifacts.ArtifactGetURL(input, client.BearerToken(*token.AccessToken))
-	if badRequest != nil {
-		return nil, badRequest
-	}
-	if unauthorized != nil {
-		return nil, unauthorized
-	}
-	if forbidden != nil {
-		return nil, forbidden
-	}
-	if notFound != nil {
-		return nil, notFound
-	}
-	if internalServerError != nil {
-		return nil, internalServerError
-	}
-	if err != nil {
-		return nil, err
-	}
-
-	return ok.GetPayload(), nil
-}
-
-// Deprecated: 2022-01-10 - Please use FleetArtifactSamplingRulesGetShort instead.
-func (aaa *ArtifactsService) FleetArtifactSamplingRulesGet(input *artifacts.FleetArtifactSamplingRulesGetParams) (*amsclientmodels.APIFleetArtifactsSampleRules, error) {
-	token, err := aaa.TokenRepository.GetToken()
-	if err != nil {
-		return nil, err
-	}
-	ok, badRequest, unauthorized, forbidden, notFound, internalServerError, err := aaa.Client.Artifacts.FleetArtifactSamplingRulesGet(input, client.BearerToken(*token.AccessToken))
-	if badRequest != nil {
-		return nil, badRequest
-	}
-	if unauthorized != nil {
-		return nil, unauthorized
-	}
-	if forbidden != nil {
-		return nil, forbidden
-	}
-	if notFound != nil {
-		return nil, notFound
-	}
-	if internalServerError != nil {
-		return nil, internalServerError
-	}
-	if err != nil {
-		return nil, err
-	}
-
-	return ok.GetPayload(), nil
-}
-
-// Deprecated: 2022-01-10 - Please use FleetArtifactSamplingRulesSetShort instead.
-func (aaa *ArtifactsService) FleetArtifactSamplingRulesSet(input *artifacts.FleetArtifactSamplingRulesSetParams) (*amsclientmodels.APIFleetArtifactsSampleRules, error) {
-	token, err := aaa.TokenRepository.GetToken()
-	if err != nil {
-		return nil, err
-	}
-	ok, badRequest, unauthorized, forbidden, notFound, internalServerError, err := aaa.Client.Artifacts.FleetArtifactSamplingRulesSet(input, client.BearerToken(*token.AccessToken))
-	if badRequest != nil {
-		return nil, badRequest
-	}
-	if unauthorized != nil {
-		return nil, unauthorized
-	}
-	if forbidden != nil {
-		return nil, forbidden
-	}
-	if notFound != nil {
-		return nil, notFound
-	}
-	if internalServerError != nil {
-		return nil, internalServerError
-	}
-	if err != nil {
-		return nil, err
-	}
-
-	return ok.GetPayload(), nil
 }
 
 func (aaa *ArtifactsService) ArtifactGetShort(input *artifacts.ArtifactGetParams) (*amsclientmodels.APIArtifactListResponse, error) {
@@ -233,6 +67,36 @@ func (aaa *ArtifactsService) ArtifactGetShort(input *artifacts.ArtifactGetParams
 	}
 
 	return ok.GetPayload(), nil
+}
+
+func (aaa *ArtifactsService) ArtifactBulkDeleteShort(input *artifacts.ArtifactBulkDeleteParams) error {
+	authInfoWriter := input.AuthInfoWriter
+	if authInfoWriter == nil {
+		security := [][]string{
+			{"bearer"},
+		}
+		authInfoWriter = auth.AuthInfoWriter(aaa.GetAuthSession(), security, "")
+	}
+	if input.RetryPolicy == nil {
+		input.RetryPolicy = &utils.Retry{
+			MaxTries:   utils.MaxTries,
+			Backoff:    utils.NewConstantBackoff(0),
+			Transport:  aaa.Client.Runtime.Transport,
+			RetryCodes: utils.RetryCodes,
+		}
+	}
+	if tempFlightIdArtifacts != nil {
+		input.XFlightId = tempFlightIdArtifacts
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	}
+
+	_, err := aaa.Client.Artifacts.ArtifactBulkDeleteShort(input, authInfoWriter)
+	if err != nil {
+		return err
+	}
+
+	return nil
 }
 
 func (aaa *ArtifactsService) ArtifactUsageGetShort(input *artifacts.ArtifactUsageGetParams) (*amsclientmodels.APIArtifactUsageResponse, error) {

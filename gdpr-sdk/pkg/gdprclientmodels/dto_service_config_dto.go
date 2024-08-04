@@ -21,13 +21,15 @@ import (
 type DTOServiceConfigDTO struct {
 
 	// protocol type
-	// Enum: ['GRPC']
+	// Enum: ['EVENT', 'GRPC']
 	// Required: true
 	Protocol *string `json:"protocol"`
 
-	// url of the service with port number
-	// Required: true
-	URL *string `json:"url"`
+	// skip waiting for ack event from this service, used in "EVENT" protocol only.
+	SkipAck bool `json:"skipAck"`
+
+	// url of the service with port number, required in "GRPC" protocol
+	URL string `json:"url,omitempty"`
 }
 
 // Validate validates this Dto service config DTO
@@ -35,9 +37,6 @@ func (m *DTOServiceConfigDTO) Validate(formats strfmt.Registry) error {
 	var res []error
 
 	if err := m.validateProtocol(formats); err != nil {
-		res = append(res, err)
-	}
-	if err := m.validateURL(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -51,7 +50,7 @@ var dtoServiceConfigDtoTypeProtocolPropEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["GRPC"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["EVENT", "GRPC"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
@@ -60,6 +59,9 @@ func init() {
 }
 
 const (
+
+	// DTOServiceConfigDTOProtocolEVENT captures enum value "EVENT"
+	DTOServiceConfigDTOProtocolEVENT string = "EVENT"
 
 	// DTOServiceConfigDTOProtocolGRPC captures enum value "GRPC"
 	DTOServiceConfigDTOProtocolGRPC string = "GRPC"
@@ -81,15 +83,6 @@ func (m *DTOServiceConfigDTO) validateProtocol(formats strfmt.Registry) error {
 
 	// value enum
 	if err := m.validateProtocolEnum("protocol", "body", *m.Protocol); err != nil {
-		return err
-	}
-
-	return nil
-}
-
-func (m *DTOServiceConfigDTO) validateURL(formats strfmt.Registry) error {
-
-	if err := validate.Required("url", "body", m.URL); err != nil {
 		return err
 	}
 

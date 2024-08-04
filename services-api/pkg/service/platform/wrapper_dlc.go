@@ -13,7 +13,6 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils/auth"
-	"github.com/go-openapi/runtime/client"
 )
 
 // DLCService this is use for compatibility with latest modular sdk only
@@ -38,255 +37,6 @@ func (aaa *DLCService) GetAuthSession() auth.Session {
 		aaa.ConfigRepository,
 		nil,
 	}
-}
-
-// Deprecated: 2022-01-10 - Please use GetDLCItemConfigShort instead.
-func (aaa *DLCService) GetDLCItemConfig(input *dlc.GetDLCItemConfigParams) (*platformclientmodels.DLCItemConfigInfo, error) {
-	token, err := aaa.TokenRepository.GetToken()
-	if err != nil {
-		return nil, err
-	}
-	ok, notFound, err := aaa.Client.DLC.GetDLCItemConfig(input, client.BearerToken(*token.AccessToken))
-	if notFound != nil {
-		return nil, notFound
-	}
-	if err != nil {
-		return nil, err
-	}
-
-	return ok.GetPayload(), nil
-}
-
-// Deprecated: 2022-01-10 - Please use UpdateDLCItemConfigShort instead.
-func (aaa *DLCService) UpdateDLCItemConfig(input *dlc.UpdateDLCItemConfigParams) (*platformclientmodels.DLCItemConfigInfo, error) {
-	token, err := aaa.TokenRepository.GetToken()
-	if err != nil {
-		return nil, err
-	}
-	ok, badRequest, conflict, unprocessableEntity, err := aaa.Client.DLC.UpdateDLCItemConfig(input, client.BearerToken(*token.AccessToken))
-	if badRequest != nil {
-		return nil, badRequest
-	}
-	if conflict != nil {
-		return nil, conflict
-	}
-	if unprocessableEntity != nil {
-		return nil, unprocessableEntity
-	}
-	if err != nil {
-		return nil, err
-	}
-
-	return ok.GetPayload(), nil
-}
-
-// Deprecated: 2022-01-10 - Please use DeleteDLCItemConfigShort instead.
-func (aaa *DLCService) DeleteDLCItemConfig(input *dlc.DeleteDLCItemConfigParams) error {
-	token, err := aaa.TokenRepository.GetToken()
-	if err != nil {
-		return err
-	}
-	_, err = aaa.Client.DLC.DeleteDLCItemConfig(input, client.BearerToken(*token.AccessToken))
-	if err != nil {
-		return err
-	}
-
-	return nil
-}
-
-// Deprecated: 2022-01-10 - Please use GetPlatformDLCConfigShort instead.
-func (aaa *DLCService) GetPlatformDLCConfig(input *dlc.GetPlatformDLCConfigParams) (*platformclientmodels.PlatformDLCConfigInfo, error) {
-	token, err := aaa.TokenRepository.GetToken()
-	if err != nil {
-		return nil, err
-	}
-	ok, notFound, err := aaa.Client.DLC.GetPlatformDLCConfig(input, client.BearerToken(*token.AccessToken))
-	if notFound != nil {
-		return nil, notFound
-	}
-	if err != nil {
-		return nil, err
-	}
-
-	return ok.GetPayload(), nil
-}
-
-// Deprecated: 2022-01-10 - Please use UpdatePlatformDLCConfigShort instead.
-func (aaa *DLCService) UpdatePlatformDLCConfig(input *dlc.UpdatePlatformDLCConfigParams) (*platformclientmodels.PlatformDLCConfigInfo, error) {
-	token, err := aaa.TokenRepository.GetToken()
-	if err != nil {
-		return nil, err
-	}
-	ok, unprocessableEntity, err := aaa.Client.DLC.UpdatePlatformDLCConfig(input, client.BearerToken(*token.AccessToken))
-	if unprocessableEntity != nil {
-		return nil, unprocessableEntity
-	}
-	if err != nil {
-		return nil, err
-	}
-
-	return ok.GetPayload(), nil
-}
-
-// Deprecated: 2022-01-10 - Please use DeletePlatformDLCConfigShort instead.
-func (aaa *DLCService) DeletePlatformDLCConfig(input *dlc.DeletePlatformDLCConfigParams) error {
-	token, err := aaa.TokenRepository.GetToken()
-	if err != nil {
-		return err
-	}
-	_, err = aaa.Client.DLC.DeletePlatformDLCConfig(input, client.BearerToken(*token.AccessToken))
-	if err != nil {
-		return err
-	}
-
-	return nil
-}
-
-// Deprecated: 2022-01-10 - Please use GetUserDLCByPlatformShort instead.
-func (aaa *DLCService) GetUserDLCByPlatform(input *dlc.GetUserDLCByPlatformParams) (*platformclientmodels.UserDLC, error) {
-	token, err := aaa.TokenRepository.GetToken()
-	if err != nil {
-		return nil, err
-	}
-	ok, err := aaa.Client.DLC.GetUserDLCByPlatform(input, client.BearerToken(*token.AccessToken))
-	if err != nil {
-		return nil, err
-	}
-
-	return ok.GetPayload(), nil
-}
-
-// Deprecated: 2022-01-10 - Please use GetUserDLCShort instead.
-func (aaa *DLCService) GetUserDLC(input *dlc.GetUserDLCParams) ([]*platformclientmodels.UserDLCRecord, error) {
-	token, err := aaa.TokenRepository.GetToken()
-	if err != nil {
-		return nil, err
-	}
-	ok, err := aaa.Client.DLC.GetUserDLC(input, client.BearerToken(*token.AccessToken))
-	if err != nil {
-		return nil, err
-	}
-
-	return ok.GetPayload(), nil
-}
-
-// Deprecated: 2022-01-10 - Please use GeDLCDurableRewardShortMapShort instead.
-func (aaa *DLCService) GeDLCDurableRewardShortMap(input *dlc.GeDLCDurableRewardShortMapParams) (*platformclientmodels.DLCConfigRewardShortInfo, error) {
-	token, err := aaa.TokenRepository.GetToken()
-	if err != nil {
-		return nil, err
-	}
-	ok, notFound, err := aaa.Client.DLC.GeDLCDurableRewardShortMap(input, client.BearerToken(*token.AccessToken))
-	if notFound != nil {
-		return nil, notFound
-	}
-	if err != nil {
-		return nil, err
-	}
-
-	return ok.GetPayload(), nil
-}
-
-// Deprecated: 2022-01-10 - Please use SyncEpicGameDLCShort instead.
-func (aaa *DLCService) SyncEpicGameDLC(input *dlc.SyncEpicGameDLCParams) error {
-	token, err := aaa.TokenRepository.GetToken()
-	if err != nil {
-		return err
-	}
-	_, badRequest, err := aaa.Client.DLC.SyncEpicGameDLC(input, client.BearerToken(*token.AccessToken))
-	if badRequest != nil {
-		return badRequest
-	}
-	if err != nil {
-		return err
-	}
-
-	return nil
-}
-
-// Deprecated: 2022-01-10 - Please use SyncOculusDLCShort instead.
-func (aaa *DLCService) SyncOculusDLC(input *dlc.SyncOculusDLCParams) error {
-	token, err := aaa.TokenRepository.GetToken()
-	if err != nil {
-		return err
-	}
-	_, badRequest, err := aaa.Client.DLC.SyncOculusDLC(input, client.BearerToken(*token.AccessToken))
-	if badRequest != nil {
-		return badRequest
-	}
-	if err != nil {
-		return err
-	}
-
-	return nil
-}
-
-// Deprecated: 2022-01-10 - Please use PublicSyncPsnDLCInventoryShort instead.
-func (aaa *DLCService) PublicSyncPsnDLCInventory(input *dlc.PublicSyncPsnDLCInventoryParams) error {
-	token, err := aaa.TokenRepository.GetToken()
-	if err != nil {
-		return err
-	}
-	_, badRequest, err := aaa.Client.DLC.PublicSyncPsnDLCInventory(input, client.BearerToken(*token.AccessToken))
-	if badRequest != nil {
-		return badRequest
-	}
-	if err != nil {
-		return err
-	}
-
-	return nil
-}
-
-// Deprecated: 2022-01-10 - Please use PublicSyncPsnDLCInventoryWithMultipleServiceLabelsShort instead.
-func (aaa *DLCService) PublicSyncPsnDLCInventoryWithMultipleServiceLabels(input *dlc.PublicSyncPsnDLCInventoryWithMultipleServiceLabelsParams) error {
-	token, err := aaa.TokenRepository.GetToken()
-	if err != nil {
-		return err
-	}
-	_, badRequest, err := aaa.Client.DLC.PublicSyncPsnDLCInventoryWithMultipleServiceLabels(input, client.BearerToken(*token.AccessToken))
-	if badRequest != nil {
-		return badRequest
-	}
-	if err != nil {
-		return err
-	}
-
-	return nil
-}
-
-// Deprecated: 2022-01-10 - Please use SyncSteamDLCShort instead.
-func (aaa *DLCService) SyncSteamDLC(input *dlc.SyncSteamDLCParams) error {
-	token, err := aaa.TokenRepository.GetToken()
-	if err != nil {
-		return err
-	}
-	_, badRequest, err := aaa.Client.DLC.SyncSteamDLC(input, client.BearerToken(*token.AccessToken))
-	if badRequest != nil {
-		return badRequest
-	}
-	if err != nil {
-		return err
-	}
-
-	return nil
-}
-
-// Deprecated: 2022-01-10 - Please use SyncXboxDLCShort instead.
-func (aaa *DLCService) SyncXboxDLC(input *dlc.SyncXboxDLCParams) error {
-	token, err := aaa.TokenRepository.GetToken()
-	if err != nil {
-		return err
-	}
-	_, badRequest, err := aaa.Client.DLC.SyncXboxDLC(input, client.BearerToken(*token.AccessToken))
-	if badRequest != nil {
-		return badRequest
-	}
-	if err != nil {
-		return err
-	}
-
-	return nil
 }
 
 func (aaa *DLCService) GetDLCItemConfigShort(input *dlc.GetDLCItemConfigParams) (*platformclientmodels.DLCItemConfigInfo, error) {
@@ -737,4 +487,34 @@ func (aaa *DLCService) SyncXboxDLCShort(input *dlc.SyncXboxDLCParams) error {
 	}
 
 	return nil
+}
+
+func (aaa *DLCService) PublicGetMyDLCContentShort(input *dlc.PublicGetMyDLCContentParams) (*platformclientmodels.SimpleUserDLCRewardContentsResponse, error) {
+	authInfoWriter := input.AuthInfoWriter
+	if authInfoWriter == nil {
+		security := [][]string{
+			{"bearer"},
+		}
+		authInfoWriter = auth.AuthInfoWriter(aaa.GetAuthSession(), security, "")
+	}
+	if input.RetryPolicy == nil {
+		input.RetryPolicy = &utils.Retry{
+			MaxTries:   utils.MaxTries,
+			Backoff:    utils.NewConstantBackoff(0),
+			Transport:  aaa.Client.Runtime.Transport,
+			RetryCodes: utils.RetryCodes,
+		}
+	}
+	if tempFlightIdDLC != nil {
+		input.XFlightId = tempFlightIdDLC
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	}
+
+	ok, err := aaa.Client.DLC.PublicGetMyDLCContentShort(input, authInfoWriter)
+	if err != nil {
+		return nil, err
+	}
+
+	return ok.GetPayload(), nil
 }

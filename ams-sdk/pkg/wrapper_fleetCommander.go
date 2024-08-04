@@ -12,7 +12,6 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils/auth"
-	"github.com/go-openapi/runtime/client"
 )
 
 type FleetCommanderService struct {
@@ -35,48 +34,6 @@ func (aaa *FleetCommanderService) GetAuthSession() auth.Session {
 		aaa.ConfigRepository,
 		nil,
 	}
-}
-
-// Deprecated: 2022-01-10 - Please use PortalHealthCheckShort instead.
-func (aaa *FleetCommanderService) PortalHealthCheck(input *fleet_commander.PortalHealthCheckParams) error {
-	token, err := aaa.TokenRepository.GetToken()
-	if err != nil {
-		return err
-	}
-	_, err = aaa.Client.FleetCommander.PortalHealthCheck(input, client.BearerToken(*token.AccessToken))
-	if err != nil {
-		return err
-	}
-
-	return nil
-}
-
-// Deprecated: 2022-01-10 - Please use Func1Short instead.
-func (aaa *FleetCommanderService) Func1(input *fleet_commander.Func1Params) error {
-	token, err := aaa.TokenRepository.GetToken()
-	if err != nil {
-		return err
-	}
-	_, err = aaa.Client.FleetCommander.Func1(input, client.BearerToken(*token.AccessToken))
-	if err != nil {
-		return err
-	}
-
-	return nil
-}
-
-// Deprecated: 2022-01-10 - Please use BasicHealthCheckShort instead.
-func (aaa *FleetCommanderService) BasicHealthCheck(input *fleet_commander.BasicHealthCheckParams) error {
-	token, err := aaa.TokenRepository.GetToken()
-	if err != nil {
-		return err
-	}
-	_, err = aaa.Client.FleetCommander.BasicHealthCheck(input, client.BearerToken(*token.AccessToken))
-	if err != nil {
-		return err
-	}
-
-	return nil
 }
 
 func (aaa *FleetCommanderService) PortalHealthCheckShort(input *fleet_commander.PortalHealthCheckParams) error {

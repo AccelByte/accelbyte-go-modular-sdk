@@ -30,6 +30,7 @@ var RetrieveLatestPoliciesByNamespaceAndCountryPublicCmd = &cobra.Command{
 		defaultOnEmpty, _ := cmd.Flags().GetBool("defaultOnEmpty")
 		policyType, _ := cmd.Flags().GetString("policyType")
 		tags, _ := cmd.Flags().GetString("tags")
+		visibleOnly, _ := cmd.Flags().GetBool("visibleOnly")
 		input := &policies.RetrieveLatestPoliciesByNamespaceAndCountryPublicParams{
 			CountryCode:          countryCode,
 			Namespace:            namespace,
@@ -37,6 +38,7 @@ var RetrieveLatestPoliciesByNamespaceAndCountryPublicCmd = &cobra.Command{
 			DefaultOnEmpty:       &defaultOnEmpty,
 			PolicyType:           &policyType,
 			Tags:                 &tags,
+			VisibleOnly:          &visibleOnly,
 		}
 		ok, errOK := policiesService.RetrieveLatestPoliciesByNamespaceAndCountryPublicShort(input)
 		if errOK != nil {
@@ -60,4 +62,5 @@ func init() {
 	RetrieveLatestPoliciesByNamespaceAndCountryPublicCmd.Flags().Bool("defaultOnEmpty", false, "Default on empty")
 	RetrieveLatestPoliciesByNamespaceAndCountryPublicCmd.Flags().String("policyType", "", "Policy type")
 	RetrieveLatestPoliciesByNamespaceAndCountryPublicCmd.Flags().String("tags", "", "Tags")
+	RetrieveLatestPoliciesByNamespaceAndCountryPublicCmd.Flags().Bool("visibleOnly", false, "Visible only")
 }

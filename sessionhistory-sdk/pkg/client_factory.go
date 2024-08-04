@@ -15,6 +15,12 @@ import (
 
 func NewSessionhistoryClient(configRepository repository.ConfigRepository) *sessionhistoryclient.JusticeSessionhistoryService {
 	baseURL := strings.TrimSuffix(configRepository.GetJusticeBaseUrl(), "/")
+
+	if extendedConfigRepository, ok := configRepository.(repository.ExtendedConfigRepository); ok {
+		baseURL = extendedConfigRepository.GetCustomBasePath("/sessionhistory")
+		baseURL = strings.TrimSuffix(baseURL, "/")
+	}
+
 	if len(baseURL) > 0 {
 		baseURLSplit := strings.Split(baseURL, "://")
 		httpClientConfig := &sessionhistoryclient.TransportConfig{

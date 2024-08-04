@@ -13,7 +13,6 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils/auth"
-	"github.com/go-openapi/runtime/client"
 )
 
 type TradeActionService struct {
@@ -36,48 +35,6 @@ func (aaa *TradeActionService) GetAuthSession() auth.Session {
 		aaa.ConfigRepository,
 		nil,
 	}
-}
-
-// Deprecated: 2022-01-10 - Please use CommitShort instead.
-func (aaa *TradeActionService) Commit(input *trade_action.CommitParams) (*platformclientmodels.TradeChainActionHistoryInfo, error) {
-	token, err := aaa.TokenRepository.GetToken()
-	if err != nil {
-		return nil, err
-	}
-	ok, err := aaa.Client.TradeAction.Commit(input, client.BearerToken(*token.AccessToken))
-	if err != nil {
-		return nil, err
-	}
-
-	return ok.GetPayload(), nil
-}
-
-// Deprecated: 2022-01-10 - Please use GetTradeHistoryByCriteriaShort instead.
-func (aaa *TradeActionService) GetTradeHistoryByCriteria(input *trade_action.GetTradeHistoryByCriteriaParams) (*platformclientmodels.TradeActionPagingSlicedResult, error) {
-	token, err := aaa.TokenRepository.GetToken()
-	if err != nil {
-		return nil, err
-	}
-	ok, err := aaa.Client.TradeAction.GetTradeHistoryByCriteria(input, client.BearerToken(*token.AccessToken))
-	if err != nil {
-		return nil, err
-	}
-
-	return ok.GetPayload(), nil
-}
-
-// Deprecated: 2022-01-10 - Please use GetTradeHistoryByTransactionIDShort instead.
-func (aaa *TradeActionService) GetTradeHistoryByTransactionID(input *trade_action.GetTradeHistoryByTransactionIDParams) (*platformclientmodels.TradeChainActionHistoryInfo, error) {
-	token, err := aaa.TokenRepository.GetToken()
-	if err != nil {
-		return nil, err
-	}
-	ok, err := aaa.Client.TradeAction.GetTradeHistoryByTransactionID(input, client.BearerToken(*token.AccessToken))
-	if err != nil {
-		return nil, err
-	}
-
-	return ok.GetPayload(), nil
 }
 
 func (aaa *TradeActionService) CommitShort(input *trade_action.CommitParams) (*platformclientmodels.TradeChainActionHistoryInfo, error) {

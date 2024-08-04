@@ -53,9 +53,15 @@ type ModelCreateChallengeRequest struct {
 	// Required: true
 	Name *string `json:"name"`
 
+	// randomizedperrotation
+	RandomizedPerRotation bool `json:"randomizedPerRotation"`
+
 	// repeatafter
 	// Format: int32
 	RepeatAfter int32 `json:"repeatAfter,omitempty"`
+
+	// resetconfig
+	ResetConfig *ModelResetConfig `json:"resetConfig,omitempty"`
 
 	// rotation
 	// Enum: ['DAILY', 'MONTHLY', 'NONE', 'WEEKLY']

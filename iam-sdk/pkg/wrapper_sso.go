@@ -12,7 +12,6 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils/auth"
-	"github.com/go-openapi/runtime/client"
 )
 
 type SSOService struct {
@@ -35,43 +34,6 @@ func (aaa *SSOService) GetAuthSession() auth.Session {
 		aaa.ConfigRepository,
 		nil,
 	}
-}
-
-// Deprecated: 2022-01-10 - Please use LoginSSOClientShort instead.
-func (aaa *SSOService) LoginSSOClient(input *sso.LoginSSOClientParams) error {
-	token, err := aaa.TokenRepository.GetToken()
-	if err != nil {
-		return err
-	}
-	_, err = aaa.Client.SSO.LoginSSOClient(input, client.BearerToken(*token.AccessToken))
-	if err != nil {
-		return err
-	}
-
-	return nil
-}
-
-// Deprecated: 2022-01-10 - Please use LogoutSSOClientShort instead.
-func (aaa *SSOService) LogoutSSOClient(input *sso.LogoutSSOClientParams) error {
-	token, err := aaa.TokenRepository.GetToken()
-	if err != nil {
-		return err
-	}
-	_, notFound, unprocessableEntity, internalServerError, err := aaa.Client.SSO.LogoutSSOClient(input, client.BearerToken(*token.AccessToken))
-	if notFound != nil {
-		return notFound
-	}
-	if unprocessableEntity != nil {
-		return unprocessableEntity
-	}
-	if internalServerError != nil {
-		return internalServerError
-	}
-	if err != nil {
-		return err
-	}
-
-	return nil
 }
 
 func (aaa *SSOService) LoginSSOClientShort(input *sso.LoginSSOClientParams) error {

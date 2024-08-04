@@ -7,8 +7,11 @@
 package usersV4
 
 import (
+	"encoding/json"
+
 	iam "github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/users_v4"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclientmodels"
 	"github.com/AccelByte/sample-apps/pkg/repository"
 	"github.com/sirupsen/logrus"
 	"github.com/spf13/cobra"
@@ -24,8 +27,15 @@ var PublicDisableMyBackupCodesV4Cmd = &cobra.Command{
 			Client:          iam.NewIamClient(&repository.ConfigRepositoryImpl{}),
 			TokenRepository: &repository.TokenRepositoryImpl{},
 		}
+		bodyString := cmd.Flag("body").Value.String()
+		var body *iamclientmodels.ModelDisableMFARequest
+		errBody := json.Unmarshal([]byte(bodyString), &body)
+		if errBody != nil {
+			return errBody
+		}
 		namespace, _ := cmd.Flags().GetString("namespace")
 		input := &users_v4.PublicDisableMyBackupCodesV4Params{
+			Body:      body,
 			Namespace: namespace,
 		}
 		errNoContent := usersV4Service.PublicDisableMyBackupCodesV4Short(input)
@@ -42,6 +52,8 @@ var PublicDisableMyBackupCodesV4Cmd = &cobra.Command{
 }
 
 func init() {
+	PublicDisableMyBackupCodesV4Cmd.Flags().String("body", "", "Body")
+	_ = PublicDisableMyBackupCodesV4Cmd.MarkFlagRequired("body")
 	PublicDisableMyBackupCodesV4Cmd.Flags().String("namespace", "", "Namespace")
 	_ = PublicDisableMyBackupCodesV4Cmd.MarkFlagRequired("namespace")
 }

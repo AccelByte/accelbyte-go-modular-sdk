@@ -33,11 +33,14 @@
 | `/challenge/v1/admin/namespaces/{namespace}/progress/evaluate` | POST | AdminEvaluateProgressShort | [AdminEvaluateProgressShort](../../challenge-sdk/pkg/challengeclient/challenge_progression/challenge_progression_client.go) | [AdminEvaluateProgressShort](../../challenge-sdk/pkg/wrapper_challengeProgression.go) | [AdminEvaluateProgressShort](../../samples/cli/cmd/challenge/challengeProgression/adminEvaluateProgress.go) |
 | `/challenge/v1/public/namespaces/{namespace}/users/me/progress/evaluate` | POST | EvaluateMyProgressShort | [EvaluateMyProgressShort](../../challenge-sdk/pkg/challengeclient/challenge_progression/challenge_progression_client.go) | [EvaluateMyProgressShort](../../challenge-sdk/pkg/wrapper_challengeProgression.go) | [EvaluateMyProgressShort](../../samples/cli/cmd/challenge/challengeProgression/evaluateMyProgress.go) |
 | `/challenge/v1/public/namespaces/{namespace}/users/me/progress/{challengeCode}` | GET | PublicGetUserProgressionShort | [PublicGetUserProgressionShort](../../challenge-sdk/pkg/challengeclient/challenge_progression/challenge_progression_client.go) | [PublicGetUserProgressionShort](../../challenge-sdk/pkg/wrapper_challengeProgression.go) | [PublicGetUserProgressionShort](../../samples/cli/cmd/challenge/challengeProgression/publicGetUserProgression.go) |
+| `/challenge/v1/public/namespaces/{namespace}/users/me/progress/{challengeCode}/index/{index}` | GET | PublicGetPastUserProgressionShort | [PublicGetPastUserProgressionShort](../../challenge-sdk/pkg/challengeclient/challenge_progression/challenge_progression_client.go) | [PublicGetPastUserProgressionShort](../../challenge-sdk/pkg/wrapper_challengeProgression.go) | [PublicGetPastUserProgressionShort](../../samples/cli/cmd/challenge/challengeProgression/publicGetPastUserProgression.go) |
 
 ### Player Reward Wrapper:  [PlayerReward](../../challenge-sdk/pkg/wrapper_playerReward.go)
 | Endpoint | Method | ID | Class | Wrapper | Example |
 |---|---|---|---|---|---|
+| `/challenge/v1/admin/namespaces/{namespace}/users/rewards/claim` | POST | AdminClaimUsersRewardsShort | [AdminClaimUsersRewardsShort](../../challenge-sdk/pkg/challengeclient/player_reward/player_reward_client.go) | [AdminClaimUsersRewardsShort](../../challenge-sdk/pkg/wrapper_playerReward.go) | [AdminClaimUsersRewardsShort](../../samples/cli/cmd/challenge/playerReward/adminClaimUsersRewards.go) |
 | `/challenge/v1/admin/namespaces/{namespace}/users/{userId}/rewards` | GET | AdminGetUserRewardsShort | [AdminGetUserRewardsShort](../../challenge-sdk/pkg/challengeclient/player_reward/player_reward_client.go) | [AdminGetUserRewardsShort](../../challenge-sdk/pkg/wrapper_playerReward.go) | [AdminGetUserRewardsShort](../../samples/cli/cmd/challenge/playerReward/adminGetUserRewards.go) |
+| `/challenge/v1/admin/namespaces/{namespace}/users/{userId}/rewards/claim` | POST | AdminClaimUserRewardsShort | [AdminClaimUserRewardsShort](../../challenge-sdk/pkg/challengeclient/player_reward/player_reward_client.go) | [AdminClaimUserRewardsShort](../../challenge-sdk/pkg/wrapper_playerReward.go) | [AdminClaimUserRewardsShort](../../samples/cli/cmd/challenge/playerReward/adminClaimUserRewards.go) |
 | `/challenge/v1/public/namespaces/{namespace}/users/me/rewards` | GET | PublicGetUserRewardsShort | [PublicGetUserRewardsShort](../../challenge-sdk/pkg/challengeclient/player_reward/player_reward_client.go) | [PublicGetUserRewardsShort](../../challenge-sdk/pkg/wrapper_playerReward.go) | [PublicGetUserRewardsShort](../../samples/cli/cmd/challenge/playerReward/publicGetUserRewards.go) |
 | `/challenge/v1/public/namespaces/{namespace}/users/me/rewards/claim` | POST | PublicClaimUserRewardsShort | [PublicClaimUserRewardsShort](../../challenge-sdk/pkg/challengeclient/player_reward/player_reward_client.go) | [PublicClaimUserRewardsShort](../../challenge-sdk/pkg/wrapper_playerReward.go) | [PublicClaimUserRewardsShort](../../samples/cli/cmd/challenge/playerReward/publicClaimUserRewards.go) |
 
@@ -55,8 +58,11 @@
 | Model Struct | Class |
 |---|---|
 | `iam.ErrorResponse` | [IamErrorResponse ](../../challenge-sdk/pkg/challengeclientmodels/iam_error_response.go) |
+| `iam.Permission` | [IamPermission ](../../challenge-sdk/pkg/challengeclientmodels/iam_permission.go) |
 | `model.ChallengeResponse` | [ModelChallengeResponse ](../../challenge-sdk/pkg/challengeclientmodels/model_challenge_response.go) |
 | `model.ClaimUserRewardsReq` | [ModelClaimUserRewardsReq ](../../challenge-sdk/pkg/challengeclientmodels/model_claim_user_rewards_req.go) |
+| `model.ClaimUsersRewardsRequest` | [ModelClaimUsersRewardsRequest ](../../challenge-sdk/pkg/challengeclientmodels/model_claim_users_rewards_request.go) |
+| `model.ClaimUsersRewardsResponse` | [ModelClaimUsersRewardsResponse ](../../challenge-sdk/pkg/challengeclientmodels/model_claim_users_rewards_response.go) |
 | `model.CreateChallengeRequest` | [ModelCreateChallengeRequest ](../../challenge-sdk/pkg/challengeclientmodels/model_create_challenge_request.go) |
 | `model.CreateGoalRequest` | [ModelCreateGoalRequest ](../../challenge-sdk/pkg/challengeclientmodels/model_create_goal_request.go) |
 | `model.EvaluatePlayerProgressionRequest` | [ModelEvaluatePlayerProgressionRequest ](../../challenge-sdk/pkg/challengeclientmodels/model_evaluate_player_progression_request.go) |
@@ -73,12 +79,14 @@
 | `model.Predicate` | [ModelPredicate ](../../challenge-sdk/pkg/challengeclientmodels/model_predicate.go) |
 | `model.Requirement` | [ModelRequirement ](../../challenge-sdk/pkg/challengeclientmodels/model_requirement.go) |
 | `model.RequirementProgressionResponse` | [ModelRequirementProgressionResponse ](../../challenge-sdk/pkg/challengeclientmodels/model_requirement_progression_response.go) |
+| `model.ResetConfig` | [ModelResetConfig ](../../challenge-sdk/pkg/challengeclientmodels/model_reset_config.go) |
 | `model.Reward` | [ModelReward ](../../challenge-sdk/pkg/challengeclientmodels/model_reward.go) |
 | `model.Schedule` | [ModelSchedule ](../../challenge-sdk/pkg/challengeclientmodels/model_schedule.go) |
+| `model.UpdateChallengeRequest` | [ModelUpdateChallengeRequest ](../../challenge-sdk/pkg/challengeclientmodels/model_update_challenge_request.go) |
 | `model.UpdateGoalRequest` | [ModelUpdateGoalRequest ](../../challenge-sdk/pkg/challengeclientmodels/model_update_goal_request.go) |
+| `model.UserProgressionPeriodResponseMeta` | [ModelUserProgressionPeriodResponseMeta ](../../challenge-sdk/pkg/challengeclientmodels/model_user_progression_period_response_meta.go) |
 | `model.UserProgressionResponse` | [ModelUserProgressionResponse ](../../challenge-sdk/pkg/challengeclientmodels/model_user_progression_response.go) |
 | `model.UserProgressionResponseMeta` | [ModelUserProgressionResponseMeta ](../../challenge-sdk/pkg/challengeclientmodels/model_user_progression_response_meta.go) |
 | `model.UserReward` | [ModelUserReward ](../../challenge-sdk/pkg/challengeclientmodels/model_user_reward.go) |
 | `models.Period` | [ModelsPeriod ](../../challenge-sdk/pkg/challengeclientmodels/models_period.go) |
-| `models.UpdateChallengeRequest` | [ModelsUpdateChallengeRequest ](../../challenge-sdk/pkg/challengeclientmodels/models_update_challenge_request.go) |
 | `response.Error` | [ResponseError ](../../challenge-sdk/pkg/challengeclientmodels/response_error.go) |

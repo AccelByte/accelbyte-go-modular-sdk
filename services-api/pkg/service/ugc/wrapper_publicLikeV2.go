@@ -13,7 +13,6 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/ugc-sdk/pkg/ugcclient"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/ugc-sdk/pkg/ugcclient/public_like_v2"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/ugc-sdk/pkg/ugcclientmodels"
-	"github.com/go-openapi/runtime/client"
 )
 
 // PublicLikeV2Service this is use for compatibility with latest modular sdk only
@@ -38,58 +37,6 @@ func (aaa *PublicLikeV2Service) GetAuthSession() auth.Session {
 		aaa.ConfigRepository,
 		nil,
 	}
-}
-
-// Deprecated: 2022-01-10 - Please use PublicListContentLikeV2Short instead.
-func (aaa *PublicLikeV2Service) PublicListContentLikeV2(input *public_like_v2.PublicListContentLikeV2Params) (*ugcclientmodels.ModelsPaginatedContentLikersResponse, error) {
-	token, err := aaa.TokenRepository.GetToken()
-	if err != nil {
-		return nil, err
-	}
-	ok, badRequest, unauthorized, internalServerError, err := aaa.Client.PublicLikeV2.PublicListContentLikeV2(input, client.BearerToken(*token.AccessToken))
-	if badRequest != nil {
-		return nil, badRequest
-	}
-	if unauthorized != nil {
-		return nil, unauthorized
-	}
-	if internalServerError != nil {
-		return nil, internalServerError
-	}
-	if err != nil {
-		return nil, err
-	}
-
-	return ok.GetPayload(), nil
-}
-
-// Deprecated: 2022-01-10 - Please use UpdateContentLikeStatusV2Short instead.
-func (aaa *PublicLikeV2Service) UpdateContentLikeStatusV2(input *public_like_v2.UpdateContentLikeStatusV2Params) (*ugcclientmodels.ModelsContentLikeResponse, error) {
-	token, err := aaa.TokenRepository.GetToken()
-	if err != nil {
-		return nil, err
-	}
-	ok, badRequest, unauthorized, notFound, tooManyRequests, internalServerError, err := aaa.Client.PublicLikeV2.UpdateContentLikeStatusV2(input, client.BearerToken(*token.AccessToken))
-	if badRequest != nil {
-		return nil, badRequest
-	}
-	if unauthorized != nil {
-		return nil, unauthorized
-	}
-	if notFound != nil {
-		return nil, notFound
-	}
-	if tooManyRequests != nil {
-		return nil, tooManyRequests
-	}
-	if internalServerError != nil {
-		return nil, internalServerError
-	}
-	if err != nil {
-		return nil, err
-	}
-
-	return ok.GetPayload(), nil
 }
 
 func (aaa *PublicLikeV2Service) PublicListContentLikeV2Short(input *public_like_v2.PublicListContentLikeV2Params) (*ugcclientmodels.ModelsPaginatedContentLikersResponse, error) {
