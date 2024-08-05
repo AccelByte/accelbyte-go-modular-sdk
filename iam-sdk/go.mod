@@ -7,7 +7,7 @@ go 1.18
 replace github.com/willf/bitset v1.1.11 => github.com/bits-and-blooms/bitset v1.4.0
 
 require (
-	github.com/AccelByte/accelbyte-go-modular-sdk/services-api v0.1.0-alpha.1
+	github.com/AccelByte/accelbyte-go-modular-sdk/services-api v0.1.0-alpha.4
 	github.com/AccelByte/bloom v0.0.0-20180915202807-98c052463922
 	github.com/AccelByte/go-jose v2.1.4+incompatible
 	github.com/go-openapi/errors v0.20.2
@@ -32,6 +32,7 @@ require (
 	github.com/go-openapi/jsonreference v0.19.6 // indirect
 	github.com/go-openapi/loads v0.21.1 // indirect
 	github.com/go-openapi/spec v0.20.4 // indirect
+	github.com/golang-jwt/jwt v3.2.2+incompatible // indirect
 	github.com/google/uuid v1.3.0 // indirect
 	github.com/josharian/intern v1.0.0 // indirect
 	github.com/mailru/easyjson v0.7.7 // indirect
