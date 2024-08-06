@@ -4,18 +4,6 @@
 
 package model
 
-// UserBannedNotification is the response models
-// for when user got banned
-type UserBannedNotification struct {
-	*BaseResponse
-	UserID    string `json:"userId"`
-	Namespace string `json:"namespace"`
-	Ban       string `json:"ban"`
-	EndDate   string `json:"endDate"`
-	Reason    string `json:"reason"`
-	Enable    bool   `json:"enable"`
-}
-
 // UserUnbannedNotification is the response models
 // for when user is unbanned
 type UserUnbannedNotification struct {

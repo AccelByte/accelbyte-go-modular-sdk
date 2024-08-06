@@ -8,7 +8,6 @@ package model
 
 import (
 	"fmt"
-	"time"
 )
 
 // Message types enum
@@ -274,11 +273,6 @@ func (Shutdown) Type() string {
 	return TypeShutdown
 }
 
-// Heartbeat used for keeping connection alive
-type Heartbeat struct {
-	*BaseRequest
-}
-
 // GetOfflineNotificationRequest message comment
 type GetOfflineNotificationRequest struct {
 	*BaseRequest
@@ -362,31 +356,6 @@ type FriendsPresenceNotif struct {
 // Type implements Message interface
 func (FriendsPresenceNotif) Type() string {
 	return TypeUserStatusNotif
-}
-
-// StartMatchmakingRequest message message to start matchmaking
-// The user id should be the leader user ID
-// Priority spans from 0-10 the highest the priority the faster it party will get matched
-//
-// PartyAttributes can contain any of:
-// - server_name: string of preferred server name (for local DS)
-// - client_version: string of preferred client version (for matching with DS version)
-// - latencies: string of JSON map of {"region name string": latency int} containing pairs of region name and latency in ms
-//
-// Temp party should contain comma separated user IDs in a temporary party for matchmaking only
-type StartMatchmakingRequest struct {
-	*BaseRequest
-	GameMode        string
-	Priority        int
-	PartyAttributes map[string]interface{} `json:"party_attributes"`
-	TempParty       string
-	ExtraAttributes string
-}
-
-// StartMatchmakingResponse message message to reply start matchmaking request
-type StartMatchmakingResponse struct {
-	*BaseResponse
-	Message string
 }
 
 // MatchmakingNotification is the message of matchmaking result
@@ -517,11 +486,6 @@ func (PlayerUnblockedNotification) Type() string {
 	return TypeUnblockPlayerNotif
 }
 
-type GetAllSessionAttributeResponse struct {
-	*BaseResponse
-	Attributes map[string]string
-}
-
 // --- START FROM HERE, THE MODELS ARE GENERATED BASED ON lobby.schema.yaml FILE ---
 
 // AcceptFriendsNotif
@@ -536,8 +500,8 @@ func (AcceptFriendsNotif) Type() string {
 
 // AcceptFriendsRequest
 type AcceptFriendsRequest struct {
+	*BaseRequest
 	FriendID string
-	*BaseResponse
 }
 
 // Type implements Message interface
@@ -568,9 +532,9 @@ func (BlockPlayerNotif) Type() string {
 
 // BlockPlayerRequest
 type BlockPlayerRequest struct {
+	*BaseRequest
 	BlockUserID string
-	*BaseResponse
-	Namespace string
+	Namespace   string
 }
 
 // Type implements Message interface
@@ -580,9 +544,9 @@ func (BlockPlayerRequest) Type() string {
 
 // BlockPlayerResponse
 type BlockPlayerResponse struct {
-	BlockUserID string
 	*BaseResponse
-	Namespace string
+	BlockUserID string
+	Namespace   string
 }
 
 // Type implements Message interface
@@ -602,8 +566,8 @@ func (CancelFriendsNotif) Type() string {
 
 // CancelFriendsRequest
 type CancelFriendsRequest struct {
+	*BaseRequest
 	FriendID string
-	*BaseResponse
 }
 
 // Type implements Message interface
@@ -623,8 +587,8 @@ func (CancelFriendsResponse) Type() string {
 
 // CancelMatchmakingRequest
 type CancelMatchmakingRequest struct {
-	GameMode string
-	*BaseResponse
+	*BaseRequest
+	GameMode    string
 	IsTempParty bool
 }
 
@@ -648,7 +612,7 @@ type ChannelChatNotif struct {
 	ChannelSlug string
 	From        string
 	Payload     string
-	SentAt      time.Time
+	SentAt      string
 }
 
 // Type implements Message interface
@@ -658,6 +622,7 @@ func (ChannelChatNotif) Type() string {
 
 // ClientResetRequest
 type ClientResetRequest struct {
+	*BaseRequest
 	Namespace string
 	UserID    string
 }
@@ -704,7 +669,7 @@ type DsNotif struct {
 	Namespace             string
 	PodName               string
 	Port                  int
-	Ports                 string
+	Ports                 map[string]int64 `json:"ports"`
 	Protocol              string
 	Provider              string
 	Region                string
@@ -740,7 +705,7 @@ func (ExitAllChannel) Type() string {
 
 // FriendsStatusRequest
 type FriendsStatusRequest struct {
-	*BaseResponse
+	*BaseRequest
 }
 
 // Type implements Message interface
@@ -750,11 +715,11 @@ func (FriendsStatusRequest) Type() string {
 
 // FriendsStatusResponse
 type FriendsStatusResponse struct {
+	*BaseResponse
 	Activity     []string
 	Availability []string
 	FriendIds    []string
-	*BaseResponse
-	LastSeenAt []string
+	LastSeenAt   []string
 }
 
 // Type implements Message interface
@@ -764,12 +729,18 @@ func (FriendsStatusResponse) Type() string {
 
 // GetAllSessionAttributeRequest
 type GetAllSessionAttributeRequest struct {
-	*BaseResponse
+	*BaseRequest
 }
 
 // Type implements Message interface
 func (GetAllSessionAttributeRequest) Type() string {
 	return TypeGetAllSessionAttributeRequest
+}
+
+// GetAllSessionAttributeResponse
+type GetAllSessionAttributeResponse struct {
+	*BaseResponse
+	Attributes map[string]string `json:"attributes"`
 }
 
 // Type implements Message interface
@@ -779,8 +750,8 @@ func (GetAllSessionAttributeResponse) Type() string {
 
 // GetFriendshipStatusRequest
 type GetFriendshipStatusRequest struct {
+	*BaseRequest
 	FriendID string
-	*BaseResponse
 }
 
 // Type implements Message interface
@@ -790,8 +761,8 @@ func (GetFriendshipStatusRequest) Type() string {
 
 // GetFriendshipStatusResponse
 type GetFriendshipStatusResponse struct {
-	FriendshipStatus string
 	*BaseResponse
+	FriendshipStatus string
 }
 
 // Type implements Message interface
@@ -801,7 +772,7 @@ func (GetFriendshipStatusResponse) Type() string {
 
 // GetSessionAttributeRequest
 type GetSessionAttributeRequest struct {
-	*BaseResponse
+	*BaseRequest
 	Key string
 }
 
@@ -821,6 +792,11 @@ func (GetSessionAttributeResponse) Type() string {
 	return TypeGetSessionAttributeResponse
 }
 
+// Heartbeat
+type Heartbeat struct {
+	*BaseRequest
+}
+
 // Type implements Message interface
 func (Heartbeat) Type() string {
 	return TypeHeartbeat
@@ -828,7 +804,7 @@ func (Heartbeat) Type() string {
 
 // JoinDefaultChannelRequest
 type JoinDefaultChannelRequest struct {
-	*BaseResponse
+	*BaseRequest
 }
 
 // Type implements Message interface
@@ -838,8 +814,8 @@ func (JoinDefaultChannelRequest) Type() string {
 
 // JoinDefaultChannelResponse
 type JoinDefaultChannelResponse struct {
-	ChannelSlug string
 	*BaseResponse
+	ChannelSlug string
 }
 
 // Type implements Message interface
@@ -849,7 +825,7 @@ func (JoinDefaultChannelResponse) Type() string {
 
 // ListIncomingFriendsRequest
 type ListIncomingFriendsRequest struct {
-	*BaseResponse
+	*BaseRequest
 }
 
 // Type implements Message interface
@@ -870,8 +846,8 @@ func (ListIncomingFriendsResponse) Type() string {
 
 // ListOfFriendsRequest
 type ListOfFriendsRequest struct {
+	*BaseRequest
 	FriendID string
-	*BaseResponse
 }
 
 // Type implements Message interface
@@ -881,8 +857,8 @@ func (ListOfFriendsRequest) Type() string {
 
 // ListOfFriendsResponse
 type ListOfFriendsResponse struct {
-	FriendIds []string
 	*BaseResponse
+	FriendIds []string
 }
 
 // Type implements Message interface
@@ -892,7 +868,7 @@ func (ListOfFriendsResponse) Type() string {
 
 // ListOnlineFriendsRequest
 type ListOnlineFriendsRequest struct {
-	*BaseResponse
+	*BaseRequest
 }
 
 // Type implements Message interface
@@ -902,7 +878,7 @@ func (ListOnlineFriendsRequest) Type() string {
 
 // ListOutgoingFriendsRequest
 type ListOutgoingFriendsRequest struct {
-	*BaseResponse
+	*BaseRequest
 }
 
 // Type implements Message interface
@@ -912,8 +888,8 @@ func (ListOutgoingFriendsRequest) Type() string {
 
 // ListOutgoingFriendsResponse
 type ListOutgoingFriendsResponse struct {
-	FriendIds []string
 	*BaseResponse
+	FriendIds []string
 }
 
 // Type implements Message interface
@@ -938,8 +914,7 @@ func (MatchmakingNotif) Type() string {
 
 // MessageNotif
 type MessageNotif struct {
-	From string
-	*BaseResponse
+	From    string
 	Payload string
 	SentAt  string
 	To      string
@@ -953,8 +928,7 @@ func (MessageNotif) Type() string {
 
 // MessageSessionNotif
 type MessageSessionNotif struct {
-	From string
-	*BaseResponse
+	From    string
 	Payload string
 	SentAt  string
 	To      string
@@ -968,7 +942,7 @@ func (MessageSessionNotif) Type() string {
 
 // OfflineNotificationRequest
 type OfflineNotificationRequest struct {
-	*BaseResponse
+	*BaseRequest
 }
 
 // Type implements Message interface
@@ -988,7 +962,6 @@ func (OfflineNotificationResponse) Type() string {
 
 // OnlineFriends
 type OnlineFriends struct {
-	*BaseResponse
 	OnlineFriendIds []string
 }
 
@@ -997,9 +970,26 @@ func (OnlineFriends) Type() string {
 	return TypeOnlineFriends
 }
 
+// PartyChatNotif
+type PartyChatNotif struct {
+	From       string
+	Payload    string
+	ReceivedAt string
+	To         string
+}
+
 // Type implements Message interface
 func (PartyChatNotif) Type() string {
 	return TypePartyChatNotif
+}
+
+// PartyChatRequest
+type PartyChatRequest struct {
+	*BaseRequest
+	From       string
+	Payload    string
+	ReceivedAt string
+	To         string
 }
 
 // Type implements Message interface
@@ -1019,7 +1009,7 @@ func (PartyChatResponse) Type() string {
 
 // PartyCreateRequest
 type PartyCreateRequest struct {
-	*BaseResponse
+	*BaseRequest
 }
 
 // Type implements Message interface
@@ -1044,7 +1034,7 @@ func (PartyCreateResponse) Type() string {
 
 // PartyDataUpdateNotif
 type PartyDataUpdateNotif struct {
-	CustomAttributes string
+	CustomAttributes map[string]interface{} `json:"custom_attributes"`
 	Invitees         []string
 	Leader           string
 	Members          []string
@@ -1072,7 +1062,7 @@ func (PartyGetInvitedNotif) Type() string {
 
 // PartyInfoRequest
 type PartyInfoRequest struct {
-	*BaseResponse
+	*BaseRequest
 }
 
 // Type implements Message interface
@@ -1082,13 +1072,13 @@ func (PartyInfoRequest) Type() string {
 
 // PartyInfoResponse
 type PartyInfoResponse struct {
-	CustomAttributes string
 	*BaseResponse
-	InvitationToken string
-	Invitees        string
-	LeaderID        string
-	Members         string
-	PartyID         string
+	CustomAttributes map[string]interface{} `json:"custom_attributes"`
+	InvitationToken  string
+	Invitees         string
+	LeaderID         string
+	Members          string
+	PartyID          string
 }
 
 // Type implements Message interface
@@ -1109,8 +1099,8 @@ func (PartyInviteNotif) Type() string {
 
 // PartyInviteRequest
 type PartyInviteRequest struct {
+	*BaseRequest
 	FriendID string
-	*BaseResponse
 }
 
 // Type implements Message interface
@@ -1140,7 +1130,7 @@ func (PartyJoinNotif) Type() string {
 
 // PartyJoinRequest
 type PartyJoinRequest struct {
-	*BaseResponse
+	*BaseRequest
 	InvitationToken string
 	PartyID         string
 }
@@ -1179,7 +1169,7 @@ func (PartyKickNotif) Type() string {
 
 // PartyKickRequest
 type PartyKickRequest struct {
-	*BaseResponse
+	*BaseRequest
 	MemberID string
 }
 
@@ -1211,7 +1201,7 @@ func (PartyLeaveNotif) Type() string {
 
 // PartyLeaveRequest
 type PartyLeaveRequest struct {
-	*BaseResponse
+	*BaseRequest
 	IgnoreUserRegistry bool
 }
 
@@ -1232,7 +1222,7 @@ func (PartyLeaveResponse) Type() string {
 
 // PartyPromoteLeaderRequest
 type PartyPromoteLeaderRequest struct {
-	*BaseResponse
+	*BaseRequest
 	NewLeaderUserID string
 }
 
@@ -1270,7 +1260,7 @@ func (PartyRejectNotif) Type() string {
 
 // PartyRejectRequest
 type PartyRejectRequest struct {
-	*BaseResponse
+	*BaseRequest
 	InvitationToken string
 	PartyID         string
 }
@@ -1293,8 +1283,8 @@ func (PartyRejectResponse) Type() string {
 
 // PersonalChatHistoryRequest
 type PersonalChatHistoryRequest struct {
+	*BaseRequest
 	FriendID string
-	*BaseResponse
 }
 
 // Type implements Message interface
@@ -1304,9 +1294,9 @@ func (PersonalChatHistoryRequest) Type() string {
 
 // PersonalChatHistoryResponse
 type PersonalChatHistoryResponse struct {
+	*BaseResponse
 	Chat     string
 	FriendID string
-	*BaseResponse
 }
 
 // Type implements Message interface
@@ -1314,9 +1304,26 @@ func (PersonalChatHistoryResponse) Type() string {
 	return TypePersonalChatHistoryResponse
 }
 
+// PersonalChatNotif
+type PersonalChatNotif struct {
+	From       string
+	Payload    string
+	ReceivedAt string
+	To         string
+}
+
 // Type implements Message interface
 func (PersonalChatNotif) Type() string {
 	return TypePersonalChatNotif
+}
+
+// PersonalChatRequest
+type PersonalChatRequest struct {
+	*BaseRequest
+	From       string
+	Payload    string
+	ReceivedAt string
+	To         string
 }
 
 // Type implements Message interface
@@ -1336,7 +1343,7 @@ func (PersonalChatResponse) Type() string {
 
 // RefreshTokenRequest
 type RefreshTokenRequest struct {
-	*BaseResponse
+	*BaseRequest
 	Token string
 }
 
@@ -1367,8 +1374,8 @@ func (RejectFriendsNotif) Type() string {
 
 // RejectFriendsRequest
 type RejectFriendsRequest struct {
+	*BaseRequest
 	FriendID string
-	*BaseResponse
 }
 
 // Type implements Message interface
@@ -1408,8 +1415,8 @@ func (RequestFriendsNotif) Type() string {
 
 // RequestFriendsRequest
 type RequestFriendsRequest struct {
+	*BaseRequest
 	FriendID string
-	*BaseResponse
 }
 
 // Type implements Message interface
@@ -1429,9 +1436,9 @@ func (RequestFriendsResponse) Type() string {
 
 // SendChannelChatRequest
 type SendChannelChatRequest struct {
+	*BaseRequest
 	ChannelSlug string
-	*BaseResponse
-	Payload string
+	Payload     string
 }
 
 // Type implements Message interface
@@ -1462,7 +1469,7 @@ func (SetReadyConsentNotif) Type() string {
 
 // SetReadyConsentRequest
 type SetReadyConsentRequest struct {
-	*BaseResponse
+	*BaseRequest
 	MatchID string
 }
 
@@ -1483,7 +1490,7 @@ func (SetReadyConsentResponse) Type() string {
 
 // SetSessionAttributeRequest
 type SetSessionAttributeRequest struct {
-	*BaseResponse
+	*BaseRequest
 	Key       string
 	Namespace string
 	Value     string
@@ -1506,9 +1513,9 @@ func (SetSessionAttributeResponse) Type() string {
 
 // SetUserStatusRequest
 type SetUserStatusRequest struct {
+	*BaseRequest
 	Activity     string
 	Availability int
-	*BaseResponse
 }
 
 // Type implements Message interface
@@ -1547,9 +1554,24 @@ func (SignalingP2PNotif) Type() string {
 	return TypeSignalingP2PNotif
 }
 
+// StartMatchmakingRequest
+type StartMatchmakingRequest struct {
+	*BaseRequest
+	ExtraAttributes string
+	GameMode        string
+	PartyAttributes map[string]interface{} `json:"party_attributes"`
+	Priority        int
+	TempParty       string
+}
+
 // Type implements Message interface
 func (StartMatchmakingRequest) Type() string {
 	return TypeStartMatchmakingRequest
+}
+
+// StartMatchmakingResponse
+type StartMatchmakingResponse struct {
+	*BaseResponse
 }
 
 // Type implements Message interface
@@ -1570,7 +1592,7 @@ func (UnblockPlayerNotif) Type() string {
 
 // UnblockPlayerRequest
 type UnblockPlayerRequest struct {
-	*BaseResponse
+	*BaseRequest
 	Namespace       string
 	UnblockedUserID string
 }
@@ -1604,8 +1626,8 @@ func (UnfriendNotif) Type() string {
 
 // UnfriendRequest
 type UnfriendRequest struct {
+	*BaseRequest
 	FriendID string
-	*BaseResponse
 }
 
 // Type implements Message interface
@@ -1623,6 +1645,11 @@ func (UnfriendResponse) Type() string {
 	return TypeUnfriendResponse
 }
 
+// UserBannedNotification
+type UserBannedNotification struct {
+	*BaseResponse
+}
+
 // Type implements Message interface
 func (UserBannedNotification) Type() string {
 	return TypeUserBannedNotification
@@ -1630,7 +1657,7 @@ func (UserBannedNotification) Type() string {
 
 // UserMetricRequest
 type UserMetricRequest struct {
-	*BaseResponse
+	*BaseRequest
 }
 
 // Type implements Message interface
