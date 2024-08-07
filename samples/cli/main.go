@@ -19,9 +19,9 @@ import (
 	"github.com/sirupsen/logrus"
 
 	service "github.com/AccelByte/accelbyte-go-modular-sdk/lobby-sdk/pkg"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/lobby-sdk/pkg/parser"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/model"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils/connectionutils"
-	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils/parser"
 	"github.com/AccelByte/sample-apps/cmd"
 	"github.com/AccelByte/sample-apps/pkg/repository"
 	"github.com/AccelByte/sample-apps/pkg/utils"
@@ -153,7 +153,7 @@ func main() {
 	}
 }
 
-//messageHandler is callback function how to handle incoming ws message
+// messageHandler is callback function how to handle incoming ws message
 var messageHandler = func(dataByte []byte) {
 	message, err := parser.UnmarshalResponse(dataByte)
 	if err != nil {

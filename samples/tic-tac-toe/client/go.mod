@@ -4,11 +4,13 @@ go 1.18
 
 replace (
 	github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk => ../../../iam-sdk
+	github.com/AccelByte/accelbyte-go-modular-sdk/lobby-sdk => ../../../lobby-sdk
 	github.com/AccelByte/accelbyte-go-modular-sdk/services-api => ../../../services-api
 )
 
 require (
 	github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk v0.1.0-alpha.15
+	github.com/AccelByte/accelbyte-go-modular-sdk/lobby-sdk v0.1.0-alpha.1
 	github.com/AccelByte/accelbyte-go-modular-sdk/services-api v0.1.0-alpha.4
 )
 
