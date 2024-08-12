@@ -7,7 +7,7 @@ package utils
 import (
 	"fmt"
 
-	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils/connectionutils"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/lobby-sdk/pkg/connectionutils"
 )
 
 type ConnectionManagerImpl struct {

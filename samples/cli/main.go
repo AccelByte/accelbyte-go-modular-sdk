@@ -19,9 +19,9 @@ import (
 	"github.com/sirupsen/logrus"
 
 	service "github.com/AccelByte/accelbyte-go-modular-sdk/lobby-sdk/pkg"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/lobby-sdk/pkg/connectionutils"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/lobby-sdk/pkg/parser"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/model"
-	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils/connectionutils"
 	"github.com/AccelByte/sample-apps/cmd"
 	"github.com/AccelByte/sample-apps/pkg/repository"
 	"github.com/AccelByte/sample-apps/pkg/utils"

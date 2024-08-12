@@ -293,7 +293,7 @@ logrus.Info("Login Successful")
 // listening message from lobby using AccelByte Go Modular SDK
 logrus.Info("Enter websocket mode")
 connMgr = &utils.ConnectionManagerImpl{}
-connection, err := connectionutils.NewWebsocketConnection(
+connection, err := service.NewWebsocketConnection(
     oauthService.ConfigRepository,
     oauthService.TokenRepository,
     websocketMessageHandler)
