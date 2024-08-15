@@ -5,7 +5,7 @@
 package connectionutils_test
 
 import (
-	"bytes"
+	"github.com/gorilla/websocket"
 	"net/http"
 	"os"
 	"testing"
@@ -26,7 +26,10 @@ var (
 	baseUrl = os.Getenv("AB_BASE_URL")
 )
 
-const url = "http://localhost:8080/ws/lobby/force-close?errorCode=4000"
+const (
+	url1 = "http://localhost:8080/ws/lobby/force-close?errorCode=2000"
+	url2 = "http://localhost:8080/ws/lobby/force-close?errorCode=4000"
+)
 
 func TestConnectionUtils(t *testing.T) {
 	conn, err := connectionutils.NewWebsocketConnectionWithReconnect(configRepo, tokenRepo, false)
@@ -99,24 +102,50 @@ func TestWebSocketReconnect_Case1(t *testing.T) {
 	// 3. Assert that the value from the WebSocket Client using GetData("LobbySessionId") is equal to originalLobbySessionId.
 	assert.Equal(t, originalLobbySessionId, client.Base.GetData("LobbySessionID"))
 
-	var logBuffer bytes.Buffer // capture the log
-	logrus.SetOutput(&logBuffer)
-	defer logrus.SetOutput(nil)
+	errPing := client.Base.Send(websocket.PingMessage, "Connected (1)")
+	assert.Nil(t, errPing)
 
-	// 4. Send a POST /ws/lobby/force-close?errorCode=4000 HTTP request to the Mock Server.
-	req, _ := http.NewRequest("POST", url, nil)
+	client.Conn.SetPongHandler(func(appData string) error {
+		err := client.Conn.SetReadDeadline(time.Now().Add(6 * time.Second))
+		if err != nil {
+			logrus.Error("Error setting read deadline: ", err)
+			return err
+		}
+
+		// Log the received Pong message and the application data (if any) to t.Log
+		t.Logf("Pong received: %s", appData)
+		return nil
+	})
+
+	// 4. Send a POST /ws/lobby/force-close?errorCode=2000 HTTP request to the Mock Server.
+	req, _ := http.NewRequest("POST", url1, nil)
 	_, err = http.DefaultClient.Do(req)
 	assert.NoError(t, err)
 
 	// 5. Assert that the websocket connection has disconnected.
-	logOutput := logBuffer.String()
-	assert.Contains(t, logOutput, "done signal received")
+	errPing = client.Base.Send(websocket.PingMessage, "really closed?")
+	assert.NotNil(t, errPing)
 
 	// 6. Wait for 1 second.
 	time.Sleep(1 * time.Second)
 
 	// 7. Assert that the websocket connection has reconnected.
-	assert.NotNil(t, client.Base.GetData("LobbySessionID"))
+	assert.NotNil(t, client.Base.GetData("LobbySessionID")) // make sure the data is not deleted
+	t.Logf("Lobby session : %s", client.Base.GetData("LobbySessionID"))
+	errPing = client.Base.Send(websocket.PingMessage, "Connected (2)")
+	assert.Nil(t, errPing)
+
+	client.Conn.SetPongHandler(func(appData string) error {
+		err := client.Conn.SetReadDeadline(time.Now().Add(6 * time.Second))
+		if err != nil {
+			logrus.Error("Error setting read deadline: ", err)
+			return err
+		}
+
+		// Log the received Pong message and the application data (if any) to t.Log
+		t.Logf("Pong received: %s", appData)
+		return nil
+	})
 
 	// 8. Wait for the connectNotif message and store lobbySessionId from the connectNotif message.
 	newLobbySessionId := waitForConnectNotif(t, client.Base)
@@ -134,7 +163,7 @@ func TestWebSocketReconnect_Case2(t *testing.T) {
 	assert.Nil(t, err, "err should be nil")
 	assert.NotNil(t, client)
 
-	connMgr.Base.Save(client)
+	client.Base.Save(client)
 
 	// 2. Wait for the connectNotif message and store lobbySessionId from the connectNotif message.
 	originalLobbySessionId := waitForConnectNotif(t, client.Base)
@@ -142,25 +171,36 @@ func TestWebSocketReconnect_Case2(t *testing.T) {
 	// 3. Assert that the value from the WebSocket Client using GetData("LobbySessionId") is equal to originalLobbySessionId.
 	assert.Equal(t, originalLobbySessionId, client.Base.GetData("LobbySessionID"))
 
-	var logBuffer bytes.Buffer // capture the log
-	logrus.SetOutput(&logBuffer)
-	defer logrus.SetOutput(nil)
+	errPing := client.Conn.WriteMessage(websocket.PingMessage, []byte("Connected (1)"))
+	assert.Nil(t, errPing)
+
+	client.Conn.SetPongHandler(func(appData string) error {
+		err := client.Conn.SetReadDeadline(time.Now().Add(6 * time.Second))
+		if err != nil {
+			logrus.Error("Error setting read deadline: ", err)
+			return err
+		}
+
+		// Log the received Pong message and the application data (if any) to t.Log
+		t.Logf("Pong received: %s", appData)
+		return nil
+	})
 
 	// 4. Send a POST /ws/lobby/force-close?errorCode=4000 HTTP request to the Mock Server.
-	req, _ := http.NewRequest("POST", url, nil)
+	req, _ := http.NewRequest("POST", url2, nil)
 	_, err = http.DefaultClient.Do(req)
 	assert.NoError(t, err)
-	client.Base.OnDisconnect(1000, "")
 
 	// 5. Assert that the websocket connection has disconnected.
-	logOutput := logBuffer.String()
-	assert.Contains(t, logOutput, "done signal received")
+	errPing = client.Conn.WriteMessage(websocket.PingMessage, []byte("really closed?"))
+	assert.NotNil(t, errPing)
 
 	// 6. Wait for 1 second.
 	time.Sleep(1 * time.Second)
 
 	// 7. Assert that the websocket connection has stayed disconnected.
-	assert.Contains(t, logOutput, "done signal received")
+	errPing = client.Conn.WriteMessage(websocket.PingMessage, []byte("really closed?"))
+	assert.NotNil(t, errPing)
 
 	// 8. Assert that the value from the WebSocket Client using GetData("LobbySessionId") is null or empty.
 	assert.Empty(t, client.Base.GetData("LobbySessionID"))
@@ -174,6 +214,21 @@ func TestWebSocketReconnect_Case2(t *testing.T) {
 	assert.Nil(t, err, "err should be nil")
 	assert.NotNil(t, client)
 	assert.NotNil(t, client.Conn)
+
+	errPing = client.Conn.WriteMessage(websocket.PingMessage, []byte("Connected (2)"))
+	assert.Nil(t, errPing)
+
+	client.Conn.SetPongHandler(func(appData string) error {
+		err := client.Conn.SetReadDeadline(time.Now().Add(6 * time.Second))
+		if err != nil {
+			logrus.Error("Error setting read deadline: ", err)
+			return err
+		}
+
+		// Log the received Pong message and the application data (if any) to t.Log
+		t.Logf("Pong received: %s", appData)
+		return nil
+	})
 
 	// 10. Wait for the connectNotif message and store lobbySessionId from the connectNotif message.
 	newLobbySessionId := waitForConnectNotif(t, client.Base)

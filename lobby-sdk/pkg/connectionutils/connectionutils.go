@@ -21,10 +21,6 @@ type WSConnection struct {
 	mu   sync.RWMutex
 }
 
-const (
-	separator = "://"
-)
-
 func NewWebsocketConnection(configRepo repository.ConfigRepository, tokenRepo repository.TokenRepository, messageHandler func(message []byte)) (*WSConnection, error) {
 	baseURL := configRepo.GetJusticeBaseUrl()
 	baseURLSplit := strings.Split(baseURL, "://")
