@@ -6,6 +6,7 @@ package utils
 
 import (
 	"fmt"
+
 	"github.com/AccelByte/accelbyte-go-modular-sdk/lobby-sdk/pkg/connectionutils"
 )
 

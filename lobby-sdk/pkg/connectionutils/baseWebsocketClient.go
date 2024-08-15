@@ -15,6 +15,7 @@ import (
 	"time"
 
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
+
 	"github.com/gorilla/websocket"
 	"github.com/sirupsen/logrus"
 )
@@ -87,6 +88,7 @@ func (c *BaseWebSocketClient) Connect(reconnecting bool) bool {
 				if success := c.connectToWebSocket(); success {
 					logrus.Println("Successfully reconnected to the WebSocket server.")
 					c.OnConnect(true)
+
 					return true
 				}
 			} else {
@@ -112,8 +114,10 @@ func (c *BaseWebSocketClient) Connect(reconnecting bool) bool {
 		logrus.Infof("Non-reconnecting connection attempt")
 		if success := c.connectToWebSocket(); success {
 			c.OnConnect(false)
+
 			return true
 		}
+
 		return false
 	}
 }
@@ -129,6 +133,7 @@ func (c *BaseWebSocketClient) connectToWebSocket() bool {
 	req, err := http.NewRequest(http.MethodGet, lobbyURL, nil)
 	if err != nil {
 		logrus.Error(err)
+
 		return false
 	}
 	req.Header.Set("Authorization", authHeader)
@@ -137,11 +142,13 @@ func (c *BaseWebSocketClient) connectToWebSocket() bool {
 	if errors.Is(err, websocket.ErrBadHandshake) {
 		if b, e := ioutil.ReadAll(res.Body); e == nil {
 			logrus.Error("bad handshake", res.Status, string(b))
+
 			return false
 		}
 	}
 	if err != nil {
 		logrus.Error(err)
+
 		return false
 	}
 	defer res.Body.Close()
@@ -190,6 +197,7 @@ func (c *BaseWebSocketClient) setupConnectionHandlers(connection *websocket.Conn
 		if err != nil {
 			logrus.Error("Error setting read deadline: ", err)
 		}
+
 		return nil
 	})
 }
@@ -239,8 +247,7 @@ func (c *BaseWebSocketClient) Disconnect(code int32, reason string) {
 
 	c.OnDisconnect(code, reason)
 
-	err := c.conn.Conn.Close()
-	if err != nil {
+	if err := c.conn.Conn.Close(); err != nil {
 		logrus.Errorf("failed to close connection: %v", err)
 	}
 }
@@ -342,7 +349,7 @@ func (c *BaseWebSocketClient) ReadWSMessage(done chan struct{}, messageHandler f
 		if err != nil {
 			logrus.Errorf("read message failed: %v", err)
 
-			code := websocket.CloseProtocolError // TODO adjusted to switch
+			code := websocket.CloseProtocolError
 			text := err.Error()
 
 			if !c.ShouldReconnect(int32(code), text) {

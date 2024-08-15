@@ -5,15 +5,15 @@
 package connectionutils_test
 
 import (
-	"github.com/gorilla/websocket"
 	"net/http"
-	"os"
 	"testing"
 	"time"
 
 	"github.com/AccelByte/accelbyte-go-modular-sdk/lobby-sdk/pkg/connectionutils"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils/auth"
-	"github.com/sirupsen/logrus"
+
+	"github.com/gorilla/websocket"
 	"github.com/stretchr/testify/assert"
 )
 
@@ -23,7 +23,7 @@ var (
 	token      = "foo"
 	connMgr    = &connectionutils.WSConnection{Base: &connectionutils.BaseWebSocketClient{}}
 
-	baseUrl = os.Getenv("AB_BASE_URL")
+	baseUrl = utils.GetEnv("AB_BASE_URL", "http://localhost:8080")
 )
 
 const (
@@ -106,14 +106,14 @@ func TestWebSocketReconnect_Case1(t *testing.T) {
 	assert.Nil(t, errPing)
 
 	client.Conn.SetPongHandler(func(appData string) error {
-		err := client.Conn.SetReadDeadline(time.Now().Add(6 * time.Second))
-		if err != nil {
-			logrus.Error("Error setting read deadline: ", err)
-			return err
+		errDeadline := client.Conn.SetReadDeadline(time.Now().Add(6 * time.Second))
+		if errDeadline != nil {
+			assert.Nil(t, errDeadline, "Error setting read deadline")
 		}
 
 		// Log the received Pong message and the application data (if any) to t.Log
 		t.Logf("Pong received: %s", appData)
+
 		return nil
 	})
 
@@ -136,14 +136,14 @@ func TestWebSocketReconnect_Case1(t *testing.T) {
 	assert.Nil(t, errPing)
 
 	client.Conn.SetPongHandler(func(appData string) error {
-		err := client.Conn.SetReadDeadline(time.Now().Add(6 * time.Second))
-		if err != nil {
-			logrus.Error("Error setting read deadline: ", err)
-			return err
+		errDeadline := client.Conn.SetReadDeadline(time.Now().Add(6 * time.Second))
+		if errDeadline != nil {
+			assert.Nil(t, errDeadline, "Error setting read deadline")
 		}
 
 		// Log the received Pong message and the application data (if any) to t.Log
 		t.Logf("Pong received: %s", appData)
+
 		return nil
 	})
 
@@ -175,14 +175,14 @@ func TestWebSocketReconnect_Case2(t *testing.T) {
 	assert.Nil(t, errPing)
 
 	client.Conn.SetPongHandler(func(appData string) error {
-		err := client.Conn.SetReadDeadline(time.Now().Add(6 * time.Second))
-		if err != nil {
-			logrus.Error("Error setting read deadline: ", err)
-			return err
+		errDeadline := client.Conn.SetReadDeadline(time.Now().Add(6 * time.Second))
+		if errDeadline != nil {
+			assert.Nil(t, errDeadline, "Error setting read deadline")
 		}
 
 		// Log the received Pong message and the application data (if any) to t.Log
 		t.Logf("Pong received: %s", appData)
+
 		return nil
 	})
 
@@ -219,14 +219,14 @@ func TestWebSocketReconnect_Case2(t *testing.T) {
 	assert.Nil(t, errPing)
 
 	client.Conn.SetPongHandler(func(appData string) error {
-		err := client.Conn.SetReadDeadline(time.Now().Add(6 * time.Second))
-		if err != nil {
-			logrus.Error("Error setting read deadline: ", err)
-			return err
+		errDeadline := client.Conn.SetReadDeadline(time.Now().Add(6 * time.Second))
+		if errDeadline != nil {
+			assert.Nil(t, errDeadline, "Error setting read deadline")
 		}
 
 		// Log the received Pong message and the application data (if any) to t.Log
 		t.Logf("Pong received: %s", appData)
+
 		return nil
 	})
 
@@ -239,6 +239,8 @@ func TestWebSocketReconnect_Case2(t *testing.T) {
 
 // Utility function to wait for the connectNotif message
 func waitForConnectNotif(t *testing.T, client *connectionutils.BaseWebSocketClient) string {
+	t.Helper()
+
 	time.Sleep(100 * time.Millisecond) // Give the server time to send the message
 
 	if !client.HasData("LobbySessionID") {
