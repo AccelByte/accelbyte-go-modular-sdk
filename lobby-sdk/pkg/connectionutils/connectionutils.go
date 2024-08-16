@@ -6,10 +6,8 @@ package connectionutils
 
 import (
 	"errors"
-	"strings"
-	"sync"
-
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
+	"strings"
 
 	"github.com/gorilla/websocket"
 	"github.com/sirupsen/logrus"
@@ -18,7 +16,6 @@ import (
 type WSConnection struct {
 	Base *BaseWebSocketClient
 	Conn *websocket.Conn
-	mu   sync.RWMutex
 }
 
 func NewWebsocketConnection(configRepo repository.ConfigRepository, tokenRepo repository.TokenRepository, messageHandler func(message []byte)) (*WSConnection, error) {
@@ -36,7 +33,6 @@ func NewWebsocketConnection(configRepo repository.ConfigRepository, tokenRepo re
 		wsConnection := &WSConnection{
 			Base: conn,
 			Conn: conn.conn.Conn,
-			mu:   sync.RWMutex{},
 		}
 
 		done := make(chan struct{})
@@ -53,9 +49,9 @@ func NewWebsocketConnectionWithReconnect(configRepo repository.ConfigRepository,
 	baseURL := configRepo.GetJusticeBaseUrl()
 	baseURLSplit := strings.Split(baseURL, separator)
 	if len(baseURLSplit) == 2 {
-		c := NewDefaultBaseWebSocketClient(configRepo, tokenRepo)
+		base := NewDefaultBaseWebSocketClient(configRepo, tokenRepo)
 
-		connected := c.Connect(reconnecting)
+		connected := base.Connect(reconnecting)
 		if !connected {
 			logrus.Errorf("unable to connect into lobby")
 
@@ -63,14 +59,14 @@ func NewWebsocketConnectionWithReconnect(configRepo repository.ConfigRepository,
 		}
 
 		wsConnection := &WSConnection{
-			Base: c,
-			Conn: c.conn.Conn,
-			mu:   sync.RWMutex{},
+			Base: base,
+			Conn: base.conn.Conn,
 		}
 
 		done := make(chan struct{})
-		go c.ReadWSMessage(done, nil)
-		go c.WSHeartbeat(done)
+		base.Save(wsConnection)
+		go base.ReadWSMessage(done, nil)
+		go base.WSHeartbeat(done)
 
 		return wsConnection, nil
 	}

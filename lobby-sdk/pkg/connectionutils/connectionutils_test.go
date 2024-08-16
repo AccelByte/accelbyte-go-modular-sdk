@@ -21,9 +21,7 @@ var (
 	configRepo = auth.DefaultConfigRepositoryImpl()
 	tokenRepo  = auth.DefaultTokenRepositoryImpl()
 	token      = "foo"
-	connMgr    = &connectionutils.WSConnection{Base: &connectionutils.BaseWebSocketClient{}}
-
-	baseUrl = utils.GetEnv("AB_BASE_URL", "http://localhost:8080")
+	baseUrl    = utils.GetEnv("AB_BASE_URL", "http://localhost:8080")
 )
 
 const (
@@ -32,6 +30,9 @@ const (
 )
 
 func TestConnectionUtils(t *testing.T) {
+	tokenRepo.AccessToken.AccessToken = &token
+	configRepo.BaseUrl = baseUrl
+
 	conn, err := connectionutils.NewWebsocketConnectionWithReconnect(configRepo, tokenRepo, false)
 	if err != nil {
 		return
@@ -56,7 +57,6 @@ func TestConnectionUtils_ShouldReconnect(t *testing.T) {
 
 func TestConnectionUtils_ReconnectDelay(t *testing.T) {
 	tokenRepo.AccessToken.AccessToken = &token
-	configRepo.BaseUrl = baseUrl
 	connection := connectionutils.NewDefaultBaseWebSocketClient(configRepo, tokenRepo)
 
 	assert.InDelta(t, 1.0, connection.ReconnectDelay(0), 0.01)
@@ -67,7 +67,6 @@ func TestConnectionUtils_ReconnectDelay(t *testing.T) {
 
 func TestConnectionUtils_DataManagement(t *testing.T) {
 	tokenRepo.AccessToken.AccessToken = &token
-	configRepo.BaseUrl = baseUrl
 	connection := connectionutils.NewDefaultBaseWebSocketClient(configRepo, tokenRepo)
 
 	connection.SetData("key1", "value1")
@@ -94,8 +93,6 @@ func TestWebSocketReconnect_Case1(t *testing.T) {
 	assert.Nil(t, err, "err should be nil")
 	assert.NotNil(t, client)
 
-	connMgr.Base.Save(client)
-
 	// 2. Wait for the connectNotif message and store lobbySessionId from the connectNotif message.
 	originalLobbySessionId := waitForConnectNotif(t, client.Base)
 
@@ -104,18 +101,6 @@ func TestWebSocketReconnect_Case1(t *testing.T) {
 
 	errPing := client.Base.Send(websocket.PingMessage, "Connected (1)")
 	assert.Nil(t, errPing)
-
-	client.Conn.SetPongHandler(func(appData string) error {
-		errDeadline := client.Conn.SetReadDeadline(time.Now().Add(6 * time.Second))
-		if errDeadline != nil {
-			assert.Nil(t, errDeadline, "Error setting read deadline")
-		}
-
-		// Log the received Pong message and the application data (if any) to t.Log
-		t.Logf("Pong received: %s", appData)
-
-		return nil
-	})
 
 	// 4. Send a POST /ws/lobby/force-close?errorCode=2000 HTTP request to the Mock Server.
 	req, _ := http.NewRequest("POST", url1, nil)
@@ -135,18 +120,6 @@ func TestWebSocketReconnect_Case1(t *testing.T) {
 	errPing = client.Base.Send(websocket.PingMessage, "Connected (2)")
 	assert.Nil(t, errPing)
 
-	client.Conn.SetPongHandler(func(appData string) error {
-		errDeadline := client.Conn.SetReadDeadline(time.Now().Add(6 * time.Second))
-		if errDeadline != nil {
-			assert.Nil(t, errDeadline, "Error setting read deadline")
-		}
-
-		// Log the received Pong message and the application data (if any) to t.Log
-		t.Logf("Pong received: %s", appData)
-
-		return nil
-	})
-
 	// 8. Wait for the connectNotif message and store lobbySessionId from the connectNotif message.
 	newLobbySessionId := waitForConnectNotif(t, client.Base)
 
@@ -163,8 +136,6 @@ func TestWebSocketReconnect_Case2(t *testing.T) {
 	assert.Nil(t, err, "err should be nil")
 	assert.NotNil(t, client)
 
-	client.Base.Save(client)
-
 	// 2. Wait for the connectNotif message and store lobbySessionId from the connectNotif message.
 	originalLobbySessionId := waitForConnectNotif(t, client.Base)
 
@@ -173,18 +144,6 @@ func TestWebSocketReconnect_Case2(t *testing.T) {
 
 	errPing := client.Conn.WriteMessage(websocket.PingMessage, []byte("Connected (1)"))
 	assert.Nil(t, errPing)
-
-	client.Conn.SetPongHandler(func(appData string) error {
-		errDeadline := client.Conn.SetReadDeadline(time.Now().Add(6 * time.Second))
-		if errDeadline != nil {
-			assert.Nil(t, errDeadline, "Error setting read deadline")
-		}
-
-		// Log the received Pong message and the application data (if any) to t.Log
-		t.Logf("Pong received: %s", appData)
-
-		return nil
-	})
 
 	// 4. Send a POST /ws/lobby/force-close?errorCode=4000 HTTP request to the Mock Server.
 	req, _ := http.NewRequest("POST", url2, nil)
@@ -210,25 +169,12 @@ func TestWebSocketReconnect_Case2(t *testing.T) {
 	assert.Nil(t, err, "err should be nil")
 	assert.NotNil(t, client)
 
-	connMgr.Base.Save(client)
 	assert.Nil(t, err, "err should be nil")
 	assert.NotNil(t, client)
 	assert.NotNil(t, client.Conn)
 
 	errPing = client.Conn.WriteMessage(websocket.PingMessage, []byte("Connected (2)"))
 	assert.Nil(t, errPing)
-
-	client.Conn.SetPongHandler(func(appData string) error {
-		errDeadline := client.Conn.SetReadDeadline(time.Now().Add(6 * time.Second))
-		if errDeadline != nil {
-			assert.Nil(t, errDeadline, "Error setting read deadline")
-		}
-
-		// Log the received Pong message and the application data (if any) to t.Log
-		t.Logf("Pong received: %s", appData)
-
-		return nil
-	})
 
 	// 10. Wait for the connectNotif message and store lobbySessionId from the connectNotif message.
 	newLobbySessionId := waitForConnectNotif(t, client.Base)
