@@ -19,8 +19,9 @@ import (
 )
 
 const (
-	interval    = 1.0
-	backoffRate = 2.0
+	interval       = 1.0
+	backoffRate    = 2.0
+	LobbySessionID = "lobbySessionID"
 )
 
 // LobbyWebSocketClient is the extended implementation of ConnectionManagerImpl
@@ -40,7 +41,14 @@ func (c *LobbyWebSocketClient) Connect(reconnecting bool) (bool, error) {
 	defer c.WSConn.Mu.Unlock()
 
 	// Re-usable
+	if c.WSConn == nil {
+		logrus.Warn("WSCnn is nil")
+	}
+	if _, exist := c.WSConn.Data["host"].(string); !exist {
+		logrus.Debugf("host data is not found")
+	}
 	url := c.createURL(c.WSConn.Data["host"].(string))
+	logrus.Info("Connecting to ", url)
 	req, err := http.NewRequest(http.MethodGet, url, nil)
 	if err != nil {
 		return false, err
@@ -50,7 +58,7 @@ func (c *LobbyWebSocketClient) Connect(reconnecting bool) (bool, error) {
 	}
 
 	// Specific to Lobby Service can be moved later
-	if lobbySessionId, exists := c.WSConn.Data["LobbySessionID"]; exists {
+	if lobbySessionId, exists := c.WSConn.Data[LobbySessionID]; exists {
 		req.Header.Add("X-Ab-LobbySessionID", lobbySessionId.(string))
 	}
 
@@ -60,6 +68,7 @@ func (c *LobbyWebSocketClient) Connect(reconnecting bool) (bool, error) {
 	}
 
 	c.WSConn.Conn = conn
+	logrus.Info("Successfully dialing. Connection saved.")
 
 	c.setHandlers()
 
@@ -78,10 +87,13 @@ func (c *LobbyWebSocketClient) setHandlers() {
 }
 
 func (c *LobbyWebSocketClient) lobbyCloseHandler(code int, reason string) error {
+	logrus.Debugf("Lobby close handler with code: %v", code)
 	didReconnect := false
 
 	if c.WSConn.EnableAutoReconnect {
-		didReconnect = c.reconnect(code, reason)
+		if c.ShouldReconnect(code, reason, 0) {
+			didReconnect = c.reconnect(code, reason)
+		}
 	}
 
 	if didReconnect {
@@ -98,6 +110,11 @@ func (c *LobbyWebSocketClient) reconnect(code int, reason string) bool {
 	numberOfAttempts := 0
 
 	for {
+		numberOfAttempts++
+		logrus.Debugf("Reconnect attempt: %v", numberOfAttempts)
+		delay := c.ReconnectDelay(int32(numberOfAttempts))
+		time.Sleep(time.Duration(delay) * time.Second)
+
 		success, err := c.Connect(true)
 		if err != nil {
 			// explicitly ignore in favor of the original code and reason
@@ -110,13 +127,10 @@ func (c *LobbyWebSocketClient) reconnect(code int, reason string) bool {
 		}
 
 		if !c.ShouldReconnect(code, reason, numberOfAttempts) {
+			logrus.Debug("should not reconnect")
+
 			break
 		}
-
-		numberOfAttempts++
-		logrus.Debugf("reconnect attempt: %v", numberOfAttempts)
-		delay := c.ReconnectDelay(int32(numberOfAttempts))
-		time.Sleep(time.Duration(delay) * time.Second)
 	}
 
 	return didReconnect
@@ -142,22 +156,24 @@ func (c *LobbyWebSocketClient) Close() error {
 
 func (c *LobbyWebSocketClient) OnConnect(reconnecting bool) {
 	if reconnecting {
-		logrus.Debug("Reconnected to the WebSocket server.")
+		logrus.Debug("\"RECONNECT\" is enabled to the WebSocket server.")
 	} else {
-		logrus.Debug("Connected to the WebSocket server.")
+		logrus.Debug("\"RECONNECT\" is disabled to the WebSocket server.")
 	}
 }
 
 func (c *LobbyWebSocketClient) OnDisconnect(code int32, reason string) {
-	logrus.Debugf("Disconnected from WebSocket server with code %d and reason: %s\n", code, reason)
+	logrus.Debugf("Disconnected from WebSocket server with code: %d and reason: %s", code, reason)
 
 	// Clean up data or state related to the connection
-	logrus.Debug("clearing data...")
+	logrus.Debug("Clearing data...")
 
 	c.ClearData()
 }
 
 func (c *LobbyWebSocketClient) Send(code int, message string) error {
+	logrus.Debugf("Send message %s with code %v", message, code)
+
 	// Check if the connection is still open
 	if c.WSConn.Conn == nil {
 		return errors.New("connection is not initialized")
@@ -177,23 +193,24 @@ func (c *LobbyWebSocketClient) Send(code int, message string) error {
 }
 
 func (c *LobbyWebSocketClient) OnMessage(msg string) {
+	logrus.Debugf("Message: %s", msg)
 	if strings.HasPrefix(msg, "type: connectNotif") {
 		message := DecodeWSMessage(msg)
-		if lobbySessionID, ok := message["lobbySessionID"]; ok {
-			if c.GetData("LobbySessionID") == "" {
-				logrus.Debugf("Storing LobbySessionID: %v", lobbySessionID)
-				c.SetData("LobbySessionID", lobbySessionID)
+		if id, ok := message[LobbySessionID]; ok {
+			if c.GetData(LobbySessionID) == "" {
+				logrus.Debugf("Storing %s: %v", LobbySessionID, id)
+				c.SetData(LobbySessionID, id)
 			}
 		}
 	}
 }
 
 func (c *LobbyWebSocketClient) ShouldReconnect(code int, reason string, numberOfAttempts int) bool {
+	logrus.Debugf("Checking whether should reconnect with code: %v", code)
 	if numberOfAttempts > 0 && numberOfAttempts > c.WSConn.MaxReconnectAttempts { // -1 is infinite
 		return false
 	}
 
-	logrus.Debugf("code received: %v", code)
 	// Undefined
 	if code < 0 {
 		return false
@@ -229,7 +246,7 @@ func (c *LobbyWebSocketClient) ShouldReconnect(code int, reason string, numberOf
 }
 
 func (c *LobbyWebSocketClient) ReconnectDelay(numberOfAttempts int32) float32 {
-	logrus.Debug("adding reconnect delay")
+	logrus.Debug("Adding reconnect delay")
 
 	return float32(interval * math.Pow(backoffRate, float64(numberOfAttempts)))
 }
@@ -259,7 +276,11 @@ func (c *LobbyWebSocketClient) SetData(key string, value interface{}) {
 }
 
 func (c *LobbyWebSocketClient) ClearData() {
-	c.WSConn.Data = make(map[string]interface{})
+	for key := range c.WSConn.Data {
+		if key != "host" && key != "token" {
+			delete(c.WSConn.Data, key)
+		}
+	}
 }
 
 func (c *LobbyWebSocketClient) readWs() (messageType int, p []byte, err error) {
@@ -274,9 +295,9 @@ func (c *LobbyWebSocketClient) ReadWSMessage(done chan struct{}, messageHandler 
 
 			_, msg, err = c.readWs()
 			if err != nil {
-				logrus.Errorf("read message failed: %v", err)
+				logrus.Errorf("Read message failed: %v", err)
 
-				code := websocket.CloseProtocolError
+				code := websocket.CloseTryAgainLater
 				text := err.Error()
 
 				err = c.lobbyCloseHandler(code, text)
@@ -308,11 +329,11 @@ func (c *LobbyWebSocketClient) WSHeartbeat(done chan struct{}) {
 		case <-ticker.C:
 			err := c.WSConn.Conn.WriteMessage(websocket.PingMessage, []byte{})
 			if err != nil {
-				logrus.Errorf("cannot write heartbeat: %v", err)
+				logrus.Errorf("Cannot write heartbeat: %v", err)
 			}
 
 		case <-done:
-			logrus.Info("done signal received, stop heartbeat.")
+			logrus.Info("Done signal received, stop heartbeat.")
 
 			return
 		}

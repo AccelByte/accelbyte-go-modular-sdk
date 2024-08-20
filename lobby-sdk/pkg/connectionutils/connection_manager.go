@@ -116,7 +116,7 @@ func (c *WSConnection) Dial(url string, headers http.Header) (*websocket.Conn, e
 }
 
 func (c *WSConnection) Close(code int, reason string) error {
-	err := c.Conn.WriteControl(websocket.CloseMessage, websocket.FormatCloseMessage(code, reason), time.Now().Add(2*time.Second))
+	err := c.Conn.WriteControl(websocket.CloseMessage, websocket.FormatCloseMessage(code, reason), time.Now().Add(time.Second))
 	if err != nil {
 		logrus.Error("Error writing control message: ", err)
 	}
