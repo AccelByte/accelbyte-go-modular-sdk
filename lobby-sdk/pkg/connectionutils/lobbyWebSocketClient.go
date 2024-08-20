@@ -11,7 +11,6 @@ import (
 	"math"
 	"net/http"
 	"strings"
-	"sync"
 	"time"
 
 	"github.com/gorilla/websocket"
@@ -36,17 +35,18 @@ func NewLobbyWebSocketClient(wsConn *WSConnection) *LobbyWebSocketClient {
 }
 
 func (c *LobbyWebSocketClient) Connect(reconnecting bool) (bool, error) {
-	c.WSConn.Mu = sync.RWMutex{}
-	c.WSConn.Mu.Lock()
-	defer c.WSConn.Mu.Unlock()
+	//c.WSConn.Mu = sync.RWMutex{}
 
 	// Re-usable
 	if c.WSConn == nil {
-		logrus.Warn("WSCnn is nil")
+		logrus.Warn("WSConn is nil")
 	}
+	c.WSConn.Mu.Lock()
 	if _, exist := c.WSConn.Data["host"].(string); !exist {
 		logrus.Debugf("host data is not found")
 	}
+	c.WSConn.Mu.Unlock()
+
 	url := c.createURL(c.WSConn.Data["host"].(string))
 	logrus.Info("Connecting to ", url)
 	req, err := http.NewRequest(http.MethodGet, url, nil)
@@ -67,7 +67,9 @@ func (c *LobbyWebSocketClient) Connect(reconnecting bool) (bool, error) {
 		return false, err
 	}
 
+	c.WSConn.Mu.Lock()
 	c.WSConn.Conn = conn
+	c.WSConn.Mu.Unlock()
 	logrus.Info("Successfully dialing. Connection saved.")
 
 	c.setHandlers()
@@ -87,6 +89,9 @@ func (c *LobbyWebSocketClient) setHandlers() {
 }
 
 func (c *LobbyWebSocketClient) lobbyCloseHandler(code int, reason string) error {
+	//c.WSConn.Mu.Lock()
+	//defer c.WSConn.Mu.Unlock()
+
 	logrus.Debugf("Lobby close handler with code: %v", code)
 	didReconnect := false
 
@@ -145,6 +150,9 @@ func (c *LobbyWebSocketClient) Get() *WSConnection {
 }
 
 func (c *LobbyWebSocketClient) Close() error {
+	//c.WSConn.Mu.Lock()
+	//defer c.WSConn.Mu.Unlock()
+
 	if c.WSConn.Conn == nil {
 		logrus.Errorf("no websocket connection can be closed")
 
@@ -284,40 +292,41 @@ func (c *LobbyWebSocketClient) ClearData() {
 }
 
 func (c *LobbyWebSocketClient) readWs() (messageType int, p []byte, err error) {
+	c.WSConn.Mu.Lock()
+	defer c.WSConn.Mu.Unlock()
+
 	return c.WSConn.Conn.ReadMessage()
 }
 
 func (c *LobbyWebSocketClient) ReadWSMessage(done chan struct{}, messageHandler func(message []byte)) {
-	go func() {
-		for {
-			var msg []byte
-			var err error
+	for {
+		var msg []byte
+		var err error
 
-			_, msg, err = c.readWs()
+		_, msg, err = c.readWs()
+		if err != nil {
+			logrus.Errorf("Read message failed: %v", err)
+
+			code := websocket.CloseTryAgainLater
+			text := err.Error()
+
+			err = c.lobbyCloseHandler(code, text)
 			if err != nil {
-				logrus.Errorf("Read message failed: %v", err)
+				close(done)
 
-				code := websocket.CloseTryAgainLater
-				text := err.Error()
+				return
+			}
+		} else {
+			if len(msg) > 0 {
+				c.OnMessage(string(msg))
 
-				err = c.lobbyCloseHandler(code, text)
-				if err != nil {
-					close(done)
-
-					return
-				}
-			} else {
-				if len(msg) > 0 {
-					c.OnMessage(string(msg))
-
-					// Use custom message handler if provided
-					if messageHandler != nil {
-						messageHandler(msg)
-					}
+				// Use custom message handler if provided
+				if messageHandler != nil {
+					messageHandler(msg)
 				}
 			}
 		}
-	}()
+	}
 }
 
 func (c *LobbyWebSocketClient) WSHeartbeat(done chan struct{}) {
@@ -327,7 +336,9 @@ func (c *LobbyWebSocketClient) WSHeartbeat(done chan struct{}) {
 	for {
 		select {
 		case <-ticker.C:
+			c.WSConn.Mu.Lock()
 			err := c.WSConn.Conn.WriteMessage(websocket.PingMessage, []byte{})
+			c.WSConn.Mu.Unlock()
 			if err != nil {
 				logrus.Errorf("Cannot write heartbeat: %v", err)
 			}

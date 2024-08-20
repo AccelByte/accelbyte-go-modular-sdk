@@ -101,6 +101,9 @@ func NewWebsocketConnection(
 }
 
 func (c *WSConnection) Dial(url string, headers http.Header) (*websocket.Conn, error) {
+	c.Mu.Lock()
+	defer c.Mu.Unlock()
+
 	conn, res, err := websocket.DefaultDialer.Dial(url, headers)
 	if errors.Is(err, websocket.ErrBadHandshake) {
 		if _, e := io.ReadAll(res.Body); e == nil {
@@ -129,8 +132,8 @@ func (c *WSConnection) Close(code int, reason string) error {
 }
 
 func (c *WSConnection) DefaultCloseHandler(code int, reason string) error {
-	c.Mu.Lock()
-	defer c.Mu.Unlock()
+	//c.Mu.Lock()
+	//defer c.Mu.Unlock()
 
 	return c.Close(code, reason)
 }

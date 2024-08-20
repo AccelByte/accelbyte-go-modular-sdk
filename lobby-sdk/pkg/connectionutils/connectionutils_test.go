@@ -7,6 +7,7 @@ package connectionutils_test
 import (
 	"net/http"
 	"strings"
+	"sync"
 	"testing"
 	"time"
 
@@ -15,6 +16,7 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils/auth"
 
 	"github.com/gorilla/websocket"
+	"github.com/sirupsen/logrus"
 	"github.com/stretchr/testify/assert"
 )
 
@@ -24,6 +26,7 @@ var (
 	token      = "foo"
 	baseUrl    = utils.GetEnv("AB_BASE_URL", "http://localhost:8080")
 	messages   = make([][]byte, 0)
+	mu         sync.RWMutex
 )
 
 const (
@@ -32,6 +35,8 @@ const (
 )
 
 func onMessage(msg []byte) {
+	mu.Lock()
+	defer mu.Unlock()
 	messages = append(messages, msg)
 }
 
@@ -115,7 +120,7 @@ func TestConnectionUtils_DataManagement(t *testing.T) {
 func TestWebSocketReconnect_Case1(t *testing.T) {
 	tokenRepo.AccessToken.AccessToken = &token
 	configRepo.BaseUrl = baseUrl
-	//logrus.SetLevel(logrus.DebugLevel)
+	logrus.SetLevel(logrus.DebugLevel)
 
 	// 1. Connecting to mock server
 	conn, err := connectionutils.NewWSConnection(
@@ -135,7 +140,7 @@ func TestWebSocketReconnect_Case1(t *testing.T) {
 
 	// 3. Assert that the value from the WebSocket Client using GetData("lobbySessionId") is equal to originalLobbySessionId.
 	assert.Equal(t, originalLobbySessionId, lobby.WSConn.GetData(connectionutils.LobbySessionID).(string))
-	assert.False(t, checkIfClosed(t, lobby.WSConn.Conn))
+	assert.False(t, checkIfClosed(t, lobby.WSConn))
 
 	// 4. Send a POST /ws/lobby/force-close?errorCode=2000 HTTP request to the Mock Server.
 	req, _ := http.NewRequest("POST", url1, nil)
@@ -143,14 +148,14 @@ func TestWebSocketReconnect_Case1(t *testing.T) {
 	assert.NoError(t, err)
 
 	// 5. Assert that the websocket connection has disconnected.
-	assert.True(t, checkIfClosed(t, lobby.WSConn.Conn))
+	assert.True(t, checkIfClosed(t, lobby.WSConn))
 
 	// 6. Wait for a second.
 	time.Sleep(3 * time.Second)
 
 	// 7. Assert that the websocket connection has reconnected.
 	assert.NotNil(t, lobby.WSConn.GetData(connectionutils.LobbySessionID)) // make sure the data is not deleted
-	assert.False(t, checkIfClosed(t, lobby.WSConn.Conn))
+	assert.False(t, checkIfClosed(t, lobby.WSConn))
 
 	// 8. Wait for the connectNotif message and store lobbySessionId from the connectNotif message.
 	newLobbySessionId := waitForConnectNotif(t)
@@ -162,7 +167,7 @@ func TestWebSocketReconnect_Case1(t *testing.T) {
 func TestWebSocketReconnect_Case2(t *testing.T) {
 	tokenRepo.AccessToken.AccessToken = &token
 	configRepo.BaseUrl = baseUrl
-	//logrus.SetLevel(logrus.DebugLevel)
+	logrus.SetLevel(logrus.DebugLevel)
 
 	// 1. Connecting to mock server
 	conn, err := connectionutils.NewWSConnection(
@@ -182,7 +187,7 @@ func TestWebSocketReconnect_Case2(t *testing.T) {
 
 	// 3. Assert that the value from the WebSocket Client using GetData("LobbySessionId") is equal to originalLobbySessionId.
 	assert.Equal(t, originalLobbySessionId, lobby.WSConn.GetData(connectionutils.LobbySessionID).(string))
-	assert.False(t, checkIfClosed(t, lobby.WSConn.Conn))
+	assert.False(t, checkIfClosed(t, lobby.WSConn))
 
 	// 4. Send a POST /ws/lobby/force-close?errorCode=4000 HTTP request to the Mock Server.
 	req, _ := http.NewRequest("POST", url2, nil)
@@ -190,13 +195,13 @@ func TestWebSocketReconnect_Case2(t *testing.T) {
 	assert.NoError(t, err)
 
 	// 5. Assert that the websocket connection has disconnected.
-	assert.True(t, checkIfClosed(t, lobby.WSConn.Conn))
+	assert.True(t, checkIfClosed(t, lobby.WSConn))
 
 	// 6. Wait for a second.
 	time.Sleep(time.Second)
 
 	// 7. Assert that the websocket connection has stayed disconnected.
-	assert.True(t, checkIfClosed(t, lobby.WSConn.Conn))
+	assert.True(t, checkIfClosed(t, lobby.WSConn))
 
 	// 8. Assert that the value from the WebSocket Client using GetData("LobbySessionId") is null or empty.
 	assert.Empty(t, lobby.WSConn.GetData(connectionutils.LobbySessionID))
@@ -208,7 +213,7 @@ func TestWebSocketReconnect_Case2(t *testing.T) {
 	assert.NotNil(t, lobby.WSConn)
 	assert.NotNil(t, lobby.WSConn.Conn)
 
-	assert.False(t, checkIfClosed(t, lobby.WSConn.Conn))
+	assert.False(t, checkIfClosed(t, lobby.WSConn))
 
 	// 10. Wait for the connectNotif message and store lobbySessionId from the connectNotif message.
 	newLobbySessionId := waitForConnectNotif(t)
@@ -224,6 +229,9 @@ func waitForConnectNotif(t *testing.T) string {
 	time.Sleep(3 * time.Second) // Give the server time to send the message
 
 	lobbySessionID := ""
+
+	mu.RLock()
+	defer mu.RUnlock()
 
 	for _, message := range messages {
 		msg := string(message)
@@ -243,10 +251,12 @@ func waitForConnectNotif(t *testing.T) string {
 	return lobbySessionID
 }
 
-func checkIfClosed(t *testing.T, conn *websocket.Conn) bool {
+func checkIfClosed(t *testing.T, WSConn *connectionutils.WSConnection) bool {
 	t.Helper()
 
-	err := conn.WriteMessage(websocket.PingMessage, []byte("ping"))
+	mu.Lock()
+	defer mu.Unlock()
+	err := WSConn.Conn.WriteMessage(websocket.PingMessage, []byte("ping"))
 	if err != nil {
 		t.Logf("Connection is closed: %v", err)
 
