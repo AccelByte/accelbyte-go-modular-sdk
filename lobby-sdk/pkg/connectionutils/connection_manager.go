@@ -6,14 +6,15 @@ package connectionutils
 
 import (
 	"errors"
-	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
-	"github.com/gorilla/websocket"
-	"github.com/sirupsen/logrus"
 	"io"
 	"net/http"
 	"strings"
 	"sync"
 	"time"
+
+	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
+	"github.com/gorilla/websocket"
+	"github.com/sirupsen/logrus"
 )
 
 const (
@@ -117,11 +118,11 @@ func (c *WSConnection) Dial(url string, headers http.Header) (*websocket.Conn, e
 func (c *WSConnection) Close(code int, reason string) error {
 	err := c.Conn.WriteControl(websocket.CloseMessage, websocket.FormatCloseMessage(code, reason), time.Now().Add(2*time.Second))
 	if err != nil {
-		// TODO: log and ignore explicitly?
+		logrus.Error("Error writing control message: ", err)
 	}
 
-	if err := c.Conn.Close(); err != nil {
-		// TODO: log and ignore explicitly?
+	if err = c.Conn.Close(); err != nil {
+		logrus.Error("Failed to close connection: ", err)
 	}
 
 	return nil
@@ -137,7 +138,7 @@ func (c *WSConnection) DefaultCloseHandler(code int, reason string) error {
 func (c *WSConnection) DefaultPongHandler(text string) error {
 	err := c.Conn.SetReadDeadline(time.Now().Add(6 * time.Second))
 	if err != nil {
-		// log error and ignore explicitly
+		logrus.Warn(err.Error())
 	}
 
 	return nil

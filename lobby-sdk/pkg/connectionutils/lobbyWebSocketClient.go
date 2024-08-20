@@ -94,20 +94,18 @@ func (c *LobbyWebSocketClient) lobbyCloseHandler(code int, reason string) error 
 }
 
 func (c *LobbyWebSocketClient) reconnect(code int, reason string) bool {
-	c.WSConn.Mu.Lock()
-	defer c.WSConn.Mu.Unlock()
-
 	didReconnect := false
 	numberOfAttempts := 0
 
 	for {
-		success, err := c.Connect(true) // TODO: store error perhaps?
+		success, err := c.Connect(true)
 		if err != nil {
 			// explicitly ignore in favor of the original code and reason
 			logrus.Warnf("error on reconnect: %s, discarding in favor of disconnect error", err.Error())
 		}
 		if success {
 			didReconnect = true
+
 			break
 		}
 
@@ -116,6 +114,7 @@ func (c *LobbyWebSocketClient) reconnect(code int, reason string) bool {
 		}
 
 		numberOfAttempts++
+		logrus.Debugf("reconnect attempt: %v", numberOfAttempts)
 		delay := c.ReconnectDelay(int32(numberOfAttempts))
 		time.Sleep(time.Duration(delay) * time.Second)
 	}
@@ -170,6 +169,7 @@ func (c *LobbyWebSocketClient) Send(code int, message string) error {
 	err := c.WSConn.Conn.WriteMessage(code, []byte(message))
 	if err != nil {
 		logrus.Error("failed to send websocket message: ", err)
+
 		return err
 	}
 
@@ -259,7 +259,7 @@ func (c *LobbyWebSocketClient) SetData(key string, value interface{}) {
 }
 
 func (c *LobbyWebSocketClient) ClearData() {
-	c.WSConn.Data["LobbySessionID"] = ""
+	c.WSConn.Data = make(map[string]interface{})
 }
 
 func (c *LobbyWebSocketClient) readWs() (messageType int, p []byte, err error) {
@@ -282,6 +282,7 @@ func (c *LobbyWebSocketClient) ReadWSMessage(done chan struct{}, messageHandler 
 				err = c.lobbyCloseHandler(code, text)
 				if err != nil {
 					close(done)
+
 					return
 				}
 			} else {
