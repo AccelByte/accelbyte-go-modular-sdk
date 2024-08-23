@@ -38,6 +38,7 @@ type WSConnectionOption func(wsConn *WSConnection) error
 func WithMessageHandler(handler WSConnectionMessageHandler) WSConnectionOption {
 	return func(wsConn *WSConnection) error {
 		wsConn.MessageHandler = handler
+
 		return nil
 	}
 }
@@ -45,6 +46,7 @@ func WithMessageHandler(handler WSConnectionMessageHandler) WSConnectionOption {
 func WithEnableAutoReconnect() WSConnectionOption {
 	return func(wsConn *WSConnection) error {
 		wsConn.EnableAutoReconnect = true
+
 		return nil
 	}
 }
@@ -52,6 +54,7 @@ func WithEnableAutoReconnect() WSConnectionOption {
 func WithMaxReconnectAttempts(maxReconnectAttempts int) WSConnectionOption {
 	return func(wsConn *WSConnection) error {
 		wsConn.MaxReconnectAttempts = maxReconnectAttempts
+
 		return nil
 	}
 }

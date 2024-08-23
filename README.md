@@ -298,30 +298,32 @@ Service, use an existing Initialisation code or implement custom `connectionutil
 client should maintain WebSocket connection using `ConnectionManager`.
 
 ```go
-connMgr = &connectionutils.WSConnection{Base: &connectionutils.BaseWebSocketClient{}} // one of the way is to implement the initialization of ConnectionManager so it can be used for notificationService wrapper
-connection, err := connectionutils.NewWebsocketConnectionWithReconnect(oAuth20Service.ConfigRepository, oAuth20Service.TokenRepository, true) // True for enabling the reconnect logic
+connMgr = &integration.ConnectionManagerImpl{}
+conn, err := connectionutils.NewWSConnection(
+oAuth20Service.ConfigRepository, oAuth20Service.TokenRepository,
+connectionutils.WithEnableAutoReconnect(), connectionutils.WithMessageHandler(lobbyMessageHandler), // do optionals
+)
+if err != nil {
+// error
+}
+lobbyClient := connectionutils.NewLobbyWebSocketClient(conn)
 
-connMgr.Base.Save(connection)
+// [optional] do something before Connecting
+
+success, err := lobbyClient.Connect(true) // Connecting
+if err != nil {
+// error
+}
+
+connMgr.Save(conn)
 
 // CASE Lobby get a notification
 err = notificationService.GetNotificationMessage()
+// error
 ```
 
-For reference, see [connectionutils_test.go](lobby-sdk/pkg/connectionutils/connectionutils_test.go).
-
-Another implementation to the custom logics for `connMgr` or `messageHandler` like below:
-
-```
-connMgr = &connectionutils.WSConnection{Base: &connectionutils.BaseWebSocketClient{}} // one of the way is to implement the initialization of ConnectionManager so it can be used for notificationService wrapper
-connection, err := connectionutils.NewWebsocketConnection(oAuth20Service.ConfigRepository, oAuth20Service.TokenRepository, messageHandler) // using custom message handler
-
-connMgr.Base.Save(connection)
-
-// CASE Lobby get a notification
-err = notificationService.GetNotificationMessage()
-```
-
-For reference, see [samples/cli/pkg/utils/connectionManager.go](samples/cli/pkg/utils/connectionManager.go).
+For reference, see [connectionutils_test.go](lobby-sdk/pkg/connectionutils/connectionutils_test.go)
+or [samples/cli/pkg/utils/connectionManager.go](samples/cli/pkg/utils/connectionManager.go).
 
 ### Refresh Token
 ```go

@@ -186,9 +186,13 @@ func TestWebsocketRefresh_withMockServer(t *testing.T) {
 		ConnectionManager: connMgr,
 	}
 
-	connection, err := connectionutils.NewWebsocketConnection(configRepoObs, tokenRepoObs, lobbyMessageHandler)
+	connection, err := connectionutils.NewWSConnection(configRepoObs, tokenRepoObs, connectionutils.WithMessageHandler(lobbyMessageHandler))
 	assert.Nil(t, err, "err should be nil")
-
+	lobbyClient := connectionutils.NewLobbyWebSocketClient(connection)
+	_, err = lobbyClient.Connect(true)
+	if err != nil {
+		panic(err)
+	}
 	connMgr.Save(connection)
 
 	friendsId := "friendsId"

@@ -69,8 +69,14 @@ func TestIntegrationNotification(t *testing.T) {
 	// Login User - Arrange
 	Init()
 	connMgr = &integration.ConnectionManagerImpl{}
-	connection, err := connectionutils.NewWebsocketConnection(oAuth20Service.ConfigRepository, oAuth20Service.TokenRepository, lobbyMessageHandler)
+	connection, err := connectionutils.NewWSConnection(oAuth20Service.ConfigRepository, oAuth20Service.TokenRepository, connectionutils.WithMessageHandler(lobbyMessageHandler))
 	assert.Nil(t, err, "err should be nil")
+
+	lobbyClient := connectionutils.NewLobbyWebSocketClient(connection)
+	assert.NotNil(t, lobbyClient)
+
+	success, err := lobbyClient.Connect(true)
+	assert.True(t, success)
 
 	connMgr.Save(connection)
 
