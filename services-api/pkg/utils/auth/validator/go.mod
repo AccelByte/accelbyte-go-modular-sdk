@@ -2,7 +2,10 @@ module github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils/auth
 
 go 1.18
 
-replace github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk => ../../../../../iam-sdk
+replace (
+	github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk => ../../../../../iam-sdk
+	github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/service/iam => ../../../service/iam
+)
 
 require (
 	github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk v0.1.0-alpha.15

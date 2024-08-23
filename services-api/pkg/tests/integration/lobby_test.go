@@ -77,6 +77,7 @@ func TestIntegrationNotification(t *testing.T) {
 
 	success, err := lobbyClient.Connect(true)
 	assert.True(t, success)
+	assert.Nil(t, err, "err should be nil")
 
 	connMgr.Save(connection)
 
