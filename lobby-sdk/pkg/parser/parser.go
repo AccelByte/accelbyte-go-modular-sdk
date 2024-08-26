@@ -16,7 +16,7 @@ import (
 	"strings"
 	"time"
 
-	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/model"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/lobby-sdk/pkg/lobbyclientmodels/model"
 
 	"github.com/sirupsen/logrus"
 )
