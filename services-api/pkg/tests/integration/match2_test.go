@@ -76,10 +76,10 @@ var (
 		"alliance_flexing_rule": []map[string]int{
 			{
 				"duration":          600,
-				"min_number":        0,
-				"max_number":        0,
-				"player_min_number": 0,
-				"player_max_number": 0,
+				"min_number":        1,
+				"max_number":        2,
+				"player_min_number": 1,
+				"player_max_number": 2,
 			},
 		},
 	}
