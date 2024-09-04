@@ -6,8 +6,10 @@ go 1.18
 
 replace github.com/willf/bitset v1.1.11 => github.com/bits-and-blooms/bitset v1.4.0
 
+replace github.com/AccelByte/accelbyte-go-modular-sdk/services-api => ../services-api
+
 require (
-	github.com/AccelByte/accelbyte-go-modular-sdk/services-api v0.1.0-alpha.4
+	github.com/AccelByte/accelbyte-go-modular-sdk/services-api v0.1.0-alpha.1
 	github.com/AccelByte/bloom v0.0.0-20180915202807-98c052463922
 	github.com/AccelByte/go-jose v2.1.4+incompatible
 	github.com/go-openapi/errors v0.20.2

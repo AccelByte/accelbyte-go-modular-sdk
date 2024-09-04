@@ -84,7 +84,7 @@ type ClientService interface {
 
 /*
 ListItemTypeConfigsShort get all item type configs
- [Not Supported Yet In Starter] This API is used to get all item type configs.
+ [Not supported yet in AGS Shared Cloud] This API is used to get all item type configs.
 
 Other detail info:
 
@@ -137,7 +137,7 @@ func (a *Client) ListItemTypeConfigsShort(params *ListItemTypeConfigsParams, aut
 
 /*
 CreateItemTypeConfigShort create an item type config
- [Not Supported Yet In Starter] This API is used to create an item type config.
+ [Not supported yet in AGS Shared Cloud] This API is used to create an item type config.
 
 *  Returns : item type config data
 */
@@ -194,7 +194,7 @@ func (a *Client) CreateItemTypeConfigShort(params *CreateItemTypeConfigParams, a
 
 /*
 SearchItemTypeConfigShort get an item type config
- [Not Supported Yet In Starter] This API is used to get an item type config.
+ [Not supported yet in AGS Shared Cloud] This API is used to get an item type config.
 
 Other detail info:
 
@@ -249,7 +249,7 @@ func (a *Client) SearchItemTypeConfigShort(params *SearchItemTypeConfigParams, a
 
 /*
 GetItemTypeConfigShort get an item type config
- [Not Supported Yet In Starter] This API is used to get an item type config.
+ [Not supported yet in AGS Shared Cloud] This API is used to get an item type config.
 
 Other detail info:
 
@@ -304,7 +304,7 @@ func (a *Client) GetItemTypeConfigShort(params *GetItemTypeConfigParams, authInf
 
 /*
 UpdateItemTypeConfigShort update an item type config
- [Not Supported Yet In Starter] This API is used to update an item type config.
+ [Not supported yet in AGS Shared Cloud] This API is used to update an item type config.
 
 *  Returns : item type config data
 */
@@ -361,7 +361,7 @@ func (a *Client) UpdateItemTypeConfigShort(params *UpdateItemTypeConfigParams, a
 
 /*
 DeleteItemTypeConfigShort delete an item type config
- [Not Supported Yet In Starter] This API is used to delete an item type config permanently.
+ [Not supported yet in AGS Shared Cloud] This API is used to delete an item type config permanently.
 */
 func (a *Client) DeleteItemTypeConfigShort(params *DeleteItemTypeConfigParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteItemTypeConfigNoContent, error) {
 	// TODO: Validate the params before sending
@@ -412,7 +412,7 @@ func (a *Client) DeleteItemTypeConfigShort(params *DeleteItemTypeConfigParams, a
 
 /*
 SyncInGameItemShort sync an in game item
- [Not Supported Yet In Starter] This API is used to sync an in game item in game namespace to publisher namespace, only INGAMEITEM, CODE, COINS and SEASON are supported
+ [Not supported yet in AGS Shared Cloud] This API is used to sync an in game item in game namespace to publisher namespace, only INGAMEITEM, CODE, COINS and SEASON are supported
 
 The synced item has an additional field targetItemId besides targetNamespace, mostly this item should not modified manually again.
 

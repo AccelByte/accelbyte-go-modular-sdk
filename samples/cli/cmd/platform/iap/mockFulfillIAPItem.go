@@ -27,14 +27,14 @@ var MockFulfillIAPItemCmd = &cobra.Command{
 			Client:          platform.NewPlatformClient(&repository.ConfigRepositoryImpl{}),
 			TokenRepository: &repository.TokenRepositoryImpl{},
 		}
-		namespace, _ := cmd.Flags().GetString("namespace")
-		userId, _ := cmd.Flags().GetString("userId")
 		bodyString := cmd.Flag("body").Value.String()
 		var body *platformclientmodels.MockIAPReceipt
 		errBody := json.Unmarshal([]byte(bodyString), &body)
 		if errBody != nil {
 			return errBody
 		}
+		namespace, _ := cmd.Flags().GetString("namespace")
+		userId, _ := cmd.Flags().GetString("userId")
 		input := &iap.MockFulfillIAPItemParams{
 			Body:      body,
 			Namespace: namespace,
@@ -55,6 +55,7 @@ var MockFulfillIAPItemCmd = &cobra.Command{
 
 func init() {
 	MockFulfillIAPItemCmd.Flags().String("body", "", "Body")
+	_ = MockFulfillIAPItemCmd.MarkFlagRequired("body")
 	MockFulfillIAPItemCmd.Flags().String("namespace", "", "Namespace")
 	_ = MockFulfillIAPItemCmd.MarkFlagRequired("namespace")
 	MockFulfillIAPItemCmd.Flags().String("userId", "", "User id")

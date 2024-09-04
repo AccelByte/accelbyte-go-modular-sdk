@@ -27,14 +27,14 @@ var RegisterXblSessionsCmd = &cobra.Command{
 			Client:          platform.NewPlatformClient(&repository.ConfigRepositoryImpl{}),
 			TokenRepository: &repository.TokenRepositoryImpl{},
 		}
-		namespace, _ := cmd.Flags().GetString("namespace")
-		userId, _ := cmd.Flags().GetString("userId")
 		bodyString := cmd.Flag("body").Value.String()
 		var body *platformclientmodels.XblUserSessionRequest
 		errBody := json.Unmarshal([]byte(bodyString), &body)
 		if errBody != nil {
 			return errBody
 		}
+		namespace, _ := cmd.Flags().GetString("namespace")
+		userId, _ := cmd.Flags().GetString("userId")
 		input := &session_platform.RegisterXblSessionsParams{
 			Body:      body,
 			Namespace: namespace,
@@ -55,6 +55,7 @@ var RegisterXblSessionsCmd = &cobra.Command{
 
 func init() {
 	RegisterXblSessionsCmd.Flags().String("body", "", "Body")
+	_ = RegisterXblSessionsCmd.MarkFlagRequired("body")
 	RegisterXblSessionsCmd.Flags().String("namespace", "", "Namespace")
 	_ = RegisterXblSessionsCmd.MarkFlagRequired("namespace")
 	RegisterXblSessionsCmd.Flags().String("userId", "", "User id")

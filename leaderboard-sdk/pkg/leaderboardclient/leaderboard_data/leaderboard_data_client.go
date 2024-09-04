@@ -302,17 +302,12 @@ func (a *Client) GetCurrentMonthLeaderboardRankingAdminV1Short(params *GetCurren
 DeleteUserRankingByLeaderboardCodeAdminV1Short delete all user ranking by leaderboard code
 
 
- [Test Facility Only]
-
-
-
-
 This endpoint will delete user ranking by leaderboard code
 
 
 
 
-Note: this endpoint only works on development environment.
+Warning : This will permanently delete your data. Make sure to back up anything important before continuing.
 */
 func (a *Client) DeleteUserRankingByLeaderboardCodeAdminV1Short(params *DeleteUserRankingByLeaderboardCodeAdminV1Params, authInfo runtime.ClientAuthInfoWriter) (*DeleteUserRankingByLeaderboardCodeAdminV1NoContent, error) {
 	// TODO: Validate the params before sending

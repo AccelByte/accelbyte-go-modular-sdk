@@ -577,6 +577,8 @@ func (a *Client) SyncEpicGameDLCShort(params *SyncEpicGameDLCParams, authInfo ru
 		return v, nil
 	case *SyncEpicGameDLCBadRequest:
 		return nil, v
+	case *SyncEpicGameDLCNotFound:
+		return nil, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -627,6 +629,8 @@ func (a *Client) SyncOculusDLCShort(params *SyncOculusDLCParams, authInfo runtim
 	case *SyncOculusDLCNoContent:
 		return v, nil
 	case *SyncOculusDLCBadRequest:
+		return nil, v
+	case *SyncOculusDLCNotFound:
 		return nil, v
 
 	default:
@@ -680,6 +684,8 @@ func (a *Client) PublicSyncPsnDLCInventoryShort(params *PublicSyncPsnDLCInventor
 		return v, nil
 	case *PublicSyncPsnDLCInventoryBadRequest:
 		return nil, v
+	case *PublicSyncPsnDLCInventoryNotFound:
+		return nil, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -732,6 +738,8 @@ func (a *Client) PublicSyncPsnDLCInventoryWithMultipleServiceLabelsShort(params 
 		return v, nil
 	case *PublicSyncPsnDLCInventoryWithMultipleServiceLabelsBadRequest:
 		return nil, v
+	case *PublicSyncPsnDLCInventoryWithMultipleServiceLabelsNotFound:
+		return nil, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -783,6 +791,8 @@ func (a *Client) SyncSteamDLCShort(params *SyncSteamDLCParams, authInfo runtime.
 		return v, nil
 	case *SyncSteamDLCBadRequest:
 		return nil, v
+	case *SyncSteamDLCNotFound:
+		return nil, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -833,6 +843,8 @@ func (a *Client) SyncXboxDLCShort(params *SyncXboxDLCParams, authInfo runtime.Cl
 	case *SyncXboxDLCNoContent:
 		return v, nil
 	case *SyncXboxDLCBadRequest:
+		return nil, v
+	case *SyncXboxDLCNotFound:
 		return nil, v
 
 	default:

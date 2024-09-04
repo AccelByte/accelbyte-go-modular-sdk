@@ -27,15 +27,15 @@ var UpdateItemCmd = &cobra.Command{
 			Client:          platform.NewPlatformClient(&repository.ConfigRepositoryImpl{}),
 			TokenRepository: &repository.TokenRepositoryImpl{},
 		}
-		itemId, _ := cmd.Flags().GetString("itemId")
-		namespace, _ := cmd.Flags().GetString("namespace")
-		storeId, _ := cmd.Flags().GetString("storeId")
 		bodyString := cmd.Flag("body").Value.String()
 		var body *platformclientmodels.ItemUpdate
 		errBody := json.Unmarshal([]byte(bodyString), &body)
 		if errBody != nil {
 			return errBody
 		}
+		itemId, _ := cmd.Flags().GetString("itemId")
+		namespace, _ := cmd.Flags().GetString("namespace")
+		storeId, _ := cmd.Flags().GetString("storeId")
 		input := &item.UpdateItemParams{
 			Body:      body,
 			ItemID:    itemId,
@@ -57,6 +57,7 @@ var UpdateItemCmd = &cobra.Command{
 
 func init() {
 	UpdateItemCmd.Flags().String("body", "", "Body")
+	_ = UpdateItemCmd.MarkFlagRequired("body")
 	UpdateItemCmd.Flags().String("itemId", "", "Item id")
 	_ = UpdateItemCmd.MarkFlagRequired("itemId")
 	UpdateItemCmd.Flags().String("namespace", "", "Namespace")

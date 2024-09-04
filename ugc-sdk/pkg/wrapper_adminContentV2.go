@@ -157,6 +157,36 @@ func (aaa *AdminContentV2Service) AdminUpdateOfficialContentV2Short(input *admin
 	return ok.GetPayload(), nil
 }
 
+func (aaa *AdminContentV2Service) AdminCopyContentShort(input *admin_content_v2.AdminCopyContentParams) (*ugcclientmodels.ModelsContentDownloadResponseV2, error) {
+	authInfoWriter := input.AuthInfoWriter
+	if authInfoWriter == nil {
+		security := [][]string{
+			{"bearer"},
+		}
+		authInfoWriter = auth.AuthInfoWriter(aaa.GetAuthSession(), security, "")
+	}
+	if input.RetryPolicy == nil {
+		input.RetryPolicy = &utils.Retry{
+			MaxTries:   utils.MaxTries,
+			Backoff:    utils.NewConstantBackoff(0),
+			Transport:  aaa.Client.Runtime.Transport,
+			RetryCodes: utils.RetryCodes,
+		}
+	}
+	if tempFlightIdAdminContentV2 != nil {
+		input.XFlightId = tempFlightIdAdminContentV2
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	}
+
+	created, err := aaa.Client.AdminContentV2.AdminCopyContentShort(input, authInfoWriter)
+	if err != nil {
+		return nil, err
+	}
+
+	return created.GetPayload(), nil
+}
+
 func (aaa *AdminContentV2Service) AdminUpdateOfficialContentFileLocationShort(input *admin_content_v2.AdminUpdateOfficialContentFileLocationParams) (*ugcclientmodels.ModelsUpdateContentResponseV2, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {

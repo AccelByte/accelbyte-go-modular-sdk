@@ -34,6 +34,7 @@ type ClientService interface {
 	AdminQueryGameSessionsByAttributesShort(params *AdminQueryGameSessionsByAttributesParams, authInfo runtime.ClientAuthInfoWriter) (*AdminQueryGameSessionsByAttributesOK, error)
 	AdminDeleteBulkGameSessionsShort(params *AdminDeleteBulkGameSessionsParams, authInfo runtime.ClientAuthInfoWriter) (*AdminDeleteBulkGameSessionsOK, error)
 	AdminSetDSReadyShort(params *AdminSetDSReadyParams, authInfo runtime.ClientAuthInfoWriter) (*AdminSetDSReadyNoContent, error)
+	AdminKickGameSessionMemberShort(params *AdminKickGameSessionMemberParams, authInfo runtime.ClientAuthInfoWriter) (*AdminKickGameSessionMemberNoContent, error)
 	AdminUpdateGameSessionMemberShort(params *AdminUpdateGameSessionMemberParams, authInfo runtime.ClientAuthInfoWriter) (*AdminUpdateGameSessionMemberOK, error)
 	CreateGameSessionShort(params *CreateGameSessionParams, authInfo runtime.ClientAuthInfoWriter) (*CreateGameSessionCreated, error)
 	PublicQueryGameSessionsByAttributesShort(params *PublicQueryGameSessionsByAttributesParams, authInfo runtime.ClientAuthInfoWriter) (*PublicQueryGameSessionsByAttributesOK, error)
@@ -50,6 +51,7 @@ type ClientService interface {
 	JoinGameSessionShort(params *JoinGameSessionParams, authInfo runtime.ClientAuthInfoWriter) (*JoinGameSessionOK, error)
 	PublicPromoteGameSessionLeaderShort(params *PublicPromoteGameSessionLeaderParams, authInfo runtime.ClientAuthInfoWriter) (*PublicPromoteGameSessionLeaderOK, error)
 	LeaveGameSessionShort(params *LeaveGameSessionParams, authInfo runtime.ClientAuthInfoWriter) (*LeaveGameSessionNoContent, error)
+	PublicKickGameSessionMemberShort(params *PublicKickGameSessionMemberParams, authInfo runtime.ClientAuthInfoWriter) (*PublicKickGameSessionMemberNoContent, error)
 	PublicGameSessionRejectShort(params *PublicGameSessionRejectParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGameSessionRejectNoContent, error)
 	GetSessionServerSecretShort(params *GetSessionServerSecretParams, authInfo runtime.ClientAuthInfoWriter) (*GetSessionServerSecretOK, error)
 	AppendTeamGameSessionShort(params *AppendTeamGameSessionParams, authInfo runtime.ClientAuthInfoWriter) (*AppendTeamGameSessionOK, error)
@@ -299,6 +301,65 @@ func (a *Client) AdminSetDSReadyShort(params *AdminSetDSReadyParams, authInfo ru
 	case *AdminSetDSReadyForbidden:
 		return nil, v
 	case *AdminSetDSReadyInternalServerError:
+		return nil, v
+
+	default:
+		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
+	}
+}
+
+/*
+AdminKickGameSessionMemberShort kick member from a game session.
+Kick member from a game session.
+*/
+func (a *Client) AdminKickGameSessionMemberShort(params *AdminKickGameSessionMemberParams, authInfo runtime.ClientAuthInfoWriter) (*AdminKickGameSessionMemberNoContent, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewAdminKickGameSessionMemberParams()
+	}
+
+	if params.Context == nil {
+		params.Context = context.Background()
+	}
+
+	if params.RetryPolicy != nil {
+		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
+	}
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "adminKickGameSessionMember",
+		Method:             "DELETE",
+		PathPattern:        "/session/v1/admin/namespaces/{namespace}/gamesessions/{sessionId}/members/{memberId}/kick",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &AdminKickGameSessionMemberReader{formats: a.formats},
+		AuthInfo:           authInfo,
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+
+	switch v := result.(type) {
+
+	case *AdminKickGameSessionMemberNoContent:
+		return v, nil
+	case *AdminKickGameSessionMemberBadRequest:
+		return nil, v
+	case *AdminKickGameSessionMemberUnauthorized:
+		return nil, v
+	case *AdminKickGameSessionMemberForbidden:
+		return nil, v
+	case *AdminKickGameSessionMemberNotFound:
+		return nil, v
+	case *AdminKickGameSessionMemberInternalServerError:
 		return nil, v
 
 	default:
@@ -1373,6 +1434,65 @@ func (a *Client) LeaveGameSessionShort(params *LeaveGameSessionParams, authInfo 
 	case *LeaveGameSessionNotFound:
 		return nil, v
 	case *LeaveGameSessionInternalServerError:
+		return nil, v
+
+	default:
+		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
+	}
+}
+
+/*
+PublicKickGameSessionMemberShort kick member from a game session, only leader can kick member.
+Kick member from a game session, only leader can kick member.
+*/
+func (a *Client) PublicKickGameSessionMemberShort(params *PublicKickGameSessionMemberParams, authInfo runtime.ClientAuthInfoWriter) (*PublicKickGameSessionMemberNoContent, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewPublicKickGameSessionMemberParams()
+	}
+
+	if params.Context == nil {
+		params.Context = context.Background()
+	}
+
+	if params.RetryPolicy != nil {
+		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
+	}
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "publicKickGameSessionMember",
+		Method:             "DELETE",
+		PathPattern:        "/session/v1/public/namespaces/{namespace}/gamesessions/{sessionId}/members/{memberId}/kick",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &PublicKickGameSessionMemberReader{formats: a.formats},
+		AuthInfo:           authInfo,
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+
+	switch v := result.(type) {
+
+	case *PublicKickGameSessionMemberNoContent:
+		return v, nil
+	case *PublicKickGameSessionMemberBadRequest:
+		return nil, v
+	case *PublicKickGameSessionMemberUnauthorized:
+		return nil, v
+	case *PublicKickGameSessionMemberForbidden:
+		return nil, v
+	case *PublicKickGameSessionMemberNotFound:
+		return nil, v
+	case *PublicKickGameSessionMemberInternalServerError:
 		return nil, v
 
 	default:

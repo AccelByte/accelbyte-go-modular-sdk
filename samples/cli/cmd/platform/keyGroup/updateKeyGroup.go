@@ -27,14 +27,14 @@ var UpdateKeyGroupCmd = &cobra.Command{
 			Client:          platform.NewPlatformClient(&repository.ConfigRepositoryImpl{}),
 			TokenRepository: &repository.TokenRepositoryImpl{},
 		}
-		keyGroupId, _ := cmd.Flags().GetString("keyGroupId")
-		namespace, _ := cmd.Flags().GetString("namespace")
 		bodyString := cmd.Flag("body").Value.String()
 		var body *platformclientmodels.KeyGroupUpdate
 		errBody := json.Unmarshal([]byte(bodyString), &body)
 		if errBody != nil {
 			return errBody
 		}
+		keyGroupId, _ := cmd.Flags().GetString("keyGroupId")
+		namespace, _ := cmd.Flags().GetString("namespace")
 		input := &key_group.UpdateKeyGroupParams{
 			Body:       body,
 			KeyGroupID: keyGroupId,
@@ -55,6 +55,7 @@ var UpdateKeyGroupCmd = &cobra.Command{
 
 func init() {
 	UpdateKeyGroupCmd.Flags().String("body", "", "Body")
+	_ = UpdateKeyGroupCmd.MarkFlagRequired("body")
 	UpdateKeyGroupCmd.Flags().String("keyGroupId", "", "Key group id")
 	_ = UpdateKeyGroupCmd.MarkFlagRequired("keyGroupId")
 	UpdateKeyGroupCmd.Flags().String("namespace", "", "Namespace")

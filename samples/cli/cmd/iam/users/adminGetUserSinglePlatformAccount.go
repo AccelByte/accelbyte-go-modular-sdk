@@ -27,10 +27,12 @@ var AdminGetUserSinglePlatformAccountCmd = &cobra.Command{
 		namespace, _ := cmd.Flags().GetString("namespace")
 		platformId, _ := cmd.Flags().GetString("platformId")
 		userId, _ := cmd.Flags().GetString("userId")
+		crossNamespace, _ := cmd.Flags().GetBool("crossNamespace")
 		input := &users.AdminGetUserSinglePlatformAccountParams{
-			Namespace:  namespace,
-			PlatformID: platformId,
-			UserID:     userId,
+			Namespace:      namespace,
+			PlatformID:     platformId,
+			UserID:         userId,
+			CrossNamespace: &crossNamespace,
 		}
 		ok, errOK := usersService.AdminGetUserSinglePlatformAccountShort(input)
 		if errOK != nil {
@@ -52,4 +54,5 @@ func init() {
 	_ = AdminGetUserSinglePlatformAccountCmd.MarkFlagRequired("platformId")
 	AdminGetUserSinglePlatformAccountCmd.Flags().String("userId", "", "User id")
 	_ = AdminGetUserSinglePlatformAccountCmd.MarkFlagRequired("userId")
+	AdminGetUserSinglePlatformAccountCmd.Flags().Bool("crossNamespace", false, "Cross namespace")
 }

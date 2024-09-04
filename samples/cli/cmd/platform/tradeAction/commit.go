@@ -27,13 +27,13 @@ var CommitCmd = &cobra.Command{
 			Client:          platform.NewPlatformClient(&repository.ConfigRepositoryImpl{}),
 			TokenRepository: &repository.TokenRepositoryImpl{},
 		}
-		namespace, _ := cmd.Flags().GetString("namespace")
 		bodyString := cmd.Flag("body").Value.String()
 		var body *platformclientmodels.TradeChainedActionCommitRequest
 		errBody := json.Unmarshal([]byte(bodyString), &body)
 		if errBody != nil {
 			return errBody
 		}
+		namespace, _ := cmd.Flags().GetString("namespace")
 		input := &trade_action.CommitParams{
 			Body:      body,
 			Namespace: namespace,
@@ -53,6 +53,7 @@ var CommitCmd = &cobra.Command{
 
 func init() {
 	CommitCmd.Flags().String("body", "", "Body")
+	_ = CommitCmd.MarkFlagRequired("body")
 	CommitCmd.Flags().String("namespace", "", "Namespace")
 	_ = CommitCmd.MarkFlagRequired("namespace")
 }

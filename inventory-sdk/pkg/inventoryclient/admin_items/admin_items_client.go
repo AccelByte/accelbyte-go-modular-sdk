@@ -36,7 +36,9 @@ type ClientService interface {
 	AdminBulkUpdateMyItemsShort(params *AdminBulkUpdateMyItemsParams, authInfo runtime.ClientAuthInfoWriter) (*AdminBulkUpdateMyItemsOK, error)
 	AdminSaveItemToInventoryShort(params *AdminSaveItemToInventoryParams, authInfo runtime.ClientAuthInfoWriter) (*AdminSaveItemToInventoryOK, error)
 	AdminBulkRemoveItemsShort(params *AdminBulkRemoveItemsParams, authInfo runtime.ClientAuthInfoWriter) (*AdminBulkRemoveItemsOK, error)
+	AdminBulkSaveItemToInventoryShort(params *AdminBulkSaveItemToInventoryParams, authInfo runtime.ClientAuthInfoWriter) (*AdminBulkSaveItemToInventoryOK, error)
 	AdminSaveItemShort(params *AdminSaveItemParams, authInfo runtime.ClientAuthInfoWriter) (*AdminSaveItemOK, error)
+	AdminBulkSaveItemShort(params *AdminBulkSaveItemParams, authInfo runtime.ClientAuthInfoWriter) (*AdminBulkSaveItemOK, error)
 	AdminSyncUserEntitlementsShort(params *AdminSyncUserEntitlementsParams, authInfo runtime.ClientAuthInfoWriter) (*AdminSyncUserEntitlementsNoContent, error)
 
 	SetTransport(transport runtime.ClientTransport)
@@ -404,6 +406,85 @@ func (a *Client) AdminBulkRemoveItemsShort(params *AdminBulkRemoveItemsParams, a
 }
 
 /*
+AdminBulkSaveItemToInventoryShort bulk save items to specific inventory
+
+This endpoint will be used by client to save the purchased item to user's inventory,
+since want to integrate the inventory service to e-commerce, source field will be mandatory to determine the item,
+supported field âOTHERâ and âECOMMERCEâ
+
+Notes :
+source ECOMMERCE, the quantity of ecommerce items saved is dynamically adjusted based on an item's useCount configured in Store.
+When saving items, the quantity specified for each item will be multiplied by the useCount
+i.e. If the store item is configured with a useCount of 5 and the quantity of a particular item is set to 2 during saving, it will be stored as 10
+
+Type:
+- ingame
+- app
+- coin
+etc..
+
+Max length of the payload is 10 items
+
+Permission: ADMIN:NAMESPACE:{namespace}:USER:{userId}:INVENTORY:ITEM [CREATE]
+*/
+func (a *Client) AdminBulkSaveItemToInventoryShort(params *AdminBulkSaveItemToInventoryParams, authInfo runtime.ClientAuthInfoWriter) (*AdminBulkSaveItemToInventoryOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewAdminBulkSaveItemToInventoryParams()
+	}
+
+	if params.Context == nil {
+		params.Context = context.Background()
+	}
+
+	if params.RetryPolicy != nil {
+		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
+	}
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "AdminBulkSaveItemToInventory",
+		Method:             "POST",
+		PathPattern:        "/inventory/v1/admin/namespaces/{namespace}/users/{userId}/inventories/{inventoryId}/items/bulk",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &AdminBulkSaveItemToInventoryReader{formats: a.formats},
+		AuthInfo:           authInfo,
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+
+	switch v := result.(type) {
+
+	case *AdminBulkSaveItemToInventoryOK:
+		return v, nil
+	case *AdminBulkSaveItemToInventoryBadRequest:
+		return nil, v
+	case *AdminBulkSaveItemToInventoryUnauthorized:
+		return nil, v
+	case *AdminBulkSaveItemToInventoryForbidden:
+		return nil, v
+	case *AdminBulkSaveItemToInventoryNotFound:
+		return nil, v
+	case *AdminBulkSaveItemToInventoryUnprocessableEntity:
+		return nil, v
+	case *AdminBulkSaveItemToInventoryInternalServerError:
+		return nil, v
+
+	default:
+		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
+	}
+}
+
+/*
 AdminSaveItemShort to save item
 
 Saving an item.
@@ -468,6 +549,89 @@ func (a *Client) AdminSaveItemShort(params *AdminSaveItemParams, authInfo runtim
 	case *AdminSaveItemBadRequest:
 		return nil, v
 	case *AdminSaveItemInternalServerError:
+		return nil, v
+
+	default:
+		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
+	}
+}
+
+/*
+AdminBulkSaveItemShort bulk save items to inventory
+
+This endpoint will be used by client to save the purchased item to user's inventory,
+since want to integrate the inventory service to e-commerce, source field will be mandatory to determine the item,
+supported field âOTHERâ and âECOMMERCEâ
+
+Notes :
+source ECOMMERCE, the quantity of ecommerce items saved is dynamically adjusted based on an item's useCount configured in Store.
+When saving items, the quantity specified for each item will be multiplied by the useCount
+i.e. If the store item is configured with a useCount of 5 and the quantity of a particular item is set to 2 during saving, it will be stored as 10
+
+Target inventory will be based on the specified inventoryConfigurationCode. If the inventory exist then will put to the existing one,
+if not exist at all then will create at least one inventory, if full then will return failed at the response.
+We implement the logic as proportional to store the item to inventory, will loop from createdAt until find the available slots at inventory.
+
+Type:
+- ingame
+- app
+- coin
+etc..
+
+Max length of the payload is 10 items
+
+Permission: ADMIN:NAMESPACE:{namespace}:USER:{userId}:INVENTORY:ITEM [CREATE]
+*/
+func (a *Client) AdminBulkSaveItemShort(params *AdminBulkSaveItemParams, authInfo runtime.ClientAuthInfoWriter) (*AdminBulkSaveItemOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewAdminBulkSaveItemParams()
+	}
+
+	if params.Context == nil {
+		params.Context = context.Background()
+	}
+
+	if params.RetryPolicy != nil {
+		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
+	}
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "AdminBulkSaveItem",
+		Method:             "POST",
+		PathPattern:        "/inventory/v1/admin/namespaces/{namespace}/users/{userId}/items/bulk",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &AdminBulkSaveItemReader{formats: a.formats},
+		AuthInfo:           authInfo,
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+
+	switch v := result.(type) {
+
+	case *AdminBulkSaveItemOK:
+		return v, nil
+	case *AdminBulkSaveItemBadRequest:
+		return nil, v
+	case *AdminBulkSaveItemUnauthorized:
+		return nil, v
+	case *AdminBulkSaveItemForbidden:
+		return nil, v
+	case *AdminBulkSaveItemNotFound:
+		return nil, v
+	case *AdminBulkSaveItemUnprocessableEntity:
+		return nil, v
+	case *AdminBulkSaveItemInternalServerError:
 		return nil, v
 
 	default:

@@ -27,14 +27,14 @@ var PublicFulfillGoogleIAPItemCmd = &cobra.Command{
 			Client:          platform.NewPlatformClient(&repository.ConfigRepositoryImpl{}),
 			TokenRepository: &repository.TokenRepositoryImpl{},
 		}
-		namespace, _ := cmd.Flags().GetString("namespace")
-		userId, _ := cmd.Flags().GetString("userId")
 		bodyString := cmd.Flag("body").Value.String()
 		var body *platformclientmodels.GoogleIAPReceipt
 		errBody := json.Unmarshal([]byte(bodyString), &body)
 		if errBody != nil {
 			return errBody
 		}
+		namespace, _ := cmd.Flags().GetString("namespace")
+		userId, _ := cmd.Flags().GetString("userId")
 		input := &iap.PublicFulfillGoogleIAPItemParams{
 			Body:      body,
 			Namespace: namespace,
@@ -55,6 +55,7 @@ var PublicFulfillGoogleIAPItemCmd = &cobra.Command{
 
 func init() {
 	PublicFulfillGoogleIAPItemCmd.Flags().String("body", "", "Body")
+	_ = PublicFulfillGoogleIAPItemCmd.MarkFlagRequired("body")
 	PublicFulfillGoogleIAPItemCmd.Flags().String("namespace", "", "Namespace")
 	_ = PublicFulfillGoogleIAPItemCmd.MarkFlagRequired("namespace")
 	PublicFulfillGoogleIAPItemCmd.Flags().String("userId", "", "User id")

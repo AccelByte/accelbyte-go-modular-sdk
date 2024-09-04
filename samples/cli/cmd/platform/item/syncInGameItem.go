@@ -27,14 +27,14 @@ var SyncInGameItemCmd = &cobra.Command{
 			Client:          platform.NewPlatformClient(&repository.ConfigRepositoryImpl{}),
 			TokenRepository: &repository.TokenRepositoryImpl{},
 		}
-		namespace, _ := cmd.Flags().GetString("namespace")
-		storeId, _ := cmd.Flags().GetString("storeId")
 		bodyString := cmd.Flag("body").Value.String()
 		var body *platformclientmodels.InGameItemSync
 		errBody := json.Unmarshal([]byte(bodyString), &body)
 		if errBody != nil {
 			return errBody
 		}
+		namespace, _ := cmd.Flags().GetString("namespace")
+		storeId, _ := cmd.Flags().GetString("storeId")
 		input := &item.SyncInGameItemParams{
 			Body:      body,
 			Namespace: namespace,
@@ -55,6 +55,7 @@ var SyncInGameItemCmd = &cobra.Command{
 
 func init() {
 	SyncInGameItemCmd.Flags().String("body", "", "Body")
+	_ = SyncInGameItemCmd.MarkFlagRequired("body")
 	SyncInGameItemCmd.Flags().String("namespace", "", "Namespace")
 	_ = SyncInGameItemCmd.MarkFlagRequired("namespace")
 	SyncInGameItemCmd.Flags().String("storeId", "", "Store id")

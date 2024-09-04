@@ -8,6 +8,7 @@ package campaign
 
 import (
 	"bytes"
+	"encoding/json"
 	"os"
 
 	platform "github.com/AccelByte/accelbyte-go-modular-sdk/platform-sdk/pkg"
@@ -29,7 +30,14 @@ var DownloadCmd = &cobra.Command{
 		}
 		campaignId, _ := cmd.Flags().GetString("campaignId")
 		namespace, _ := cmd.Flags().GetString("namespace")
-		batchNo, _ := cmd.Flags().GetInt32("batchNo")
+		batchName, _ := cmd.Flags().GetString("batchName")
+		batchNoString := cmd.Flag("batchNo").Value.String()
+		var batchNo []int32
+		errBatchNo := json.Unmarshal([]byte(batchNoString), &batchNo)
+		if errBatchNo != nil {
+			return errBatchNo
+		}
+		withBatchName, _ := cmd.Flags().GetBool("withBatchName")
 		file, errFile := os.Create("file")
 		logrus.Infof("Output %v", file)
 		if errFile != nil {
@@ -37,9 +45,11 @@ var DownloadCmd = &cobra.Command{
 		}
 		writer := bytes.NewBuffer(nil)
 		input := &campaign.DownloadParams{
-			CampaignID: campaignId,
-			Namespace:  namespace,
-			BatchNo:    &batchNo,
+			CampaignID:    campaignId,
+			Namespace:     namespace,
+			BatchName:     &batchName,
+			BatchNo:       batchNo,
+			WithBatchName: &withBatchName,
 		}
 		ok, errOK := campaignService.DownloadShort(input, writer)
 		if errOK != nil {
@@ -59,5 +69,7 @@ func init() {
 	_ = DownloadCmd.MarkFlagRequired("campaignId")
 	DownloadCmd.Flags().String("namespace", "", "Namespace")
 	_ = DownloadCmd.MarkFlagRequired("namespace")
-	DownloadCmd.Flags().Int32("batchNo", 0, "Batch no")
+	DownloadCmd.Flags().String("batchName", "", "Batch name")
+	DownloadCmd.Flags().String("batchNo", "", "Batch no")
+	DownloadCmd.Flags().Bool("withBatchName", false, "With batch name")
 }

@@ -42,6 +42,7 @@ type ClientService interface {
 AdminEvaluateProgressShort evaluate user's progressions
 
     * Required permission: ADMIN:NAMESPACE:{namespace}:CHALLENGE:PROGRESSION [UPDATE]
+    * Limited up to 10 users per request
 */
 func (a *Client) AdminEvaluateProgressShort(params *AdminEvaluateProgressParams, authInfo runtime.ClientAuthInfoWriter) (*AdminEvaluateProgressNoContent, error) {
 	// TODO: Validate the params before sending
@@ -82,6 +83,8 @@ func (a *Client) AdminEvaluateProgressShort(params *AdminEvaluateProgressParams,
 
 	case *AdminEvaluateProgressNoContent:
 		return v, nil
+	case *AdminEvaluateProgressBadRequest:
+		return nil, v
 	case *AdminEvaluateProgressUnauthorized:
 		return nil, v
 	case *AdminEvaluateProgressForbidden:

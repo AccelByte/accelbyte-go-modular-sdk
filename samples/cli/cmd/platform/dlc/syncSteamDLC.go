@@ -27,14 +27,14 @@ var SyncSteamDLCCmd = &cobra.Command{
 			Client:          platform.NewPlatformClient(&repository.ConfigRepositoryImpl{}),
 			TokenRepository: &repository.TokenRepositoryImpl{},
 		}
-		namespace, _ := cmd.Flags().GetString("namespace")
-		userId, _ := cmd.Flags().GetString("userId")
 		bodyString := cmd.Flag("body").Value.String()
 		var body *platformclientmodels.SteamDLCSyncRequest
 		errBody := json.Unmarshal([]byte(bodyString), &body)
 		if errBody != nil {
 			return errBody
 		}
+		namespace, _ := cmd.Flags().GetString("namespace")
+		userId, _ := cmd.Flags().GetString("userId")
 		input := &dlc.SyncSteamDLCParams{
 			Body:      body,
 			Namespace: namespace,
@@ -55,6 +55,7 @@ var SyncSteamDLCCmd = &cobra.Command{
 
 func init() {
 	SyncSteamDLCCmd.Flags().String("body", "", "Body")
+	_ = SyncSteamDLCCmd.MarkFlagRequired("body")
 	SyncSteamDLCCmd.Flags().String("namespace", "", "Namespace")
 	_ = SyncSteamDLCCmd.MarkFlagRequired("namespace")
 	SyncSteamDLCCmd.Flags().String("userId", "", "User id")

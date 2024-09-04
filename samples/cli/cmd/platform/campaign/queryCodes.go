@@ -7,6 +7,8 @@
 package campaign
 
 import (
+	"encoding/json"
+
 	platform "github.com/AccelByte/accelbyte-go-modular-sdk/platform-sdk/pkg"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/platform-sdk/pkg/platformclient/campaign"
 	"github.com/AccelByte/sample-apps/pkg/repository"
@@ -27,18 +29,27 @@ var QueryCodesCmd = &cobra.Command{
 		campaignId, _ := cmd.Flags().GetString("campaignId")
 		namespace, _ := cmd.Flags().GetString("namespace")
 		activeOnly, _ := cmd.Flags().GetBool("activeOnly")
-		batchNo, _ := cmd.Flags().GetInt32("batchNo")
+		batchName, _ := cmd.Flags().GetString("batchName")
+		batchNoString := cmd.Flag("batchNo").Value.String()
+		var batchNo []int32
+		errBatchNo := json.Unmarshal([]byte(batchNoString), &batchNo)
+		if errBatchNo != nil {
+			return errBatchNo
+		}
 		code, _ := cmd.Flags().GetString("code")
 		limit, _ := cmd.Flags().GetInt32("limit")
 		offset, _ := cmd.Flags().GetInt32("offset")
+		withBatchName, _ := cmd.Flags().GetBool("withBatchName")
 		input := &campaign.QueryCodesParams{
-			CampaignID: campaignId,
-			Namespace:  namespace,
-			ActiveOnly: &activeOnly,
-			BatchNo:    &batchNo,
-			Code:       &code,
-			Limit:      &limit,
-			Offset:     &offset,
+			CampaignID:    campaignId,
+			Namespace:     namespace,
+			ActiveOnly:    &activeOnly,
+			BatchName:     &batchName,
+			BatchNo:       batchNo,
+			Code:          &code,
+			Limit:         &limit,
+			Offset:        &offset,
+			WithBatchName: &withBatchName,
 		}
 		ok, errOK := campaignService.QueryCodesShort(input)
 		if errOK != nil {
@@ -59,8 +70,10 @@ func init() {
 	QueryCodesCmd.Flags().String("namespace", "", "Namespace")
 	_ = QueryCodesCmd.MarkFlagRequired("namespace")
 	QueryCodesCmd.Flags().Bool("activeOnly", false, "Active only")
-	QueryCodesCmd.Flags().Int32("batchNo", 0, "Batch no")
+	QueryCodesCmd.Flags().String("batchName", "", "Batch name")
+	QueryCodesCmd.Flags().String("batchNo", "", "Batch no")
 	QueryCodesCmd.Flags().String("code", "", "Code")
 	QueryCodesCmd.Flags().Int32("limit", 20, "Limit")
 	QueryCodesCmd.Flags().Int32("offset", 0, "Offset")
+	QueryCodesCmd.Flags().Bool("withBatchName", false, "With batch name")
 }

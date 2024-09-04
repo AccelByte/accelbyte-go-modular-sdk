@@ -27,15 +27,15 @@ var GrantDaysToSubscriptionCmd = &cobra.Command{
 			Client:          platform.NewPlatformClient(&repository.ConfigRepositoryImpl{}),
 			TokenRepository: &repository.TokenRepositoryImpl{},
 		}
-		namespace, _ := cmd.Flags().GetString("namespace")
-		subscriptionId, _ := cmd.Flags().GetString("subscriptionId")
-		userId, _ := cmd.Flags().GetString("userId")
 		bodyString := cmd.Flag("body").Value.String()
 		var body *platformclientmodels.GrantSubscriptionDaysRequest
 		errBody := json.Unmarshal([]byte(bodyString), &body)
 		if errBody != nil {
 			return errBody
 		}
+		namespace, _ := cmd.Flags().GetString("namespace")
+		subscriptionId, _ := cmd.Flags().GetString("subscriptionId")
+		userId, _ := cmd.Flags().GetString("userId")
 		input := &subscription.GrantDaysToSubscriptionParams{
 			Body:           body,
 			Namespace:      namespace,
@@ -57,6 +57,7 @@ var GrantDaysToSubscriptionCmd = &cobra.Command{
 
 func init() {
 	GrantDaysToSubscriptionCmd.Flags().String("body", "", "Body")
+	_ = GrantDaysToSubscriptionCmd.MarkFlagRequired("body")
 	GrantDaysToSubscriptionCmd.Flags().String("namespace", "", "Namespace")
 	_ = GrantDaysToSubscriptionCmd.MarkFlagRequired("namespace")
 	GrantDaysToSubscriptionCmd.Flags().String("subscriptionId", "", "Subscription id")

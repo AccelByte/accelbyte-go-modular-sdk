@@ -27,14 +27,14 @@ var PublicReconcilePlayStationStoreWithMultipleServiceLabelsCmd = &cobra.Command
 			Client:          platform.NewPlatformClient(&repository.ConfigRepositoryImpl{}),
 			TokenRepository: &repository.TokenRepositoryImpl{},
 		}
-		namespace, _ := cmd.Flags().GetString("namespace")
-		userId, _ := cmd.Flags().GetString("userId")
 		bodyString := cmd.Flag("body").Value.String()
 		var body *platformclientmodels.PlayStationMultiServiceLabelsReconcileRequest
 		errBody := json.Unmarshal([]byte(bodyString), &body)
 		if errBody != nil {
 			return errBody
 		}
+		namespace, _ := cmd.Flags().GetString("namespace")
+		userId, _ := cmd.Flags().GetString("userId")
 		input := &iap.PublicReconcilePlayStationStoreWithMultipleServiceLabelsParams{
 			Body:      body,
 			Namespace: namespace,
@@ -55,6 +55,7 @@ var PublicReconcilePlayStationStoreWithMultipleServiceLabelsCmd = &cobra.Command
 
 func init() {
 	PublicReconcilePlayStationStoreWithMultipleServiceLabelsCmd.Flags().String("body", "", "Body")
+	_ = PublicReconcilePlayStationStoreWithMultipleServiceLabelsCmd.MarkFlagRequired("body")
 	PublicReconcilePlayStationStoreWithMultipleServiceLabelsCmd.Flags().String("namespace", "", "Namespace")
 	_ = PublicReconcilePlayStationStoreWithMultipleServiceLabelsCmd.MarkFlagRequired("namespace")
 	PublicReconcilePlayStationStoreWithMultipleServiceLabelsCmd.Flags().String("userId", "", "User id")

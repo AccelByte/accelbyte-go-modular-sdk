@@ -89,6 +89,8 @@ Default maximum payload size is 1MB
 
 
 - **ClientTimestamp (optional)**: Timestamp of the event captured by the client SDK.
+
+- **DeviceType (optional)**: The device type of the user.
 */
 func (a *Client) ProtectedSaveEventsGameTelemetryV1ProtectedEventsPostShort(params *ProtectedSaveEventsGameTelemetryV1ProtectedEventsPostParams, authInfo runtime.ClientAuthInfoWriter) (*ProtectedSaveEventsGameTelemetryV1ProtectedEventsPostNoContent, error) {
 	// TODO: Validate the params before sending

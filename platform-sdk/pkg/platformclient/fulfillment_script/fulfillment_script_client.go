@@ -41,7 +41,7 @@ type ClientService interface {
 
 /*
 ListFulfillmentScriptsShort list all fulfillment scripts
-[Not Supported Yet In Starter] List all fulfillment scripts.
+[Not supported yet in AGS Shared Cloud] List all fulfillment scripts.
 */
 func (a *Client) ListFulfillmentScriptsShort(params *ListFulfillmentScriptsParams, authInfo runtime.ClientAuthInfoWriter) (*ListFulfillmentScriptsOK, error) {
 	// TODO: Validate the params before sending
@@ -90,7 +90,7 @@ func (a *Client) ListFulfillmentScriptsShort(params *ListFulfillmentScriptsParam
 
 /*
 GetFulfillmentScriptShort get fulfillment script by id
- [Not Supported Yet In Starter] Get fulfillment script by id.
+ [Not supported yet in AGS Shared Cloud] Get fulfillment script by id.
 Other detail info:
 
   * Returns : get fulfillment script
@@ -144,7 +144,7 @@ func (a *Client) GetFulfillmentScriptShort(params *GetFulfillmentScriptParams, a
 
 /*
 CreateFulfillmentScriptShort create fulfillment script
- [Not Supported Yet In Starter] Create fulfillment script.
+ [Not supported yet in AGS Shared Cloud] Create fulfillment script.
 Other detail info:
 
 
@@ -201,7 +201,7 @@ func (a *Client) CreateFulfillmentScriptShort(params *CreateFulfillmentScriptPar
 
 /*
 DeleteFulfillmentScriptShort delete fulfillment script
- [Not Supported Yet In Starter] Delete fulfillment script.
+ [Not supported yet in AGS Shared Cloud] Delete fulfillment script.
 */
 func (a *Client) DeleteFulfillmentScriptShort(params *DeleteFulfillmentScriptParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteFulfillmentScriptNoContent, error) {
 	// TODO: Validate the params before sending
@@ -250,7 +250,7 @@ func (a *Client) DeleteFulfillmentScriptShort(params *DeleteFulfillmentScriptPar
 
 /*
 UpdateFulfillmentScriptShort update fulfillment script
- [Not Supported Yet In Starter] Update fulfillment script.
+ [Not supported yet in AGS Shared Cloud] Update fulfillment script.
 */
 func (a *Client) UpdateFulfillmentScriptShort(params *UpdateFulfillmentScriptParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateFulfillmentScriptOK, error) {
 	// TODO: Validate the params before sending

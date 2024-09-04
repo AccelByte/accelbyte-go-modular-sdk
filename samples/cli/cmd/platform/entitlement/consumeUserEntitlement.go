@@ -27,15 +27,15 @@ var ConsumeUserEntitlementCmd = &cobra.Command{
 			Client:          platform.NewPlatformClient(&repository.ConfigRepositoryImpl{}),
 			TokenRepository: &repository.TokenRepositoryImpl{},
 		}
-		entitlementId, _ := cmd.Flags().GetString("entitlementId")
-		namespace, _ := cmd.Flags().GetString("namespace")
-		userId, _ := cmd.Flags().GetString("userId")
 		bodyString := cmd.Flag("body").Value.String()
 		var body *platformclientmodels.AdminEntitlementDecrement
 		errBody := json.Unmarshal([]byte(bodyString), &body)
 		if errBody != nil {
 			return errBody
 		}
+		entitlementId, _ := cmd.Flags().GetString("entitlementId")
+		namespace, _ := cmd.Flags().GetString("namespace")
+		userId, _ := cmd.Flags().GetString("userId")
 		input := &entitlement.ConsumeUserEntitlementParams{
 			Body:          body,
 			EntitlementID: entitlementId,
@@ -57,6 +57,7 @@ var ConsumeUserEntitlementCmd = &cobra.Command{
 
 func init() {
 	ConsumeUserEntitlementCmd.Flags().String("body", "", "Body")
+	_ = ConsumeUserEntitlementCmd.MarkFlagRequired("body")
 	ConsumeUserEntitlementCmd.Flags().String("entitlementId", "", "Entitlement id")
 	_ = ConsumeUserEntitlementCmd.MarkFlagRequired("entitlementId")
 	ConsumeUserEntitlementCmd.Flags().String("namespace", "", "Namespace")

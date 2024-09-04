@@ -7,6 +7,8 @@
 package campaign
 
 import (
+	"encoding/json"
+
 	platform "github.com/AccelByte/accelbyte-go-modular-sdk/platform-sdk/pkg"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/platform-sdk/pkg/platformclient/campaign"
 	"github.com/AccelByte/sample-apps/pkg/repository"
@@ -26,11 +28,18 @@ var BulkEnableCodesCmd = &cobra.Command{
 		}
 		campaignId, _ := cmd.Flags().GetString("campaignId")
 		namespace, _ := cmd.Flags().GetString("namespace")
-		batchNo, _ := cmd.Flags().GetInt32("batchNo")
+		batchName, _ := cmd.Flags().GetString("batchName")
+		batchNoString := cmd.Flag("batchNo").Value.String()
+		var batchNo []int32
+		errBatchNo := json.Unmarshal([]byte(batchNoString), &batchNo)
+		if errBatchNo != nil {
+			return errBatchNo
+		}
 		input := &campaign.BulkEnableCodesParams{
 			CampaignID: campaignId,
 			Namespace:  namespace,
-			BatchNo:    &batchNo,
+			BatchName:  &batchName,
+			BatchNo:    batchNo,
 		}
 		ok, errOK := campaignService.BulkEnableCodesShort(input)
 		if errOK != nil {
@@ -50,5 +59,6 @@ func init() {
 	_ = BulkEnableCodesCmd.MarkFlagRequired("campaignId")
 	BulkEnableCodesCmd.Flags().String("namespace", "", "Namespace")
 	_ = BulkEnableCodesCmd.MarkFlagRequired("namespace")
-	BulkEnableCodesCmd.Flags().Int32("batchNo", 0, "Batch no")
+	BulkEnableCodesCmd.Flags().String("batchName", "", "Batch name")
+	BulkEnableCodesCmd.Flags().String("batchNo", "", "Batch no")
 }

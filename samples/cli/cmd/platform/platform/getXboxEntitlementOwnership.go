@@ -27,14 +27,14 @@ var GetXboxEntitlementOwnershipCmd = &cobra.Command{
 			Client:          platform.NewPlatformClient(&repository.ConfigRepositoryImpl{}),
 			TokenRepository: &repository.TokenRepositoryImpl{},
 		}
-		namespace, _ := cmd.Flags().GetString("namespace")
-		productSku, _ := cmd.Flags().GetString("productSku")
 		bodyString := cmd.Flag("body").Value.String()
 		var body *platformclientmodels.XblEntitlementOwnershipRequest
 		errBody := json.Unmarshal([]byte(bodyString), &body)
 		if errBody != nil {
 			return errBody
 		}
+		namespace, _ := cmd.Flags().GetString("namespace")
+		productSku, _ := cmd.Flags().GetString("productSku")
 		input := &platform_.GetXboxEntitlementOwnershipParams{
 			Body:       body,
 			Namespace:  namespace,
@@ -55,6 +55,7 @@ var GetXboxEntitlementOwnershipCmd = &cobra.Command{
 
 func init() {
 	GetXboxEntitlementOwnershipCmd.Flags().String("body", "", "Body")
+	_ = GetXboxEntitlementOwnershipCmd.MarkFlagRequired("body")
 	GetXboxEntitlementOwnershipCmd.Flags().String("namespace", "", "Namespace")
 	_ = GetXboxEntitlementOwnershipCmd.MarkFlagRequired("namespace")
 	GetXboxEntitlementOwnershipCmd.Flags().String("productSku", "", "Product sku")

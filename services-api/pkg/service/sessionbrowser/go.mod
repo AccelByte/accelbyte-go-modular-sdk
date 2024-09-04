@@ -12,8 +12,9 @@ replace (
 )
 
 require (
-	github.com/AccelByte/accelbyte-go-modular-sdk/services-api v0.1.0-alpha.4
+	github.com/AccelByte/accelbyte-go-modular-sdk/services-api v0.1.0-alpha.1
 	github.com/AccelByte/accelbyte-go-modular-sdk/sessionbrowser-sdk v0.0.0
+	github.com/go-openapi/runtime v0.19.29
 )
 
 require (
@@ -27,7 +28,6 @@ require (
 	github.com/go-openapi/jsonpointer v0.19.5 // indirect
 	github.com/go-openapi/jsonreference v0.19.6 // indirect
 	github.com/go-openapi/loads v0.21.1 // indirect
-	github.com/go-openapi/runtime v0.19.29 // indirect
 	github.com/go-openapi/spec v0.20.4 // indirect
 	github.com/go-openapi/strfmt v0.21.1 // indirect
 	github.com/go-openapi/swag v0.21.1 // indirect

@@ -7,6 +7,8 @@
 package xRay
 
 import (
+	"encoding/json"
+
 	sessionhistory "github.com/AccelByte/accelbyte-go-modular-sdk/sessionhistory-sdk/pkg"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/sessionhistory-sdk/pkg/sessionhistoryclient/x_ray"
 	"github.com/AccelByte/sample-apps/pkg/repository"
@@ -27,8 +29,15 @@ var QueryMatchLengthDurationpAvgCmd = &cobra.Command{
 		namespace, _ := cmd.Flags().GetString("namespace")
 		endDate, _ := cmd.Flags().GetString("endDate")
 		startDate, _ := cmd.Flags().GetString("startDate")
+		matchPoolString := cmd.Flag("matchPool").Value.String()
+		var matchPool []string
+		errMatchPool := json.Unmarshal([]byte(matchPoolString), &matchPool)
+		if errMatchPool != nil {
+			return errMatchPool
+		}
 		input := &x_ray.QueryMatchLengthDurationpAvgParams{
 			Namespace: namespace,
+			MatchPool: matchPool,
 			EndDate:   endDate,
 			StartDate: startDate,
 		}
@@ -48,6 +57,7 @@ var QueryMatchLengthDurationpAvgCmd = &cobra.Command{
 func init() {
 	QueryMatchLengthDurationpAvgCmd.Flags().String("namespace", "", "Namespace")
 	_ = QueryMatchLengthDurationpAvgCmd.MarkFlagRequired("namespace")
+	QueryMatchLengthDurationpAvgCmd.Flags().String("matchPool", "", "Match pool")
 	QueryMatchLengthDurationpAvgCmd.Flags().String("endDate", "", "End date")
 	_ = QueryMatchLengthDurationpAvgCmd.MarkFlagRequired("endDate")
 	QueryMatchLengthDurationpAvgCmd.Flags().String("startDate", "", "Start date")

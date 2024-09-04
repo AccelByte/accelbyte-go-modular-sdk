@@ -27,13 +27,13 @@ var CreatePaymentOrderByDedicatedCmd = &cobra.Command{
 			Client:          platform.NewPlatformClient(&repository.ConfigRepositoryImpl{}),
 			TokenRepository: &repository.TokenRepositoryImpl{},
 		}
-		namespace, _ := cmd.Flags().GetString("namespace")
 		bodyString := cmd.Flag("body").Value.String()
 		var body *platformclientmodels.ExternalPaymentOrderCreate
 		errBody := json.Unmarshal([]byte(bodyString), &body)
 		if errBody != nil {
 			return errBody
 		}
+		namespace, _ := cmd.Flags().GetString("namespace")
 		input := &payment_dedicated.CreatePaymentOrderByDedicatedParams{
 			Body:      body,
 			Namespace: namespace,
@@ -53,6 +53,7 @@ var CreatePaymentOrderByDedicatedCmd = &cobra.Command{
 
 func init() {
 	CreatePaymentOrderByDedicatedCmd.Flags().String("body", "", "Body")
+	_ = CreatePaymentOrderByDedicatedCmd.MarkFlagRequired("body")
 	CreatePaymentOrderByDedicatedCmd.Flags().String("namespace", "", "Namespace")
 	_ = CreatePaymentOrderByDedicatedCmd.MarkFlagRequired("namespace")
 }

@@ -47,7 +47,7 @@ type ClientService interface {
 
 /*
 GetPaymentCustomizationShort get payment provider customization
- [Not Supported Yet In Starter] Get payment provider customization, at current only Adyen provide customization. This api has been deprecated, pls use /public/namespaces/{namespace}/payment/publicconfig to get adyen config
+ [Not supported yet in AGS Shared Cloud] Get payment provider customization, at current only Adyen provide customization. This api has been deprecated, pls use /public/namespaces/{namespace}/payment/publicconfig to get adyen config
 Other detail info:
 
   * Returns : customization
@@ -98,7 +98,7 @@ func (a *Client) GetPaymentCustomizationShort(params *GetPaymentCustomizationPar
 
 /*
 PublicGetPaymentURLShort get payment url
- [Not Supported Yet In Starter] Get payment url.
+ [Not supported yet in AGS Shared Cloud] Get payment url.
 Other detail info:
 
   * For Neon Pay payment provider, the 'neonPayConfig' field can be used to provide success and cancel URL. If 'neonPayConfig' field is not present, the 'returnUrl' will be used for both success and cancel URL.
@@ -156,7 +156,7 @@ func (a *Client) PublicGetPaymentURLShort(params *PublicGetPaymentURLParams) (*P
 
 /*
 PublicGetPaymentMethodsShort get payment methods
- [Not Supported Yet In Starter] Get payment methods.
+ [Not supported yet in AGS Shared Cloud] Get payment methods.
 Other detail info:
 
   * Returns : Payment method list
@@ -209,7 +209,7 @@ func (a *Client) PublicGetPaymentMethodsShort(params *PublicGetPaymentMethodsPar
 
 /*
 PublicGetUnpaidPaymentOrderShort get payment order info
- [Not Supported Yet In Starter] Get payment order info.
+ [Not supported yet in AGS Shared Cloud] Get payment order info.
 Other detail info:
 
   * Returns : Payment order details
@@ -264,7 +264,7 @@ func (a *Client) PublicGetUnpaidPaymentOrderShort(params *PublicGetUnpaidPayment
 
 /*
 PayShort do payment
- [Not Supported Yet In Starter] Do payment(For now, this only support checkout.com).
+ [Not supported yet in AGS Shared Cloud] Do payment(For now, this only support checkout.com).
 Other detail info:
 
   * Returns : Payment process result
@@ -321,7 +321,7 @@ func (a *Client) PayShort(params *PayParams) (*PayOK, error) {
 
 /*
 PublicCheckPaymentOrderPaidStatusShort check payment order paid status
- [Not Supported Yet In Starter] Check payment order paid status.
+ [Not supported yet in AGS Shared Cloud] Check payment order paid status.
 Other detail info:
 
   * Returns : Payment order paid result
@@ -374,7 +374,7 @@ func (a *Client) PublicCheckPaymentOrderPaidStatusShort(params *PublicCheckPayme
 
 /*
 GetPaymentPublicConfigShort get payment provider public config
- [Not Supported Yet In Starter] Get payment provider public config, at current only Strip provide public config.
+ [Not supported yet in AGS Shared Cloud] Get payment provider public config, at current only Strip provide public config.
 Other detail info:
 
   * Returns : Public config
@@ -425,7 +425,7 @@ func (a *Client) GetPaymentPublicConfigShort(params *GetPaymentPublicConfigParam
 
 /*
 PublicGetQRCodeShort get qrcode
- [Not Supported Yet In Starter] Get qrcode.
+ [Not supported yet in AGS Shared Cloud] Get qrcode.
 Other detail info:
 
   * Returns : QRCode image stream
@@ -476,7 +476,7 @@ func (a *Client) PublicGetQRCodeShort(params *PublicGetQRCodeParams, writer io.W
 
 /*
 PublicNormalizePaymentReturnURLShort normalize payment return url
- [Not Supported Yet In Starter] Normalize payment return url for payment provider
+ [Not supported yet in AGS Shared Cloud] Normalize payment return url for payment provider
 Field                                                                                                                                                        | Type   | Required | Description
 -------------------------------------------------------------------------------------------------------------------------------------------------------------|--------|----------|-----------------------
 orderNo                                                                                                                                                      | String | Yes      | order no
@@ -547,7 +547,7 @@ func (a *Client) PublicNormalizePaymentReturnURLShort(params *PublicNormalizePay
 
 /*
 GetPaymentTaxValueShort get tax result of a payment order
- [Not Supported Yet In Starter] Check and get a payment order's should pay tax.
+ [Not supported yet in AGS Shared Cloud] Check and get a payment order's should pay tax.
 Other detail info:
 
   * Returns : tax result

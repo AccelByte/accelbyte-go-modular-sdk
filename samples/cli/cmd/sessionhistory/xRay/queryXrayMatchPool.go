@@ -7,6 +7,8 @@
 package xRay
 
 import (
+	"encoding/json"
+
 	sessionhistory "github.com/AccelByte/accelbyte-go-modular-sdk/sessionhistory-sdk/pkg"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/sessionhistory-sdk/pkg/sessionhistoryclient/x_ray"
 	"github.com/AccelByte/sample-apps/pkg/repository"
@@ -25,7 +27,12 @@ var QueryXrayMatchPoolCmd = &cobra.Command{
 			TokenRepository: &repository.TokenRepositoryImpl{},
 		}
 		namespace, _ := cmd.Flags().GetString("namespace")
-		poolName, _ := cmd.Flags().GetString("poolName")
+		poolNameString := cmd.Flag("poolName").Value.String()
+		var poolName []string
+		errPoolName := json.Unmarshal([]byte(poolNameString), &poolName)
+		if errPoolName != nil {
+			return errPoolName
+		}
 		endDate, _ := cmd.Flags().GetString("endDate")
 		startDate, _ := cmd.Flags().GetString("startDate")
 		input := &x_ray.QueryXrayMatchPoolParams{

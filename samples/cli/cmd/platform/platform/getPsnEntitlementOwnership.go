@@ -27,14 +27,14 @@ var GetPsnEntitlementOwnershipCmd = &cobra.Command{
 			Client:          platform.NewPlatformClient(&repository.ConfigRepositoryImpl{}),
 			TokenRepository: &repository.TokenRepositoryImpl{},
 		}
-		entitlementLabel, _ := cmd.Flags().GetString("entitlementLabel")
-		namespace, _ := cmd.Flags().GetString("namespace")
 		bodyString := cmd.Flag("body").Value.String()
 		var body *platformclientmodels.PsnEntitlementOwnershipRequest
 		errBody := json.Unmarshal([]byte(bodyString), &body)
 		if errBody != nil {
 			return errBody
 		}
+		entitlementLabel, _ := cmd.Flags().GetString("entitlementLabel")
+		namespace, _ := cmd.Flags().GetString("namespace")
 		input := &platform_.GetPsnEntitlementOwnershipParams{
 			Body:             body,
 			EntitlementLabel: entitlementLabel,
@@ -55,6 +55,7 @@ var GetPsnEntitlementOwnershipCmd = &cobra.Command{
 
 func init() {
 	GetPsnEntitlementOwnershipCmd.Flags().String("body", "", "Body")
+	_ = GetPsnEntitlementOwnershipCmd.MarkFlagRequired("body")
 	GetPsnEntitlementOwnershipCmd.Flags().String("entitlementLabel", "", "Entitlement label")
 	_ = GetPsnEntitlementOwnershipCmd.MarkFlagRequired("entitlementLabel")
 	GetPsnEntitlementOwnershipCmd.Flags().String("namespace", "", "Namespace")

@@ -846,7 +846,7 @@ func unmarshalDsNotif(reader *bufio.Reader) (*model.DsNotif, error) {
 		return nil, err
 	}
 	ports := make(map[string]int64)
-	err = json.Unmarshal([]byte(content["ports"]), &ports) // INT64
+	err = json.Unmarshal([]byte(content["ports"]), &ports) // INT
 	if err != nil {
 		return nil, err
 	}

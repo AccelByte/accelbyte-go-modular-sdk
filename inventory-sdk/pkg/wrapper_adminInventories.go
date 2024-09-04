@@ -187,6 +187,36 @@ func (aaa *AdminInventoriesService) DeleteInventoryShort(input *admin_inventorie
 	return nil
 }
 
+func (aaa *AdminInventoriesService) AdminUpdateUserInventoriesByInventoryCodeShort(input *admin_inventories.AdminUpdateUserInventoriesByInventoryCodeParams) ([]*inventoryclientmodels.ApimodelsInventoryResp, error) {
+	authInfoWriter := input.AuthInfoWriter
+	if authInfoWriter == nil {
+		security := [][]string{
+			{"bearer"},
+		}
+		authInfoWriter = auth.AuthInfoWriter(aaa.GetAuthSession(), security, "")
+	}
+	if input.RetryPolicy == nil {
+		input.RetryPolicy = &utils.Retry{
+			MaxTries:   utils.MaxTries,
+			Backoff:    utils.NewConstantBackoff(0),
+			Transport:  aaa.Client.Runtime.Transport,
+			RetryCodes: utils.RetryCodes,
+		}
+	}
+	if tempFlightIdAdminInventories != nil {
+		input.XFlightId = tempFlightIdAdminInventories
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	}
+
+	ok, err := aaa.Client.AdminInventories.AdminUpdateUserInventoriesByInventoryCodeShort(input, authInfoWriter)
+	if err != nil {
+		return nil, err
+	}
+
+	return ok.GetPayload(), nil
+}
+
 func (aaa *AdminInventoriesService) AdminPurchasableShort(input *admin_inventories.AdminPurchasableParams) error {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {

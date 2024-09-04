@@ -75,7 +75,7 @@ type ClientService interface {
 
 /*
 GetPaymentMerchantConfigShort get payment domain whitelist config
- [Not Supported Yet In Starter] Get payment domain whitelist config by namespace.
+ [Not supported yet in AGS Shared Cloud] Get payment domain whitelist config by namespace.
 Other detail info:
 
   * Returns : payment domain whitelist config info
@@ -127,7 +127,7 @@ func (a *Client) GetPaymentMerchantConfigShort(params *GetPaymentMerchantConfigP
 
 /*
 UpdatePaymentDomainWhitelistConfigShort update payment domain whitelist config
- [Not Supported Yet In Starter] Update payment provider config by namespace.
+ [Not supported yet in AGS Shared Cloud] Update payment provider config by namespace.
 
 
 
@@ -194,7 +194,7 @@ func (a *Client) UpdatePaymentDomainWhitelistConfigShort(params *UpdatePaymentDo
 
 /*
 TestAdyenConfigShort test adyen configuration
- [Not Supported Yet In Starter] Test adyen configuration.
+ [Not supported yet in AGS Shared Cloud] Test adyen configuration.
 
 #### Check List:
 
@@ -263,7 +263,7 @@ func (a *Client) TestAdyenConfigShort(params *TestAdyenConfigParams, authInfo ru
 
 /*
 TestAliPayConfigShort test alipay configuration
- [Not Supported Yet In Starter] Test AliPay configuration.Reference: [Alipay Document](https://docs.open.alipay.com/270/alipay.trade.page.pay).
+ [Not supported yet in AGS Shared Cloud] Test AliPay configuration.Reference: [Alipay Document](https://docs.open.alipay.com/270/alipay.trade.page.pay).
 Other detail info:
 
   * Returns : test result
@@ -315,7 +315,7 @@ func (a *Client) TestAliPayConfigShort(params *TestAliPayConfigParams, authInfo 
 
 /*
 TestCheckoutConfigShort test checkout.com configuration
- [Not Supported Yet In Starter] Test checkout.com configuration.
+ [Not supported yet in AGS Shared Cloud] Test checkout.com configuration.
 
 #### Check List:
 
@@ -372,7 +372,7 @@ func (a *Client) TestCheckoutConfigShort(params *TestCheckoutConfigParams, authI
 
 /*
 DebugMatchedPaymentMerchantConfigShort debug matched payment merchant config(internal)
- [Not Supported Yet In Starter] Debug matched payment merchant config.
+ [Not supported yet in AGS Shared Cloud] Debug matched payment merchant config.
 Other detail info:
 
   * Returns : payment merchant config info
@@ -426,7 +426,7 @@ func (a *Client) DebugMatchedPaymentMerchantConfigShort(params *DebugMatchedPaym
 
 /*
 TestNeonPayConfigShort test neon pay configuration
- [Not Supported Yet In Starter] Check Neon Pay configuration, Reference: [Neon Pay Document](https://docs.neonpay.com/docs/checkout).
+ [Not supported yet in AGS Shared Cloud] Check Neon Pay configuration, Reference: [Neon Pay Document](https://docs.neonpay.com/docs/checkout).
 
 #### Check List:
 
@@ -483,7 +483,7 @@ func (a *Client) TestNeonPayConfigShort(params *TestNeonPayConfigParams, authInf
 
 /*
 TestPayPalConfigShort test paypal configuration
- [Not Supported Yet In Starter] Test PayPal configuration.
+ [Not supported yet in AGS Shared Cloud] Test PayPal configuration.
 
 #### Check List:
 
@@ -546,7 +546,7 @@ func (a *Client) TestPayPalConfigShort(params *TestPayPalConfigParams, authInfo 
 
 /*
 TestStripeConfigShort test stripe configuration
- [Not Supported Yet In Starter] Test stripe configuration.
+ [Not supported yet in AGS Shared Cloud] Test stripe configuration.
 
 #### Check List:
 
@@ -610,7 +610,7 @@ func (a *Client) TestStripeConfigShort(params *TestStripeConfigParams, authInfo 
 
 /*
 TestWxPayConfigShort test wxpay configuration
- [Not Supported Yet In Starter] Test WxPay configuration. Reference: [WxPay Document](https://pay.weixin.qq.com/wiki/doc/api/native.php?chapter=9_1).
+ [Not supported yet in AGS Shared Cloud] Test WxPay configuration. Reference: [WxPay Document](https://pay.weixin.qq.com/wiki/doc/api/native.php?chapter=9_1).
 Other detail info:
 
   * Returns : test WxPay config
@@ -662,7 +662,7 @@ func (a *Client) TestWxPayConfigShort(params *TestWxPayConfigParams, authInfo ru
 
 /*
 TestXsollaConfigShort test xsolla configuration
- [Not Supported Yet In Starter] Check xsolla configuration, Reference: [Xsolla Document](https://developers.xsolla.com/?#simple-checkout).
+ [Not supported yet in AGS Shared Cloud] Check xsolla configuration, Reference: [Xsolla Document](https://developers.xsolla.com/?#simple-checkout).
 
 #### Check List:
 
@@ -726,7 +726,7 @@ func (a *Client) TestXsollaConfigShort(params *TestXsollaConfigParams, authInfo 
 
 /*
 GetPaymentMerchantConfig1Short get payment merchant config
- [Not Supported Yet In Starter] Get payment merchant config by id.
+ [Not supported yet in AGS Shared Cloud] Get payment merchant config by id.
 Other detail info:
 
   * Returns : payment merchant config info
@@ -780,7 +780,7 @@ func (a *Client) GetPaymentMerchantConfig1Short(params *GetPaymentMerchantConfig
 
 /*
 UpdateAdyenConfigShort update adyen config
- [Not Supported Yet In Starter] Update adyen config.
+ [Not supported yet in AGS Shared Cloud] Update adyen config.
 Other detail info:
 
   * Returns : updated payment merchant config
@@ -834,7 +834,7 @@ func (a *Client) UpdateAdyenConfigShort(params *UpdateAdyenConfigParams, authInf
 
 /*
 TestAdyenConfigByIDShort test adyen configuration by id
- [Not Supported Yet In Starter] Test adyen configuration in payment merchant config. Other detail info:
+ [Not supported yet in AGS Shared Cloud] Test adyen configuration in payment merchant config. Other detail info:
 
   * Returns : test adyen config
 */
@@ -887,7 +887,7 @@ func (a *Client) TestAdyenConfigByIDShort(params *TestAdyenConfigByIDParams, aut
 
 /*
 UpdateAliPayConfigShort update alipay configuration
- [Not Supported Yet In Starter] Update alipay configuration.
+ [Not supported yet in AGS Shared Cloud] Update alipay configuration.
 Other detail info:
 
   * Returns : updated payment merchant config
@@ -941,7 +941,7 @@ func (a *Client) UpdateAliPayConfigShort(params *UpdateAliPayConfigParams, authI
 
 /*
 TestAliPayConfigByIDShort test alipay configuration by id
- [Not Supported Yet In Starter] Test AliPay configuration in payment merchant config. Reference: [Alipay Document](https://docs.open.alipay.com/270/alipay.trade.page.pay).
+ [Not supported yet in AGS Shared Cloud] Test AliPay configuration in payment merchant config. Reference: [Alipay Document](https://docs.open.alipay.com/270/alipay.trade.page.pay).
 Other detail info:
 
   * Returns : test alipay config
@@ -995,7 +995,7 @@ func (a *Client) TestAliPayConfigByIDShort(params *TestAliPayConfigByIDParams, a
 
 /*
 UpdateCheckoutConfigShort update checkout.com config
- [Not Supported Yet In Starter] Update checkout.com config.
+ [Not supported yet in AGS Shared Cloud] Update checkout.com config.
 Other detail info:
 
   * Returns : updated payment merchant config
@@ -1049,7 +1049,7 @@ func (a *Client) UpdateCheckoutConfigShort(params *UpdateCheckoutConfigParams, a
 
 /*
 TestCheckoutConfigByIDShort test checkout.com configuration by id
- [Not Supported Yet In Starter] Test checkout.com configuration in payment merchant config. Other detail info:
+ [Not supported yet in AGS Shared Cloud] Test checkout.com configuration in payment merchant config. Other detail info:
 
   * Returns : test result
 */
@@ -1102,7 +1102,7 @@ func (a *Client) TestCheckoutConfigByIDShort(params *TestCheckoutConfigByIDParam
 
 /*
 UpdateNeonPayConfigShort update neon pay config
- [Not Supported Yet In Starter] Update Neon Pay config.
+ [Not supported yet in AGS Shared Cloud] Update Neon Pay config.
 Other detail info:
 
   * Returns : updated payment merchant config
@@ -1156,7 +1156,7 @@ func (a *Client) UpdateNeonPayConfigShort(params *UpdateNeonPayConfigParams, aut
 
 /*
 TestNeonPayConfigByIDShort test neon pay configuration by id
- [Not Supported Yet In Starter] Test Neon Pay configuration in payment merchant config. Other detail info:
+ [Not supported yet in AGS Shared Cloud] Test Neon Pay configuration in payment merchant config. Other detail info:
 
   * Returns : test result
 */
@@ -1209,7 +1209,7 @@ func (a *Client) TestNeonPayConfigByIDShort(params *TestNeonPayConfigByIDParams,
 
 /*
 UpdatePayPalConfigShort update paypal config
- [Not Supported Yet In Starter] Update PayPal config.
+ [Not supported yet in AGS Shared Cloud] Update PayPal config.
 Other detail info:
 
   * Returns : updated payment merchant config
@@ -1263,7 +1263,7 @@ func (a *Client) UpdatePayPalConfigShort(params *UpdatePayPalConfigParams, authI
 
 /*
 TestPayPalConfigByIDShort test paypal configuration by id
- [Not Supported Yet In Starter] Test PayPal configuration in payment merchant config. Other detail info:
+ [Not supported yet in AGS Shared Cloud] Test PayPal configuration in payment merchant config. Other detail info:
 
   * Returns : test result
 */
@@ -1316,7 +1316,7 @@ func (a *Client) TestPayPalConfigByIDShort(params *TestPayPalConfigByIDParams, a
 
 /*
 UpdateStripeConfigShort update stripe config
- [Not Supported Yet In Starter] Update stripe config.
+ [Not supported yet in AGS Shared Cloud] Update stripe config.
 Other detail info:
 
   * Returns : updated payment merchant config
@@ -1370,7 +1370,7 @@ func (a *Client) UpdateStripeConfigShort(params *UpdateStripeConfigParams, authI
 
 /*
 TestStripeConfigByIDShort test stripe configuration by id
- [Not Supported Yet In Starter] Test stripe configuration in payment merchant config. Other detail info:
+ [Not supported yet in AGS Shared Cloud] Test stripe configuration in payment merchant config. Other detail info:
 
   * Returns : test adyen config
 */
@@ -1423,7 +1423,7 @@ func (a *Client) TestStripeConfigByIDShort(params *TestStripeConfigByIDParams, a
 
 /*
 UpdateWxPayConfigShort update wxpay configuration
- [Not Supported Yet In Starter] Update wxpay configuration.
+ [Not supported yet in AGS Shared Cloud] Update wxpay configuration.
 Other detail info:
 
   * Returns : updated payment merchant config
@@ -1477,7 +1477,7 @@ func (a *Client) UpdateWxPayConfigShort(params *UpdateWxPayConfigParams, authInf
 
 /*
 UpdateWxPayConfigCertShort upload wxpay cert file
- [Not Supported Yet In Starter] Upload wxpay cert file.
+ [Not supported yet in AGS Shared Cloud] Upload wxpay cert file.
 Other detail info:
 
   * Returns : updated payment merchant config
@@ -1531,7 +1531,7 @@ func (a *Client) UpdateWxPayConfigCertShort(params *UpdateWxPayConfigCertParams,
 
 /*
 TestWxPayConfigByIDShort test wxpay configuration by id
- [Not Supported Yet In Starter] Test WxPay configuration in payment merchant config. Reference: [WxPay Document](https://pay.weixin.qq.com/wiki/doc/api/native.php?chapter=9_1).
+ [Not supported yet in AGS Shared Cloud] Test WxPay configuration in payment merchant config. Reference: [WxPay Document](https://pay.weixin.qq.com/wiki/doc/api/native.php?chapter=9_1).
 Other detail info:
 
   * Returns : test WxPay config
@@ -1585,7 +1585,7 @@ func (a *Client) TestWxPayConfigByIDShort(params *TestWxPayConfigByIDParams, aut
 
 /*
 UpdateXsollaConfigShort update xsolla configuration
- [Not Supported Yet In Starter] Update xsolla configuration. Reference: [Xsolla Document](https://developers.xsolla.com/?#simple-checkout).
+ [Not supported yet in AGS Shared Cloud] Update xsolla configuration. Reference: [Xsolla Document](https://developers.xsolla.com/?#simple-checkout).
 Other detail info:
 
   * Returns : updated payment merchant config
@@ -1639,7 +1639,7 @@ func (a *Client) UpdateXsollaConfigShort(params *UpdateXsollaConfigParams, authI
 
 /*
 TestXsollaConfigByIDShort test xsolla configuration by id
- [Not Supported Yet In Starter] Test xsolla configuration in payment merchant config. Reference: [Xsolla Document](https://developers.xsolla.com/?#simple-checkout).
+ [Not supported yet in AGS Shared Cloud] Test xsolla configuration in payment merchant config. Reference: [Xsolla Document](https://developers.xsolla.com/?#simple-checkout).
 Other detail info:
 
   * Returns : test xsolla config
@@ -1693,7 +1693,7 @@ func (a *Client) TestXsollaConfigByIDShort(params *TestXsollaConfigByIDParams, a
 
 /*
 UpdateXsollaUIConfigShort update xsolla ui configuration
- [Not Supported Yet In Starter] Update xsolla UI configuration.Reference: [Xsolla Document](https://developers.xsolla.com/api.html#ui-integrations).
+ [Not supported yet in AGS Shared Cloud] Update xsolla UI configuration.Reference: [Xsolla Document](https://developers.xsolla.com/api.html#ui-integrations).
 Other detail info:
 
   * Returns : updated payment merchant config
@@ -1747,7 +1747,7 @@ func (a *Client) UpdateXsollaUIConfigShort(params *UpdateXsollaUIConfigParams, a
 
 /*
 QueryPaymentProviderConfigShort query payment provider config
- [Not Supported Yet In Starter] Query payment provider config.
+ [Not supported yet in AGS Shared Cloud] Query payment provider config.
 Other detail info:
 
   * Returns : payment provider config list
@@ -1799,7 +1799,7 @@ func (a *Client) QueryPaymentProviderConfigShort(params *QueryPaymentProviderCon
 
 /*
 CreatePaymentProviderConfigShort create payment provider config
- [Not Supported Yet In Starter] Create payment provider config.
+ [Not supported yet in AGS Shared Cloud] Create payment provider config.
 
 
 
@@ -1878,7 +1878,7 @@ func (a *Client) CreatePaymentProviderConfigShort(params *CreatePaymentProviderC
 
 /*
 GetAggregatePaymentProvidersShort get aggregate payment providers
- [Not Supported Yet In Starter] Get aggregate payment providers, such as XSOLLA, ADYEN.
+ [Not supported yet in AGS Shared Cloud] Get aggregate payment providers, such as XSOLLA, ADYEN.
 Other detail info:
 
   * Returns : payment provider list
@@ -1930,7 +1930,7 @@ func (a *Client) GetAggregatePaymentProvidersShort(params *GetAggregatePaymentPr
 
 /*
 DebugMatchedPaymentProviderConfigShort debug matched payment provider config(internal)
- [Not Supported Yet In Starter] Debug matched payment provider config.
+ [Not supported yet in AGS Shared Cloud] Debug matched payment provider config.
 Other detail info:
 
   * Returns : payment provider config
@@ -1984,7 +1984,7 @@ func (a *Client) DebugMatchedPaymentProviderConfigShort(params *DebugMatchedPaym
 
 /*
 GetSpecialPaymentProvidersShort get special payment providers
- [Not Supported Yet In Starter] Get special payment providers, such as ALIPAY, WXPAY.
+ [Not supported yet in AGS Shared Cloud] Get special payment providers, such as ALIPAY, WXPAY.
 Other detail info:
 
   * Returns : payment provider list
@@ -2036,7 +2036,7 @@ func (a *Client) GetSpecialPaymentProvidersShort(params *GetSpecialPaymentProvid
 
 /*
 UpdatePaymentProviderConfigShort update payment provider config
- [Not Supported Yet In Starter] Update payment provider config.
+ [Not supported yet in AGS Shared Cloud] Update payment provider config.
 
 
 
@@ -2117,7 +2117,7 @@ func (a *Client) UpdatePaymentProviderConfigShort(params *UpdatePaymentProviderC
 
 /*
 DeletePaymentProviderConfigShort delete payment provider config
- [Not Supported Yet In Starter] Delete payment provider config.
+ [Not supported yet in AGS Shared Cloud] Delete payment provider config.
 Other detail info:
 
   * Returns : payment provider config
@@ -2171,7 +2171,7 @@ func (a *Client) DeletePaymentProviderConfigShort(params *DeletePaymentProviderC
 
 /*
 GetPaymentTaxConfigShort get payment global tax config
- [Not Supported Yet In Starter] Get payment global tax config.
+ [Not supported yet in AGS Shared Cloud] Get payment global tax config.
 Other detail info:
 
   * Returns : payment provider list
@@ -2223,7 +2223,7 @@ func (a *Client) GetPaymentTaxConfigShort(params *GetPaymentTaxConfigParams, aut
 
 /*
 UpdatePaymentTaxConfigShort update payment global tax config
- [Not Supported Yet In Starter] Update payment tax config.
+ [Not supported yet in AGS Shared Cloud] Update payment tax config.
 
 
 

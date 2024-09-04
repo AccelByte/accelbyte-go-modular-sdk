@@ -27,14 +27,14 @@ var SyncTwitchDropsEntitlement1Cmd = &cobra.Command{
 			Client:          platform.NewPlatformClient(&repository.ConfigRepositoryImpl{}),
 			TokenRepository: &repository.TokenRepositoryImpl{},
 		}
-		namespace, _ := cmd.Flags().GetString("namespace")
-		userId, _ := cmd.Flags().GetString("userId")
 		bodyString := cmd.Flag("body").Value.String()
 		var body *platformclientmodels.TwitchSyncRequest
 		errBody := json.Unmarshal([]byte(bodyString), &body)
 		if errBody != nil {
 			return errBody
 		}
+		namespace, _ := cmd.Flags().GetString("namespace")
+		userId, _ := cmd.Flags().GetString("userId")
 		input := &iap.SyncTwitchDropsEntitlement1Params{
 			Body:      body,
 			Namespace: namespace,
@@ -55,6 +55,7 @@ var SyncTwitchDropsEntitlement1Cmd = &cobra.Command{
 
 func init() {
 	SyncTwitchDropsEntitlement1Cmd.Flags().String("body", "", "Body")
+	_ = SyncTwitchDropsEntitlement1Cmd.MarkFlagRequired("body")
 	SyncTwitchDropsEntitlement1Cmd.Flags().String("namespace", "", "Namespace")
 	_ = SyncTwitchDropsEntitlement1Cmd.MarkFlagRequired("namespace")
 	SyncTwitchDropsEntitlement1Cmd.Flags().String("userId", "", "User id")

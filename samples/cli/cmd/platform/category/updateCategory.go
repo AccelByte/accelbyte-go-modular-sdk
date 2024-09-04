@@ -27,15 +27,15 @@ var UpdateCategoryCmd = &cobra.Command{
 			Client:          platform.NewPlatformClient(&repository.ConfigRepositoryImpl{}),
 			TokenRepository: &repository.TokenRepositoryImpl{},
 		}
-		categoryPath, _ := cmd.Flags().GetString("categoryPath")
-		namespace, _ := cmd.Flags().GetString("namespace")
-		storeId, _ := cmd.Flags().GetString("storeId")
 		bodyString := cmd.Flag("body").Value.String()
 		var body *platformclientmodels.CategoryUpdate
 		errBody := json.Unmarshal([]byte(bodyString), &body)
 		if errBody != nil {
 			return errBody
 		}
+		categoryPath, _ := cmd.Flags().GetString("categoryPath")
+		namespace, _ := cmd.Flags().GetString("namespace")
+		storeId, _ := cmd.Flags().GetString("storeId")
 		input := &category.UpdateCategoryParams{
 			Body:         body,
 			CategoryPath: categoryPath,
@@ -57,6 +57,7 @@ var UpdateCategoryCmd = &cobra.Command{
 
 func init() {
 	UpdateCategoryCmd.Flags().String("body", "", "Body")
+	_ = UpdateCategoryCmd.MarkFlagRequired("body")
 	UpdateCategoryCmd.Flags().String("categoryPath", "", "Category path")
 	_ = UpdateCategoryCmd.MarkFlagRequired("categoryPath")
 	UpdateCategoryCmd.Flags().String("namespace", "", "Namespace")

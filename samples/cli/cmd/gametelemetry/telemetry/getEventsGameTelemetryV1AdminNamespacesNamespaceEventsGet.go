@@ -25,6 +25,7 @@ var GetEventsGameTelemetryV1AdminNamespacesNamespaceEventsGetCmd = &cobra.Comman
 			TokenRepository: &repository.TokenRepositoryImpl{},
 		}
 		namespace, _ := cmd.Flags().GetString("namespace")
+		deviceType, _ := cmd.Flags().GetString("deviceType")
 		endTime, _ := cmd.Flags().GetString("endTime")
 		eventId, _ := cmd.Flags().GetString("eventId")
 		eventName, _ := cmd.Flags().GetString("eventName")
@@ -36,6 +37,7 @@ var GetEventsGameTelemetryV1AdminNamespacesNamespaceEventsGetCmd = &cobra.Comman
 		userId, _ := cmd.Flags().GetString("userId")
 		input := &telemetry.GetEventsGameTelemetryV1AdminNamespacesNamespaceEventsGetParams{
 			Namespace:    namespace,
+			DeviceType:   &deviceType,
 			EndTime:      &endTime,
 			EventID:      &eventId,
 			EventName:    &eventName,
@@ -62,6 +64,7 @@ var GetEventsGameTelemetryV1AdminNamespacesNamespaceEventsGetCmd = &cobra.Comman
 func init() {
 	GetEventsGameTelemetryV1AdminNamespacesNamespaceEventsGetCmd.Flags().String("namespace", "", "Namespace")
 	_ = GetEventsGameTelemetryV1AdminNamespacesNamespaceEventsGetCmd.MarkFlagRequired("namespace")
+	GetEventsGameTelemetryV1AdminNamespacesNamespaceEventsGetCmd.Flags().String("deviceType", "", "Device type")
 	GetEventsGameTelemetryV1AdminNamespacesNamespaceEventsGetCmd.Flags().String("endTime", "", "End time")
 	GetEventsGameTelemetryV1AdminNamespacesNamespaceEventsGetCmd.Flags().String("eventId", "0", "Event id")
 	GetEventsGameTelemetryV1AdminNamespacesNamespaceEventsGetCmd.Flags().String("eventName", "", "Event name")

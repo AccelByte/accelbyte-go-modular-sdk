@@ -35,6 +35,8 @@ type ClientService interface {
 	CreateCampaignShort(params *CreateCampaignParams, authInfo runtime.ClientAuthInfoWriter) (*CreateCampaignCreated, error)
 	GetCampaignShort(params *GetCampaignParams, authInfo runtime.ClientAuthInfoWriter) (*GetCampaignOK, error)
 	UpdateCampaignShort(params *UpdateCampaignParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateCampaignOK, error)
+	RenameBatchShort(params *RenameBatchParams, authInfo runtime.ClientAuthInfoWriter) (*RenameBatchNoContent, error)
+	QueryCampaignBatchNamesShort(params *QueryCampaignBatchNamesParams, authInfo runtime.ClientAuthInfoWriter) (*QueryCampaignBatchNamesOK, error)
 	GetCampaignDynamicShort(params *GetCampaignDynamicParams, authInfo runtime.ClientAuthInfoWriter) (*GetCampaignDynamicOK, error)
 	QueryCodesShort(params *QueryCodesParams, authInfo runtime.ClientAuthInfoWriter) (*QueryCodesOK, error)
 	CreateCodesShort(params *CreateCodesParams, authInfo runtime.ClientAuthInfoWriter) (*CreateCodesCreated, error)
@@ -273,6 +275,110 @@ func (a *Client) UpdateCampaignShort(params *UpdateCampaignParams, authInfo runt
 }
 
 /*
+RenameBatchShort rename batch
+Change campaign batch name.
+Other detail info:
+*/
+func (a *Client) RenameBatchShort(params *RenameBatchParams, authInfo runtime.ClientAuthInfoWriter) (*RenameBatchNoContent, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewRenameBatchParams()
+	}
+
+	if params.Context == nil {
+		params.Context = context.Background()
+	}
+
+	if params.RetryPolicy != nil {
+		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
+	}
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "renameBatch",
+		Method:             "PUT",
+		PathPattern:        "/platform/admin/namespaces/{namespace}/campaigns/{campaignId}/batchName",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &RenameBatchReader{formats: a.formats},
+		AuthInfo:           authInfo,
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+
+	switch v := result.(type) {
+
+	case *RenameBatchNoContent:
+		return v, nil
+	case *RenameBatchNotFound:
+		return nil, v
+
+	default:
+		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
+	}
+}
+
+/*
+QueryCampaignBatchNamesShort query campaign batch names
+Query campaign batch name by fuzzy match.
+Other detail info:
+
+  * Returns : list of campaign batch names
+*/
+func (a *Client) QueryCampaignBatchNamesShort(params *QueryCampaignBatchNamesParams, authInfo runtime.ClientAuthInfoWriter) (*QueryCampaignBatchNamesOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewQueryCampaignBatchNamesParams()
+	}
+
+	if params.Context == nil {
+		params.Context = context.Background()
+	}
+
+	if params.RetryPolicy != nil {
+		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
+	}
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "queryCampaignBatchNames",
+		Method:             "GET",
+		PathPattern:        "/platform/admin/namespaces/{namespace}/campaigns/{campaignId}/batchNames",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &QueryCampaignBatchNamesReader{formats: a.formats},
+		AuthInfo:           authInfo,
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+
+	switch v := result.(type) {
+
+	case *QueryCampaignBatchNamesOK:
+		return v, nil
+
+	default:
+		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
+	}
+}
+
+/*
 GetCampaignDynamicShort get campaign dynamic
 Get campaign dynamic.
 Other detail info:
@@ -332,6 +438,7 @@ Query campaign codes.
 Other detail info:
 
   * Returns : list of codes
+  * The batchName field in the codes response will be present only when the withBatchName parameter is true , or when the batchName filter is not blank.
 */
 func (a *Client) QueryCodesShort(params *QueryCodesParams, authInfo runtime.ClientAuthInfoWriter) (*QueryCodesOK, error) {
 	// TODO: Validate the params before sending
@@ -442,6 +549,7 @@ Download all or a batch of campaign's codes as a csv file.
 Other detail info:
 
   * Returns : codes csv file
+  * The csv file will always have Batch Name column, but this column will be filled only when the withBatchName parameter is true , or when the batchName filter is not blank.
 */
 func (a *Client) DownloadShort(params *DownloadParams, authInfo runtime.ClientAuthInfoWriter, writer io.Writer) (*DownloadOK, error) {
 	// TODO: Validate the params before sending

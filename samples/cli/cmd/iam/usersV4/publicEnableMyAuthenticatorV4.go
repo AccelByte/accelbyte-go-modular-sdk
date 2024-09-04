@@ -24,10 +24,10 @@ var PublicEnableMyAuthenticatorV4Cmd = &cobra.Command{
 			Client:          iam.NewIamClient(&repository.ConfigRepositoryImpl{}),
 			TokenRepository: &repository.TokenRepositoryImpl{},
 		}
-		namespace, _ := cmd.Flags().GetString("namespace")
 		code, _ := cmd.Flags().GetString("code")
+		namespace, _ := cmd.Flags().GetString("namespace")
 		input := &users_v4.PublicEnableMyAuthenticatorV4Params{
-			Code:      &code,
+			Code:      code,
 			Namespace: namespace,
 		}
 		errNoContent := usersV4Service.PublicEnableMyAuthenticatorV4Short(input)
@@ -45,6 +45,7 @@ var PublicEnableMyAuthenticatorV4Cmd = &cobra.Command{
 
 func init() {
 	PublicEnableMyAuthenticatorV4Cmd.Flags().String("code", "", "Code")
+	_ = PublicEnableMyAuthenticatorV4Cmd.MarkFlagRequired("code")
 	PublicEnableMyAuthenticatorV4Cmd.Flags().String("namespace", "", "Namespace")
 	_ = PublicEnableMyAuthenticatorV4Cmd.MarkFlagRequired("namespace")
 }

@@ -27,13 +27,13 @@ var UpdateXblIAPConfigCmd = &cobra.Command{
 			Client:          platform.NewPlatformClient(&repository.ConfigRepositoryImpl{}),
 			TokenRepository: &repository.TokenRepositoryImpl{},
 		}
-		namespace, _ := cmd.Flags().GetString("namespace")
 		bodyString := cmd.Flag("body").Value.String()
 		var body *platformclientmodels.XblIAPConfigRequest
 		errBody := json.Unmarshal([]byte(bodyString), &body)
 		if errBody != nil {
 			return errBody
 		}
+		namespace, _ := cmd.Flags().GetString("namespace")
 		input := &iap.UpdateXblIAPConfigParams{
 			Body:      body,
 			Namespace: namespace,
@@ -53,6 +53,7 @@ var UpdateXblIAPConfigCmd = &cobra.Command{
 
 func init() {
 	UpdateXblIAPConfigCmd.Flags().String("body", "", "Body")
+	_ = UpdateXblIAPConfigCmd.MarkFlagRequired("body")
 	UpdateXblIAPConfigCmd.Flags().String("namespace", "", "Namespace")
 	_ = UpdateXblIAPConfigCmd.MarkFlagRequired("namespace")
 }

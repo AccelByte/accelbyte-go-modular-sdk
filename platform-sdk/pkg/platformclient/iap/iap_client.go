@@ -2071,6 +2071,8 @@ func (a *Client) SyncEpicGamesInventoryShort(params *SyncEpicGamesInventoryParam
 		return v, nil
 	case *SyncEpicGamesInventoryBadRequest:
 		return nil, v
+	case *SyncEpicGamesInventoryNotFound:
+		return nil, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -2179,6 +2181,8 @@ func (a *Client) SyncOculusConsumableEntitlementsShort(params *SyncOculusConsuma
 		return v, nil
 	case *SyncOculusConsumableEntitlementsBadRequest:
 		return nil, v
+	case *SyncOculusConsumableEntitlementsNotFound:
+		return nil, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -2230,6 +2234,8 @@ func (a *Client) PublicReconcilePlayStationStoreShort(params *PublicReconcilePla
 	case *PublicReconcilePlayStationStoreOK:
 		return v, nil
 	case *PublicReconcilePlayStationStoreBadRequest:
+		return nil, v
+	case *PublicReconcilePlayStationStoreNotFound:
 		return nil, v
 
 	default:
@@ -2283,6 +2289,8 @@ func (a *Client) PublicReconcilePlayStationStoreWithMultipleServiceLabelsShort(p
 		return v, nil
 	case *PublicReconcilePlayStationStoreWithMultipleServiceLabelsBadRequest:
 		return nil, v
+	case *PublicReconcilePlayStationStoreWithMultipleServiceLabelsNotFound:
+		return nil, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -2334,6 +2342,8 @@ func (a *Client) SyncSteamInventoryShort(params *SyncSteamInventoryParams, authI
 	case *SyncSteamInventoryNoContent:
 		return v, nil
 	case *SyncSteamInventoryBadRequest:
+		return nil, v
+	case *SyncSteamInventoryNotFound:
 		return nil, v
 
 	default:
@@ -2438,6 +2448,8 @@ func (a *Client) SyncXboxInventoryShort(params *SyncXboxInventoryParams, authInf
 	case *SyncXboxInventoryOK:
 		return v, nil
 	case *SyncXboxInventoryBadRequest:
+		return nil, v
+	case *SyncXboxInventoryNotFound:
 		return nil, v
 
 	default:

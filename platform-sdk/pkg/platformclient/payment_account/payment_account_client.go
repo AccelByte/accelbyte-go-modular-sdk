@@ -38,7 +38,7 @@ type ClientService interface {
 
 /*
 PublicGetPaymentAccountsShort get payment accounts
- [Not Supported Yet In Starter] Get payment accounts.
+ [Not supported yet in AGS Shared Cloud] Get payment accounts.
 Other detail info:
 
   * Returns : Payment account list
@@ -90,7 +90,7 @@ func (a *Client) PublicGetPaymentAccountsShort(params *PublicGetPaymentAccountsP
 
 /*
 PublicDeletePaymentAccountShort delete payment account
- [Not Supported Yet In Starter] Delete payment account.
+ [Not supported yet in AGS Shared Cloud] Delete payment account.
 Other detail info:
 
   * Returns :

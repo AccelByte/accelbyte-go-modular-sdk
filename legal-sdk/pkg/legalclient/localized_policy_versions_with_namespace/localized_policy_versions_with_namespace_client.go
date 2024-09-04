@@ -388,6 +388,8 @@ func (a *Client) RetrieveSingleLocalizedPolicyVersion3Short(params *RetrieveSing
 
 	case *RetrieveSingleLocalizedPolicyVersion3OK:
 		return v, nil
+	case *RetrieveSingleLocalizedPolicyVersion3Forbidden:
+		return nil, v
 	case *RetrieveSingleLocalizedPolicyVersion3NotFound:
 		return nil, v
 

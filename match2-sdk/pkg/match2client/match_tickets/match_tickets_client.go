@@ -295,6 +295,8 @@ func (a *Client) DeleteMatchTicketShort(params *DeleteMatchTicketParams, authInf
 		return nil, v
 	case *DeleteMatchTicketNotFound:
 		return nil, v
+	case *DeleteMatchTicketNotAcceptable:
+		return nil, v
 	case *DeleteMatchTicketInternalServerError:
 		return nil, v
 

@@ -39,7 +39,7 @@ type ClientService interface {
 
 /*
 CreatePaymentOrderByDedicatedShort create payment order by dedicated server
- [Not Supported Yet In Starter]
+ [Not supported yet in AGS Shared Cloud]
 
 This API is used to create payment order from non justice service. e.g. from dedicated server, the result contains the payment station url.
 
@@ -265,7 +265,7 @@ func (a *Client) CreatePaymentOrderByDedicatedShort(params *CreatePaymentOrderBy
 
 /*
 RefundPaymentOrderByDedicatedShort refund payment order by dedicated server
- [Not Supported Yet In Starter]
+ [Not supported yet in AGS Shared Cloud]
 
 This API is used to refund payment order by paymentOrderNo from non justice service. e.g. dedicated server.
 
@@ -465,7 +465,7 @@ func (a *Client) RefundPaymentOrderByDedicatedShort(params *RefundPaymentOrderBy
 
 /*
 SyncPaymentOrdersShort sync payment orders
- [Not Supported Yet In Starter] Sync payment orders. If response contains nextEvaluatedKey, please use it as query param in the next call to fetch the next batch, a batch has 1000 elements or less.
+ [Not supported yet in AGS Shared Cloud] Sync payment orders. If response contains nextEvaluatedKey, please use it as query param in the next call to fetch the next batch, a batch has 1000 elements or less.
 Other detail info:
 
   * Returns : sync payment orders

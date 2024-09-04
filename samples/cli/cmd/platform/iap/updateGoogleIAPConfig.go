@@ -27,13 +27,13 @@ var UpdateGoogleIAPConfigCmd = &cobra.Command{
 			Client:          platform.NewPlatformClient(&repository.ConfigRepositoryImpl{}),
 			TokenRepository: &repository.TokenRepositoryImpl{},
 		}
-		namespace, _ := cmd.Flags().GetString("namespace")
 		bodyString := cmd.Flag("body").Value.String()
 		var body *platformclientmodels.GoogleIAPConfigRequest
 		errBody := json.Unmarshal([]byte(bodyString), &body)
 		if errBody != nil {
 			return errBody
 		}
+		namespace, _ := cmd.Flags().GetString("namespace")
 		input := &iap.UpdateGoogleIAPConfigParams{
 			Body:      body,
 			Namespace: namespace,
@@ -53,6 +53,7 @@ var UpdateGoogleIAPConfigCmd = &cobra.Command{
 
 func init() {
 	UpdateGoogleIAPConfigCmd.Flags().String("body", "", "Body")
+	_ = UpdateGoogleIAPConfigCmd.MarkFlagRequired("body")
 	UpdateGoogleIAPConfigCmd.Flags().String("namespace", "", "Namespace")
 	_ = UpdateGoogleIAPConfigCmd.MarkFlagRequired("namespace")
 }

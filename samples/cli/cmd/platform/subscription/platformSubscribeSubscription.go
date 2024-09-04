@@ -27,14 +27,14 @@ var PlatformSubscribeSubscriptionCmd = &cobra.Command{
 			Client:          platform.NewPlatformClient(&repository.ConfigRepositoryImpl{}),
 			TokenRepository: &repository.TokenRepositoryImpl{},
 		}
-		namespace, _ := cmd.Flags().GetString("namespace")
-		userId, _ := cmd.Flags().GetString("userId")
 		bodyString := cmd.Flag("body").Value.String()
 		var body *platformclientmodels.PlatformSubscribeRequest
 		errBody := json.Unmarshal([]byte(bodyString), &body)
 		if errBody != nil {
 			return errBody
 		}
+		namespace, _ := cmd.Flags().GetString("namespace")
+		userId, _ := cmd.Flags().GetString("userId")
 		input := &subscription.PlatformSubscribeSubscriptionParams{
 			Body:      body,
 			Namespace: namespace,
@@ -55,6 +55,7 @@ var PlatformSubscribeSubscriptionCmd = &cobra.Command{
 
 func init() {
 	PlatformSubscribeSubscriptionCmd.Flags().String("body", "", "Body")
+	_ = PlatformSubscribeSubscriptionCmd.MarkFlagRequired("body")
 	PlatformSubscribeSubscriptionCmd.Flags().String("namespace", "", "Namespace")
 	_ = PlatformSubscribeSubscriptionCmd.MarkFlagRequired("namespace")
 	PlatformSubscribeSubscriptionCmd.Flags().String("userId", "", "User id")

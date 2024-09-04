@@ -25,8 +25,10 @@ var AdminSendMyMFAEmailCodeV4Cmd = &cobra.Command{
 			TokenRepository: &repository.TokenRepositoryImpl{},
 		}
 		action, _ := cmd.Flags().GetString("action")
+		languageTag, _ := cmd.Flags().GetString("languageTag")
 		input := &users_v4.AdminSendMyMFAEmailCodeV4Params{
-			Action: &action,
+			Action:      &action,
+			LanguageTag: &languageTag,
 		}
 		errNoContent := usersV4Service.AdminSendMyMFAEmailCodeV4Short(input)
 		if errNoContent != nil {
@@ -43,4 +45,5 @@ var AdminSendMyMFAEmailCodeV4Cmd = &cobra.Command{
 
 func init() {
 	AdminSendMyMFAEmailCodeV4Cmd.Flags().String("action", "-1", "Action")
+	AdminSendMyMFAEmailCodeV4Cmd.Flags().String("languageTag", "", "Language tag")
 }

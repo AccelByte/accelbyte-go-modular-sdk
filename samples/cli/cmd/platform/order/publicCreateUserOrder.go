@@ -27,14 +27,14 @@ var PublicCreateUserOrderCmd = &cobra.Command{
 			Client:          platform.NewPlatformClient(&repository.ConfigRepositoryImpl{}),
 			TokenRepository: &repository.TokenRepositoryImpl{},
 		}
-		namespace, _ := cmd.Flags().GetString("namespace")
-		userId, _ := cmd.Flags().GetString("userId")
 		bodyString := cmd.Flag("body").Value.String()
 		var body *platformclientmodels.OrderCreate
 		errBody := json.Unmarshal([]byte(bodyString), &body)
 		if errBody != nil {
 			return errBody
 		}
+		namespace, _ := cmd.Flags().GetString("namespace")
+		userId, _ := cmd.Flags().GetString("userId")
 		input := &order.PublicCreateUserOrderParams{
 			Body:      body,
 			Namespace: namespace,
@@ -55,6 +55,7 @@ var PublicCreateUserOrderCmd = &cobra.Command{
 
 func init() {
 	PublicCreateUserOrderCmd.Flags().String("body", "", "Body")
+	_ = PublicCreateUserOrderCmd.MarkFlagRequired("body")
 	PublicCreateUserOrderCmd.Flags().String("namespace", "", "Namespace")
 	_ = PublicCreateUserOrderCmd.MarkFlagRequired("namespace")
 	PublicCreateUserOrderCmd.Flags().String("userId", "", "User id")

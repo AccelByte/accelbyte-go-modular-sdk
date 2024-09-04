@@ -27,14 +27,14 @@ var GrantUserEntitlementCmd = &cobra.Command{
 			Client:          platform.NewPlatformClient(&repository.ConfigRepositoryImpl{}),
 			TokenRepository: &repository.TokenRepositoryImpl{},
 		}
-		namespace, _ := cmd.Flags().GetString("namespace")
-		userId, _ := cmd.Flags().GetString("userId")
 		bodyString := cmd.Flag("body").Value.String()
 		var body []*platformclientmodels.EntitlementGrant
 		errBody := json.Unmarshal([]byte(bodyString), &body)
 		if errBody != nil {
 			return errBody
 		}
+		namespace, _ := cmd.Flags().GetString("namespace")
+		userId, _ := cmd.Flags().GetString("userId")
 		input := &entitlement.GrantUserEntitlementParams{
 			Body:      body,
 			Namespace: namespace,
@@ -55,6 +55,7 @@ var GrantUserEntitlementCmd = &cobra.Command{
 
 func init() {
 	GrantUserEntitlementCmd.Flags().String("body", "", "Body")
+	_ = GrantUserEntitlementCmd.MarkFlagRequired("body")
 	GrantUserEntitlementCmd.Flags().String("namespace", "", "Namespace")
 	_ = GrantUserEntitlementCmd.MarkFlagRequired("namespace")
 	GrantUserEntitlementCmd.Flags().String("userId", "", "User id")

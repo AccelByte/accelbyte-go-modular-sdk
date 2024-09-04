@@ -29,10 +29,10 @@ var DownloadInvoiceDetailsCmd = &cobra.Command{
 		}
 		namespace, _ := cmd.Flags().GetString("namespace")
 		endTime, _ := cmd.Flags().GetString("endTime")
-		startTime, _ := cmd.Flags().GetString("startTime")
 		feature, _ := cmd.Flags().GetString("feature")
 		itemId, _ := cmd.Flags().GetString("itemId")
 		itemType, _ := cmd.Flags().GetString("itemType")
+		startTime, _ := cmd.Flags().GetString("startTime")
 		file, errFile := os.Create("file")
 		logrus.Infof("Output %v", file)
 		if errFile != nil {
@@ -41,10 +41,10 @@ var DownloadInvoiceDetailsCmd = &cobra.Command{
 		writer := bytes.NewBuffer(nil)
 		input := &invoice.DownloadInvoiceDetailsParams{
 			Namespace: namespace,
-			Feature:   &feature,
-			ItemID:    &itemId,
-			ItemType:  &itemType,
 			EndTime:   endTime,
+			Feature:   feature,
+			ItemID:    itemId,
+			ItemType:  itemType,
 			StartTime: startTime,
 		}
 		ok, errOK := invoiceService.DownloadInvoiceDetailsShort(input, writer)
@@ -63,11 +63,14 @@ var DownloadInvoiceDetailsCmd = &cobra.Command{
 func init() {
 	DownloadInvoiceDetailsCmd.Flags().String("namespace", "", "Namespace")
 	_ = DownloadInvoiceDetailsCmd.MarkFlagRequired("namespace")
-	DownloadInvoiceDetailsCmd.Flags().String("feature", "", "Feature")
-	DownloadInvoiceDetailsCmd.Flags().String("itemId", "", "Item id")
-	DownloadInvoiceDetailsCmd.Flags().String("itemType", "", "Item type")
 	DownloadInvoiceDetailsCmd.Flags().String("endTime", "", "End time")
 	_ = DownloadInvoiceDetailsCmd.MarkFlagRequired("endTime")
+	DownloadInvoiceDetailsCmd.Flags().String("feature", "", "Feature")
+	_ = DownloadInvoiceDetailsCmd.MarkFlagRequired("feature")
+	DownloadInvoiceDetailsCmd.Flags().String("itemId", "", "Item id")
+	_ = DownloadInvoiceDetailsCmd.MarkFlagRequired("itemId")
+	DownloadInvoiceDetailsCmd.Flags().String("itemType", "", "Item type")
+	_ = DownloadInvoiceDetailsCmd.MarkFlagRequired("itemType")
 	DownloadInvoiceDetailsCmd.Flags().String("startTime", "", "Start time")
 	_ = DownloadInvoiceDetailsCmd.MarkFlagRequired("startTime")
 }

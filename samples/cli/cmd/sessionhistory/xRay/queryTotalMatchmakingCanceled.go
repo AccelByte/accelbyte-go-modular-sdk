@@ -7,6 +7,8 @@
 package xRay
 
 import (
+	"encoding/json"
+
 	sessionhistory "github.com/AccelByte/accelbyte-go-modular-sdk/sessionhistory-sdk/pkg"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/sessionhistory-sdk/pkg/sessionhistoryclient/x_ray"
 	"github.com/AccelByte/sample-apps/pkg/repository"
@@ -27,10 +29,15 @@ var QueryTotalMatchmakingCanceledCmd = &cobra.Command{
 		namespace, _ := cmd.Flags().GetString("namespace")
 		endDate, _ := cmd.Flags().GetString("endDate")
 		startDate, _ := cmd.Flags().GetString("startDate")
-		matchPool, _ := cmd.Flags().GetString("matchPool")
+		matchPoolString := cmd.Flag("matchPool").Value.String()
+		var matchPool []string
+		errMatchPool := json.Unmarshal([]byte(matchPoolString), &matchPool)
+		if errMatchPool != nil {
+			return errMatchPool
+		}
 		input := &x_ray.QueryTotalMatchmakingCanceledParams{
 			Namespace: namespace,
-			MatchPool: &matchPool,
+			MatchPool: matchPool,
 			EndDate:   endDate,
 			StartDate: startDate,
 		}

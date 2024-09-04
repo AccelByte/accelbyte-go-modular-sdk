@@ -29,13 +29,13 @@ var ExportStoreByCSVCmd = &cobra.Command{
 			Client:          platform.NewPlatformClient(&repository.ConfigRepositoryImpl{}),
 			TokenRepository: &repository.TokenRepositoryImpl{},
 		}
-		namespace, _ := cmd.Flags().GetString("namespace")
 		bodyString := cmd.Flag("body").Value.String()
 		var body *platformclientmodels.ExportStoreToCSVRequest
 		errBody := json.Unmarshal([]byte(bodyString), &body)
 		if errBody != nil {
 			return errBody
 		}
+		namespace, _ := cmd.Flags().GetString("namespace")
 		file, errFile := os.Create("file")
 		logrus.Infof("Output %v", file)
 		if errFile != nil {
@@ -61,6 +61,7 @@ var ExportStoreByCSVCmd = &cobra.Command{
 
 func init() {
 	ExportStoreByCSVCmd.Flags().String("body", "", "Body")
+	_ = ExportStoreByCSVCmd.MarkFlagRequired("body")
 	ExportStoreByCSVCmd.Flags().String("namespace", "", "Namespace")
 	_ = ExportStoreByCSVCmd.MarkFlagRequired("namespace")
 }

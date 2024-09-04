@@ -187,7 +187,7 @@ func (aaa *MiscService) DeleteCountryGroupShort(input *misc.DeleteCountryGroupPa
 	return nil
 }
 
-func (aaa *MiscService) GetLanguagesShort(input *misc.GetLanguagesParams) (map[string]interface{}, error) {
+func (aaa *MiscService) GetLanguagesShort(input *misc.GetLanguagesParams) (map[string]string, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{

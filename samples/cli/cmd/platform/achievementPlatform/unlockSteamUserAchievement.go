@@ -27,14 +27,14 @@ var UnlockSteamUserAchievementCmd = &cobra.Command{
 			Client:          platform.NewPlatformClient(&repository.ConfigRepositoryImpl{}),
 			TokenRepository: &repository.TokenRepositoryImpl{},
 		}
-		namespace, _ := cmd.Flags().GetString("namespace")
-		userId, _ := cmd.Flags().GetString("userId")
 		bodyString := cmd.Flag("body").Value.String()
 		var body *platformclientmodels.SteamAchievementUpdateRequest
 		errBody := json.Unmarshal([]byte(bodyString), &body)
 		if errBody != nil {
 			return errBody
 		}
+		namespace, _ := cmd.Flags().GetString("namespace")
+		userId, _ := cmd.Flags().GetString("userId")
 		input := &achievement_platform.UnlockSteamUserAchievementParams{
 			Body:      body,
 			Namespace: namespace,
@@ -55,6 +55,7 @@ var UnlockSteamUserAchievementCmd = &cobra.Command{
 
 func init() {
 	UnlockSteamUserAchievementCmd.Flags().String("body", "", "Body")
+	_ = UnlockSteamUserAchievementCmd.MarkFlagRequired("body")
 	UnlockSteamUserAchievementCmd.Flags().String("namespace", "", "Namespace")
 	_ = UnlockSteamUserAchievementCmd.MarkFlagRequired("namespace")
 	UnlockSteamUserAchievementCmd.Flags().String("userId", "", "User id")

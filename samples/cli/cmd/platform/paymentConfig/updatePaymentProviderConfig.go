@@ -27,13 +27,13 @@ var UpdatePaymentProviderConfigCmd = &cobra.Command{
 			Client:          platform.NewPlatformClient(&repository.ConfigRepositoryImpl{}),
 			TokenRepository: &repository.TokenRepositoryImpl{},
 		}
-		id_, _ := cmd.Flags().GetString("id")
 		bodyString := cmd.Flag("body").Value.String()
 		var body *platformclientmodels.PaymentProviderConfigEdit
 		errBody := json.Unmarshal([]byte(bodyString), &body)
 		if errBody != nil {
 			return errBody
 		}
+		id_, _ := cmd.Flags().GetString("id")
 		input := &payment_config.UpdatePaymentProviderConfigParams{
 			Body: body,
 			ID:   id_,
@@ -53,6 +53,7 @@ var UpdatePaymentProviderConfigCmd = &cobra.Command{
 
 func init() {
 	UpdatePaymentProviderConfigCmd.Flags().String("body", "", "Body")
+	_ = UpdatePaymentProviderConfigCmd.MarkFlagRequired("body")
 	UpdatePaymentProviderConfigCmd.Flags().String("id", "", "Id")
 	_ = UpdatePaymentProviderConfigCmd.MarkFlagRequired("id")
 }

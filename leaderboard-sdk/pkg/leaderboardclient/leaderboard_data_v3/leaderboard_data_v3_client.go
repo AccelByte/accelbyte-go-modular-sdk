@@ -32,6 +32,8 @@ type Client struct {
 type ClientService interface {
 	GetAllTimeLeaderboardRankingAdminV3Short(params *GetAllTimeLeaderboardRankingAdminV3Params, authInfo runtime.ClientAuthInfoWriter) (*GetAllTimeLeaderboardRankingAdminV3OK, error)
 	GetCurrentCycleLeaderboardRankingAdminV3Short(params *GetCurrentCycleLeaderboardRankingAdminV3Params, authInfo runtime.ClientAuthInfoWriter) (*GetCurrentCycleLeaderboardRankingAdminV3OK, error)
+	DeleteAllUserRankingByCycleIDAdminV3Short(params *DeleteAllUserRankingByCycleIDAdminV3Params, authInfo runtime.ClientAuthInfoWriter) (*DeleteAllUserRankingByCycleIDAdminV3NoContent, error)
+	DeleteUserRankingByCycleIDAdminV3Short(params *DeleteUserRankingByCycleIDAdminV3Params, authInfo runtime.ClientAuthInfoWriter) (*DeleteUserRankingByCycleIDAdminV3NoContent, error)
 	DeleteUserRankingByLeaderboardCodeAdminV3Short(params *DeleteUserRankingByLeaderboardCodeAdminV3Params, authInfo runtime.ClientAuthInfoWriter) (*DeleteUserRankingByLeaderboardCodeAdminV3NoContent, error)
 	GetUserRankingAdminV3Short(params *GetUserRankingAdminV3Params, authInfo runtime.ClientAuthInfoWriter) (*GetUserRankingAdminV3OK, error)
 	DeleteUserRankingAdminV3Short(params *DeleteUserRankingAdminV3Params, authInfo runtime.ClientAuthInfoWriter) (*DeleteUserRankingAdminV3NoContent, error)
@@ -167,12 +169,132 @@ func (a *Client) GetCurrentCycleLeaderboardRankingAdminV3Short(params *GetCurren
 }
 
 /*
+DeleteAllUserRankingByCycleIDAdminV3Short delete all user ranking by cycle id
+
+
+This endpoint will delete user ranking by cycleId
+
+
+
+
+Warning : This will permanently delete your data. Make sure to back up anything important before continuing.
+*/
+func (a *Client) DeleteAllUserRankingByCycleIDAdminV3Short(params *DeleteAllUserRankingByCycleIDAdminV3Params, authInfo runtime.ClientAuthInfoWriter) (*DeleteAllUserRankingByCycleIDAdminV3NoContent, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewDeleteAllUserRankingByCycleIDAdminV3Params()
+	}
+
+	if params.Context == nil {
+		params.Context = context.Background()
+	}
+
+	if params.RetryPolicy != nil {
+		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
+	}
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "deleteAllUserRankingByCycleIdAdminV3",
+		Method:             "DELETE",
+		PathPattern:        "/leaderboard/v3/admin/namespaces/{namespace}/leaderboards/{leaderboardCode}/cycles/{cycleId}/reset",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &DeleteAllUserRankingByCycleIDAdminV3Reader{formats: a.formats},
+		AuthInfo:           authInfo,
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+
+	switch v := result.(type) {
+
+	case *DeleteAllUserRankingByCycleIDAdminV3NoContent:
+		return v, nil
+	case *DeleteAllUserRankingByCycleIDAdminV3Unauthorized:
+		return nil, v
+	case *DeleteAllUserRankingByCycleIDAdminV3Forbidden:
+		return nil, v
+	case *DeleteAllUserRankingByCycleIDAdminV3NotFound:
+		return nil, v
+	case *DeleteAllUserRankingByCycleIDAdminV3InternalServerError:
+		return nil, v
+
+	default:
+		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
+	}
+}
+
+/*
+DeleteUserRankingByCycleIDAdminV3Short delete user ranking by cycle id
+Delete user ranking by cycle id
+
+Remove entry with provided cycleId and userId from leaderboard.
+If leaderboard with given leaderboard code not found, it will return http status not found (404).
+If the leaderboard is found and no entry found in it, it will still return success (204)
+*/
+func (a *Client) DeleteUserRankingByCycleIDAdminV3Short(params *DeleteUserRankingByCycleIDAdminV3Params, authInfo runtime.ClientAuthInfoWriter) (*DeleteUserRankingByCycleIDAdminV3NoContent, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewDeleteUserRankingByCycleIDAdminV3Params()
+	}
+
+	if params.Context == nil {
+		params.Context = context.Background()
+	}
+
+	if params.RetryPolicy != nil {
+		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
+	}
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "deleteUserRankingByCycleIdAdminV3",
+		Method:             "DELETE",
+		PathPattern:        "/leaderboard/v3/admin/namespaces/{namespace}/leaderboards/{leaderboardCode}/cycles/{cycleId}/users/{userId}",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &DeleteUserRankingByCycleIDAdminV3Reader{formats: a.formats},
+		AuthInfo:           authInfo,
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+
+	switch v := result.(type) {
+
+	case *DeleteUserRankingByCycleIDAdminV3NoContent:
+		return v, nil
+	case *DeleteUserRankingByCycleIDAdminV3Unauthorized:
+		return nil, v
+	case *DeleteUserRankingByCycleIDAdminV3Forbidden:
+		return nil, v
+	case *DeleteUserRankingByCycleIDAdminV3NotFound:
+		return nil, v
+	case *DeleteUserRankingByCycleIDAdminV3InternalServerError:
+		return nil, v
+
+	default:
+		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
+	}
+}
+
+/*
 DeleteUserRankingByLeaderboardCodeAdminV3Short delete all user ranking by leaderboard code
-
-
- [Test Facility Only]
-
-
 
 
 This endpoint will delete user ranking by leaderboard code
@@ -180,7 +302,7 @@ This endpoint will delete user ranking by leaderboard code
 
 
 
-Note: this endpoint only works on development environment.
+Warning : This will permanently delete your data. Make sure to back up anything important before continuing.
 */
 func (a *Client) DeleteUserRankingByLeaderboardCodeAdminV3Short(params *DeleteUserRankingByLeaderboardCodeAdminV3Params, authInfo runtime.ClientAuthInfoWriter) (*DeleteUserRankingByLeaderboardCodeAdminV3NoContent, error) {
 	// TODO: Validate the params before sending

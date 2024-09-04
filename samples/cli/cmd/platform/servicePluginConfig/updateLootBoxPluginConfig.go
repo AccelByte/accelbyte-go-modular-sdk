@@ -27,13 +27,13 @@ var UpdateLootBoxPluginConfigCmd = &cobra.Command{
 			Client:          platform.NewPlatformClient(&repository.ConfigRepositoryImpl{}),
 			TokenRepository: &repository.TokenRepositoryImpl{},
 		}
-		namespace, _ := cmd.Flags().GetString("namespace")
 		bodyString := cmd.Flag("body").Value.String()
 		var body *platformclientmodels.LootBoxPluginConfigUpdate
 		errBody := json.Unmarshal([]byte(bodyString), &body)
 		if errBody != nil {
 			return errBody
 		}
+		namespace, _ := cmd.Flags().GetString("namespace")
 		input := &service_plugin_config.UpdateLootBoxPluginConfigParams{
 			Body:      body,
 			Namespace: namespace,
@@ -53,6 +53,7 @@ var UpdateLootBoxPluginConfigCmd = &cobra.Command{
 
 func init() {
 	UpdateLootBoxPluginConfigCmd.Flags().String("body", "", "Body")
+	_ = UpdateLootBoxPluginConfigCmd.MarkFlagRequired("body")
 	UpdateLootBoxPluginConfigCmd.Flags().String("namespace", "", "Namespace")
 	_ = UpdateLootBoxPluginConfigCmd.MarkFlagRequired("namespace")
 }
