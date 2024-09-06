@@ -22,14 +22,12 @@ const (
 )
 
 const (
-	Disconnected ConnectionStatus = iota
-	Connecting
-	Connected
-	Reconnecting
-	Closed
+	Disconnected = "Disconnected"
+	Connecting   = "Connecting"
+	Connected    = "Connected"
+	Reconnecting = "Reconnecting"
+	Closed       = "Closed"
 )
-
-type ConnectionStatus int
 
 type WSConnection struct {
 	Conn     *websocket.Conn
@@ -43,7 +41,7 @@ type WSConnection struct {
 	MaxReconnectAttempts int
 	MessageHandler       WSConnectionMessageHandler
 
-	status ConnectionStatus
+	status string
 }
 
 type WSConnectionOption func(wsConn *WSConnection) error
@@ -149,14 +147,14 @@ func (c *WSConnection) Close(code int, reason string) error {
 	return nil
 }
 
-func (c *WSConnection) SetStatus(status ConnectionStatus) {
+func (c *WSConnection) SetStatus(status string) {
 	c.MuStatus.Lock()
 	defer c.MuStatus.Unlock()
 
 	c.status = status
 }
 
-func (c *WSConnection) GetStatus() ConnectionStatus {
+func (c *WSConnection) GetStatus() string {
 	c.MuStatus.Lock()
 	defer c.MuStatus.Unlock()
 
