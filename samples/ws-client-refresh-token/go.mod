@@ -13,7 +13,7 @@ replace (
 require (
 	github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk v0.1.0-alpha.15
 	github.com/AccelByte/accelbyte-go-modular-sdk/lobby-sdk v0.0.0-00010101000000-000000000000
-	github.com/AccelByte/accelbyte-go-modular-sdk/services-api v0.1.0-alpha.4
+	github.com/AccelByte/accelbyte-go-modular-sdk/services-api v0.1.0-alpha.5
 	github.com/sirupsen/logrus v1.9.0
 )
 

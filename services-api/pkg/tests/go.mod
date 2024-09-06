@@ -48,6 +48,7 @@ require (
 	github.com/AccelByte/accelbyte-go-modular-sdk/gdpr-sdk v0.1.0-alpha.1
 	github.com/AccelByte/accelbyte-go-modular-sdk/group-sdk v0.1.0-alpha.1
 	github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk v0.1.0-alpha.15
+	github.com/AccelByte/accelbyte-go-modular-sdk/inventory-sdk v0.1.0-alpha.3
 	github.com/AccelByte/accelbyte-go-modular-sdk/leaderboard-sdk v0.1.0-alpha.1
 	github.com/AccelByte/accelbyte-go-modular-sdk/legal-sdk v0.1.0-alpha.1
 	github.com/AccelByte/accelbyte-go-modular-sdk/lobby-sdk v0.1.0-alpha.1
@@ -57,7 +58,7 @@ require (
 	github.com/AccelByte/accelbyte-go-modular-sdk/qosm-sdk v0.1.0-alpha.1
 	github.com/AccelByte/accelbyte-go-modular-sdk/reporting-sdk v0.1.0-alpha.1
 	github.com/AccelByte/accelbyte-go-modular-sdk/seasonpass-sdk v0.1.0-alpha.1
-	github.com/AccelByte/accelbyte-go-modular-sdk/services-api v0.1.0-alpha.4
+	github.com/AccelByte/accelbyte-go-modular-sdk/services-api v0.1.0-alpha.5
 	github.com/AccelByte/accelbyte-go-modular-sdk/session-sdk v0.1.0-alpha.1
 	github.com/AccelByte/accelbyte-go-modular-sdk/sessionbrowser-sdk v0.1.0-alpha.1
 	github.com/AccelByte/accelbyte-go-modular-sdk/sessionhistory-sdk v0.1.0-alpha.1
