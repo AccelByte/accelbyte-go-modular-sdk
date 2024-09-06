@@ -55,7 +55,7 @@ func TestIntegrationInventory(t *testing.T) {
 	assert.NotNil(t, createInventoryConfig, "response should not be nil")
 
 	if createInventoryConfig != nil {
-		t.Logf("Created inventory config wih code: %v, id: %v", *createInventoryConfig.Code, *createInventoryConfig.ID)
+		t.Logf("Created inventory config with code: %v, id: %v", *createInventoryConfig.Code, *createInventoryConfig.ID)
 	}
 
 	defer func() {
