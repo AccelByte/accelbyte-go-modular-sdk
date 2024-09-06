@@ -12,7 +12,7 @@ replace (
 )
 
 require (
-	github.com/AccelByte/accelbyte-go-modular-sdk/inventory-sdk v0.0.0
+	github.com/AccelByte/accelbyte-go-modular-sdk/inventory-sdk v0.1.0-alpha.4
 	github.com/AccelByte/accelbyte-go-modular-sdk/services-api v0.1.0-alpha.5
 )
 
