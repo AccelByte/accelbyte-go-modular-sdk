@@ -258,7 +258,7 @@ func TestIntegrationLoginWithScope(t *testing.T) {
 	t.Parallel()
 
 	// CASE Login
-	scope := "account"
+	scope = "account"
 	err := oAuth20Service.LoginWithScope(username, password, scope)
 	if err != nil {
 		assert.FailNow(t, err.Error())
@@ -455,8 +455,8 @@ func TestIntegration_LoginOrRefreshClient_shouldReAuthenticate(t *testing.T) {
 }
 
 func TestIntegration_LoginOrRefresh_shouldReAuthenticate(t *testing.T) {
-	username := os.Getenv("AB_USERNAME")
-	password := os.Getenv("AB_PASSWORD")
+	username = os.Getenv("AB_USERNAME")
+	password = os.Getenv("AB_PASSWORD")
 	oauthSvc := &iam.OAuth20Service{
 		Client:                 iam.NewIamClient(auth.DefaultConfigRepositoryImpl()),
 		ConfigRepository:       auth.DefaultConfigRepositoryImpl(),
@@ -487,4 +487,26 @@ func TestIntegration_LoginOrRefresh_shouldReAuthenticate(t *testing.T) {
 	}
 	assert.NotEmpty(t, *secondToken)
 	assert.NotEqual(t, *secondToken, *firstToken)
+}
+
+// helper
+func GetUserID() string {
+	input := &o_auth2_0.TokenGrantV3Params{
+		Password:  &password,
+		Username:  &username,
+		GrantType: "password",
+	}
+	accessToken, err := oAuth20Service.TokenGrantV3Short(input)
+	if err != nil {
+		logrus.Error("failed login")
+	} else if accessToken == nil { //lint:ignore SA5011 possible nil pointer dereference
+		logrus.Error("empty access token")
+	} else {
+		errStore := oAuth20Service.TokenRepository.Store(*accessToken)
+		if errStore != nil {
+			logrus.Error("failed stored the token")
+		}
+	}
+
+	return accessToken.UserID
 }
