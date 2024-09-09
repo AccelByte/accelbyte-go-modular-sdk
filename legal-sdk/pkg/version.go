@@ -20,7 +20,7 @@ const ServiceVersion = "1.44.0"
 //go:embed version.txt
 var SDKVersion string
 
-var userAgent = fmt.Sprintf("AccelByteGoSDK legal-sdk/%s core/%s",
+var userAgent = fmt.Sprintf("ModularGoSDK legal-sdk/%s core/%s",
 	strings.TrimSpace(SDKVersion), strings.TrimSpace(common.Version))
 
 func GetUserAgent() string {

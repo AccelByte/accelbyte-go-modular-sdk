@@ -20,7 +20,7 @@ const ServiceVersion = "2.23.0"
 //go:embed version.txt
 var SDKVersion string
 
-var userAgent = fmt.Sprintf("AccelByteGoSDK achievement-sdk/%s core/%s",
+var userAgent = fmt.Sprintf("ModularGoSDK achievement-sdk/%s core/%s",
 	strings.TrimSpace(SDKVersion), strings.TrimSpace(common.Version))
 
 func GetUserAgent() string {
