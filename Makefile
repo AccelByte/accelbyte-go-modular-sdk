@@ -250,3 +250,14 @@ outstanding_deprecation:
 				}' \
 		| tee outstanding_deprecation.out
 	@echo 1..$$(grep -c '^\(not \)\?ok' outstanding_deprecation.out)
+
+test_broken_link:
+	@test -n "$(SDK_MD_CRAWLER_PATH)" || (echo "SDK_MD_CRAWLER_PATH is not set" ; exit 1)
+	rm -f test.err
+	bash "$(SDK_MD_CRAWLER_PATH)/md-crawler.sh" -i README.md
+	# DOCKER_SKIP_BUILD=1 bash "$(SDK_MD_CRAWLER_PATH)/md-crawler.sh" -i CHANGELOG.md
+	(for FILE in $$(find docs -type f); do \
+			(set -o pipefail; DOCKER_SKIP_BUILD=1 bash "$(SDK_MD_CRAWLER_PATH)/md-crawler.sh" -i $$FILE) || touch test.err; \
+	done)
+	DOCKER_SKIP_BUILD=1 bash "$(SDK_MD_CRAWLER_PATH)/md-crawler.sh" -i "https://docs.accelbyte.io/gaming-services/services/customization/extend-sdk/getting-started-with-the-extend-sdk/"
+	[ ! -f test.err ]
