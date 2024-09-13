@@ -310,7 +310,7 @@ lobbyClient := connectionutils.NewLobbyWebSocketClient(conn)
 
 // [optional] do something before Connecting
 
-success, err := lobbyClient.Connect(true) // Connecting
+success, err := lobbyClient.Connect(false) // Connecting
 if err != nil {
 // error
 }
