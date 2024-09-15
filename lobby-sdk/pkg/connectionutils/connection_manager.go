@@ -201,3 +201,13 @@ type ConnectionManager interface {
 	Get() *WSConnection
 	Close() error
 }
+
+func (c *WSConnection) Lock(location string) {
+	logrus.Debugf("locking at %s", location)
+	c.Mu.Lock()
+}
+
+func (c *WSConnection) Unlock(location string) {
+	logrus.Debugf("unlocking at %s", location)
+	c.Mu.Unlock()
+}
