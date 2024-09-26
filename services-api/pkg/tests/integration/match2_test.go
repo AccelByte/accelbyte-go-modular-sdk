@@ -93,6 +93,8 @@ var (
 		SessionTemplate:                 &cfgTemplateName,
 		TicketExpirationSeconds:         &expirationSeconds,
 	}
+	maxNumber = int32(2)
+	minNumber = int32(2)
 )
 
 func TestIntegrationMatchPool(t *testing.T) {
