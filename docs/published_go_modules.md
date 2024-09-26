@@ -13,7 +13,6 @@ These are available AccelByte Services SDK modules to use
 | github.com/AccelByte/accelbyte-go-modular-sdk/cloudsave-sdk | v0.1.0-alpha.1 |
 | github.com/AccelByte/accelbyte-go-modular-sdk/dslogmanager-sdk | v0.1.0-alpha.1 |
 | github.com/AccelByte/accelbyte-go-modular-sdk/dsmc-sdk | v0.1.0-alpha.1 |
-| github.com/AccelByte/accelbyte-go-modular-sdk/eventlog-sdk | v0.1.0-alpha.1 |
 | github.com/AccelByte/accelbyte-go-modular-sdk/gametelemetry-sdk | v0.1.0-alpha.1 |
 | github.com/AccelByte/accelbyte-go-modular-sdk/gdpr-sdk | v0.1.0-alpha.1 |
 | github.com/AccelByte/accelbyte-go-modular-sdk/group-sdk | v0.1.0-alpha.1 |
@@ -49,7 +48,6 @@ Therefore these modules are marked as *DEPRECATED* and client code should be mig
 | github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/service/cloudsave | v0.1.0-alpha.1 |
 | github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/service/dslogmanager | v0.1.0-alpha.1 |
 | github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/service/dsmc | v0.1.0-alpha.1 |
-| github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/service/eventlog | v0.1.0-alpha.1 |
 | github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/service/gametelemetry | v0.1.0-alpha.1 |
 | github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/service/gdpr | v0.1.0-alpha.1 |
 | github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/service/group | v0.1.0-alpha.1 |

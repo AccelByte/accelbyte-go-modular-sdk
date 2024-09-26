@@ -13,7 +13,6 @@ replace (
 	github.com/AccelByte/accelbyte-go-modular-sdk/dsartifact-sdk => ../../dsartifact-sdk
 	github.com/AccelByte/accelbyte-go-modular-sdk/dslogmanager-sdk => ../../dslogmanager-sdk
 	github.com/AccelByte/accelbyte-go-modular-sdk/dsmc-sdk => ../../dsmc-sdk
-	github.com/AccelByte/accelbyte-go-modular-sdk/eventlog-sdk => ../../eventlog-sdk
 	github.com/AccelByte/accelbyte-go-modular-sdk/gametelemetry-sdk => ../../gametelemetry-sdk
 	github.com/AccelByte/accelbyte-go-modular-sdk/gdpr-sdk => ../../gdpr-sdk
 	github.com/AccelByte/accelbyte-go-modular-sdk/group-sdk => ../../group-sdk
@@ -46,7 +45,6 @@ require (
 	github.com/AccelByte/accelbyte-go-modular-sdk/dsartifact-sdk v0.0.0-00010101000000-000000000000
 	github.com/AccelByte/accelbyte-go-modular-sdk/dslogmanager-sdk v0.1.0-alpha.1
 	github.com/AccelByte/accelbyte-go-modular-sdk/dsmc-sdk v0.1.0-alpha.1
-	github.com/AccelByte/accelbyte-go-modular-sdk/eventlog-sdk v0.1.0-alpha.1
 	github.com/AccelByte/accelbyte-go-modular-sdk/gametelemetry-sdk v0.1.0-alpha.1
 	github.com/AccelByte/accelbyte-go-modular-sdk/gdpr-sdk v0.1.0-alpha.1
 	github.com/AccelByte/accelbyte-go-modular-sdk/group-sdk v0.1.0-alpha.1

@@ -9,7 +9,6 @@ use (
 	cloudsave-sdk
 	dslogmanager-sdk
 	dsmc-sdk
-	eventlog-sdk
 	gametelemetry-sdk
 	gdpr-sdk
 	group-sdk
@@ -54,7 +53,6 @@ use (
 	services-api/pkg/service/cloudsave
 	services-api/pkg/service/dslogmanager
 	services-api/pkg/service/dsmc
-	services-api/pkg/service/eventlog
 	services-api/pkg/service/gametelemetry
 	services-api/pkg/service/gdpr
 	services-api/pkg/service/group
