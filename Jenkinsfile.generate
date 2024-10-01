@@ -93,7 +93,7 @@ pipeline {
 
         // Bump SDK version and commit the generated code to generate branch (overwrite existing)
         dir(sdkRepoName) {
-          //sh "make version"
+          sh "make version ags"
           sh "git add --all"
           sh "git commit -m 'chore(sdk): generate go extend sdk (${getTimestampUtc()})' -m 'generated from openapi spec commit: ${sdkSpecCommitHash}'"
           sshagent(credentials: [bitbucketCredentialsSsh]) {

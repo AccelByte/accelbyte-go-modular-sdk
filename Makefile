@@ -133,6 +133,13 @@ test_broken_link:
 	DOCKER_SKIP_BUILD=1 bash "$(SDK_MD_CRAWLER_PATH)/md-crawler.sh" -i "https://docs.accelbyte.io/gaming-services/services/customization/extend-sdk/getting-started-with-the-extend-sdk/"
 	[ ! -f test.err ]
 
+version_ags:
+	if [ -n "$$MAJOR" ]; then VERSION_PART=1; elif [ -n "$$PATCH" ]; then VERSION_PART=3; else VERSION_PART=2; fi && \
+			VERSION_OLD=$$(cat version.txt | tr -d '\n') && \
+			VERSION_NEW=$$(awk -v part=$$VERSION_PART -F. "{OFS=\".\"; \$$part+=1; print \$$0}" version.txt) && \
+			echo $${VERSION_NEW} > version.txt && \
+			sed -i "s/UserAgentSDK = \"ModularGoSDK\/v[0-9]\+\.[0-9]\+\.[0-9]\+\"/UserAgentSDK = \"ModularGoSDK\/v$$VERSION_NEW\"/" services-api/pkg/utils/user_agent.go
+
 version_module:
 	@test -n "$(SERVICE)" || (echo "SERVICE is not set" ; exit 1)
 	@if [ -n "$$MAJOR" ]; then VERSION_PART=1; elif [ -n "$$PATCH" ]; then VERSION_PART=3; else VERSION_PART=2; fi && \
