@@ -111,6 +111,7 @@ func TestIntegrationPutGameRecordHandlerV1(t *testing.T) {
 	// Login User - Arrange
 	Init()
 
+	// CASE Update a game record
 	input := &public_game_record.PutGameRecordHandlerV1Params{
 		Body:      map[string]interface{}{"foo": "bar"},
 		Key:       key,
@@ -121,12 +122,12 @@ func TestIntegrationPutGameRecordHandlerV1(t *testing.T) {
 	if err != nil {
 		assert.FailNow(t, err.Error())
 	}
+	// ESAC
 
 	// Assert
 	assert.NotNil(t, ok, "err should not be nil")
 	assert.Nil(t, err, "err should be nil")
 
-	// CASE Update a game record
 	inputDelete := &public_game_record.DeleteGameRecordHandlerV1Params{
 		Key:       key,
 		Namespace: integration.NamespaceTest,
@@ -136,7 +137,6 @@ func TestIntegrationPutGameRecordHandlerV1(t *testing.T) {
 	if err != nil {
 		assert.FailNow(t, err.Error())
 	}
-	// ESAC
 
 	// Assert
 	assert.Nil(t, errDelete, "err should be nil")

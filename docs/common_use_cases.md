@@ -65,7 +65,6 @@ inputDelete := &achievements.AdminDeleteAchievementParams{
 
 errDelete := achievementsService.AdminDeleteAchievementShort(inputDelete)
 ```
-
 ## AMS
 
 Source: [ams_test.go](../services-api/pkg/tests/integration/ams_test.go)
@@ -222,7 +221,6 @@ if errDelete != nil {
 	assert.FailNow(t, errDelete.Error())
 }
 ```
-
 ## Chat
 
 Source: [chat_test.go](../services-api/pkg/tests/integration/chat_test.go)
@@ -420,12 +418,13 @@ if errOk != nil {
 ### Update a game record
 
 ```go
-inputDelete := &public_game_record.DeleteGameRecordHandlerV1Params{
+input := &public_game_record.PutGameRecordHandlerV1Params{
+Body:      map[string]interface{}{"foo": "bar"},
 	Key:       key,
 	Namespace: integration.NamespaceTest,
 }
 
-errDelete := publicGameRecordService.DeleteGameRecordHandlerV1Short(inputDelete)
+ok, err := publicGameRecordService.PutGameRecordHandlerV1Short(input)
 if err != nil {
 	assert.FailNow(t, err.Error())
 }
@@ -492,7 +491,6 @@ if errDelete != nil {
 assert.FailNow(t, errDelete.Error())
 }
 ```
-
 ## DSArtifact
 
 Source: [dsartifact_test.go](../services-api/pkg/tests/integration/dsartifact_test.go)
@@ -1346,7 +1344,6 @@ inputDeleteSeason := season.DeleteSeasonParams{
 
 errDeleteSeason := seasonService.DeleteSeasonShort(&inputDeleteSeason)
 ```
-
 ## SessionHistory
 
 Source: [sessionhistory_test.go](../services-api/pkg/tests/integration/sessionhistory_test.go)
