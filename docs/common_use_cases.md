@@ -65,7 +65,8 @@ inputDelete := &achievements.AdminDeleteAchievementParams{
 
 errDelete := achievementsService.AdminDeleteAchievementShort(inputDelete)
 ```
-## Ams
+
+## AMS
 
 Source: [ams_test.go](../services-api/pkg/tests/integration/ams_test.go)
 
@@ -221,6 +222,154 @@ if errDelete != nil {
 	assert.FailNow(t, errDelete.Error())
 }
 ```
+
+## Chat
+
+Source: [chat_test.go](../services-api/pkg/tests/integration/chat_test.go)
+
+### Admin Profanity Create
+
+```go
+create, errCreate := profanityOperationsService.AdminProfanityCreateShort(&profanity.AdminProfanityCreateParams{
+Body: &chatclientmodels.ModelsDictionaryInsertRequest{
+Word:     &profanityWord,
+WordType: &profanityWordType,
+},
+Namespace: integration.NamespaceTest,
+})
+```
+
+### Admin Profanity Get
+
+```go
+get, errGet := profanityOperationsService.AdminProfanityQueryShort(&profanity.AdminProfanityQueryParams{
+Namespace:       integration.NamespaceTest,
+IncludeChildren: &profanityQueryIncludeChildren,
+WordType:        &profanityWordType,
+StartWith:       &profanityWord,
+})
+```
+
+### Admin Profanity Update
+
+```go
+update, errUpdate := profanityOperationsService.AdminProfanityUpdateShort(&profanity.AdminProfanityUpdateParams{
+Body: &chatclientmodels.ModelsDictionaryUpdateRequest{
+Word:     &profanityWord,
+WordType: &profanityWordType,
+},
+Namespace: integration.NamespaceTest,
+ID:        *create.ID,
+})
+```
+
+### Admin Profanity Delete
+
+```go
+errDelete := profanityOperationsService.AdminProfanityDeleteShort(&profanity.AdminProfanityDeleteParams{
+Namespace: integration.NamespaceTest,
+ID:        *create.ID,
+})
+```
+
+### Save Inbox Message
+
+```go
+save, errSave := inboxOperationsService.AdminSaveInboxMessageShort(&inbox.AdminSaveInboxMessageParams{
+Body: &chatclientmodels.ModelsSaveInboxMessageRequest{
+ExpiredAt: &expiredAt,
+Message:   &dataMessage,
+Scope:     &scopeChat,
+Status:    &statusChat,
+UserIds:   userIds,
+},
+Namespace: integration.NamespaceTest,
+})
+```
+
+### Send Inbox Message
+
+```go
+create, errCreate := inboxOperationsService.AdminSendInboxMessageShort(&inbox.AdminSendInboxMessageParams{
+Body:      dataMessage,
+MessageID: *save.ID,
+Namespace: integration.NamespaceTest,
+})
+```
+
+### Admin Get Inbox Messages
+
+```go
+get, errGet := inboxOperationsService.AdminGetInboxMessagesShort(&inbox.AdminGetInboxMessagesParams{
+Namespace: integration.NamespaceTest,
+})
+```
+
+### Admin Update Inbox Message
+
+```go
+errUpdate := inboxOperationsService.AdminUpdateInboxMessageShort(&inbox.AdminUpdateInboxMessageParams{
+Body: &chatclientmodels.ModelsUpdateInboxMessageRequest{
+ExpiredAt: &expiredAt,
+Message:   &dataMessage,
+Scope:     &scopeChat,
+UserIds:   userIds,
+},
+Namespace: integration.NamespaceTest,
+MessageID: *save.ID,
+})
+```
+
+### Admin Delete Inbox Message
+
+```go
+errDelete := inboxOperationsService.AdminDeleteInboxMessageShort(&inbox.AdminDeleteInboxMessageParams{
+Namespace: integration.NamespaceTest,
+MessageID: *save.ID,
+Force:     &force,
+})
+```
+
+### Add chat inbox category
+
+```go
+add, errAdd := inboxOperationsService.AdminAddInboxCategoryShort(&inbox.AdminAddInboxCategoryParams{
+Body: &chatclientmodels.ModelsAddInboxCategoryRequest{
+Name:      &categoryName,
+ExpiresIn: &expiresIn,
+},
+Namespace: integration.NamespaceTest,
+})
+```
+
+### Get chat inbox category
+
+```go
+get, errGet := inboxOperationsService.AdminGetInboxCategoriesShort(&inbox.AdminGetInboxCategoriesParams{
+Namespace: integration.NamespaceTest,
+})
+```
+
+### Update chat inbox category
+
+```go
+errUpdate := inboxOperationsService.AdminUpdateInboxCategoryShort(&inbox.AdminUpdateInboxCategoryParams{
+Body: &chatclientmodels.ModelsUpdateInboxCategoryRequest{
+ExpiresIn: &expiresInUpdate,
+},
+Category:  categoryName,
+Namespace: integration.NamespaceTest,
+})
+```
+
+### Delete chat inbox category
+
+```go
+errDelete := inboxOperationsService.AdminDeleteInboxCategoryShort(&inbox.AdminDeleteInboxCategoryParams{
+Category:  categoryName,
+Namespace: integration.NamespaceTest,
+})
+```
 ## CloudSave
 
 Source: [cloudsave_test.go](../services-api/pkg/tests/integration/cloudsave_test.go)
@@ -279,6 +428,97 @@ inputDelete := &public_game_record.DeleteGameRecordHandlerV1Params{
 errDelete := publicGameRecordService.DeleteGameRecordHandlerV1Short(inputDelete)
 if err != nil {
 	assert.FailNow(t, err.Error())
+}
+```
+
+### Create a player record
+
+```go
+input := &public_player_record.PostPlayerPublicRecordHandlerV1Params{
+Body:      map[string]interface{}{"foo": "bar"},
+Key:       key,
+Namespace: integration.NamespaceTest,
+UserID:    userID,
+}
+ok, err := publicPlayerRecordService.PostPlayerPublicRecordHandlerV1Short(input)
+if err != nil {
+assert.FailNow(t, err.Error())
+}
+```
+
+### Get a player record
+
+```go
+inputRecord := &public_player_record.GetPlayerPublicRecordHandlerV1Params{
+Key:       key,
+Namespace: integration.NamespaceTest,
+UserID:    userID,
+}
+
+ok, errOk := publicPlayerRecordService.GetPlayerPublicRecordHandlerV1Short(inputRecord)
+if errOk != nil {
+assert.FailNow(t, errOk.Error())
+}
+```
+
+### Put a player record
+
+```go
+keyUpdate := key + "-update"
+inputUpdate := &public_player_record.PutPlayerPublicRecordHandlerV1Params{
+Body:      map[string]interface{}{"foo": "bar"},
+Key:       keyUpdate,
+Namespace: integration.NamespaceTest,
+UserID:    userID,
+}
+
+okUpdate, errUpdate := publicPlayerRecordService.PutPlayerPublicRecordHandlerV1Short(inputUpdate)
+if errUpdate != nil {
+assert.FailNow(t, errUpdate.Error())
+}
+```
+
+### Delete a player record
+
+```go
+inputDelete := &public_player_record.DeletePlayerRecordHandlerV1Params{
+Key:       keyUpdate,
+Namespace: integration.NamespaceTest,
+UserID:    userID,
+}
+
+errDelete := publicPlayerRecordService.DeletePlayerRecordHandlerV1Short(inputDelete)
+if errDelete != nil {
+assert.FailNow(t, errDelete.Error())
+}
+```
+
+## DSArtifact
+
+Source: [dsartifact_test.go](../services-api/pkg/tests/integration/dsartifact_test.go)
+
+### List all queue
+
+```go
+input := &artifact_upload_process_queue.ListAllQueueParams{
+Namespace: namespace,
+Limit:     &limit,
+}
+ok, err := artifactUploadProcessQueueService.ListAllQueueShort(input)
+if err != nil {
+t.Skipf("temporarily disabled") // Armada is deprecated
+}
+```
+
+### List terminated servers
+
+```go
+input := &all_terminated_servers.ListTerminatedServersParams{
+Limit: &limit,
+}
+ok, err := allTerminatedServersService.ListTerminatedServersShort(input)
+if err != nil {
+t.Skipf("temporarily disabled") // Armada is deprecated
 }
 ```
 ## GameTelemetry
@@ -714,7 +954,6 @@ err = notificationService.GetNotificationMessage()
 ```go
 err = notificationService.GetOfflineNotification()
 ```
-
 ## MatchmakingV2
 
 Source: [match2_test.go](../services-api/pkg/tests/integration/match2_test.go)
@@ -1107,6 +1346,37 @@ inputDeleteSeason := season.DeleteSeasonParams{
 
 errDeleteSeason := seasonService.DeleteSeasonShort(&inputDeleteSeason)
 ```
+
+## SessionHistory
+
+Source: [sessionhistory_test.go](../services-api/pkg/tests/integration/sessionhistory_test.go)
+
+### Query a game session detail
+
+```go
+param := game_session_detail.NewAdminQueryGameSessionDetailParams()
+param.SetNamespace(integration.NamespaceTest)
+
+resp, err := sessionHistoryService.AdminQueryGameSessionDetailShort(param)
+```
+
+### Query a matchmaking detail
+
+```go
+param := game_session_detail.NewAdminQueryMatchmakingDetailParams()
+param.SetNamespace(integration.NamespaceTest)
+
+resp, err := sessionHistoryService.AdminQueryMatchmakingDetailShort(param)
+```
+
+### Query a party detail
+
+```go
+param := game_session_detail.NewAdminQueryPartyDetailParams()
+param.SetNamespace(integration.NamespaceTest)
+
+resp, err := sessionHistoryService.AdminQueryPartyDetailShort(param)
+```
 ## Session
 
 Source: [session_test.go](../services-api/pkg/tests/integration/session_test.go)
@@ -1293,7 +1563,6 @@ if errGet != nil {
 	return
 }
 ```
-
 ## Social
 
 Source: [social_test.go](../services-api/pkg/tests/integration/social_test.go)
@@ -1460,179 +1729,3 @@ if errDelete != nil {
 	assert.FailNow(t, errDelete.Error())
 }
 ```
-## Chat
-
-Source: [chat_test.go](../services-api/pkg/tests/integration/chat_test.go)
-
-### Admin Profanity Create
-
-```go
-create, errCreate := profanityOperationsService.AdminProfanityCreateShort(&profanity.AdminProfanityCreateParams{
-	Body: &chatclientmodels.ModelsDictionaryInsertRequest{
-		Word:     &profanityWord,
-		WordType: &profanityWordType,
-	},
-	Namespace: integration.NamespaceTest,
-})
-```
-
-### Admin Profanity Get
-
-```go
-get, errGet := profanityOperationsService.AdminProfanityQueryShort(&profanity.AdminProfanityQueryParams{
-	Namespace:       integration.NamespaceTest,
-	IncludeChildren: &profanityQueryIncludeChildren,
-	WordType:        &profanityWordType,
-	StartWith:       &profanityWord,
-})
-```
-
-### Admin Profanity Update
-
-```go
-update, errUpdate := profanityOperationsService.AdminProfanityUpdateShort(&profanity.AdminProfanityUpdateParams{
-	Body: &chatclientmodels.ModelsDictionaryUpdateRequest{
-		Word:     &profanityWord,
-		WordType: &profanityWordType,
-	},
-	Namespace: integration.NamespaceTest,
-	ID:        *create.ID,
-})
-```
-
-### Admin Profanity Delete
-
-```go
-errDelete := profanityOperationsService.AdminProfanityDeleteShort(&profanity.AdminProfanityDeleteParams{
-	Namespace: integration.NamespaceTest,
-	ID:        *create.ID,
-})
-```
-
-### Save Inbox Message
-
-```go
-save, errSave := inboxOperationsService.AdminSaveInboxMessageShort(&inbox.AdminSaveInboxMessageParams{
-	Body: &chatclientmodels.ModelsSaveInboxMessageRequest{
-		ExpiredAt: &expiredAt,
-		Message:   &dataMessage,
-		Scope:     &scopeChat,
-		Status:    &statusChat,
-		UserIds:   userIds,
-	},
-	Namespace: integration.NamespaceTest,
-})
-```
-
-### Send Inbox Message
-
-```go
-create, errCreate := inboxOperationsService.AdminSendInboxMessageShort(&inbox.AdminSendInboxMessageParams{
-	Body:      dataMessage,
-	MessageID: *save.ID,
-	Namespace: integration.NamespaceTest,
-})
-```
-
-### Admin Get Inbox Messages
-
-```go
-get, errGet := inboxOperationsService.AdminGetInboxMessagesShort(&inbox.AdminGetInboxMessagesParams{
-	Namespace: integration.NamespaceTest,
-})
-```
-
-### Admin Update Inbox Message
-
-```go
-errUpdate := inboxOperationsService.AdminUpdateInboxMessageShort(&inbox.AdminUpdateInboxMessageParams{
-	Body: &chatclientmodels.ModelsUpdateInboxMessageRequest{
-		ExpiredAt: &expiredAt,
-		Message:   &dataMessage,
-		Scope:     &scopeChat,
-		UserIds:   userIds,
-	},
-	Namespace: integration.NamespaceTest,
-	MessageID: *save.ID,
-})
-```
-
-### Admin Delete Inbox Message
-
-```go
-errDelete := inboxOperationsService.AdminDeleteInboxMessageShort(&inbox.AdminDeleteInboxMessageParams{
-	Namespace: integration.NamespaceTest,
-	MessageID: *save.ID,
-	Force:     &force,
-})
-```
-
-### Add chat inbox category
-
-```go
-add, errAdd := inboxOperationsService.AdminAddInboxCategoryShort(&inbox.AdminAddInboxCategoryParams{
-	Body: &chatclientmodels.ModelsAddInboxCategoryRequest{
-		Name:      &categoryName,
-		ExpiresIn: &expiresIn,
-	},
-	Namespace: integration.NamespaceTest,
-})
-```
-
-### Get chat inbox category
-
-```go
-get, errGet := inboxOperationsService.AdminGetInboxCategoriesShort(&inbox.AdminGetInboxCategoriesParams{
-	Namespace: integration.NamespaceTest,
-})
-```
-
-### Update chat inbox category
-
-```go
-errUpdate := inboxOperationsService.AdminUpdateInboxCategoryShort(&inbox.AdminUpdateInboxCategoryParams{
-	Body: &chatclientmodels.ModelsUpdateInboxCategoryRequest{
-		ExpiresIn: &expiresInUpdate,
-	},
-	Category:  categoryName,
-	Namespace: integration.NamespaceTest,
-})
-```
-
-### Delete chat inbox category
-
-```go
-errDelete := inboxOperationsService.AdminDeleteInboxCategoryShort(&inbox.AdminDeleteInboxCategoryParams{
-	Category:  categoryName,
-	Namespace: integration.NamespaceTest,
-})
-```
-## DsArtifact
-
-Source: [dsartifact_test.go](../services-api/pkg/tests/integration/dsartifact_test.go)
-
-### List all queue
-
-```go
-input := &artifact_upload_process_queue.ListAllQueueParams{
-	Namespace: namespace,
-	Limit:     &limit,
-}
-ok, err := artifactUploadProcessQueueService.ListAllQueueShort(input)
-if err != nil {
-	t.Skipf("temporarily disabled") // Armada is deprecated
-}
-```
-
-### List terminated servers
-
-```go
-input := &all_terminated_servers.ListTerminatedServersParams{
-	Limit: &limit,
-}
-ok, err := allTerminatedServersService.ListTerminatedServersShort(input)
-if err != nil {
-	t.Skipf("temporarily disabled") // Armada is deprecated
-}
-```
-
