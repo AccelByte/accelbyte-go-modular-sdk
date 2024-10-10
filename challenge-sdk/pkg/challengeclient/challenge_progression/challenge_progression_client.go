@@ -31,6 +31,7 @@ type Client struct {
 // ClientService is the interface for Client methods
 type ClientService interface {
 	AdminEvaluateProgressShort(params *AdminEvaluateProgressParams, authInfo runtime.ClientAuthInfoWriter) (*AdminEvaluateProgressNoContent, error)
+	AdminGetUserProgressionShort(params *AdminGetUserProgressionParams, authInfo runtime.ClientAuthInfoWriter) (*AdminGetUserProgressionOK, error)
 	EvaluateMyProgressShort(params *EvaluateMyProgressParams, authInfo runtime.ClientAuthInfoWriter) (*EvaluateMyProgressNoContent, error)
 	PublicGetUserProgressionShort(params *PublicGetUserProgressionParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGetUserProgressionOK, error)
 	PublicGetPastUserProgressionShort(params *PublicGetPastUserProgressionParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGetPastUserProgressionOK, error)
@@ -92,6 +93,68 @@ func (a *Client) AdminEvaluateProgressShort(params *AdminEvaluateProgressParams,
 	case *AdminEvaluateProgressNotFound:
 		return nil, v
 	case *AdminEvaluateProgressInternalServerError:
+		return nil, v
+
+	default:
+		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
+	}
+}
+
+/*
+AdminGetUserProgressionShort list user's progressions
+
+    * Required permission: ADMIN:NAMESPACE:{namespace}:CHALLENGE:PROGRESSION [READ]
+*/
+func (a *Client) AdminGetUserProgressionShort(params *AdminGetUserProgressionParams, authInfo runtime.ClientAuthInfoWriter) (*AdminGetUserProgressionOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewAdminGetUserProgressionParams()
+	}
+
+	if params.Context == nil {
+		params.Context = context.Background()
+	}
+
+	if params.RetryPolicy != nil {
+		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
+	}
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "adminGetUserProgression",
+		Method:             "GET",
+		PathPattern:        "/challenge/v1/admin/namespaces/{namespace}/users/{userId}/progress/{challengeCode}",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &AdminGetUserProgressionReader{formats: a.formats},
+		AuthInfo:           authInfo,
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+
+	switch v := result.(type) {
+
+	case *AdminGetUserProgressionOK:
+		return v, nil
+	case *AdminGetUserProgressionBadRequest:
+		return nil, v
+	case *AdminGetUserProgressionUnauthorized:
+		return nil, v
+	case *AdminGetUserProgressionForbidden:
+		return nil, v
+	case *AdminGetUserProgressionNotFound:
+		return nil, v
+	case *AdminGetUserProgressionUnprocessableEntity:
+		return nil, v
+	case *AdminGetUserProgressionInternalServerError:
 		return nil, v
 
 	default:
@@ -206,6 +269,8 @@ func (a *Client) PublicGetUserProgressionShort(params *PublicGetUserProgressionP
 	case *PublicGetUserProgressionForbidden:
 		return nil, v
 	case *PublicGetUserProgressionNotFound:
+		return nil, v
+	case *PublicGetUserProgressionUnprocessableEntity:
 		return nil, v
 	case *PublicGetUserProgressionInternalServerError:
 		return nil, v

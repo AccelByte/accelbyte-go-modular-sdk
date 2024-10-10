@@ -97,6 +97,36 @@ func (aaa *ChallengeConfigurationService) AdminCreateChallengeShort(input *chall
 	return created.GetPayload(), nil
 }
 
+func (aaa *ChallengeConfigurationService) AdminGetActiveChallengesShort(input *challenge_configuration.AdminGetActiveChallengesParams) (*challengeclientmodels.ModelListChallengeResponse, error) {
+	authInfoWriter := input.AuthInfoWriter
+	if authInfoWriter == nil {
+		security := [][]string{
+			{"bearer"},
+		}
+		authInfoWriter = auth.AuthInfoWriter(aaa.GetAuthSession(), security, "")
+	}
+	if input.RetryPolicy == nil {
+		input.RetryPolicy = &utils.Retry{
+			MaxTries:   utils.MaxTries,
+			Backoff:    utils.NewConstantBackoff(0),
+			Transport:  aaa.Client.Runtime.Transport,
+			RetryCodes: utils.RetryCodes,
+		}
+	}
+	if tempFlightIdChallengeConfiguration != nil {
+		input.XFlightId = tempFlightIdChallengeConfiguration
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	}
+
+	ok, err := aaa.Client.ChallengeConfiguration.AdminGetActiveChallengesShort(input, authInfoWriter)
+	if err != nil {
+		return nil, err
+	}
+
+	return ok.GetPayload(), nil
+}
+
 func (aaa *ChallengeConfigurationService) AdminGetChallengeShort(input *challenge_configuration.AdminGetChallengeParams) (*challengeclientmodels.ModelChallengeResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
@@ -275,4 +305,34 @@ func (aaa *ChallengeConfigurationService) AdminDeleteTiedChallengeShort(input *c
 	}
 
 	return nil
+}
+
+func (aaa *ChallengeConfigurationService) AdminUpdateTiedChallengeScheduleShort(input *challenge_configuration.AdminUpdateTiedChallengeScheduleParams) (*challengeclientmodels.ModelChallengeResponse, error) {
+	authInfoWriter := input.AuthInfoWriter
+	if authInfoWriter == nil {
+		security := [][]string{
+			{"bearer"},
+		}
+		authInfoWriter = auth.AuthInfoWriter(aaa.GetAuthSession(), security, "")
+	}
+	if input.RetryPolicy == nil {
+		input.RetryPolicy = &utils.Retry{
+			MaxTries:   utils.MaxTries,
+			Backoff:    utils.NewConstantBackoff(0),
+			Transport:  aaa.Client.Runtime.Transport,
+			RetryCodes: utils.RetryCodes,
+		}
+	}
+	if tempFlightIdChallengeConfiguration != nil {
+		input.XFlightId = tempFlightIdChallengeConfiguration
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	}
+
+	ok, err := aaa.Client.ChallengeConfiguration.AdminUpdateTiedChallengeScheduleShort(input, authInfoWriter)
+	if err != nil {
+		return nil, err
+	}
+
+	return ok.GetPayload(), nil
 }

@@ -15,12 +15,12 @@ import (
 	common "github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg"
 )
 
-const ServiceVersion = "2.17.1"
+const ServiceVersion = "2.18.1"
 
 //go:embed version.txt
 var SDKVersion string
 
-var userAgent = fmt.Sprintf("ModularGoSDK social-sdk/%s core/%s",
+var userAgent = fmt.Sprintf("AccelByteGoSDK social-sdk/%s core/%s",
 	strings.TrimSpace(SDKVersion), strings.TrimSpace(common.Version))
 
 func GetUserAgent() string {

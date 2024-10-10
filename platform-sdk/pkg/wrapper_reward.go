@@ -61,12 +61,12 @@ func (aaa *RewardService) CreateRewardShort(input *reward.CreateRewardParams) (*
 		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
 	}
 
-	ok, err := aaa.Client.Reward.CreateRewardShort(input, authInfoWriter)
+	created, err := aaa.Client.Reward.CreateRewardShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return created.GetPayload(), nil
 }
 
 func (aaa *RewardService) QueryRewardsShort(input *reward.QueryRewardsParams) (*platformclientmodels.RewardPagingSlicedResult, error) {

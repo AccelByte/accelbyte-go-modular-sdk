@@ -20,7 +20,7 @@ const ServiceVersion = "staging"
 //go:embed version.txt
 var SDKVersion string
 
-var userAgent = fmt.Sprintf("ModularGoSDK chat-sdk/%s core/%s",
+var userAgent = fmt.Sprintf("AccelByteGoSDK chat-sdk/%s core/%s",
 	strings.TrimSpace(SDKVersion), strings.TrimSpace(common.Version))
 
 func GetUserAgent() string {

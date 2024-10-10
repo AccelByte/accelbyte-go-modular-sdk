@@ -7,8 +7,11 @@
 package usersV4
 
 import (
+	"encoding/json"
+
 	iam "github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/users_v4"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclientmodels"
 	"github.com/AccelByte/sample-apps/pkg/repository"
 	"github.com/sirupsen/logrus"
 	"github.com/spf13/cobra"
@@ -24,9 +27,16 @@ var AdminDisableUserMFAV4Cmd = &cobra.Command{
 			Client:          iam.NewIamClient(&repository.ConfigRepositoryImpl{}),
 			TokenRepository: &repository.TokenRepositoryImpl{},
 		}
+		bodyString := cmd.Flag("body").Value.String()
+		var body *iamclientmodels.ModelDisableMFARequest
+		errBody := json.Unmarshal([]byte(bodyString), &body)
+		if errBody != nil {
+			return errBody
+		}
 		namespace, _ := cmd.Flags().GetString("namespace")
 		userId, _ := cmd.Flags().GetString("userId")
 		input := &users_v4.AdminDisableUserMFAV4Params{
+			Body:      body,
 			Namespace: namespace,
 			UserID:    userId,
 		}
@@ -44,6 +54,8 @@ var AdminDisableUserMFAV4Cmd = &cobra.Command{
 }
 
 func init() {
+	AdminDisableUserMFAV4Cmd.Flags().String("body", "", "Body")
+	_ = AdminDisableUserMFAV4Cmd.MarkFlagRequired("body")
 	AdminDisableUserMFAV4Cmd.Flags().String("namespace", "", "Namespace")
 	_ = AdminDisableUserMFAV4Cmd.MarkFlagRequired("namespace")
 	AdminDisableUserMFAV4Cmd.Flags().String("userId", "", "User id")

@@ -33,7 +33,7 @@ type ClientService interface {
 	AdminGetAssignmentPluginShort(params *AdminGetAssignmentPluginParams, authInfo runtime.ClientAuthInfoWriter) (*AdminGetAssignmentPluginOK, error)
 	AdminUpdateAssignmentPluginShort(params *AdminUpdateAssignmentPluginParams, authInfo runtime.ClientAuthInfoWriter) (*AdminUpdateAssignmentPluginOK, error)
 	AdminCreateAssignmentPluginShort(params *AdminCreateAssignmentPluginParams, authInfo runtime.ClientAuthInfoWriter) (*AdminCreateAssignmentPluginCreated, error)
-	AdminDeleteAssignmentPluginShort(params *AdminDeleteAssignmentPluginParams, authInfo runtime.ClientAuthInfoWriter) (*AdminDeleteAssignmentPluginOK, error)
+	AdminDeleteAssignmentPluginShort(params *AdminDeleteAssignmentPluginParams, authInfo runtime.ClientAuthInfoWriter) (*AdminDeleteAssignmentPluginNoContent, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -221,7 +221,7 @@ AdminDeleteAssignmentPluginShort delete assignment plugin
 
     * Required permission: ADMIN:NAMESPACE:{namespace}:CHALLENGE:PLUGIN [DELETE]
 */
-func (a *Client) AdminDeleteAssignmentPluginShort(params *AdminDeleteAssignmentPluginParams, authInfo runtime.ClientAuthInfoWriter) (*AdminDeleteAssignmentPluginOK, error) {
+func (a *Client) AdminDeleteAssignmentPluginShort(params *AdminDeleteAssignmentPluginParams, authInfo runtime.ClientAuthInfoWriter) (*AdminDeleteAssignmentPluginNoContent, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminDeleteAssignmentPluginParams()
@@ -258,7 +258,7 @@ func (a *Client) AdminDeleteAssignmentPluginShort(params *AdminDeleteAssignmentP
 
 	switch v := result.(type) {
 
-	case *AdminDeleteAssignmentPluginOK:
+	case *AdminDeleteAssignmentPluginNoContent:
 		return v, nil
 	case *AdminDeleteAssignmentPluginBadRequest:
 		return nil, v

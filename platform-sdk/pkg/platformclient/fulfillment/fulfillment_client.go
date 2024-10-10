@@ -39,6 +39,7 @@ type ClientService interface {
 	QueryFulfillmentsShort(params *QueryFulfillmentsParams, authInfo runtime.ClientAuthInfoWriter) (*QueryFulfillmentsOK, error)
 	FulfillRewardsV2Short(params *FulfillRewardsV2Params, authInfo runtime.ClientAuthInfoWriter) (*FulfillRewardsV2OK, error)
 	FulfillItemsShort(params *FulfillItemsParams, authInfo runtime.ClientAuthInfoWriter) (*FulfillItemsOK, error)
+	RetryFulfillItemsShort(params *RetryFulfillItemsParams, authInfo runtime.ClientAuthInfoWriter) (*RetryFulfillItemsOK, error)
 	RevokeItemsShort(params *RevokeItemsParams, authInfo runtime.ClientAuthInfoWriter) (*RevokeItemsOK, error)
 
 	SetTransport(transport runtime.ClientTransport)
@@ -391,7 +392,9 @@ QueryFulfillmentsShort query fulfillments
  [Not supported yet in AGS Shared Cloud] Query fulfillments in a namespace.
 Other detail info:
 
-  * Returns : list of fulfillment info, storeId field can be ignored.
+  * Returns : list of fulfillment info:
+    * storeId in items can be ignored
+    * error in successList will always be null
 */
 func (a *Client) QueryFulfillmentsShort(params *QueryFulfillmentsParams, authInfo runtime.ClientAuthInfoWriter) (*QueryFulfillmentsOK, error) {
 	// TODO: Validate the params before sending
@@ -549,6 +552,62 @@ func (a *Client) FulfillItemsShort(params *FulfillItemsParams, authInfo runtime.
 	case *FulfillItemsNotFound:
 		return nil, v
 	case *FulfillItemsConflict:
+		return nil, v
+
+	default:
+		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
+	}
+}
+
+/*
+RetryFulfillItemsShort retry fulfill items by transactionid
+ [Not supported yet in AGS Shared Cloud] Retry fulfill items by transactionId without sending the original payload.
+Other detail info:
+
+  * Returns : fulfillment v2 result, storeId field can be ignored.
+*/
+func (a *Client) RetryFulfillItemsShort(params *RetryFulfillItemsParams, authInfo runtime.ClientAuthInfoWriter) (*RetryFulfillItemsOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewRetryFulfillItemsParams()
+	}
+
+	if params.Context == nil {
+		params.Context = context.Background()
+	}
+
+	if params.RetryPolicy != nil {
+		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
+	}
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "retryFulfillItems",
+		Method:             "PUT",
+		PathPattern:        "/platform/v2/admin/namespaces/{namespace}/users/{userId}/fulfillments/{transactionId}/retry",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &RetryFulfillItemsReader{formats: a.formats},
+		AuthInfo:           authInfo,
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+
+	switch v := result.(type) {
+
+	case *RetryFulfillItemsOK:
+		return v, nil
+	case *RetryFulfillItemsNotFound:
+		return nil, v
+	case *RetryFulfillItemsConflict:
 		return nil, v
 
 	default:

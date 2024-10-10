@@ -279,6 +279,8 @@ func (a *Client) DeleteBackfillShort(params *DeleteBackfillParams, authInfo runt
 /*
 AcceptBackfillShort accept a backfill proposal
 Accept backfill proposal.
+Field **acceptedTicketIds** can be used to accept specific tickets within a backfill proposal. If the ticketIDs are not mentioned in this field, those tickets will be rejected and reactivated for future proposals.
+If **acceptedTicketIds** is nil or not specified, then all tickets in the proposal will be accepted.
 */
 func (a *Client) AcceptBackfillShort(params *AcceptBackfillParams, authInfo runtime.ClientAuthInfoWriter) (*AcceptBackfillOK, error) {
 	// TODO: Validate the params before sending

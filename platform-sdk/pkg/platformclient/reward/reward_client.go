@@ -31,7 +31,7 @@ type Client struct {
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	CreateRewardShort(params *CreateRewardParams, authInfo runtime.ClientAuthInfoWriter) (*CreateRewardOK, error)
+	CreateRewardShort(params *CreateRewardParams, authInfo runtime.ClientAuthInfoWriter) (*CreateRewardCreated, error)
 	QueryRewardsShort(params *QueryRewardsParams, authInfo runtime.ClientAuthInfoWriter) (*QueryRewardsOK, error)
 	ExportRewardsShort(params *ExportRewardsParams, authInfo runtime.ClientAuthInfoWriter, writer io.Writer) (*ExportRewardsOK, error)
 	ImportRewardsShort(params *ImportRewardsParams, authInfo runtime.ClientAuthInfoWriter) (*ImportRewardsOK, error)
@@ -55,7 +55,7 @@ Other detail info:
   * Returns : created reward data
   *  Acceptable values for rewardItem's identityType are : ITEM_ID or ITEM_SKU
 */
-func (a *Client) CreateRewardShort(params *CreateRewardParams, authInfo runtime.ClientAuthInfoWriter) (*CreateRewardOK, error) {
+func (a *Client) CreateRewardShort(params *CreateRewardParams, authInfo runtime.ClientAuthInfoWriter) (*CreateRewardCreated, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewCreateRewardParams()
@@ -92,7 +92,7 @@ func (a *Client) CreateRewardShort(params *CreateRewardParams, authInfo runtime.
 
 	switch v := result.(type) {
 
-	case *CreateRewardOK:
+	case *CreateRewardCreated:
 		return v, nil
 	case *CreateRewardBadRequest:
 		return nil, v

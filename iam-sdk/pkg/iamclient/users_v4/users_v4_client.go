@@ -41,6 +41,7 @@ type ClientService interface {
 	AdminUpdateUserV4Short(params *AdminUpdateUserV4Params, authInfo runtime.ClientAuthInfoWriter) (*AdminUpdateUserV4OK, error)
 	AdminUpdateUserEmailAddressV4Short(params *AdminUpdateUserEmailAddressV4Params, authInfo runtime.ClientAuthInfoWriter) (*AdminUpdateUserEmailAddressV4NoContent, error)
 	AdminDisableUserMFAV4Short(params *AdminDisableUserMFAV4Params, authInfo runtime.ClientAuthInfoWriter) (*AdminDisableUserMFAV4NoContent, error)
+	AdminGetUserMFAStatusV4Short(params *AdminGetUserMFAStatusV4Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetUserMFAStatusV4OK, error)
 	AdminListUserRolesV4Short(params *AdminListUserRolesV4Params, authInfo runtime.ClientAuthInfoWriter) (*AdminListUserRolesV4OK, error)
 	AdminUpdateUserRoleV4Short(params *AdminUpdateUserRoleV4Params, authInfo runtime.ClientAuthInfoWriter) (*AdminUpdateUserRoleV4OK, error)
 	AdminAddUserRoleV4Short(params *AdminAddUserRoleV4Params, authInfo runtime.ClientAuthInfoWriter) (*AdminAddUserRoleV4OK, error)
@@ -291,8 +292,10 @@ func (a *Client) AdminGetNamespaceUserInvitationHistoryV4Short(params *AdminGetN
 /*
 AdminCreateTestUsersV4Short [test facility only]create test users
 Create test users and not send verification code email.
-Enter the number of test users you want to create in the count field.
-The maximum value of the user count is 100.
+Note:
+- count : Enter the number of test users you want to create in the count field. The maximum value of the user count is 100.
+- userInfo(optional) :
+- country: you can specify country for the test user. Country use ISO3166-1 alpha-2 two letter, e.g. US
 */
 func (a *Client) AdminCreateTestUsersV4Short(params *AdminCreateTestUsersV4Params, authInfo runtime.ClientAuthInfoWriter) (*AdminCreateTestUsersV4Created, error) {
 	// TODO: Validate the params before sending
@@ -670,7 +673,9 @@ func (a *Client) AdminUpdateUserEmailAddressV4Short(params *AdminUpdateUserEmail
 
 /*
 AdminDisableUserMFAV4Short disable user 2fa
-**This endpoint is used to disable user 2FA.**
+This endpoint is used to disable user 2FA.
+-----------
+**Note**: if the factor is not specified, will disable all 2FA methods.
 */
 func (a *Client) AdminDisableUserMFAV4Short(params *AdminDisableUserMFAV4Params, authInfo runtime.ClientAuthInfoWriter) (*AdminDisableUserMFAV4NoContent, error) {
 	// TODO: Validate the params before sending
@@ -720,6 +725,63 @@ func (a *Client) AdminDisableUserMFAV4Short(params *AdminDisableUserMFAV4Params,
 	case *AdminDisableUserMFAV4NotFound:
 		return nil, v
 	case *AdminDisableUserMFAV4InternalServerError:
+		return nil, v
+
+	default:
+		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
+	}
+}
+
+/*
+AdminGetUserMFAStatusV4Short get user 2fa status
+**This endpoint is used to get user's 2FA status.**
+*/
+func (a *Client) AdminGetUserMFAStatusV4Short(params *AdminGetUserMFAStatusV4Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetUserMFAStatusV4OK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewAdminGetUserMFAStatusV4Params()
+	}
+
+	if params.Context == nil {
+		params.Context = context.Background()
+	}
+
+	if params.RetryPolicy != nil {
+		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
+	}
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "AdminGetUserMFAStatusV4",
+		Method:             "GET",
+		PathPattern:        "/iam/v4/admin/namespaces/{namespace}/users/{userId}/mfa/status",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &AdminGetUserMFAStatusV4Reader{formats: a.formats},
+		AuthInfo:           authInfo,
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+
+	switch v := result.(type) {
+
+	case *AdminGetUserMFAStatusV4OK:
+		return v, nil
+	case *AdminGetUserMFAStatusV4Unauthorized:
+		return nil, v
+	case *AdminGetUserMFAStatusV4Forbidden:
+		return nil, v
+	case *AdminGetUserMFAStatusV4NotFound:
+		return nil, v
+	case *AdminGetUserMFAStatusV4InternalServerError:
 		return nil, v
 
 	default:

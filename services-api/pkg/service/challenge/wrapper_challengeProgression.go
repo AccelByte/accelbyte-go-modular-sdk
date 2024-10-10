@@ -69,6 +69,36 @@ func (aaa *ChallengeProgressionService) AdminEvaluateProgressShort(input *challe
 	return nil
 }
 
+func (aaa *ChallengeProgressionService) AdminGetUserProgressionShort(input *challenge_progression.AdminGetUserProgressionParams) (*challengeclientmodels.ModelUserProgressionResponse, error) {
+	authInfoWriter := input.AuthInfoWriter
+	if authInfoWriter == nil {
+		security := [][]string{
+			{"bearer"},
+		}
+		authInfoWriter = auth.AuthInfoWriter(aaa.GetAuthSession(), security, "")
+	}
+	if input.RetryPolicy == nil {
+		input.RetryPolicy = &utils.Retry{
+			MaxTries:   utils.MaxTries,
+			Backoff:    utils.NewConstantBackoff(0),
+			Transport:  aaa.Client.Runtime.Transport,
+			RetryCodes: utils.RetryCodes,
+		}
+	}
+	if tempFlightIdChallengeProgression != nil {
+		input.XFlightId = tempFlightIdChallengeProgression
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	}
+
+	ok, err := aaa.Client.ChallengeProgression.AdminGetUserProgressionShort(input, authInfoWriter)
+	if err != nil {
+		return nil, err
+	}
+
+	return ok.GetPayload(), nil
+}
+
 func (aaa *ChallengeProgressionService) EvaluateMyProgressShort(input *challenge_progression.EvaluateMyProgressParams) error {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {

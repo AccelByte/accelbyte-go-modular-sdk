@@ -31,8 +31,10 @@ type Client struct {
 // ClientService is the interface for Client methods
 type ClientService interface {
 	AdminClaimUsersRewardsShort(params *AdminClaimUsersRewardsParams, authInfo runtime.ClientAuthInfoWriter) (*AdminClaimUsersRewardsOK, error)
+	AdminClaimUserRewardsByGoalCodeShort(params *AdminClaimUserRewardsByGoalCodeParams, authInfo runtime.ClientAuthInfoWriter) (*AdminClaimUserRewardsByGoalCodeOK, error)
 	AdminGetUserRewardsShort(params *AdminGetUserRewardsParams, authInfo runtime.ClientAuthInfoWriter) (*AdminGetUserRewardsOK, error)
 	AdminClaimUserRewardsShort(params *AdminClaimUserRewardsParams, authInfo runtime.ClientAuthInfoWriter) (*AdminClaimUserRewardsOK, error)
+	PublicClaimUserRewardsByGoalCodeShort(params *PublicClaimUserRewardsByGoalCodeParams, authInfo runtime.ClientAuthInfoWriter) (*PublicClaimUserRewardsByGoalCodeOK, error)
 	PublicGetUserRewardsShort(params *PublicGetUserRewardsParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGetUserRewardsOK, error)
 	PublicClaimUserRewardsShort(params *PublicClaimUserRewardsParams, authInfo runtime.ClientAuthInfoWriter) (*PublicClaimUserRewardsOK, error)
 
@@ -92,6 +94,68 @@ func (a *Client) AdminClaimUsersRewardsShort(params *AdminClaimUsersRewardsParam
 	case *AdminClaimUsersRewardsNotFound:
 		return nil, v
 	case *AdminClaimUsersRewardsInternalServerError:
+		return nil, v
+
+	default:
+		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
+	}
+}
+
+/*
+AdminClaimUserRewardsByGoalCodeShort claim rewards of a single user by goal code
+
+    * Required permission: ADMIN:NAMESPACE:{namespace}:CHALLENGE:REWARD [UPDATE]
+*/
+func (a *Client) AdminClaimUserRewardsByGoalCodeShort(params *AdminClaimUserRewardsByGoalCodeParams, authInfo runtime.ClientAuthInfoWriter) (*AdminClaimUserRewardsByGoalCodeOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewAdminClaimUserRewardsByGoalCodeParams()
+	}
+
+	if params.Context == nil {
+		params.Context = context.Background()
+	}
+
+	if params.RetryPolicy != nil {
+		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
+	}
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "adminClaimUserRewardsByGoalCode",
+		Method:             "POST",
+		PathPattern:        "/challenge/v1/admin/namespaces/{namespace}/users/{userId}/challenges/{challengeCode}/rewards/claim",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &AdminClaimUserRewardsByGoalCodeReader{formats: a.formats},
+		AuthInfo:           authInfo,
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+
+	switch v := result.(type) {
+
+	case *AdminClaimUserRewardsByGoalCodeOK:
+		return v, nil
+	case *AdminClaimUserRewardsByGoalCodeBadRequest:
+		return nil, v
+	case *AdminClaimUserRewardsByGoalCodeUnauthorized:
+		return nil, v
+	case *AdminClaimUserRewardsByGoalCodeForbidden:
+		return nil, v
+	case *AdminClaimUserRewardsByGoalCodeNotFound:
+		return nil, v
+	case *AdminClaimUserRewardsByGoalCodeUnprocessableEntity:
+		return nil, v
+	case *AdminClaimUserRewardsByGoalCodeInternalServerError:
 		return nil, v
 
 	default:
@@ -208,6 +272,68 @@ func (a *Client) AdminClaimUserRewardsShort(params *AdminClaimUserRewardsParams,
 	case *AdminClaimUserRewardsUnprocessableEntity:
 		return nil, v
 	case *AdminClaimUserRewardsInternalServerError:
+		return nil, v
+
+	default:
+		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
+	}
+}
+
+/*
+PublicClaimUserRewardsByGoalCodeShort claim user's rewards by goal code
+
+    * Required permission: NAMESPACE:{namespace}:CHALLENGE:REWARD [UPDATE]
+*/
+func (a *Client) PublicClaimUserRewardsByGoalCodeShort(params *PublicClaimUserRewardsByGoalCodeParams, authInfo runtime.ClientAuthInfoWriter) (*PublicClaimUserRewardsByGoalCodeOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewPublicClaimUserRewardsByGoalCodeParams()
+	}
+
+	if params.Context == nil {
+		params.Context = context.Background()
+	}
+
+	if params.RetryPolicy != nil {
+		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
+	}
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "publicClaimUserRewardsByGoalCode",
+		Method:             "POST",
+		PathPattern:        "/challenge/v1/public/namespaces/{namespace}/users/me/challenges/{challengeCode}/rewards/claim",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &PublicClaimUserRewardsByGoalCodeReader{formats: a.formats},
+		AuthInfo:           authInfo,
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+
+	switch v := result.(type) {
+
+	case *PublicClaimUserRewardsByGoalCodeOK:
+		return v, nil
+	case *PublicClaimUserRewardsByGoalCodeBadRequest:
+		return nil, v
+	case *PublicClaimUserRewardsByGoalCodeUnauthorized:
+		return nil, v
+	case *PublicClaimUserRewardsByGoalCodeForbidden:
+		return nil, v
+	case *PublicClaimUserRewardsByGoalCodeNotFound:
+		return nil, v
+	case *PublicClaimUserRewardsByGoalCodeUnprocessableEntity:
+		return nil, v
+	case *PublicClaimUserRewardsByGoalCodeInternalServerError:
 		return nil, v
 
 	default:

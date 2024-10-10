@@ -32,12 +32,14 @@ type Client struct {
 type ClientService interface {
 	AdminGetChallengesShort(params *AdminGetChallengesParams, authInfo runtime.ClientAuthInfoWriter) (*AdminGetChallengesOK, error)
 	AdminCreateChallengeShort(params *AdminCreateChallengeParams, authInfo runtime.ClientAuthInfoWriter) (*AdminCreateChallengeCreated, error)
+	AdminGetActiveChallengesShort(params *AdminGetActiveChallengesParams, authInfo runtime.ClientAuthInfoWriter) (*AdminGetActiveChallengesOK, error)
 	AdminGetChallengeShort(params *AdminGetChallengeParams, authInfo runtime.ClientAuthInfoWriter) (*AdminGetChallengeOK, error)
 	AdminUpdateChallengeShort(params *AdminUpdateChallengeParams, authInfo runtime.ClientAuthInfoWriter) (*AdminUpdateChallengeOK, error)
 	AdminDeleteChallengeShort(params *AdminDeleteChallengeParams, authInfo runtime.ClientAuthInfoWriter) (*AdminDeleteChallengeNoContent, error)
 	AdminGetPeriodsShort(params *AdminGetPeriodsParams, authInfo runtime.ClientAuthInfoWriter) (*AdminGetPeriodsOK, error)
 	AdminRandomizeChallengeShort(params *AdminRandomizeChallengeParams, authInfo runtime.ClientAuthInfoWriter) (*AdminRandomizeChallengeOK, error)
 	AdminDeleteTiedChallengeShort(params *AdminDeleteTiedChallengeParams, authInfo runtime.ClientAuthInfoWriter) (*AdminDeleteTiedChallengeNoContent, error)
+	AdminUpdateTiedChallengeScheduleShort(params *AdminUpdateTiedChallengeScheduleParams, authInfo runtime.ClientAuthInfoWriter) (*AdminUpdateTiedChallengeScheduleOK, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -184,8 +186,64 @@ func (a *Client) AdminCreateChallengeShort(params *AdminCreateChallengeParams, a
 }
 
 /*
-AdminGetChallengeShort get a challenge
+AdminGetActiveChallengesShort list user's active challenges
 
+
+  * Required permission: ADMIN:NAMESPACE:{namespace}:CHALLENGE [READ]
+*/
+func (a *Client) AdminGetActiveChallengesShort(params *AdminGetActiveChallengesParams, authInfo runtime.ClientAuthInfoWriter) (*AdminGetActiveChallengesOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewAdminGetActiveChallengesParams()
+	}
+
+	if params.Context == nil {
+		params.Context = context.Background()
+	}
+
+	if params.RetryPolicy != nil {
+		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
+	}
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "adminGetActiveChallenges",
+		Method:             "GET",
+		PathPattern:        "/challenge/v1/admin/namespaces/{namespace}/challenges/users/{userId}",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &AdminGetActiveChallengesReader{formats: a.formats},
+		AuthInfo:           authInfo,
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+
+	switch v := result.(type) {
+
+	case *AdminGetActiveChallengesOK:
+		return v, nil
+	case *AdminGetActiveChallengesUnauthorized:
+		return nil, v
+	case *AdminGetActiveChallengesForbidden:
+		return nil, v
+	case *AdminGetActiveChallengesInternalServerError:
+		return nil, v
+
+	default:
+		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
+	}
+}
+
+/*
+AdminGetChallengeShort get a challenge
 
   * Required permission: ADMIN:NAMESPACE:{namespace}:CHALLENGE [READ]
 */
@@ -562,6 +620,75 @@ func (a *Client) AdminDeleteTiedChallengeShort(params *AdminDeleteTiedChallengeP
 	case *AdminDeleteTiedChallengeNotFound:
 		return nil, v
 	case *AdminDeleteTiedChallengeInternalServerError:
+		return nil, v
+
+	default:
+		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
+	}
+}
+
+/*
+AdminUpdateTiedChallengeScheduleShort update tied challenge schedule
+
+  * Required permission: ADMIN:NAMESPACE:{namespace}:CHALLENGE [UPDATE]
+
+
+
+Request body:
+
+  * action: Update the challenge schedule. The available options are:
+    * STOP: Ends the challenge, changing its status to RETIRED. This option supports all types of challenges.
+    * ACCELERATE: Speeds up the challenge's end time. Note that this option does not apply to challenges with an 'endAfter' value.
+  * endDate: The timestamp specifying when the challenge should end (required if the action is ACCELERATE).
+*/
+func (a *Client) AdminUpdateTiedChallengeScheduleShort(params *AdminUpdateTiedChallengeScheduleParams, authInfo runtime.ClientAuthInfoWriter) (*AdminUpdateTiedChallengeScheduleOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewAdminUpdateTiedChallengeScheduleParams()
+	}
+
+	if params.Context == nil {
+		params.Context = context.Background()
+	}
+
+	if params.RetryPolicy != nil {
+		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
+	}
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "adminUpdateTiedChallengeSchedule",
+		Method:             "PUT",
+		PathPattern:        "/challenge/v1/admin/namespaces/{namespace}/challenges/{challengeCode}/tied/schedule",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &AdminUpdateTiedChallengeScheduleReader{formats: a.formats},
+		AuthInfo:           authInfo,
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+
+	switch v := result.(type) {
+
+	case *AdminUpdateTiedChallengeScheduleOK:
+		return v, nil
+	case *AdminUpdateTiedChallengeScheduleBadRequest:
+		return nil, v
+	case *AdminUpdateTiedChallengeScheduleUnauthorized:
+		return nil, v
+	case *AdminUpdateTiedChallengeScheduleForbidden:
+		return nil, v
+	case *AdminUpdateTiedChallengeScheduleNotFound:
+		return nil, v
+	case *AdminUpdateTiedChallengeScheduleInternalServerError:
 		return nil, v
 
 	default:

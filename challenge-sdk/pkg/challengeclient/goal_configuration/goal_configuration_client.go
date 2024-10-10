@@ -325,6 +325,8 @@ func (a *Client) AdminUpdateGoalsShort(params *AdminUpdateGoalsParams, authInfo 
 		return nil, v
 	case *AdminUpdateGoalsNotFound:
 		return nil, v
+	case *AdminUpdateGoalsUnprocessableEntity:
+		return nil, v
 	case *AdminUpdateGoalsInternalServerError:
 		return nil, v
 

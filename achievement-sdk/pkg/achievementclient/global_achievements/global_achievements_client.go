@@ -478,7 +478,7 @@ ClaimGlobalAchievementRewardShort claim global achievement reward
 
 
 Required permission
-`NAMESPACE:{namespace}:USER:{userId}:ACHIEVEMENT [READ]` and scope `social`
+`NAMESPACE:{namespace}:USER:{userId}:ACHIEVEMENT [UPDATE]` and scope `social`
 
 
 

@@ -289,6 +289,7 @@ func (a *Client) AdminUpdateOfficialContentV2Short(params *AdminUpdateOfficialCo
 
 /*
 AdminCopyContentShort copy contents from a channel to another
+Copy existing content from source channel to target channel.
 */
 func (a *Client) AdminCopyContentShort(params *AdminCopyContentParams, authInfo runtime.ClientAuthInfoWriter) (*AdminCopyContentCreated, error) {
 	// TODO: Validate the params before sending

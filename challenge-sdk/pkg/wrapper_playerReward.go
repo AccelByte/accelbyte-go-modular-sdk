@@ -67,6 +67,36 @@ func (aaa *PlayerRewardService) AdminClaimUsersRewardsShort(input *player_reward
 	return ok.GetPayload(), nil
 }
 
+func (aaa *PlayerRewardService) AdminClaimUserRewardsByGoalCodeShort(input *player_reward.AdminClaimUserRewardsByGoalCodeParams) ([]*challengeclientmodels.ModelUserReward, error) {
+	authInfoWriter := input.AuthInfoWriter
+	if authInfoWriter == nil {
+		security := [][]string{
+			{"bearer"},
+		}
+		authInfoWriter = auth.AuthInfoWriter(aaa.GetAuthSession(), security, "")
+	}
+	if input.RetryPolicy == nil {
+		input.RetryPolicy = &utils.Retry{
+			MaxTries:   utils.MaxTries,
+			Backoff:    utils.NewConstantBackoff(0),
+			Transport:  aaa.Client.Runtime.Transport,
+			RetryCodes: utils.RetryCodes,
+		}
+	}
+	if tempFlightIdPlayerReward != nil {
+		input.XFlightId = tempFlightIdPlayerReward
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	}
+
+	ok, err := aaa.Client.PlayerReward.AdminClaimUserRewardsByGoalCodeShort(input, authInfoWriter)
+	if err != nil {
+		return nil, err
+	}
+
+	return ok.GetPayload(), nil
+}
+
 func (aaa *PlayerRewardService) AdminGetUserRewardsShort(input *player_reward.AdminGetUserRewardsParams) (*challengeclientmodels.ModelListUserRewardsResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
@@ -120,6 +150,36 @@ func (aaa *PlayerRewardService) AdminClaimUserRewardsShort(input *player_reward.
 	}
 
 	ok, err := aaa.Client.PlayerReward.AdminClaimUserRewardsShort(input, authInfoWriter)
+	if err != nil {
+		return nil, err
+	}
+
+	return ok.GetPayload(), nil
+}
+
+func (aaa *PlayerRewardService) PublicClaimUserRewardsByGoalCodeShort(input *player_reward.PublicClaimUserRewardsByGoalCodeParams) ([]*challengeclientmodels.ModelUserReward, error) {
+	authInfoWriter := input.AuthInfoWriter
+	if authInfoWriter == nil {
+		security := [][]string{
+			{"bearer"},
+		}
+		authInfoWriter = auth.AuthInfoWriter(aaa.GetAuthSession(), security, "")
+	}
+	if input.RetryPolicy == nil {
+		input.RetryPolicy = &utils.Retry{
+			MaxTries:   utils.MaxTries,
+			Backoff:    utils.NewConstantBackoff(0),
+			Transport:  aaa.Client.Runtime.Transport,
+			RetryCodes: utils.RetryCodes,
+		}
+	}
+	if tempFlightIdPlayerReward != nil {
+		input.XFlightId = tempFlightIdPlayerReward
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	}
+
+	ok, err := aaa.Client.PlayerReward.PublicClaimUserRewardsByGoalCodeShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
 	}

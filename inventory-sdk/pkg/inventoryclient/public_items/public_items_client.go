@@ -267,10 +267,6 @@ func (a *Client) PublicBulkRemoveMyItemsShort(params *PublicBulkRemoveMyItemsPar
 PublicMoveMyItemsShort to move items between my inventories
 
 Move items between inventories that is owned by the same user.
-
-Currently, this endpoint supports transferring items exclusively from source OTHER.
-Items from source ECOMMERCE are not yet eligible for transfer.
-We are working on expanding support to include source ECOMMERCE in future updates.
 */
 func (a *Client) PublicMoveMyItemsShort(params *PublicMoveMyItemsParams, authInfo runtime.ClientAuthInfoWriter) (*PublicMoveMyItemsOK, error) {
 	// TODO: Validate the params before sending
