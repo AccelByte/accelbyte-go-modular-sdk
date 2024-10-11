@@ -51,7 +51,6 @@ require (
 	github.com/AccelByte/accelbyte-go-modular-sdk/legal-sdk v0.1.0-alpha.1
 	github.com/AccelByte/accelbyte-go-modular-sdk/lobby-sdk v0.1.0-alpha.1
 	github.com/AccelByte/accelbyte-go-modular-sdk/match2-sdk v0.1.0-alpha.1
-	github.com/AccelByte/accelbyte-go-modular-sdk/matchmaking-sdk v0.1.0-alpha.1
 	github.com/AccelByte/accelbyte-go-modular-sdk/platform-sdk v0.1.0-alpha.1
 	github.com/AccelByte/accelbyte-go-modular-sdk/qosm-sdk v0.1.0-alpha.1
 	github.com/AccelByte/accelbyte-go-modular-sdk/reporting-sdk v0.1.0-alpha.1
