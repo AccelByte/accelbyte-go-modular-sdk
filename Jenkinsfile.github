@@ -72,7 +72,7 @@ def pushGitTag(selectedTag, isPrerelease, releaseNote, agsVersion) {
   }
 
   // if it is ags tag for release
-  if (selectedTag =~ /ags\/v[0-9]+\.[0-9]+\.[0-9]+/) {
+  if (selectedTag =~ /ags\/v[0-9]+\.[0-9]+/) {
     agsTag = "ags/v${agsVersion}"
 
     if (!isTagExist(agsTag)) {
