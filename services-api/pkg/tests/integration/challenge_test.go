@@ -9,7 +9,6 @@ import (
 	"time"
 
 	"github.com/go-openapi/strfmt"
-	// "github.com/sirupsen/logrus"
 	"github.com/stretchr/testify/assert"
 
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils/auth"
@@ -18,6 +17,7 @@ import (
 
 	"github.com/AccelByte/accelbyte-go-modular-sdk/challenge-sdk/pkg/challengeclient/challenge_configuration"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/challenge-sdk/pkg/challengeclient/goal_configuration"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/challenge-sdk/pkg/challengeclient/player_reward"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/challenge-sdk/pkg/challengeclientmodels"
 
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/tests/integration"
@@ -49,6 +49,10 @@ var (
 		Client:          challenge.NewChallengeClient(auth.DefaultConfigRepositoryImpl()),
 		TokenRepository: tokenRepository,
 	}
+	playerRewardSvc = &challenge.PlayerRewardService{
+		Client:          challenge.NewChallengeClient(auth.DefaultConfigRepositoryImpl()),
+		TokenRepository: tokenRepository,
+	}
 
 	bodyNewChallenge = &challengeclientmodels.ModelCreateChallengeRequest{
 		Code:            &challengeCode,
@@ -59,7 +63,7 @@ var (
 		Rotation:        &rotation,
 		StartDate:       aStartTime,
 		ResetConfig: &challengeclientmodels.ModelResetConfig{
-			ResetTime: "07:00",
+			ResetTime: time.Now().Add(time.Hour * 3).Format("15:04"),
 		},
 	}
 	bodyUpdateChallenge = &challengeclientmodels.ModelUpdateChallengeRequest{
@@ -199,4 +203,28 @@ func TestIntegrationChallenge(t *testing.T) {
 
 	// Assert
 	assert.Nil(t, errDelete, "err should be nil")
+}
+
+func TestIntegrationChallengePlayerRewards(t *testing.T) {
+	// Login User - Arrange
+	Init()
+
+	// CASE Get user rewards
+	getParam := &player_reward.PublicGetUserRewardsParams{
+		Namespace: integration.NamespaceTest,
+	}
+
+	rewards, errGet := playerRewardSvc.PublicGetUserRewardsShort(getParam)
+	if errGet != nil {
+		assert.FailNow(t, errGet.Error())
+	} else {
+		for _, reward := range rewards.Data {
+			t.Logf("Reward for userId: %v, goal code %v", *reward.UserID, *reward.GoalCode)
+		}
+	}
+	// ESAC
+
+	// Assert
+	assert.Nil(t, errGet, "err should be nil")
+	assert.NotNil(t, rewards, "response should not be nil")
 }

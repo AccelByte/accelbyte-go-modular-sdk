@@ -95,6 +95,7 @@ var (
 	}
 	maxNumber = int32(2)
 	minNumber = int32(2)
+	partyID   string
 )
 
 func TestIntegrationMatchPool(t *testing.T) {
@@ -123,6 +124,23 @@ func TestIntegrationMatchPool(t *testing.T) {
 
 	// Assert
 	assert.Nil(t, errCreateRule, "err should be nil")
+
+	// CASE Get ruleset details
+	inputRuleDetails := &rule_sets.RuleSetDetailsParams{
+		Ruleset:   ruleSetName,
+		Namespace: integration.NamespaceTest,
+	}
+	getRuleDetails, errRuleDetails := ruleSetsService.RuleSetDetailsShort(inputRuleDetails)
+	if errRuleDetails != nil {
+		assert.FailNow(t, errRuleDetails.Error())
+
+		return
+	}
+	// ESAC
+
+	// Assert
+	assert.Nil(t, errRuleDetails, "err should be nil")
+	assert.NotNil(t, getRuleDetails, "should not be nil")
 
 	// CASE Create a match pool
 	inputCreatePool := &match_pools.CreateMatchPoolParams{
@@ -157,6 +175,23 @@ func TestIntegrationMatchPool(t *testing.T) {
 	// Assert
 	assert.Nil(t, errGetList, "err should be nil")
 	assert.NotNil(t, getList, "should not be nil")
+
+	// CASE Match pool details
+	inputDetails := &match_pools.MatchPoolDetailsParams{
+		Namespace: integration.NamespaceTest,
+		Pool:      poolName,
+	}
+	getDetails, errGetDetails := matchPoolService.MatchPoolDetailsShort(inputDetails)
+	if errGetDetails != nil {
+		assert.FailNow(t, errGetDetails.Error())
+
+		return
+	}
+	// ESAC
+
+	// Assert
+	assert.Nil(t, errGetDetails, "err should be nil")
+	assert.NotNil(t, getDetails, "should not be nil")
 
 	player2Id := createPlayer2()
 	defer deletePlayer(player2Id)
@@ -198,6 +233,22 @@ func TestIntegrationMatchPool(t *testing.T) {
 
 	// Assert
 	assert.Nil(t, errDeletedTicket, "err should be nil")
+
+	// CASE Public party leave
+	inputLeaveParty := &party.PublicPartyLeaveParams{
+		Namespace: integration.NamespaceTest,
+		PartyID:   partyID,
+	}
+	errLeaveParty := partyService.PublicPartyLeaveShort(inputLeaveParty)
+	if errLeaveParty != nil {
+		assert.FailNow(t, errLeaveParty.Error())
+
+		return
+	}
+	// ESAC
+
+	// Assert
+	assert.Nil(t, errLeaveParty, "err should be nil")
 
 	var matchRuleSet string
 	for _, match := range getList.Data {
@@ -293,6 +344,8 @@ func getSessionID(t *testing.T, memberID string) string {
 
 		return ""
 	}
+
+	partyID = *created.ID
 
 	return *created.ID
 }

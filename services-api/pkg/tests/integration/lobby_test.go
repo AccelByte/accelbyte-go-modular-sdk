@@ -6,6 +6,8 @@ package integration_test
 
 import (
 	"bufio"
+	"bytes"
+	"os"
 	"strings"
 	"testing"
 
@@ -13,6 +15,7 @@ import (
 	"github.com/stretchr/testify/assert"
 
 	"github.com/AccelByte/accelbyte-go-modular-sdk/lobby-sdk/pkg/connectionutils"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/lobby-sdk/pkg/lobbyclient/config"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/lobby-sdk/pkg/lobbyclientmodels/model"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/tests/integration"
 
@@ -120,6 +123,7 @@ func TestIntegrationLobbyFreeFormNotification(t *testing.T) {
 	topic := "go_server_sdk_integration_test"
 	message := "This is a Go Extend SDK integration test"
 
+	// CASE Lobby free form notification
 	err := lobbyAdminSvc.FreeFormNotificationShort(&lobbyAdminNotification.FreeFormNotificationParams{
 		Body: &lobbyclientmodels.ModelFreeFormNotificationRequest{
 			Message: &message,
@@ -128,8 +132,54 @@ func TestIntegrationLobbyFreeFormNotification(t *testing.T) {
 		Namespace: integration.NamespaceTest,
 	})
 
+	// ESAC
+
 	// Assert
 	assert.NoError(t, err)
+}
+
+func TestIntegrationLobbyService(t *testing.T) {
+	var scheme string
+	if strings.Contains(configRepository.BaseUrl, "accelbyte") {
+		scheme = "wss"
+	} else {
+		scheme = "ws"
+	}
+
+	// Login User - Arrange
+	Init()
+	connMgr = &integration.ConnectionManagerImpl{}
+	connection, err := connectionutils.NewWSConnection(
+		oAuth20Service.ConfigRepository,
+		oAuth20Service.TokenRepository,
+		connectionutils.WithScheme(scheme),
+		connectionutils.WithMessageHandler(lobbyMessageHandler))
+	assert.Nil(t, err, "err should be nil")
+
+	lobbyClient := connectionutils.NewLobbyWebSocketClient(connection)
+	assert.NotNil(t, lobbyClient)
+
+	success, err := lobbyClient.Connect(false)
+	assert.True(t, success)
+	assert.Nil(t, err, "err should be nil")
+
+	connMgr.Save(connection)
+
+	lobbyWebsocketSvc := &lobby.LobbyServiceWebsocket{
+		ConfigRepository:  oAuth20Service.ConfigRepository,
+		TokenRepository:   oAuth20Service.TokenRepository,
+		ConnectionManager: connMgr,
+	}
+
+	id := ""
+
+	// CASE Lobby party create request
+	err = lobbyWebsocketSvc.PartyCreateRequest(&id)
+
+	// ESAC
+
+	// Assert
+	assert.Nil(t, err)
 }
 
 func TestIntegrationLobbyNotificationTopics(t *testing.T) {
@@ -253,5 +303,45 @@ func TestIntegrationLobbyNotificationTemplates(t *testing.T) {
 			TemplateSlug: templSlug,
 		})
 		assert.NoError(t, err)
+	})
+}
+
+func TestIntegrationLobbyExportConfig(t *testing.T) {
+	// prepare
+	oauthSvc := integration.LoginUser(t)
+	lobbyConfigSvc := &lobby.ConfigService{
+		Client:           lobby.NewLobbyClient(oauthSvc.ConfigRepository),
+		ConfigRepository: oauthSvc.ConfigRepository,
+		TokenRepository:  oauthSvc.TokenRepository,
+	}
+
+	// tests run
+	t.Run("Admin export config", func(t *testing.T) {
+		// CASE Lobby admin export config
+		file, errFile := os.Create("file")
+		if errFile != nil {
+			t.Errorf("Failed to create file: %v", errFile)
+		}
+		defer file.Close()
+
+		logrus.Infof("Successfully created file: %v", file.Name())
+
+		writer := bytes.NewBuffer(nil)
+
+		export, err := lobbyConfigSvc.AdminExportConfigV1Short(&config.AdminExportConfigV1Params{
+			Namespace: integration.NamespaceTest,
+		}, writer)
+
+		// ESAC
+
+		// Assert
+		assert.NoError(t, err)
+		assert.NotNil(t, export)
+
+		if _, errWrite := file.Write(writer.Bytes()); errWrite != nil {
+			t.Errorf("Failed to write export data to file: %v", errWrite)
+		}
+
+		defer os.Remove("file")
 	})
 }

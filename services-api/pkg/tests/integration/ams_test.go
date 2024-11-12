@@ -10,6 +10,7 @@ import (
 	"testing"
 
 	ams "github.com/AccelByte/accelbyte-go-modular-sdk/ams-sdk/pkg"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/ams-sdk/pkg/amsclient/a_m_s_info"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/ams-sdk/pkg/amsclient/account"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/ams-sdk/pkg/amsclient/fleets"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/ams-sdk/pkg/amsclient/images"
@@ -30,6 +31,10 @@ var (
 	}
 	accountName  = "GoSDKAccountName"
 	fleetService = &ams.FleetsService{
+		Client:          ams.NewAmsClient(configRepo),
+		TokenRepository: tokenRepository,
+	}
+	infoService = &ams.AMSInfoService{
 		Client:          ams.NewAmsClient(configRepo),
 		TokenRepository: tokenRepository,
 	}
@@ -181,4 +186,52 @@ func TestIntegrationAmsFleet(t *testing.T) {
 
 	// Assert
 	assert.Nil(t, errDelete, "err should be nil")
+}
+
+func TestIntegrationInfoRegions(t *testing.T) {
+	// Login User - Arrange
+	Init()
+
+	fleetRegions = append(fleetRegions, fleetRegion)
+
+	// CASE Info regions
+	inputInfo := &a_m_s_info.InfoRegionsParams{
+		Namespace: integration.NamespaceTest,
+	}
+	info, errInfo := infoService.InfoRegionsShort(inputInfo)
+	if errInfo != nil {
+		assert.FailNow(t, errInfo.Error())
+
+		return
+	}
+	// ESAC
+
+	// Assert
+	assert.Nil(t, errInfo, "err should be nil")
+	assert.NotNil(t, info, "should not be nil")
+	t.Logf("regions: %v", info.Regions)
+}
+
+func TestIntegrationInfoSupportedInstances(t *testing.T) {
+	// Login User - Arrange
+	Init()
+
+	fleetRegions = append(fleetRegions, fleetRegion)
+
+	// CASE Info supported instances
+	inputInfo := &a_m_s_info.InfoSupportedInstancesParams{
+		Namespace: integration.NamespaceTest,
+	}
+	info, errInfo := infoService.InfoSupportedInstancesShort(inputInfo)
+	if errInfo != nil {
+		assert.FailNow(t, errInfo.Error())
+
+		return
+	}
+	// ESAC
+
+	// Assert
+	assert.Nil(t, errInfo, "err should be nil")
+	assert.NotNil(t, info, "should not be nil")
+	t.Logf("available instances type: %v", info.AvailableInstanceTypes)
 }

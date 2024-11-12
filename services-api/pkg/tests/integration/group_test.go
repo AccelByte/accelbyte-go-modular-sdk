@@ -53,7 +53,11 @@ var (
 		AllowedAction: nil,
 		RuleDetail:    ruleDetails,
 	}
-	groupRules = &groupclientmodels.ModelsGroupRule{
+	allowMultiple     = false
+	globalRules       []*groupclientmodels.ModelsRule
+	groupAdminRoleId  string
+	groupMemberRoleId string
+	groupRules        = &groupclientmodels.ModelsGroupRule{
 		GroupCustomRule:      groupCustomRule,
 		GroupPredefinedRules: groupPredefinedRules,
 	}
@@ -77,6 +81,63 @@ var (
 		GroupType:        &groupType,
 	}
 )
+
+func TestIntegrationGroupConfiguration(t *testing.T) {
+	// Login User - Arrange
+	Init()
+
+	ruleDetails = append(ruleDetails, ruleDetail)
+	groupPredefinedRules = append(groupPredefinedRules, groupPredefinedRule)
+
+	configurationCode = checkGlobalConfig()
+
+	if configurationCode == "" {
+		groupAdminRoleId = GetUserID()
+		groupMemberRoleId = GetUserID()
+
+		// CASE Create a group configuration admin
+		inputCreate := &configuration.CreateGroupConfigurationAdminV1Params{
+			Body: &groupclientmodels.ModelsCreateGroupConfigurationRequestV1{
+				AllowMultiple:     &allowMultiple,
+				ConfigurationCode: &configurationCode,
+				Description:       &groupDescription,
+				GlobalRules:       globalRules,
+				GroupAdminRoleID:  &groupAdminRoleId,
+				GroupMaxMember:    &groupMaxMember,
+				GroupMemberRoleID: &groupMemberRoleId,
+				Name:              &groupName,
+			},
+			Namespace: integration.NamespaceTest,
+		}
+
+		created, errCreate := configurationService.CreateGroupConfigurationAdminV1Short(inputCreate)
+		if errCreate != nil {
+			assert.FailNow(t, errCreate.Error())
+		} else {
+			groupConfigName := *created.Name
+			t.Logf("GroupConfig: %v created", groupConfigName)
+		}
+		// ESAC
+
+		// Assert
+		assert.Nil(t, errCreate, "err should be nil")
+		assert.NotNil(t, created, "response should not be nil")
+
+		defer deleteGroupConfiguration(t, *created.ConfigurationCode)
+	}
+}
+
+func deleteGroupConfiguration(t *testing.T, code string) {
+	t.Helper()
+
+	errDelete := configurationService.DeleteGroupConfigurationV1Short(&configuration.DeleteGroupConfigurationV1Params{
+		ConfigurationCode: code,
+		Namespace:         integration.NamespaceTest,
+	})
+	if errDelete != nil {
+		t.Skip(errDelete.Error())
+	}
+}
 
 func TestIntegrationGroup(t *testing.T) {
 	// Login User - Arrange

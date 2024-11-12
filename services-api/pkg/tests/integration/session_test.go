@@ -96,6 +96,7 @@ var (
 		MinPlayers:        &minNumber,
 		Type:              &cfgTemplateType,
 	}
+	memberList []string
 )
 
 func TestIntegrationConfigurationTemplate(t *testing.T) {
@@ -335,7 +336,7 @@ func TestIntegrationParty(t *testing.T) {
 	assert.Nil(t, errJoined, "err should be nil")
 	assert.NotNil(t, joined, "should not be nil")
 
-	// CASE Get party detail
+	// CASE Get party
 	inputGet := &partySession.PublicGetPartyParams{
 		Namespace: integration.NamespaceTest,
 		PartyID:   *joined.ID,
@@ -353,11 +354,11 @@ func TestIntegrationParty(t *testing.T) {
 	assert.NotNil(t, get, "should not be nil")
 
 	// CASE User leave a party
-	inputLeave := &partySession.PublicGetPartyParams{
+	inputLeave := &partySession.PublicPartyLeaveParams{
 		Namespace: integration.NamespaceTest,
 		PartyID:   *joined.ID,
 	}
-	leave, errLeave := partyService.PublicGetPartyShort(inputLeave)
+	errLeave := partyService.PublicPartyLeaveShort(inputLeave)
 	if errGet != nil {
 		assert.FailNow(t, errLeave.Error())
 
@@ -367,7 +368,41 @@ func TestIntegrationParty(t *testing.T) {
 
 	// Assert
 	assert.Nil(t, errLeave, "err should be nil")
-	assert.NotNil(t, leave, "should not be nil")
+
+	// CASE Admin query parties
+	inputQuery := &partySession.AdminQueryPartiesParams{
+		Namespace: integration.NamespaceTest,
+	}
+	query, errQuery := partyService.AdminQueryPartiesShort(inputQuery)
+	if errQuery != nil {
+		assert.FailNow(t, errQuery.Error())
+
+		return
+	}
+	// ESAC
+
+	// Assert
+	assert.Nil(t, errQuery, "err should be nil")
+	assert.NotNil(t, query, "should not be nil")
+
+	param := &partySession.PublicGetPartyParams{
+		Namespace: integration.NamespaceTest,
+		PartyID:   *joined.ID,
+	}
+
+	check, errCheck := partyService.PublicGetPartyShort(param)
+	if errCheck != nil {
+		t.Logf(errCheck.Error())
+	} else {
+		for _, m := range check.Members {
+			if *m.Status != "LEFT" {
+				memberList = append(memberList, *m.ID)
+			}
+		}
+
+		assert.NotContains(t, memberList, GetUserID(), "already left")
+		assert.Contains(t, memberList, player2Id)
+	}
 }
 
 func createCfgTemplate() (string, error) {

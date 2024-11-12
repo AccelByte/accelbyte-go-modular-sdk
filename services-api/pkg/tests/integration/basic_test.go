@@ -112,6 +112,16 @@ func TestIntegrationUserProfile(t *testing.T) {
 	// Assert
 	assert.Nil(t, errDelete, "err should be nil")
 	assert.NotNil(t, deleted, "response should not be nil")
+
+	inputCheck := &user_profile.GetMyProfileInfoParams{
+		Namespace: integration.NamespaceTest,
+	}
+	_, err := userProfileService.GetMyProfileInfoShort(inputCheck)
+	if err != nil {
+		logrus.Error("existing profile not found")
+	}
+
+	assert.NotNil(t, err, "err should not be nil")
 }
 
 // helper

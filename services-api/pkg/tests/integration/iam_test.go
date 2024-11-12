@@ -83,6 +83,21 @@ var (
 		ReachMinimumAge: true,
 		Username:        &dynamicUsername,
 	}
+	reachMinimumAge  = false
+	code             = ""
+	createUserBodyV3 = &iamclientmodels.ModelUserCreateRequestV3{
+		PasswordMD5Sum:    "",
+		AcceptedPolicies:  []*iamclientmodels.LegalAcceptedPoliciesRequest{},
+		AuthType:          &authType,
+		Code:              &code,
+		Country:           &country,
+		DateOfBirth:       "1990-01-01",
+		DisplayName:       &displayName,
+		EmailAddress:      &emailAdd,
+		Password:          &password,
+		ReachMinimumAge:   &reachMinimumAge,
+		UniqueDisplayName: dynamicUsername,
+	}
 	updateUserBody = &iamclientmodels.ModelUserUpdateRequestV3{
 		DisplayName: "Golang Update Test",
 	}
@@ -96,7 +111,7 @@ func Init() {
 	}
 	accessToken, err := oAuth20Service.TokenGrantV3Short(input)
 	if err != nil {
-		logrus.Error("failed login")
+		logrus.Errorf("failed login. %v", err.Error())
 	} else if accessToken == nil { //lint:ignore SA5011 possible nil pointer dereference
 		logrus.Error("empty access token")
 	} else {
@@ -105,6 +120,34 @@ func Init() {
 			logrus.Error("failed stored the token")
 		}
 	}
+}
+
+// Create User V3
+func TestIntegrationPublicCreateUserV3(t *testing.T) {
+	t.Parallel()
+
+	// Login user
+	Init()
+
+	input := &users.PublicCreateUserV3Params{
+		Body:      createUserBodyV3,
+		Namespace: integration.NamespaceTest,
+	}
+
+	// CASE Public create user V3
+	expected, err := userService.PublicCreateUserV3Short(input)
+	if err != nil {
+		assert.FailNow(t, err.Error())
+	}
+
+	// ESAC
+
+	// Assert
+	assert.Nil(t, err, "err should be nil")
+	assert.NotNil(t, expected, "response should not be nil")
+
+	// cleanup
+	deletePlayer(*expected.UserID)
 }
 
 // Authorization

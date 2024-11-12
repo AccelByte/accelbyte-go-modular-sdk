@@ -5,9 +5,14 @@
 package integration_test
 
 import (
+	"bytes"
+	"os"
+
 	"testing"
 
 	"github.com/stretchr/testify/assert"
+
+	"github.com/sirupsen/logrus"
 
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils/auth"
 
@@ -119,6 +124,34 @@ func TestIntegrationAchievement(t *testing.T) {
 	assert.Nil(t, errUpdate, "err should be nil")
 	assert.NotNil(t, updated, "response should not be nil")
 	assert.Equal(t, true, *updated.Hidden)
+
+	// CASE Export an achievement
+	file, errFile := os.Create("file")
+	if errFile != nil {
+		t.Errorf("Failed to create file: %v", errFile)
+	}
+	defer file.Close()
+
+	logrus.Infof("Successfully created file: %v", file.Name())
+
+	writer := bytes.NewBuffer(nil)
+
+	inputExport := &achievements.ExportAchievementsParams{
+		Namespace: integration.NamespaceTest,
+	}
+	export, errExport := achievementsService.ExportAchievementsShort(inputExport, writer)
+	// ESAC
+
+	// Assert
+	assert.Nil(t, errExport, "err should be nil")
+	assert.NotNil(t, export, "response should not be nil")
+
+	// write the file
+	if _, err := file.Write(writer.Bytes()); err != nil {
+		t.Errorf("Failed to write export data to file: %v", err)
+	}
+
+	defer os.Remove("file")
 
 	// CASE Get all achievements
 	inputGetAll := &achievements.AdminListAchievementsParams{

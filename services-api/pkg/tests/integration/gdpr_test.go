@@ -10,6 +10,7 @@ import (
 
 	"github.com/stretchr/testify/assert"
 
+	"github.com/AccelByte/accelbyte-go-modular-sdk/gdpr-sdk/pkg/gdprclient/data_retrieval"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils/auth"
 
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/tests/integration"
@@ -23,10 +24,37 @@ var (
 		Client:          gdpr.NewGdprClient(auth.DefaultConfigRepositoryImpl()),
 		TokenRepository: tokenRepository,
 	}
+	gdprRetrievalService = &gdpr.DataRetrievalService{
+		Client:          gdpr.NewGdprClient(auth.DefaultConfigRepositoryImpl()),
+		TokenRepository: tokenRepository,
+	}
 	body   []string
 	email  = "goSDK@accelbyte.net"
 	emails []string
 )
+
+func TestIntegrationAdminGetUserPersonalDataRequest(t *testing.T) {
+	if strings.Contains(configRepository.BaseUrl, "gamingservices.accelbyte.io") {
+		t.Skip("skip for ags starter")
+	}
+
+	// Login User - Arrange
+	Init()
+
+	// CASE Create admin email configuration
+	body = append(body, email)
+	input := &data_retrieval.PublicGetUserPersonalDataRequestsParams{
+		Namespace: integration.NamespaceTest,
+		UserID:    GetUserID(),
+	}
+
+	get, err := gdprRetrievalService.PublicGetUserPersonalDataRequestsShort(input)
+	// ESAC
+
+	// Assert
+	assert.Nil(t, err, "err should be nil")
+	assert.NotNil(t, get, "should not be nil")
+}
 
 func TestIntegrationSaveAdminEmailConfiguration(t *testing.T) {
 	if strings.Contains(configRepository.BaseUrl, "gamingservices.accelbyte.io") {
