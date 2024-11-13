@@ -42,6 +42,25 @@ inputUpdate := &achievements.AdminUpdateAchievementParams{
 updated, errUpdate := achievementsService.AdminUpdateAchievementShort(inputUpdate)
 ```
 
+### Export an achievement
+
+```go
+file, errFile := os.Create("file")
+if errFile != nil {
+	t.Errorf("Failed to create file: %v", errFile)
+}
+defer file.Close()
+
+logrus.Infof("Successfully created file: %v", file.Name())
+
+writer := bytes.NewBuffer(nil)
+
+inputExport := &achievements.ExportAchievementsParams{
+	Namespace: integration.NamespaceTest,
+}
+export, errExport := achievementsService.ExportAchievementsShort(inputExport, writer)
+```
+
 ### Get all achievements
 
 ```go
@@ -160,6 +179,34 @@ if errDelete != nil {
 	return
 }
 ```
+
+### Info regions
+
+```go
+inputInfo := &a_m_s_info.InfoRegionsParams{
+	Namespace: integration.NamespaceTest,
+}
+info, errInfo := infoService.InfoRegionsShort(inputInfo)
+if errInfo != nil {
+	assert.FailNow(t, errInfo.Error())
+
+	return
+}
+```
+
+### Info supported instances
+
+```go
+inputInfo := &a_m_s_info.InfoSupportedInstancesParams{
+	Namespace: integration.NamespaceTest,
+}
+info, errInfo := infoService.InfoSupportedInstancesShort(inputInfo)
+if errInfo != nil {
+	assert.FailNow(t, errInfo.Error())
+
+	return
+}
+```
 ## Basic
 
 Source: [basic_test.go](../services-api/pkg/tests/integration/basic_test.go)
@@ -229,11 +276,11 @@ Source: [chat_test.go](../services-api/pkg/tests/integration/chat_test.go)
 
 ```go
 create, errCreate := profanityOperationsService.AdminProfanityCreateShort(&profanity.AdminProfanityCreateParams{
-Body: &chatclientmodels.ModelsDictionaryInsertRequest{
-Word:     &profanityWord,
-WordType: &profanityWordType,
-},
-Namespace: integration.NamespaceTest,
+	Body: &chatclientmodels.ModelsDictionaryInsertRequest{
+		Word:     &profanityWord,
+		WordType: &profanityWordType,
+	},
+	Namespace: integration.NamespaceTest,
 })
 ```
 
@@ -241,10 +288,10 @@ Namespace: integration.NamespaceTest,
 
 ```go
 get, errGet := profanityOperationsService.AdminProfanityQueryShort(&profanity.AdminProfanityQueryParams{
-Namespace:       integration.NamespaceTest,
-IncludeChildren: &profanityQueryIncludeChildren,
-WordType:        &profanityWordType,
-StartWith:       &profanityWord,
+	Namespace:       integration.NamespaceTest,
+	IncludeChildren: &profanityQueryIncludeChildren,
+	WordType:        &profanityWordType,
+	StartWith:       &profanityWord,
 })
 ```
 
@@ -252,12 +299,12 @@ StartWith:       &profanityWord,
 
 ```go
 update, errUpdate := profanityOperationsService.AdminProfanityUpdateShort(&profanity.AdminProfanityUpdateParams{
-Body: &chatclientmodels.ModelsDictionaryUpdateRequest{
-Word:     &profanityWord,
-WordType: &profanityWordType,
-},
-Namespace: integration.NamespaceTest,
-ID:        *create.ID,
+	Body: &chatclientmodels.ModelsDictionaryUpdateRequest{
+		Word:     &profanityWord,
+		WordType: &profanityWordType,
+	},
+	Namespace: integration.NamespaceTest,
+	ID:        *create.ID,
 })
 ```
 
@@ -265,8 +312,8 @@ ID:        *create.ID,
 
 ```go
 errDelete := profanityOperationsService.AdminProfanityDeleteShort(&profanity.AdminProfanityDeleteParams{
-Namespace: integration.NamespaceTest,
-ID:        *create.ID,
+	Namespace: integration.NamespaceTest,
+	ID:        *create.ID,
 })
 ```
 
@@ -274,14 +321,14 @@ ID:        *create.ID,
 
 ```go
 save, errSave := inboxOperationsService.AdminSaveInboxMessageShort(&inbox.AdminSaveInboxMessageParams{
-Body: &chatclientmodels.ModelsSaveInboxMessageRequest{
-ExpiredAt: &expiredAt,
-Message:   &dataMessage,
-Scope:     &scopeChat,
-Status:    &statusChat,
-UserIds:   userIds,
-},
-Namespace: integration.NamespaceTest,
+	Body: &chatclientmodels.ModelsSaveInboxMessageRequest{
+		ExpiredAt: &expiredAt,
+		Message:   &dataMessage,
+		Scope:     &scopeChat,
+		Status:    &statusChat,
+		UserIds:   userIds,
+	},
+	Namespace: integration.NamespaceTest,
 })
 ```
 
@@ -289,9 +336,9 @@ Namespace: integration.NamespaceTest,
 
 ```go
 create, errCreate := inboxOperationsService.AdminSendInboxMessageShort(&inbox.AdminSendInboxMessageParams{
-Body:      dataMessage,
-MessageID: *save.ID,
-Namespace: integration.NamespaceTest,
+	Body:      dataMessage,
+	MessageID: *save.ID,
+	Namespace: integration.NamespaceTest,
 })
 ```
 
@@ -299,7 +346,7 @@ Namespace: integration.NamespaceTest,
 
 ```go
 get, errGet := inboxOperationsService.AdminGetInboxMessagesShort(&inbox.AdminGetInboxMessagesParams{
-Namespace: integration.NamespaceTest,
+	Namespace: integration.NamespaceTest,
 })
 ```
 
@@ -307,14 +354,14 @@ Namespace: integration.NamespaceTest,
 
 ```go
 errUpdate := inboxOperationsService.AdminUpdateInboxMessageShort(&inbox.AdminUpdateInboxMessageParams{
-Body: &chatclientmodels.ModelsUpdateInboxMessageRequest{
-ExpiredAt: &expiredAt,
-Message:   &dataMessage,
-Scope:     &scopeChat,
-UserIds:   userIds,
-},
-Namespace: integration.NamespaceTest,
-MessageID: *save.ID,
+	Body: &chatclientmodels.ModelsUpdateInboxMessageRequest{
+		ExpiredAt: &expiredAt,
+		Message:   &dataMessage,
+		Scope:     &scopeChat,
+		UserIds:   userIds,
+	},
+	Namespace: integration.NamespaceTest,
+	MessageID: *save.ID,
 })
 ```
 
@@ -322,9 +369,9 @@ MessageID: *save.ID,
 
 ```go
 errDelete := inboxOperationsService.AdminDeleteInboxMessageShort(&inbox.AdminDeleteInboxMessageParams{
-Namespace: integration.NamespaceTest,
-MessageID: *save.ID,
-Force:     &force,
+	Namespace: integration.NamespaceTest,
+	MessageID: *save.ID,
+	Force:     &force,
 })
 ```
 
@@ -332,11 +379,11 @@ Force:     &force,
 
 ```go
 add, errAdd := inboxOperationsService.AdminAddInboxCategoryShort(&inbox.AdminAddInboxCategoryParams{
-Body: &chatclientmodels.ModelsAddInboxCategoryRequest{
-Name:      &categoryName,
-ExpiresIn: &expiresIn,
-},
-Namespace: integration.NamespaceTest,
+	Body: &chatclientmodels.ModelsAddInboxCategoryRequest{
+		Name:      &categoryName,
+		ExpiresIn: &expiresIn,
+	},
+	Namespace: integration.NamespaceTest,
 })
 ```
 
@@ -344,7 +391,7 @@ Namespace: integration.NamespaceTest,
 
 ```go
 get, errGet := inboxOperationsService.AdminGetInboxCategoriesShort(&inbox.AdminGetInboxCategoriesParams{
-Namespace: integration.NamespaceTest,
+	Namespace: integration.NamespaceTest,
 })
 ```
 
@@ -352,11 +399,11 @@ Namespace: integration.NamespaceTest,
 
 ```go
 errUpdate := inboxOperationsService.AdminUpdateInboxCategoryShort(&inbox.AdminUpdateInboxCategoryParams{
-Body: &chatclientmodels.ModelsUpdateInboxCategoryRequest{
-ExpiresIn: &expiresInUpdate,
-},
-Category:  categoryName,
-Namespace: integration.NamespaceTest,
+	Body: &chatclientmodels.ModelsUpdateInboxCategoryRequest{
+		ExpiresIn: &expiresInUpdate,
+	},
+	Category:  categoryName,
+	Namespace: integration.NamespaceTest,
 })
 ```
 
@@ -364,8 +411,8 @@ Namespace: integration.NamespaceTest,
 
 ```go
 errDelete := inboxOperationsService.AdminDeleteInboxCategoryShort(&inbox.AdminDeleteInboxCategoryParams{
-Category:  categoryName,
-Namespace: integration.NamespaceTest,
+	Category:  categoryName,
+	Namespace: integration.NamespaceTest,
 })
 ```
 ## CloudSave
@@ -419,7 +466,7 @@ if errOk != nil {
 
 ```go
 input := &public_game_record.PutGameRecordHandlerV1Params{
-Body:      map[string]interface{}{"foo": "bar"},
+	Body:      map[string]interface{}{"foo": "bar"},
 	Key:       key,
 	Namespace: integration.NamespaceTest,
 }
@@ -434,14 +481,14 @@ if err != nil {
 
 ```go
 input := &public_player_record.PostPlayerPublicRecordHandlerV1Params{
-Body:      map[string]interface{}{"foo": "bar"},
-Key:       key,
-Namespace: integration.NamespaceTest,
-UserID:    userID,
+	Body:      map[string]interface{}{"foo": "bar"},
+	Key:       key,
+	Namespace: integration.NamespaceTest,
+	UserID:    userID,
 }
 ok, err := publicPlayerRecordService.PostPlayerPublicRecordHandlerV1Short(input)
 if err != nil {
-assert.FailNow(t, err.Error())
+	assert.FailNow(t, err.Error())
 }
 ```
 
@@ -449,14 +496,14 @@ assert.FailNow(t, err.Error())
 
 ```go
 inputRecord := &public_player_record.GetPlayerPublicRecordHandlerV1Params{
-Key:       key,
-Namespace: integration.NamespaceTest,
-UserID:    userID,
+	Key:       key,
+	Namespace: integration.NamespaceTest,
+	UserID:    userID,
 }
 
 ok, errOk := publicPlayerRecordService.GetPlayerPublicRecordHandlerV1Short(inputRecord)
 if errOk != nil {
-assert.FailNow(t, errOk.Error())
+	assert.FailNow(t, errOk.Error())
 }
 ```
 
@@ -465,15 +512,15 @@ assert.FailNow(t, errOk.Error())
 ```go
 keyUpdate := key + "-update"
 inputUpdate := &public_player_record.PutPlayerPublicRecordHandlerV1Params{
-Body:      map[string]interface{}{"foo": "bar"},
-Key:       keyUpdate,
-Namespace: integration.NamespaceTest,
-UserID:    userID,
+	Body:      map[string]interface{}{"foo": "bar"},
+	Key:       keyUpdate,
+	Namespace: integration.NamespaceTest,
+	UserID:    userID,
 }
 
 okUpdate, errUpdate := publicPlayerRecordService.PutPlayerPublicRecordHandlerV1Short(inputUpdate)
 if errUpdate != nil {
-assert.FailNow(t, errUpdate.Error())
+	assert.FailNow(t, errUpdate.Error())
 }
 ```
 
@@ -481,14 +528,14 @@ assert.FailNow(t, errUpdate.Error())
 
 ```go
 inputDelete := &public_player_record.DeletePlayerRecordHandlerV1Params{
-Key:       keyUpdate,
-Namespace: integration.NamespaceTest,
-UserID:    userID,
+	Key:       keyUpdate,
+	Namespace: integration.NamespaceTest,
+	UserID:    userID,
 }
 
 errDelete := publicPlayerRecordService.DeletePlayerRecordHandlerV1Short(inputDelete)
 if errDelete != nil {
-assert.FailNow(t, errDelete.Error())
+	assert.FailNow(t, errDelete.Error())
 }
 ```
 ## DSArtifact
@@ -499,12 +546,12 @@ Source: [dsartifact_test.go](../services-api/pkg/tests/integration/dsartifact_te
 
 ```go
 input := &artifact_upload_process_queue.ListAllQueueParams{
-Namespace: namespace,
-Limit:     &limit,
+	Namespace: namespace,
+	Limit:     &limit,
 }
 ok, err := artifactUploadProcessQueueService.ListAllQueueShort(input)
 if err != nil {
-t.Skipf("temporarily disabled") // Armada is deprecated
+	t.Skipf("temporarily disabled") // Armada is deprecated
 }
 ```
 
@@ -512,11 +559,11 @@ t.Skipf("temporarily disabled") // Armada is deprecated
 
 ```go
 input := &all_terminated_servers.ListTerminatedServersParams{
-Limit: &limit,
+	Limit: &limit,
 }
 ok, err := allTerminatedServersService.ListTerminatedServersShort(input)
 if err != nil {
-t.Skipf("temporarily disabled") // Armada is deprecated
+	t.Skipf("temporarily disabled") // Armada is deprecated
 }
 ```
 ## GameTelemetry
@@ -594,12 +641,24 @@ Source: [gdpr_test.go](../services-api/pkg/tests/integration/gdpr_test.go)
 
 ```go
 body = append(body, email)
-input := &configuration.SaveAdminEmailConfigurationParams{
-	Body:      body,
+input := &data_retrieval.PublicGetUserPersonalDataRequestsParams{
 	Namespace: integration.NamespaceTest,
+	UserID:    GetUserID(),
 }
 
-err := gdprConfigurationService.SaveAdminEmailConfigurationShort(input)
+get, err := gdprRetrievalService.PublicGetUserPersonalDataRequestsShort(input)
+```
+
+### Create admin email configuration
+
+```go
+body = append(body, email)
+input := &data_retrieval.PublicGetUserPersonalDataRequestsParams{
+	Namespace: integration.NamespaceTest,
+	UserID:    GetUserID(),
+}
+
+get, err := gdprRetrievalService.PublicGetUserPersonalDataRequestsShort(input)
 ```
 
 ### Get admin email addresses configuration
@@ -641,6 +700,32 @@ err := gdprConfigurationService.DeleteAdminEmailConfigurationShort(input)
 ## Group
 
 Source: [group_test.go](../services-api/pkg/tests/integration/group_test.go)
+
+### Create a group configuration admin
+
+```go
+inputCreate := &configuration.CreateGroupConfigurationAdminV1Params{
+	Body: &groupclientmodels.ModelsCreateGroupConfigurationRequestV1{
+		AllowMultiple:     &allowMultiple,
+		ConfigurationCode: &configurationCode,
+		Description:       &groupDescription,
+		GlobalRules:       globalRules,
+		GroupAdminRoleID:  &groupAdminRoleId,
+		GroupMaxMember:    &groupMaxMember,
+		GroupMemberRoleID: &groupMemberRoleId,
+		Name:              &groupName,
+	},
+	Namespace: integration.NamespaceTest,
+}
+
+created, errCreate := configurationService.CreateGroupConfigurationAdminV1Short(inputCreate)
+if errCreate != nil {
+	assert.FailNow(t, errCreate.Error())
+} else {
+	groupConfigName := *created.Name
+	t.Logf("GroupConfig: %v created", groupConfigName)
+}
+```
 
 ### Create a group
 
@@ -705,6 +790,15 @@ if errDelete != nil {
 ## IAM
 
 Source: [iam_test.go](../services-api/pkg/tests/integration/iam_test.go)
+
+### Public create user V3
+
+```go
+expected, err := userService.PublicCreateUserV3Short(input)
+if err != nil {
+	assert.FailNow(t, err.Error())
+}
+```
 
 ### Authorize
 
@@ -925,6 +1019,41 @@ inputLegal := &agreement.RetrieveAgreementsPublicParams{}
 ok, err := agreementService.RetrieveAgreementsPublicShort(inputLegal)
 ```
 
+### Create policy
+
+```go
+bodyLegals = append(bodyLegals, bodyLegal)
+inputLegal := &base_legal_policies.CreatePolicyParams{
+	Body: &legalclientmodels.CreateBasePolicyRequest{
+		AffectedClientIds: []string{"ID"},
+		AffectedCountries: []string{},
+		BasePolicyName:    "Go SDK Policy Test",
+		Description:       "Go SDK Test",
+		IsHidden:          false,
+		IsHiddenPublic:    false,
+		Namespace:         integration.NamespaceTest,
+		Tags:              []string{"go", "sdk", "test"},
+		TypeID:            "",
+	},
+}
+ok, err := baseLegalService.CreatePolicyShort(inputLegal)
+```
+
+### Create policy version
+
+```go
+bodyLegals = append(bodyLegals, bodyLegal)
+inputLegal := &policy_versions.CreatePolicyVersionParams{
+	Body: &legalclientmodels.CreatePolicyVersionRequest{
+		Description:    "Test Go SDK",
+		DisplayVersion: "1",
+		IsCommitted:    false,
+	},
+	PolicyID: policyID,
+}
+ok, err := policyVersionService.CreatePolicyVersionShort(inputLegal)
+```
+
 ### Update marketing preference consent
 
 ```go
@@ -936,6 +1065,14 @@ inputLegal := &agreement.ChangePreferenceConsentParams{
 }
 
 err := agreementService.ChangePreferenceConsentShort(inputLegal)
+```
+
+### Retrieve Agreements Public
+
+```go
+input := &agreement.RetrieveAgreementsPublicParams{}
+
+policiesExist, err := agreementService.RetrieveAgreementsPublicShort(input)
 ```
 ## Lobby
 
@@ -951,6 +1088,42 @@ err = notificationService.GetNotificationMessage()
 
 ```go
 err = notificationService.GetOfflineNotification()
+```
+
+### Lobby free form notification
+
+```go
+err := lobbyAdminSvc.FreeFormNotificationShort(&lobbyAdminNotification.FreeFormNotificationParams{
+	Body: &lobbyclientmodels.ModelFreeFormNotificationRequest{
+		Message: &message,
+		Topic:   &topic,
+	},
+	Namespace: integration.NamespaceTest,
+})
+```
+
+### Lobby party create request
+
+```go
+err = lobbyWebsocketSvc.PartyCreateRequest(&id)
+```
+
+### Lobby admin export config
+
+```go
+file, errFile := os.Create("file")
+if errFile != nil {
+	t.Errorf("Failed to create file: %v", errFile)
+}
+defer file.Close()
+
+logrus.Infof("Successfully created file: %v", file.Name())
+
+writer := bytes.NewBuffer(nil)
+
+export, err := lobbyConfigSvc.AdminExportConfigV1Short(&config.AdminExportConfigV1Params{
+	Namespace: integration.NamespaceTest,
+}, writer)
 ```
 ## MatchmakingV2
 
@@ -969,6 +1142,21 @@ inputCreateRule := &rule_sets.CreateRuleSetParams{
 errCreateRule := ruleSetsService.CreateRuleSetShort(inputCreateRule)
 if errCreateRule != nil {
 	assert.FailNow(t, errCreateRule.Error())
+
+	return
+}
+```
+
+### Get ruleset details
+
+```go
+inputRuleDetails := &rule_sets.RuleSetDetailsParams{
+	Ruleset:   ruleSetName,
+	Namespace: integration.NamespaceTest,
+}
+getRuleDetails, errRuleDetails := ruleSetsService.RuleSetDetailsShort(inputRuleDetails)
+if errRuleDetails != nil {
+	assert.FailNow(t, errRuleDetails.Error())
 
 	return
 }
@@ -1005,6 +1193,21 @@ if errGetList != nil {
 }
 ```
 
+### Match pool details
+
+```go
+inputDetails := &match_pools.MatchPoolDetailsParams{
+	Namespace: integration.NamespaceTest,
+	Pool:      poolName,
+}
+getDetails, errGetDetails := matchPoolService.MatchPoolDetailsShort(inputDetails)
+if errGetDetails != nil {
+	assert.FailNow(t, errGetDetails.Error())
+
+	return
+}
+```
+
 ### User create a match ticket
 
 ```go
@@ -1033,6 +1236,21 @@ inputDeleteTicket := &match_tickets.DeleteMatchTicketParams{
 errDeletedTicket := matchTicketService.DeleteMatchTicketShort(inputDeleteTicket)
 if errDeletedTicket != nil {
 	assert.FailNow(t, errDeletedTicket.Error())
+
+	return
+}
+```
+
+### Public party leave
+
+```go
+inputLeaveParty := &party.PublicPartyLeaveParams{
+	Namespace: integration.NamespaceTest,
+	PartyID:   partyID,
+}
+errLeaveParty := partyService.PublicPartyLeaveShort(inputLeaveParty)
+if errLeaveParty != nil {
+	assert.FailNow(t, errLeaveParty.Error())
 
 	return
 }
@@ -1374,6 +1592,15 @@ param.SetNamespace(integration.NamespaceTest)
 
 resp, err := sessionHistoryService.AdminQueryPartyDetailShort(param)
 ```
+
+### Query a party detail
+
+```go
+param := game_session_detail.NewAdminQueryPartyDetailParams()
+param.SetNamespace(integration.NamespaceTest)
+
+resp, err := sessionHistoryService.AdminQueryPartyDetailShort(param)
+```
 ## Session
 
 Source: [session_test.go](../services-api/pkg/tests/integration/session_test.go)
@@ -1531,7 +1758,7 @@ if errJoined != nil {
 }
 ```
 
-### Get party detail
+### Get party
 
 ```go
 inputGet := &partySession.PublicGetPartyParams{
@@ -1549,13 +1776,27 @@ if errGet != nil {
 ### User leave a party
 
 ```go
-inputLeave := &partySession.PublicGetPartyParams{
+inputLeave := &partySession.PublicPartyLeaveParams{
 	Namespace: integration.NamespaceTest,
 	PartyID:   *joined.ID,
 }
-leave, errLeave := partyService.PublicGetPartyShort(inputLeave)
+errLeave := partyService.PublicPartyLeaveShort(inputLeave)
 if errGet != nil {
 	assert.FailNow(t, errLeave.Error())
+
+	return
+}
+```
+
+### Admin query parties
+
+```go
+inputQuery := &partySession.AdminQueryPartiesParams{
+	Namespace: integration.NamespaceTest,
+}
+query, errQuery := partyService.AdminQueryPartiesShort(inputQuery)
+if errQuery != nil {
+	assert.FailNow(t, errQuery.Error())
 
 	return
 }
@@ -1661,6 +1902,55 @@ inputImportStat := &stat_configuration.ImportStatsParams{
 }
 
 okImport, errImport := statConfigurationService.ImportStatsShort(inputImportStat)
+```
+
+### Create user item
+
+```go
+inputCreate := &user_statistic.CreateUserStatItemParams{
+	Namespace: integration.NamespaceTest,
+	StatCode:  statCodeSocial,
+	UserID:    *user.UserID,
+}
+
+errCreate := userStatisticService.CreateUserStatItemShort(inputCreate)
+```
+
+### Get user item
+
+```go
+inputGet := &user_statistic.GetUserStatItemsParams{
+	Namespace: integration.NamespaceTest,
+	UserID:    *user.UserID,
+	StatCodes: &statCodeSocial,
+}
+
+get, errGet := userStatisticService.GetUserStatItemsShort(inputGet)
+```
+
+### Inc user stat item value
+
+```go
+inputInc := &user_statistic.IncUserStatItemValueParams{
+	Body:      &socialclientmodels.StatItemInc{Inc: float64(4)},
+	Namespace: integration.NamespaceTest,
+	StatCode:  statCodeSocial,
+	UserID:    *user.UserID,
+}
+
+inc, errInc := userStatisticService.IncUserStatItemValueShort(inputInc)
+```
+
+### Delete user stat items
+
+```go
+inputDelete := &user_statistic.DeleteUserStatItemsParams{
+	Namespace: integration.NamespaceTest,
+	StatCode:  statCodeSocial,
+	UserID:    *user.UserID,
+}
+
+errDelete := userStatisticService.DeleteUserStatItemsShort(inputDelete)
 ```
 ## UGC
 
