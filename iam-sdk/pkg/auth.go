@@ -60,7 +60,7 @@ func (o *OAuth20Service) GrantTokenCredentials(code, codeVerifier string) error 
 	if accessToken == nil {
 		return errors.New("empty access token")
 	}
-	err = o.TokenRepository.Store(*accessToken.GetPayload())
+	err = o.TokenRepository.Store(*accessToken.Data)
 	if err != nil {
 		return err
 	}
@@ -87,7 +87,7 @@ func (o *OAuth20Service) GrantTokenRefreshToken(code, codeVerifier, refreshToken
 	if accessToken == nil {
 		return errors.New("empty access token")
 	}
-	err = o.TokenRepository.Store(*accessToken.GetPayload())
+	err = o.TokenRepository.Store(*accessToken.Data)
 	if err != nil {
 		return err
 	}
@@ -115,7 +115,7 @@ func (o *OAuth20Service) GrantTokenAuthorizationCode(code, codeVerifier, redirec
 	if accessToken == nil {
 		return errors.New("empty access token")
 	}
-	err = o.TokenRepository.Store(*accessToken.GetPayload())
+	err = o.TokenRepository.Store(*accessToken.Data)
 	if err != nil {
 		return err
 	}
@@ -146,7 +146,7 @@ func (o *OAuth20Service) Authenticate(requestID, username, password string) (str
 	if err != nil {
 		return "", err
 	}
-	parsedURL, err := url.Parse(authenticated.Location)
+	parsedURL, err := url.Parse(authenticated.Data)
 	if err != nil {
 		return "", err
 	}
@@ -188,7 +188,7 @@ func (o *OAuth20Service) Authorize(scope, challenge, challengeMethod string) (st
 	if err != nil {
 		return "", err
 	}
-	parsedURL, err := url.Parse(found.Location)
+	parsedURL, err := url.Parse(found.Data)
 	if err != nil {
 		return "", err
 	}
@@ -336,7 +336,7 @@ func (o *OAuth20Service) LoginClient(clientId, clientSecret *string) error {
 	if accessToken == nil {
 		return errors.New("empty access token")
 	}
-	err = o.TokenRepository.Store(*accessToken.GetPayload())
+	err = o.TokenRepository.Store(*accessToken.Data)
 	if err != nil {
 		return err
 	}
@@ -388,7 +388,7 @@ func (o *OAuth20Service) LoginPlatform(input *o_auth2_0.PlatformTokenGrantV3Para
 	if accessToken == nil {
 		return errors.New("empty access token")
 	}
-	accessTokenPayload := accessToken.GetPayload()
+	accessTokenPayload := accessToken.Data
 
 	// convert OauthmodelTokenResponse to OauthmodelTokenResponseV3
 	var accessTokenV3 iamclientmodels.OauthmodelTokenResponseV3

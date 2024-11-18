@@ -193,12 +193,12 @@ func checkPolicy() (bool, error) {
 		return false, err
 	}
 
-	if len(policiesExist) == 0 {
+	if len(policiesExist.Data) == 0 {
 		return false, nil
 	} else {
-		policyID = policiesExist[0].PolicyID
-		policyVersionID = policiesExist[0].PolicyID
-		localizedPolicyVersionID = *policiesExist[0].LocalizedPolicyVersion.ID
+		policyID = policiesExist.Data[0].PolicyID
+		policyVersionID = policiesExist.Data[0].PolicyID
+		localizedPolicyVersionID = *policiesExist.Data[0].LocalizedPolicyVersion.ID
 	}
 
 	return true, nil

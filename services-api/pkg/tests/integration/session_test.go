@@ -123,13 +123,13 @@ func TestIntegrationConfigurationTemplate(t *testing.T) {
 	// Assert
 	assert.Nil(t, errCreated, "err should be nil")
 	assert.NotNil(t, created, "should not be nil")
-	t.Logf("created config template with name: %s", *created.Name)
+	t.Logf("created config template with name: %s", *created.Data.Name)
 
 	// CASE Update Configuration Template
 	inputUpdate := &configuration_template.AdminUpdateConfigurationTemplateV1Params{
 		Body:      bodyTemplateUpdate,
 		Namespace: integration.NamespaceTest,
-		Name:      *created.Name,
+		Name:      *created.Data.Name,
 	}
 	updated, errUpdated := configService.AdminUpdateConfigurationTemplateV1Short(inputUpdate)
 	if errUpdated != nil {
@@ -142,13 +142,13 @@ func TestIntegrationConfigurationTemplate(t *testing.T) {
 	// Assert
 	assert.NotNil(t, updated, "should not be nil")
 	if updated != nil {
-		assert.Equal(t, *updated.MaxPlayers, maxNumberUpdate)
-		t.Logf("updated max player to %v for template name: %s", *updated.MaxPlayers, *updated.Name)
+		assert.Equal(t, *updated.Data.MaxPlayers, maxNumberUpdate)
+		t.Logf("updated max player to %v for template name: %s", *updated.Data.MaxPlayers, *updated.Data.Name)
 	}
 
 	// CASE Delete Configuration Template
 	inputDelete := &configuration_template.AdminDeleteConfigurationTemplateV1Params{
-		Name:      *created.Name,
+		Name:      *created.Data.Name,
 		Namespace: integration.NamespaceTest,
 	}
 	errDeleted := configService.AdminDeleteConfigurationTemplateV1Short(inputDelete)
@@ -196,7 +196,7 @@ func TestIntegrationGameSession(t *testing.T) {
 	// Assert
 	assert.Nil(t, errCreated, "err should be nil")
 	assert.NotNil(t, created, "should be nil")
-	t.Logf("created game session with ID: %s, members %s", *created.ID, *created.Members[0].ID)
+	t.Logf("created game session with ID: %s, members %s", *created.Data.ID, *created.Data.Members[0].ID)
 
 	// Login User - Arrange
 	player2Id := createPlayer2()
@@ -205,7 +205,7 @@ func TestIntegrationGameSession(t *testing.T) {
 	// CASE Join a Game Session
 	inputJoin := &game_session.JoinGameSessionParams{
 		Namespace: integration.NamespaceTest,
-		SessionID: *created.ID,
+		SessionID: *created.Data.ID,
 	}
 	joined, errJoined := gameSessionServiceFor2ndPlayer.JoinGameSessionShort(inputJoin)
 	if errJoined != nil {
@@ -217,13 +217,13 @@ func TestIntegrationGameSession(t *testing.T) {
 
 	// Assert
 	assert.NotNil(t, joined, "should not be nil")
-	assert.Equal(t, int(maxNumber), len(joined.Members))
-	t.Logf("joined P2 %s for session id: %s", player2Id, *joined.ID)
+	assert.Equal(t, int(maxNumber), len(joined.Data.Members))
+	t.Logf("joined P2 %s for session id: %s", player2Id, *joined.Data.ID)
 
 	// CASE Leave a Game Session
 	inputLeave := &game_session.LeaveGameSessionParams{
 		Namespace: integration.NamespaceTest,
-		SessionID: *created.ID,
+		SessionID: *created.Data.ID,
 	}
 	errLeave := gameSessionService.LeaveGameSessionShort(inputLeave)
 	if errLeave != nil {
@@ -237,7 +237,7 @@ func TestIntegrationGameSession(t *testing.T) {
 	assert.Nil(t, errLeave, "err should be nil")
 
 	// CASE Delete Game Session
-	ids := []string{*created.ID}
+	ids := []string{*created.Data.ID}
 	inputDelete := &game_session.AdminDeleteBulkGameSessionsParams{
 		Body:      &sessionclientmodels.ApimodelsDeleteBulkGameSessionRequest{Ids: ids},
 		Namespace: integration.NamespaceTest,
@@ -253,7 +253,7 @@ func TestIntegrationGameSession(t *testing.T) {
 	// Assert
 	assert.Nil(t, errDeleted, "err should be nil")
 	assert.NotNil(t, deleted, "should not be nil")
-	t.Logf("successfully delete/clean session id: %s", *created.ID)
+	t.Logf("successfully delete/clean session id: %s", *created.Data.ID)
 }
 
 func TestIntegrationQueryGameSession(t *testing.T) {
@@ -321,7 +321,7 @@ func TestIntegrationParty(t *testing.T) {
 
 	// CASE User join a party with code
 	inputJoined := &partySession.PublicPartyJoinCodeParams{
-		Body:      &sessionclientmodels.ApimodelsJoinByCodeRequest{Code: created.Code},
+		Body:      &sessionclientmodels.ApimodelsJoinByCodeRequest{Code: created.Data.Code},
 		Namespace: integration.NamespaceTest,
 	}
 	joined, errJoined := partyServiceFor2ndPlayer.PublicPartyJoinCodeShort(inputJoined)
@@ -339,7 +339,7 @@ func TestIntegrationParty(t *testing.T) {
 	// CASE Get party
 	inputGet := &partySession.PublicGetPartyParams{
 		Namespace: integration.NamespaceTest,
-		PartyID:   *joined.ID,
+		PartyID:   *joined.Data.ID,
 	}
 	get, errGet := partyService.PublicGetPartyShort(inputGet)
 	if errGet != nil {
@@ -356,7 +356,7 @@ func TestIntegrationParty(t *testing.T) {
 	// CASE User leave a party
 	inputLeave := &partySession.PublicPartyLeaveParams{
 		Namespace: integration.NamespaceTest,
-		PartyID:   *joined.ID,
+		PartyID:   *joined.Data.ID,
 	}
 	errLeave := partyService.PublicPartyLeaveShort(inputLeave)
 	if errGet != nil {
@@ -387,14 +387,14 @@ func TestIntegrationParty(t *testing.T) {
 
 	param := &partySession.PublicGetPartyParams{
 		Namespace: integration.NamespaceTest,
-		PartyID:   *joined.ID,
+		PartyID:   *joined.Data.ID,
 	}
 
 	check, errCheck := partyService.PublicGetPartyShort(param)
 	if errCheck != nil {
 		t.Logf(errCheck.Error())
 	} else {
-		for _, m := range check.Members {
+		for _, m := range check.Data.Members {
 			if *m.Status != "LEFT" {
 				memberList = append(memberList, *m.ID)
 			}
@@ -417,7 +417,7 @@ func createCfgTemplate() (string, error) {
 		return "", errCreated
 	}
 
-	return *created.Name, nil
+	return *created.Data.Name, nil
 }
 
 func deleteCfgTemplate(name string) error {
@@ -448,7 +448,7 @@ func createPlayer2() string {
 
 		return ""
 	}
-	logrus.Infof("userId: %v", *user.UserID)
+	logrus.Infof("userId: %v", *user.Data.UserID)
 
 	// login
 	oAuth20Service2 := &iam.OAuth20Service{
@@ -456,7 +456,7 @@ func createPlayer2() string {
 		ConfigRepository: auth.DefaultConfigRepositoryImpl(),
 		TokenRepository:  tokenRepository2ndPlayer,
 	}
-	errLogin := oAuth20Service2.Login(*user.EmailAddress, pwd)
+	errLogin := oAuth20Service2.Login(*user.Data.EmailAddress, pwd)
 	if errLogin != nil {
 		logrus.Error("failed login. ", errLogin.Error())
 
@@ -465,7 +465,7 @@ func createPlayer2() string {
 	token, _ := oAuth20Service2.TokenRepository.GetToken()
 	logrus.Infof("2nd token %s", *token.AccessToken)
 
-	return *user.UserID
+	return *user.Data.UserID
 }
 
 func deletePlayer(userId string) {

@@ -139,7 +139,7 @@ func getCountryLocation() {
 
 		return
 	} else {
-		log.Printf("Country name: %s", *ok.CountryName)
+		log.Printf("Country name: %s", *ok.Data.CountryName)
 	}
 }
 

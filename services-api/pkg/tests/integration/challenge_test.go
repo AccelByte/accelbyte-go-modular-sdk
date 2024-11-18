@@ -113,7 +113,7 @@ func TestIntegrationChallenge(t *testing.T) {
 	if errCreate != nil {
 		assert.FailNow(t, errCreate.Error())
 	}
-	t.Logf("Challenge: %v created", created.Name)
+	t.Logf("Challenge: %v created", created.Data.Name)
 	// ESAC
 
 	// Assert
@@ -130,7 +130,7 @@ func TestIntegrationChallenge(t *testing.T) {
 	if errGet != nil {
 		assert.FailNow(t, errGet.Error())
 	}
-	t.Logf("Challenge: %v", challengeData.Name)
+	t.Logf("Challenge: %v", challengeData.Data.Name)
 	// ESAC
 
 	// Assert
@@ -148,7 +148,7 @@ func TestIntegrationChallenge(t *testing.T) {
 	if errUpdate != nil {
 		assert.FailNow(t, errUpdate.Error())
 	}
-	t.Logf("Challenge: %v updated", challengeData.Name)
+	t.Logf("Challenge: %v updated", challengeData.Data.Name)
 	// ESAC
 
 	// Assert
@@ -166,7 +166,7 @@ func TestIntegrationChallenge(t *testing.T) {
 	if errCreate != nil {
 		assert.FailNow(t, errCreate.Error())
 	}
-	t.Logf("Goal: %v created", newGoal.Name)
+	t.Logf("Goal: %v created", newGoal.Data.Name)
 	// ESAC
 
 	// Assert

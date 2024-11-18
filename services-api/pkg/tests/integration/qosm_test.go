@@ -39,11 +39,11 @@ func TestIntegrationListServerHeartbeat(t *testing.T) {
 	// Assert
 	assert.Nil(t, errListSertver, "err should be nil")
 
-	if len(listServerOk.Servers) == 0 {
+	if len(listServerOk.Data.Servers) == 0 {
 		t.Skip("response 'Servers' is empty")
 	}
 
-	firstServer := listServerOk.Servers[0]
+	firstServer := listServerOk.Data.Servers[0]
 	heartbeatRequest := qosmclientmodels.ModelsHeartbeatRequest{
 		IP:     firstServer.IP,
 		Port:   firstServer.Port,

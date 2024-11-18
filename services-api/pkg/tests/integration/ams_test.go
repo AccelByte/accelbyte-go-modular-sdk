@@ -127,11 +127,11 @@ func TestIntegrationAmsFleet(t *testing.T) {
 	// Assert
 	assert.Nil(t, errCreated, "err should be nil")
 	assert.NotNil(t, created, "should not be nil")
-	t.Logf("fleetId: %v", *created.ID)
+	t.Logf("fleetId: %v", *created.Data.ID)
 
 	// CASE Get Fleet
 	inputGet := &fleets.FleetGetParams{
-		FleetID:   *created.ID,
+		FleetID:   *created.Data.ID,
 		Namespace: integration.NamespaceTest,
 	}
 	get, errGet := fleetService.FleetGetShort(inputGet)
@@ -157,7 +157,7 @@ func TestIntegrationAmsFleet(t *testing.T) {
 			Name:    &fleetNameUpdate,
 			Regions: fleetRegions,
 		},
-		FleetID:   *created.ID,
+		FleetID:   *created.Data.ID,
 		Namespace: integration.NamespaceTest,
 	}
 	errUpdated := fleetService.FleetUpdateShort(inputUpdate)
@@ -173,7 +173,7 @@ func TestIntegrationAmsFleet(t *testing.T) {
 
 	// CASE Delete Fleet
 	inputDelete := &fleets.FleetDeleteParams{
-		FleetID:   *created.ID,
+		FleetID:   *created.Data.ID,
 		Namespace: integration.NamespaceTest,
 	}
 	errDelete := fleetService.FleetDeleteShort(inputDelete)

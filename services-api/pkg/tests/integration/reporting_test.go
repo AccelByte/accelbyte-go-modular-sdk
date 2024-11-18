@@ -53,7 +53,7 @@ func TestIntegrationCreateReason(t *testing.T) {
 	assert.NotNil(t, created, "should not be nil")
 
 	// Cleanup
-	deleteReason(*created.ID)
+	deleteReason(*created.Data.ID)
 }
 
 func TestIntegrationDeleteReason(t *testing.T) {
@@ -127,7 +127,7 @@ func createReason() (string, error) {
 	if errGet != nil {
 		logrus.Error(errGet.Error())
 	}
-	for _, reason := range get.Data {
+	for _, reason := range get.Data.Data {
 		if reason.Title != nil {
 			return *reason.ID, nil
 		}
@@ -147,7 +147,7 @@ func createReason() (string, error) {
 		logrus.Error(errCreate.Error())
 	}
 
-	return *create.ID, nil
+	return *create.Data.ID, nil
 }
 
 func deleteReason(reasonID string) {

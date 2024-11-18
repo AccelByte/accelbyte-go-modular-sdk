@@ -90,7 +90,7 @@ func TestIntegrationAchievement(t *testing.T) {
 	if errCreate != nil {
 		assert.FailNow(t, errCreate.Error())
 	}
-	t.Logf("AchievementCode: %v created", *created.AchievementCode)
+	t.Logf("AchievementCode: %v created", *created.Data.AchievementCode)
 	// ESAC
 
 	// Assert
@@ -123,7 +123,7 @@ func TestIntegrationAchievement(t *testing.T) {
 	// Assert
 	assert.Nil(t, errUpdate, "err should be nil")
 	assert.NotNil(t, updated, "response should not be nil")
-	assert.Equal(t, true, *updated.Hidden)
+	assert.Equal(t, true, *updated.Data.Hidden)
 
 	// CASE Export an achievement
 	file, errFile := os.Create("file")

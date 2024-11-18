@@ -447,8 +447,8 @@ if errClaims != nil {
 
 - Getting an Username from User Id from AB Cloud IAM Service
 ```go
-userID := *claims.UserID
-namespace := *claims.Namespace
+userID := *claims.Data.UserID
+namespace := *claims.Data.Namespace
 ```
 
 - Sending Notification to User using AB Cloud Lobby Service

@@ -61,7 +61,7 @@ func TestIntegrationAdminProfanity(t *testing.T) {
 	}
 	assert.NotNil(t, create, "should not be nil")
 
-	defer TearDownTestIntegrationAdminProfanity(t, *create)
+	defer TearDownTestIntegrationAdminProfanity(t, *create.Data)
 
 	t.Logf("Getting profanity word: %s", profanityWord)
 
@@ -82,7 +82,7 @@ func TestIntegrationAdminProfanity(t *testing.T) {
 	}
 	assert.NotNil(t, get, "should not be nil")
 	profanityWordFound := false
-	for _, profanityData := range get.Data {
+	for _, profanityData := range get.Data.Data {
 		if *profanityData.Word == profanityWord {
 			profanityWordFound = true
 		}
@@ -99,7 +99,7 @@ func TestIntegrationAdminProfanity(t *testing.T) {
 			WordType: &profanityWordType,
 		},
 		Namespace: integration.NamespaceTest,
-		ID:        *create.ID,
+		ID:        *create.Data.ID,
 	})
 
 	// ESAC
@@ -166,7 +166,7 @@ func TestIntegrationInbox(t *testing.T) {
 	}
 	assert.NotNil(t, save, "should not be nil")
 
-	defer TearDownTestIntegrationInbox(t, *save)
+	defer TearDownTestIntegrationInbox(t, *save.Data)
 
 	t.Logf("Sending inbox message: %s", dataMessage)
 
@@ -174,7 +174,7 @@ func TestIntegrationInbox(t *testing.T) {
 
 	create, errCreate := inboxOperationsService.AdminSendInboxMessageShort(&inbox.AdminSendInboxMessageParams{
 		Body:      dataMessage,
-		MessageID: *save.ID,
+		MessageID: *save.Data.ID,
 		Namespace: integration.NamespaceTest,
 	})
 
@@ -214,7 +214,7 @@ func TestIntegrationInbox(t *testing.T) {
 			UserIds:   userIds,
 		},
 		Namespace: integration.NamespaceTest,
-		MessageID: *save.ID,
+		MessageID: *save.Data.ID,
 	})
 
 	// ESAC

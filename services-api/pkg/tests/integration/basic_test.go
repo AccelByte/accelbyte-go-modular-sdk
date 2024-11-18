@@ -57,7 +57,7 @@ func TestIntegrationUserProfile(t *testing.T) {
 	if errCreate != nil {
 		assert.FailNow(t, errCreate.Error())
 	}
-	t.Logf("Profile: %v created", created.UserID)
+	t.Logf("Profile: %v created", created.Data.UserID)
 	// ESAC
 
 	// Assert
@@ -67,7 +67,7 @@ func TestIntegrationUserProfile(t *testing.T) {
 	// CASE Get a profile
 	inputGet := &user_profile.PublicGetUserProfileInfoParams{
 		Namespace: integration.NamespaceTest,
-		UserID:    created.UserID,
+		UserID:    created.Data.UserID,
 	}
 
 	get, errGet := userProfileService.PublicGetUserProfileInfoShort(inputGet)
@@ -84,7 +84,7 @@ func TestIntegrationUserProfile(t *testing.T) {
 	inputUpdate := &user_profile.PublicUpdateUserProfileParams{
 		Body:      bodyBasicUpdate,
 		Namespace: integration.NamespaceTest,
-		UserID:    created.UserID,
+		UserID:    created.Data.UserID,
 	}
 
 	updated, errUpdate := userProfileService.PublicUpdateUserProfileShort(inputUpdate)
@@ -100,7 +100,7 @@ func TestIntegrationUserProfile(t *testing.T) {
 	// CASE Delete a profile
 	inputDelete := &user_profile.DeleteUserProfileParams{
 		Namespace: integration.NamespaceTest,
-		UserID:    created.UserID,
+		UserID:    created.Data.UserID,
 	}
 
 	deleted, errDelete := userProfileService.DeleteUserProfileShort(inputDelete)
@@ -136,12 +136,12 @@ func checkProfileExist() {
 	if existingProfile != nil {
 		inputDelete := &user_profile.DeleteUserProfileParams{
 			Namespace: integration.NamespaceTest,
-			UserID:    existingProfile.UserID,
+			UserID:    existingProfile.Data.UserID,
 		}
 		deleted, errDelete := userProfileService.DeleteUserProfileShort(inputDelete)
 		if errDelete != nil {
 			logrus.Error(errDelete.Error())
 		}
-		logrus.Infof("Existing Profile: %v deleted", deleted.UserID)
+		logrus.Infof("Existing Profile: %v deleted", deleted.Data.UserID)
 	}
 }

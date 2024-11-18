@@ -221,7 +221,7 @@ func TestIntegrationMatchPool(t *testing.T) {
 	// CASE Delete a match ticket
 	inputDeleteTicket := &match_tickets.DeleteMatchTicketParams{
 		Namespace: integration.NamespaceTest,
-		Ticketid:  *createdTicket.MatchTicketID,
+		Ticketid:  *createdTicket.Data.MatchTicketID,
 	}
 	errDeletedTicket := matchTicketService.DeleteMatchTicketShort(inputDeleteTicket)
 	if errDeletedTicket != nil {
@@ -251,7 +251,7 @@ func TestIntegrationMatchPool(t *testing.T) {
 	assert.Nil(t, errLeaveParty, "err should be nil")
 
 	var matchRuleSet string
-	for _, match := range getList.Data {
+	for _, match := range getList.Data.Data {
 		poolName = *match.Name
 		matchRuleSet = *match.RuleSet
 	}
@@ -345,7 +345,7 @@ func getSessionID(t *testing.T, memberID string) string {
 		return ""
 	}
 
-	partyID = *created.ID
+	partyID = *created.Data.ID
 
 	return *created.ID
 }

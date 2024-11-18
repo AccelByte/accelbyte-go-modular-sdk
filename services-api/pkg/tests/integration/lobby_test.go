@@ -217,7 +217,7 @@ func TestIntegrationLobbyNotificationTopics(t *testing.T) {
 		})
 		assert.NoError(t, err)
 		assert.NotNil(t, resp)
-		assert.Equal(t, topic, *resp.TopicName)
+		assert.Equal(t, topic, *resp.Data.TopicName)
 	})
 
 	//
@@ -281,8 +281,8 @@ func TestIntegrationLobbyNotificationTemplates(t *testing.T) {
 		assert.NoError(t, err)
 		assert.NotNil(t, resp)
 		assert.NotEmpty(t, resp.Data)
-		assert.Equal(t, templLang, *resp.Data[0].TemplateLanguage)
-		assert.Equal(t, templContent, *resp.Data[0].TemplateContent.Draft)
+		assert.Equal(t, templLang, *resp.Data.Data[0].TemplateLanguage)
+		assert.Equal(t, templContent, *resp.Data.Data[0].TemplateContent.Draft)
 	})
 
 	t.Run("Admin update template language", func(t *testing.T) {

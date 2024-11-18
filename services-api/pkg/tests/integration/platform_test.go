@@ -70,7 +70,7 @@ func TestIntegrationStore(t *testing.T) {
 	if errCreate != nil {
 		assert.FailNow(t, errCreate.Error())
 	}
-	storeID := *created.StoreID
+	storeID := *created.Data.StoreID
 	t.Logf("Store: %v created", storeID)
 	// ESAC
 
@@ -158,7 +158,7 @@ func TestIntegrationExportImportStore(t *testing.T) {
 
 	// Prepare the file zip with "published" json store - Arrange
 	fileName := "test.zip"
-	file, err := utils.ConvertByteToFile(okExport, writer, fileName)
+	file, err := utils.ConvertByteToFile(okExport.Data, writer, fileName)
 	if err != nil {
 		t.Fatalf("failed to convert file. %s", err.Error())
 	}
@@ -206,7 +206,7 @@ func TestIntegrationExportImportReward(t *testing.T) {
 
 	// Arrange
 	fileName := "test.json"
-	file, err := utils.ConvertByteToFile(okExport, writer, fileName)
+	file, err := utils.ConvertByteToFile(okExport.Data, writer, fileName)
 	if err != nil {
 		t.Fatal(err.Error())
 	}
@@ -243,7 +243,7 @@ func createStore() string {
 
 		return ""
 	}
-	storeID := *created.StoreID
+	storeID := *created.Data.StoreID
 
 	return storeID
 }
@@ -260,7 +260,7 @@ func publishStore(storeId string) string {
 
 		return ""
 	}
-	storeID := *created.StoreID
+	storeID := *created.Data.StoreID
 
 	return storeID
 }
@@ -296,10 +296,10 @@ func checkStore() {
 		logrus.Errorf("failed to get the store. %s", err.Error())
 	}
 
-	if len(listStores) > 0 {
+	if len(listStores.Data) > 0 {
 		logrus.Infof("found an existing store in the namespace.")
 
-		for _, s := range listStores {
+		for _, s := range listStores.Data {
 			if *s.Published {
 				del, errDelete := storeService.DeletePublishedStoreShort(&store.DeletePublishedStoreParams{
 					Namespace: integration.NamespaceTest,
@@ -307,7 +307,7 @@ func checkStore() {
 				if errDelete != nil {
 					logrus.Errorf("failed to delete the store. %s", errDelete.Error())
 				}
-				logrus.Infof("deleting existing store with id: %s, title: %s", *del.StoreID, *del.Title)
+				logrus.Infof("deleting existing store with id: %s, title: %s", *del.Data.StoreID, *del.Data.Title)
 			} else {
 				del, errDelete := storeService.DeleteStoreShort(&store.DeleteStoreParams{
 					Namespace: integration.NamespaceTest,
@@ -316,7 +316,7 @@ func checkStore() {
 				if errDelete != nil {
 					logrus.Errorf("failed to delete the store. %s", errDelete.Error())
 				}
-				logrus.Infof("deleting existing store with id: %s, title: %s", *del.StoreID, *del.Title)
+				logrus.Infof("deleting existing store with id: %s, title: %s", *del.Data.StoreID, *del.Data.Title)
 			}
 		}
 

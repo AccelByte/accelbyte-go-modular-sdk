@@ -57,7 +57,7 @@ func main() {
 		if errLoc != nil {
 			fmt.Println(errLoc.Error())
 		} else {
-			fmt.Printf("Country name: %s\n", *ok.CountryName)
+			fmt.Printf("Country name: %s\n", *ok.Data.CountryName)
 		}
 		time.Sleep(5 * time.Second)
 	}

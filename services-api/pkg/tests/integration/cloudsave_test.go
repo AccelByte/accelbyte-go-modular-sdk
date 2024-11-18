@@ -172,15 +172,15 @@ func TestIntegrationPlayerRecordHandlerV1(t *testing.T) {
 		UserID:    userID,
 	}
 
-	ok, errOk := publicPlayerRecordService.GetPlayerPublicRecordHandlerV1Short(inputRecord)
-	if errOk != nil {
-		assert.FailNow(t, errOk.Error())
+	okGet, errGet := publicPlayerRecordService.GetPlayerPublicRecordHandlerV1Short(inputRecord)
+	if errGet != nil {
+		assert.FailNow(t, errGet.Error())
 	}
 	// ESAC
 
 	// Assert
-	assert.NotNil(t, ok, "err should not be nil")
-	assert.Nil(t, errOk, "err should be nil")
+	assert.NotNil(t, okGet, "err should not be nil")
+	assert.Nil(t, errGet, "err should be nil")
 
 	// CASE Put a player record
 	keyUpdate := key + "-update"
@@ -200,7 +200,7 @@ func TestIntegrationPlayerRecordHandlerV1(t *testing.T) {
 	// Assert
 	assert.NotNil(t, okUpdate, "err should not be nil")
 	assert.Nil(t, errUpdate, "err should be nil")
-	assert.Equal(t, keyUpdate, *okUpdate.Key)
+	assert.Equal(t, keyUpdate, *okUpdate.Data.Key)
 
 	// CASE Delete a player record
 	inputDelete := &public_player_record.DeletePlayerRecordHandlerV1Params{

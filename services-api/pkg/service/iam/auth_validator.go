@@ -248,8 +248,8 @@ func (v *TokenValidator) fetchJWKSet() error {
 		return err
 	}
 
-	v.JwkSet = jwkSet
-	for _, key := range jwkSet.Keys {
+	v.JwkSet = jwkSet.Data
+	for _, key := range jwkSet.Data.Keys {
 		publicKey, err := v.convertToPublicKey(key)
 		if err != nil {
 			return err
@@ -267,9 +267,9 @@ func (v *TokenValidator) fetchRevocationList() error {
 		return err
 	}
 
-	v.Filter = bloom.From(revocationList.RevokedTokens.Bits, uint(*revocationList.RevokedTokens.K))
+	v.Filter = bloom.From(revocationList.Data.RevokedTokens.Bits, uint(*revocationList.Data.RevokedTokens.K))
 
-	for _, revokedUser := range revocationList.RevokedUsers {
+	for _, revokedUser := range revocationList.Data.RevokedUsers {
 		v.RevokedUsers[*revokedUser.ID] = time.Time(revokedUser.RevokedAt)
 	}
 
@@ -293,9 +293,9 @@ func (v *TokenValidator) getRole(roleId string, forceFetch bool) (*iamclientmode
 		return nil, err
 	}
 
-	v.Roles[roleId] = role
+	v.Roles[roleId] = role.Data
 
-	return role, nil
+	return role.Data, nil
 }
 
 func (v *TokenValidator) getRolePermissions(roleId string, forceFetch bool) ([]Permission, error) {

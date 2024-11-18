@@ -115,7 +115,7 @@ func Init() {
 	} else if accessToken == nil { //lint:ignore SA5011 possible nil pointer dereference
 		logrus.Error("empty access token")
 	} else {
-		errStore := oAuth20Service.TokenRepository.Store(*accessToken)
+		errStore := oAuth20Service.TokenRepository.Store(*accessToken.Data)
 		if errStore != nil {
 			logrus.Error("failed stored the token")
 		}
@@ -267,6 +267,8 @@ func TestIntegrationGrantTokenAuthorizationCode(t *testing.T) {
 		GrantType:    o_auth2_0.TokenGrantV3AuthorizationCodeConstant,
 	}
 
+	oAuth20Service.TokenRepository.RemoveToken()
+
 	expected, errExpected := oAuth20Service.TokenGrantV3Short(inputTokenGrant)
 	if errExpected != nil {
 		assert.FailNow(t, errExpected.Error())
@@ -331,7 +333,7 @@ func TestIntegrationUser(t *testing.T) {
 	if err != nil {
 		assert.FailNow(t, err.Error())
 	}
-	t.Logf("userId: %v", *user.UserID)
+	t.Logf("userId: %v", *user.Data.UserID)
 	// ESAC
 
 	// Assert
@@ -342,7 +344,7 @@ func TestIntegrationUser(t *testing.T) {
 	inputUpdate := &users.AdminUpdateUserV3Params{
 		Body:      updateUserBody,
 		Namespace: integration.NamespaceTest,
-		UserID:    *user.UserID,
+		UserID:    *user.Data.UserID,
 	}
 
 	update, errUpdate := userService.AdminUpdateUserV3Short(inputUpdate)
@@ -357,7 +359,7 @@ func TestIntegrationUser(t *testing.T) {
 	// CASE Get user by Id
 	inputGet := &users.AdminGetUserByUserIDV3Params{
 		Namespace: integration.NamespaceTest,
-		UserID:    *user.UserID,
+		UserID:    *user.Data.UserID,
 	}
 
 	get, errGet := userService.AdminGetUserByUserIDV3Short(inputGet)
@@ -372,7 +374,7 @@ func TestIntegrationUser(t *testing.T) {
 	// CASE Delete a user
 	inputDelete := &users.AdminDeleteUserInformationV3Params{
 		Namespace: integration.NamespaceTest,
-		UserID:    *user.UserID,
+		UserID:    *user.Data.UserID,
 	}
 
 	errDelete := userService.AdminDeleteUserInformationV3Short(inputDelete)
@@ -406,7 +408,7 @@ func TestIntegrationLoginClient(t *testing.T) {
 	country, err := oAuth20ExtensionService.GetCountryLocationV3Short(input)
 	assert.NoError(t, err)
 	assert.NotNil(t, country)
-	t.Logf("Country name: %s", *country.CountryName)
+	t.Logf("Country name: %s", *country.Data.CountryName)
 }
 
 func TestIntegrationLoginPublicClient(t *testing.T) {

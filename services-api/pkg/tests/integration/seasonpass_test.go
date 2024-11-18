@@ -72,7 +72,7 @@ func deleteAllDraftStores() error {
 		return err
 	}
 
-	for _, storeInfo := range listStoresOk {
+	for _, storeInfo := range listStoresOk.Data {
 		if storeInfo.Published != nil && *storeInfo.Published == true {
 			continue
 		}
@@ -99,8 +99,8 @@ func getStore() (*platformclientmodels.StoreInfo, error) {
 		return nil, err
 	}
 
-	if len(listStoresOk) > 0 {
-		return listStoresOk[0], err
+	if len(listStoresOk.Data) > 0 {
+		return listStoresOk.Data[0], err
 	}
 
 	inputCreateStore := store.CreateStoreParams{
@@ -112,7 +112,7 @@ func getStore() (*platformclientmodels.StoreInfo, error) {
 		return nil, err
 	}
 
-	return createStoreOk, nil
+	return createStoreOk.Data, nil
 }
 
 func getStoreTierItemID(storeID string) (*string, error) {
@@ -173,7 +173,7 @@ func getStoreTierItemID(storeID string) (*string, error) {
 		return nil, err
 	}
 
-	return createItemOk.ItemID, nil
+	return createItemOk.Data.ItemID, nil
 }
 
 func TestIntegrationSeason(t *testing.T) {
@@ -237,7 +237,7 @@ func TestIntegrationSeason(t *testing.T) {
 	assert.Nil(t, errCreateSeason, "err should be nil")
 	assert.NotNil(t, createSeasonOk, "response should not be nil")
 
-	seasonID := *createSeasonOk.ID
+	seasonID := *createSeasonOk.Data.ID
 
 	// CASE UpdateSeason
 	updatedSeasonName := "UpdatedGoServerSDKTestSeason"
@@ -281,5 +281,5 @@ func TestIntegrationSeason(t *testing.T) {
 
 	// Assert
 	assert.Nil(t, errDeleteSeason, "err should be nil")
-	assert.Equal(t, updatedSeasonName, *getSeasonOk.Name)
+	assert.Equal(t, updatedSeasonName, *getSeasonOk.Data.Name)
 }

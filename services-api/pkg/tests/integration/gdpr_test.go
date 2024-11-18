@@ -91,8 +91,12 @@ func TestIntegrationAdminListDataRetrieval(t *testing.T) {
 		Namespace: integration.NamespaceTest,
 	}
 
+	gdprConfigurationService.TokenRepository.Store(input)
+
 	ok, err := gdprConfigurationService.GetAdminEmailConfigurationShort(input)
 	// ESAC
+
+	ok.Unpack()
 
 	// Assert
 	assert.Nil(t, err, "err should be nil")

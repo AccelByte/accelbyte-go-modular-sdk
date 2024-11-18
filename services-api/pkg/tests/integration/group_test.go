@@ -156,7 +156,7 @@ func TestIntegrationGroup(t *testing.T) {
 	getUserGroup, errGetUserGroup := groupMemberService.GetUserGroupInformationPublicV2Short(inputGetUserGroup)
 
 	if errGetUserGroup == nil {
-		for _, data := range getUserGroup.Data {
+		for _, data := range getUserGroup.Data.Data {
 			inputLeave := &group_member.LeaveGroupPublicV2Params{
 				GroupID:   *data.GroupID,
 				Namespace: namespace,
@@ -179,7 +179,7 @@ func TestIntegrationGroup(t *testing.T) {
 	if errCreate != nil {
 		assert.FailNow(t, errCreate.Error())
 	}
-	groupID := *created.GroupID
+	groupID := *created.Data.GroupID
 	t.Logf("GroupID: %v created", groupID)
 	// ESAC
 
@@ -197,7 +197,7 @@ func TestIntegrationGroup(t *testing.T) {
 	if errGet != nil {
 		assert.FailNow(t, errGet.Error())
 	}
-	t.Logf("GroupID: %v get with name: %v", groupID, *created.GroupName)
+	t.Logf("GroupID: %v get with name: %v", groupID, *created.Data.GroupName)
 	// ESAC
 
 	// Assert
@@ -259,11 +259,11 @@ func checkGlobalConfig() string {
 		if errCreate != nil {
 			logrus.Error(errCreate)
 		}
-		logrus.Infof("Configuration has been initiated with Role Admin: %v, Role Member: %v", *create.GroupAdminRoleID, *create.GroupMemberRoleID)
+		logrus.Infof("Configuration has been initiated with Role Admin: %v, Role Member: %v", *create.Data.GroupAdminRoleID, *create.Data.GroupMemberRoleID)
 
-		return *create.ConfigurationCode
+		return *create.Data.ConfigurationCode
 	}
-	logrus.Infof("Configuration with Role Admin: %v, Role Member: %v", *get.GroupAdminRoleID, *get.GroupMemberRoleID)
+	logrus.Infof("Configuration with Role Admin: %v, Role Member: %v", *get.Data.GroupAdminRoleID, *get.Data.GroupMemberRoleID)
 
-	return *get.ConfigurationCode
+	return *get.Data.ConfigurationCode
 }

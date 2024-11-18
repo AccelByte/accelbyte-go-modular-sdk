@@ -74,7 +74,7 @@ func TestIntegrationSessionDSMC(t *testing.T) {
 		assert.Fail(t, "failed to get session. ", err.Error())
 	}
 
-	SessionBrowserID := *ok.SessionID
+	SessionBrowserID := *ok.Data.SessionID
 	getUserId := GetUserID() // use user token to get userId
 	var partyMembers []*dsmcclientmodels.ModelsRequestMatchMember
 	partyMember := &dsmcclientmodels.ModelsRequestMatchMember{
@@ -119,7 +119,7 @@ func TestIntegrationSessionDSMC(t *testing.T) {
 		assert.Fail(t, "failed to get the dsmc configs. ", errConfigs.Error())
 	}
 
-	bodySessionDsmc.Configuration = &configs.Configs[0].Namespace
+	bodySessionDsmc.Configuration = &configs.Data.Configs[0].Namespace
 
 	// Check the deployment
 	deploymentConfigService := &dsmc.DeploymentConfigService{
@@ -135,7 +135,7 @@ func TestIntegrationSessionDSMC(t *testing.T) {
 		t.Skipf("failed to get \"%s\" deployment. %s", deployment, errGet.Error())
 	}
 
-	bodySessionDsmc.ClientVersion = getDeployment.GameVersion
+	bodySessionDsmc.ClientVersion = getDeployment.Data.GameVersion
 
 	inputCreate := &session.CreateSessionParams{
 		Body:      bodySessionDsmc,
@@ -151,7 +151,7 @@ func TestIntegrationSessionDSMC(t *testing.T) {
 	if errCreate != nil {
 		assert.FailNow(t, errCreate.Error())
 	}
-	createdSessionID := *created.Session.ID
+	createdSessionID := *created.Data.Session.ID
 	t.Logf("Session DSMC: %v created", createdSessionID)
 
 	// Assert
@@ -167,7 +167,7 @@ func TestIntegrationSessionDSMC(t *testing.T) {
 	if errGet != nil {
 		assert.FailNow(t, errGet.Error())
 	}
-	t.Logf("Id Session DSMC: %v get from namespace %v", *get.Session.ID, *created.Session.Namespace)
+	t.Logf("Id Session DSMC: %v get from namespace %v", *get.Data.Session.ID, *created.Data.Session.Namespace)
 
 	// Assert
 	assert.Nil(t, errGet, "err should be nil")

@@ -43,7 +43,7 @@ func TestIntegrationTag(t *testing.T) {
 	if errCreate != nil {
 		assert.FailNow(t, errCreate.Error())
 	}
-	tagID := *created.ID
+	tagID := *created.Data.ID
 	t.Logf("TagId: %v created", tagID)
 	// ESAC
 

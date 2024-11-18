@@ -94,7 +94,7 @@ func TestIntegrationCreateLeaderboardConfigurationAdminV1(t *testing.T) {
 	if errCreate != nil {
 		assert.FailNow(t, errCreate.Error())
 	}
-	t.Logf("Leaderboard Code: %v created", *created.LeaderboardCode)
+	t.Logf("Leaderboard Code: %v created", *created.Data.LeaderboardCode)
 	// ESAC
 
 	// Assert
@@ -181,12 +181,12 @@ func checkStatCode(t *testing.T) string {
 			return ""
 		}
 
-		return *ok.StatCode
+		return *ok.Data.StatCode
 	}
 
 	if errGetStat != nil {
 		assert.Nil(t, errGetStat)
 	}
 
-	return *getStat.StatCode
+	return *getStat.Data.StatCode
 }

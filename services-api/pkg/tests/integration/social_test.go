@@ -188,7 +188,7 @@ func TestIntegrationExportStat(t *testing.T) {
 
 	// Arrange
 	fileName := "test.json"
-	file, err := utils.ConvertByteToFile(okExport, writer, fileName)
+	file, err := utils.ConvertByteToFile(okExport.Data, writer, fileName)
 	if err != nil {
 		t.Fatal(err.Error())
 	}

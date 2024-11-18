@@ -91,7 +91,7 @@ func UserTokenRefresher(s auth.Session) {
 	if errLogin != nil {
 		return
 	}
-	err := s.Token.Store(*newToken.Payload)
+	err := s.Token.Store(*newToken.Data)
 	if err != nil {
 		return
 	}
@@ -110,7 +110,7 @@ func ClientTokenRefresher(s auth.Session) {
 	if errLogin != nil {
 		return
 	}
-	err := s.Token.Store(*newToken.Payload)
+	err := s.Token.Store(*newToken.Data)
 	if err != nil {
 		return
 	}
