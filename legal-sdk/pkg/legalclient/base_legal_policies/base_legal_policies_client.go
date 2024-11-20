@@ -92,6 +92,14 @@ func (a *Client) RetrieveAllLegalPoliciesShort(params *RetrieveAllLegalPoliciesP
 /*
 CreatePolicyShort create a base legal policy
 Create a legal policy.
+Note:
+
+
+  *  countryType field only accept COUNTRY or COUNTRY_GROUP.
+  * COUNTRY_GROUP countryType requires the countryGroupName and affectedCountries fields to be provided.
+
+
+* policy with COUNTRY_GROUP type include multiple countries and apply the same policy across the entire list of countries
 */
 func (a *Client) CreatePolicyShort(params *CreatePolicyParams, authInfo runtime.ClientAuthInfoWriter) (*CreatePolicyCreated, error) {
 	// TODO: Validate the params before sending
@@ -198,6 +206,14 @@ func (a *Client) RetrieveSinglePolicyShort(params *RetrieveSinglePolicyParams, a
 /*
 PartialUpdatePolicyShort update base legal policy
 Update an existing base policy.
+Note:
+
+
+  *  countryType field only accept COUNTRY or COUNTRY_GROUP.
+  * COUNTRY_GROUP countryType requires the countryGroupName and affectedCountries fields to be provided.
+
+
+* policy with COUNTRY_GROUP type include multiple countries and apply the same policy across the entire list of countries
 */
 func (a *Client) PartialUpdatePolicyShort(params *PartialUpdatePolicyParams, authInfo runtime.ClientAuthInfoWriter) (*PartialUpdatePolicyOK, error) {
 	// TODO: Validate the params before sending

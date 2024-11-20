@@ -30,6 +30,7 @@ type Client struct {
 
 // ClientService is the interface for Client methods
 type ClientService interface {
+	DeleteLocalizedPolicyShort(params *DeleteLocalizedPolicyParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteLocalizedPolicyNoContent, error)
 	RetrieveLocalizedPolicyVersions1Short(params *RetrieveLocalizedPolicyVersions1Params, authInfo runtime.ClientAuthInfoWriter) (*RetrieveLocalizedPolicyVersions1OK, error)
 	CreateLocalizedPolicyVersion1Short(params *CreateLocalizedPolicyVersion1Params, authInfo runtime.ClientAuthInfoWriter) (*CreateLocalizedPolicyVersion1Created, error)
 	RetrieveSingleLocalizedPolicyVersion1Short(params *RetrieveSingleLocalizedPolicyVersion1Params, authInfo runtime.ClientAuthInfoWriter) (*RetrieveSingleLocalizedPolicyVersion1OK, error)
@@ -39,6 +40,62 @@ type ClientService interface {
 	RetrieveSingleLocalizedPolicyVersion3Short(params *RetrieveSingleLocalizedPolicyVersion3Params) (*RetrieveSingleLocalizedPolicyVersion3OK, error)
 
 	SetTransport(transport runtime.ClientTransport)
+}
+
+/*
+DeleteLocalizedPolicyShort delete localized policy
+Delete localized version policy.
+Can only be deleted if match these criteria:
+
+
+  * Policy Version that this localized policy version belongs to is not active
+  * Has never been accepted by any user
+*/
+func (a *Client) DeleteLocalizedPolicyShort(params *DeleteLocalizedPolicyParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteLocalizedPolicyNoContent, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewDeleteLocalizedPolicyParams()
+	}
+
+	if params.Context == nil {
+		params.Context = context.Background()
+	}
+
+	if params.RetryPolicy != nil {
+		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
+	}
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "deleteLocalizedPolicy",
+		Method:             "DELETE",
+		PathPattern:        "/agreement/admin/namespaces/{namespace}/localized-policy-versions/versions/{localizedPolicyVersionId}",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &DeleteLocalizedPolicyReader{formats: a.formats},
+		AuthInfo:           authInfo,
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+
+	switch v := result.(type) {
+
+	case *DeleteLocalizedPolicyNoContent:
+		return v, nil
+	case *DeleteLocalizedPolicyBadRequest:
+		return nil, v
+
+	default:
+		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
+	}
 }
 
 /*

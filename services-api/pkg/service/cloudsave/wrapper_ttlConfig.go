@@ -38,6 +38,36 @@ func (aaa *TTLConfigService) GetAuthSession() auth.Session {
 	}
 }
 
+func (aaa *TTLConfigService) DeleteAdminGameRecordTTLConfigShort(input *ttl_config.DeleteAdminGameRecordTTLConfigParams) error {
+	authInfoWriter := input.AuthInfoWriter
+	if authInfoWriter == nil {
+		security := [][]string{
+			{"bearer"},
+		}
+		authInfoWriter = auth.AuthInfoWriter(aaa.GetAuthSession(), security, "")
+	}
+	if input.RetryPolicy == nil {
+		input.RetryPolicy = &utils.Retry{
+			MaxTries:   utils.MaxTries,
+			Backoff:    utils.NewConstantBackoff(0),
+			Transport:  aaa.Client.Runtime.Transport,
+			RetryCodes: utils.RetryCodes,
+		}
+	}
+	if tempFlightIdTTLConfig != nil {
+		input.XFlightId = tempFlightIdTTLConfig
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	}
+
+	_, err := aaa.Client.TTLConfig.DeleteAdminGameRecordTTLConfigShort(input, authInfoWriter)
+	if err != nil {
+		return err
+	}
+
+	return nil
+}
+
 func (aaa *TTLConfigService) DeleteGameBinaryRecordTTLConfigShort(input *ttl_config.DeleteGameBinaryRecordTTLConfigParams) error {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {

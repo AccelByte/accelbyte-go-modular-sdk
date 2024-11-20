@@ -109,6 +109,15 @@ CreateNamespaceShort create a namespace
 Create a namespace.
 By default the namespace is enabled.
 In multi tenant mode, parentNamespace will be automatically filled with requester namespace if the requester is using studio or publisher token, and it will be filled with studio namespace if the requester uses game token. An oauth client will also be created and the id will be returned.
+displayName rule:
+
+
+  * Alphanumeric lowercase and uppercase are allowed
+  * Allowed Special Character: ',. -
+  * Must start and end with alphanumeric
+  * Spaces and special character are allowed but cannot appear twice in a row
+
+
 Other detail info:
 
   * Action code : 11301
@@ -295,6 +304,15 @@ func (a *Client) DeleteNamespaceShort(params *DeleteNamespaceParams, authInfo ru
 /*
 UpdateNamespaceShort update namespace basic info
 Update namespace basic info.
+displayName rule:
+
+
+  * Alphanumeric lowercase and uppercase are allowed
+  * Allowed Special Character: ',. -
+  * Must start and end with alphanumeric
+  * Spaces and special character are allowed but cannot appear twice in a row
+
+
 Other detail info:
 
   * Action code : 11302

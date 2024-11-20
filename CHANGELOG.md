@@ -1,4 +1,39 @@
 <a name="lobby-sdk/v0.1.0-alpha.8"></a>
+## [lobby-sdk/v0.1.0-alpha.8]
+### fix
+- **lobby:** remove auth token hard requirement
+
+
+<a name="services-api/v0.1.0-alpha.6"></a>
+## [services-api/v0.1.0-alpha.6]
+### test
+- **integration:** add lobby scheme
+- **integration:** add match2 option's name
+- **integration:** remove deprecated services
+### chore
+- **integration:** add player record cloudsave test
+
+
+<a name="ags/v3.80.0"></a>
+## [ags/v3.80.0]
+### feat
+- **:** add challenge service integration tests
+- **:** generate csm service in go sdk, cli test and docs
+### chore
+- **test:** add reset time in challenge integration test
+- **sample:** cli - enable websocket reconnect
+- **samples:** cli - use the same close handler
+- **test:** integration - add missing integration test
+- **docs:** integration - update common use cases docs
+- **sdk:** generated from openapi spec commit: 36ae5c39dfabaa8b38695823c2a32ce307953790
+### ci
+- **github:** switch to new ags versioning ags/vxxxx.x
+### test
+- **:** add integration test for csm
+- **:** temporary disable notification subscription test
+
+
+<a name="lobby-sdk/v0.1.0-alpha.8"></a>
 
 ## [lobby-sdk/v0.1.0-alpha.8]
 

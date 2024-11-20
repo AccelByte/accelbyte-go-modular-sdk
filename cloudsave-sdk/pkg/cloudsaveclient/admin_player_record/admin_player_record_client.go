@@ -343,6 +343,7 @@ func (a *Client) AdminRetrievePlayerRecordsShort(params *AdminRetrievePlayerReco
 AdminPutPlayerRecordsHandlerV1Short bulk update player records
 This endpoints will create new player record or replace the existing player record in bulk.
 Maximum bulk key limit per request 10.
+Maximum total size of the request payload is 5 MB.
 */
 func (a *Client) AdminPutPlayerRecordsHandlerV1Short(params *AdminPutPlayerRecordsHandlerV1Params, authInfo runtime.ClientAuthInfoWriter) (*AdminPutPlayerRecordsHandlerV1OK, error) {
 	// TODO: Validate the params before sending
@@ -542,8 +543,6 @@ This is the restriction of Key Naming for the record:
 - `{ "data.2": "value" }`
 2. Cannot use **"$"** as the prefix in key names
 - `{ "$data": "value" }`
-3. Cannot use empty string in key names
-- `{ "": "value" }`
 
 
 ## Record Metadata
@@ -670,8 +669,6 @@ This is the restriction of Key Naming for the record:
 - `{ "data.2": "value" }`
 2. Cannot use **"$"** as the prefix in key names
 - `{ "$data": "value" }`
-3. Cannot use empty string in key names
-- `{ "": "value" }`
 
 
 ## Record Metadata
@@ -898,8 +895,6 @@ This is the restriction of Key Naming for the record:
 - `{ "data.2": "value" }`
 2. Cannot use **"$"** as the prefix in key names
 - `{ "$data": "value" }`
-3. Cannot use empty string in key names
-- `{ "": "value" }`
 
 
 ## Warning: This endpoint is going to deprecate
@@ -1006,8 +1001,6 @@ This is the restriction of Key Naming for the record:
 - `{ "data.2": "value" }`
 2. Cannot use **"$"** as the prefix in key names
 - `{ "$data": "value" }`
-3. Cannot use empty string in key names
-- `{ "": "value" }`
 
 
 ## Warning: This endpoint is going to deprecate

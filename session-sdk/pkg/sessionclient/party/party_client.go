@@ -31,6 +31,7 @@ type Client struct {
 // ClientService is the interface for Client methods
 type ClientService interface {
 	AdminQueryPartiesShort(params *AdminQueryPartiesParams, authInfo runtime.ClientAuthInfoWriter) (*AdminQueryPartiesOK, error)
+	AdminDeleteBulkPartiesShort(params *AdminDeleteBulkPartiesParams, authInfo runtime.ClientAuthInfoWriter) (*AdminDeleteBulkPartiesOK, error)
 	AdminSyncNativeSessionShort(params *AdminSyncNativeSessionParams, authInfo runtime.ClientAuthInfoWriter) (*AdminSyncNativeSessionOK, error)
 	PublicPartyJoinCodeShort(params *PublicPartyJoinCodeParams, authInfo runtime.ClientAuthInfoWriter) (*PublicPartyJoinCodeOK, error)
 	PublicGetPartyShort(params *PublicGetPartyParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGetPartyOK, error)
@@ -99,6 +100,63 @@ func (a *Client) AdminQueryPartiesShort(params *AdminQueryPartiesParams, authInf
 	case *AdminQueryPartiesUnauthorized:
 		return nil, v
 	case *AdminQueryPartiesInternalServerError:
+		return nil, v
+
+	default:
+		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
+	}
+}
+
+/*
+AdminDeleteBulkPartiesShort delete bulk parties.
+Delete bulk parties.
+*/
+func (a *Client) AdminDeleteBulkPartiesShort(params *AdminDeleteBulkPartiesParams, authInfo runtime.ClientAuthInfoWriter) (*AdminDeleteBulkPartiesOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewAdminDeleteBulkPartiesParams()
+	}
+
+	if params.Context == nil {
+		params.Context = context.Background()
+	}
+
+	if params.RetryPolicy != nil {
+		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
+	}
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "adminDeleteBulkParties",
+		Method:             "DELETE",
+		PathPattern:        "/session/v1/admin/namespaces/{namespace}/parties/bulk",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &AdminDeleteBulkPartiesReader{formats: a.formats},
+		AuthInfo:           authInfo,
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+
+	switch v := result.(type) {
+
+	case *AdminDeleteBulkPartiesOK:
+		return v, nil
+	case *AdminDeleteBulkPartiesBadRequest:
+		return nil, v
+	case *AdminDeleteBulkPartiesUnauthorized:
+		return nil, v
+	case *AdminDeleteBulkPartiesForbidden:
+		return nil, v
+	case *AdminDeleteBulkPartiesInternalServerError:
 		return nil, v
 
 	default:
@@ -540,6 +598,7 @@ supported platforms:
 - STEAM
 - XBOX
 - PSN
+Metadata is optional parameter which will be sent over via invitation notification and is not permanently stored in the party storage.
 */
 func (a *Client) PublicPartyInviteShort(params *PublicPartyInviteParams, authInfo runtime.ClientAuthInfoWriter) (*PublicPartyInviteCreated, error) {
 	// TODO: Validate the params before sending

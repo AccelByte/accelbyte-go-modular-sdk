@@ -999,6 +999,36 @@ func (aaa *IAPService) UpdateXblBPCertFileShort(input *iap.UpdateXblBPCertFilePa
 	return ok.GetPayload(), nil
 }
 
+func (aaa *IAPService) GetIAPOrderConsumeDetailsShort(input *iap.GetIAPOrderConsumeDetailsParams) ([]*platformclientmodels.IAPOrderConsumeDetailInfo, error) {
+	authInfoWriter := input.AuthInfoWriter
+	if authInfoWriter == nil {
+		security := [][]string{
+			{"bearer"},
+		}
+		authInfoWriter = auth.AuthInfoWriter(aaa.GetAuthSession(), security, "")
+	}
+	if input.RetryPolicy == nil {
+		input.RetryPolicy = &utils.Retry{
+			MaxTries:   utils.MaxTries,
+			Backoff:    utils.NewConstantBackoff(0),
+			Transport:  aaa.Client.Runtime.Transport,
+			RetryCodes: utils.RetryCodes,
+		}
+	}
+	if tempFlightIdIAP != nil {
+		input.XFlightId = tempFlightIdIAP
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	}
+
+	ok, err := aaa.Client.IAP.GetIAPOrderConsumeDetailsShort(input, authInfoWriter)
+	if err != nil {
+		return nil, err
+	}
+
+	return ok.GetPayload(), nil
+}
+
 func (aaa *IAPService) QueryUserIAPOrdersShort(input *iap.QueryUserIAPOrdersParams) (*platformclientmodels.IAPOrderPagingSlicedResult, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {

@@ -69,6 +69,36 @@ func (aaa *PartyService) AdminQueryPartiesShort(input *party.AdminQueryPartiesPa
 	return ok.GetPayload(), nil
 }
 
+func (aaa *PartyService) AdminDeleteBulkPartiesShort(input *party.AdminDeleteBulkPartiesParams) (*sessionclientmodels.ApimodelsDeleteBulkPartySessionsAPIResponse, error) {
+	authInfoWriter := input.AuthInfoWriter
+	if authInfoWriter == nil {
+		security := [][]string{
+			{"bearer"},
+		}
+		authInfoWriter = auth.AuthInfoWriter(aaa.GetAuthSession(), security, "")
+	}
+	if input.RetryPolicy == nil {
+		input.RetryPolicy = &utils.Retry{
+			MaxTries:   utils.MaxTries,
+			Backoff:    utils.NewConstantBackoff(0),
+			Transport:  aaa.Client.Runtime.Transport,
+			RetryCodes: utils.RetryCodes,
+		}
+	}
+	if tempFlightIdParty != nil {
+		input.XFlightId = tempFlightIdParty
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	}
+
+	ok, err := aaa.Client.Party.AdminDeleteBulkPartiesShort(input, authInfoWriter)
+	if err != nil {
+		return nil, err
+	}
+
+	return ok.GetPayload(), nil
+}
+
 func (aaa *PartyService) AdminSyncNativeSessionShort(input *party.AdminSyncNativeSessionParams) error {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {

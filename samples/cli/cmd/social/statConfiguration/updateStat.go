@@ -27,14 +27,14 @@ var UpdateStatCmd = &cobra.Command{
 			Client:          social.NewSocialClient(&repository.ConfigRepositoryImpl{}),
 			TokenRepository: &repository.TokenRepositoryImpl{},
 		}
-		namespace, _ := cmd.Flags().GetString("namespace")
-		statCode, _ := cmd.Flags().GetString("statCode")
 		bodyString := cmd.Flag("body").Value.String()
 		var body *socialclientmodels.StatUpdate
 		errBody := json.Unmarshal([]byte(bodyString), &body)
 		if errBody != nil {
 			return errBody
 		}
+		namespace, _ := cmd.Flags().GetString("namespace")
+		statCode, _ := cmd.Flags().GetString("statCode")
 		input := &stat_configuration.UpdateStatParams{
 			Body:      body,
 			Namespace: namespace,
@@ -55,6 +55,7 @@ var UpdateStatCmd = &cobra.Command{
 
 func init() {
 	UpdateStatCmd.Flags().String("body", "", "Body")
+	_ = UpdateStatCmd.MarkFlagRequired("body")
 	UpdateStatCmd.Flags().String("namespace", "", "Namespace")
 	_ = UpdateStatCmd.MarkFlagRequired("namespace")
 	UpdateStatCmd.Flags().String("statCode", "", "Stat code")

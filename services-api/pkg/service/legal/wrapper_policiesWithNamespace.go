@@ -38,6 +38,36 @@ func (aaa *PoliciesWithNamespaceService) GetAuthSession() auth.Session {
 	}
 }
 
+func (aaa *PoliciesWithNamespaceService) DeletePolicyShort(input *policies_with_namespace.DeletePolicyParams) error {
+	authInfoWriter := input.AuthInfoWriter
+	if authInfoWriter == nil {
+		security := [][]string{
+			{"bearer"},
+		}
+		authInfoWriter = auth.AuthInfoWriter(aaa.GetAuthSession(), security, "")
+	}
+	if input.RetryPolicy == nil {
+		input.RetryPolicy = &utils.Retry{
+			MaxTries:   utils.MaxTries,
+			Backoff:    utils.NewConstantBackoff(0),
+			Transport:  aaa.Client.Runtime.Transport,
+			RetryCodes: utils.RetryCodes,
+		}
+	}
+	if tempFlightIdPoliciesWithNamespace != nil {
+		input.XFlightId = tempFlightIdPoliciesWithNamespace
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	}
+
+	_, err := aaa.Client.PoliciesWithNamespace.DeletePolicyShort(input, authInfoWriter)
+	if err != nil {
+		return err
+	}
+
+	return nil
+}
+
 func (aaa *PoliciesWithNamespaceService) UpdatePolicy1Short(input *policies_with_namespace.UpdatePolicy1Params) error {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {

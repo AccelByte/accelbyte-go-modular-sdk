@@ -511,6 +511,8 @@ func (a *Client) UpdateStatShort(params *UpdateStatParams, authInfo runtime.Clie
 		return nil, v
 	case *UpdateStatNotFound:
 		return nil, v
+	case *UpdateStatUnprocessableEntity:
+		return nil, v
 	case *UpdateStatInternalServerError:
 		return nil, v
 

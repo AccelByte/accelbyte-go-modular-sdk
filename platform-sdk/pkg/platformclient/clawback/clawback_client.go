@@ -32,6 +32,7 @@ type Client struct {
 type ClientService interface {
 	QueryIAPClawbackHistoryShort(params *QueryIAPClawbackHistoryParams, authInfo runtime.ClientAuthInfoWriter) (*QueryIAPClawbackHistoryOK, error)
 	MockPlayStationStreamEventShort(params *MockPlayStationStreamEventParams, authInfo runtime.ClientAuthInfoWriter) (*MockPlayStationStreamEventOK, error)
+	MockXblClawbackEventShort(params *MockXblClawbackEventParams, authInfo runtime.ClientAuthInfoWriter) (*MockXblClawbackEventOK, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -130,6 +131,55 @@ func (a *Client) MockPlayStationStreamEventShort(params *MockPlayStationStreamEv
 	switch v := result.(type) {
 
 	case *MockPlayStationStreamEventOK:
+		return v, nil
+
+	default:
+		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
+	}
+}
+
+/*
+MockXblClawbackEventShort mock sync xbox clawback event.
+Mock Sync XBox Clawback event.
+*/
+func (a *Client) MockXblClawbackEventShort(params *MockXblClawbackEventParams, authInfo runtime.ClientAuthInfoWriter) (*MockXblClawbackEventOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewMockXblClawbackEventParams()
+	}
+
+	if params.Context == nil {
+		params.Context = context.Background()
+	}
+
+	if params.RetryPolicy != nil {
+		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
+	}
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "mockXblClawbackEvent",
+		Method:             "POST",
+		PathPattern:        "/platform/admin/namespaces/{namespace}/iap/clawback/xbl/mock",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &MockXblClawbackEventReader{formats: a.formats},
+		AuthInfo:           authInfo,
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+
+	switch v := result.(type) {
+
+	case *MockXblClawbackEventOK:
 		return v, nil
 
 	default:

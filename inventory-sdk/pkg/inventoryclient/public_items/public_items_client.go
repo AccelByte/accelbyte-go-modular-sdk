@@ -44,6 +44,7 @@ type ClientService interface {
 PublicConsumeMyItemShort to consume item
 
 Consume user's own item.
+Client should pass item ID in options if item type is OPTIONBOX
 */
 func (a *Client) PublicConsumeMyItemShort(params *PublicConsumeMyItemParams, authInfo runtime.ClientAuthInfoWriter) (*PublicConsumeMyItemOK, error) {
 	// TODO: Validate the params before sending

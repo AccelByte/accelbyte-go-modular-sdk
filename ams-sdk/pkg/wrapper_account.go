@@ -127,7 +127,7 @@ func (aaa *AccountService) AdminAccountLinkTokenGetShort(input *account.AdminAcc
 	return ok.GetPayload(), nil
 }
 
-func (aaa *AccountService) AdminAccountLinkTokenPostShort(input *account.AdminAccountLinkTokenPostParams) (*amsclientmodels.APIAccountLinkResponse, error) {
+func (aaa *AccountService) AdminAccountLinkShort(input *account.AdminAccountLinkParams) (*amsclientmodels.APIAccountLinkResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -149,7 +149,7 @@ func (aaa *AccountService) AdminAccountLinkTokenPostShort(input *account.AdminAc
 		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
 	}
 
-	created, err := aaa.Client.Account.AdminAccountLinkTokenPostShort(input, authInfoWriter)
+	created, err := aaa.Client.Account.AdminAccountLinkShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
 	}

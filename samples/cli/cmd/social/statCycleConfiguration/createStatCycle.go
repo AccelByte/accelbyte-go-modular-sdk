@@ -27,13 +27,13 @@ var CreateStatCycleCmd = &cobra.Command{
 			Client:          social.NewSocialClient(&repository.ConfigRepositoryImpl{}),
 			TokenRepository: &repository.TokenRepositoryImpl{},
 		}
-		namespace, _ := cmd.Flags().GetString("namespace")
 		bodyString := cmd.Flag("body").Value.String()
 		var body *socialclientmodels.StatCycleCreate
 		errBody := json.Unmarshal([]byte(bodyString), &body)
 		if errBody != nil {
 			return errBody
 		}
+		namespace, _ := cmd.Flags().GetString("namespace")
 		input := &stat_cycle_configuration.CreateStatCycleParams{
 			Body:      body,
 			Namespace: namespace,
@@ -53,6 +53,7 @@ var CreateStatCycleCmd = &cobra.Command{
 
 func init() {
 	CreateStatCycleCmd.Flags().String("body", "", "Body")
+	_ = CreateStatCycleCmd.MarkFlagRequired("body")
 	CreateStatCycleCmd.Flags().String("namespace", "", "Namespace")
 	_ = CreateStatCycleCmd.MarkFlagRequired("namespace")
 }

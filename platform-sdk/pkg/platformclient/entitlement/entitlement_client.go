@@ -43,6 +43,7 @@ type ClientService interface {
 	GrantUserEntitlementShort(params *GrantUserEntitlementParams, authInfo runtime.ClientAuthInfoWriter) (*GrantUserEntitlementCreated, error)
 	GetUserAppEntitlementByAppIDShort(params *GetUserAppEntitlementByAppIDParams, authInfo runtime.ClientAuthInfoWriter) (*GetUserAppEntitlementByAppIDOK, error)
 	QueryUserEntitlementsByAppTypeShort(params *QueryUserEntitlementsByAppTypeParams, authInfo runtime.ClientAuthInfoWriter) (*QueryUserEntitlementsByAppTypeOK, error)
+	GetUserEntitlementsByIdsShort(params *GetUserEntitlementsByIdsParams, authInfo runtime.ClientAuthInfoWriter) (*GetUserEntitlementsByIdsOK, error)
 	GetUserEntitlementByItemIDShort(params *GetUserEntitlementByItemIDParams, authInfo runtime.ClientAuthInfoWriter) (*GetUserEntitlementByItemIDOK, error)
 	GetUserActiveEntitlementsByItemIdsShort(params *GetUserActiveEntitlementsByItemIdsParams, authInfo runtime.ClientAuthInfoWriter) (*GetUserActiveEntitlementsByItemIdsOK, error)
 	GetUserEntitlementBySkuShort(params *GetUserEntitlementBySkuParams, authInfo runtime.ClientAuthInfoWriter) (*GetUserEntitlementBySkuOK, error)
@@ -802,6 +803,59 @@ func (a *Client) QueryUserEntitlementsByAppTypeShort(params *QueryUserEntitlemen
 	switch v := result.(type) {
 
 	case *QueryUserEntitlementsByAppTypeOK:
+		return v, nil
+
+	default:
+		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
+	}
+}
+
+/*
+GetUserEntitlementsByIdsShort get user entitlements by ids.
+Get user entitlements by ids. This will return all entitlements regardless of its status
+
+Other detail info:
+
+  * Returns : entitlement list
+*/
+func (a *Client) GetUserEntitlementsByIdsShort(params *GetUserEntitlementsByIdsParams, authInfo runtime.ClientAuthInfoWriter) (*GetUserEntitlementsByIdsOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewGetUserEntitlementsByIdsParams()
+	}
+
+	if params.Context == nil {
+		params.Context = context.Background()
+	}
+
+	if params.RetryPolicy != nil {
+		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
+	}
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "getUserEntitlementsByIds",
+		Method:             "GET",
+		PathPattern:        "/platform/admin/namespaces/{namespace}/users/{userId}/entitlements/byIds",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetUserEntitlementsByIdsReader{formats: a.formats},
+		AuthInfo:           authInfo,
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+
+	switch v := result.(type) {
+
+	case *GetUserEntitlementsByIdsOK:
 		return v, nil
 
 	default:

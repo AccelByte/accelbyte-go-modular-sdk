@@ -410,7 +410,8 @@ func (a *Client) GetUserFriendsWithPlatformShort(params *GetUserFriendsWithPlatf
 /*
 UserRequestFriendShort user add friend
 Client should provide either friendID or friendPublicID. If both are provided, friendID will be chosen to be used.
-This endpoint will only send a pending invite that can be either rejected/accepted
+This endpoint will only send a pending invite that can be either rejected/accepted.
+Metadata is optional parameter which will be sent over via friend request notification.
 */
 func (a *Client) UserRequestFriendShort(params *UserRequestFriendParams, authInfo runtime.ClientAuthInfoWriter) (*UserRequestFriendCreated, error) {
 	// TODO: Validate the params before sending

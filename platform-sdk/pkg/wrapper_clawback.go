@@ -96,3 +96,33 @@ func (aaa *ClawbackService) MockPlayStationStreamEventShort(input *clawback.Mock
 
 	return ok.GetPayload(), nil
 }
+
+func (aaa *ClawbackService) MockXblClawbackEventShort(input *clawback.MockXblClawbackEventParams) (*platformclientmodels.ClawbackInfo, error) {
+	authInfoWriter := input.AuthInfoWriter
+	if authInfoWriter == nil {
+		security := [][]string{
+			{"bearer"},
+		}
+		authInfoWriter = auth.AuthInfoWriter(aaa.GetAuthSession(), security, "")
+	}
+	if input.RetryPolicy == nil {
+		input.RetryPolicy = &utils.Retry{
+			MaxTries:   utils.MaxTries,
+			Backoff:    utils.NewConstantBackoff(0),
+			Transport:  aaa.Client.Runtime.Transport,
+			RetryCodes: utils.RetryCodes,
+		}
+	}
+	if tempFlightIdClawback != nil {
+		input.XFlightId = tempFlightIdClawback
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	}
+
+	ok, err := aaa.Client.Clawback.MockXblClawbackEventShort(input, authInfoWriter)
+	if err != nil {
+		return nil, err
+	}
+
+	return ok.GetPayload(), nil
+}

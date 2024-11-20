@@ -34,8 +34,8 @@ type ClientService interface {
 	BulkSaveSubscriptionAppNotificationV2Short(params *BulkSaveSubscriptionAppNotificationV2Params, authInfo runtime.ClientAuthInfoWriter) (*BulkSaveSubscriptionAppNotificationV2OK, error)
 	SubscribeAppNotificationV2Short(params *SubscribeAppNotificationV2Params, authInfo runtime.ClientAuthInfoWriter) (*SubscribeAppNotificationV2OK, error)
 	GetSubscriptionV2HandlerShort(params *GetSubscriptionV2HandlerParams, authInfo runtime.ClientAuthInfoWriter) (*GetSubscriptionV2HandlerOK, error)
-	SubscribeV2HandlerShort(params *SubscribeV2HandlerParams, authInfo runtime.ClientAuthInfoWriter) (*SubscribeV2HandlerOK, error)
-	UnsubscribeV2HandlerShort(params *UnsubscribeV2HandlerParams, authInfo runtime.ClientAuthInfoWriter) (*UnsubscribeV2HandlerOK, error)
+	SubscribeV2HandlerShort(params *SubscribeV2HandlerParams, authInfo runtime.ClientAuthInfoWriter) (*SubscribeV2HandlerNoContent, error)
+	UnsubscribeV2HandlerShort(params *UnsubscribeV2HandlerParams, authInfo runtime.ClientAuthInfoWriter) (*UnsubscribeV2HandlerNoContent, error)
 	DeleteSubscriptionAppNotificationByUserIDV2Short(params *DeleteSubscriptionAppNotificationByUserIDV2Params, authInfo runtime.ClientAuthInfoWriter) (*DeleteSubscriptionAppNotificationByUserIDV2OK, error)
 	DeleteSubscriptionAppNotificationV2Short(params *DeleteSubscriptionAppNotificationV2Params, authInfo runtime.ClientAuthInfoWriter) (*DeleteSubscriptionAppNotificationV2OK, error)
 
@@ -313,7 +313,7 @@ Request body:
 - "app-down"
 - "critical-vulnerability"
 */
-func (a *Client) SubscribeV2HandlerShort(params *SubscribeV2HandlerParams, authInfo runtime.ClientAuthInfoWriter) (*SubscribeV2HandlerOK, error) {
+func (a *Client) SubscribeV2HandlerShort(params *SubscribeV2HandlerParams, authInfo runtime.ClientAuthInfoWriter) (*SubscribeV2HandlerNoContent, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewSubscribeV2HandlerParams()
@@ -350,7 +350,7 @@ func (a *Client) SubscribeV2HandlerShort(params *SubscribeV2HandlerParams, authI
 
 	switch v := result.(type) {
 
-	case *SubscribeV2HandlerOK:
+	case *SubscribeV2HandlerNoContent:
 		return v, nil
 	case *SubscribeV2HandlerUnauthorized:
 		return nil, v
@@ -372,7 +372,7 @@ Required permission : `ADMIN:NAMESPACE:{namespace}:EXTEND:APP:ALERT:SELF:SUBSCRI
 
 Unsubscribe to app down notification
 */
-func (a *Client) UnsubscribeV2HandlerShort(params *UnsubscribeV2HandlerParams, authInfo runtime.ClientAuthInfoWriter) (*UnsubscribeV2HandlerOK, error) {
+func (a *Client) UnsubscribeV2HandlerShort(params *UnsubscribeV2HandlerParams, authInfo runtime.ClientAuthInfoWriter) (*UnsubscribeV2HandlerNoContent, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewUnsubscribeV2HandlerParams()
@@ -409,7 +409,7 @@ func (a *Client) UnsubscribeV2HandlerShort(params *UnsubscribeV2HandlerParams, a
 
 	switch v := result.(type) {
 
-	case *UnsubscribeV2HandlerOK:
+	case *UnsubscribeV2HandlerNoContent:
 		return v, nil
 	case *UnsubscribeV2HandlerUnauthorized:
 		return nil, v

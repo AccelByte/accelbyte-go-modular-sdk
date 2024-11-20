@@ -163,7 +163,7 @@ func (a *Client) AdminGetInventoryItemShort(params *AdminGetInventoryItemParams,
 AdminConsumeUserItemShort to consume item
 
 Consume user's own item
-
+Client should pass item ID in options if item type is OPTIONBOX
 Permission: ADMIN:NAMESPACE:{namespace}:USER:{userId}:INVENTORY:ITEM [UPDATE]
 */
 func (a *Client) AdminConsumeUserItemShort(params *AdminConsumeUserItemParams, authInfo runtime.ClientAuthInfoWriter) (*AdminConsumeUserItemOK, error) {
@@ -278,25 +278,17 @@ func (a *Client) AdminBulkUpdateMyItemsShort(params *AdminBulkUpdateMyItemsParam
 
 /*
 AdminSaveItemToInventoryShort to save item to specific inventory
+**This endpoint is used to save purchased items to a specific inventory of the player, with the following conditions for E-commerce items:**
+- Attributes such as slotUsed, serverCustomAttributes, customAttributes, and type will be overridden by the attributes configured in the AccelByte Gaming Services (AGS) Store.
+- Storing E-commerce items in a particular slot will follow its entitlement and item configuration, such as durable, consumable, stackable and non-stackable.
+- The quantity is dynamically set based on an itemâs useCount configured in Store. When saving an item, the specified quantity will be multiplied by configured useCount for that particular item. For example, if an Item is configured with a useCount of 5 in the AGS Store and it is saved with a qty of 2, the itemâs quantity will be stored as 2 in the playerâs inventory.
 
-Saving an item to specific inventory.
-The item will be saved in specific user's inventory,
+**When configuring your request, note the following:**
+- The source field is mandatory for determining the source of the item. The supported values are OTHER (for items coming from other sources) and E-commerce for items coming from the E-commerce integration.
+- For other-sourced items, the type can be manually defined when saving the item.
+You must have this permission to access this endpoint:
 
-If the item already exists, its qty will be increased,
-so no new item with same sourceItemId will be created
-
-Tags will be auto-created.
-ItemType will be auto-created.
-
-For Ecommerce item, this fields will be override by ecommerce configuration
-(slotUsed, serverCustomAttributes, customAttributes, type)
-
-For Ecommerce items, the quantity saved is dynamically adjusted based on an item's useCount configured in Store.
-When saving items, the quantity specified for each item will be multiplied by the useCount.
-i.e. If the store item is configured with a useCount of 5
-and the quantity of a particular item is set to 2 during saving, it will be stored as 10.
-
-Permission: ADMIN:NAMESPACE:{namespace}:USER:{userId}:INVENTORY:ITEM [CREATE]
+**Permission: ADMIN:NAMESPACE:{namespace}:USER:{userId}:INVENTORY:ITEM [CREATE]**
 */
 func (a *Client) AdminSaveItemToInventoryShort(params *AdminSaveItemToInventoryParams, authInfo runtime.ClientAuthInfoWriter) (*AdminSaveItemToInventoryOK, error) {
 	// TODO: Validate the params before sending
@@ -338,6 +330,12 @@ func (a *Client) AdminSaveItemToInventoryShort(params *AdminSaveItemToInventoryP
 	case *AdminSaveItemToInventoryOK:
 		return v, nil
 	case *AdminSaveItemToInventoryBadRequest:
+		return nil, v
+	case *AdminSaveItemToInventoryUnauthorized:
+		return nil, v
+	case *AdminSaveItemToInventoryForbidden:
+		return nil, v
+	case *AdminSaveItemToInventoryNotFound:
 		return nil, v
 	case *AdminSaveItemToInventoryInternalServerError:
 		return nil, v
@@ -407,25 +405,18 @@ func (a *Client) AdminBulkRemoveItemsShort(params *AdminBulkRemoveItemsParams, a
 
 /*
 AdminBulkSaveItemToInventoryShort bulk save items to specific inventory
+**This endpoint is used for bulk saving purchased items to a specific inventory of the player, with the following conditions for E-commerce items:**
+- Attributes such as slotUsed, serverCustomAttributes, customAttributes, and type will be overridden by the attributes configured in the AccelByte Gaming Services (AGS) Store.
+- Storing E-commerce items in a particular slot will follow its entitlement and item configuration, such as durable, consumable, stackable and non-stackable.
+- The quantity is dynamically set based on an itemâs useCount configured in Store. When saving an item, the specified quantity will be multiplied by configured useCount for that particular item. For example, if an Item is configured with a useCount of 5 in the AGS Store and it is saved with a qty of 2, the itemâs quantity will be stored as 2 in the playerâs inventory.
 
-This endpoint will be used by client to save the purchased item to user's inventory,
-since want to integrate the inventory service to e-commerce, source field will be mandatory to determine the item,
-supported field âOTHERâ and âECOMMERCEâ
+**When configuring your request, note the following:**
+- The source field is mandatory for determining the source of the item. The supported values are OTHER (for items coming from other sources) and E-commerce for items coming from the E-commerce integration.
+- For other-sourced items, the type can be manually defined when saving the item.
+- A maximum of 10 items can be saved in a single bulk call.
 
-Notes :
-source ECOMMERCE, the quantity of ecommerce items saved is dynamically adjusted based on an item's useCount configured in Store.
-When saving items, the quantity specified for each item will be multiplied by the useCount
-i.e. If the store item is configured with a useCount of 5 and the quantity of a particular item is set to 2 during saving, it will be stored as 10
-
-Type:
-- ingame
-- app
-- coin
-etc..
-
-Max length of the payload is 10 items
-
-Permission: ADMIN:NAMESPACE:{namespace}:USER:{userId}:INVENTORY:ITEM [CREATE]
+You must have this permission to access this endpoint:
+**Permission: ADMIN:NAMESPACE:{namespace}:USER:{userId}:INVENTORY:ITEM[CREATE]**
 */
 func (a *Client) AdminBulkSaveItemToInventoryShort(params *AdminBulkSaveItemToInventoryParams, authInfo runtime.ClientAuthInfoWriter) (*AdminBulkSaveItemToInventoryOK, error) {
 	// TODO: Validate the params before sending
@@ -486,26 +477,19 @@ func (a *Client) AdminBulkSaveItemToInventoryShort(params *AdminBulkSaveItemToIn
 
 /*
 AdminSaveItemShort to save item
+**This endpoint is used to save items to the playerâs inventory based on the inventoryConfigurationCode with the following conditions:**
+- If the player doesn't have the inventory for the specified inventoryConfigurationCode, a new inventory will be created.
+- If the user already has one, it will be added to the existing inventory.
+- If the same item exists within the inventory, the quantity (qty) will be increased.
+- If the inventory is full, the item cannot be added and the request will return the âFailedâ response.
+- If a player has more than one inventory and the initial inventory is full, the service will check the available slot in the other inventory following the order of their creation date and time (createdAt).
+- For Ecommerce items:
+>- Attributes such as slotUsed, serverCustomAttributes, customAttributes, and type will be overridden by the attributes configured in the AccelByte Gaming Services (AGS) Store.
+>- Storing E-commerce items in a particular slot will follow its entitlement and item configuration, such as durable, consumable, stackable and non-stackable.
+>- The quantity is dynamically set based on an itemâs useCount configured in Store. When saving an item, the specified quantity will be multiplied by configured useCount for that particular item. For example, if an Item is configured with a useCount of 5 in the AGS Store and it is saved with a qty of 2, the itemâs quantity will be stored as 2 in the playerâs inventory.
 
-Saving an item.
-The item will be saved in user's inventory,
-If it doesn't exist it'll be created.
-
-If the item already exists, its qty will be increased,
-so no new item with same sourceItemId will be created
-
-Tags will be auto-created.
-ItemType will be auto-created.
-
-For Ecommerce item, this fields will be override by ecommerce configuration
-(slotUsed, serverCustomAttributes, customAttributes, type)
-
-For Ecommerce items, the quantity saved is dynamically adjusted based on an item's useCount configured in Store.
-When saving items, the quantity specified for each item will be multiplied by the useCount.
-i.e. If the store item is configured with a useCount of 5
-and the quantity of a particular item is set to 2 during saving, it will be stored as 10.
-
-Permission: ADMIN:NAMESPACE:{namespace}:USER:{userId}:INVENTORY:ITEM [CREATE]
+You must have this permission to access this endpoint:
+**Permission:ADMIN:NAMESPACE:{namespace}:USER:{userId}:INVENTORY:ITEM [CREATE]**
 */
 func (a *Client) AdminSaveItemShort(params *AdminSaveItemParams, authInfo runtime.ClientAuthInfoWriter) (*AdminSaveItemOK, error) {
 	// TODO: Validate the params before sending
@@ -558,29 +542,25 @@ func (a *Client) AdminSaveItemShort(params *AdminSaveItemParams, authInfo runtim
 
 /*
 AdminBulkSaveItemShort bulk save items to inventory
+**This endpoint is used used for bulk saving purchased items to the playerâs inventory based on the inventoryConfigurationCode with the following conditions:**
+- If the player doesn't have the inventory for the specified inventoryConfigurationCode, a new inventory will be created for the player.
+- If the player already has one, it will be added to the existing inventory.
+>- If the same item exists within the inventory, the quantity (qty) will be increased.
+>- If the inventory is full, the item cannot be added and the request will return the âFailedâ response.
+>- If a player has more than one inventory and the initial inventory is full, the service will check the available slot in the other inventory following the order of their creation date and time (createdAt).
 
-This endpoint will be used by client to save the purchased item to user's inventory,
-since want to integrate the inventory service to e-commerce, source field will be mandatory to determine the item,
-supported field âOTHERâ and âECOMMERCEâ
+- For E-commerce items:
+>- Attributes such as slotUsed, serverCustomAttributes, customAttributes, and type will be overridden by the attributes configured in the AccelByte Gaming Services (AGS) Store.
+>- Storing E-commerce items in a particular slot will follow its entitlement and item configuration, such as durable, consumable, stackable and non-stackable.
+>- The quantity is dynamically set based on an itemâs useCount configured in Store. When saving an item, the specified quantity will be multiplied by configured useCount for that particular item. For example, if an Item is configured with a useCount of 5 in the AGS Store and it is saved with a qty of 2, the itemâs quantity will be stored as 2 in the playerâs inventory.
 
-Notes :
-source ECOMMERCE, the quantity of ecommerce items saved is dynamically adjusted based on an item's useCount configured in Store.
-When saving items, the quantity specified for each item will be multiplied by the useCount
-i.e. If the store item is configured with a useCount of 5 and the quantity of a particular item is set to 2 during saving, it will be stored as 10
+**When configuring your request, note the following:**
+- The source field is mandatory for determining the source of the item. The supported values are OTHER (for items coming from other sources) and E-commerce for items coming from the E-commerce integration.
+- For other-sourced items, the type can be manually defined when saving the item.
+- A maximum of 10 items can be saved in a single bulk call.
 
-Target inventory will be based on the specified inventoryConfigurationCode. If the inventory exist then will put to the existing one,
-if not exist at all then will create at least one inventory, if full then will return failed at the response.
-We implement the logic as proportional to store the item to inventory, will loop from createdAt until find the available slots at inventory.
-
-Type:
-- ingame
-- app
-- coin
-etc..
-
-Max length of the payload is 10 items
-
-Permission: ADMIN:NAMESPACE:{namespace}:USER:{userId}:INVENTORY:ITEM [CREATE]
+You must have this permission to access this endpoint:
+**Permission: ADMIN:NAMESPACE:{namespace}:USER:{userId}:INVENTORY:ITEM [CREATE]**
 */
 func (a *Client) AdminBulkSaveItemShort(params *AdminBulkSaveItemParams, authInfo runtime.ClientAuthInfoWriter) (*AdminBulkSaveItemOK, error) {
 	// TODO: Validate the params before sending

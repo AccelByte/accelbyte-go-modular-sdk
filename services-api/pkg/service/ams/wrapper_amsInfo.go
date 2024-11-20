@@ -69,7 +69,7 @@ func (aaa *AMSInfoService) InfoRegionsShort(input *a_m_s_info.InfoRegionsParams)
 	return ok.GetPayload(), nil
 }
 
-func (aaa *AMSInfoService) InfoSupportedInstancesShort(input *a_m_s_info.InfoSupportedInstancesParams) (*amsclientmodels.APIAvailableInstanceTypesResponse, error) {
+func (aaa *AMSInfoService) InfoSupportedInstancesShort(input *a_m_s_info.InfoSupportedInstancesParams) (*amsclientmodels.APIInstanceTypesForNamespaceResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{

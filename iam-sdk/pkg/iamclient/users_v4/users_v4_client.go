@@ -2420,6 +2420,7 @@ Supported platform:
 - live
 - xblweb
 - oculus
+- if query by app user id, please set the param **pidType** to **OCULUS_APP_USER_ID**
 - oculusweb
 - facebook
 - google

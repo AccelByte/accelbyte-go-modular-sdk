@@ -39,7 +39,7 @@ func (aaa *CertificateService) GetAuthSession() auth.Session {
 	}
 }
 
-func (aaa *CertificateService) HandleUploadXboxPFXCertificateShort(input *certificate.HandleUploadXboxPFXCertificateParams) (*sessionclientmodels.ModelsPlatformCredentials, error) {
+func (aaa *CertificateService) AdminUploadXBoxCertificateShort(input *certificate.AdminUploadXBoxCertificateParams) (*sessionclientmodels.ModelsPlatformCredentials, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -61,7 +61,7 @@ func (aaa *CertificateService) HandleUploadXboxPFXCertificateShort(input *certif
 		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
 	}
 
-	ok, err := aaa.Client.Certificate.HandleUploadXboxPFXCertificateShort(input, authInfoWriter)
+	ok, err := aaa.Client.Certificate.AdminUploadXBoxCertificateShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
 	}

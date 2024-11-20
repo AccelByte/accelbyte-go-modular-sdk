@@ -30,19 +30,19 @@ type Client struct {
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	HandleUploadXboxPFXCertificateShort(params *HandleUploadXboxPFXCertificateParams, authInfo runtime.ClientAuthInfoWriter) (*HandleUploadXboxPFXCertificateOK, error)
+	AdminUploadXBoxCertificateShort(params *AdminUploadXBoxCertificateParams, authInfo runtime.ClientAuthInfoWriter) (*AdminUploadXBoxCertificateOK, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
 
 /*
-HandleUploadXboxPFXCertificateShort upload certificates for xbox.
-Upload certificates for xbox. Certificate must be in the valid form of PFX format.
+AdminUploadXBoxCertificateShort upload certificates for xbox.
+Upload certificates for XBox. Certificate must be in the valid form of PFX format.
 */
-func (a *Client) HandleUploadXboxPFXCertificateShort(params *HandleUploadXboxPFXCertificateParams, authInfo runtime.ClientAuthInfoWriter) (*HandleUploadXboxPFXCertificateOK, error) {
+func (a *Client) AdminUploadXBoxCertificateShort(params *AdminUploadXBoxCertificateParams, authInfo runtime.ClientAuthInfoWriter) (*AdminUploadXBoxCertificateOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
-		params = NewHandleUploadXboxPFXCertificateParams()
+		params = NewAdminUploadXBoxCertificateParams()
 	}
 
 	if params.Context == nil {
@@ -58,14 +58,14 @@ func (a *Client) HandleUploadXboxPFXCertificateShort(params *HandleUploadXboxPFX
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
-		ID:                 "HandleUploadXboxPFXCertificate",
+		ID:                 "adminUploadXBoxCertificate",
 		Method:             "PUT",
 		PathPattern:        "/session/v1/admin/namespaces/{namespace}/certificates/pfx/platforms/xbl",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"multipart/form-data"},
 		Schemes:            []string{"https"},
 		Params:             params,
-		Reader:             &HandleUploadXboxPFXCertificateReader{formats: a.formats},
+		Reader:             &AdminUploadXBoxCertificateReader{formats: a.formats},
 		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
@@ -76,17 +76,17 @@ func (a *Client) HandleUploadXboxPFXCertificateShort(params *HandleUploadXboxPFX
 
 	switch v := result.(type) {
 
-	case *HandleUploadXboxPFXCertificateOK:
+	case *AdminUploadXBoxCertificateOK:
 		return v, nil
-	case *HandleUploadXboxPFXCertificateBadRequest:
+	case *AdminUploadXBoxCertificateBadRequest:
 		return nil, v
-	case *HandleUploadXboxPFXCertificateUnauthorized:
+	case *AdminUploadXBoxCertificateUnauthorized:
 		return nil, v
-	case *HandleUploadXboxPFXCertificateForbidden:
+	case *AdminUploadXBoxCertificateForbidden:
 		return nil, v
-	case *HandleUploadXboxPFXCertificateNotFound:
+	case *AdminUploadXBoxCertificateNotFound:
 		return nil, v
-	case *HandleUploadXboxPFXCertificateInternalServerError:
+	case *AdminUploadXBoxCertificateInternalServerError:
 		return nil, v
 
 	default:

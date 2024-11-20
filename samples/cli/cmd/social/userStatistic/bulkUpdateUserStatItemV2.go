@@ -27,13 +27,13 @@ var BulkUpdateUserStatItemV2Cmd = &cobra.Command{
 			Client:          social.NewSocialClient(&repository.ConfigRepositoryImpl{}),
 			TokenRepository: &repository.TokenRepositoryImpl{},
 		}
-		namespace, _ := cmd.Flags().GetString("namespace")
 		bodyString := cmd.Flag("body").Value.String()
 		var body []*socialclientmodels.BulkUserStatItemUpdate
 		errBody := json.Unmarshal([]byte(bodyString), &body)
 		if errBody != nil {
 			return errBody
 		}
+		namespace, _ := cmd.Flags().GetString("namespace")
 		input := &user_statistic.BulkUpdateUserStatItemV2Params{
 			Body:      body,
 			Namespace: namespace,
@@ -53,6 +53,7 @@ var BulkUpdateUserStatItemV2Cmd = &cobra.Command{
 
 func init() {
 	BulkUpdateUserStatItemV2Cmd.Flags().String("body", "", "Body")
+	_ = BulkUpdateUserStatItemV2Cmd.MarkFlagRequired("body")
 	BulkUpdateUserStatItemV2Cmd.Flags().String("namespace", "", "Namespace")
 	_ = BulkUpdateUserStatItemV2Cmd.MarkFlagRequired("namespace")
 }

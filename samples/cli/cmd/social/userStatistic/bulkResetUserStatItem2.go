@@ -27,13 +27,13 @@ var BulkResetUserStatItem2Cmd = &cobra.Command{
 			Client:          social.NewSocialClient(&repository.ConfigRepositoryImpl{}),
 			TokenRepository: &repository.TokenRepositoryImpl{},
 		}
-		namespace, _ := cmd.Flags().GetString("namespace")
 		bodyString := cmd.Flag("body").Value.String()
 		var body []*socialclientmodels.BulkUserStatItemReset
 		errBody := json.Unmarshal([]byte(bodyString), &body)
 		if errBody != nil {
 			return errBody
 		}
+		namespace, _ := cmd.Flags().GetString("namespace")
 		input := &user_statistic.BulkResetUserStatItem2Params{
 			Body:      body,
 			Namespace: namespace,
@@ -53,6 +53,7 @@ var BulkResetUserStatItem2Cmd = &cobra.Command{
 
 func init() {
 	BulkResetUserStatItem2Cmd.Flags().String("body", "", "Body")
+	_ = BulkResetUserStatItem2Cmd.MarkFlagRequired("body")
 	BulkResetUserStatItem2Cmd.Flags().String("namespace", "", "Namespace")
 	_ = BulkResetUserStatItem2Cmd.MarkFlagRequired("namespace")
 }

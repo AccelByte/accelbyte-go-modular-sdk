@@ -497,8 +497,6 @@ This is the restriction of Key Naming for the record:
 - `{ "data.2": "value" }`
 2. Cannot use **"$"** as the prefix in key names
 - `{ "$data": "value" }`
-3. Cannot use empty string in key names
-- `{ "": "value" }`
 
 
 ## Record Metadata
@@ -618,8 +616,6 @@ This is the restriction of Key Naming for the record:
 - `{ "data.2": "value" }`
 2. Cannot use **"$"** as the prefix in key names
 - `{ "$data": "value" }`
-3. Cannot use empty string in key names
-- `{ "": "value" }`
 
 
 ## Record Metadata
@@ -844,8 +840,6 @@ This is the restriction of Key Naming for the record:
 - `{ "data.2": "value" }`
 2. Cannot use **"$"** as the prefix in key names
 - `{ "$data": "value" }`
-3. Cannot use empty string in key names
-- `{ "": "value" }`
 
 
 ## Reserved Word
@@ -960,8 +954,6 @@ This is the restriction of Key Naming for the record:
 - `{ "data.2": "value" }`
 2. Cannot use **"$"** as the prefix in key names
 - `{ "$data": "value" }`
-3. Cannot use empty string in key names
-- `{ "": "value" }`
 
 
 ## Reserved Word

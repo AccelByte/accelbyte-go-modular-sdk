@@ -92,7 +92,7 @@ func (a *Client) RetrievePoliciesShort(params *RetrievePoliciesParams, authInfo 
 
 /*
 UpdatePolicyShort update country-specific policy
-Update country-specific policy.
+Update country-specific and country-group policy.
 */
 func (a *Client) UpdatePolicyShort(params *UpdatePolicyParams, authInfo runtime.ClientAuthInfoWriter) (*UpdatePolicyOK, error) {
 	// TODO: Validate the params before sending

@@ -5,13 +5,14 @@
 package integration_test
 
 import (
+	"testing"
+	"time"
+
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/tests/integration"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils/auth"
 	sessionhistory "github.com/AccelByte/accelbyte-go-modular-sdk/sessionhistory-sdk/pkg"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/sessionhistory-sdk/pkg/sessionhistoryclient/game_session_detail"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/sessionhistory-sdk/pkg/sessionhistoryclient/x_ray"
-	"testing"
-	"time"
 
 	"github.com/stretchr/testify/assert"
 )

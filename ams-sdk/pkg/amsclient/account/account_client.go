@@ -33,7 +33,7 @@ type ClientService interface {
 	AdminAccountGetShort(params *AdminAccountGetParams, authInfo runtime.ClientAuthInfoWriter) (*AdminAccountGetOK, error)
 	AdminAccountCreateShort(params *AdminAccountCreateParams, authInfo runtime.ClientAuthInfoWriter) (*AdminAccountCreateCreated, error)
 	AdminAccountLinkTokenGetShort(params *AdminAccountLinkTokenGetParams, authInfo runtime.ClientAuthInfoWriter) (*AdminAccountLinkTokenGetOK, error)
-	AdminAccountLinkTokenPostShort(params *AdminAccountLinkTokenPostParams, authInfo runtime.ClientAuthInfoWriter) (*AdminAccountLinkTokenPostCreated, error)
+	AdminAccountLinkShort(params *AdminAccountLinkParams, authInfo runtime.ClientAuthInfoWriter) (*AdminAccountLinkCreated, error)
 	AccountGetShort(params *AccountGetParams, authInfo runtime.ClientAuthInfoWriter) (*AccountGetOK, error)
 
 	SetTransport(transport runtime.ClientTransport)
@@ -211,17 +211,15 @@ func (a *Client) AdminAccountLinkTokenGetShort(params *AdminAccountLinkTokenGetP
 }
 
 /*
-AdminAccountLinkTokenPostShort link an account to a namespace
+AdminAccountLinkShort link an account to a namespace
 This route will attempt to register the account to namespace linkage in AMS and requires a valid account link token. This route fails if an account is already linked
-
-AdminAccountLink
 
 Required Permission: ADMIN:NAMESPACE:{namespace}:ARMADA:ACCOUNT [CREATE]
 */
-func (a *Client) AdminAccountLinkTokenPostShort(params *AdminAccountLinkTokenPostParams, authInfo runtime.ClientAuthInfoWriter) (*AdminAccountLinkTokenPostCreated, error) {
+func (a *Client) AdminAccountLinkShort(params *AdminAccountLinkParams, authInfo runtime.ClientAuthInfoWriter) (*AdminAccountLinkCreated, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
-		params = NewAdminAccountLinkTokenPostParams()
+		params = NewAdminAccountLinkParams()
 	}
 
 	if params.Context == nil {
@@ -237,14 +235,14 @@ func (a *Client) AdminAccountLinkTokenPostShort(params *AdminAccountLinkTokenPos
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
-		ID:                 "AdminAccountLinkTokenPost",
+		ID:                 "AdminAccountLink",
 		Method:             "POST",
 		PathPattern:        "/ams/v1/admin/namespaces/{namespace}/account/link",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"https"},
 		Params:             params,
-		Reader:             &AdminAccountLinkTokenPostReader{formats: a.formats},
+		Reader:             &AdminAccountLinkReader{formats: a.formats},
 		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
@@ -255,13 +253,13 @@ func (a *Client) AdminAccountLinkTokenPostShort(params *AdminAccountLinkTokenPos
 
 	switch v := result.(type) {
 
-	case *AdminAccountLinkTokenPostCreated:
+	case *AdminAccountLinkCreated:
 		return v, nil
-	case *AdminAccountLinkTokenPostUnauthorized:
+	case *AdminAccountLinkUnauthorized:
 		return nil, v
-	case *AdminAccountLinkTokenPostForbidden:
+	case *AdminAccountLinkForbidden:
 		return nil, v
-	case *AdminAccountLinkTokenPostInternalServerError:
+	case *AdminAccountLinkInternalServerError:
 		return nil, v
 
 	default:
