@@ -9,6 +9,7 @@ replace (
 	github.com/AccelByte/accelbyte-go-modular-sdk/basic-sdk => ../../../basic-sdk
 	github.com/AccelByte/accelbyte-go-modular-sdk/chat-sdk => ../../../chat-sdk
 	github.com/AccelByte/accelbyte-go-modular-sdk/cloudsave-sdk => ../../../cloudsave-sdk
+	github.com/AccelByte/accelbyte-go-modular-sdk/csm-sdk => ../../../csm-sdk
 	github.com/AccelByte/accelbyte-go-modular-sdk/dsartifact-sdk => ../../../dsartifact-sdk
 	github.com/AccelByte/accelbyte-go-modular-sdk/dslogmanager-sdk => ../../../dslogmanager-sdk
 	github.com/AccelByte/accelbyte-go-modular-sdk/dsmc-sdk => ../../../dsmc-sdk
@@ -37,8 +38,10 @@ require (
 	github.com/AccelByte/accelbyte-go-modular-sdk/achievement-sdk v0.1.0-alpha.1
 	github.com/AccelByte/accelbyte-go-modular-sdk/ams-sdk v0.1.0-alpha.1
 	github.com/AccelByte/accelbyte-go-modular-sdk/basic-sdk v0.1.0-alpha.4
+	github.com/AccelByte/accelbyte-go-modular-sdk/challenge-sdk v0.1.0-alpha.6
 	github.com/AccelByte/accelbyte-go-modular-sdk/chat-sdk v0.0.0-00010101000000-000000000000
 	github.com/AccelByte/accelbyte-go-modular-sdk/cloudsave-sdk v0.1.0-alpha.1
+	github.com/AccelByte/accelbyte-go-modular-sdk/csm-sdk v0.1.0-alpha.1
 	github.com/AccelByte/accelbyte-go-modular-sdk/dsartifact-sdk v0.0.0-00010101000000-000000000000
 	github.com/AccelByte/accelbyte-go-modular-sdk/dslogmanager-sdk v0.1.0-alpha.1
 	github.com/AccelByte/accelbyte-go-modular-sdk/dsmc-sdk v0.1.0-alpha.1

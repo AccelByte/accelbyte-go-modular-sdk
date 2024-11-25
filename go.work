@@ -80,4 +80,5 @@ use (
 	services-api/pkg/utils/auth/validator
 	samples/ws-client-refresh-token
 	sessionhistory-sdk
+	csm-sdk
 )
