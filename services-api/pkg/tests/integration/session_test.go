@@ -321,7 +321,7 @@ func TestIntegrationParty(t *testing.T) {
 
 	// CASE User join a party with code
 	inputJoined := &partySession.PublicPartyJoinCodeParams{
-		Body:      &sessionclientmodels.ApimodelsJoinByCodeRequest{Code: &created.Code},
+		Body:      &sessionclientmodels.ApimodelsJoinByCodeRequest{Code: created.Code},
 		Namespace: integration.NamespaceTest,
 	}
 	joined, errJoined := partyServiceFor2ndPlayer.PublicPartyJoinCodeShort(inputJoined)
