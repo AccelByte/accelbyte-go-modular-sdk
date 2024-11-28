@@ -5,6 +5,7 @@
 package integration_test
 
 import (
+	"strings"
 	"testing"
 
 	"github.com/go-openapi/strfmt"
@@ -39,6 +40,10 @@ var (
 )
 
 func TestIntegrationProtectedSaveEventsGameTelemetryV1ProtectedEventsPost(t *testing.T) {
+	if strings.Contains(configRepository.BaseUrl, "gamingservices.accelbyte.io") {
+		t.Skip("skip for ags starter")
+	}
+
 	// Login User - Arrange
 	Init()
 
@@ -59,6 +64,10 @@ func TestIntegrationProtectedSaveEventsGameTelemetryV1ProtectedEventsPost(t *tes
 }
 
 func TestIntegrationProtectedGetPlaytimeGameTelemetryV1ProtectedSteamIdsSteamIDPlaytimeGet(t *testing.T) {
+	if strings.Contains(configRepository.BaseUrl, "gamingservices.accelbyte.io") {
+		t.Skip("skip for ags starter")
+	}
+
 	// Login User - Arrange
 	Init()
 
@@ -79,6 +88,10 @@ func TestIntegrationProtectedGetPlaytimeGameTelemetryV1ProtectedSteamIdsSteamIDP
 }
 
 func TestIntegrationProtectedGetPlaytimeGameTelemetryV1ProtectedSteamIdsSteamIDPlaytimeGet_WithRetry(t *testing.T) {
+	if strings.Contains(configRepository.BaseUrl, "gamingservices.accelbyte.io") {
+		t.Skip("skip for ags starter")
+	}
+
 	// Login User - Arrange
 	Init()
 
@@ -106,6 +119,10 @@ func TestIntegrationProtectedGetPlaytimeGameTelemetryV1ProtectedSteamIdsSteamIDP
 }
 
 func TestIntegrationProtectedUpdatePlaytimeGameTelemetryV1ProtectedSteamIdsSteamIDPlaytimePlaytimePut(t *testing.T) {
+	if strings.Contains(configRepository.BaseUrl, "gamingservices.accelbyte.io") {
+		t.Skip("skip for ags starter")
+	}
+
 	// Login User - Arrange
 	Init()
 
